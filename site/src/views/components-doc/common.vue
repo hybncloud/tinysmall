@@ -186,10 +186,10 @@ watch(
 onMounted(() => {
   loadPage()
   // 加载公共尾部
-  nextTick(() => {
-    const common = new window.TDCommon(['#footer'], { allowDarkTheme: true })
-    common.renderFooter()
-  })
+  // nextTick(() => {
+  //   const common = new window.TDCommon(['#footer'], { allowDarkTheme: true })
+  //   common.renderFooter()
+  // })
   setScrollListener()
 })
 

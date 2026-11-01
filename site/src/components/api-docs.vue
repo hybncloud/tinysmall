@@ -17,14 +17,14 @@
               {{ key }}
             </h3>
             <div class="api-table-box">
-              <tiny-grid
+              <DataGrid
                 ref="apiTableRef"
                 class="api-table"
                 :data="props.tableData[oneGroup.name][key]"
                 :expand-config="apiExpandConf"
                 row-id="name"
               >
-                <tiny-grid-column class-name="api-table-expand-col" type="expand" width="32">
+                <DataGridColumn class-name="api-table-expand-col" type="expand" width="32">
                   <template #default="{ row }">
                     <async-highlight
                       v-if="row.code"
@@ -40,8 +40,8 @@
                       ></async-highlight>
                     </div>
                   </template>
-                </tiny-grid-column>
-                <tiny-grid-column field="name" :title="i18nByKey('name')" :width="columnWidth[key][0]">
+                </DataGridColumn>
+                <DataGridColumn field="name" :title="i18nByKey('name')" :width="columnWidth[key][0]">
                   <template #default="{ row }">
                     <span class="api-table-name">
                       <a v-if="row.demoId" @click="jumpToDemo(row.demoId)">{{ row.name }}</a>
@@ -56,8 +56,8 @@
                     >
                     </version-tip>
                   </template>
-                </tiny-grid-column>
-                <tiny-grid-column
+                </DataGridColumn>
+                <DataGridColumn
                   v-if="props.tableData[oneGroup.name][key].find((i) => i.type)"
                   field="type"
                   :title="i18nByKey('propType')"
@@ -71,19 +71,19 @@
                       >{{ row.type }} <OuterLink v-if="row.linkTo"></OuterLink
                     ></span>
                   </template>
-                </tiny-grid-column>
-                <tiny-grid-column
+                </DataGridColumn>
+                <DataGridColumn
                   v-if="key === 'props' || key === 'options'"
                   field="defaultValue"
                   :title="i18nByKey('defValue')"
                   :width="columnWidth[key][2]"
-                ></tiny-grid-column>
-                <tiny-grid-column field="desc" :title="i18nByKey('desc')">
+                ></DataGridColumn>
+                <DataGridColumn field="desc" :title="i18nByKey('desc')">
                   <template #default="data">
                     <span v-html="data.row.desc"></span>
                   </template>
-                </tiny-grid-column>
-              </tiny-grid>
+                </DataGridColumn>
+              </DataGrid>
             </div>
           </template>
         </div>
@@ -99,6 +99,8 @@ import { i18nByKey } from '@site/tools'
 import { router } from '@site/router.js'
 import AsyncHighlight from './async-highlight.vue'
 import VersionTip from './version-tip.vue'
+import DataGrid from './datagrid/DataGrid.vue'
+import DataGridColumn from './datagrid/DataGridColumn.vue'
 
 const props = defineProps({ currentJson: {}, chartCode: {}, tableData: {} })
 

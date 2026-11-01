@@ -33,17 +33,17 @@ const handleLangToggle = (e) => {
 
 onMounted(() => {
   // 加载header
-  const common = new window.TDCommon(['#header'], {
-    allowDarkTheme: !isSaas,
-    searchConfig: {
-      show: true
-    },
-    menuCollapse: {
-      useCollapse: true, // 启用1024以下隐藏菜单
-      menuId: '#layoutSider'
-    }
-  })
-  common.renderHeader()
+  // const common = new window.TDCommon(['#header'], {
+  //   allowDarkTheme: !isSaas,
+  //   searchConfig: {
+  //     show: true
+  //   },
+  //   menuCollapse: {
+  //     useCollapse: true, // 启用1024以下隐藏菜单
+  //     menuId: '#layoutSider'
+  //   }
+  // })
+  // common.renderHeader()
   
   window.addEventListener('tiny-toggle-lang', handleLangToggle)
 })

@@ -7,14 +7,12 @@ import { compileTemplate  } from 'vue/compiler-sfc'
 export default createUnplugin<UserOptions>((options = {}) => {
   const { svgoConfig } = options
 
-  const svgRegex = /\.svg\?component$/
-
   return {
     name: 'internals/svg-loader',
     enforce: 'pre',
 
     async load (id) {
-      if (!id.match(svgRegex)) {
+      if (!id.endsWith('.svg?component')) {
         return
       }
 

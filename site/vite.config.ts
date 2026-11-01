@@ -69,8 +69,8 @@ export default defineConfig({
         unocss(),
         viteStaticCopy({
             targets: [
-                { src: `./demos/pc/*`, dest: '@demos' },
-                { src: `./demos/apis/*`, dest: '@demos/apis' }
+                { src: `./demos/pc/**`, dest: '@demos', rename: { stripBase: 2 } },
+                { src: `./demos/apis/**`, dest: '@demos/apis', rename: { stripBase: 2 } }
             ]
         }),
         delStatic()

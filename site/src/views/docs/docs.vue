@@ -48,8 +48,8 @@ watch([() => router.currentRoute.value, () => router.currentRoute.value.params.d
 
 onMounted(() => {
   loadPage()
-  const common = new window.TDCommon(['#footer'], { allowDarkTheme: true })
-  common.renderFooter()
+  // const common = new window.TDCommon(['#footer'], { allowDarkTheme: true })
+  // common.renderFooter()
 })
 </script>
 
