@@ -1,0 +1,78 @@
+/**
+* Copyright (c) 2022 - present TinyVue Authors.
+* Copyright (c) 2022 - present Huawei Cloud Computing Technologies Co., Ltd.
+*
+* Use of this source code is governed by an MIT-style license.
+*
+* THE OPEN SOURCE SOFTWARE IN THIS PRODUCT IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL,
+* BUT WITHOUT ANY WARRANTY, WITHOUT EVEN THE IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR
+* A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
+*
+*/
+
+.inject-Tooltip-vars() {
+  // 弹框字体行高
+  --tv-Tooltip-popper-font-line-height: var(--tv-line-height-number, 1.5);
+  // 悬浮弹出框圆角
+  --tv-Tooltip-popper-border-radius: var(--tv-border-radius-lg, 8px);
+  // 悬浮弹出框字号
+  --tv-Tooltip-popper-font-size: var(--tv-font-size-default, 14px);
+
+  // 正常背景色
+  --tv-Tooltip-popper-normal-bg-color: var(--tv-color-bg-2, #ffffff);
+  // 文字提示正常文本色(hide)
+  --tv-Tooltip-popper-normal-text-color: var(--tv-color-text, #191919);
+  // 弹框正常边框色 (hide)
+  --tv-Tooltip-popper-normal-border-color: var(--tv-Tooltip-popper-normal-bg-color);
+
+  // info类型弹框背景色
+  --tv-Tooltip-popper-info-bg-color: var(--tv-color-info-bg, #1476ff);
+  // info类型弹框文本色
+  --tv-Tooltip-popper-info-text-color: var(--tv-color-text-inverse, #ffffff);
+  // info类型弹框三角边框色
+  --tv-Tooltip-popper-info-border-color: var(--tv-color-info-border, #1476ff);
+
+  // error类型弹框背景色
+  --tv-Tooltip-popper-error-bg-color: var(--tv-color-error-bg, #f23030);
+  // error类型弹框文本色
+  --tv-Tooltip-popper-error-text-color: var(--tv-color-text-inverse, #ffffff);
+  // error类型弹框三角边框色
+  --tv-Tooltip-popper-error-border-color: var(--tv-color-error-border, #f23030);
+
+  // warning类型弹框背景色
+  --tv-Tooltip-popper-warning-bg-color: var(--tv-color-warn-bg, #ff8800);
+  // warning类型弹框文本色
+  --tv-Tooltip-popper-warning-text-color: var(--tv-color-text-inverse, #ffffff);
+  // warning类型弹框三角边框色
+  --tv-Tooltip-popper-warning-border-color: var(--tv-color-warn-border, #ff8800);
+
+  // success类型弹框背景色
+  --tv-Tooltip-popper-success-bg-color: var(--tv-color-success-bg, #5cb300);
+  // success类型弹框文本色
+  --tv-Tooltip-popper-success-text-color: var(--tv-color-text-inverse, #ffffff);
+  // success类型弹框三角边框色
+  --tv-Tooltip-popper-success-border-color: var(--tv-color-success-border, #5cb300);
+
+  // dark主题弹框背景色
+  --tv-Tooltip-popper-dark-bg-color: var(--tv-color-bg-dark-1, #191919);
+  // dark主题弹框文本色
+  --tv-Tooltip-popper-dark-text-color: var(--tv-color-text-inverse, #ffffff);
+  // dark主题|禁用时弹框边框色
+  --tv-Tooltip-popper-dark-border-color: var(--tv-color-border-hover, #191919);
+
+  // light主题弹框背景色
+  --tv-Tooltip-popper-light-bg-color: var(--tv-color-bg-2, #ffffff);
+  // light主题|禁用弹框文本色
+  --tv-Tooltip-popper-light-text-color: var(--tv-color-text, #191919);
+  // light主题|禁用时弹框边框色
+  --tv-Tooltip-popper-light-border-color: var(--tv-Tooltip-popper-normal-bg-color);
+
+  // 弹框阴影
+  --tv-Tooltip-box-shadow: var(--tv-shadow-2-down, 0 2px 12px 0 rgba(0, 0, 0, 0.16));
+  // 弹框垂直内边距
+  --tv-Tooltip-padding-y: var(--tv-space-lg, 12px);
+  // 弹框水平内边距
+  --tv-Tooltip-padding-x: var(--tv-space-xl, 16px);
+  // 文字提示错误图标色
+  --tv-Tooltip-validate-icon-color: var(--tv-color-error-icon, #f23030);
+}

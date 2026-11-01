@@ -1,0 +1,204 @@
+/**
+* Copyright (c) 2022 - present TinyVue Authors.
+* Copyright (c) 2022 - present Huawei Cloud Computing Technologies Co., Ltd.
+*
+* Use of this source code is governed by an MIT-style license.
+*
+* THE OPEN SOURCE SOFTWARE IN THIS PRODUCT IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL,
+* BUT WITHOUT ANY WARRANTY, WITHOUT EVEN THE IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR
+* A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
+*
+*/
+
+@import '../custom.less';
+@import './vars.less';
+
+@dropdown-item-prefix-cls: ~'@{css-prefix}dropdown-item';
+@dropdown-menu-prefix-cls: ~'@{css-prefix}dropdown-menu';
+@svg-prefix-cls: ~'@{css-prefix}svg';
+
+.@{dropdown-item-prefix-cls} {
+  .inject-DropdownItem-vars();
+
+  list-style: none;
+  font-size: var(--tv-DropdownItem-font-size);
+  height: var(--tv-DropdownItem-height);
+  line-height: var(--tv-DropdownItem-line-height);
+  color: var(--tv-DropdownItem-text-color);
+  cursor: pointer;
+  outline: 0;
+  position: relative;
+  word-break: break-all;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+
+  &[class*='tiny-'] {
+    padding: var(--tv-DropdownItem-padding);
+    margin-bottom: var(--tv-DropdownItem-margin-y);
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  .@{svg-prefix-cls} {
+    font-size: var(--tv-DropdownItem-icon-size);
+    fill: var(--tv-DropdownItem-icon-color);
+  }
+
+  &:before {
+    content: '';
+    content: '';
+    height: 0;
+    display: block;
+    margin: 0;
+  }
+
+  &__wrap {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+
+    .@{dropdown-item-prefix-cls}--child {
+      position: absolute;
+      right: 100%;
+      top: 0;
+      display: none;
+    }
+
+    .@{dropdown-item-prefix-cls}__expand {
+      display: flex;
+      align-items: center;
+      margin-right: var(--tv-DropdownItem-expand-margin-x);
+
+      & + .@{dropdown-item-prefix-cls}__content {
+        margin-left: 0;
+      }
+    }
+
+    .@{dropdown-item-prefix-cls}__content {
+      display: flex;
+      align-items: center;
+      width: 100%;
+
+      .@{dropdown-item-prefix-cls}__label {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .@{dropdown-item-prefix-cls}__pre-icon {
+        margin-right: var(--tv-DropdownItem-pre-icon-margin-x);
+      }
+    }
+  }
+
+  &:focus,
+  &:not(.is-disabled):hover {
+    background-color: var(--tv-DropdownItem-bg-color-hover);
+
+    & > .@{dropdown-item-prefix-cls}__wrap {
+      & > .@{dropdown-item-prefix-cls}__expand,
+      & > .@{dropdown-item-prefix-cls}__content {
+        .@{svg-prefix-cls} {
+          fill: var(--tv-DropdownItem-icon-color-hover);
+        }
+      }
+
+      & > .@{dropdown-item-prefix-cls}--child {
+        display: block;
+      }
+    }
+  }
+
+  // 展开项悬浮激活态
+  &:not(.is-disabled).has-children:hover {
+    color: var(--tv-DropdownItem-text-color-active);
+    background-color: transparent;
+  }
+
+  // 禁用
+  &.is-disabled {
+    cursor: not-allowed;
+    color: var(--tv-DropdownItem-text-color-disabled);
+
+    & > .@{dropdown-item-prefix-cls}__wrap {
+      & > .@{dropdown-item-prefix-cls}__expand,
+      & > .@{dropdown-item-prefix-cls}__content {
+        svg {
+          fill: var(--tv-DropdownItem-icon-color-disabled);
+        }
+      }
+    }
+  }
+
+  // 选中态
+  &--check-status {
+    color: var(--tv-DropdownItem-text-color-active);
+    font-weight: var(--tv-DropdownItem-font-weight-checked);
+  }
+
+  // 分割线
+  &--divided {
+    position: relative;
+
+    .@{dropdown-item-prefix-cls}__wrap {
+      border-top: var(--tv-DropdownItem-border-divider);
+    }
+  }
+
+  &--small {
+    height: var(--tv-DropdownItem-height-sm);
+  }
+
+  &--mini {
+    height: var(--tv-DropdownItem-height-xs);
+  }
+}
+
+/* 右侧展开 */
+.@{dropdown-menu-prefix-cls}[x-placement='bottom-start'],
+.@{dropdown-menu-prefix-cls}[x-placement='top-start'] {
+  &:has(.has-children) {
+    &,
+    .@{dropdown-menu-prefix-cls} {
+      & > li:not(.has-children) .@{dropdown-item-prefix-cls}__content {
+        margin-left: 0;
+      }
+    }
+  }
+
+  .@{dropdown-item-prefix-cls}__wrap {
+    flex-direction: row-reverse;
+
+    .@{dropdown-item-prefix-cls}__expand {
+      margin-right: 0;
+      margin-left: var(--tv-DropdownItem-expand-margin-x);
+
+      .tiny-svg {
+        transform: scaleX(-1);
+      }
+    }
+
+    .@{dropdown-item-prefix-cls}__content {
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+
+      .@{dropdown-item-prefix-cls}__pre-icon {
+        margin-left: var(--tv-DropdownItem-pre-icon-margin-x);
+        margin-right: 0;
+      }
+
+      .@{dropdown-item-prefix-cls}__label {
+        margin-left: 0;
+      }
+    }
+
+    .@{dropdown-item-prefix-cls}--child {
+      right: unset;
+      left: 100%;
+    }
+  }
+}

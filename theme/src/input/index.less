@@ -1,0 +1,430 @@
+/**
+* Copyright (c) 2022 - present TinyVue Authors.
+* Copyright (c) 2022 - present Huawei Cloud Computing Technologies Co., Ltd.
+*
+* Use of this source code is governed by an MIT-style license.
+*
+* THE OPEN SOURCE SOFTWARE IN THIS PRODUCT IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL,
+* BUT WITHOUT ANY WARRANTY, WITHOUT EVEN THE IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR
+* A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
+*
+*/
+
+@import '../mixins/input.less';
+@import '../mixins/common.less';
+@import '../custom.less';
+@import './vars.less';
+@import '../transition/icon.less';
+
+@input-prefix-cls: ~'@{css-prefix}input';
+@input-group-prefix-cls: ~'@{css-prefix}input-group';
+
+.@{input-prefix-cls} {
+  .inject-Input-vars();
+
+  position: relative;
+  font-size: var(--tv-Input-font-size);
+  display: inline-table;
+  width: 100%;
+
+  /* 解决 ms-edge浏览器下，出现一个多余的eye*/
+  &__inner[type='password']::-ms-reveal {
+    display: none;
+  }
+
+  &.is-exceed &__suffix &__count {
+    color: var(--tv-Input-exceed-text-color);
+
+    &-text-length {
+      color: var(--tv-Input-exceed-text-color);
+    }
+  }
+
+  &.is-disabled &__inner {
+    cursor: not-allowed;
+    border: 1px solid var(--tv-Input-disabled-border-color);
+    color: var(--tv-Input-disabled-text-color);
+    background: var(--tv-Input-disabled-bg-color);
+    .placeholder(@color: var(--tv-Input-placeholder-text-color));
+
+    &.@{input-prefix-cls}__mask {
+      color: #999;
+      padding-top: 10px;
+    }
+  }
+
+  &.is-disabled &__icon {
+    cursor: not-allowed;
+
+    &.@{css-prefix}svg {
+      &,
+      &:hover {
+        fill: var(--tv-Input-disabled-text-color);
+      }
+    }
+  }
+
+  &.is-disabled &__prefix,
+  &.is-disabled &__suffix {
+    .@{css-prefix}svg {
+      &,
+      &:hover {
+        fill: var(--tv-Input-disabled-text-color);
+      }
+    }
+  }
+
+  &.is-exceed &__inner {
+    border-color: var(--tv-Input-exceed-text-color);
+  }
+
+  &:hover {
+    .@{input-prefix-cls}__inner:not(:disabled) {
+      border-color: var(--tv-Input-hover-border-color);
+    }
+  }
+
+  & &__clear {
+    font-size: var(--tv-Input-icon-font-size);
+    cursor: pointer;
+    transition: color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+    fill: var(--tv-Input-icon-color);
+
+    &:hover {
+      fill: var(--tv-Input-icon-color-hover);
+    }
+  }
+
+  & &__count {
+    height: 100%;
+    position: absolute;
+    right: -1px;
+    display: inline-flex;
+    align-items: center;
+    color: var(--tv-Input-count-font-color);
+    font-size: var(--tv-Input-count-font-size);
+
+    .@{input-prefix-cls}__count-inner {
+      white-space: nowrap;
+      background: var(--tv-Input-bg-color);
+      line-height: initial;
+      display: inline-block;
+    }
+
+    &-text-length {
+      color: var(--tv-Input-text-color);
+    }
+  }
+
+  &__inner {
+    width: 100%;
+    border: 1px solid var(--tv-Input-border-color);
+    border-radius: var(--tv-Input-border-radius);
+    color: var(--tv-Input-text-color);
+    background: var(--tv-Input-bg-color);
+    font-size: var(--tv-Input-font-size);
+    height: var(--tv-Input-height);
+    line-height: var(--tv-Input-height);
+    padding: var(--tv-Input-padding-x) var(--tv-Input-padding-y);
+    outline: 0;
+    display: inline-block;
+    box-sizing: border-box;
+    appearance: none;
+    transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+    .placeholder(@color: var(--tv-Input-placeholder-text-color));
+
+    &:hover,
+    &:focus,
+    &:active {
+      outline: 0;
+      border-color: var(--tv-Input-hover-border-color);
+    }
+
+    &:focus ~ .@{input-prefix-cls}__suffix svg {
+      fill: var(--tv-Input-focus-icon-color);
+    }
+
+    &::-ms-clear {
+      display: none;
+      width: 0;
+      height: 0;
+    }
+  }
+
+  &__prefix,
+  &__suffix {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: all 0.3s;
+    text-align: center;
+    color: var(--tv-Input-border-color);
+    display: flex;
+    align-items: center;
+
+    svg {
+      fill: var(--tv-Input-suffix-icon-color);
+    }
+  }
+
+  &.is-active &__inner,
+  &__inner:focus {
+    border-color: var(--tv-Input-active-border-color);
+    outline: 0;
+  }
+
+  &__suffix {
+    right: var(--tv-Input-suffix-right);
+    transition: all 0.3s;
+    pointer-events: none;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__suffix-inner {
+    pointer-events: all;
+    font-size: var(--tv-common-font-size-1);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    &:hover svg {
+      fill: var(--tv-Input-focus-icon-color);
+    }
+  }
+
+  &__prefix {
+    left: 12px;
+    transition: all 0.3s;
+    font-size: var(--tv-Input-icon-font-size);
+
+    & > div {
+      display: flex;
+    }
+  }
+
+  &__icon {
+    line-height: var(--tv-Input-height);
+    text-align: center;
+    transition: all 0.3s;
+
+    svg {
+      fill: var(--tv-Input-icon-color);
+      width: var(--tv-Input-suffix-icon-width);
+      height: var(--tv-Input-suffix-icon-height);
+
+      &:hover {
+        fill: var(--tv-Input-icon-active-border-color);
+      }
+    }
+
+    &:after {
+      content: '';
+      height: 100%;
+      width: 0;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+
+  &__validateIcon {
+    pointer-events: none;
+  }
+
+  &-suffix &__inner {
+    padding-right: var(--tv-Input-suffix-padding-right);
+    padding-left: var(--tv-Input-suffix-padding-left);
+  }
+
+  &-prefix &__inner {
+    padding-left: var(--tv-Input-prefix-padding-left);
+    padding-right: var(--tv-Input-prefix-padding-right);
+  }
+
+  // 输入字数统计
+  &-word-limit &__inner {
+    padding-right: 56px;
+    padding-left: 8px;
+  }
+
+  &-word-limit.@{input-prefix-cls}-suffix &__inner {
+    padding-right: 72px;
+    padding-left: 8px;
+  }
+
+  &-medium {
+    .input-size(var(--tv-Input-medium-height));
+  }
+
+  &-small {
+    .input-size(var(--tv-Input-small-height));
+
+    .@{input-prefix-cls}__inner {
+      font-size: var(--tv-Input-small-font-size);
+    }
+  }
+
+  &-mini {
+    .input-size(var(--tv-Input-mini-height));
+
+    .@{input-prefix-cls}__inner {
+      font-size: var(--tv-Input-small-font-size);
+    }
+  }
+
+  // 只读模式
+  &.is-display-only {
+    .@{input-prefix-cls}-display-only {
+      position: relative;
+
+      .@{input-prefix-cls}__inner {
+        visibility: hidden;
+        height: auto;
+        line-height: inherit;
+        border: 0;
+      }
+
+      &__content {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        color: var(--tv-Input-text-color);
+        max-width: 100%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        line-height: var(--tv-Input-display-content-line-height);
+      }
+
+      &__mask {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        max-width: 100%;
+        display: flex;
+        align-items: center;
+
+        svg {
+          cursor: pointer;
+          width: 16px;
+          height: 16px;
+          fill: var(--tv-Input-icon-color);
+
+          &:hover {
+            fill: var(--tv-Input-icon-color-hover);
+          }
+        }
+      }
+
+      &__mask-text {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        flex: 1;
+        margin-right: 16px;
+        padding-top: 10px;
+      }
+    }
+  }
+
+  // 下边框模式
+  &.tiny-input-underline {
+    .tiny-input__inner {
+      border-radius: 0;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+    }
+  }
+}
+
+// 配置前置或者后置插槽
+.@{input-group-prefix-cls} {
+  .inject-Input-vars();
+
+  line-height: normal;
+  display: inline-table;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+
+  > .@{input-prefix-cls}__inner {
+    vertical-align: middle;
+    display: table-cell;
+  }
+
+  &__append,
+  &__prepend {
+    background-color: var(--tv-Input-disabled-bg-color);
+    color: var(--tv-Input-placeholder-text-color);
+    border: 1px solid var(--tv-Input-border-color);
+    border-radius: var(--tv-Input-border-radius);
+    padding: 0 20px;
+    width: 1px;
+    vertical-align: middle;
+    display: table-cell;
+    position: relative;
+    white-space: nowrap;
+
+    &:focus {
+      outline: 0;
+    }
+
+    .@{css-prefix}button,
+    .@{css-prefix}select {
+      display: inline-block;
+      margin: -10px -20px;
+    }
+
+    .@{css-prefix}button,
+    .@{css-prefix}input {
+      font-size: inherit;
+    }
+
+    button.@{css-prefix}button,
+    div.@{css-prefix}select .@{input-prefix-cls}__inner,
+    div.@{css-prefix}select:hover .@{input-prefix-cls}__inner {
+      border-color: transparent;
+      background-color: transparent;
+      color: inherit;
+      border-top: 0;
+      border-bottom: 0;
+    }
+
+    .@{css-prefix}select .@{css-prefix}input.is-focus .@{input-prefix-cls}__inner {
+      border-color: transparent;
+    }
+  }
+
+  &-prepend .@{input-prefix-cls}__inner,
+  &__append {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  &-append > div:has(> .@{input-prefix-cls}__suffix) {
+    display: inline-block;
+    position: relative;
+    .@{input-prefix-cls}__suffix {
+      top: calc(50% - 4px);
+    }
+  }
+
+  &-append .@{input-prefix-cls}__inner,
+  &__prepend {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  &__prepend {
+    border-right: 0;
+  }
+
+  &__append {
+    border-left: 0;
+  }
+}

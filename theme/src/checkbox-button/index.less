@@ -1,0 +1,197 @@
+/**
+* Copyright (c) 2022 - present TinyVue Authors.
+* Copyright (c) 2022 - present Huawei Cloud Computing Technologies Co., Ltd.
+*
+* Use of this source code is governed by an MIT-style license.
+*
+* THE OPEN SOURCE SOFTWARE IN THIS PRODUCT IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL,
+* BUT WITHOUT ANY WARRANTY, WITHOUT EVEN THE IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR
+* A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
+*
+*/
+
+@import '../mixins/common.less';
+@import '../custom.less';
+@import './vars.less';
+
+@checkbox-button-prefix-cls: ~'@{css-prefix}checkbox-button';
+
+.@{checkbox-button-prefix-cls} {
+  .inject-CheckboxButton-vars();
+
+  position: relative;
+  display: inline-block;
+  margin-top: var(--tv-CheckboxButton-margin-top);
+
+  &.is-checked {
+    &:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0;
+      right: 4px;
+      top: 0;
+      border-bottom: 20px solid transparent;
+      border-right: 20px solid var(--tv-CheckboxButton-checked-border-color);
+      border-top-right-radius: 6px;
+      display: block;
+    }
+
+    &:before {
+      display: block;
+      right: 7px;
+      top: 1px;
+      box-sizing: content-box;
+      content: '';
+      border: 0.5px solid #fff;
+      border-width: 0 1px 1px 0;
+      border-left: 0;
+      border-top: 0;
+      height: 8px;
+      width: 4px;
+      position: absolute;
+      margin-left: 4.5px;
+      margin-top: 1px;
+      transition:
+        transform 0.15s ease-in 0.05s,
+        -webkit-transform 0.15s ease-in 0.05s;
+      transform-origin: center;
+      z-index: 3;
+      transform: rotate(45deg) scale(0.7);
+    }
+
+    .@{checkbox-button-prefix-cls}__inner {
+      color: var(--tv-CheckboxButton-checked-text-color);
+      border-color: var(--tv-CheckboxButton-checked-border-color);
+    }
+  }
+
+  &.is-disabled {
+    .@{checkbox-button-prefix-cls}__inner {
+      color: var(--tv-CheckboxButton-disabled-text-color);
+      cursor: not-allowed;
+      background-image: none;
+      background-color: var(--tv-CheckboxButton-disabled-bg-color);
+      border-color: var(--tv-CheckboxButton-disabled-border-color);
+      box-shadow: none;
+    }
+  }
+
+  &.is-disabled.is-checked {
+    &:after {
+      border-right: 20px solid var(--tv-CheckboxButton-disabled-border-color);
+    }
+
+    .@{checkbox-button-prefix-cls}__inner {
+      color: var(--tv-CheckboxButton-disabled-text-color);
+      border-color: var(--tv-CheckboxButton-disabled-border-color);
+      background-color: var(--tv-CheckboxButton-disabled-bg-color);
+    }
+  }
+
+  &__inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 32px;
+    padding: 5px 24px;
+    border-radius: var(--tv-CheckboxButton-border-radius);
+    white-space: nowrap;
+    vertical-align: middle;
+    outline: 0;
+    line-height: 1;
+    font-weight: 500;
+    cursor: pointer;
+    background: var(--tv-CheckboxButton-bg-color);
+    border-left: 0;
+    border: 1px solid var(--tv-CheckboxButton-border-color);
+    color: var(--tv-CheckboxButton-text-color);
+    appearance: none;
+    text-align: center;
+    box-sizing: border-box;
+    margin: 0 4px;
+    transition:
+      border-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+      background-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    font-size: var(--tv-CheckboxButton-font-size);
+    .user-select(none);
+
+    &.is-round {
+      padding: 12px 20px;
+    }
+
+    &:hover {
+      color: var(--tv-CheckboxButton-hover-text-color);
+      border: 1px solid var(--tv-CheckboxButton-border-color-hover);
+    }
+  }
+
+  &__original {
+    opacity: 0;
+    outline: 0;
+    position: absolute;
+    margin: 0;
+    z-index: -1;
+  }
+
+  &--medium &__inner {
+    display: flex;
+    align-items: center;
+    height: var(--tv-CheckboxButton-size-medium-height);
+    padding: 9px 32px;
+    border-radius: var(--tv-CheckboxButton-border-radius);
+
+    &.is-round {
+      padding: 14px 20px;
+    }
+  }
+
+  &--small &__inner {
+    display: flex;
+    align-items: center;
+    height: var(--tv-CheckboxButton-size-small-height);
+    padding: 3px 24px;
+    font-size: var(--tv-CheckboxButton-size-mini-font-size);
+    border-radius: var(--tv-CheckboxButton-border-radius);
+
+    &.is-round {
+      padding: 8px 15px;
+    }
+  }
+
+  &--mini &__inner {
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    height: var(--tv-CheckboxButton-size-mini-height);
+    font-size: var(--tv-CheckboxButton-size-mini-font-size);
+    border-radius: var(--tv-CheckboxButton-size-mini-border-radius);
+
+    &.is-round {
+      padding: 5px 15px;
+    }
+  }
+
+  &--mini {
+    &.is-checked {
+      &:after {
+        border-bottom: 16px solid transparent;
+        border-right: 16px solid var(--tv-CheckboxButton-checked-border-color);
+        border-top-right-radius: 4px;
+        right: 5px;
+      }
+
+      &:before {
+        height: 8px;
+        width: 4px;
+        right: 6px;
+        top: 0;
+      }
+    }
+  }
+
+  input:focus-visible + .@{checkbox-button-prefix-cls}__inner {
+    outline: 2px solid var(--tv-CheckboxButton-bg-color);
+    outline-offset: 1px;
+  }
+}

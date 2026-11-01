@@ -1,0 +1,255 @@
+/**
+* Copyright (c) 2022 - present TinyVue Authors.
+* Copyright (c) 2022 - present Huawei Cloud Computing Technologies Co., Ltd.
+*
+* Use of this source code is governed by an MIT-style license.
+*
+* THE OPEN SOURCE SOFTWARE IN THIS PRODUCT IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL,
+* BUT WITHOUT ANY WARRANTY, WITHOUT EVEN THE IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR
+* A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
+*
+*/
+
+@import '../mixins/tip.less';
+@import '../custom.less';
+@import './vars.less';
+
+@slider-prefix-cls: ~'@{css-prefix}slider';
+@slider-container-prefix-cls: ~'@{css-prefix}slider-container';
+
+.@{slider-container-prefix-cls} {
+  .inject-Slider-vars();
+  position: relative;
+
+  &&__horizontal {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.@{slider-prefix-cls} {
+  border-radius: var(--tv-Slider-border-radius);
+  height: var(--tv-Slider-height);
+  position: relative;
+  margin: 13px 0;
+  background: var(--tv-Slider-bg-color);
+  cursor: pointer;
+  display: inline-block;
+  line-height: var(--tv-Slider-line-height);
+
+  &:not(&__vertical) {
+    min-width: 160px;
+    flex: 1;
+  }
+
+  &.show-auto-width {
+    width: 100%;
+  }
+
+  &:hover {
+    .@{slider-prefix-cls}__range {
+      background: var(--tv-Slider-range-hover-bg-color);
+    }
+  }
+
+  &.disabled {
+    cursor: default;
+    background-color: var(--tv-Slider-bg-color-disabled);
+
+    .@{slider-prefix-cls}__range {
+      background-color: var(--tv-Slider-range-disabled-bg-color);
+    }
+
+    .@{slider-prefix-cls}__handle {
+      cursor: not-allowed;
+      background-color: var(--tv-Slider-handle-bg-color-disabled);
+    }
+  }
+
+  &__vertical {
+    width: var(--tv-Slider-height);
+    height: 300px;
+    display: block;
+    margin: 0 15px;
+
+    & + .@{slider-prefix-cls}__input {
+      margin-top: 12px;
+      float: none;
+      right: 0;
+    }
+
+    .@{slider-prefix-cls}__range {
+      border-radius: 10px;
+      position: absolute;
+      z-index: 1;
+      width: var(--tv-Slider-height);
+    }
+
+    .@{slider-prefix-cls}__up {
+      top: 0;
+    }
+
+    .@{slider-prefix-cls}__down {
+      bottom: 0;
+    }
+
+    .@{slider-prefix-cls}__handle {
+      margin: -8px 0 -8px -8px;
+    }
+
+    .@{slider-prefix-cls}__mark-point {
+      transform: translateY(50%);
+      height: 2px;
+      width: var(--tv-Slider-height);
+    }
+
+    .@{slider-prefix-cls}__mark-label {
+      transform: translateY(50%);
+      margin-left: calc(8px + var(--tv-Slider-height));
+      margin-top: 0;
+    }
+  }
+
+  &__range {
+    border-radius: var(--tv-Slider-range-border-radius);
+    position: absolute;
+    z-index: 1;
+    margin-top: 0;
+    height: var(--tv-Slider-range-height);
+    background: var(--tv-Slider-range-bg-color);
+  }
+
+  &__left {
+    left: 0;
+  }
+
+  &__right {
+    right: 0;
+  }
+
+  &__handle {
+    border-radius: var(--tv-Slider-handle-border-radius);
+    height: var(--tv-Slider-handle-height);
+    width: var(--tv-Slider-handle-width);
+    position: absolute;
+    margin: -8px -8px 0;
+    z-index: 2;
+    outline: none;
+    background: var(--tv-Slider-handle-bg-color);
+    border: 1px solid var(--tv-Slider-handle-border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--tv-Slider-handle-box-shadow);
+    user-select: none;
+    cursor: grab;
+    text-align: center;
+
+    svg {
+      display: none;
+    }
+
+    &.handle-focus {
+      z-index: 10;
+    }
+  }
+
+  &:not(.disabled) {
+    .@{slider-prefix-cls}__handle:hover {
+      color: var(--tv-Slider-handle-text-color-hover);
+      border-color: var(--tv-Slider-handle-border-color-hover);
+      border-width: 2px;
+    }
+  }
+
+  &__tips {
+    text-align: center;
+    font-size: var(--tv-Slider-font-size);
+    margin-top: -32px;
+    margin-left: 3px;
+    position: absolute;
+    padding: 12px 16px;
+    line-height: 1.5;
+    z-index: 1010;
+    word-break: normal; // popup-body里面加了默认折行影响到此处需要重置
+    white-space: nowrap; // 强制不换行-to liyingfu 纵向进度条上的tips如果内容过多并有空格就会掉下去，此处设置强制显示一行
+    background: var(--tv-Slider-tips-bg-color);
+    border-radius: var(--tv-Slider-tips-border-radius);
+    color: var(--tv-Slider-tips-text-color);
+    box-shadow: var(--tv-Slider-tips-box-shadow);
+
+    &:before {
+      margin-left: -6px;
+      bottom: -8px;
+      .tip-arrow(50%; auto; 0;);
+      .tip-make-arrow(
+        8px 6px 0 6px; var(--tv-Slider-tips-border-color) transparent
+      );
+    }
+
+    &:after {
+      margin-left: -4px;
+      bottom: -4px;
+      .tip-arrow(50%; auto; 0;);
+      .tip-make-arrow(
+        4px 4px 0 4px; var(--tv-Slider-tips-border-color) transparent
+      );
+    }
+  }
+
+  &__mark-point {
+    position: absolute;
+    pointer-events: none;
+    transform: translateX(-50%);
+    width: 2px;
+    height: var(--tv-Slider-height);
+    background-color: var(--tv-Slider-mark-point-bg-color);
+  }
+
+  &__mark-label {
+    position: absolute;
+    transform: translateX(-50%);
+    margin-top: calc(var(--tv-Slider-mark-label-margin-top) + var(--tv-Slider-height));
+    color: var(--tv-Slider-mark-label-text-color);
+    font-size: var(--tv-Slider-mark-label-font-size);
+  }
+
+  &__input {
+    display: flex;
+    line-height: var(--tv-Slider-input-height);
+    vertical-align: top;
+    margin-left: var(--tv-Slider-input-margin-left);
+    font-size: var(--tv-Slider-font-size);
+
+    &__split {
+      padding: 0 4px;
+    }
+
+    input {
+      width: var(--tv-Slider-input-width);
+      height: var(--tv-Slider-input-height);
+      line-height: var(--tv-Slider-input-height);
+      border: 1px solid var(--tv-Slider-input-border-color);
+      border-radius: var(--tv-Slider-input-border-radius);
+      color: var(--tv-Slider-input-text-color);
+      background: var(--tv-Slider-input-bg-color);
+      font-size: inherit;
+      padding: 0 8px;
+      outline: 0;
+      display: inline-block;
+      box-sizing: border-box;
+      text-align: left;
+    }
+
+    &__unit {
+      margin-left: var(--tv-Slider-input-unit-margin-left);
+      color: var(--tv-Slider-input-unit-text-color);
+    }
+
+    &.is-disabled {
+      .@{slider-prefix-cls}__input__unit {
+        color: var(--tv-Slider-input-unit-text-color-disabled);
+      }
+    }
+  }
+}

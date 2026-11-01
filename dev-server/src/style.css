@@ -1,0 +1,89 @@
+html,
+body,
+#app {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.hp100vh {
+  height: 100vh;
+}
+.hp100 {
+  height: 100%;
+}
+.wp100 {
+  width: 100%;
+}
+
+.api-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  border: 1px solid #252b3a;
+}
+.api-table tbody tr:hover {
+  background-color: #f2f5fc;
+}
+.api-table th {
+  background-color: #f2f5fc;
+  border: 1px solid #bdbdbd;
+  padding: 4px 8px;
+}
+.api-table td {
+  font-size: 14px;
+  border: 1px solid #cccccc;
+  padding: 4px 8px;
+}
+
+:root {
+  --none: none;
+  --transparent: transparent;
+  --white: #fff;
+  --black: #000;
+
+  --main: #2b292d;
+  --mainless: #2c2e30;
+  --second: #7e8085;
+  --secondless: lighten(#7e8085, 20%);
+  --light: #f6f8f9;
+  --lightless: #f1f2f3;
+
+  --primary: #2f5bea;
+  --success: #18a058;
+  --warning: #ffbe0e;
+  --warn: var(--warning);
+  --error: #ee343f;
+
+  --border-style: solid;
+  --border-color: #ddd;
+  --border-width: 1px;
+  --box-radius-sm: 4px;
+  --box-radius-lg: 30px;
+  --box-shadow-sm: 0 2px #0000000b;
+  --box-shadow-lg: 0px 6px 18px 18px RGBA(0, 0, 0, 0.1);
+  --text-shadow-sm: 0 -1px 0 rgb(0 0 0 / 12%);
+  --text-shadow-lg: 0px 6px 3px rgb (0, 0, 0, 0.4);
+
+  --trans-time: 0.4s;
+  --trans-time-slow: 1s;
+  --hover-op: 0.85;
+  --disabled-op: 0.4;
+}
+
+@media screen and (max-width: 1023px) {
+  .sm-show {
+    display: block;
+  }
+
+  .sm-hidden {
+    display: none;
+  }
+
+  .fixed-menu {
+    display: block;
+    position: fixed;
+    height: 100%;
+    z-index: 99;
+  }
+}

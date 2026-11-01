@@ -1,0 +1,139 @@
+/**
+* Copyright (c) 2022 - present TinyVue Authors.
+* Copyright (c) 2022 - present Huawei Cloud Computing Technologies Co., Ltd.
+*
+* Use of this source code is governed by an MIT-style license.
+*
+* THE OPEN SOURCE SOFTWARE IN THIS PRODUCT IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL,
+* BUT WITHOUT ANY WARRANTY, WITHOUT EVEN THE IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR
+* A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
+*
+*/
+
+@import '../custom.less';
+@import './vars.less';
+
+@table-prefix-cls: ~'@{css-prefix}table';
+@table-header-prefix-cls: ~'@{css-prefix}table-header';
+@table-cell-prefix-cls: ~'@{css-prefix}table-cell';
+@svg-prefix-cls: ~'@{css-prefix}svg';
+
+.@{table-prefix-cls} {
+  .inject-Table-vars();
+
+  &.simple {
+    table {
+      table-layout: fixed;
+
+      tr {
+        display: table-row;
+        vertical-align: inherit;
+        border-color: inherit;
+        border-bottom: 1px solid var(--tv-Table-border-color);
+      }
+
+      tbody {
+        tr {
+          color: var(--tv-Table-text-color);
+          background: var(--tv-Table-bg-color);
+
+          &:hover {
+            background: var(--tv-Table-hover-bg-color);
+          }
+
+          &.is-disabled {
+            background: var(--tv-Table-disabled-bg-color);
+            color: var(--tv-Table-disabled-text-color);
+            cursor: not-allowed;
+          }
+        }
+
+        .noData {
+          &:hover {
+            background: transparent;
+          }
+
+          td {
+            height: 160px;
+            text-align: center;
+            vertical-align: middle;
+            color: var(--tv-Table-nodata-text-color);
+            background-color: transparent;        
+          }
+        }
+      }
+
+      th {
+        padding: 2px 0 2px 8px;
+        height: var(--tv-Table-td-height);
+        vertical-align: middle;
+        border-left: none;
+      }
+
+      td {
+        padding: 2px 0 2px 8px;
+        height: var(--tv-Table-td-height);
+        vertical-align: middle;
+        font-size: var(--tv-Table-td-font-size);
+
+        .overflow {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+
+      thead {
+        border-bottom: 1px solid var(--tv-Table-border-color);
+        text-align: left;
+        background: var(--tv-Table-thead-bg-color);
+        color: var(--tv-Table-text-color);
+
+        th {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          text-align: left;
+          font-size: var(--tv-Table-td-font-size);
+          color: var(--tv-Table-text-color);
+          line-height: 1.7em;
+
+          .overflow {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+    }
+
+    .@{table-header-prefix-cls}__line {
+      float: right;
+      border-left: 1px solid var(--tv-Table-border-color);
+      height: 20px;
+    }
+
+    .@{table-cell-prefix-cls} {
+      .@{svg-prefix-cls} {
+        font-size: var(--tv-Table-icon-font-size);
+        border-radius: var(--tv-Table-check-icon-border-radius);
+          & path:last-child{
+            fill: var(--tv-Table-icon-border-color);
+          }
+
+          & path:first-child {
+            fill: transparent;
+          }
+           &.is-check {
+              & path:last-child{
+                fill: var(--tv-Table-half-check-icon-color);
+              }
+          
+              & path:first-child {
+                fill: var(--tv-Table-check-icon-color);
+              } 
+        }
+      }
+    }
+  }
+}

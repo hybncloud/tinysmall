@@ -1,0 +1,187 @@
+/**
+* Copyright (c) 2022 - present TinyVue Authors.
+* Copyright (c) 2022 - present Huawei Cloud Computing Technologies Co., Ltd.
+*
+* Use of this source code is governed by an MIT-style license.
+*
+* THE OPEN SOURCE SOFTWARE IN THIS PRODUCT IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL,
+* BUT WITHOUT ANY WARRANTY, WITHOUT EVEN THE IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR
+* A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
+*
+*/
+
+@import '../custom.less';
+@import './vars.less';
+
+@anchor-prefix-cls: ~'@{css-prefix}anchor';
+
+.@{anchor-prefix-cls} {
+  &__wrapper {
+    .inject-anchor-vars();
+  }
+
+  position: relative;
+  width: var(--tv-Anchor-width);
+  background-color: var(--tv-Anchor-bg-color);
+  color: var(--tv-Anchor-text-color);
+  font-size: var(--tv-Anchor-font-size);
+
+  &__affix {
+    position: fixed;
+    z-index: 1;
+  }
+
+  &-link {
+    line-height: 22px;
+    cursor: pointer;
+
+    &-title:hover {
+      color: var(--tv-Anchor-link-text-color-hover);
+    }
+
+    &-title {
+      display: block;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 1;
+      color: var(--tv-Anchor-text-color);
+
+      &&--active {
+        color: var(--tv-Anchor-link-text-color-active);
+      }
+    }
+  }
+
+  &__line {
+    .@{anchor-prefix-cls}-link + .@{anchor-prefix-cls}-link {
+      margin-top: 0.5em;
+    }
+
+    .@{anchor-prefix-cls} {
+      & > .@{anchor-prefix-cls}-link {
+        margin-left: var(--tv-Anchor-link-margin-left);
+
+        & > .@{anchor-prefix-cls}-link {
+          & > .@{anchor-prefix-cls}-link-title {
+            padding-left: 32px;
+          }
+        }
+      }
+
+      &-link-title {
+        padding: 7px 8px 7px 16px;
+        font-size: 12px;
+        line-height: 1.5;
+
+        &--active {
+          background-color: var(--tv-Anchor-link-bg-color-active);
+        }
+      }
+    }
+
+    .@{anchor-prefix-cls}-link-mask {
+      position: absolute;
+      max-width: 0;
+      left: calc(var(--tv-Anchor-orbit-width) / 2);
+      width: 100%;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+      background-color: var(--tv-Anchor-link-mask-bg-color);
+    }
+
+    .@{anchor-prefix-cls}-orbit {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: var(--tv-Anchor-orbit-width);
+      background-color: var(--tv-Anchor-orbit-bg-color);
+      &-skid {
+        position: absolute;
+        left: 0;
+        width: var(--tv-Anchor-orbit-skid-width);
+        background-color: var(--tv-Anchor-orbit-bg-color);
+        &--active {
+          background-color: var(--tv-Anchor-link-skid-bg-color-active);
+        }
+      }
+    }
+  }
+
+  &__dot {
+    width: 160px;
+    padding-top: 3px;
+
+    .@{anchor-prefix-cls} {
+      padding: 0 16px;
+
+      &-link .@{anchor-prefix-cls}-link {
+        & .@{anchor-prefix-cls}-link-title {
+          padding-left: 40px;
+        }
+      }
+
+      &-link-title {
+        position: relative;
+        padding-left: 24px;
+        padding-bottom: 19px;
+        margin-top: -3px;
+        line-height: 22px;
+        -webkit-line-clamp: 2;
+
+        &::before,
+        &::after {
+          content: '';
+          position: absolute;
+        }
+
+        &::before {
+          left: 0;
+          top: 7px;
+          display: block;
+          width: 8px;
+          height: 8px;
+          border: 1px solid var(--tv-Anchor-dot-border-color);
+          border-radius: 50%;
+        }
+
+        &::after {
+          left: 3.5px;
+          top: 19px;
+          bottom: 0px;
+          display: block;
+          width: 1px;
+          background-color: var(--tv-Anchor-line-bg-color);
+          opacity: var(--tv-Anchor-line-opacity);
+        }
+
+        &--active:before {
+          background-color: var(--tv-Anchor-dot-bg-color-active);
+          border-color: var(--tv-Anchor-dot-border-color-active);
+        }
+
+        &:hover,
+        &--active {
+          color: var(--tv-Anchor-link-text-color-active);
+
+          &:before {
+            border-color: var(--tv-Anchor-dot-border-color-active);
+            opacity: 1;
+          }
+        }
+      }
+
+      & > .@{anchor-prefix-cls}-link:last-child {
+        & > .@{anchor-prefix-cls}-link:last-child,
+        &:not(:has(> .@{anchor-prefix-cls}-link)) {
+          & > .@{anchor-prefix-cls}-link-title:after {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

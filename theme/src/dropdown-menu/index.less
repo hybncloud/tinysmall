@@ -1,0 +1,48 @@
+/**
+* Copyright (c) 2022 - present TinyVue Authors.
+* Copyright (c) 2022 - present Huawei Cloud Computing Technologies Co., Ltd.
+*
+* Use of this source code is governed by an MIT-style license.
+*
+* THE OPEN SOURCE SOFTWARE IN THIS PRODUCT IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL,
+* BUT WITHOUT ANY WARRANTY, WITHOUT EVEN THE IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR
+* A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
+*
+*/
+
+@import '../custom.less';
+@import './vars.less';
+
+@dropdown-menu-prefix-cls: ~'@{css-prefix}dropdown-menu';
+@dropdown-item-prefix-cls: ~'@{css-prefix}dropdown-item';
+
+.@{dropdown-menu-prefix-cls} {
+  .inject-DropdownMenu-vars();
+
+  position: absolute;
+  padding: var(--tv-DropdownMenu-padding);
+  background-color: var(--tv-DropdownMenu-bg-color);
+  border-radius: var(--tv-DropdownMenu-border-radius);
+  box-shadow: var(--tv-DropdownMenu-box-shadow);
+  width: max-content;
+  min-width: var(--tv-DropdownMenu-min-width);
+  margin: var(--tv-DropdownMenu-margin-y) 0;
+
+  .@{dropdown-menu-prefix-cls} {
+    padding: var(--tv-DropdownMenu-padding);
+  }
+
+  // 带子级节点的兄弟节点文本缩进对齐
+  &:has(.has-children) > li:not(.has-children) {
+    .@{dropdown-item-prefix-cls}__content {
+      margin-left: var(--tv-DropdownItem-content-margin-left);
+    }
+  }
+
+  // 带自定义图标节点的兄弟节点文本缩进对齐
+  &:has(.tiny-dropdown-item__pre-icon) > li:not(li:has(.tiny-dropdown-item__pre-icon)) {
+    .@{dropdown-item-prefix-cls}__label {
+      margin-left: var(--tv-DropdownItem-label-margin-left);
+    }
+  }
+}

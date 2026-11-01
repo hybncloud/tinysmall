@@ -1,0 +1,118 @@
+/**
+* Copyright (c) 2022 - present TinyVue Authors.
+* Copyright (c) 2022 - present Huawei Cloud Computing Technologies Co., Ltd.
+*
+* Use of this source code is governed by an MIT-style license.
+*
+* THE OPEN SOURCE SOFTWARE IN THIS PRODUCT IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL,
+* BUT WITHOUT ANY WARRANTY, WITHOUT EVEN THE IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR
+* A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
+*
+*/
+
+.inject-Cascader-vars() {
+  // 字体大小
+  --tv-Cascader-font-size: var(--tv-font-size-default, 14px);
+  // 输入框图标字体大小
+  --tv-Cascader-input-icon-font-size: var(--tv-font-size-default, 14px); // 无对应变量
+  // 下拉菜单边框色
+  --tv-Cascader-border-color: var(--tv-color-border-divider, #f0f0f0);
+  // 悬浮时显示的边框色
+  --tv-Cascader-hover-border-color: var(--tv-color-border-hover, #191919);
+  // 聚焦时显示的边框色
+  --tv-Cascader-focus-border-color: var(--tv-color-border-hover, #191919);
+  // 边框圆角
+  --tv-Cascader-border-radius: var(--tv-border-radius-md, 6px);
+  // icon图标色
+  --tv-Cascader-icon-color: var(--tv-color-icon, #808080);
+  // medium尺寸时的字体大小
+  --tv-Cascader-medium-font-size: var(--tv-font-size-default, 14px);
+  // medium尺寸时的行高
+  --tv-Cascader-medium-line-height: 36px;
+  // small尺寸时的行高
+  --tv-Cascader-small-line-height: 32px;
+  // mini尺寸时的行高
+  --tv-Cascader-mini-line-height: 28px;
+  // small尺寸时的字体大小
+  --tv-Cascader-small-font-size: var(--tv-font-size-default, 14px);
+  // mini尺寸时的字体大小
+  --tv-Cascader-mini-font-size: var(--tv-font-size-default, 14px);
+  // 禁用状态时的文本色
+  --tv-Cascader-disabled-text-color: var(--tv-color-text-disabled, #c2c2c2);
+  // 下拉框背景色
+  --tv-Cascader-dropdown-bg-color: var(--tv-color-bg-2, #ffffff);
+  // 输入框标签背景色
+  --tv-Cascader-tag-bg-color: var(--tv-color-bg-header, #f0f0f0);
+  // 输入框标签的icon图标背景色
+  --tv-Cascader-tag-icon-bg-color: var(--tv-color-icon-disabled, #c2c2c2);
+  // 输入框标签的icon图标色
+  --tv-Cascader-tag-icon-color: var(--tv-color-icon-inverse, #fff);
+  // 输入框标签的icon图标悬浮时显示的背景色
+  --tv-Cascader-tag-icon-hover-bg-color: var(--tv-color-icon, #808080);
+  // 下拉列表的文本色（没有生效）
+  --tv-Cascader-list-text-color: var(--tv-color-text, #191919);
+  // 下拉列表子项的高度（没有生效）
+  --tv-Cascader-item-height: 32px;
+  // 下拉列表子项悬浮时的背景色（没有生效）
+  --tv-Cascader-item-hover-bg-color: var(--tv-color-bg-hover, #f5f5f5);
+  // 搜索后下拉列表无匹配数据的文本色
+  --tv-Cascader-empty-text-color: var(--tv-color-text-secondary, #595959);
+  // 搜索框的文本色（没有生效）
+  --tv-Cascader-search-input-text-color: var(--tv-color-text, #191919);
+  // 搜索框的占位符的文本色（没有生效）
+  --tv-Cascader-search-input-placeholder-text-color: var(--tv-color-text-placeholder, #808080);
+  // 下拉框的阴影
+  --tv-Cascader-dropdown-box-shadow: var(--tv-shadow-3-left, -4px 0 16px 0 rgba(0, 0, 0, 0.08));
+  // 多选模式输入框宽度
+  --tv-Cascader-width: '100%';
+  // 下拉框的左侧外边距
+  --tv-Cascader-dropdown-margin-left: 0;
+  // 下拉框的右侧侧外边距
+  --tv-Cascader-dropdown-margin-right: 0;
+  // 下拉框的顶部外边距
+  --tv-Cascader-dropdown-margin-top: var(--tv-space-md, 4px);
+  // 下拉框的底部外边距
+  --tv-Cascader-dropdown-margin-bottom: var(--tv-space-md, 4px);
+  // 输入框标签左侧外边距
+  --tv-Cascader-tag-margin-left: 6px;
+  // 输入框标签右侧外边距
+  --tv-Cascader-tag-margin-right: 0;
+  // 输入框标签顶部外边距
+  --tv-Cascader-tag-margin-top: var(--tv-space-xs, 2px);
+  // 输入框标签底部外边距
+  --tv-Cascader-tag-margin-bottom: var(--tv-space-xs, 2px);
+  // 下拉框列表的左侧外边距（没有生效）
+  --tv-Cascader-list-margin-left: 0;
+  // 下拉框列表的右侧外边距（没有生效）
+  --tv-Cascader-list-margin-right: 0;
+  // 下拉框列表的顶部外边距（没有生效）
+  --tv-Cascader-list-margin-top: 0;
+  // 下拉框列表的底部外边距（没有生效）
+  --tv-Cascader-list-margin-bottom: 0;
+  // 下拉框列表的左侧外边距（没有生效）
+  --tv-Cascader-list-padding-left: 0;
+  // 下拉框列表的右侧外边距（没有生效）
+  --tv-Cascader-list-padding-right: 0;
+  // 下拉框列表的顶部外边距（没有生效）
+  --tv-Cascader-list-padding-top: 6px;
+  // 下拉框列表的底部外边距（没有生效）
+  --tv-Cascader-list-padding-bottom: 6px;
+  // 搜索后下拉列表无匹配数据左侧外边距
+  --tv-Cascader-empty-margin-left: 0;
+  // 搜索后下拉列表无匹配数据右侧外边距
+  --tv-Cascader-empty-margin-right: 0;
+  // 搜索后下拉列表无匹配数据顶部外边距
+  --tv-Cascader-empty-margin-top: 10px;
+  // 搜索后下拉列表无匹配数据底部外边距
+  --tv-Cascader-empty-margin-bottom: 10px;
+  // 搜索框的左侧外边距（没有生效）
+  --tv-Cascader-search-input-margin-left: var(--tv-space-xs, 2px);
+  // 搜索框的左侧内边距（没有生效）
+  --tv-Cascader-search-input-padding-left: var(--tv-space-md, 8px);
+  // 下拉列表子项的字体大小
+  --tv-Cascader-item-font-size: var(--tv-font-size-default, 14px);
+  // 搜索框的字体大小（没有生效）
+  --tv-Cascader-search-input-font-size: var(--tv-font-size-default, 14px);
+  // 输入框关闭图标hover时的颜色
+  --tv-Cascader-close-hover-icon-color: var(--tv-color-icon-hover, #191919);
+}

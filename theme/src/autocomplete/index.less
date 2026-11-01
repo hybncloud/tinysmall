@@ -1,0 +1,79 @@
+/**
+* Copyright (c) 2022 - present TinyVue Authors.
+* Copyright (c) 2022 - present Huawei Cloud Computing Technologies Co., Ltd.
+*
+* Use of this source code is governed by an MIT-style license.
+*
+* THE OPEN SOURCE SOFTWARE IN THIS PRODUCT IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL,
+* BUT WITHOUT ANY WARRANTY, WITHOUT EVEN THE IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR
+* A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
+*
+*/
+
+@import '../custom.less';
+@import './vars.less';
+
+@autocomplete-prefix-cls: ~'@{css-prefix}autocomplete';
+
+.@{autocomplete-prefix-cls} {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+
+  &.show-auto-width {
+    width: 100%;
+  }
+
+  // 弹框
+  &-suggestion {
+    .inject-Autocomplete-vars();
+
+    border-radius: var(--tv-Autocomplete-panel-border-radius);
+    background-color: var(--tv-Autocomplete-panel-bg-color);
+    box-shadow: var(--tv-Autocomplete-panel-box-shadow);
+    margin: var(--tv-Autocomplete-panel-margin-y) 0;
+    line-height: var(--tv-Autocomplete-line-height);
+    color: var(--tv-Autocomplete-text-color);
+    font-size: var(--tv-Autocomplete-font-size);
+
+    &__wrap {
+      max-height: 280px;
+
+      .tiny-scrollbar__view {
+        margin: 0;
+        padding: 8px 0;
+      }
+    }
+
+    &__list-item[role='option'],
+    &__list-item[role='loading'] {
+      padding: var(--tv-Autocomplete-li-padding);
+    }
+
+    // 列表项
+    &__list-item {
+      list-style: none;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      cursor: pointer;
+
+      &.highlighted,
+      &:hover {
+        background-color: var(--tv-Autocomplete-li-bg-color-hover);
+      }
+
+      &.selected {
+        color: var(--tv-Autocomplete-text-color-selected);
+      }
+    }
+
+    // 加载
+    &.is-loading &__list-loading {
+      .tiny-svg {
+        font-size: var(--tv-Autocomplete-icon-size);
+        fill: var(--tv-Autocomplete-loading-icon-color);
+      }
+    }
+  }
+}

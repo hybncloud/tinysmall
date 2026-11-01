@@ -1,0 +1,111 @@
+/**
+* Copyright (c) 2022 - present TinyVue Authors.
+* Copyright (c) 2022 - present Huawei Cloud Computing Technologies Co., Ltd.
+*
+* Use of this source code is governed by an MIT-style license.
+*
+* THE OPEN SOURCE SOFTWARE IN THIS PRODUCT IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL,
+* BUT WITHOUT ANY WARRANTY, WITHOUT EVEN THE IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR
+* A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
+*
+*/
+
+@import '../custom.less';
+@import './vars.less';
+@import '../motion/index.less';
+
+@scroll-text-prefix-cls: ~'@{css-prefix}scroll-text';
+
+.@{scroll-text-prefix-cls} {
+  &__wrapper {
+    .inject-ScrollText-vars();
+  }
+
+  width: 300px;
+  height: var(--tv-ScrollText-height);
+  line-height: var(--tv-ScrollText-height);
+  background: var(--tv-ScrollText-bg-color);
+  margin: 0 auto;
+  overflow: hidden;
+
+  & &__content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    display: inline-block\9;
+    align-items: center;
+    box-sizing: border-box;
+    justify-content: center;
+    overflow: hidden;
+
+    & > div {
+      width: 100%;
+      display: flex;
+      height: 16px;
+      align-items: center;
+      white-space: nowrap;
+      position: relative;
+      animation: infinite linear;
+      animation-duration: 7s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      justify-content: center;
+
+      &.left {
+        animation-name: scroll-left;
+      }
+
+      &.right {
+        animation-name: scroll-right;
+      }
+
+      &.up {
+        animation-name: scroll-up;
+      }
+
+      &.down {
+        animation-name: scroll-down;
+      }
+
+      &.singleUp {
+        animation-name: singleUp;
+      }
+
+      &.stop {
+        animation-play-state: paused;
+      }
+
+      &.up,
+      &.down {
+        width: 100%;
+        white-space: normal;
+      }
+
+      p {
+        width: auto;
+        line-height: 1;
+        margin: 0;
+      }
+    }
+  }
+
+  &.width-adapt {
+    width: 100%;
+    overflow: hidden;
+
+    .@{scroll-text-prefix-cls}__content {
+      width: fit-content;
+      min-width: 100%;
+
+      > div.left {
+        min-width: 100%;
+        animation-name: scroll-left-adapt;
+      }
+
+      > div.right {
+        min-width: 100%;
+        animation-name: scroll-right-adapt;
+      }
+    }
+  }
+}

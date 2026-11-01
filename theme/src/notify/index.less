@@ -1,0 +1,117 @@
+/**
+* Copyright (c) 2022 - present TinyVue Authors.
+* Copyright (c) 2022 - present Huawei Cloud Computing Technologies Co., Ltd.
+*
+* Use of this source code is governed by an MIT-style license.
+*
+* THE OPEN SOURCE SOFTWARE IN THIS PRODUCT IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL,
+* BUT WITHOUT ANY WARRANTY, WITHOUT EVEN THE IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR
+* A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
+*
+*/
+
+@import '../custom.less';
+@import './vars.less';
+
+@notify-prefix-cls: ~'@{css-prefix}notify';
+
+.@{notify-prefix-cls} {
+  .inject-Notify-vars();
+
+  position: fixed;
+  z-index: 1101;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: var(--tv-Notify-max-width);
+  width: 100%;
+  line-height: var(--tv-Notify-line-height);
+  background-color: var(--tv-Notify-bg-color);
+  padding: var(--tv-Notify-padding-y) var(--tv-Notify-padding-x);
+  border-radius: var(--tv-Notify-border-radius);
+  box-shadow: var(--tv-Notify-box-shadow);
+  transition: all 0.3s;
+  overflow: hidden;
+  white-space: nowrap;
+
+  /** 状态图标 */
+  .@{notify-prefix-cls}__icon-zone {
+    svg {
+      font-size: var(--tv-Notify-status-icon-font-size);
+    }
+  }
+
+  &.@{notify-prefix-cls}--success .@{notify-prefix-cls}__icon-zone svg {
+    fill: var(--tv-Notify-status-icon-color-success);
+  }
+  &.@{notify-prefix-cls}--info .@{notify-prefix-cls}__icon-zone svg {
+    fill: var(--tv-Notify-status-icon-color-info);
+  }
+  &.@{notify-prefix-cls}--error .@{notify-prefix-cls}__icon-zone svg {
+    fill: var(--tv-Notify-status-icon-color-error);
+  }
+  &.@{notify-prefix-cls}--warning .@{notify-prefix-cls}__icon-zone svg {
+    fill: var(--tv-Notify-status-icon-color-warning);
+  }
+
+  /** 消息区 */
+  .@{notify-prefix-cls}__message-zone {
+    flex: 1;
+    margin: 0 var(--tv-Notify-msg-margin-x);
+
+    .@{notify-prefix-cls}__title-wrapper {
+      color: var(--tv-Notify-title-text-color);
+      font-size: var(--tv-Notify-title-font-size);
+      font-weight: var(--tv-Notify-title-font-weight);
+      margin-bottom: var(--tv-Notify-title-margin-bottom);
+    }
+
+    .@{notify-prefix-cls}__content-wrapper {
+      color: var(--tv-Notify-msg-text-color);
+      font-size: var(--tv-Notify-msg-font-size);
+      max-height: var(--tv-Notify-msg-max-height);
+      word-break: break-word;
+      white-space: pre-wrap;
+      overflow: auto;
+
+      .@{notify-prefix-cls}__content {
+        overflow-wrap: break-word;
+        white-space: pre-wrap;
+      }
+    }
+  }
+
+  /** 关闭图标 */
+  .@{notify-prefix-cls}__close-zone {
+    .@{notify-prefix-cls}__icon-close svg {
+      font-size: var(--tv-Notify-close-icon-font-size);
+      fill: var(--tv-Notify-close-icon-color);
+      cursor: pointer;
+
+      &:hover {
+        fill: var(--tv-Notify-close-icon-color-hover);
+      }
+    }
+  }
+
+  /** 显示位置 */
+  &.top-left {
+    left: 24px;
+    top: 25px;
+  }
+
+  &.bottom-left {
+    left: 24px;
+    bottom: 25px;
+  }
+
+  &.top-right {
+    right: 24px;
+    top: 25px;
+  }
+
+  &.bottom-right {
+    right: 24px;
+    bottom: 25px;
+  }
+}

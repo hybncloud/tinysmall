@@ -1,0 +1,23 @@
+{
+  "extends": "./tsconfig.vue.json",
+  "compilerOptions": {
+    "types": [
+      "node",
+      "tsdown/client",
+      "./internals/unplugin-virtual-template/client",
+      "./internals/vite-svg-loader/client",
+      "./src/common/__longque__",
+      "./env"
+    ],
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.build.tsbuildinfo"
+  },
+  "include": [
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
+    "./src/**/*.vue",
+    "./icons/index.ts",
+    "./icons/src/**/*.ts",
+    "./locale/src/**/*.ts",
+    "./theme/src/**/*.ts"
+  ]
+}

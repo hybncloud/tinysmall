@@ -1,0 +1,129 @@
+<!--
+ * Copyright (c) 2022 - present TinyVue Authors.
+ * Copyright (c) 2022 - present Huawei Cloud Computing Technologies Co., Ltd.
+ *
+ * Use of this source code is governed by an MIT-style license.
+ *
+ * THE OPEN SOURCE SOFTWARE IN THIS PRODUCT IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL,
+ * BUT WITHOUT ANY WARRANTY, WITHOUT EVEN THE IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR
+ * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
+ *
+ -->
+<template>
+  <label
+    class="tiny-checkbox"
+    :class="[
+      border && state.checkboxSize ? 'tiny-checkbox--' + state.checkboxSize : '',
+      { 'is-disabled': state.isDisabled || state.isDisplayOnly },
+      { 'is-bordered': border },
+      { 'is-checked': state.isChecked },
+      { 'is-group-display-only': state.isGroupDisplayOnly },
+      { 'is-display-only': state.isDisplayOnly },
+      { 'is-filter': state.shape === 'filter' }
+    ]"
+    :id="id"
+    tabindex="-1"
+    role="checkbox"
+    :aria-checked="indeterminate ? 'mixed' : state.isChecked"
+    :aria-disabled="state.isDisabled || state.isDisplayOnly"
+    :aria-label="text || label"
+    v-bind="a($attrs, ['class', 'style', 'onClick'], true)"
+  >
+    <span
+      class="tiny-checkbox__input"
+      :class="{
+        'is-disabled': state.isDisabled || state.isDisplayOnly,
+        'is-checked': state.isChecked,
+        'is-indeterminate': indeterminate,
+        'is-focus': state.focus
+      }"
+    >
+      <input
+        v-if="trueLabel || falseLabel"
+        class="tiny-checkbox__original"
+        type="checkbox"
+        :tabindex="tabindex"
+        :aria-hidden="indeterminate ? 'true' : 'false'"
+        :name="name"
+        :disabled="state.isDisabled || state.isDisplayOnly"
+        :true-value="trueLabel"
+        :false-value="falseLabel"
+        v-model="state.model"
+        @change.stop="handleChange"
+        @focus="state.focus = true"
+        @blur="state.focus = false"
+        @click.stop
+      />
+      <input
+        v-else
+        class="tiny-checkbox__original"
+        type="checkbox"
+        :tabindex="tabindex"
+        :aria-hidden="indeterminate ? 'true' : 'false'"
+        :disabled="state.isDisabled || state.isDisplayOnly"
+        :value="label"
+        :name="name"
+        v-model="state.model"
+        @change.stop="handleChange"
+        @focus="state.focus = true"
+        @blur="state.focus = false"
+        @click.stop
+      />
+      <span class="tiny-checkbox__inner">
+        <icon-halfselect v-if="indeterminate && state.shape !== 'filter'" class="tiny-svg-size icon-halfselect" />
+        <icon-checked-sur v-else-if="state.isChecked" class="tiny-svg-size icon-checked-sur" />
+        <icon-check v-else class="tiny-svg-size icon-check" />
+      </span>
+    </span>
+    <span
+      v-if="(slots.default && slots.default()) || state.isShowText"
+      class="tiny-checkbox__label tiny-checkbox-display-only"
+      v-auto-tip
+    >
+      <slot>{{ state.showText }}</slot>
+    </span>
+  </label>
+</template>
+
+<script lang="ts">
+import { renderless, api } from '@opentiny/vue-renderless/checkbox/vue'
+import { props, setup, defineComponent } from '@opentiny/vue-common'
+import '@opentiny/vue-theme/checkbox/index.less'
+import { iconHalfselect, iconCheckedSur, iconCheck } from '@opentiny/vue-icon'
+import type { ICheckboxApi } from '@opentiny/vue-renderless/types/checkbox.type'
+import { AutoTip } from '@opentiny/vue-directive'
+export default defineComponent({
+  // tiny 新增。 renderless中，没有emit('click')的地方。 此处勿声明，否则会造成丢失click事件。
+  emits: ['update:modelValue', 'change', 'complete'],
+  directives: { AutoTip },
+  props: [
+    ...props,
+    'modelValue',
+    'text',
+    'events',
+    'label',
+    'indeterminate',
+    'disabled',
+    'checked',
+    'name',
+    'trueLabel',
+    'falseLabel',
+    'id',
+    'controls',
+    'size',
+    'border',
+    'validateEvent',
+    'displayOnly',
+    'shape',
+    'tabindex'
+  ],
+  components: {
+    IconHalfselect: iconHalfselect(),
+    IconCheckedSur: iconCheckedSur(),
+    IconCheck: iconCheck()
+  },
+  setup(props, context) {
+    return setup({ props, context, renderless, api }) as unknown as ICheckboxApi
+  }
+})
+</script>

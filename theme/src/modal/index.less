@@ -1,0 +1,349 @@
+/* stylelint-disable no-duplicate-selectors */
+
+/**
+* Copyright (c) 2022 - present TinyVue Authors.
+* Copyright (c) 2022 - present Huawei Cloud Computing Technologies Co., Ltd.
+*
+* Use of this source code is governed by an MIT-style license.
+*
+* THE OPEN SOURCE SOFTWARE IN THIS PRODUCT IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL,
+* BUT WITHOUT ANY WARRANTY, WITHOUT EVEN THE IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR
+* A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
+*
+*/
+
+@import '../custom.less';
+@import './vars.less';
+
+@modal-prefix-cls: ~'@{css-prefix}modal';
+
+@button-default-prefix-cls: ~'@{css-prefix}button--default';
+@button-prefix-cls: ~'@{css-prefix}button';
+
+.@{modal-prefix-cls} {
+  .inject-Modal-vars();
+
+  // 背景层
+  &__wrapper {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    line-height: var(--tv-Modal-line-height);
+
+    &.active {
+      display: block;
+      opacity: 1;
+    }
+
+    &.leave {
+      opacity: 0;
+    }
+
+    // status图标色  弹窗和消息的颜色一致，共用以下颜色
+    &.status__success .@{modal-prefix-cls}__status-wrapper svg {
+      fill: var(--tv-Modal-status-icon-color-success);
+    }
+
+    &.status__warning .@{modal-prefix-cls}__status-wrapper svg {
+      fill: var(--tv-Modal-status-icon-color-warning);
+    }
+
+    &.status__error .@{modal-prefix-cls}__status-wrapper svg {
+      fill: var(--tv-Modal-status-icon-color-error);
+    }
+
+    &.status__info .@{modal-prefix-cls}__status-wrapper svg {
+      fill: var(--tv-Modal-status-icon-color-info);
+    }
+
+    &.status__question .@{modal-prefix-cls}__status-wrapper svg {
+      fill: var(--tv-Modal-status-icon-color-question);
+    }
+
+    // ----------------------------------------------------  alert, confirm 的弹窗场景
+    &.type__alert,
+    &.type__confirm {
+      .@{modal-prefix-cls}__box {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        left: 50%;
+        top: 15vh;
+        width: var(--tv-Modal-box-width);
+        background-color: var(--tv-Modal-box-bg-color);
+        border-radius: var(--tv-Modal-box-border-radius);
+        box-shadow: var(--tv-shadow-4-down);
+
+        .@{modal-prefix-cls}__header {
+          display: flex;
+          align-items: center;
+          padding: var(--tv-Modal-box-header-padding-top) var(--tv-Modal-box-header-padding-x) var(--tv-Modal-box-header-padding-bottom) var(--tv-Modal-box-header-padding-x);
+
+          .@{modal-prefix-cls}__status-wrapper {
+            display: flex;
+            align-items: center;
+            font-size: var(--tv-Modal-box-status-icon-font-size);
+            margin-right: var(--tv-Modal-box-status-icon-margin-right);
+
+            .@{modal-prefix-cls}-svg__refresh {
+              fill: var(--tv-Modal-loading-status-icon-color);
+            }
+          }
+
+          .@{modal-prefix-cls}__title {
+            color: var(--tv-Modal-box-title-text-color);
+            font-size: var(--tv-Modal-box-title-font-size);
+            font-weight: var(--tv-Modal-box-title-font-weight);
+          }
+
+          .@{modal-prefix-cls}__zoom-btn,
+          .@{modal-prefix-cls}__close-btn {
+            position: absolute;
+            top: var(--tv-Modal-box-close-icon-top);
+            fill: var(--tv-Modal-box-close-icon-color);
+            font-size: var(--tv-Modal-box-close-icon-size);
+            cursor: pointer;
+
+            &:hover {
+              fill: var(--tv-Modal-box-close-icon-color-hover);
+            }
+          }
+
+          .@{modal-prefix-cls}__close-btn {
+            right: var(--tv-Modal-box-close-icon-right);
+          }
+
+          .@{modal-prefix-cls}__zoom-btn {
+            right: var(--tv-Modal-box-zoom-icon-right);
+          }
+        }
+
+        .@{modal-prefix-cls}__body {
+          display: flex;
+          flex-grow: 1;
+          padding: var(--tv-Modal-box-body-padding-y) var(--tv-Modal-box-body-padding-x);
+          white-space: normal;
+          word-break: break-word;
+
+          .@{modal-prefix-cls}__content {
+            width: 100%;
+            flex-grow: 1;
+
+            .@{modal-prefix-cls}__text {
+              font-size: var(--tv-Modal-box-body-text-font-size);
+              color: var(--tv-Modal-box-body-text-text-color);
+            }
+          }
+        }
+
+        .@{modal-prefix-cls}__footer {
+          text-align: right;
+          padding: var(--tv-Modal-box-footer-padding-top) var(--tv-Modal-box-footer-padding-x) var(--tv-Modal-box-footer-padding-bottom) var(--tv-Modal-box-footer-padding-x);
+        }
+      }
+
+      // header,footer 可拖动,
+      .@{modal-prefix-cls}__box.is__drag,
+      .@{modal-prefix-cls}__header,
+      .@{modal-prefix-cls}__footer-move {
+        cursor: move;
+      }
+
+      // border可resize, 4个角可以resize
+      .@{modal-prefix-cls}__resize {
+        @SpaceSize: 8px;
+
+        .wl-resize,
+        .wr-resize,
+        .swst-resize,
+        .sest-resize,
+        .st-resize,
+        .swlb-resize,
+        .selb-resize,
+        .sb-resize {
+          position: absolute;
+          z-index: 100;
+        }
+
+        .wl-resize,
+        .wr-resize {
+          width: @SpaceSize;
+          height: 100%;
+          top: 0;
+          cursor: w-resize;
+        }
+
+        .wl-resize {
+          left: -@SpaceSize * 0.5 + 1;
+        }
+
+        .wr-resize {
+          right: -@SpaceSize * 0.5 + 1;
+        }
+
+        .swst-resize,
+        .sest-resize,
+        .swlb-resize,
+        .selb-resize {
+          width: @SpaceSize + 2;
+          height: @SpaceSize + 2;
+          z-index: 101;
+        }
+
+        .swst-resize,
+        .sest-resize {
+          top: -@SpaceSize;
+        }
+
+        .swlb-resize,
+        .selb-resize {
+          bottom: -@SpaceSize;
+        }
+
+        .sest-resize,
+        .swlb-resize {
+          cursor: sw-resize;
+        }
+
+        .swst-resize,
+        .selb-resize {
+          cursor: se-resize;
+        }
+
+        .swst-resize,
+        .swlb-resize {
+          left: -@SpaceSize;
+        }
+
+        .sest-resize,
+        .selb-resize {
+          right: -@SpaceSize;
+        }
+
+        .st-resize,
+        .sb-resize {
+          width: 100%;
+          height: @SpaceSize;
+          left: 0;
+          cursor: s-resize;
+        }
+
+        .st-resize {
+          top: -@SpaceSize * 0.5 + 1;
+        }
+
+        .sb-resize {
+          bottom: -@SpaceSize * 0.5 + 1;
+        }
+      }
+    }
+
+    // 最大化时,resize display=none
+    &.is__maximize .@{modal-prefix-cls}__resize {
+      display: none;
+    }
+
+    // 锁定的场景
+    &.lock__scroll {
+      overflow: hidden;
+    }
+
+    &:not(.lock__scroll) {
+      overflow: auto;
+    }
+
+    .@{modal-prefix-cls}__box {
+      pointer-events: all;
+    }
+
+    &:not(.lock__view) {
+      pointer-events: none;
+    }
+
+    // 遮罩层
+    &.is__mask {
+      background-color: var(--tv-Modal-mask-bg-color);
+    }
+
+    // 弹窗的渐显动画
+    &.type__alert,
+    &.type__confirm {
+      .@{modal-prefix-cls}__box {
+        opacity: 0;
+        transition: opacity 0.4s ease-in;
+      }
+
+      &.is__visible.is__visible {
+        .@{modal-prefix-cls}__box {
+          opacity: 1;
+        }
+      }
+    }
+
+    // --------------------------------------------------------  message 的消息场景
+    &.type__message {
+      text-align: center;
+
+      .@{modal-prefix-cls}__box {
+        display: inline-block;
+        background-color: var(--tv-Modal-msg-box-bg-color);
+        border-radius: var(--tv-Modal-msg-box-border-radius);
+        box-shadow: var(--tv-Modal-msg-box-box-shadow);
+        padding: var(--tv-Modal-msg-box-box-padding-y) var(--tv-Modal-msg-box-box-padding-x);
+        text-align: left;
+
+        .@{modal-prefix-cls}__body {
+          display: flex;
+          white-space: normal;
+          word-break: break-word;
+
+          .@{modal-prefix-cls}__status-wrapper {
+            display: flex;
+            align-items: center;
+            margin-right: var(--tv-Modal-msg-box-status-icon-margin-right);
+
+            svg {
+              font-size: var(--tv-Modal-msg-box-status-icon-size);
+            }
+
+            .@{modal-prefix-cls}-svg__refresh {
+              fill: var(--tv-Modal-loading-status-icon-color);
+            }
+          }
+
+          .@{modal-prefix-cls}__content {
+            width: 100%;
+            max-width: 800px;
+            flex-grow: 1;
+
+            .@{modal-prefix-cls}__text {
+              color: var(--tv-Modal-msg-box-text-color);
+              font-size: var(--tv-Modal-msg-box-font-size);
+              font-weight: var(--tv-Modal-msg-box-font-weight);
+            }
+          }
+
+          .@{modal-prefix-cls}__close-wrapper {
+            svg {
+              margin-left: var(--tv-Modal-msg-box-close-icon-margin-left);
+              fill: var(--tv-Modal-msg-box-close-icon-color);
+              font-size: var(--tv-Modal-msg-box-close-icon-size);
+              cursor: pointer;
+
+              &:hover {
+                fill: var(--tv-Modal-msg-box-close-icon-color-hover);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // 消息动画
+    transition: top 0.4s,
+    opacity 0.4s; // 修改最外层的top值形成的动画
+  }
+}

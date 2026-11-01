@@ -1,0 +1,78 @@
+/**
+* Copyright (c) 2022 - present TinyVue Authors.
+* Copyright (c) 2022 - present Huawei Cloud Computing Technologies Co., Ltd.
+*
+* Use of this source code is governed by an MIT-style license.
+*
+* THE OPEN SOURCE SOFTWARE IN THIS PRODUCT IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL,
+* BUT WITHOUT ANY WARRANTY, WITHOUT EVEN THE IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR
+* A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
+*
+*/
+
+@import '../custom.less';
+@import './vars.less';
+
+@cascader-menu-prefix-cls: ~'@{css-prefix}cascader-menu';
+@cascader-node-prefix-cls: ~'@{css-prefix}cascader-node';
+
+.@{cascader-menu-prefix-cls} {
+  .inject-CascaderMenu-vars();
+
+  min-width: var(--tv-CascaderMenu-width);
+  box-sizing: border-box;
+  color: var(--tv-CascaderMenu-text-color);
+  border-right: solid 1px var(--tv-CascaderMenu-border-color);
+
+  &:last-child {
+    border-right: none;
+
+    .@{cascader-node-prefix-cls} {
+      padding-right: 20px;
+    }
+  }
+
+  & &__wrap {
+    min-height: 208px;
+  }
+  // tiny 新增： 直接使用级联面板时，高度要放开，不能被 tiny-scrollbar限制了
+  & &__wrap-expand {
+    max-height: auto;
+  }
+
+  & &__list {
+    position: relative;
+    min-height: 100%;
+    margin: var(--tv-CascaderMenu-list-margin-vertical) var(--tv-CascaderMenu-list-margin-horizontal);
+    list-style: none;
+    box-sizing: border-box;
+    padding: var(--tv-CascaderMenu-list-padding-y) var(--tv-CascaderMenu-list-padding-x);
+  }
+
+  &__hover-zone {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  &__empty-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--tv-CascaderMenu-empty-text-color);
+  }
+
+  &__no-data {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--tv-CascaderMenu-empty-text-color);
+  }
+}

@@ -1,0 +1,85 @@
+import type { PropType } from '@opentiny/vue-common'
+import { $props, $prefix, $setup, defineComponent } from '@opentiny/vue-common'
+import template from 'virtual-template?pc'
+
+export const pagerProps = {
+  ...$props,
+  accurateJumper: {
+    type: Boolean,
+    default: () => true
+  },
+  appendToBody: {
+    type: Boolean,
+    default: () => true
+  },
+  currentPage: {
+    type: Number,
+    default: () => 1
+  },
+  disabled: {
+    type: Boolean,
+    default: () => false
+  },
+  hideOnSinglePage: Boolean,
+  isBeforePageChange: Boolean,
+  layout: String,
+  mode: String,
+  nextText: String,
+  pageCount: Number,
+  pageSize: {
+    type: Number,
+    default: () => 10
+  },
+  pageSizeText: {
+    type: String
+  },
+  pageSizes: {
+    type: Array as PropType<number[]>
+  },
+  pagerCount: {
+    type: Number,
+    validator: (value) => (value | 0) === value && value > 2 && value < 22 && value % 2 === 1,
+    default: () => 7
+  },
+  popperAppendToBody: {
+    type: Boolean,
+    default: () => true
+  },
+  showTotalLoading: {
+    type: Boolean,
+    default: () => false
+  },
+  customTotal: {
+    type: [Boolean, String],
+    default: () => false
+  },
+  popperClass: String,
+  prevText: String,
+  total: Number,
+  size: {
+    type: String,
+    default: '',
+    validator: (value: string) => ['mini', ''].includes(value)
+  },
+  align: {
+    type: String,
+    validator: (value: string) => ['left', 'center', 'right'].includes(value)
+  },
+  totalFixedLeft: {
+    type: Boolean,
+    default: undefined
+  },
+  // tiny新增
+  changeCompat: {
+    type: Boolean,
+    default: false
+  }
+}
+
+export default defineComponent({
+  name: $prefix + 'Pager',
+  props: pagerProps,
+  setup(props, context) {
+    return $setup({ props, context, template })
+  }
+})

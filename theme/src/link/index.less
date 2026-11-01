@@ -1,0 +1,157 @@
+/**
+* Copyright (c) 2022 - present TinyVue Authors.
+* Copyright (c) 2022 - present Huawei Cloud Computing Technologies Co., Ltd.
+*
+* Use of this source code is governed by an MIT-style license.
+*
+* THE OPEN SOURCE SOFTWARE IN THIS PRODUCT IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL,
+* BUT WITHOUT ANY WARRANTY, WITHOUT EVEN THE IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR
+* A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
+*
+*/
+
+@import '../mixins/link.less';
+@import '../custom.less';
+@import './vars.less';
+
+@link-prefix-cls: ~'@{css-prefix}link';
+@link-svg-prefix-cls: ~'@{link-prefix-cls}-svg';
+@svg-cls: ~'@{css-prefix}svg';
+
+.@{link-prefix-cls} {
+  .inject-Link-vars();
+
+  vertical-align: middle;
+  position: relative;
+  text-decoration: none;
+  outline: 0;
+  cursor: pointer;
+  padding: 0;
+  font-size: var(--tv-Link-font-size);
+  font-weight: var(--tv-Link-font-weight);
+
+  & .@{svg-cls} {
+    width: var(--tv-Link-svg-width);
+    height: var(--tv-Link-svg-height);
+    padding-bottom: var(--tv-Link-svg-padding-bottom);
+    margin-right: 0;
+    margin-left: var(--tv-Link-svg-margin-right);
+  }
+
+  & .@{link-svg-prefix-cls} {
+    margin-right: var(--tv-Link-svg-margin-right);
+    margin-left: 0;
+  }
+
+  & .@{link-prefix-cls}__inner .@{svg-cls} {
+    margin-right: 0;
+    margin-left: var(--tv-Link-svg-margin-right);
+  }
+
+  &&--additional {
+    &:hover {
+      color: var(--tv-Link-default-hover-text-color);
+      fill: var(--tv-Link-default-hover-text-color);
+    }
+
+    &.is-disabled {
+      &:hover {
+        color: var(--tv-Link-default-disabled-text-color);
+        fill: var(--tv-Link-default-disabled-text-color);
+      }
+    }
+
+    &:has(.@{svg-cls}):hover {
+      font-weight: var(--tv-Link-icon-hover-text-weight);
+      color: var(--tv-Link-has-svg-hover-text-color);
+      fill: var(--tv-Link-has-svg-hover-text-color);
+    }
+
+    &:has(.@{svg-cls}).is-disabled {
+      &:hover {
+        font-weight: var(--tv-Link-font-weight);
+        color: var(--tv-Link-default-disabled-text-color);
+        fill: var(--tv-Link-default-disabled-text-color);
+      }
+    }
+  }
+
+  &.is-underline:hover {
+    &:after {
+      content: '';
+      width: 100%;
+      position: absolute;
+      left: 0;
+      height: 0;
+      bottom: 0;
+      display: block;
+      border-bottom: 1px solid var(--tv-Link-border-color);
+    }
+
+    &:has(.@{svg-cls}):after {
+      width: var(--tv-Link-has-icon-underline-width);
+    }
+
+    &:has(> :first-child:not(.@{link-prefix-cls}__inner)):after {
+      left: calc(100% - var(--tv-Link-has-icon-underline-width));
+    }
+  }
+
+  &.is-disabled {
+    cursor: not-allowed;
+  }
+
+  &&--default {
+    .link-type(
+      var(--tv-Link-default-text-color),
+      var(--tv-Link-default-border-color),
+      var(--tv-Link-default-hover-text-color),
+      var(--tv-Link-default-disabled-text-color)
+      );
+  }
+
+  &&--primary {
+    .link-type(
+      var(--tv-Link-primary-text-color),
+      var(--tv-Link-primary-border-color),
+      var(--tv-Link-primary-hover-text-color),
+      var(--tv-Link-primary-disabled-text-color)
+      );
+  }
+
+  &&--danger {
+    .link-type(
+      var(--tv-Link-danger-text-color),
+      var(--tv-Link-danger-border-color),
+      var(--tv-Link-danger-hover-text-color),
+      var(--tv-Link-danger-disabled-text-color)
+      );
+  }
+
+  &&--success {
+    .link-type(
+      var(--tv-Link-success-text-color),
+      var(--tv-Link-success-border-color),
+      var(--tv-Link-success-hover-text-color),
+      var(--tv-Link-success-disabled-text-color)
+      );
+  }
+
+  &&--warning {
+    .link-type(
+      var(--tv-Link-warning-text-color),
+      var(--tv-Link-warning-border-color),
+      var(--tv-Link-warning-hover-text-color),
+      var(--tv-Link-warning-disabled-text-color)
+      );
+  }
+
+  &&--info {
+    .link-type(
+      var(--tv-Link-info-text-color),
+      var(--tv-Link-info-border-color),
+      var(--tv-Link-info-hover-text-color),
+      var(--tv-Link-info-disabled-text-color)
+      );
+  }
+}

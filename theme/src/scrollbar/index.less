@@ -1,0 +1,133 @@
+/**
+* Copyright (c) 2022 - present TinyVue Authors.
+* Copyright (c) 2022 - present Huawei Cloud Computing Technologies Co., Ltd.
+*
+* Use of this source code is governed by an MIT-style license.
+*
+* THE OPEN SOURCE SOFTWARE IN THIS PRODUCT IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL,
+* BUT WITHOUT ANY WARRANTY, WITHOUT EVEN THE IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR
+* A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
+*
+*/
+
+@import '../custom.less';
+@import './vars.less';
+
+@scrollbar-prefix-cls: ~'@{css-prefix}scrollbar';
+
+.@{scrollbar-prefix-cls} {
+  .inject-Scrollbar-vars();
+
+  overflow: hidden;
+  position: relative;
+
+  &:active > &__bar,
+  &:focus > &__bar,
+  &:hover > &__bar {
+    opacity: 1;
+    transition: opacity 340ms ease-out;
+  }
+
+  &__wrap {
+    overflow: scroll;
+    height: 100%;
+    max-height: 200px;
+  }
+
+  &__wrap--hidden-default::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+
+  &__thumb {
+    position: relative;
+    display: block;
+    width: 0;
+    height: 0;
+    cursor: pointer;
+    border-radius: var(--tv-Scrollbar-thumb-border-radius);
+    background-color: var(--tv-Scrollbar-thumb-bg-color);
+    transition: 0.3s background-color;
+
+    &:hover {
+      background-color: var(--tv-Scrollbar-thumb-hover-bg-color);
+    }
+  }
+
+  &__bar {
+    position: absolute;
+    bottom: 2px;
+    z-index: 1;
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity 120ms ease-out;
+
+    &.is-vertical {
+      width: var(--tv-Scrollbar-vertical-width);
+      top: 2px;
+      right: var(--tv-Scrollbar-vertical-right);
+
+      & > div {
+        width: 100%;
+      }
+    }
+
+    &.is-horizontal {
+      height: 6px;
+      left: 2px;
+      right: 2px;
+
+      & > div {
+        height: 100%;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .@{css-prefix}scrollbar::-webkit-scrollbar {
+    width: var(--tv-size-scrollbar-width);
+    height: var(--tv-size-scrollbar-height);
+  }
+
+  .@{css-prefix}scrollbar::-webkit-scrollbar-track-piece {
+    background: transparent;
+    border: 0;
+  }
+
+  .@{css-prefix}scrollbar::-webkit-scrollbar-thumb {
+    background: var(--tv-color-bg-scrollbar-thumb);
+    border-radius: var(--tv-border-radius-scrollbar-thumb);
+  }
+
+  .@{css-prefix}scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--tv-color-bg-scrollbar-thumb-hover);
+  }
+
+  .@{css-prefix}scrollbar::-webkit-scrollbar-thumb:active {
+    background: var(--tv-color-bg-scrollbar-thumb-active);
+  }
+
+  .@{css-prefix}min-scrollbar::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  .@{css-prefix}min-scrollbar::-webkit-scrollbar-track-piece {
+    background: transparent;
+    border: 0;
+  }
+
+  .@{css-prefix}min-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--tv-color-bg-scrollbar-thumb);
+    border-radius: 2px;
+  }
+
+  .@{css-prefix}min-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--tv-color-bg-scrollbar-thumb-hover);
+  }
+
+  .@{css-prefix}min-scrollbar::-webkit-scrollbar-thumb:active {
+    background: var(--tv-color-bg-scrollbar-thumb-active);
+  }
+}

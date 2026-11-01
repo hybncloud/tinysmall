@@ -1,0 +1,147 @@
+/**
+* Copyright (c) 2022 - present TinyVue Authors.
+* Copyright (c) 2022 - present Huawei Cloud Computing Technologies Co., Ltd.
+*
+* Use of this source code is governed by an MIT-style license.
+*
+* THE OPEN SOURCE SOFTWARE IN THIS PRODUCT IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL,
+* BUT WITHOUT ANY WARRANTY, WITHOUT EVEN THE IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR
+* A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
+*
+*/
+
+@import '../mixins/common.less';
+@import '../custom.less';
+@import './vars.less';
+
+@image-viewer-prefix-cls: ~'@{css-prefix}image-viewer';
+
+.@{image-viewer-prefix-cls} {
+  .inject-ImageViewer-vars();
+
+  &__wrapper {
+    background: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  &__btn {
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    opacity: 1;
+    box-sizing: border-box;
+    .user-select(none);
+
+    svg {
+      width: 20px;
+      height: 20px;
+      fill: var(--tv-ImageViewer-text-color);
+    }
+  }
+
+  &__close {
+    top: 32px;
+    right: 32px;
+    width: 40px;
+    height: 40px;
+    font-size: var(--tv-ImageViewer-close-font-size);
+    background-color: var(--tv-ImageViewer-close-bg-color);
+
+    &:hover {
+      cursor: pointer;
+      background-color: #606266;
+    }
+  }
+
+  &__canvas { 
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__actions {
+    left: 50%;
+    bottom: 32px;
+    transform: translateX(-50%);
+    width: 248px;
+    height: var(--tv-ImageViewer-actions-height);
+    padding: 10px 24px; 
+    background-color: var(--tv-ImageViewer-close-bg-color);
+    border-radius: var(--tv-ImageViewer-actions-border-radius);
+  }
+
+  &__actions-inner {
+    width: 100%;
+    height: 100%;
+    cursor: default;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    svg {
+      fill: var(--tv-ImageViewer-actions-inner-text-color);
+      margin-right: var(--tv-ImageViewer-actions-icon-margin-right);
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__actions-divider {
+    display: inline-block;
+  }
+
+  &__actions-count {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    font-size: var(--tv-ImageViewer-actions-count-font-size);
+    color: #fff;
+    position: relative;
+  }
+
+  &__next,
+  &__prev {
+    top: 50%;
+    width: var(--tv-ImageViewer-next-width);
+    height: var(--tv-ImageViewer-next-height);
+    font-size: var(--tv-ImageViewer-next-font-size);
+    background-color: var(--tv-ImageViewer-close-bg-color);
+
+    &:hover {
+      cursor: pointer;
+      background-color: #606266;
+    }
+  }
+
+  &__prev {
+    transform: translateY(-50%);
+    left: var(--tv-ImageViewer-prev-left);
+  }
+
+  &__next {
+    transform: translateY(-50%);
+    right: var(--tv-ImageViewer-next-right);
+    text-indent: 2px;
+  }
+
+  &__mask {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.08);
+  }
+}

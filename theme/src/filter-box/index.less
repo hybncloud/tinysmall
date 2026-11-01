@@ -1,0 +1,141 @@
+/**
+* Copyright (c) 2022 - present TinyVue Authors.
+* Copyright (c) 2022 - present Huawei Cloud Computing Technologies Co., Ltd.
+*
+* Use of this source code is governed by an MIT-style license.
+*
+* THE OPEN SOURCE SOFTWARE IN THIS PRODUCT IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL,
+* BUT WITHOUT ANY WARRANTY, WITHOUT EVEN THE IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR
+* A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
+*
+*/
+
+@import '../custom.less';
+@import './vars.less';
+
+@filter-box-prefix-cls: ~'@{css-prefix}filter-box';
+
+.@{filter-box-prefix-cls} {
+  .inject-FilterBox-vars();
+
+  width: fit-content;
+  height: var(--tv-FilterBox-btn-height);
+  line-height: var(--tv-FilterBox-btn-height);
+  border-radius: 4px;
+  background: var(--tv-FilterBox-btn-bg-color);
+  color: var(--tv-FilterBox-btn-text-color);
+  padding: 4px var(--tv-FilterBox-btn-padding-x);
+  display: flex;
+  align-items: center;
+  font-size: var(--tv-FilterBox-btn-font-size);
+
+  &.@{filter-box-prefix-cls}--medium {
+    height: var(--tv-FilterBox-btn-height-medium);
+    line-height: var(--tv-FilterBox-btn-height-medium);
+    font-size: var(--tv-FilterBox-btn-font-size-medium);
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+
+    .title label {
+      color: var(--tv-FilterBox-btn-disabled-text-color);
+      cursor: not-allowed;
+    }
+
+    .value {
+      color: var(--tv-FilterBox-btn-disabled-text-color);
+    }
+
+    svg.filter-box-icon {
+      fill: var(--tv-FilterBox-icon-color-disabled);
+      cursor: not-allowed;
+    }
+  }
+
+  .title {
+    height: inherit;
+    line-height: var(--tv-FilterBox-btn-title-line-height);
+    margin-right: 0;
+
+    label {
+      display: inline-block;
+      max-width: 100px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      color: var(--tv-FilterBox-btn-text-color);
+      margin-right: 8px;
+      margin-top: 3px;
+    }
+
+    &.active label {
+      color: var(--tv-FilterBox-btn-active-text-color);
+    }
+
+    // 问号图标
+    svg {
+      width: var(--tv-FilterBox-icon-size);
+      height: var(--tv-FilterBox-icon-size);
+      margin-right: var(--tv-FilterBox-help-btn-margin-right);
+      fill: var(--tv-FilterBox-icon-color);
+      position: relative;
+      top: var(--tv-FilterBox-help-btn-position-top);
+      vertical-align: super;
+
+      &:hover {
+        fill: var(--tv-FilterBox-icon-color-hover);
+      }
+    }
+  }
+
+  .value {
+    max-width: 100px;
+    height: inherit;
+    margin-right: 4px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: var(--tv-color-text);
+
+    &.placeholder {
+      color: var(--tv-FilterBox-btn-text-color-placeholder);
+    }
+  }
+
+  .filter-box-icon {
+    width: var(--tv-FilterBox-icon-size);
+    height: var(--tv-FilterBox-icon-size);
+    cursor: pointer;
+    fill: var(--tv-FilterBox-icon-color);
+    transition: transform 0.3s;
+
+    &.is-reverse {
+      transform: rotate(180deg);
+    }
+  }
+
+  .filter-icon-close {
+    width: var(--tv-FilterBox-icon-size);
+    height: var(--tv-FilterBox-icon-size);
+    cursor: pointer;
+    fill: var(--tv-FilterBox-icon-color);
+
+    &:hover {
+      fill: var(--tv-FilterBox-icon-color-hover);
+    }
+  }
+
+  &:not(.disabled):hover {
+    background: var(--tv-FilterBox-btn-hover-bg-color);
+
+    .filter-box-icon {
+      fill: var(--tv-FilterBox-icon-color-hover);
+    }
+  }
+
+  &.is-blank {
+    background-color: transparent;
+  }
+}

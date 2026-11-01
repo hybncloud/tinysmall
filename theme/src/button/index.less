@@ -1,0 +1,466 @@
+/* stylelint-disable function-no-unknown */
+@import '../custom.less';
+@import './vars.less';
+
+@button-prefix-cls: ~'@{css-prefix}button';
+@svg-prefix-cls: ~'@{css-prefix}svg';
+
+.@{button-prefix-cls} {
+  .inject-Button-vars();
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  appearance: none;
+  text-align: center;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  user-select: none;
+  border-image: initial;
+  overflow: hidden;
+  transition: all 0.3s;
+  outline: 0;
+  vertical-align: middle;
+  font-weight: var(--tv-Button-font-weight);
+  border: var(--tv-Button-border-width) solid;
+  line-height: var(--tv-Button-line-height);
+
+  /** 1、 圆角场景 */
+  border-radius: var(--tv-Button-border-radius);
+
+  &.is-round {
+    border-radius: var(--tv-Button-border-radius-round);
+  }
+
+  &.is-circle.is-circle {
+    border-radius: var(--tv-Button-border-radius-circle);
+    aspect-ratio: 1;
+    min-width: initial;
+    padding: initial;
+  }
+
+  /** 2、尺寸场景 */
+  .size-mixin(@size) {
+    @fs: %('var(--tv-Button-font-size%a)', @size);
+    @h: %('var(--tv-Button-height%a)', @size);
+    @p: %('var(--tv-Button-padding-x%a)', @size);
+    @mw: %('var(--tv-Button-min-width%a)', @size);
+    @iconSize: %('var(--tv-Button-size-icon-font-size%a)', @size);
+
+    font-size: e(@fs);
+    height: e(@h);
+    padding: 0 e(@p);
+    min-width: e(@mw);
+
+    // 仅图标时，图标的大小
+    &.is-only-icon .@{svg-prefix-cls} {
+      font-size: e(@iconSize);
+    }
+  }
+
+  .size-mixin(e('')); // 默认尺寸  3
+
+  &.@{button-prefix-cls}--large {
+    .size-mixin(-large);
+  }
+  &.@{button-prefix-cls}--medium {
+    .size-mixin(-medium);
+  }
+  &.@{button-prefix-cls}--small {
+    .size-mixin(-small);
+  }
+  &.@{button-prefix-cls}--mini {
+    .size-mixin(-mini);
+  }
+
+  /** 3、颜色场景 */
+  // 混入基本主题色: text-color bg-color border-color icon-color
+  .color-theme-mixin(@theme) {
+    @c: %('var(--tv-Button-text-color-%a)', @theme);
+    @bg: %('var(--tv-Button-bg-color-%a)', @theme);
+    @border: %('var(--tv-Button-border-color-%a)', @theme);
+    @icon: %('var(--tv-Button-icon-color-%a)', @theme);
+
+    color: e(@c);
+    background-color: e(@bg);
+    border-color: e(@border);
+    fill: e(@icon);
+  }
+  // plain 按钮  优先级为：两级类名
+  .color-plain-mixin(@theme) {
+    @c: %('var(--tv-Button-text-color-plain-%a)', @theme);
+    @bg: %('var(--tv-Button-bg-color-plain-%a)', @theme);
+    @border: %('var(--tv-Button-border-color-plain-%a)', @theme);
+
+    color: e(@c);
+    background-color: e(@bg);
+    border-color: e(@border);
+  }
+  // 幽灵 按钮  优先级为：两级类名
+  .color-ghost-mixin(@theme) {
+    @c: %('var(--tv-Button-text-color-ghost-%a)', @theme);
+    @border: %('var(--tv-Button-border-color-ghost-%a)', @theme);
+
+    color: e(@c);
+    border-color: e(@border);
+  }
+  // 激活态： 叠加到主题和plain 状态上。
+  .color-active-mixin(@theme, @plain) {
+    @bg: %('var(--tv-Button-bg-color%a-active-%a)', @plain, @theme);
+    @border: %('var(--tv-Button-border-color%a-active-%a)', @plain, @theme);
+    @c: %('var(--tv-Button-text-color%a-active-%a)', @plain, @theme);
+
+    &:active,
+    &:focus,
+    &:hover,
+    &.is-active,
+    &.is-loading.is-loading.is-loading.is-loading.is-loading {
+      background-color: e(@bg);
+      border-color: e(@border);
+      color: e(@c);
+    }
+  }
+
+  // 激活态： 叠加到 ghost 状态上。
+  .color-ghost-active-mixin(@theme) {
+    @border: %('var(--tv-Button-border-color-ghost-active-%a)', @theme);
+
+    &:active,
+    &:focus,
+    &:hover,
+    &.is-active {
+      border-color: e(@border);
+    }
+  }
+
+  &.@{button-prefix-cls}--default {
+    .color-theme-mixin(default);
+    .color-active-mixin(default, e(''));
+
+    &.is-plain {
+      .color-plain-mixin(default);
+      .color-active-mixin(default, -plain);
+    }
+
+    &.is-ghost {
+      .color-ghost-mixin(default);
+      .color-ghost-active-mixin(default);
+    }
+  }
+  &.@{button-prefix-cls}--primary {
+    .color-theme-mixin(primary);
+    .color-active-mixin(primary, e(''));
+
+    &.is-plain {
+      .color-plain-mixin(primary);
+      .color-active-mixin(primary, -plain);
+    }
+
+    &.is-ghost {
+      .color-ghost-mixin(primary);
+      .color-ghost-active-mixin(primary);
+    }
+  }
+  &.@{button-prefix-cls}--success {
+    .color-theme-mixin(success);
+    .color-active-mixin(success, e(''));
+
+    &.is-plain {
+      .color-plain-mixin(success);
+      .color-active-mixin(success, -plain);
+    }
+
+    &.is-ghost {
+      .color-ghost-mixin(success);
+      .color-ghost-active-mixin(success);
+    }
+  }
+  &.@{button-prefix-cls}--warning {
+    .color-theme-mixin(warning);
+    .color-active-mixin(warning, e(''));
+
+    &.is-plain {
+      .color-plain-mixin(warning);
+      .color-active-mixin(warning, -plain);
+    }
+
+    &.is-ghost {
+      .color-ghost-mixin(warning);
+      .color-ghost-active-mixin(warning);
+    }
+  }
+  &.@{button-prefix-cls}--danger {
+    .color-theme-mixin(danger);
+    .color-active-mixin(danger, e(''));
+
+    &.is-plain {
+      .color-plain-mixin(danger);
+      .color-active-mixin(danger, -plain);
+    }
+
+    &.is-ghost {
+      .color-ghost-mixin(danger);
+      .color-ghost-active-mixin(danger);
+    }
+  }
+  &.@{button-prefix-cls}--info {
+    .color-theme-mixin(info);
+    .color-active-mixin(info, e(''));
+
+    &.is-plain {
+      .color-plain-mixin(info);
+      .color-active-mixin(info, -plain);
+    }
+
+    &.is-ghost {
+      .color-ghost-mixin(info);
+      .color-ghost-active-mixin(info);
+    }
+  }
+
+  //  ghost：bg 强制为透明，比禁用还高  优先级为：六级类名
+  &.is-ghost.is-ghost.is-ghost.is-ghost.is-ghost.is-ghost {
+    background-color: var(--tv-Button-bg-color-ghost);
+  }
+
+  // 禁用态+loading  优先级最高， 五优先级
+  &.is-disabled.is-disabled.is-disabled.is-disabled.is-disabled,
+  &[disabled][disabled][disabled][disabled][disabled] {
+    color: var(--tv-Button-text-color-disabled);
+    background-color: var(--tv-Button-bg-color-disabled);
+    border-color: var(--tv-Button-border-color-disabled);
+    fill: var(--tv-Button-icon-color-disabled);
+    cursor: not-allowed;
+
+    &.is-ghost {
+      border-color: var(--tv-Button-border-color-ghost-disabled);
+    }
+
+    &.is-only-icon {
+      .tiny-svg {
+        fill: var(--tv-Button-icon-color-disabled);
+      }
+      // 仅图标且无边框类型，禁用时无背景
+      &.tiny-button--text {
+        background-color: transparent;
+      }
+    }
+  }
+
+  &.is-loading {
+    &.@{button-prefix-cls}--default {
+      .tiny-svg {
+        fill: var(--tv-Button-icon-color-default-loading);
+      }
+    }
+
+    &.@{button-prefix-cls}--primary {
+      .tiny-svg {
+        fill: var(--tv-Button-icon-color-primary-loading);
+      }
+    }
+  }
+
+  /** 4、图标 + 文字场景 */
+
+  // 仅图标有边框时，高宽都按尺寸的高度
+  .size-only-icon-mixin(@size) {
+    @wh: %('var(--tv-Button-height%a)', @size);
+
+    width: e(@wh);
+    height: e(@wh);
+    min-width: e(@wh);
+    min-height: e(@wh);
+  }
+
+  // 仅图标无边框时，icon的高宽都按尺寸的高度。 根据设计稿，这里有4像素的padding
+  .size-only-icon-ontext-iconsize-mixin(@size) {
+    @wh: %('calc( var(--tv-Button-height%a) - 8px)', @size);
+
+    font-size: e(@wh);
+  }
+
+  // 默认图标场景: icon-size 随着尺寸的font-size而变化。
+  .tiny-svg {
+    vertical-align: text-top; //居中
+  }
+
+  // 仅图标场景
+  &.is-only-icon.is-only-icon {
+    // 只有default主题的边框色和 hover 边框色 是和主题色相反的。其它都随主题的色。
+    // 仅图标的plain场景，无对应示例，不处理。
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    &.@{button-prefix-cls}--default {
+      border-color: var(--tv-Button-border-color-only-icon-default);
+      // 为适配暗色主题，仅图标增加默认图标颜色
+      svg {
+        fill: var(--tv-Button-color-only-icon-default);
+      }
+      &:active,
+      &:focus,
+      &:hover,
+      &.is-active {
+        border-color: var(--tv-Button-border-color-only-icon-default-hover);
+        // 为适配暗色主题，仅图标增加图标悬浮颜色
+        svg {
+          fill: var(--tv-Button-color-only-icon-default-hover);
+        }
+      }
+    }
+
+    padding: 0; //不需要padding
+
+    .size-only-icon-mixin(e('')); // 不同尺寸时，大小不同
+
+    &.@{button-prefix-cls}--large {
+      .size-only-icon-mixin(-large);
+    }
+    &.@{button-prefix-cls}--medium {
+      .size-only-icon-mixin(-medium);
+    }
+    &.@{button-prefix-cls}--small {
+      .size-only-icon-mixin(-small);
+    }
+    &.@{button-prefix-cls}--mini {
+      .size-only-icon-mixin(-mini);
+    }
+
+    &:not(.is-circle) {
+      border-radius: var(--tv-Button-border-radius-only-icon);
+    }
+
+    // 无边框时： 图标大小为button的大小的高度
+    &.@{button-prefix-cls}--text {
+      border: none;
+      border-radius: var(--tv-Button-border-radius-only-icon-ontext); // 影响hover时的阴影
+
+      background-color: var(--tv-Button-bg-color-only-icon-ontext);
+      // 无边框时的仅图标按钮，增加图标默认颜色
+      svg {
+        fill: var(--tv-Button-bg-color-only-icon);
+      }
+      &:active,
+      &:focus,
+      &:hover,
+      &.is-active {
+        background-color: var(--tv-Button-bg-color-only-icon-ontext-hover);
+        // 无边框时的仅图标按钮，增加图标悬浮颜色
+        svg {
+          fill: var(--tv-Button-bg-color-only-icon-hover);
+        }
+      }
+      // 不同的尺寸，icon大小 为高度。 原型稿不包含
+      .size-only-icon-ontext-iconsize-mixin(e(''));
+
+      &.@{button-prefix-cls}--large {
+        .size-only-icon-ontext-iconsize-mixin(-large);
+      }
+      &.@{button-prefix-cls}--medium {
+        .size-only-icon-ontext-iconsize-mixin(-medium);
+      }
+      &.@{button-prefix-cls}--small {
+        .size-only-icon-ontext-iconsize-mixin(-small);
+      }
+      &.@{button-prefix-cls}--mini {
+        .size-only-icon-ontext-iconsize-mixin(-mini);
+      }
+
+      & .@{svg-prefix-cls} {
+        fill: var(--tv-Button-icon-color);
+        color: var(--tv-Button-icon-color);
+      }
+      // 上面为图标加上悬浮颜色，这里禁用时去掉图标hover颜色
+      &.is-disabled {
+        &:hover {
+          svg {
+            fill: var(--tv-Button-disabled-color-only-icon-hover);
+          }
+        }
+      }
+    }
+  }
+
+  // 纯文字： 没有主题色，只有文本蓝色和禁用2种情况。
+  &.@{button-prefix-cls}--text:not(.is-only-icon):not(.is-icon) {
+    border: none;
+    border-radius: 0;
+
+    // 没有尺寸，没有padding
+    padding: 0;
+    min-width: unset;
+    height: auto;
+    font-size: var(--tv-Button-font-size-ontext);
+    color: var(--tv-Button-text-color-ontext);
+    background-color: transparent;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &.is-disabled.is-disabled.is-disabled.is-disabled,
+    &.is-loading.is-loading.is-loading.is-loading,
+    &[disabled][disabled][disabled][disabled][disabled][disabled] {
+      color: var(--tv-Button-text-color-ontext-disabled);
+      background-color: transparent;
+      text-decoration: none;
+    }
+  }
+
+  // 混排有边框： 图标大小随文字即可，只添加中间的margin
+  &.is-icon {
+    display: inline-flex;
+    align-items: center;
+
+    .tiny-svg {
+      margin-right: var(--tv-Button-margin-right-isicon-svg);
+      // 混排时 适配图标浅色暗色主题，增加图标默认颜色
+      fill: var(--tv-Button-color-icon-svg);
+    }
+  }
+
+  // 混排无边框： 注意，这里会默认混入了 【混排有边框】的样式
+  &.@{button-prefix-cls}--text.is-icon {
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    min-width: unset;
+    height: auto;
+    font-size: var(--tv-Button-font-size-isicon-ontext);
+    color: var(--tv-Button-text-color-isicon-ontext);
+    background-color: transparent;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &.is-disabled.is-disabled.is-disabled.is-disabled,
+    &.is-loading.is-loading.is-loading.is-loading,
+    &[disabled][disabled][disabled][disabled][disabled][disabled] {
+      color: var(--tv-Button-text-color-ontext-disabled);
+      background-color: transparent;
+      text-decoration: none;
+    }
+  }
+
+  // <img> + 文字
+  & > img {
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+
+  /** 5、其他场景 */
+  & + & {
+    margin-left: var(--tv-Button-margin-left-btn-to-btn-md);
+  }
+  &.@{button-prefix-cls}--large + &.@{button-prefix-cls}--large,
+  &.@{button-prefix-cls}--medium + &.@{button-prefix-cls}--medium {
+    margin-left: var(--tv-Button-margin-left-btn-to-btn-lg);
+  }
+
+  &.is-loading > svg {
+    margin-right: var(--tv-Button-margin-right-isloading-svg);
+  }
+}

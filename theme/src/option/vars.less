@@ -1,0 +1,76 @@
+/**
+* Copyright (c) 2022 - present TinyVue Authors.
+* Copyright (c) 2022 - present Huawei Cloud Computing Technologies Co., Ltd.
+*
+* Use of this source code is governed by an MIT-style license.
+*
+* THE OPEN SOURCE SOFTWARE IN THIS PRODUCT IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL,
+* BUT WITHOUT ANY WARRANTY, WITHOUT EVEN THE IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR
+* A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
+*
+*/
+
+.inject-Option-vars() {
+  // 字号
+  --tv-Option-font-size: var(--tv-font-size-default, 14px);
+  // 行高
+  --tv-Option-line-height: var(--tv-line-height-number, 1.5);
+  // 文本色
+  --tv-Option-text-color: var(--tv-color-text, #191919);
+  // 文本色（禁用）
+  --tv-Option-text-color-disabled: var(--tv-color-text-disabled, #c2c2c2);
+  // 文本色（选中）
+  --tv-Option-text-color-selected: var(--tv-color-text-active, #1476ff);
+  // 文本色（高亮）
+  --tv-Option-text-color-highlight: var(--tv-color-text-active, #1476ff);
+
+  // 图标尺寸
+  --tv-Option-icon-size: var(--tv-icon-size, 16px);
+  // 复选框默认色
+  --tv-Option-icon-color-unchecked: var(--tv-color-border, #c2c2c2);
+  // 复选框选中色
+  --tv-Option-icon-color-checked: var(--tv-color-icon-control-active, #1476ff);
+  // 复选框悬浮色
+  --tv-Option-icon-color-hover: var(--tv-color-icon-hover, #191919);
+  // 复选框禁用色（选中）
+  --tv-Option-icon-color-checked-disabled: var(--tv-color-icon-checked-disabled, #dbdbdb);
+  // 复选框图标中心path禁用反色（选中）
+  --tv-Option-icon-color-checked-disabled-inverse: var(--tv-color-bg-inverse-disabled, #fff);
+  // 复选框禁用色(未选中）
+  --tv-Option-icon-color-unchecked-disabled: var(--tv-color-icon-control-disabled, #dbdbdb);
+  // 复选框未选中项禁用背景色
+  --tv-Option-icon-bg-color-disabled: var(--tv-color-bg-disabled, #f0f0f0);
+
+  // 选项高度
+  --tv-Option-height: var(--tv-size-height-md, 32px);
+  // 选项内边距
+  --tv-Option-padding: 0px var(--tv-space-xl, 16px);
+  // 复选框右侧外边距
+  --tv-Option-icon-margin-right: var(--tv-space-md, 8px);
+  // 选项悬浮背景色
+  --tv-Option-bg-color-hover: var(--tv-color-bg-hover, #f5f5f5);
+  // 边框模式复选框禁用边框色
+  --tv-Option-border-color-disabled: var(--tv-color-border-disabled, #dbdbdb);
+  // 复选框过滤器模式底色
+  --tv-Option-bg-color-filter: var(--tv-color-bg-gray-2, #e6e6e6);
+  // 复选框全选半选选中背景色
+  --tv-Option-bg-color-active: var(--tv-color-bg-active-control, #1476ff);
+  // 复选框全选半选选中边框色
+  --tv-Option-border-color-inverse: var(--tv-color-text-inverse, #ffffff);
+  // 复选框未选边框色
+  --tv-Option-unchecked-border-color: var(--tv-color-border, #c2c2c2);
+
+  // 复选框选中禁用背景色
+  --tv-Option-checked-disabled-bg-color: var(--tv-color-icon-checked-disabled, #dbdbdb);
+  // 复选框选中禁用边框色
+  --tv-Option-checked-disabled-border-color: var(--tv-color-bg-disabled-control-unactive, #dbdbdb);
+  // 复选框禁用反白色
+  --tv-Option-icon-inverse-disabled: var(--tv-color-icon-inverse, #ffffff);
+  // 默认复选框未选中禁用背景色
+  --tv-Option-bg-color-disabled: var(--tv-color-bg-disabled, #f0f0f0);
+}
+
+.inject-Option-responsive-vars() {
+  // 适配小屏定义-responsive-
+  --tv-Option-responsive-bg-color-disabled-control-active: var(--tv-color-bg-disabled-control-active, #b3d6ff);
+}

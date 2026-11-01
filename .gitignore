@@ -1,0 +1,8 @@
+.DS_Store
+.pnpm-store/
+.vitest/
+node_modules/
+coverage/
+test-results/
+dist/
+site/dist/

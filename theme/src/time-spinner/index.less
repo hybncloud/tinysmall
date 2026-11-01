@@ -1,0 +1,157 @@
+/**
+* Copyright (c) 2022 - present TinyVue Authors.
+* Copyright (c) 2022 - present Huawei Cloud Computing Technologies Co., Ltd.
+*
+* Use of this source code is governed by an MIT-style license.
+*
+* THE OPEN SOURCE SOFTWARE IN THIS PRODUCT IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL,
+* BUT WITHOUT ANY WARRANTY, WITHOUT EVEN THE IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR
+* A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
+*
+*/
+
+@import '../custom.less';
+@import './vars.less';
+
+@time-spinner-prefix-cls: ~'@{css-prefix}time-spinner';
+
+.@{time-spinner-prefix-cls} {
+  .inject-TimeSpinner-vars();
+
+  &__wrapper {
+    max-height: var(--tv-TimeSpinner-wrapper-max-height);
+    overflow: hidden;
+    display: inline-block;
+    width: 50%;
+    vertical-align: top;
+    position: relative;
+
+    &.@{scrollbar-prefix-cls} {
+      overflow: hidden;
+    }
+
+    .@{scrollbar-prefix-cls}__wrap:not(.@{scrollbar-prefix-cls}__wrap--hidden-default) {
+      padding-bottom: 15px;
+    }
+
+    &.is-arrow {
+      box-sizing: border-box;
+      text-align: center;
+      overflow: hidden;
+
+      // 上下箭头占位
+      .@{time-spinner-prefix-cls}__list {
+        &::after,
+        &::before {
+          transform: translateY(-32px);
+        }
+      }
+
+      .@{time-spinner-prefix-cls}__item:hover:not(.disabled):not(.active) {
+        background: var(--tv-TimeSpinner-item-bg-color-hover);
+        cursor: default;
+      }
+    }
+
+    .@{time-spinner-prefix-cls}__list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transform: translateY(-6px);
+      margin: var(--tv-TimeSpinner-list-margin);
+    }
+
+    &:last-child {
+      .@{time-spinner-prefix-cls}__list {
+        border-right: 0;
+      }
+    }
+  }
+  &__wrapper.is-arrow {
+    height: 220px;
+  }
+  &__wrapper.is-arrow .@{time-spinner-prefix-cls}__list{
+    height: 200px;
+  }
+  &__arrow {
+    height: 30px;
+    line-height: 30px;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    text-align: center;
+    cursor: pointer;
+
+    .@{svg-prefix-cls} {
+      fill: var(--tv-TimeSpinner-icon-color);
+      font-size: var(--tv-TimeSpinner-icon-size);
+    }
+
+    &:hover .@{svg-prefix-cls} {
+      fill: var(--tv-TimeSpinner-icon-color-hover);
+    }
+
+    &.@{css-prefix}icon-arrow-up {
+      top: 10px;
+    }
+
+    &.@{css-prefix}icon-arrow-down {
+      bottom: 10px;
+    }
+
+    &.@{input-prefix-cls} {
+      width: 70%;
+
+      .@{input-prefix-cls}__inner {
+        padding: 0;
+        text-align: center;
+      }
+    }
+  }
+
+  &__list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-align: center;
+
+    &::after,
+    &::before {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 80px;
+    }
+  }
+
+  & &__item {
+    text-align: center;
+    margin: var(--tv-TimeSpinner-item-margin);
+    padding: var(--tv-TimeSpinner-item-padding);
+    font-size: var(--tv-TimeSpinner-font-size);
+    line-height: var(--tv-TimeSpinner-line-height);
+    color: var(--tv-TimeSpinner-text-color);
+    border-radius: var(--tv-TimeSpinner-item-border-radius);
+    width: 52px;
+
+    &:hover:not(.disabled):not(.active) {
+      background: var(--tv-TimeSpinner-item-bg-color-hover);
+      cursor: pointer;
+    }
+
+    &.active:not(.disabled) {
+      background-color: var(--tv-TimeSpinner-item-bg-color-active);
+    }
+
+    &.disabled {
+      color: var(--tv-TimeSpinner-text-color-disabled);
+      cursor: not-allowed;
+      background: var(--tv-TimeSpinner-item-bg-color-disabled);
+    }
+  }
+
+  &.has-seconds .@{time-spinner-prefix-cls}__wrapper {
+    width: 33.3%;
+  }
+}

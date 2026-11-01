@@ -1,0 +1,103 @@
+/**
+* Copyright (c) 2022 - present TinyVue Authors.
+* Copyright (c) 2022 - present Huawei Cloud Computing Technologies Co., Ltd.
+*
+* Use of this source code is governed by an MIT-style license.
+*
+* THE OPEN SOURCE SOFTWARE IN THIS PRODUCT IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL,
+* BUT WITHOUT ANY WARRANTY, WITHOUT EVEN THE IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR
+* A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
+*
+*/
+
+@import '../custom.less';
+@import './vars.less';
+
+@action-menu-prefix-cls: ~'@{css-prefix}action-menu';
+@dropdown-prefix-cls: ~'@{css-prefix}dropdown';
+@dropdown-item-prefix-cls: ~'@{css-prefix}dropdown-item';
+
+.@{action-menu-prefix-cls} {
+  .inject-ActionMenu-vars();
+
+  font-size: var(--tv-ActionMenu-font-size);
+
+  .tiny-svg {
+    font-size: var(--tv-ActionMenu-icon-size);
+  }
+
+  &__wrap {
+    display: flex;
+
+    .@{action-menu-prefix-cls}__item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .@{dropdown-prefix-cls} {
+        display: flex;
+        align-items: center;
+      }
+
+      // 默认
+      &.@{action-menu-prefix-cls}__item-visible {
+        .@{dropdown-item-prefix-cls} {
+          padding: 0;
+
+          .@{dropdown-item-prefix-cls}__wrap {
+            color: var(--tv-ActionMenu-text-color);
+            margin: 0;
+            height: auto;
+
+            .tiny-svg {
+              fill: var(--tv-ActionMenu-icon-color);
+            }
+          }
+        }
+
+        // 悬浮
+        &:not(.is-disabled):hover {
+          .@{dropdown-item-prefix-cls} {
+            background-color: unset;
+
+            .@{dropdown-item-prefix-cls}__wrap {
+              text-decoration: underline;
+            }
+          }
+        }
+
+        //  禁用
+        &.is-disabled {
+          .@{dropdown-item-prefix-cls}__wrap {
+            .tiny-dropdown-item__content {
+              color: var(--tv-ActionMenu-text-color-disabled);
+
+              .tiny-svg {
+                fill: var(--tv-ActionMenu-icon-color-disabled);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    /* card 类型 */
+    &.@{action-menu-prefix-cls}__card-mode {
+      .tiny-svg {
+        fill: var(--tv-ActionMenu-icon-color-card);
+      }
+
+      .@{action-menu-prefix-cls}__item {
+        &.@{action-menu-prefix-cls}__item-visible {
+          .@{dropdown-item-prefix-cls}__wrap {
+            color: var(--tv-ActionMenu-text-color-card);
+
+            .tiny-svg {
+              fill: var(--tv-ActionMenu-icon-color-card);
+            }
+          }
+        }
+      }
+    }
+  }
+}

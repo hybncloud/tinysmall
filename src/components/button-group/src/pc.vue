@@ -1,0 +1,150 @@
+<!--
+ * Copyright (c) 2022 - present TinyVue Authors.
+ * Copyright (c) 2022 - present Huawei Cloud Computing Technologies Co., Ltd.
+ *
+ * Use of this source code is governed by an MIT-style license.
+ *
+ * THE OPEN SOURCE SOFTWARE IN THIS PRODUCT IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL,
+ * BUT WITHOUT ANY WARRANTY, WITHOUT EVEN THE IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR
+ * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
+ *
+-->
+<template>
+  <div
+    class="tiny-button-group"
+    :class="[size ? 'tiny-button-group--' + size : '', border ? '' : 'tiny-button-group--borderless', displayMode === 'merged' ? 'tiny-button-group--merged' : '']"
+  >
+    <slot>
+      <template v-if="data.length > 0">
+        <ul v-if="!(showMore && showMore > 0)" class="tiny-group-item">
+          <li v-for="(node, index) in data" :key="index" :class="{ active: state.value === node[valueField] }">
+            <button
+              :class="getItemClass(node)"
+              type="button"
+              v-auto-tip="Boolean(node.tip) ? { always: true, content: node.tip } : false"
+              :tabindex="getItemClass(node).disabled ? '-1' : '0'"
+              @click="handleClick(node)"
+            >
+              {{ node[textField] }}
+            </button>
+
+            <span
+              v-if="node.sup"
+              :class="[
+                'tiny-group-item__sup',
+                {
+                  'tiny-group-item__sup-text': !node.sup.slot && !node.sup.icon && node.sup.text && !node.sup.tag,
+                  'tiny-group-item__sup-icon': !node.sup.slot && node.sup.icon && !node.sup.tag,
+                  'tiny-group-item__sup-tag': node.sup.tag
+                },
+                typeof node.sup.class === 'string' ? node.sup.class : '',
+                ...(Array.isArray(node.sup.class) ? node.sup.class : [])
+              ]"
+            >
+              <slot v-if="node.sup.slot" :name="node.sup.slot" :sup="node.sup" />
+              <component v-else-if="node.sup.icon" :is="node.sup.icon"></component>
+              <span v-else-if="node.sup.text">{{ node.sup.text }}</span>
+            </span>
+          </li>
+        </ul>
+        <ul v-else class="tiny-group-item show-more">
+          <li
+            v-for="(node, index) in state.buttonData"
+            :key="index"
+            :class="{ active: state.value === node[valueField] }"
+          >
+            <button :class="getItemClass(node)" @click="handleClick(node)">
+              {{ node[textField] }}
+            </button>
+
+            <span
+              v-if="node.sup"
+              :class="[
+                'tiny-group-item__sup',
+                {
+                  'tiny-group-item__sup-text': !node.sup.slot && !node.sup.icon && node.sup.text && node.sup.tag,
+                  'tiny-group-item__sup-icon': !node.sup.slot && node.sup.icon && node.sup.tag,
+                  'tiny-group-item__sup-tag': node.sup.tag
+                },
+                typeof node.sup.class === 'string' ? node.sup.class : '',
+                ...(Array.isArray(node.sup.class) ? node.sup.class : [])
+              ]"
+            >
+              <slot v-if="node.sup.slot" :name="node.sup.slot" :sup="node.sup" />
+              <component v-else-if="node.sup.icon" :is="node.sup.icon"></component>
+              <span v-else-if="node.sup.text">{{ node.sup.text }}</span>
+            </span>
+          </li>
+          <li v-if="data.length > showMore" class="tiny-group-item__more">
+            <tiny-popover :visible-arrow="false" popper-class="tiny-group-item__more-popover">
+              <template #reference>
+                <tiny-button :reset-time="0" class="more-button">
+                  <icon-popup></icon-popup>
+                </tiny-button>
+              </template>
+              <ul class="more-list">
+                <li
+                  v-for="(moreNode, index) in state.moreData"
+                  :key="index"
+                  :class="{
+                    active: state.value === moreNode[valueField],
+                    'more-item': true
+                  }"
+                  @click="moreNodeClick(moreNode)"
+                >
+                  {{ moreNode[textField] }}
+                </li>
+              </ul>
+            </tiny-popover>
+          </li>
+          <li v-if="showEdit" class="tiny-group-item__edit">
+            <tiny-button @click="$emit('edit')" class="edit-button">
+              <Icon-editor></Icon-editor>
+            </tiny-button>
+          </li>
+        </ul>
+      </template>
+      <span v-else class="tiny-button-group--empty">
+        <slot name="empty">{{ t('ui.buttonGroup.noData') }}</slot>
+      </span>
+    </slot>
+  </div>
+</template>
+
+<script lang="ts">
+import { renderless, api } from '@opentiny/vue-renderless/button-group/vue'
+import { props, setup, defineComponent } from '@opentiny/vue-common'
+import Popover from '@opentiny/vue-popover'
+import Button from '@opentiny/vue-button'
+import { iconPopup, iconEditor } from '@opentiny/vue-icon'
+import { AutoTip } from '@opentiny/vue-directive'
+import type { IButtonGroupApi } from '@opentiny/vue-renderless/types/button-group.type'
+
+export default defineComponent({
+  emits: ['change', 'edit', 'update:modelValue'],
+  directives: { AutoTip },
+  props: [
+    ...props,
+    'size',
+    'data',
+    'plain',
+    'modelValue',
+    'disabled',
+    'valueField',
+    'textField',
+    'showMore',
+    'showEdit',
+    'border',
+    'displayMode'
+  ],
+  components: {
+    TinyPopover: Popover,
+    TinyButton: Button,
+    IconPopup: iconPopup(),
+    IconEditor: iconEditor() // 新规范图标
+  },
+  setup(props, context) {
+    return setup({ props, context, renderless, api }) as unknown as IButtonGroupApi
+  }
+})
+</script>

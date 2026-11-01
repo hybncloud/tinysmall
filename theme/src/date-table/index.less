@@ -1,0 +1,279 @@
+/**
+* Copyright (c) 2022 - present TinyVue Authors.
+* Copyright (c) 2022 - present Huawei Cloud Computing Technologies Co., Ltd.
+*
+* Use of this source code is governed by an MIT-style license.
+*
+* THE OPEN SOURCE SOFTWARE IN THIS PRODUCT IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL,
+* BUT WITHOUT ANY WARRANTY, WITHOUT EVEN THE IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR
+* A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
+*
+*/
+
+@import '../mixins/common.less';
+@import '../custom.less';
+@import './vars.less';
+
+@date-table-prefix-cls: ~'@{css-prefix}date-table';
+
+.@{date-table-prefix-cls} {
+  .inject-DateTable-vars();
+
+  font-size: var(--tv-DateTable-font-size);
+  .user-select(none);
+
+  &.is-week-mode &__row:hover {
+    td {
+      &.available:hover {
+        color: var(--tv-DateTable-text-color);
+      }
+
+      &:first-child div {
+        margin-left: 5px;
+        border-top-left-radius: var(--tv-DateTable-td-border-radius);
+        border-bottom-left-radius: var(--tv-DateTable-td-border-radius);
+      }
+
+      &:last-child div {
+        margin-right: 5px;
+        border-top-right-radius: var(--tv-DateTable-td-border-radius);
+        border-bottom-right-radius: var(--tv-DateTable-td-border-radius);
+      }
+    }
+
+    div {
+      background-color: var(--tv-DateTable-hover-bg-color);
+    }
+  }
+
+  &.is-week-mode &__row.current {
+    div {
+      background-color: var(--tv-DateTable-week-bg-color-current-select);
+
+      &:hover {
+        background-color: var(--tv-DateTable-week-bg-color-current-hover);
+      }
+    }
+
+    td.available {
+      &:hover span {
+        background-color: transparent;
+      }
+
+      &.start-date span,
+      &.end-date span {
+        background-color: var(--tv-DateTable-bg-color-current-select);
+        border-radius: var(--tv-DateTable-border-radius-current-select);
+      }
+    }
+  }
+  &__week {
+    height: var(--tv-DateTable-week-height);
+    line-height: var(--tv-DateTable-tr-line-height);
+  }
+  td {
+    width: var(--tv-DateTable-td-width);
+    height: var(--tv-DateTable-td-height);
+    padding: var(--tv-DateTable-td-padding);
+    box-sizing: border-box;
+    text-align: center;
+    cursor: pointer;
+    vertical-align: middle;
+    position: relative;
+
+    div {
+      height: var(--tv-DateTable-td-div-height);
+      min-width: var(--tv-DateTable-td-div-width);
+      padding: 3px 0;
+      box-sizing: border-box;
+    }
+
+    span {
+      min-width: var(--tv-DateTable-td-span-width);
+      height: var(--tv-DateTable-td-span-height);
+      line-height: var(--tv-DateTable-td-span-height);
+      display: block;
+      margin: 0 auto;
+      position: absolute;
+      left: 50%;
+      top: var(--tv-DateTable-td-span-top);
+      transform: translateX(-50%);
+    }
+
+    &.next-month,
+    &.pre-month {
+      color: var(--tv-DateTable-td-pre-month-text-color);
+      cursor: pointer;
+    }
+
+    &.today {
+      position: relative;
+      color: var(--tv-DateTable-text-color);
+
+      &:after {
+        content: '';
+        width: 12px;
+        height: 1px;
+        background: transparent;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        bottom: 5px;
+      }
+
+      span {
+        line-height: var(--tv-DateTable-td-today-height);
+        min-width: var(--tv-DateTable-td-today-width);
+        height: var(--tv-DateTable-td-today-height);
+        border-radius: var(--tv-DateTable-td-today-border-radius);
+        box-shadow: 0 0 1px 1px var(--tv-DateTable-td-today-circle-border-color);
+      }
+
+      &.end-date,
+      &.start-date {
+        span {
+          color: var(--tv-DateTable-td-normal-text-color);
+        }
+      }
+    }
+
+    &.available:not(.today):hover span {
+      background-color: var(--tv-DateTable-hover-bg-color);
+      border-radius: var(--tv-DateTable-border-radius-current-select);
+      box-shadow: none;
+    }
+    &.current.available:not(.today):hover span {
+      color: var(--tv-DateTable-td-normal-text-color);
+      background-color: var(--tv-DateTable-bg-color-current-select);
+      border-radius: var(--tv-DateTable-border-radius-current-select);
+      box-shadow: none;
+    }
+
+    &.current:not(.disabled) {
+      span {
+        color: var(--tv-DateTable-td-normal-text-color);
+        background-color: var(--tv-DateTable-bg-color-current-select);
+        border-radius: var(--tv-DateTable-border-radius-current-select);
+        box-shadow: none;
+      }
+
+      &:after {
+        background-color: transparent;
+      }
+    }
+
+    &.end-date,
+    &.start-date {
+      div {
+        color: var(--tv-DateTable-td-normal-text-color);
+      }
+
+      span {
+        background-color: var(--tv-DateTable-bg-color-current-select);
+        border-radius: var(--tv-DateTable-start-date-border-radius);
+        box-shadow: none;
+      }
+    }
+
+    &.start-date {
+      div {
+        margin-left: 5px;
+        border-top-left-radius: var(--tv-DateTable-td-border-radius);
+        border-bottom-left-radius: var(--tv-DateTable-td-border-radius);
+      }
+    }
+
+    &.end-date {
+      div {
+        margin-right: 5px;
+        border-top-right-radius: var(--tv-DateTable-td-border-radius);
+        border-bottom-right-radius: var(--tv-DateTable-td-border-radius);
+      }
+    }
+
+    &.disabled {
+      div {
+        background-color: var(--tv-DateTable-bg-color-disabled);
+        opacity: 1;
+        cursor: not-allowed;
+        color: var(--tv-DateTable-text-color-disabled);
+        border-top-left-radius: var(--tv-DateTable-td-border-radius-disabled);
+        border-bottom-left-radius: var(--tv-DateTable-td-border-radius-disabled);
+      }
+    }
+
+    &.in-range {
+      div {
+        background-color: var(--tv-DateTable-range-bg-color);
+      }
+
+      &.end-date:hover,
+      &.start-date:hover {
+        span {
+          background-color: var(--tv-DateTable-bg-color-current-select);
+        }
+      }
+    }
+
+    &.available {
+      padding: 0;
+    }
+
+    &.selected {
+      div {
+        margin-left: 4px;
+        margin-right: 4px;
+      }
+
+      span {
+        background-color: var(--tv-DateTable-bg-color-current-select);
+        color: var(--tv-DateTable-td-normal-text-color);
+        border: none;
+        border-radius: var(--tv-DateTable-cell-border-radius-selected);
+      }
+
+      &.available:hover span {
+        background-color: var(--tv-DateTable-bg-color-current-select);
+      }
+    }
+    &.selected.in-range div{
+      background-color: var(--tv-DateTable-td-bg-color-range-selected);
+    }
+
+    &.week {
+      font-size: 80%;
+      color: var(--tv-DateTable-text-color);
+    }
+  }
+
+  th {
+    color: var(--tv-DateTable-th-text-color);
+    font-weight: 400;
+    white-space: nowrap;
+    vertical-align: middle;
+  }
+  &__row .disabled + .disabled div {
+    border-radius: unset;
+  }
+  &__row .disabled:not(:has(+ .disabled)) div {
+    border-top-right-radius: var(--tv-DateTable-td-border-radius-disabled);
+    border-bottom-right-radius: var(--tv-DateTable-td-border-radius-disabled);
+  }
+  &__row td:first-of-type div {
+    border-top-left-radius: var(--tv-DateTable-td-border-radius-disabled);
+    border-bottom-left-radius: var(--tv-DateTable-td-border-radius-disabled);
+  }
+  &__row td:last-of-type div {
+    border-top-right-radius: var(--tv-DateTable-td-border-radius-disabled);
+    border-bottom-right-radius: var(--tv-DateTable-td-border-radius-disabled);
+  }
+  &__row td.pre-month + td.available.in-range div {
+    border-top-left-radius: var(--tv-DateTable-td-border-radius-disabled);
+    border-bottom-left-radius: var(--tv-DateTable-td-border-radius-disabled);
+  }
+  &__row td.available.in-range:has(+ td.next-month) div {
+    border-top-right-radius: var(--tv-DateTable-td-border-radius-disabled);
+    border-bottom-right-radius: var(--tv-DateTable-td-border-radius-disabled);
+  }
+}

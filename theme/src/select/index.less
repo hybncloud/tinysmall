@@ -1,0 +1,460 @@
+/**
+* Copyright (c) 2022 - present TinyVue Authors.
+* Copyright (c) 2022 - present Huawei Cloud Computing Technologies Co., Ltd.
+*
+* Use of this source code is governed by an MIT-style license.
+*
+* THE OPEN SOURCE SOFTWARE IN THIS PRODUCT IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL,
+* BUT WITHOUT ANY WARRANTY, WITHOUT EVEN THE IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR
+* A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
+*
+*/
+
+@import '../custom.less';
+@import './vars.less';
+
+@select-prefix-cls: ~'@{css-prefix}select';
+@input-prefix-cls: ~'@{css-prefix}input';
+@tag-prefix-cls: ~'@{css-prefix}tag';
+
+.@{select-prefix-cls} {
+  .inject-Select-vars();
+
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  outline: 0;
+
+  &&__multiple:not(&__collapse-tags):not(&__filterable) &__tags > span {
+    // 兼容ie10-ie11
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-content: flex-start;
+    }
+
+    // 兼容edge
+    @supports (-ms-ime-align: auto) {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-content: flex-start;
+    }
+  }
+
+  &&__collapse-tags {
+    .@{select-prefix-cls}__tags {
+      & > span {
+        display: flex;
+        width: 100%;
+
+        & > span {
+          display: flex;
+        }
+
+        & > span:not(:only-child):first-child {
+          max-width: 70%;
+        }
+      }
+    }
+
+    &.@{select-prefix-cls}__filterable {
+      .@{select-prefix-cls}__tags {
+        & > span {
+          width: auto;
+          max-width: 76%;
+
+          & > span:first-child {
+            flex: 1;
+
+            // 兼容ie10-ie11
+            @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+              flex-basis: auto;
+            }
+          }
+
+          & > span:only-child,
+          & > span:not(:only-child):first-child {
+            max-width: 100%;
+          }
+
+          & > span:not(:only-child):not(:first-child) {
+            @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+              // 兼容ie10-ie11
+              flex-shrink: 0;
+              flex-basis: auto;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &&__filterable {
+    .@{select-prefix-cls}__tags {
+      .@{select-prefix-cls}__input {
+        cursor: text;
+      }
+    }
+  }
+
+  &&--medium {
+    .@{input-prefix-cls} .@{input-prefix-cls}__suffix-inner {
+      height: var(--tv-Select-height-medium);
+    }
+  }
+
+  &&--small {
+    .@{input-prefix-cls} .@{input-prefix-cls}__suffix-inner {
+      height: var(--tv-Select-height-small);
+    }
+  }
+
+  &&--mini {
+    .@{input-prefix-cls} .@{input-prefix-cls}__suffix-inner {
+      height: var(--tv-Select-height-mini);
+    }
+
+    .@{select-prefix-cls}__tags {
+      padding: var(--tv-Select-tags-padding-mini);
+
+      .tiny-tag {
+        height: 18px;
+      }
+    }
+  }
+
+  &__tags {
+    position: absolute;
+    line-height: normal;
+    white-space: normal;
+    padding: var(--tv-Select-tags-padding);
+    z-index: 1;
+    top: 50%;
+    margin-left: 1px;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    cursor: pointer;
+
+    & > span {
+      display: contents;
+
+      > span {
+        font-size: 0;
+
+        .tiny-tag.is-required {
+          cursor: not-allowed;
+          > svg {
+            cursor: not-allowed;
+          }
+        }
+      }
+    }
+
+    .not-visible {
+      visibility: hidden;
+    }
+
+    /* 搜索框 */
+    .@{select-prefix-cls}__input {
+      cursor: pointer;
+      border: none;
+      outline: 0;
+      padding: 0;
+      margin-left: 8px;
+      color: var(--tv-Select-text-color);
+      font-size: var(--tv-Select-font-size);
+      height: var(--tv-Select-height);
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background-color: transparent;
+    }
+
+    &.is-showicon {
+      padding-left: 24px;
+    }
+
+    .@{tag-prefix-cls} {
+      white-space: nowrap;
+      box-sizing: border-box;
+      border-color: transparent;
+      margin: var(--tv-Select-tag-margin);
+      text-overflow: ellipsis;
+      overflow: hidden;
+      display: inline-flex;
+      justify-content: flex-start;
+      align-items: center;
+      max-width: 160px;
+    }
+
+    .@{select-prefix-cls}__tags-text {
+      display: inline-block;
+      width: 100%;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      vertical-align: bottom;
+
+      & + .@{tag-prefix-cls}__close {
+        flex-shrink: 0;
+      }
+
+      // TODO: Aurora 多选禁用文本显示(评估是否删除）
+      &.is-disabled {
+        max-height: 24px;
+        display: inline-flex;
+
+        > span {
+          color: var(--tv-Select-text-color-disabled);
+          margin: var(--tv-Select-tags-margin-top) var(--tv-Select-tags-margin-right)
+            var(--tv-Select-tags-margin-bottom) var(--tv-Select-tags-margin-left);
+          display: inline-block;
+          width: 100%;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
+      }
+    }
+
+    // 收起按钮
+    .@{select-prefix-cls}__collapse-text {
+      display: inline-flex;
+      align-items: center;
+      margin: var(--tv-Select-collapse-margin);
+      font-size: var(--tv-Select-font-size);
+      color: var(--tv-Select-collapse-text-color);
+
+      .tiny-svg {
+        margin: var(--tv-Select-collapse-margin);
+        fill: var(--tv-Select-icon-color);
+        font-size: var(--tv-Select-icon-size);
+      }
+    }
+  }
+
+  &.tiny-select__multiple.is-display-only {
+    &.is-hover-expand,
+    &.is-click-expand {
+      vertical-align: top;
+    }
+  }
+
+  &.is-hover-expand,
+  &.is-click-expand {
+    .@{select-prefix-cls}__tags-group {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      &:hover {
+        z-index: 2;
+      }
+    }
+
+    &.is-hover {
+      .is-expand {
+        z-index: 2;
+      }
+    }
+
+    .@{select-prefix-cls}__tags {
+      height: var(--tv-Select-tags-height);
+      overflow: hidden;
+
+      &-collapse {
+        visibility: visible;
+        position: static;
+      }
+
+      .is-hidden {
+        visibility: hidden;
+        position: absolute;
+      }
+
+      > span > span {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .hidden {
+        visibility: hidden;
+      }
+    }
+
+    &.@{select-prefix-cls}--medium {
+      .tiny-select__tags {
+        height: var(--tv-Select-height-medium);
+      }
+    }
+
+    &.@{select-prefix-cls}--small {
+      .tiny-select__tags {
+        height: var(--tv-Select-height-small);
+      }
+    }
+
+    &.@{select-prefix-cls}--mini {
+      .tiny-select__tags {
+        height: var(--tv-Select-height-mini);
+      }
+    }
+
+    &.is-hover,
+    &.collapse-tag-clicked {
+      .@{select-prefix-cls}__tags {
+        height: auto;
+        overflow-y: auto;
+
+        &-collapse {
+          visibility: hidden;
+          position: absolute;
+
+          &.is-hidden {
+            margin: 0;
+          }
+        }
+
+        &.not-selected {
+          overflow-y: hidden;
+        }
+      }
+    }
+
+    & .is-expand {
+      position: absolute;
+      width: 100%;
+    }
+  }
+
+  &.is-hover-expand.is-disabled {
+    .@{select-prefix-cls}__tags {
+      height: auto;
+
+      > span {
+        > span {
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+  &.is-click-expand .@{select-prefix-cls}__tags-collapse {
+    visibility: visible;
+    position: static;
+
+    &.is-hidden {
+      visibility: hidden;
+      position: absolute;
+    }
+
+    .tiny-svg {
+      margin-right: 0;
+    }
+  }
+
+  &.is-disabled,
+  &.is-display-only {
+    cursor: not-allowed;
+
+    .tiny-select__tags {
+      cursor: not-allowed;
+    }
+
+    .@{input-prefix-cls} {
+      &__inner {
+        padding-right: 12px;
+      }
+
+      &__suffix {
+        cursor: not-allowed;
+      }
+    }
+
+    .@{select-prefix-cls}__tags {
+      padding-right: 16px;
+    }
+
+    .@{select-prefix-cls}__tags.is-show-tag {
+      padding-right: 32px;
+    }
+  }
+
+  &-tip &-tipcontent {
+    max-width: 300px;
+  }
+
+  & .@{input-prefix-cls} {
+    display: block;
+
+    /** smb规范要求超长了显示 ... 比较合理，所以全部规范都增加省略号 */
+    .@{input-prefix-cls}__inner {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .@{input-prefix-cls}__inner[readonly] {
+      cursor: pointer;
+    }
+
+    .@{select-prefix-cls}__caret {
+      fill: var(--tv-Select-icon-color);
+      font-size: var(--tv-Select-icon-size);
+      transition: transform 0.3s;
+      transform: rotateZ(180deg);
+      cursor: pointer;
+
+      &:hover {
+        fill: var(--tv-Select-icon-color-hover);
+      }
+
+      &.is-reverse {
+        transform: rotateZ(0);
+      }
+    }
+
+    .@{select-prefix-cls}__limit-txt,
+    .@{select-prefix-cls}__proportion-txt {
+      font-size: var(--tv-Select-font-size);
+      margin: var(--tv-Select-suffix-text-margin);
+      color: var(--tv-Select-suffix-text-color);
+    }
+
+    .@{select-prefix-cls}__copy {
+      cursor: pointer;
+      margin-right: var(--tv-Select-suffix-icon-margin-right);
+    }
+
+    .@{input-prefix-cls}__suffix {
+      height: unset;
+
+      &-inner {
+        font-size: 0;
+        height: var(--tv-Select-height);
+      }
+    }
+
+    & .@{input-prefix-cls}__suffix-inner {
+      overflow: hidden;
+    }
+
+    &.is-disabled {
+      .@{select-prefix-cls}__caret {
+        fill: var(--tv-Select-icon-color-disabled);
+        cursor: not-allowed;
+      }
+
+      .@{input-prefix-cls}__inner {
+        cursor: not-allowed;
+      }
+    }
+  }
+}

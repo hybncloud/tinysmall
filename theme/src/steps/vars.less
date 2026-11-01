@@ -1,0 +1,284 @@
+/**
+* Copyright (c) 2022 - present TinyVue Authors.
+* Copyright (c) 2022 - present Huawei Cloud Computing Technologies Co., Ltd.
+*
+* Use of this source code is governed by an MIT-style license.
+*
+* THE OPEN SOURCE SOFTWARE IN THIS PRODUCT IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL,
+* BUT WITHOUT ANY WARRANTY, WITHOUT EVEN THE IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR
+* A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
+*
+*/
+
+.inject-Steps-vars() {
+  // 节点默认文本字号
+  --tv-Steps-font-size: var(--tv-font-size-default, 14px);
+  // 节点默认文本色
+  --tv-Steps-text-color: var(--tv-color-text, #191919);
+  // 当前节点背景色
+  --tv-Steps-node-bg-color-active: var(--tv-color-bg-primary, #191919);
+  // 禁用节点序号文本色
+  --tv-Steps-disabled-icon-color: var(--tv-color-text-disabled, #c2c2c2);
+  // 描述信息文本色
+  --tv-Steps-node-desc-text-color: var(--tv-color-text-weaken, #808080);
+  // 节点圆圈尺寸-中
+  --tv-Steps-node-circle-size: var(--tv-size-height-md, 32px);
+  // 节点圆圈尺寸-large
+  --tv-Steps-node-circle-size-lg: var(--tv-size-height-lg, 40px);
+  // 已完成节点边框色
+  --tv-Steps-node-done-border-color: var(--tv-color-border-active, #191919);
+  // 已完成节点背景色
+  --tv-Steps-node-done-bg-color: var(--tv-color-bg-active-dark, #191919);
+  // 高级向导当前项和计数标记点的文本色
+  --tv-Steps-advance-li-text-color: var(--tv-color-text-inverse, #fff);
+
+  // 节点内容悬浮文本色
+  --tv-Steps-node-title-text-color-hover: var(--tv-color-text, #191919);
+  // 序号圆圈大小
+  --tv-Steps-icon-size: var(--tv-size-height-md, 32px);
+  // 节点间横线厚度
+  --tv-Steps-line-height: var(--tv-border-width, 1px);
+  // 节点间横线水平边距
+  --tv-Steps-line-margin-horizontal: var(--tv-space-md, 8px);
+  // 节点内容左边距
+  --tv-Steps-text-margin-left: var(--tv-space-md, 8px);
+  // 活跃节点边框色
+  --tv-Steps-advance-active-border-color: var(--tv-color-border-active, #191919);
+  // 活跃节点内容文本色
+  --tv-Steps-advance-active-text-color: var(--tv-color-text, #191919);
+  // 已完成节点文本色
+  --tv-Steps-done-text-color: var(--tv-color-text, #191919);
+  // 已完成节点选中文本色
+  --tv-Steps-done-text-color-black: var(--tv-color-text-inverse-black, #191919);
+  // 已完成节点线条色
+  --tv-Steps-line-active-bg-color: var(--tv-color-bg-active-primary, #191919);
+  // 已完成节点图标色
+  --tv-Steps-done-icon-color: var(--tv-color-icon-active, #191919);
+  // 未完成的线条色
+  --tv-Steps-line-bg-color: var(--tv-color-border-divider, #f0f0f0);
+  // 未完成节点的背景色
+  --tv-Steps-node-icon-bg-color: var(--tv-color-bg-dark, #ffffff);
+  // 未完成节点序号图标文本色
+  --tv-Steps-unselected-icon-color: var(--tv-color-text, #191919);
+  // 未完成节点边框色
+  --tv-Steps-node-border-color: var(--tv-color-border-divider-short, #dbdbdb);
+  // 未完成节点内容文本色
+  --tv-Steps-timeline-date-time-text-color: var(--tv-color-text, #191919);
+  // 错误节点的背景色
+  --tv-Steps-error-icon-bg-color: var(--tv-color-bg-secondary, #ffffff);
+  // 错误节点图标色
+  --tv-Steps-error-icon-color: var(--tv-color-error-icon, #f23030);
+  // 错误节点边框色
+  --tv-Steps-error-border-color: var(--tv-color-error-border, #f23030);
+  // 错误节点描述文本色
+  --tv-Steps-error-text-color: var(--tv-color-error-text, #f23030);
+  // 禁用节点的背景色
+  --tv-Steps-disabled-icon-bg-color: var(--tv-color-bg-disabled, #f0f0f0);
+  // 禁用节点边框色
+  --tv-Steps-disabled-border-color: var(--tv-color-border-disabled, #dbdbdb);
+  // 禁用节点描述文本色
+  --tv-Steps-disabled-text-color: var(--tv-color-text-disabled, #c2c2c2);
+  // mini尺寸序号圆圈大小
+  --tv-Steps-mini-icon-size: var(--tv-icon-size, 16px);
+  // mini尺寸序号字号
+  --tv-Steps-mini-number-font-size: var(--tv-font-size-sm, 12px);
+  // small尺寸序号圆圈大小
+  --tv-Steps-icon-small-size: 24px;
+  // small尺寸序号字号
+  --tv-Steps-small-number-font-size: var(--tv-font-size-default, 14px);
+
+  /** 条形步骤条高级向导场景 */
+  // 高级向导节点背景色
+  --tv-Steps-advance-node-bg-color: var(--tv-color-bg-active-dark, #f5f5f5);
+  // 高级向导节点悬浮背景色
+  --tv-Steps-advance-node-bg-color-hover: var(--tv-color-bg-hover, #f5f5f5);
+  // 高级向导选中节点悬浮背景色
+  --tv-Steps-advance-node-active-bg-color-hover: var(--tv-color-bg-hover-primary, #595959);
+  // 高级向导已完成节点背景色
+  --tv-Steps-advance-node-done-bg-color: var(--tv-color-bg-active-dark, #f0f0f0);
+  // 高级向导已完成节点悬浮背景色
+  --tv-Steps-advance-node-done-bg-color-hover: var(--tv-color-bg-disabled, #f0f0f0);
+  // 高级向导进行中节点背景色
+  --tv-Steps-advance-node-doing-bg-color: var(--tv-color-bg-active-dark, #f5f5f5);
+  // 高级向导已完成节点悬浮背景色
+  --tv-Steps-advance-node-doing-bg-color-hover: var(--tv-color-bg-3, #f0f0f0);
+  // 高级向导异常节点背景色
+  --tv-Steps-advance-node-error-bg-color: var(--tv-color-error-bg-light, #fce3e1);
+  // 高级向导异常节点悬浮背景色
+  --tv-Steps-advance-node-error-bg-color-hover: var(--tv-color-error-bg-light, #fce3e1);
+  // 高级向导异常节点选中背景色
+  --tv-Steps-advance-node-error-bg-color-active: #de504e;
+  // 高级向导异常节点图标色
+  --tv-Steps-advance-error-icon-color: var(--tv-color-error-icon, #f23030);
+  // 高级向导禁用节点文本以及图标色
+  --tv-Steps-advance-node-disable-icon-color: var(--tv-color-icon, #808080);
+  // 高级向导禁用节点背景色
+  --tv-Steps-advance-node-disable-bg-color: var(--tv-color-bg-disabled-control-unactive, #dbdbdb);
+  // 高级向导禁用节点悬浮背景色
+  --tv-Steps-advance-node-disable-bg-color-hover: var(--tv-color-bg-disabled-control-unactive, #dbdbdb);
+  // 高级向导禁用节点点击背景色
+  --tv-Steps-advance-node-disable-bg-color-active: var(--tv-color-bg-disabled-control-unactive, #dbdbdb);
+
+  /** 单链型场景 */
+  // 单链型序号悬浮边框色
+  --tv-Steps-line-number-border-color-hover: var(--tv-color-border-hover, #191919);
+  // 单链型序号悬浮文本色
+  --tv-Steps-line-number-text-color-hover: var(--tv-color-text, #191919);
+  // 单链型序号悬浮背景色
+  --tv-Steps-line-number-bg-color-hover: var(--tv-color-bg-secondary, #ffffff);
+  // 单链型序号禁用选中背景色
+  --tv-Steps-line-number-active-bg-color-disabled: var(--tv-color-bg-disabled, #f0f0f0);
+  // 单链型序号禁用选中文本色
+  --tv-Steps-line-number-active-text-color-disabled: var(--tv-color-text-disabled, #c2c2c2);
+  // 单链型选中节点描述文本色
+  --tv-Steps-line-desc-text-color-active: var(--tv-color-text-weaken, #808080);
+  // 单链型节点名称禁用文本色
+  --tv-Steps-line-title-text-color-disabled: var(--tv-color-text-disabled, #c2c2c2);
+  // 单链型错误节点悬浮背景色
+  --tv-Steps-line-error-icon-bg-color-hover: var(--tv-color-error-bg-light, #fce3e1);
+  // 单链型处理中节点序号背景色
+  --tv-Steps-line-doing-icon-bg-color: var(--tv-color-act-primary-bg-white-active, #ffffff);
+  // 单链型处理中节点边框色
+  --tv-Steps-doing-border-color: var(--tv-color-border-active, #191919);
+  // 单链型处理中节点图标文本色
+  --tv-Steps-line-doing-icon-color: var(--tv-color-text, #191919);
+  // 单链型处理中节点悬浮边框色
+  --tv-Steps-line-doing-border-color-hover: var(--tv-color-act-primary-border-hover, #595959);
+  // 单链型处理中线条色
+  --tv-Steps-line-doing-border-color: var(--tv-color-border, #808080);
+  // 单链型活跃节点序号图标色
+  --tv-Steps-line-doing-active-icon-color: var(--tv-color-icon-inverse-tint, #fff);
+  // 单链型已完成节点悬浮边框色
+  --tv-Steps-line-done-border-color-hover: var(--tv-color-border-secondary, #595959);
+  // 垂直单链型节点标题上边距
+  --tv-Steps-line-vertical-title-margin-top: var(--tv-space-md, 8px);
+  // 垂直单链型节点描述上边距
+  --tv-Steps-line-vertical-desc-margin-top: var(--tv-space-md, 8px);
+
+  /** 默认标准型场景 */
+  // 高级向导行高
+  --tv-Steps-advance-line-height: var(--tv-size-height-sm, 28px);
+  // 高级向导未选中项背景色
+  --tv-Steps-advance-li-bg-color: var(--tv-color-bg-active-dark, #f5f5f5);
+  // 高级向导字号
+  --tv-Steps-advance-link-font-size: var(--tv-font-size-sm, 12px);
+  // 高级向导边框色
+  --tv-Steps-advance-border-color: var(--tv-color-border, #c2c2c2);
+  // 高级向导未选中项文本色
+  --tv-Steps-advance-text-color: var(--tv-color-text-inverse, #191919);
+  // 高级向导节点悬浮背景色
+  --tv-Steps-advance-li-hover-bg-color: var(--tv-color-bg-header, #f0f0f0);
+  // 高级向导节点悬浮文本色
+  --tv-Steps-advance-li-hover-text-color: var(--tv-color-text-secondary, #595959);
+  // 高级向导边框圆角
+  --tv-Steps-advance-border-radius: 3px;
+  // 高级向导节点里的图标高度
+  --tv-Steps-advance-dot-height: var(--tv-space-lg, 12px);
+  // 高级向导节点里的图标宽度
+  --tv-Steps-advance-dot-width: var(--tv-space-lg, 12px);
+  // 高级向导计数标记点字号
+  --tv-Steps-advance-count-font-size: var(--tv-font-size-sm, 12px);
+  // 高级向导计数标记点高度
+  --tv-Steps-advance-count-height: calc(var(--tv-size-base, 4px) * 4);
+  // 高级向导计数标记点边框圆角
+  --tv-Steps-advance-count-border-radius: 10px;
+  // 高级向导计数标记点背景色
+  --tv-Steps-advance-count-bg-color: var(--tv-color-error-bg, #f23030);
+
+  // 垂直点状形场景
+  // 垂直点状形当前节点颜色
+  --tv-Steps-dot-vertical-current-bg-color: var(--tv-color-border-active, #191919);
+  // 垂直点状形当前节点边框颜色
+  --tv-Steps-dot-vertical-undo-border-color: var(--tv-color-border-disabled, #c2c2c2);
+  // 垂直点状形当前节点背景颜色
+  --tv-Steps-dot-vertical-undo-dot-color: var(--tv-color-bg-4, #c2c2c2);
+  // 垂直点状形当前节点文字颜色
+  --tv-Steps-dot-title-undo-text-color: var(--tv-color-text-secondary, #595959);
+
+  /** timline场景 */
+  // timeline图标字号
+  --tv-Steps-number-font-size: var(--tv-font-size-default, 14px);
+  // 图标边框宽度
+  --tv-Steps-icon-border-width: var(--tv-border-width, 1px);
+  // 自定义图标背景色
+  --tv-Steps-custom-icon-bg-color: var(--tv-color-bg-secondary, #ffffff);
+  // 警告节点背景色
+  --tv-Steps-warning-icon-bg-color: var(--tv-color-warn-bg, #ff8800);
+  // 警告节点图标色
+  --tv-Steps-warning-icon-color: var(--tv-color-icon-inverse, #ffffff);
+  // 自定义图标大小
+  --tv-Steps-custom-icon-size: calc(var(--tv-size-base, 4px) * 5);
+  // 时间信息字号
+  --tv-Steps-time-font-size: var(--tv-font-size-default, 14px);
+  // 时间信息文本色
+  --tv-Steps-time-text-color: var(--tv-color-text-weaken, #808080);
+  // 已完成节点图标大小
+  --tv-Steps-done-icon-size: var(--tv-font-size-default, 14px);
+  // 错误节点背景色
+  --tv-Steps-error-bg-color: transparent;
+  // 错误节点图标大小
+  --tv-Steps-error-icon-size: var(--tv-font-size-heading-xs, 16px);
+  // 节点内容悬浮字重
+  --tv-Steps-content-font-weight-hover: var(--tv-font-weight-bold, 600);
+  // 节点标题右外边距
+  --tv-Steps-name-margin-right: 0;
+  // 节点文本内容上边距
+  --tv-Steps-content-margin-top: var(--tv-space-md, 8px);
+  // 活跃节点字重
+  --tv-Steps-active-font-weight: var(--tv-font-weight-bold, 600);
+  // 底部分割线与主体间距
+  --tv-Steps-bottom-divider-margin-top: 25px;
+  // 底部分割线厚度
+  --tv-Steps-bottom-divider-height: var(--tv-border-width, 1px);
+  // 底部分割线的颜色
+  --tv-Steps-bottom-divider-bg-color: var(--tv-color-border-divider, #f0f0f0);
+  // 竖式步骤条节点左右字号
+  --tv-Steps-timeline-name-font-size: var(--tv-font-size-default, 14px);
+  // 竖式步骤条线条上下间距
+  --tv-Steps-timeline-line-margin-vertical: var(--tv-space-base, 4px);
+  // 竖式步骤条线条背景色
+  --tv-Steps-timeline-vertical-line-bg-color: var(--tv-color-bg-header, #f0f0f0);
+  // 竖式步骤条圆点与内容间隔
+  --tv-Steps-timeline-shape-dot-content-margin-left: var(--tv-space-xl, 16px);
+  // 基本状态圆点背景和边框色
+  --tv-Steps-timeline-dot-primary-bg-color: var(--tv-color-bg-4, #c2c2c2);
+  // 成功状态圆点颜色
+  --tv-Steps-timeline-dot-success-bg-color: var(--tv-color-success-bg, #5cb300);
+  // 警告状态圆点颜色
+  --tv-Steps-timeline-dot-warning-bg-color: var(--tv-color-warn-bg, #ff8800);
+  // 危险状态圆点颜色
+  --tv-Steps-timeline-dot-danger-bg-color: var(--tv-color-error-bg, #f23030);
+  // 信息状态圆点颜色
+  --tv-Steps-timeline-dot-info-bg-color: var(--tv-color-info-bg, #1476ff);
+  // 竖式步骤条标题与二级文本间距
+  --tv-Steps-timeline-item-title-margin-bottom: var(--tv-space-base, 4px);
+  // 竖式步骤条二级文本字号
+  --tv-Steps-timeline-item-secondary-text-font-size: var(--tv-font-size-sm, 12px);
+  // 竖式步骤条二级文本颜色
+  --tv-Steps-timeline-item-secondary-text-color: var(--tv-color-text-weaken, #808080);
+  // 竖式步骤条线条左间距
+  --tv-Steps-timeline-vertical-line-margin-left: var(--tv-space-xl, 16px);
+  // 竖式步骤条节点内容底部内边距
+  --tv-Steps-timeline-item-padding-bottom: var(--tv-space-xxl, 24px);
+  // 竖式步骤条圆点尺寸
+  --tv-Steps-timeline-dot-width: 8px;
+  // 竖式步骤条圆点边框色
+  --tv-Steps-timeline-dot-border-color: var(--tv-color-border, #c2c2c2);
+  // 竖式步骤条圆点背景色
+  --tv-Steps-timeline-dot-bg-color: var(--tv-color-bg-secondary, #ffffff);
+  // 竖式步骤条线条右间距
+  --tv-Steps-timeline-vertical-line-margin-right: var(--tv-Steps-timeline-vertical-line-margin-left, 16px);
+  // mini尺寸节点内容字号
+  --tv-Steps-mini-font-size-base: var(--tv-font-size-sm, 12px);
+  // 条状进度条角标背景色
+  --tv-Steps-advance-mark-bg-color: var(--tv-color-bg-active-dark, #f5f5f5);
+}
+
+.inject-Steps-responsive-vars() {
+  // 小屏时步骤条节点描述行高
+  --tv-Steps-responsive-node-desc-line-height: calc(var(--tv-size-height-xs, 24px) - 6px);
+  // 小屏时步骤条节点描述上间距
+  --tv-Steps-responsive-node-desc-space-top: var(--tv-space-sm, 4px);
+  // 小屏时步骤条边框色
+  --tv-Steps-responsive-border-color: var(--tv-color-border-inverse-tint, #fff);
+}

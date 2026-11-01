@@ -1,0 +1,54 @@
+/**
+* Copyright (c) 2022 - present TinyVue Authors.
+* Copyright (c) 2022 - present Huawei Cloud Computing Technologies Co., Ltd.
+*
+* Use of this source code is governed by an MIT-style license.
+*
+* THE OPEN SOURCE SOFTWARE IN THIS PRODUCT IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL,
+* BUT WITHOUT ANY WARRANTY, WITHOUT EVEN THE IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR
+* A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
+*
+*/
+
+@import '../custom.less';
+@import './vars.less';
+
+@option-group-prefix-cls: ~'@{css-prefix}option-group';
+
+.@{option-group-prefix-cls} {
+  .inject-OptionGroup-vars();
+
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  &:not(:last-of-type) {
+    padding-bottom: 0px;
+  }
+
+  &:not(:last-of-type)::after {
+    content: '';
+    position: absolute;
+    display: block;
+    left: 8px;
+    right: 8px;
+    bottom: 12px;
+    height: var(--tv-OptionGroup-height-divider);
+    background: var(--tv-OptionGroup-border-color-divider);
+  }
+
+  .@{option-group-prefix-cls}__title {
+    padding: 0 var(--tv-OptionGroup-title-padding-x);
+    font-size: var(--tv-OptionGroup-font-size);
+
+    color: var(--tv-OptionGroup-text-color);
+    line-height: var(--tv-OptionGroup-line-height);
+    height: auto;
+    margin: var(--tv-OptionGroup-title-margin);
+  }
+
+  &:first-child .@{option-group-prefix-cls}__title {
+    margin-top: var(--tv-OptionGroup-title-margin-top-first);
+  }
+}

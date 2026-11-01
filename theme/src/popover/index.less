@@ -1,0 +1,62 @@
+/**
+* Copyright (c) 2022 - present TinyVue Authors.
+* Copyright (c) 2022 - present Huawei Cloud Computing Technologies Co., Ltd.
+*
+* Use of this source code is governed by an MIT-style license.
+*
+* THE OPEN SOURCE SOFTWARE IN THIS PRODUCT IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL,
+* BUT WITHOUT ANY WARRANTY, WITHOUT EVEN THE IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR
+* A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
+*
+*/
+
+@import '../custom.less';
+@import './vars.less';
+
+@popover-prefix-cls: ~'@{css-prefix}popover';
+@popper-prefix-cls: ~'@{css-prefix}popper';
+
+.@{popover-prefix-cls}.@{popper-prefix-cls} {
+  .inject-Popover-vars();
+
+  position: absolute;
+  background: var(--tv-Popover-bg-color);
+  color: var(--tv-Popover-text-color);
+  border-radius: var(--tv-Popover-border-radius);
+  border: 1px solid transparent;
+  padding: var(--tv-Popover-padding-y) var(--tv-Popover-padding-x);
+  z-index: 2000;
+  line-height: var(--tv-Popover-line-height);
+  text-align: justify;
+  font-size: var(--tv-Popover-font-size);
+  box-shadow: var(--tv-Popover-box-shadow);
+  word-break: break-all;
+
+  .@{popover-prefix-cls}__plain {
+    padding: 18px 20px;
+  }
+
+  .@{popover-prefix-cls}__title {
+    color: var(--tv-Popover-title-text-color);
+    font-size: var(--tv-Popover-title-font-size);
+    font-weight: var(--tv-Popover-title-weight);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  & .popper__arrow.popper__arrow {
+    background: var(--tv-Popover-bg-color);
+  }
+
+  &:focus,
+  &:focus:active,
+  .@{popover-prefix-cls}__reference:focus:hover,
+  .@{popover-prefix-cls}__reference:focus:not(.focusing) {
+    outline-width: 0;
+  }
+}
+
+.@{popover-prefix-cls} {
+  &__reference {
+    display: inline-block;
+  }
+}

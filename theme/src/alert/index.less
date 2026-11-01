@@ -1,0 +1,168 @@
+/**
+* Copyright (c) 2022 - present TinyVue Authors.
+* Copyright (c) 2022 - present Huawei Cloud Computing Technologies Co., Ltd.
+*
+* Use of this source code is governed by an MIT-style license.
+*
+* THE OPEN SOURCE SOFTWARE IN THIS PRODUCT IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL,
+* BUT WITHOUT ANY WARRANTY, WITHOUT EVEN THE IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR
+* A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
+*
+*/
+
+@import '../custom.less';
+@import './vars.less';
+
+@alert-prefix-cls: ~'@{css-prefix}alert';
+
+.@{alert-prefix-cls} {
+  .inject-Alert-vars();
+
+  position: relative;
+  display: flex;
+  border: none; // 规范中不要border,所以没有border的相关css变量了。
+  border-radius: var(--tv-Alert-border-radius);
+  padding: var(--tv-Alert-padding-y) var(--tv-Alert-padding-x);
+  margin: var(--tv-Alert-margin-y) var(--tv-Alert-margin-x);
+  line-height: 1.5;
+
+  &.is-center {
+    justify-content: center;
+    align-items: center;
+  }
+
+  /** alert-icon 场景 */
+  .@{alert-prefix-cls}__icon:not(.@{alert-prefix-cls}__close) {
+    font-size: var(--tv-Alert-icon-size);
+    margin-right: var(--tv-Alert-icon-margin-right);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /** content 场景：title/description/opration */
+  .@{alert-prefix-cls}__content {
+    .@{alert-prefix-cls}__title {
+      font-size: var(--tv-Alert-title-font-size);
+      font-weight: var(--tv-Alert-title-font-weight);
+      color: var(--tv-Alert-title-text-color);
+      margin-bottom: var(--tv-Alert-title-margin-bottom);
+      // 由于close-icon是abs， 需要给出安全边距防止重叠
+      margin-right: calc(var(--tv-Alert-close-icon-font-size) + var(--tv-Alert-close-icon-right) + 16px);
+    }
+
+    .@{alert-prefix-cls}__description {
+      font-size: var(--tv-Alert-desc-font-size);
+      font-weight: var(--tv-Alert-desc-font-weight);
+      color: var(--tv-Alert-desc-text-color);
+      // 由于close-icon是abs， 需要给出安全边距防止重叠
+      margin-right: calc(var(--tv-Alert-close-icon-font-size) + var(--tv-Alert-close-icon-right) + 16px);
+    }
+
+    .@{alert-prefix-cls}__opration a{
+      color: var(--tv-Alert-opration-link-color);
+        &:hover {
+          color: var(--tv-Alert-opration-link-hover-color);
+          text-decoration: underline;
+        }
+    }
+
+  }
+
+  /** close-icon 场景  */
+  // .is-custom 仅用于close按钮处, 等效于close场景
+  .@{alert-prefix-cls}__close,
+  .is-custom {
+    position: absolute;
+    cursor: pointer;
+    color: var(--tv-Alert-close-icon-color);
+    fill: var(--tv-Alert-close-icon-color);
+    top: var(--tv-Alert-close-icon-top);
+    right: var(--tv-Alert-close-icon-right);
+
+    &:hover {
+      color: var(--tv-Alert-close-icon-color-hover);
+      fill: var(--tv-Alert-close-icon-color-hover);
+    }
+  }
+
+  .@{alert-prefix-cls}__close {
+    font-size: var(--tv-Alert-close-icon-font-size);
+  }
+
+  .is-custom {
+    font-size: var(--tv-Alert-close-text-font-size);
+  }
+
+  /** Small 场景 */
+  &.@{alert-prefix-cls}--small {
+    padding-top: var(--tv-Alert-space-xs);
+    padding-bottom: var(--tv-Alert-space-xs);
+    margin: var(--tv-Alert-margin-y-normal) var(--tv-Alert-margin-x-normal);
+
+    .@{alert-prefix-cls}__close {
+      top: var(--tv-Alert-space-sm);
+      transform: none;
+      margin-top: calc(var(--tv-Alert-space-sm) / 4);
+    }
+  }
+
+  /** Medium 场景 */
+  &.@{alert-prefix-cls}--medium {
+    padding-top: var(--tv-Alert-space-sm);
+    padding-bottom: var(--tv-Alert-space-sm);
+    margin: var(--tv-Alert-margin-y-normal) var(--tv-Alert-margin-x-normal);
+
+    .@{alert-prefix-cls}__close {
+      top: calc(var(--tv-Alert-space-sm) + var(--tv-Alert-space-xs));
+      transform: none;
+      margin-top: calc(var(--tv-Alert-space-sm) / 4);
+    }
+  }
+
+  /** Normal 场景 */
+  &.@{alert-prefix-cls}--normal {
+    padding: var(--tv-Alert-padding-y-normal) var(--tv-Alert-padding-x-normal);
+    margin: var(--tv-Alert-margin-y-normal) var(--tv-Alert-margin-x-normal);
+
+    .@{alert-prefix-cls}__icon {
+      font-size: var(--tv-Alert-icon-size-normal);
+    }
+
+    .@{alert-prefix-cls}__description {
+      // 由于close-icon是abs， 需要给出安全边距防止重叠
+      margin-right: calc(var(--tv-Alert-close-icon-font-size) + var(--tv-Alert-close-icon-right) + 16px);
+    }
+  }
+
+  /** type 场景  theme */
+  .color-theme-mixin(@theme) {
+    @bg: %('var(--tv-Alert-bg-color-%a)', @theme);
+    @icon: %('var(--tv-Alert-icon-color-%a)', @theme);
+
+    background-color: e(@bg);
+
+    .@{alert-prefix-cls}__icon:not(.@{alert-prefix-cls}__close) {
+      fill: e(@icon);
+    }
+  }
+
+  &.@{alert-prefix-cls}--success {
+    .color-theme-mixin(success);
+  }
+
+  &.@{alert-prefix-cls}--error {
+    .color-theme-mixin(error);
+  }
+
+  &.@{alert-prefix-cls}--warning {
+    .color-theme-mixin(warning);
+  }
+
+  &.@{alert-prefix-cls}--info {
+    .color-theme-mixin(info);
+  }
+
+  &.@{alert-prefix-cls}--simple {
+    .color-theme-mixin(simple);
+  }
+}

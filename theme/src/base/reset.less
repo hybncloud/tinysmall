@@ -1,0 +1,254 @@
+/**
+* Copyright (c) 2022 - present TinyVue Authors.
+* Copyright (c) 2022 - present Huawei Cloud Computing Technologies Co., Ltd.
+*
+* Use of this source code is governed by an MIT-style license.
+*
+* THE OPEN SOURCE SOFTWARE IN THIS PRODUCT IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL,
+* BUT WITHOUT ANY WARRANTY, WITHOUT EVEN THE IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR
+* A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
+*
+*/
+
+@import '../custom.less';
+@import './vars.less';
+@import '../motion/index.less';
+
+// .tiny-icon-loading 类名的动画效果。 它出现在多个组件中，故抽取到一起。
+.@{css-prefix-iconfont}-loading {
+  line-height: 1;
+  animation: rotate-z var(--tv-motion-rotate-speed) linear infinite;
+}
+
+// 高亮节点
+.tiny-hl-query-node {
+  color: var(--tv-color-text-active) !important;
+}
+
+// 图标的默认样式
+.@{svg-prefix-cls} {
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  overflow: hidden;
+  display: inline-block;
+}
+
+// 图标托底效果 --- 详见 svg()
+.tiny-svg-underlay {
+  background-color: var(--tiny-underlay-bg, '#dbdbdb');
+  border-radius: var(--tiny-underlay-br, '4px');
+}
+
+.tiny-svg-underlay > * {
+  transform-origin: center;
+  transform: scale(var(--tiny-underlay-scale, 0.6));
+}
+
+[class*=' @{css-prefix}'],
+[class^='@{css-prefix}'] {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: var(--tv-font-family);
+
+  *:after,
+  *:before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  a {
+    cursor: pointer;
+    background-image: none;
+    text-decoration: none;
+    outline: none;
+
+    &:focus,
+    &:active,
+    &:hover {
+      outline: none;
+      text-decoration: none;
+    }
+  }
+
+  dl,
+  dt,
+  dd,
+  ul,
+  ol,
+  li,
+  th,
+  td {
+    margin: 0;
+    padding: 0;
+  }
+
+  ol,
+  ul {
+    list-style: none;
+  }
+
+  audio,
+  canvas,
+  video {
+    display: inline-block;
+  }
+
+  audio:not([controls]) {
+    display: none;
+    height: 0;
+  }
+
+  mark {
+    background: #ff0;
+    color: #000;
+  }
+
+  pre {
+    white-space: pre-wrap;
+  }
+
+  sub,
+  sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+
+  sup {
+    top: -0.5em;
+  }
+
+  sub {
+    bottom: -0.25em;
+  }
+
+  fieldset {
+    border: 1px solid #c0c0c0;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em;
+  }
+
+  legend {
+    border: 0;
+    padding: 0;
+  }
+
+  button::-moz-focus-inner,
+  input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+
+  textarea {
+    overflow: auto;
+    vertical-align: top;
+  }
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  .@{css-prefix}hide {
+    display: none;
+  }
+
+  ::-webkit-scrollbar {
+    width: var(--tv-size-scrollbar-width);
+    height: var(--tv-size-scrollbar-height);
+  }
+
+  // x 和 y 滚动条交汇处
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+
+  // 滚动条轨道
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  // 滚动滑块
+  ::-webkit-scrollbar-thumb {
+    background: var(--tv-color-bg-scrollbar-thumb);
+    border-radius: var(--tv-border-radius-scrollbar-thumb);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--tv-color-bg-scrollbar-thumb-hover);
+  }
+
+  ::-webkit-scrollbar-thumb:active {
+    background: var(--tv-color-bg-scrollbar-thumb-active);
+  }
+}
+
+// 没有箭头的场景， select/ userlink /roles/ dept 等默认距离4 px
+.tiny-popper {
+  &[x-placement^='top'] {
+    margin-bottom: 4px;
+  }
+
+  &[x-placement^='bottom'] {
+    margin-top: 4px;
+  }
+
+  &[x-placement^='right'] {
+    margin-left: 4px;
+  }
+
+  &[x-placement^='left'] {
+    margin-right: 4px;
+  }
+}
+
+// 有箭头的场景，统一规范所有样式
+.tiny-popconfirm-popover:has(.popper__arrow),
+.tiny-popper:has(.popper__arrow),
+.tiny-tooltip__popper:has(.popper__arrow) {
+  .popper__arrow {
+    position: absolute;
+    display: block;
+    // 原来是用border来模拟三角形的，现在是通过div模拟，所以将border-width赋值给div的width.
+    width: 12px;
+    height: 20px;
+    background-color: #fff; // popover,dropdown 都是只有白色。 tooltip的颜色是自己覆盖的
+    transform: rotateZ(45deg);
+    border-radius: 2px;
+    z-index: -1;
+  }
+
+  &[x-placement^='top'] {
+    margin-bottom: 12px;
+
+    .popper__arrow {
+      bottom: -7px;
+    }
+  }
+
+  &[x-placement^='bottom'] {
+    margin-top: 12px;
+
+    .popper__arrow {
+      top: -7px;
+    }
+  }
+
+  &[x-placement^='right'] {
+    margin-left: 12px;
+
+    .popper__arrow {
+      left: -3px;
+    }
+  }
+
+  &[x-placement^='left'] {
+    margin-right: 12px;
+
+    .popper__arrow {
+      right: -3px;
+    }
+  }
+}

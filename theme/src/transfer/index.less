@@ -1,0 +1,425 @@
+/**
+* Copyright (c) 2022 - present TinyVue Authors.
+* Copyright (c) 2022 - present Huawei Cloud Computing Technologies Co., Ltd.
+*
+* Use of this source code is governed by an MIT-style license.
+*
+* THE OPEN SOURCE SOFTWARE IN THIS PRODUCT IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL,
+* BUT WITHOUT ANY WARRANTY, WITHOUT EVEN THE IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR
+* A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
+*
+*/
+
+@import '../mixins/transfer.less';
+@import '../custom.less';
+@import './vars.less';
+
+@transfer-prefix-cls: ~'@{css-prefix}transfer';
+@transfer-panel-prefix-cls: ~'@{css-prefix}transfer-panel';
+@checkbox-prefix-cls: ~'@{css-prefix}checkbox';
+@checkbox-group-prefix-cls: ~'@{css-prefix}checkbox-group';
+@input-prefix-cls: ~'@{css-prefix}input';
+@table-prefix-cls: ~'@{css-prefix}table';
+@pager-prefix-cls: ~'@{css-prefix}pager';
+@button-prefix-cls: ~'@{css-prefix}button';
+@svg-prefix-cls: ~'@{css-prefix}svg';
+@tree-node-prefix-cls: ~'@{css-prefix}tree-node';
+@tree-prefix-cls: ~'@{css-prefix}tree';
+
+// transfer样式
+.@{transfer-prefix-cls} {
+  .inject-Transfer-vars();
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: var(--tv-Transfer-font-size);
+
+  &__buttons {
+    padding-left: var(--tv-Transfer-buttons-padding-left);
+    padding-right: var(--tv-Transfer-buttons-padding-right);
+    padding-top: var(--tv-Transfer-buttons-padding-top);
+    padding-bottom: var(--tv-Transfer-buttons-padding-bottom);
+
+    .defaultButton {
+      display: flex;
+      flex-direction: column;
+
+      .@{button-prefix-cls} + .@{button-prefix-cls} {
+        margin-left: var(--tv-Transfer-buttons-defaultButton-margin-left);
+      }
+
+      & + .@{button-prefix-cls} {
+        margin-right: var(--tv-Transfer-buttons-defaultButton-margin-right);
+        margin-top: var(--tv-Transfer-buttons-defaultButton-margin-top);
+        margin-bottom: var(--tv-Transfer-buttons-defaultButton-margin-bottom);
+      }
+    }
+
+    .@{button-prefix-cls} {
+      min-width: auto;
+      margin-left: var(--tv-Transfer-buttons-margin-left);
+      margin-right: var(--tv-Transfer-buttons-margin-right);
+      margin-top: var(--tv-Transfer-buttons-margin-top);
+      margin-bottom: var(--tv-Transfer-buttons-margin-bottom);
+    }
+  }
+
+  &__button {
+    display: block;
+    margin-left: var(--tv-Transfer-button-margin-left);
+    margin-right: var(--tv-Transfer-button-margin-right);
+    margin-top: var(--tv-Transfer-button-margin-top);
+    margin-bottom: var(--tv-Transfer-button-margin-bottom);
+
+    &:not(.is-disabled) {
+      border-color: var(--tv-Transfer-button-bg-color) !important;
+    }
+
+    background-color: var(--tv-Transfer-button-bg-color);
+    width: var(--tv-Transfer-button-width);
+    height: var(--tv-Transfer-button-height);
+    border-radius: var(--tv-Transfer-button-border-radius);
+    line-height: normal;
+    padding-left: var(--tv-Transfer-button-padding-left);
+    padding-right: var(--tv-Transfer-button-padding-right);
+    padding-top: var(--tv-Transfer-button-padding-top);
+    padding-bottom: var(--tv-Transfer-button-padding-bottom);
+    // 避免 button中的svg字体变大后，产生的省略号
+    text-overflow: clip;
+
+    &.is-with-texts {
+      border-radius: var(--tv-Transfer-button-border-radius);
+      min-width: 60px;
+    }
+
+    &.@{button-prefix-cls}:not(.is-circle) .@{svg-prefix-cls} {
+      font-size: var(--tv-Transfer-svg-font-size);
+      margin-right: 0;
+      fill: var(--tv-Transfer-svg-color);
+    }
+
+    &.@{button-prefix-cls}:not(.is-disabled) {
+      background-color: var(--tv-Transfer-button-bg-color);
+    }
+
+    &:first-child {
+      margin-bottom: var(--tv-Transfer-first-button-margin-bottom);
+    }
+
+    &:nth-child(2) {
+      margin: 0;
+    }
+
+    i,
+    span {
+      font-size: var(--tv-Transfer-font-size);
+      transform: translateY(-3px); // 适配 xdesign, 让span居中
+      display: inline-block;
+      color: var(--tv-Transfer-text-color);
+    }
+
+    [class*='tiny-icon'] + span {
+      margin-left: 0;
+    }
+  }
+
+  & &__button {
+    &.is-disabled,
+    &.is-disabled:hover {
+      border: 1px solid var(--tv-Transfer-button-disabled-border-color);
+      background-color: var(--tv-Transfer-button-disabled-bg-color);
+      color: var(--tv-Transfer-button-disabled-text-color);
+      line-height: var(--tv-Transfer-button-disabled-line-height);
+
+      .@{svg-prefix-cls} {
+        fill: var(--tv-Transfer-button-disabled-text-color);
+      }
+    }
+  }
+}
+
+// transfer-panel样式
+.@{transfer-panel-prefix-cls} {
+  border: 1px solid var(--tv-Transfer-panel-border-color);
+  border-radius: var(--tv-Transfer-panel-border-radius);
+  overflow: hidden;
+  background: var(--tv-Transfer-panel-bg-color);
+  width: var(--tv-Transfer-panel-width);
+  max-height: 100%;
+  vertical-align: middle;
+  box-sizing: border-box;
+  position: relative;
+  align-items: stretch;
+
+  &__body {
+    position: relative;
+    height: var(--tv-Transfer-panel-body-height);
+    overflow: auto;
+    text-align: left;
+    padding-right: var(--tv-Transfer-panel-body-padding-right);
+    padding-left: var(--tv-Transfer-panel-body-padding-left);
+    display: flex;
+    flex-direction: column;
+
+    .tiny-table.simple table tbody tr:has(td svg.is-check) {
+      background-color: var(--tv-Transfer-panel-item-active-bg-color);
+    }
+
+    .@{tree-prefix-cls} {
+      height: var(--tv-Transfer-panel-body-tree-height);
+      padding-left: var(--tv-Transfer-panel-body-tree-padding-left);
+      padding-right: var(--tv-Transfer-panel-body-tree-padding-right);
+      padding-top: var(--tv-Transfer-panel-body-tree-padding-top);
+      padding-bottom: var(--tv-Transfer-panel-body-tree-padding-bottom);
+      overflow: auto;
+      .transfer-scrollbar(8px);
+    }
+
+    .@{transfer-panel-prefix-cls}__filter ~ .@{tree-prefix-cls} {
+      height: var(--tv-Transfer-panel-body-tree-filter-height);
+    }
+  }
+
+  &__list {
+    margin-left: var(--tv-Transfer-panel-body-list-margin-left);
+    margin-right: var(--tv-Transfer-panel-body-list-margin-right);
+    margin-top: var(--tv-Transfer-panel-body-list-margin-top);
+    margin-bottom: var(--tv-Transfer-panel-body-list-margin-bottom);
+    padding-left: var(--tv-Transfer-panel-body-list-padding-left);
+    padding-right: var(--tv-Transfer-panel-body-list-padding-right);
+    padding-top: var(--tv-Transfer-panel-body-list-padding-top);
+    padding-bottom: var(--tv-Transfer-panel-body-list-padding-bottom);
+    list-style: none;
+    box-sizing: border-box;
+    display: block;
+
+    &.@{checkbox-group-prefix-cls} {
+      display: block;
+    }
+
+    &.is-filterable {
+      padding-top: var(--tv-Transfer-panel-body-filter-padding-top);
+    }
+  }
+
+  & &__list {
+    .transfer-scrollbar(8px);
+  }
+
+  &__item {
+    line-height: var(--tv-Transfer-panel-item-height);
+    padding-left: var(--tv-Transfer-panel-item-padding-left);
+    display: flex;
+    transition: all 0.5s;
+
+    & + & {
+      margin-left: 0;
+      display: flex;
+    }
+
+    &:hover {
+      background: var(--tv-Transfer-panel-item-hover-bg-color);
+      color: var(--tv-Transfer-panel-item-hover-text-color);
+    }
+
+    &.is-disabled:hover {
+      background: 0;
+    }
+
+    &.@{checkbox-prefix-cls}__input {
+      position: absolute;
+      top: 7px;
+    }
+  }
+
+  &__filter {
+    text-align: center;
+    // 从padding-left改为 margin-left.  原因是 当前dom是tiny-input的根元素， input的prefix,suffix插槽是绝对定位的
+    // 如果使用padding, 会影响插槽与边框的距离，贴在一起。 所以要改为margin 保证不影响插槽。
+    margin-left: var(--tv-Transfer-panel-filter-padding-left);
+    margin-right: var(--tv-Transfer-panel-filter-padding-right);
+    margin-top: var(--tv-Transfer-panel-filter-padding-top);
+    margin-bottom: var(--tv-Transfer-panel-filter-padding-bottom);
+    box-sizing: border-box;
+    display: block;
+    width: auto;
+
+    .@{input-prefix-cls}__inner {
+      height: var(--tv-Transfer-panel-filter-height);
+      line-height: var(--tv-Transfer-panel-filter-height);
+      width: 100%;
+      font-size: var(--tv-Transfer-panel-filter-font-size);
+      display: inline-block;
+      box-sizing: border-box;
+      border-radius: var(--tv-Transfer-panel-filter-border-radius);
+      border-bottom-color: var(--tv-Transfer-header-border-color) !important;
+      padding-left: 24px;
+      padding-right: 0;
+    }
+    .@{input-prefix-cls}__prefix {
+      left: 0;
+    }
+
+    .@{input-prefix-cls}__suffix {
+      right: 4px;
+    }
+  }
+
+  & &__header {
+    height: var(--tv-Transfer-header-height);
+    line-height: var(--tv-Transfer-header-height);
+    background: var(--tv-Transfer-header-bg-color);
+    margin-left: var(--tv-Transfer-header-margin-left);
+    margin-right: var(--tv-Transfer-header-margin-right);
+    margin-top: var(--tv-Transfer-header-margin-top);
+    margin-bottom: var(--tv-Transfer-header-margin-bottom);
+    padding-left: var(--tv-Transfer-header-padding-left);
+    padding-right: var(--tv-Transfer-header-padding-right);
+    padding-top: var(--tv-Transfer-header-padding-top);
+    padding-bottom: var(--tv-Transfer-header-padding-bottom);
+    border-bottom: 1px solid var(--tv-Transfer-header-border-color);
+    box-sizing: border-box;
+    color: var(--tv-Transfer-header-text-color);
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    .@{checkbox-prefix-cls} {
+      width: 100%;
+      line-height: 1;
+      text-align: left;
+
+      .@{checkbox-prefix-cls}__label {
+        font-size: var(--tv-Transfer-header-font-size);
+        color: var(--tv-Transfer-header-text-color);
+        font-weight: 400;
+        width: calc(100% - 38px);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        span {
+          position: absolute;
+          right: 0;
+          color: var(--tv-Transfer-header-span-text-color);
+          font-size: var(--tv-Transfer-header-font-size);
+          font-weight: var(--tv-Transfer-header-span-font-weight);
+        }
+      }
+    }
+
+    .headSort {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translateY(-50%);
+
+      div {
+        width: var(--tv-Transfer-header-sort-width);
+        height: var(--tv-Transfer-header-sort-width);
+        line-height: var(--tv-Transfer-header-sort-width);
+        margin-right: var(--tv-Transfer-header-sort-margin-right);
+        text-align: center;
+        border: 1px solid;
+        border-radius: var(--tv-Transfer-header-sort-border-radius);
+        color: var(--tv-Transfer-header-sort-icon-color);
+        display: inline-block;
+        cursor: pointer;
+
+        .tiny-svg {
+          fill: var(--tv-Transfer-header-sort-icon-color);
+          vertical-align: text-top;
+        }
+      }
+    }
+  }
+
+  & &__footer {
+    height: var(--tv-Transfer-footer-height);
+    background: var(--tv-Transfer-footer-bg-color);
+    margin-left: var(--tv-Transfer-footer-margin-left);
+    margin-right: var(--tv-Transfer-footer-margin-right);
+    margin-top: var(--tv-Transfer-footer-margin-top);
+    margin-bottom: var(--tv-Transfer-footer-margin-bottom);
+    padding-left: var(--tv-Transfer-footer-padding-left);
+    padding-right: var(--tv-Transfer-footer-padding-right);
+    padding-top: var(--tv-Transfer-footer-padding-top);
+    padding-bottom: var(--tv-Transfer-footer-padding-bottom);
+    border-top: 1px solid var(--tv-Transfer-footer-border-color);
+    width: 100%;
+    z-index: 1;
+
+    &::after {
+      display: inline-block;
+      content: '';
+      height: 100%;
+      vertical-align: middle;
+    }
+
+    .@{checkbox-prefix-cls} {
+      padding-left: var(--tv-Transfer-footer-checkbox-padding-left);
+    }
+  }
+
+  & &__empty {
+    position: absolute;
+    width: 100%;
+    top: calc(50% - 33px);
+    margin: 0;
+    height: var(--tv-Transfer-empty-height);
+    line-height: var(--tv-Transfer-empty-height);
+    padding-left: var(--tv-Transfer-empty-padding-left);
+    padding-right: var(--tv-Transfer-empty-padding-right);
+    padding-top: var(--tv-Transfer-empty-padding-top);
+    padding-bottom: var(--tv-Transfer-empty-padding-bottom);
+    color: var(--tv-Transfer-empty-text-color);
+    text-align: center;
+  }
+
+  &.transferGrid {
+    width: 600px;
+
+    .@{transfer-panel-prefix-cls}__body {
+      height: 100%;
+    }
+
+    .@{table-prefix-cls}.simple {
+      width: 100%;
+      padding-left: var(--tv-Transfer-table-padding-left);
+      padding-right: var(--tv-Transfer-table-padding-right);
+      padding-top: var(--tv-Transfer-table-padding-top);
+      padding-bottom: var(--tv-Transfer-table-padding-bottom);
+      height: var(--tv-Transfer-table-dyn-height, 400px);
+      overflow-y: auto;
+
+      thead {
+        border-bottom: none;
+      }
+
+      thead th {
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        background: var(--tv-Table-thead-bg-color);
+        border-bottom: 1px solid var(--tv-Table-border-color);
+      }
+
+      table {
+        width: 100%;
+      }
+    }
+
+    .@{pager-prefix-cls} {
+      padding-left: var(--tv-Transfer-pager-padding-left);
+      padding-top: var(--tv-Transfer-pager-padding-top);
+      padding-bottom: var(--tv-Transfer-pager-padding-bottom);
+      padding-right: var(--tv-Transfer-pager-padding-right);
+    }
+  }
+
+  .@{checkbox-prefix-cls}__label {
+    padding-left: var(--tv-Transfer-checkbox-label-padding-left);
+  }
+}

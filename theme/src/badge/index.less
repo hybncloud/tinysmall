@@ -1,0 +1,87 @@
+/**
+* Copyright (c) 2022 - present TinyVue Authors.
+* Copyright (c) 2022 - present Huawei Cloud Computing Technologies Co., Ltd.
+*
+* Use of this source code is governed by an MIT-style license.
+*
+* THE OPEN SOURCE SOFTWARE IN THIS PRODUCT IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL,
+* BUT WITHOUT ANY WARRANTY, WITHOUT EVEN THE IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR
+* A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
+*
+*/
+
+@import '../custom.less';
+@import './vars.less';
+
+@badge-prefix-cls: ~'@{css-prefix}badge';
+
+.@{badge-prefix-cls} {
+  &__wrapper {
+    .inject-Badge-vars();
+  }
+
+  display: inline-block;
+  min-width: 16px;
+  height: 16px;
+  line-height: 16px;
+  border-radius: var(--tv-Badge-border-radius);
+  padding: 0 var(--tv-Badge-horizontal-padding);
+  font-size: var(--tv-Badge-font-size);
+  font-weight: var(--tv-Badge-font-weight);
+  color: var(--tv-Badge-text-color);
+  background-color: var(--tv-Badge-bg-color);
+  vertical-align: baseline;
+  white-space: nowrap;
+  text-align: center;
+  border: 1px solid var(--tv-Badge-border-color);
+  margin-left: var(--tv-Badge-margin-left);
+
+  &:empty {
+    display: none;
+  }
+
+  .btn & {
+    position: relative;
+    top: -1px;
+  }
+
+  a,
+  a:hover {
+    color: var(--tv-Badge-a-text-color);
+    text-decoration: none;
+  }
+
+
+  &--default {
+    width: 6px;
+    height: 6px;
+    min-width: auto;
+    background-color: var(--tv-Badge-dot-bg-color);
+    display: inline-block;
+    vertical-align: top;
+    padding: 0;
+    border-radius: 50%;
+    border: unset;
+    margin-left: 0;
+  }
+
+  &--primary {
+    background-color: var(--tv-Badge-primary-bg-color);
+  }
+
+  &--success {
+    background-color: var(--tv-Badge-success-bg-color);
+  }
+
+  &--warning {
+    background-color: var(--tv-Badge-warning-bg-color);
+  }
+
+  &--danger {
+    background-color: var(--tv-Badge-danger-bg-color);
+  }
+
+  &--info {
+    background-color: var(--tv-Badge-info-bg-color);
+  }
+}

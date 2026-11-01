@@ -1,0 +1,143 @@
+/**
+* Copyright (c) 2022 - present TinyVue Authors.
+* Copyright (c) 2022 - present Huawei Cloud Computing Technologies Co., Ltd.
+*
+* Use of this source code is governed by an MIT-style license.
+*
+* THE OPEN SOURCE SOFTWARE IN THIS PRODUCT IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL,
+* BUT WITHOUT ANY WARRANTY, WITHOUT EVEN THE IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR
+* A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
+*
+*/
+
+@import '../custom.less';
+@import './vars.less';
+
+@option-prefix-cls: ~'@{css-prefix}option';
+
+.@{option-prefix-cls}[data-tag='tiny-option'] {
+  padding: var(--tv-Option-padding);
+}
+
+.@{option-prefix-cls} {
+  .inject-Option-vars();
+
+  color: var(--tv-Option-text-color);
+  font-size: var(--tv-Option-font-size);
+  height: var(--tv-Option-height);
+  line-height: var(--tv-Option-line-height);
+  position: relative;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  .tiny-svg {
+    font-size: var(--tv-Option-icon-size);
+    margin-right: var(--tv-Option-icon-margin-right);
+  }
+
+  // 复选框
+  &.@{option-prefix-cls}_all,
+  .@{option-prefix-cls}__checkbox-wrap {
+    .tiny-svg {
+      fill: var(--tv-Option-icon-color-unchecked);
+    }
+  }
+
+  &.selected .tiny-svg,
+  .checked-sur.tiny-svg,
+  .halfselect.tiny-svg {
+    path:first-child {
+      fill: var(--tv-Option-icon-color-checked);
+    }
+  }
+
+  .check.tiny-svg {
+    path:first-child {
+      fill: transparent;
+    }
+
+    path:nth-child(2) {
+      fill: var(--tv-Option-icon-color-unchecked);
+    }
+
+    &:hover {
+      path:nth-child(2) {
+        fill: var(--tv-Option-icon-color-hover);
+      }
+    }
+  }
+
+  // 文本区域
+  &-wrapper {
+    // aui 为display:inline-block  height: 100%;
+    // 100%会让元素不能对齐， 该div比前面的check-box高，所以去掉它。
+    // inline-block 会让业务的插槽传入的flex-basis不生效。 aui要求业务整改了。 回头改为 inline-block
+    display: flex;
+    align-items: center;
+
+    &.calc-width {
+      width: calc(100% - 24px);
+    }
+
+    &.full-width {
+      width: 100%;
+    }
+
+    .@{option-prefix-cls}-label {
+      display: inline-block;
+      width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      vertical-align: top;
+      padding-top: 3px;
+    }
+  }
+
+  &.hover,
+  &:hover {
+    background-color: var(--tv-Option-bg-color-hover);
+  }
+
+  &:not(.tiny-option_all):not(:has(.tiny-option__checkbox-wrap)).selected {
+    color: var(--tv-Option-text-color-selected);
+  }
+
+  &__checkbox-wrap {
+    display: flex;
+  }
+
+  &.memorize-highlight {
+    color: var(--tv-Option-text-color-highlight);
+  }
+
+  &.is-disabled {
+    color: var(--tv-Option-text-color-disabled);
+    cursor: not-allowed;
+
+    .tiny-svg {
+      &.checked-sur,
+      &.halfselect {
+        path:first-child {
+          fill: var(--tv-Option-checked-disabled-bg-color);
+        }
+
+        path:last-child {
+          fill: var(--tv-Option-icon-color-checked-disabled-inverse);
+        }
+      }
+
+      &.check {
+        path:first-child {
+          fill: var(--tv-Option-bg-color-disabled);
+        }
+
+        path:nth-child(2) {
+          fill: var(--tv-Option-icon-color-unchecked-disabled);
+        }
+      }
+    }
+  }
+}

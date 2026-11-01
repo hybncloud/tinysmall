@@ -1,0 +1,37 @@
+/**
+* Copyright (c) 2022 - present TinyVue Authors.
+* Copyright (c) 2022 - present Huawei Cloud Computing Technologies Co., Ltd.
+*
+* Use of this source code is governed by an MIT-style license.
+*
+* THE OPEN SOURCE SOFTWARE IN THIS PRODUCT IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL,
+* BUT WITHOUT ANY WARRANTY, WITHOUT EVEN THE IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR
+* A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
+*
+*/
+
+.inject-Progress-vars() {
+  /** 横向条自身默认场景 */
+  // 横向条未完成背景色
+  --tv-Progress-outer-bg-color: var(--tv-color-bg-gray-2, #e6e6e6);
+  // 横向条已完成背景色
+  --tv-Progress-inner-bg-color: var(--tv-color-bg-progressbar, #5cb300);
+  // 横向条内层文本字号
+  --tv-Progress-inner-font-size: var(--tv-font-size-default, 14px);
+  // 横向条内层文本色
+  --tv-Progress-inner-text-color: var(--tv-color-text-inverse, #ffffff);
+
+  /** 横向条状态场景 */
+  // success状态横向条已完成背景色
+  --tv-Progress-bg-color-success: var(--tv-color-success-bg, #5cb300);
+  // warning状态横向条已完成背景色
+  --tv-Progress-bg-color-warning: var(--tv-color-warn-bg, #ff8800);
+  // exception状态横向条已完成背景色
+  --tv-Progress-bg-color-exception: var(--tv-color-error-bg, #f23030);
+
+  /** 横向条右侧文字场景 */
+  // 横向条右侧文字左外边距
+  --tv-Progress-right-text-margin-left: var(--tv-space-lg, 12px);
+  // 进度条右侧文本色
+  --tv-Progress-right-text-color: var(--tv-color-text, #191919);
+}

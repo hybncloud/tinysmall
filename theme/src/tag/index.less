@@ -1,0 +1,182 @@
+/**
+* Copyright (c) 2022 - present TinyVue Authors.
+* Copyright (c) 2022 - present Huawei Cloud Computing Technologies Co., Ltd.
+*
+* Use of this source code is governed by an MIT-style license.
+*
+* THE OPEN SOURCE SOFTWARE IN THIS PRODUCT IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL,
+* BUT WITHOUT ANY WARRANTY, WITHOUT EVEN THE IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR
+* A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
+*
+*/
+
+@import '../custom.less';
+@import './vars.less';
+
+@tag-prefix-cls: ~'@{css-prefix}tag';
+
+.@{tag-prefix-cls} {
+  .inject-Tag-vars();
+
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  height: fit-content; // 避免 flex时，高度拉伸
+  line-height: var(--tv-Tag-line-height);
+  border: 1px solid;
+  max-width: 200px; // 默认约束，避免太长的标签，用户还可以再通过属性，覆盖到style上.
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  &.@{tag-prefix-cls}--only-icon.@{tag-prefix-cls}--only-icon.@{tag-prefix-cls}--only-icon {
+    padding: var(--tv-Tag-only-icon-padding);
+
+    svg {
+      font-size: var(--tv-Tag-only-icon-font-size);
+      margin-right: 0; // 此时不需要右边距了
+    }
+  }
+
+  /** size 场景 */
+  .size-mixin(@size) {
+    @fs: %('var(--tv-Tag-font-size%a)', @size);
+    @px: %('var(--tv-Tag-padding-x%a)', @size);
+    @py: %('var(--tv-Tag-padding-y%a)', @size);
+    @br: %('var(--tv-Tag-border-radius%a)', @size);
+    @icon-fs: %('var(--tv-Tag-only-icon-font-size%a)', @size);
+    @icon-py: %('var(--tv-Tag-only-icon-padding%a)', @size);
+
+    font-size: e(@fs);
+    padding: e(@py) e(@px);
+    border-radius: e(@br);
+
+    &.@{tag-prefix-cls}--only-icon.@{tag-prefix-cls}--only-icon {
+      padding: e(@icon-py);
+
+      svg {
+        font-size: e(@icon-fs);
+        margin-right: 0; // 此时不需要右边距了
+      }
+    }
+  }
+
+  .size-mixin(e(''));
+
+  &.@{tag-prefix-cls}--mini {
+    .size-mixin(-mini);
+  }
+  &.@{tag-prefix-cls}--small {
+    .size-mixin(-small);
+  }
+  &.@{tag-prefix-cls}--medium {
+    .size-mixin(-medium);
+  }
+
+  &.is-round {
+    border-radius: 9999px;
+  }
+
+  /** 颜色场景 */
+  .color-type-effect-mixin(@type) {
+    @light-c: %('var(--tv-Tag-text-color-light%a)', @type);
+    @light-bg: %('var(--tv-Tag-bg-color-light%a)', @type);
+    @light-bc: %('var(--tv-Tag-border-color-light%a)', @type);
+    @dark-c: %('var(--tv-Tag-text-color-dark%a)', @type);
+    @dark-bg: %('var(--tv-Tag-bg-color-dark%a)', @type);
+    @dark-bc: %('var(--tv-Tag-border-color-dark%a)', @type);
+    @plain-c: %('var(--tv-Tag-text-color-plain%a)', @type);
+    @plain-bg: %('var(--tv-Tag-bg-color-plain%a)', @type);
+    @plain-bc: %('var(--tv-Tag-border-color-plain%a)', @type);
+
+    &.@{tag-prefix-cls}--light {
+      color: e(@light-c);
+      background-color: e(@light-bg);
+      border-color: e(@light-bc);
+    }
+
+    &.@{tag-prefix-cls}--dark {
+      color: e(@dark-c);
+      background-color: e(@dark-bg);
+      border-color: e(@dark-bc);
+    }
+
+    &.@{tag-prefix-cls}--plain {
+      color: e(@plain-c);
+      background-color: e(@plain-bg);
+      border-color: e(@plain-bc);
+    }
+  }
+  .color-type-effect-mixin(e(''));
+
+  &.@{tag-prefix-cls}--success {
+    .color-type-effect-mixin(-success);
+  }
+  &.@{tag-prefix-cls}--danger {
+    .color-type-effect-mixin(-danger);
+  }
+  &.@{tag-prefix-cls}--error {
+    .color-type-effect-mixin(-danger);
+  }
+  &.@{tag-prefix-cls}--warning {
+    .color-type-effect-mixin(-warning);
+  }
+  &.@{tag-prefix-cls}--info {
+    .color-type-effect-mixin(-info);
+  }
+  &.@{tag-prefix-cls}--alerting {
+    .color-type-effect-mixin(-alerting);
+  }
+
+  // colors
+  .color-colors-mixin(@color) {
+    @c: %('var(--tv-Tag-text-color-%a)', @color);
+    @bg: %('var(--tv-Tag-bg-color-%a)', @color);
+
+    &.@{tag-prefix-cls}--@{color} {
+      color: e(@c);
+      background: e(@bg);
+    }
+  }
+
+  .color-colors-mixin(red);
+  .color-colors-mixin(orange);
+  .color-colors-mixin(green);
+  .color-colors-mixin(blue);
+  .color-colors-mixin(purple);
+  .color-colors-mixin(brown);
+  .color-colors-mixin(grey);
+  .color-colors-mixin(gold);
+
+  //disabled
+  &.is-disabled.is-disabled.is-disabled.is-disabled {
+    color: var(--tv-Tag-text-color-disabled);
+    background-color: var(--tv-Tag-bg-color-disabled);
+    cursor: not-allowed;
+  }
+
+  /** 关闭图标 场景 */
+  .@{tag-prefix-cls}__close {
+    font-size: var(--tv-Tag-close-icon-size);
+    fill: var(--tv-Tag-close-icon-color);
+    margin-left: var(--tv-Tag-close-icon-margin-left);
+    cursor: pointer;
+    flex-shrink: 0;
+
+    &:hover {
+      fill: var(--tv-Tag-close-icon-color-hover);
+    }
+  }
+
+  &.is-disabled.is-disabled {
+    .@{tag-prefix-cls}__close {
+      fill: var(--tv-Tag-close-icon-color-disabled);
+    }
+  }
+
+  /** 其它 场景 */
+  & svg:not(.@{tag-prefix-cls}__close) {
+    margin-right: var(--tv-Tag-slot-icon-margin-right);
+    fill: currentColor;
+  }
+}

@@ -1,0 +1,45 @@
+/**
+* Copyright (c) 2022 - present TinyVue Authors.
+* Copyright (c) 2022 - present Huawei Cloud Computing Technologies Co., Ltd.
+*
+* Use of this source code is governed by an MIT-style license.
+*
+* THE OPEN SOURCE SOFTWARE IN THIS PRODUCT IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL,
+* BUT WITHOUT ANY WARRANTY, WITHOUT EVEN THE IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR
+* A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
+*
+*/
+
+@import '../mixins/common.less';
+@import '../custom.less';
+@import './vars.less';
+
+@radio-group-prefix-cls: ~'@{css-prefix}radio-group';
+@radio-button-prefix-cls: ~'@{css-prefix}radio-button';
+@radio-prefix-cls: ~'@{css-prefix}radio';
+
+.@{radio-group-prefix-cls} {
+  .inject-RadioGroup-vars();
+
+  display: inline-flex;
+  // 此处需要添加一个换行样式，才合理，支持单行和多行展示
+  flex-wrap: wrap;
+
+  &.list-inline {
+    flex-direction: column;
+
+    .@{radio-prefix-cls} {
+      display: flex;
+      margin-right: 0;
+
+      &:not(:last-child) {
+        margin-bottom: var(--tv-RadioGroup-margin-bottom);
+      }
+    }
+
+    .@{radio-button-prefix-cls} {
+      display: block;
+      margin-bottom: var(--tv-RadioGroup-button-margin-bottom);
+    }
+  }
+}

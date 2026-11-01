@@ -1,0 +1,203 @@
+/**
+* Copyright (c) 2022 - present TinyVue Authors.
+* Copyright (c) 2022 - present Huawei Cloud Computing Technologies Co., Ltd.
+*
+* Use of this source code is governed by an MIT-style license.
+*
+* THE OPEN SOURCE SOFTWARE IN THIS PRODUCT IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL,
+* BUT WITHOUT ANY WARRANTY, WITHOUT EVEN THE IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR
+* A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
+*
+*/
+
+@import '../custom.less';
+@import './vars.less';
+
+@select-dropdown-prefix-cls: ~'@{css-prefix}select-dropdown';
+@select-prefix-cls: ~'@{css-prefix}select';
+@tree-prefix-cls: ~'@{css-prefix}tree';
+@popper-prefix-cls: ~'@{css-prefix}popper';
+@scrollbar-prefix-cls: ~'@{css-prefix}scrollbar';
+@input-prefix-cls: ~'@{css-prefix}input';
+@option-prefix-cls: ~'@{css-prefix}option';
+@recycle-scroller-prefix-cls: ~'@{css-prefix}recycle-scroller';
+
+.@{select-dropdown-prefix-cls} {
+  .inject-SelectDropdown-vars();
+
+  position: absolute;
+  z-index: 1001;
+  font-size: var(--tv-SelectDropdown-font-size);
+  line-height: var(--tv-SelectDropdown-line-height);
+  color: var(--tv-SelectDropdown-text-color);
+  border-radius: var(--tv-SelectDropdown-border-radius);
+  background-color: var(--tv-SelectDropdown-bg-color);
+  box-shadow: var(--tv-SelectDropdown-box-shadow);
+  margin-top: var(--tv-SelectDropdown-margin-top);
+  padding: var(--tv-SelectDropdown-padding);
+
+  .tiny-svg {
+    font-size: var(--tv-SelectDropdown-icon-size);
+    fill: var(--tv-SelectDropdown-icon-color);
+  }
+
+  // 顶部新增
+  .@{select-prefix-cls}__top-create {
+    margin: 0 8px 4px;
+    height: 32px;
+    border-bottom: 1px solid var(--tv-SelectDropdown-border-color-divider);
+
+    > div {
+      width: fit-content;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      .tiny-svg {
+        margin-right: 4px;
+        fill: var(--tv-SelectDropdown-icon-color-static);
+      }
+    }
+  }
+
+  .@{tree-prefix-cls} {
+    padding: 0;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+
+  // 面板搜索框
+  & &__search {
+    margin: var(--tv-SelectDropdown-search-margin);
+    width: var(--tv-SelectDropdown-search-width);
+
+    &:hover .tiny-input__inner:not(:disabled) {
+      border-color: var(--tv-SelectDropdown-border-color-divider);
+    }
+
+    .@{input-prefix-cls}__inner {
+      padding: var(--tv-SelectDropdown-search-padding);
+      border-color: var(--tv-SelectDropdown-border-color-divider);
+    }
+
+    .@{input-prefix-cls}__suffix {
+      display: none;
+
+      &-inner {
+        width: auto;
+        height: auto;
+      }
+    }
+
+    .@{input-prefix-cls}__prefix {
+      left: 0;
+      font-size: 0;
+
+      .tiny-svg {
+        margin-right: 4px;
+      }
+
+      &-inner {
+        width: auto;
+        height: auto;
+      }
+    }
+
+    .tiny-icon-close {
+      &::after {
+        content: '';
+        display: inline-block;
+        height: 14px;
+        width: 1px;
+        background-color: var(--tv-SelectDropdown-border-color-divider);
+        line-height: 100%;
+        vertical-align: middle;
+        margin: 0 8px;
+      }
+    }
+
+    .tiny-svg:hover {
+      fill: var(--tv-SelectDropdown-icon-color-hover);
+    }
+
+    & + .@{scrollbar-prefix-cls} {
+      .@{select-dropdown-prefix-cls}__wrap {
+        .tiny-option-group {
+          &:first-child .tiny-option-group__title {
+            margin-top: 0px;
+          }
+        }
+      }
+    }
+  }
+
+  // 虚拟滚动
+  & .@{recycle-scroller-prefix-cls} {
+    list-style: none;
+
+    &__slot {
+      .tiny-select-dropdown__item {
+        margin-bottom: 4px;
+      }
+    }
+  }
+
+  & &__wrap {
+    max-height: 232px;
+    margin-right: -4px;
+  }
+
+  // 空数据
+  &__empty-wrap {
+    margin: var(--tv-SelectDropdown-empty-margin);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .@{select-dropdown-prefix-cls}__empty {
+      padding: var(--tv-SelectDropdown-empty-padding1);
+      text-align: center;
+      color: var(--tv-SelectDropdown-text-color-tip);
+      font-size: var(--tv-SelectDropdown-font-size-tip);
+    }
+  }
+
+  // 加载中
+  &__loading {
+    color: var(--tv-SelectDropdown-text-color-tip);
+    margin: var(--tv-SelectDropdown-empty-margin);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    > .circular {
+      fill: var(--tv-SelectDropdown-icon-color-static);
+    }
+
+    &.show-loading-icon {
+      justify-content: left;
+      padding-left: 16px;
+      height: 32px;
+    }
+  }
+
+  // tiny 新增,空数据图片
+  .@{select-dropdown-prefix-cls}__empty-images {
+    width: 100%;
+    height: 100px;
+    margin: 0;
+    background: var(--tv-SelectDropdown-empty-img) 50% no-repeat;
+  }
+}
+
+.@{select-prefix-cls}__popper-maxh-50 .@{css-prefix}directive-tip__content {
+  display: block;
+  overflow: auto;
+  max-height: 50vh;
+}

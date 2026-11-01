@@ -1,0 +1,315 @@
+/**
+* Copyright (c) 2022 - present TinyVue Authors.
+* Copyright (c) 2022 - present Huawei Cloud Computing Technologies Co., Ltd.
+*
+* Use of this source code is governed by an MIT-style license.
+*
+* THE OPEN SOURCE SOFTWARE IN THIS PRODUCT IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL,
+* BUT WITHOUT ANY WARRANTY, WITHOUT EVEN THE IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR
+* A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
+*
+*/
+
+@import '../mixins/common.less';
+@import '../custom.less';
+@import './vars.less';
+@import '../transition/timepicker.less';
+
+@picker-prefix-cls: ~'@{css-prefix}picker';
+@date-editor-prefix-cls: ~'@{css-prefix}date-editor';
+@range-editor-prefix-cls: ~'@{css-prefix}range-editor';
+@range-prefix-cls: ~'@{css-prefix}range';
+
+.@{picker-prefix-cls} {
+  position: relative;
+
+  .@{date-editor-prefix-cls} {
+    .inject-Picker-vars();
+
+    position: relative;
+    display: inline-block;
+    text-align: left;
+
+    .@{css-prefix}svg {
+      font-size: var(--tv-Picker-icon-size);
+      fill: var(--tv-Picker-icon-color);
+
+      &:hover {
+        fill: var(--tv-Picker-icon-color-hover);
+      }
+    }
+
+    &.@{input-prefix-cls},
+    &.@{input-prefix-cls}__inner {
+      width: 100%;
+    }
+
+    &--dates {
+      .@{input-prefix-cls}__inner {
+        .text-overflow();
+      }
+    }
+
+    &.show-auto-width {
+      &.@{input-prefix-cls},
+      &.@{input-prefix-cls}__inner {
+        width: 100%;
+      }
+    }
+
+    .@{input-prefix-cls}__label {
+      color: var(--tv-Picker-label-text-color);
+      font-size: 12px;
+      margin-right: 8px;
+      max-width: 100px;
+      display: inline-block;
+      text-align: left;
+      .text-overflow();
+    }
+
+    .@{input-prefix-cls}__icon-container {
+      width: initial;
+      cursor: pointer;
+      position: absolute;
+      right: 0;
+
+      .baseClearicon {
+        position: absolute;
+
+        & + .@{css-prefix}svg-size {
+          visibility: hidden;
+        }
+
+        &:hover {
+          fill: var(--tv-Picker-icon-color-hover);
+        }
+      }
+
+      &:not(.@{range-prefix-cls}__icon) {
+        display: flex;
+      }
+    }
+
+    .@{range-prefix-cls}-input,
+    .@{range-prefix-cls}-separator {
+      font-size: var(--tv-Picker-font-size);
+      height: 100%;
+      margin: 0;
+      text-align: center;
+      display: inline-block;
+    }
+
+    .@{range-prefix-cls}-input {
+      text-align: left;
+      appearance: none;
+      border: none;
+      outline: 0;
+      padding: 0;
+      width: 39%;
+      background: inherit;
+      color: var(--tv-Picker-text-color);
+      .text-overflow();
+      .placeholder();
+    }
+
+    .@{range-prefix-cls}-separator {
+      padding: 0 5px;
+      line-height: 22px;
+      width: 12%;
+    }
+
+    .@{range-prefix-cls}__close-icon {
+      position: absolute;
+      right: 12px;
+      display: flex;
+      align-items: center;
+      height: 100%;
+
+      svg {
+        width: var(--tv-Picker-icon-size);
+        height: var(--tv-Picker-icon-size);
+        cursor: pointer;
+      }
+    }
+
+    .@{range-prefix-cls}__close-icon:has(> svg) + .@{range-prefix-cls}__icon {
+      display: none;
+    }
+  }
+}
+
+.@{range-editor-prefix-cls}.@{input-prefix-cls}__inner {
+  width: 360px;
+}
+
+.@{range-editor-prefix-cls} {
+  &:not(.is-display-only).@{input-prefix-cls}__inner {
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 10px;
+  }
+
+  &:not(.is-display-only) .@{range-prefix-cls}-input {
+    line-height: 1;
+  }
+
+  &:not(.is-display-only).is-active,
+  &:not(.is-display-only).is-active:hover {
+    border-color: var(--tv-Picker-border-color-active);
+  }
+
+  &--medium:not(.is-display-only) {
+    &.@{input-prefix-cls}__inner {
+      height: var(--tv-Picker-height-medium);
+    }
+
+    .@{range-prefix-cls}-separator {
+      line-height: 34px;
+      font-size: var(--tv-Picker-font-size);
+    }
+
+    .@{range-prefix-cls}-input {
+      font-size: var(--tv-Picker-font-size);
+    }
+  }
+
+  &--small:not(.is-display-only) {
+    &.@{input-prefix-cls}__inner {
+      height: var(--tv-Picker-height-small);
+    }
+
+    .@{range-prefix-cls}-separator {
+      line-height: 20px;
+      font-size: var(--tv-Picker-font-size);
+    }
+
+    .@{range-prefix-cls}-input {
+      font-size: var(--tv-Picker-font-size);
+    }
+  }
+
+  &--mini:not(.is-display-only) {
+    &.@{input-prefix-cls}__inner {
+      height: var(--tv-Picker-height-mini);
+    }
+
+    .@{range-prefix-cls}-separator {
+      line-height: 16px;
+      font-size: var(--tv-Picker-font-size-sm);
+    }
+
+    .@{range-prefix-cls}-input {
+      font-size: var(--tv-Picker-font-size-sm);
+    }
+  }
+
+  &:not(.is-display-only).is-disabled {
+    background-color: var(--tv-Picker-bg-color-disabled);
+    border-color: transparent;
+    color: var(--tv-Picker-text-color-disabled);
+    cursor: not-allowed;
+
+    &:focus,
+    &:hover {
+      border-color: transparent;
+    }
+
+    input {
+      color: var(--tv-Picker-text-color-disabled);
+      background-color: var(--tv-Picker-bg-color-disabled);
+      cursor: not-allowed;
+      .placeholder();
+    }
+
+    .@{range-prefix-cls}-separator {
+      color: var(--tv-Picker-text-color-disabled);
+    }
+  }
+}
+
+.@{range-editor-prefix-cls}.is-display-only {
+  position: relative;
+  border-width: 0;
+
+  & > *:not(.@{range-editor-prefix-cls}-display-only) {
+    visibility: hidden;
+  }
+
+  & > .@{range-editor-prefix-cls}-display-only {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    max-width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 12px;
+  }
+}
+
+// TODO: 评估滚动条是否有用上，没有的话删掉
+.@{scrollbar-prefix-cls} {
+  overflow: hidden;
+  position: relative;
+
+  &:active > &__bar,
+  &:focus > &__bar,
+  &:hover > &__bar {
+    opacity: 1;
+    transition: opacity 340ms ease-out;
+  }
+
+  &__wrap {
+    overflow: scroll;
+    height: 100%;
+  }
+
+  &__wrap--hidden-default::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+
+  &__thumb {
+    position: relative;
+    display: block;
+    width: 0;
+    height: 0;
+    cursor: pointer;
+    border-radius: inherit;
+    background-color: rgba(144, 147, 153, 0.3);
+    transition: 0.3s background-color;
+
+    &:hover {
+      background-color: rgba(144, 147, 153, 0.5);
+    }
+  }
+
+  &__bar {
+    position: absolute;
+    right: 2px;
+    bottom: 2px;
+    z-index: 1;
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity 120ms ease-out;
+
+    &.is-vertical {
+      width: 6px;
+      top: 2px;
+
+      & > div {
+        width: 100%;
+      }
+    }
+
+    &.is-horizontal {
+      height: 6px;
+      left: 2px;
+
+      & > div {
+        height: 100%;
+      }
+    }
+  }
+}

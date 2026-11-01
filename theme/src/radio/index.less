@@ -1,0 +1,190 @@
+/**
+* Copyright (c) 2022 - present TinyVue Authors.
+* Copyright (c) 2022 - present Huawei Cloud Computing Technologies Co., Ltd.
+*
+* Use of this source code is governed by an MIT-style license.
+*
+* THE OPEN SOURCE SOFTWARE IN THIS PRODUCT IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL,
+* BUT WITHOUT ANY WARRANTY, WITHOUT EVEN THE IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR
+* A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
+*
+*/
+
+@import '../mixins/common.less';
+@import '../custom.less';
+@import './vars.less';
+
+@radio-prefix-cls: ~'@{css-prefix}radio';
+
+.@{radio-prefix-cls} {
+  .inject-radio-vars();
+
+  color: var(--tv-Radio-text-color);
+  margin-right: var(--tv-Radio-margin-right);
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  .user-select(none);
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &.is-bordered {
+    padding: 0 8px;
+    border-radius: var(--tv-Radio-bordered-border-radius);
+    border: 1px solid var(--tv-Radio-bordered-border-color);
+    box-sizing: border-box;
+    height: 32px;
+
+    & + & {
+      margin-left: 8px;
+    }
+
+    &.is-checked {
+      border-color: var(--tv-Radio-bordered-checked-border-color);
+    }
+
+    &.is-disabled {
+      cursor: not-allowed;
+      border-color: var(--tv-Radio-bordered-border-color);
+    }
+  }
+
+  &,
+  &__input {
+    white-space: nowrap;
+    outline: 0;
+  }
+
+  &__input {
+    cursor: pointer;
+    display: inline-flex;
+
+    &.is-checked {
+      .@{radio-prefix-cls}__inner {
+        border-color: var(--tv-Radio-bordered-checked-border-color);
+
+        &:after {
+          transform: translate(-50%, -50%) scale(1);
+          background-color: var(--tv-Radio-inner-checked-bg-color);
+        }
+      }
+
+      &:not(.is-disabled) {
+        .@{radio-prefix-cls}__inner {
+          &:hover {
+            border-color: var(--tv-Radio-bordered-checked-hover-border-color);
+          }
+        }
+      }
+    }
+
+    &.is-disabled {
+      .@{radio-prefix-cls}__inner {
+        border-color: var(--tv-Radio-input-disabled-border-color);
+
+        &,
+        &:after {
+          cursor: not-allowed;
+          background-color: var(--tv-Radio-input-disabled-bg-color);
+        }
+
+        & + .@{radio-prefix-cls}__label {
+          cursor: not-allowed;
+        }
+      }
+
+      &.is-checked .@{radio-prefix-cls}__inner {
+        background-color: var(--tv-Radio-input-checked-disabled-bg-color);
+        border-color: var(--tv-Radio-input-checked-disabled-border-color);
+
+        &:after {
+          background-color: var(--tv-Radio-inner-checked-disabled-bg-color);
+        }
+      }
+
+      & + span.@{radio-prefix-cls}__label {
+        color: var(--tv-Radio-input-disabled-text-color);
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  &__inner {
+    border: 1px solid var(--tv-Radio-bordered-border-color);
+    border-radius: 100%;
+    width: var(--tv-Radio-inner-width);
+    height: var(--tv-Radio-inner-height);
+    background-color: var(--tv-Radio-inner-bg-color);
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    box-sizing: border-box;
+    outline: none;
+
+    &:hover {
+      border-color: var(--tv-Radio-bordered-hover-border-color);
+    }
+
+    &:active {
+      border-color: var(--tv-Radio-bordered-active-border-color);
+    }
+
+    &:after {
+      width: var(--tv-Radio-inner-size);
+      height: var(--tv-Radio-inner-size);
+      border-radius: var(--tv-Radio-inner-border-radius);
+      background-color: var(--tv-Radio-inner-bg-color);
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      transition: transform 0.15s ease-in;
+    }
+  }
+
+  &__original {
+    opacity: 0;
+    outline: 0;
+    position: absolute;
+    z-index: -1;
+    margin: 0;
+    width: 0;
+    height: 0;
+  }
+
+  &__label {
+    font-size: var(--tv-Radio-font-size);
+    padding-left: 8px;
+    vertical-align: middle;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &.is-checked.is-display-only {
+    visibility: visible;
+    line-height: 1;
+
+    .tiny-radio__input {
+      padding: 0;
+      display: none;
+    }
+
+    .tiny-radio__label {
+      padding-left: 0;
+    }
+  }
+
+  &.is-display-only {
+    visibility: hidden;
+  }
+
+  &:focus:not(.is-focus):not(:active):not(.is-disabled) &__inner {
+    box-shadow: 0 0 2px 2px var(--tv-Radio-bordered-hover-border-color);
+  }
+}

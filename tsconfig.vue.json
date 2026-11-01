@@ -1,0 +1,49 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
+  "compilerOptions": {
+    "allowJs": true,
+    "noImplicitAny": false,
+    "paths": {
+      "@opentiny/utils": ["./src/utils"],
+      "@opentiny/vue": ["./src/index.ts"],
+      "@opentiny/vue-*": ["./src/components/*"],
+      "@opentiny/vue-common": ["./src/common"],
+      "@opentiny/vue-directive": ["./src/directives"],
+      "@opentiny/vue-hooks": ["./src/hooks"],
+      "@opentiny/vue-icon": ["./icons"],
+      "@opentiny/vue-locale": ["./locale/src"],
+      "@opentiny/vue-theme/*": ["./theme/src/*"],
+      "@opentiny/vue-renderless/types": ["./src/types"],
+      "@opentiny/vue-renderless/types/*": ["./src/types/*"],
+      "@opentiny/vue-renderless/*": ["./src/renderless/*"],
+      "virtual:common/adapter/vue": ["./src/common/adapter/vue3/index.ts"],
+      "virtual:locale/vue": ["./locale/src/vue3/index.ts"],
+      "package.json": ["./package.json"],
+      "@opentiny-internal/vue-test-utils": ["./internals/vue-test-utils/src"],
+      "@/*": ["./dev-server/src/*"]
+    },
+    "types": [
+      "node",
+      "vite/client",
+      "./internals/unplugin-virtual-template/client",
+      "./internals/vite-svg-loader/client",
+      "./src/common/__longque__",
+      "./env"
+    ],
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.vue.tsbuildinfo"
+  },
+  "include": [
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
+    "./src/**/*.vue",
+    "./icons/index.ts",
+    "./icons/src/**/*.ts",
+    "./locale/src/**/*.ts",
+    "./theme/src/**/*.ts",
+    "./site/demos/**/*.js",
+    "./dev-server/src/**/*.js",
+    "./dev-server/src/**/*.ts",
+    "./dev-server/src/**/*.tsx",
+    "./dev-server/src/**/*.vue"
+  ]
+}

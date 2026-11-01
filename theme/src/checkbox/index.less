@@ -1,0 +1,212 @@
+/**
+* Copyright (c) 2022 - present TinyVue Authors.
+* Copyright (c) 2022 - present Huawei Cloud Computing Technologies Co., Ltd.
+*
+* Use of this source code is governed by an MIT-style license.
+*
+* THE OPEN SOURCE SOFTWARE IN THIS PRODUCT IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL,
+* BUT WITHOUT ANY WARRANTY, WITHOUT EVEN THE IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR
+* A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
+*
+*/
+
+@import '../mixins/common.less';
+@import '../mixins/checkbox.less';
+@import '../custom.less';
+@import './vars.less';
+
+@checkbox-prefix-cls: ~'@{css-prefix}checkbox';
+
+.@{checkbox-prefix-cls} {
+  .inject-Checkbox-vars();
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  color: var(--tv-Checkbox-text-color);
+  font-size: 0; //去除inline-block元素间间距
+  white-space: nowrap;
+  margin-right: var(--tv-Checkbox-label-margin-right);
+  outline: none;
+  cursor: pointer;
+  .user-select(none);
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+
+  .@{checkbox-prefix-cls}__inner {
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    outline: none;
+    z-index: 1;
+    transition:
+      border-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46),
+      background-color 0.25s cubic-bezier(0.71, -0.46, 0.29, 1.46);
+  }
+
+  &.is-filter {
+    background-color: var(--tv-Checkbox-bg-color-filter);
+    padding: 4px 10px;
+    border-radius: 4px;
+    max-width: 192px;
+
+    .@{checkbox-prefix-cls}__label {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 1.5;
+    }
+  }
+
+  &.is-bordered {
+    padding: 9px 16px;
+    border-radius: var(--tv-Checkbox-outline-border-radius);
+    border: 1px solid var(--tv-Checkbox-border-color);
+    height: 40px;
+
+    & + & {
+      margin-left: 10px;
+    }
+
+    &.is-checked {
+      border-color: var(--tv-Checkbox-button-checked-border-color);
+    }
+
+    &.is-disabled {
+      .checkbox-border-disabled(var(--tv-Checkbox-bg-color-disabled), var(--tv-Checkbox-border-color-disabled));
+    }
+  }
+
+  &__input {
+    position: relative;
+    display: inline-block;
+    white-space: nowrap;
+    vertical-align: middle;
+    outline: 0;
+    line-height: 1;
+    cursor: pointer;
+
+    &.is-disabled {
+      & + span.@{checkbox-prefix-cls}__label {
+        color: var(--tv-Checkbox-label-text-color-disabled);
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  // 原始表单input组件，需要隐藏
+  &__original {
+    opacity: 0;
+    outline: 0;
+    position: absolute;
+    margin: 0;
+    width: 0;
+    height: 0;
+    z-index: -1;
+  }
+
+  &__label {
+    padding-left: 8px;
+    font-size: var(--tv-Checkbox-font-size);
+    font-weight: var(--tv-Checkbox-font-weight);
+  }
+
+  &.is-display-only {
+    .@{checkbox-prefix-cls}__input {
+      &.is-disabled {
+        & + span {
+          &.tiny-checkbox__label {
+            color: var(--tv-Checkbox-label-text-color-disabled);
+          }
+        }
+      }
+    }
+  }
+
+  &.is-group-display-only {
+    margin: 0;
+    padding: 0;
+    display: none;
+
+    &.is-checked {
+      display: inline-block;
+    }
+
+    .@{checkbox-prefix-cls}__input {
+      display: none;
+    }
+
+    .@{checkbox-prefix-cls}__label::after {
+      display: inline-block;
+      content: ';';
+    }
+
+    & .@{checkbox-prefix-cls}__label {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  &__input {
+    .@{checkbox-prefix-cls}__inner {
+      svg {
+        font-size: var(--tv-Checkbox-icon-size);
+      }
+
+      .icon-checked-sur,
+      .icon-halfselect {
+        path:first-child {
+          fill: var(--tv-Checkbox-bg-color-active);
+        }
+
+        path:last-child {
+          fill: var(--tv-Checkbox-border-color-inverse);
+        }
+      }
+
+      .icon-check {
+        path:first-child {
+          fill: transparent;
+        }
+
+        path:nth-child(2) {
+          fill: var(--tv-Checkbox-unchecked-border-color);
+        }
+      }
+
+      .icon-check:hover {
+        path:nth-child(2) {
+          fill: var(--tv-Checkbox-unchecked-border-color-hover);
+        }
+      }
+    }
+  }
+
+  &__input.is-disabled {
+    cursor: not-allowed;
+
+    .@{checkbox-prefix-cls}__inner {
+      .icon-checked-sur,
+      .icon-halfselect {
+        path:first-child {
+          fill: var(--tv-Checkbox-checked-disabled-bg-color);
+        }
+
+        path:last-child {
+          fill: var(--tv-Checkbox-icon-inverse-disabled);
+        }
+      }
+      .icon-check {
+        path:first-child {
+          fill: var(--tv-Checkbox-bg-color-disabled);
+        }
+
+        path:nth-child(2) {
+          fill: var(--tv-Checkbox-border-color-disabled);
+        }
+      }
+    }
+  }
+}

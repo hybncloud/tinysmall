@@ -1,0 +1,42 @@
+/**
+* Copyright (c) 2022 - present TinyVue Authors.
+* Copyright (c) 2022 - present Huawei Cloud Computing Technologies Co., Ltd.
+*
+* Use of this source code is governed by an MIT-style license.
+*
+* THE OPEN SOURCE SOFTWARE IN THIS PRODUCT IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL,
+* BUT WITHOUT ANY WARRANTY, WITHOUT EVEN THE IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR
+* A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
+*
+*/
+
+@import '../custom.less';
+@import './vars.less';
+
+@cascader-panel-prefix-cls: ~'@{css-prefix}cascader-panel';
+@cascader-node-prefix-cls: ~'@{css-prefix}cascader-node';
+
+.@{cascader-panel-prefix-cls} {
+  .inject-CascaderPanel-vars();
+
+  display: flex;
+  border-radius: var(--tv-CascaderPanel-border-radius);
+  font-size: var(--tv-CascaderPanel-font-size);
+  &.is-bordered {
+    border: 1px solid var(--tv-CascaderPanel-border-color);
+    border-radius: var(--tv-CascaderPanel-border-radius);
+  }
+
+  .@{cascader-node-prefix-cls} {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: var(--tv-CascaderPanel-node-label-padding-x) var(--tv-CascaderPanel-node-label-padding-right)
+      var(--tv-CascaderPanel-node-label-padding-x) var(--tv-CascaderPanel-node-label-padding-left);
+    height: var(--tv-CascaderPanel-node-height);
+    line-height: var(--tv-CascaderPanel-node-height);
+    outline: 0;
+    border-radius: var(--tv-CascaderPanel-node-border-radius);
+    margin-top: var(--tv-CascaderPanel-node-margin-top);
+  }
+}

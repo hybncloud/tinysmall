@@ -1,0 +1,95 @@
+/**
+* Copyright (c) 2022 - present TinyVue Authors.
+* Copyright (c) 2022 - present Huawei Cloud Computing Technologies Co., Ltd.
+*
+* Use of this source code is governed by an MIT-style license.
+*
+* THE OPEN SOURCE SOFTWARE IN THIS PRODUCT IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL,
+* BUT WITHOUT ANY WARRANTY, WITHOUT EVEN THE IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR
+* A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
+*
+*/
+
+@import '../mixins/common.less';
+@import '../custom.less';
+@import './vars.less';
+
+@popconfirm-prefix-cls: ~'@{css-prefix}popconfirm';
+
+.@{popconfirm-prefix-cls} {
+  .inject-Popconfirm-vars();
+
+  display: inline-block;
+
+  &__reference {
+    display: inline-block;
+  }
+}
+
+.@{popconfirm-prefix-cls}-popover {
+  .inject-Popconfirm-vars();
+
+  min-width: 168px;
+  max-width: 90vw;
+
+  &__container {
+    padding: var(--tv-Popconfirm-popover-container-padding-vertical) 0;
+    font-size: var(--tv-Popconfirm-popover-footer-font-size);
+    color: var(--tv-Popconfirm-popover-footer-font-color);
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--tv-Popconfirm-popover-margin-bottom);
+  }
+
+  &__icon {
+    height: 20px;
+    width: 20px;
+    margin-right: var(--tv-Popconfirm-popover-icon-margin-right);
+    margin-bottom: var(--tv-Popconfirm-popover-icon-margin-bottom);
+  }
+
+  &__title {
+    font-size: var(--tv-Popconfirm-popover-title-font-size);
+    font-weight: var(--tv-Popconfirm-popover-title-font-weight);
+    line-height: var(--tv-Popconfirm-popover-title-line-height);
+  }
+
+  &__content {
+    color: var(--tv-Popconfirm-popover-text-color);
+    line-height: var(--tv-Popconfirm-popover-content-line-height);
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: right;
+    margin-top: var(--tv-Popconfirm-popover-footer-margin-top);
+  }
+
+  &__confirm-button {
+    margin-left: var(--tv-Popconfirm-popover-confirm-button-margin-left);
+    width: 72px;
+  }
+
+  &__cancel-button {
+    width: 72px;
+  }
+
+  &--info {
+    fill: var(--tv-Popconfirm-icon-info-fill);
+  }
+
+  &--error {
+    fill: var(--tv-Popconfirm-icon-error-fill);
+  }
+
+  &--warning {
+    fill: var(--tv-Popconfirm-icon-warning-fill);
+  }
+
+  &--success {
+    fill: var(--tv-Popconfirm-icon-success-fill);
+  }
+}

@@ -1,0 +1,160 @@
+/**
+* Copyright (c) 2022 - present TinyVue Authors.
+* Copyright (c) 2022 - present Huawei Cloud Computing Technologies Co., Ltd.
+*
+* Use of this source code is governed by an MIT-style license.
+*
+* THE OPEN SOURCE SOFTWARE IN THIS PRODUCT IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL,
+* BUT WITHOUT ANY WARRANTY, WITHOUT EVEN THE IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR
+* A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
+*
+*/
+
+@import '../custom.less';
+@import './vars.less';
+@import '../date-table/vars.less';
+
+@month-table-prefix-cls: ~'@{css-prefix}month-table';
+
+.@{month-table-prefix-cls} {
+  .inject-MonthTable-vars();
+  .inject-DateTable-vars();
+
+  .month-table();
+}
+
+.month-table() {
+  width: 100%;
+  font-size: var(--tv-MonthTable-font-size);
+  margin: -1px;
+  border-collapse: collapse;
+
+  tr,
+  td {
+    text-align: center;
+    padding: 16px 0;
+    cursor: pointer;
+
+    &.current {
+      padding-left: 3px;
+      padding-right: 3px;
+    }
+
+    div {
+      height: var(--tv-MonthTable-td-height);
+      box-sizing: border-box;
+      padding: 0 4px;
+    }
+
+    &.today {
+      .cell {
+        color: var(--tv-MonthTable-text-color);
+        box-shadow: 0 0 1px 1px var(--tv-MonthTable-cell-border-color-today);
+      }
+
+      &.end-date,
+      &.start-date {
+        .cell {
+          color: var(--tv-MonthTable-td-text-color-emphasize);
+          box-shadow: none;
+        }
+      }
+    }
+
+    &.disabled {
+      .cell {
+        background-color: var(--tv-MonthTable-bg-color-disabled);
+        cursor: not-allowed;
+        color: var(--tv-MonthTable-cell-color-disabled);
+
+        &:hover {
+          cursor: not-allowed;
+          background-color: var(--tv-MonthTable-bg-color-disabled);
+        }
+      }
+    }
+
+    .cell {
+      width: 100%;
+      height: var(--tv-MonthTable-td-height);
+      padding: var(--tv-MonthTable-td-padding);
+      line-height: var(--tv-MonthTable-line-height);
+      display: block;
+      color: var(--tv-MonthTable-text-color);
+
+      &:hover {
+        background: var(--tv-MonthTable-bg-color-hover);
+        box-shadow: none;
+      }
+    }
+
+    &.in-range {
+      div,
+      div:hover {
+        background-color: var(--tv-MonthTable-bg-color-hover);
+      }
+
+      &:first-of-type {
+        div {
+          border-radius: var(--tv-MonthTable-cell-border-radius-first);
+        }
+
+        &.end-date {
+          div {
+            border-radius: var(--tv-MonthTable-cell-border-radius);
+            padding-left: 0;
+          }
+        }
+      }
+
+      &:last-of-type {
+        div {
+          border-radius: var(--tv-MonthTable-cell-border-radius-last);
+        }
+      }
+    }
+
+    &.end-date,
+    &.start-date {
+      div {
+        color: var(--tv-MonthTable-td-text-color-emphasize);
+      }
+
+      &.start-date {
+        div {
+          border-radius: var(--tv-MonthTable-cell-border-radius-start);
+          padding-left: 0;
+        }
+      }
+
+      &.end-date {
+        div {
+          border-radius: var(--tv-MonthTable-cell-border-radius-end);
+          padding-right: 0;
+        }
+      }
+
+      .cell {
+        color: var(--tv-MonthTable-td-text-color-emphasize);
+        background-color: var(--tv-MonthTable-bg-color-emphasize);
+      }
+    }
+
+    &:not(.in-range) {
+      .cell {
+        box-sizing: border-box;
+        width: auto;
+        border-radius: var(--tv-MonthTable-cell-border-radius);
+      }
+    }
+
+    &.current:not(.disabled) .cell {
+      &,
+      &:hover {
+        color: var(--tv-DateTable-td-normal-text-color);
+        background: var(--tv-MonthTable-bg-color-emphasize);
+        box-shadow: none;
+      }
+    }
+  }
+}
