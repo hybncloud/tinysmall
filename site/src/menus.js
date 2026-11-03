@@ -53,7 +53,7 @@ function genMenus() {
 
 // 获取菜单的类别图标
 async function getMenuIcons() {
-  const modules = import.meta.glob('@site/assets/images/leftMenu/*.svg', { eager: true })
+  const modules = import.meta.glob('@site/assets/images/leftMenu/*.svg', { eager: true, query: '?component' })
   const icons = {}
   for (const path of Object.keys(modules)) {
     const iconName = $split(path, '/', -1).replace('.svg', '')

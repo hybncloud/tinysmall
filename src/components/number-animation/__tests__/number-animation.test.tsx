@@ -1,3 +1,3 @@
 import { describe } from 'vitest'
 
-describe('PC Mode', () => {})
+describe.todo('PC Mode')

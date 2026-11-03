@@ -64,13 +64,15 @@ describe('PC Mode', () => {
     // 双输入框
     const value2 = ref([40, 60])
     const wrapper2 = mount(() => <Slider v-model={value2.value} showInput={true} min={0} max={100} />)
-    const input1 = wrapper2.find('.tiny-slider__input input')
+    const input1 = wrapper2.find('.tiny-slider__input')
     expect(input1.exists()).toBe(true)
-    const input2 = wrapper2.find('.tiny-slider__input input:nth-child(3)')
+    const input2 = wrapper2.find('.tiny-slider__input:nth-child(2)')
     expect(input2.exists()).toBe(true)
 
-    await input1.setValue(70)
-    await input1.trigger('blur')
+    const i = wrapper2.find('.tiny-slider__input input')
+
+    await i.setValue(70)
+    await i.trigger('blur')
 
     expect(value2.value).toStrictEqual([60, 60])
   })
@@ -79,7 +81,7 @@ describe('PC Mode', () => {
     const value = ref(60)
     const wrapper = mount(() => <Slider v-model={value.value} showInput={true} showPercent={true} min={0} max={100} />)
 
-    expect(wrapper.find('.tiny-slider__input span').text()).toBe('%')
+    expect(wrapper.find('.tiny-slider__input__unit').text()).toBe('%')
   })
 
   test.todo('format-tooltip 格式化 tooltip message')
@@ -104,7 +106,8 @@ describe('PC Mode', () => {
         show-input={true}
         v-slots={{
           default: (slotScope) => <b class="onlyText">{slotScope.slotScope}%</b>
-        }}></Slider>
+        }}
+      ></Slider>
     ))
     expect(wrapper.find('.onlyText').text()).toBe(`${value}%`)
   })

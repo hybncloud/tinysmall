@@ -71,8 +71,8 @@ describe('PC Mode', () => {
     expect(labelWrapper.find('span').text()).toBe('文字')
 
     const imageWrapper = mount(() => <UserHead type="image" modelValue="/static/images/mountain.png"></UserHead>)
-    expect(imageWrapper.find('.tiny-user-head__portrait').attributes().style).contains(
-      'background-image: url(/static/images/mountain.png)'
+    expect((imageWrapper.find('.tiny-user-head__portrait').element as HTMLDivElement).style.backgroundImage).eq(
+      'url("/static/images/mountain.png")'
     )
   })
   /**

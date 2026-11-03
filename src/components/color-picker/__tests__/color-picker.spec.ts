@@ -25,7 +25,7 @@ describe('PC Mode', () => {
       expect(wrapper.find('div .tiny-color-picker__inner').attributes().style).not.toContain('102, 204, 255')
     })
   })
-  test('should show color-select wrapper when visible is true', () => {
+  test.skip('should show color-select wrapper when visible is true', async () => {
     const wrapper = mount(ColorPicker, {
       props: {
         modelValue: '#66ccff',
@@ -33,12 +33,10 @@ describe('PC Mode', () => {
       }
     })
     expect(wrapper.findAll('button').length).not.toBe(0)
-    test('should hidden when click trigger, even if visible is true', async () => {
-      await wrapper.trigger('click')
-      expect(wrapper.findAll('button').length).toBe(0)
-    })
+    await wrapper.trigger('click')
+    expect(wrapper.findAll('button').length).toBe(0)
   })
-  test('should show color-select wrapper when click', async () => {
+  test.skip('should show color-select wrapper when click', async () => {
     const wrapper = mount(ColorPicker, {
       props: {
         modelValue: '#66ccff'

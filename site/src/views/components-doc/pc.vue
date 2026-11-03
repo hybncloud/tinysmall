@@ -13,7 +13,7 @@ const loadData = ({ cmpId, lang }) => {
     fetchDemosFile(`@demos/app/${getWebdocPath(cmpId)}/webdoc/${cmpId}.${lang}.md`),
     import(
       /* @vite-ignore */
-      `${baseUrl}@demos/apis/${getWebdocPath(cmpId) === 'chart' ? cmpId : getWebdocPath(cmpId)}.js`
+      `${baseUrl}@demos/apis/${getWebdocPath(cmpId)}.js`
     ),
     import(
       /* @vite-ignore */

@@ -2,57 +2,26 @@
   <div class="tiny-token-list">
     <div class="tiny-token-title">
       <h2>{{ capName }} 主题变量</h2>
-      <tiny-popover width="800" trigger="hover">
-        <div>
-          <div class="tiny-token-demo">
-            <async-highlight :code="content"></async-highlight>
-          </div>
-          <tiny-link
-            :icon="TinyIconViewFlowchart"
-            :underline="false"
-            href="https://opentiny.design/opentiny-design/guide/theme"
-            target="_blank"
-            >如何定制？</tiny-link
-          >
-        </div>
-        <template #reference>
-          <div class="tiny-design">
-            <tiny-button type="text" :icon="TinyIconHelpCircle" text="如何定制"> </tiny-button>
-          </div>
-        </template>
-      </tiny-popover>
     </div>
-    <tiny-grid :data="tokenList" row-id="name">
-      <tiny-grid-column field="token" title="Token名称"> </tiny-grid-column>
-      <tiny-grid-column field="desc" title="描述"> </tiny-grid-column>
-      <tiny-grid-column field="tokenValue" title="默认值"> </tiny-grid-column>
-    </tiny-grid>
+    <VxeTable :data="tokenList" :row-config="{ keyField: 'name' }">
+      <VxeColumn field="token" title="Token名称"> </VxeColumn>
+      <VxeColumn field="desc" title="描述"> </VxeColumn>
+      <VxeColumn field="tokenValue" title="默认值"> </VxeColumn>
+    </VxeTable>
   </div>
 </template>
 
 <script setup>
-import { TinyPopover, TinyButton, TinyLink } from '@opentiny/vue'
 import { camelize, capitalize } from '@vue/shared'
-import { computed, ref } from 'vue'
-import { iconHelpCircle, iconViewFlowchart } from '@opentiny/vue-icon'
-import AsyncHighlight from './async-highlight.vue'
+import { computed } from 'vue'
+ import { VxeTable, VxeColumn } from 'vxe-table'
 
 const props = defineProps({
   name: String,
   tokenList: Array
 })
 
-const TinyIconHelpCircle = iconHelpCircle()
-const TinyIconViewFlowchart = iconViewFlowchart()
 const capName = computed(() => capitalize(camelize(props.name)))
-const theme = '`'
-const content = ref(
-  `
-    <tiny-config-provider :theme="{css:${theme}.tiny-button{--tv-Button-bg-color-primary: red;}${theme}}">
-      <tiny-button type="primary">主题色按钮</tiny-button>
-    </tiny-config-provider>
-  `
-)
 </script>
 
 <style scoped lang="less">

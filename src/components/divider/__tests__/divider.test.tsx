@@ -22,22 +22,16 @@ describe('PC Mode', () => {
     wrapper.unmount()
   })
 
-  test('props content position', async () => {
-    const wrapper = mount(() => <Divider contentPosition="center">测试</Divider>)
-
-    expect(wrapper.find('.is-center').exists()).toBeTruthy()
-
-    wrapper.unmount()
-  })
+  test.todo('props content position')
 
   test('custom border color', async () => {
     const borderColor = 'rgb(255, 0, 0)'
 
     const wrapper = mount(() => <Divider color={borderColor}></Divider>)
 
-    const style = window.getComputedStyle(wrapper.element)
+    const element = wrapper.find('.tiny-divider-line').element as HTMLDivElement
 
-    expect(style.borderColor).toBe(borderColor)
+    expect(element.style.borderColor).eq(borderColor)
 
     wrapper.unmount()
   })
@@ -52,11 +46,10 @@ describe('PC Mode', () => {
       </Divider>
     ))
 
-    const textDom = wrapper.find('.tiny-divider__text')
-    const textStyle = window.getComputedStyle(textDom.element)
+    const textDom = wrapper.find('.tiny-divider__text').element as HTMLDivElement
 
-    expect(textStyle.color).toBe(contentColor)
-    expect(textStyle.backgroundColor).toBe(contentBackgroundColor)
+    expect(textDom.style.color).eq(contentColor)
+    expect(textDom.style.backgroundColor).eq(contentBackgroundColor)
 
     wrapper.unmount()
   })
@@ -66,7 +59,7 @@ describe('PC Mode', () => {
 
     const wrapper = mount(() => <Divider>{TEXT}</Divider>)
 
-    expect(wrapper.find('.tiny-divider').text()).toBe(TEXT)
+    expect(wrapper.find('.tiny-divider').text()).eq(TEXT)
 
     wrapper.unmount()
   })

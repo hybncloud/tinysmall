@@ -1,7 +1,10 @@
 <template>
   <div class="main-layout ti-hp100 ti-f-c ti-f-box-stretch">
-    <div class="content-layout ti-fi-1" :has-sider="!isFrame">
-      <div id="layoutSider" class="layout-sider" :class="{ 'saas-border': templateModeState.isSaas }" v-if="!isFrame">
+    <div class="content-layout ti-fi-1">
+      <div id="layoutSider" class="layout-sider">
+        <div class="wp100 h50 fw-bold text-center f20 f-center">
+          TinySmall
+        </div>
         <tiny-tree-menu
           ref="treeMenuRef"
           class="main-menu"
@@ -9,17 +12,13 @@
           node-key="id"
           ellipsis
           :data="menuOptions"
-          :menu-collapsible="true"
           :filter-node-method="searchMenu"
           :show-filter="isShowFilter"
           @current-change="clickMenu"
           @collapse-change="collapseChange"
         >
           <template #default="{ data }">
-            <a @click="clickMenuLink" :href="getMenuLink(data)" class="node-name-container">
-              <tiny-tag v-if="data?.mode?.includes('mobile-first')" size="mini" effect="plain" class="absolute-tag"
-                >多端</tiny-tag
-              >
+            <RouterLink :to="{ path: getMenuLink(data) }" class="node-name-container">
               <!-- 分类图标 -->
               <component
                 v-if="data.type === 'overview' || data.children"
@@ -36,15 +35,12 @@
                 :is-from-menu="true"
               >
               </version-tip>
-            </a>
+            </RouterLink>
           </template>
         </tiny-tree-menu>
       </div>
       <div
         id="doc-layout"
-        ref="contentRef"
-        :native-scrollbar="true"
-        content-style="display: flex;  flex-direction: column; height:100%"
         class="md-tiny"
       >
         <router-view />
@@ -62,7 +58,6 @@ import { TreeMenu, Dropdown, DropdownMenu, Tooltip, Tag, Radio, RadioGroup, Butt
 import { genMenus, getMenuIcons } from '@site/menus'
 import { router } from '@site/router.js'
 import { getWord, i18nByKey, appData, appFn, useApiMode, useTemplateMode } from '@site/tools'
-import useTheme from '@site/tools/useTheme'
 import FloatSettings from '@site/components/float-settings.vue'
 import VersionTip from '@site/components/version-tip.vue'
 
@@ -82,25 +77,19 @@ export default defineComponent({
   },
   props: [],
   setup() {
-    const { defaultTheme } = useTheme()
     const { apiModeState, apiModeFn } = useApiMode()
     const { templateModeState } = useTemplateMode()
     const state = reactive({
       menuOptions: genMenus(),
       menuIcons: {},
       hasHeader: true, // Header，当嵌入think时，无头。 所以预留变量
-      isFrame: computed(() => router.currentRoute.value.meta?.iframe),
-      contentRef: null,
       isCollapsed: false,
       treeMenuRef: null,
       expandKeys: []
     })
 
-    const lang = getWord('zh-CN', 'en-US', 'es-LA', 'pt-BR')
     const route = useRoute()
-    const { all: allPathParam, theme = defaultTheme } = useRoute().params
-    const allPath = allPathParam ? allPathParam + '/' : ''
-    const getTo = (route, key) => `${import.meta.env.VITE_CONTEXT}${allPath}${lang}/${theme}/${route}${key}`
+    const getTo = (route, key) => `/${route}${key}`
 
     const changeLanguage = () => {
       appFn.toggleLang()
@@ -115,7 +104,7 @@ export default defineComponent({
 
     const clickMenu = (menu) => {
       if (menu.type === 'overview') {
-        router.push(`${import.meta.env.VITE_CONTEXT}${allPath}${lang}/${theme}/overview`)
+        router.push(`/overview`)
       } else if (menu.type === 'docs') {
         router.push(getTo('docs/', menu.key))
       } else if (menu.type === 'components') {
@@ -125,7 +114,7 @@ export default defineComponent({
 
     const getMenuLink = (menu) => {
       if (menu.type === 'overview') {
-        return `${import.meta.env.VITE_CONTEXT}${allPath}${lang}/${theme}/overview`
+        return `/overview`
       } else if (menu.type === 'docs') {
         return getTo('docs/', menu.key)
       } else if (menu.type === 'components') {
@@ -238,7 +227,7 @@ export default defineComponent({
 
 .main-menu.tiny-tree-menu {
   height: 100%;
-  padding-top: 30px;
+  padding-top: 10px;
   padding-left: 10px;
   width: 276px;
 

@@ -1,6 +1,6 @@
 import Contributors from '@site/data/contributors'
 import ContributorMap from '@site/data/contributorMap'
-import { ZH_CN_LANG, EN_US_LANG, ES_LA_LANG, PT_BR_LANG, LANG_PATH_MAP } from '../const'
+import { ZH_CN_LANG } from '../const'
 
 const baseUrl = import.meta.env.BASE_URL
 
@@ -105,33 +105,7 @@ const getCmpContributors = (cmpId) => {
 }
 
 const getLocaleMode = () => {
-  const { href, pathname } = location
-  const DEFAULT_LANG = ZH_CN_LANG // 默认语言
-
-  const langCheckMap = new Map([
-    [
-      EN_US_LANG,
-      () => href.includes(`/${LANG_PATH_MAP[EN_US_LANG]}`) || pathname.includes(`/${LANG_PATH_MAP[EN_US_LANG]}/`)
-    ],
-    [
-      ZH_CN_LANG,
-      () => href.includes(`/${LANG_PATH_MAP[ZH_CN_LANG]}`) || pathname.includes(`/${LANG_PATH_MAP[ZH_CN_LANG]}/`)
-    ],
-    [
-      ES_LA_LANG,
-      () => href.includes(`/${LANG_PATH_MAP[ES_LA_LANG]}`) || pathname.includes(`/${LANG_PATH_MAP[ES_LA_LANG]}/`)
-    ],
-    [
-      PT_BR_LANG,
-      () => href.includes(`/${LANG_PATH_MAP[PT_BR_LANG]}`) || pathname.includes(`/${LANG_PATH_MAP[PT_BR_LANG]}/`)
-    ]
-  ])
-
-  for (const [lang, checkFn] of langCheckMap) {
-    if (checkFn()) return lang
-  }
-
-  return DEFAULT_LANG // 无匹配时返回默认
+  return ZH_CN_LANG
 }
 
 export { $clone, $split, $delay, $idle, pubUrl, fetchDemosFile, getCmpContributors, getLocaleMode }

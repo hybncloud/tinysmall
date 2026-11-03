@@ -8,25 +8,6 @@ import ptBR from './pt.json'
 
 const messages = { enUS: { ...en }, zhCN: { ...zh }, esLA: { ...esLA }, ptBR: { ...ptBR } }
 
-messages.zhCN.ui = {
-  grid: { demo: { companyName: '公司名称', employees: '员工数', address: '地址', introduction: '介绍' } }
-}
-messages.enUS.ui = {
-  grid: {
-    demo: { companyName: 'Company Name', employees: 'Employees', address: 'Address', introduction: 'Introduction' }
-  }
-}
-messages.esLA.ui = {
-  grid: {
-    demo: { companyName: 'Company Name', employees: 'Employees', address: 'Address', introduction: 'Introduction' }
-  }
-}
-messages.ptBR.ui = {
-  grid: {
-    demo: { companyName: 'Company Name', employees: 'Employees', address: 'Address', introduction: 'Introduction' }
-  }
-}
-
 const langMap = new Map([
   ['zhCN', 'zhCN'],
   ['enUS', 'enUS'],
@@ -36,15 +17,14 @@ const langMap = new Map([
 
 $local._lang = langMap.get($local._lang) || 'zhCN'
 
-const customCreateI18n = ({ locale, messages }) =>
-  createI18n({
+
+const i18n = initI18n({
+  createI18n: ({ locale, messages }) => createI18n({
     locale, // set locale
     // legacy: false, // 如果要支持compositionAPI，此项必须设置为false。
     fallbackLocale: 'zhCN', // set fallback locale
     messages // set locale messages
-  })
-const i18n = initI18n({
-  createI18n: customCreateI18n,
+  }),
   i18n: {
     locale: $local._lang
   },

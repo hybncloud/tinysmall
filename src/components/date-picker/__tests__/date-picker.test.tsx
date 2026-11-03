@@ -9,14 +9,14 @@ describe('PC Mode', () => {
   test('size', async () => {
     let value = ''
     const wrapper = mount(() => <DropTimes v-model={value} size="medium"></DropTimes>)
-    expect(wrapper.find('.tiny-select--medium').exists()).toBe(true)
+    expect(wrapper.find('.tiny-base-select--medium').exists()).toBe(true)
   })
 
   test('events', async () => {
     const handleChange = vi.fn()
     let value = ''
     const wrapper = mount(() => <DropTimes v-model={value} onChange={handleChange}></DropTimes>)
-    await wrapper.find('.tiny-select').trigger('click')
+    await wrapper.find('.tiny-base-select').trigger('click')
     await nextTick()
     await document.querySelector('.tiny-select-dropdown__item').click()
     expect(handleChange).toHaveBeenCalled()

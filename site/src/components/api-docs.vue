@@ -17,15 +17,15 @@
               {{ key }}
             </h3>
             <div class="api-table-box">
-              <DataGrid
+              <VxeTable
                 ref="apiTableRef"
                 class="api-table"
                 :data="props.tableData[oneGroup.name][key]"
                 :expand-config="apiExpandConf"
-                row-id="name"
+                :row-config="{ keyField: 'name' }"
               >
-                <DataGridColumn class-name="api-table-expand-col" type="expand" width="32">
-                  <template #default="{ row }">
+                <VxeColumn class-name="api-table-expand-col" type="expand" width="32">
+                  <template #content="{ row }">
                     <async-highlight
                       v-if="row.code"
                       :code="row.code.trim()"
@@ -40,8 +40,8 @@
                       ></async-highlight>
                     </div>
                   </template>
-                </DataGridColumn>
-                <DataGridColumn field="name" :title="i18nByKey('name')" :width="columnWidth[key][0]">
+                </VxeColumn>
+                <VxeColumn field="name" :title="i18nByKey('name')" :width="columnWidth[key][0]">
                   <template #default="{ row }">
                     <span class="api-table-name">
                       <a v-if="row.demoId" @click="jumpToDemo(row.demoId)">{{ row.name }}</a>
@@ -56,8 +56,8 @@
                     >
                     </version-tip>
                   </template>
-                </DataGridColumn>
-                <DataGridColumn
+                </VxeColumn>
+                <VxeColumn
                   v-if="props.tableData[oneGroup.name][key].find((i) => i.type)"
                   field="type"
                   :title="i18nByKey('propType')"
@@ -68,22 +68,21 @@
                       :class="{ 'type-link': row.typeAnchorName || row.linkTo }"
                       :id="row.typeAnchorName ? row.type : ''"
                       @click="toOuterType(row)"
-                      >{{ row.type }} <OuterLink v-if="row.linkTo"></OuterLink
-                    ></span>
+                      >{{ row.type }} <OuterLink v-if="row.linkTo"></OuterLink></span>
                   </template>
-                </DataGridColumn>
-                <DataGridColumn
+                </VxeColumn>
+                <VxeColumn
                   v-if="key === 'props' || key === 'options'"
                   field="defaultValue"
                   :title="i18nByKey('defValue')"
                   :width="columnWidth[key][2]"
-                ></DataGridColumn>
-                <DataGridColumn field="desc" :title="i18nByKey('desc')">
+                ></VxeColumn>
+                <VxeColumn field="desc" :title="i18nByKey('desc')">
                   <template #default="data">
                     <span v-html="data.row.desc"></span>
                   </template>
-                </DataGridColumn>
-              </DataGrid>
+                </VxeColumn>
+              </VxeTable>
             </div>
           </template>
         </div>
@@ -99,8 +98,7 @@ import { i18nByKey } from '@site/tools'
 import { router } from '@site/router.js'
 import AsyncHighlight from './async-highlight.vue'
 import VersionTip from './version-tip.vue'
-import DataGrid from './datagrid/DataGrid.vue'
-import DataGridColumn from './datagrid/DataGridColumn.vue'
+ import { VxeTable, VxeColumn } from 'vxe-table'
 
 const props = defineProps({ currentJson: {}, chartCode: {}, tableData: {} })
 
@@ -122,7 +120,7 @@ const apiExpandConf = {
   trigger: 'row',
   expandRowKeys: [],
   accordion: false,
-  activeMethod: (row) => row.typeAnchorName,
+  visibleMethod : ({row}) => row.typeAnchorName,
   showIcon: true // 配置是否显示展开图标
 }
 

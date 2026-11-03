@@ -1,61 +1,45 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import Layout from '@site/views/layout/layout.vue'
-import { LANG_PATH_MAP, ZH_CN_LANG, DEFAULT_THEME } from './const'
-import { appData } from './tools/appData.js'
 
 const Components = () => import('@site/views/components-doc/index.vue')
 const Docs = () => import('@site/views/docs/docs.vue')
 const Overview = () => import('@site/views/overview.vue')
-const Features = () => import('@site/views/features.vue')
 
-const context = import.meta.env.VITE_CONTEXT
 let routes = [
   // 组件总览
   {
-    path: `${context}:all?/${LANG_PATH_MAP[appData.lang] || 'zh-CN'}/:theme/overview`,
+    path: `/overview`,
     component: Layout,
     name: 'overview',
     children: [{ name: 'Overview', path: '', component: Overview, meta: { title: '组件总览 | TinyVue' } }]
   },
   // 文档
   {
-    path: `${context}:all?/:lang/:theme/docs/:docId`,
+    path: `/docs/:docId`,
     component: Layout,
     name: 'docs',
     children: [{ name: 'Docs', path: '', component: Docs }]
   },
   // 组件
   {
-    path: `${context}:all?/${LANG_PATH_MAP[appData.lang] || 'zh-CN'}/:theme/components/:cmpId`,
+    path: `/components/:cmpId`,
     component: Layout,
     name: 'components',
     children: [{ name: 'Components', path: '', component: Components }]
   },
-  // 组件特性列表（不对外）
-  {
-    path: `${context}:all?/zh-CN/:theme/features`,
-    component: Layout,
-    name: 'features',
-    children: [{ name: 'Features', path: '', component: Features, meta: { title: '组件特性列表 | TinyVue' } }]
-  },
   // 未匹配到目标地址时，进行路由重定向
   {
     path: '/:pathMatch(.*)*',
-    redirect: () => {
-      const langPath = LANG_PATH_MAP[appData.lang] || LANG_PATH_MAP[ZH_CN_LANG]
-      return { path: `${context}${langPath}/${DEFAULT_THEME}/overview` }
-    }
+    redirect: `/overview`
   }
 ]
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes
 })
 
 // 为浏览器添加title
-router.afterEach((to, from) => {
-  if (to.meta.title) {
-    document.title = to.meta.title
-  }
+router.afterEach((to) => {
+  if (to.meta.title) document.title = to.meta.title
 })
 export { router }

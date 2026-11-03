@@ -12,7 +12,7 @@
 
 import { createComponent, setupComponent } from '@opentiny/vue-common'
 import { MsgQueue } from '@opentiny/vue-renderless/modal'
-import TINYModal from './src/index'
+import TinyModal from './src/index'
 import Popconfirm from '@opentiny/vue-popconfirm'
 import { version } from 'package.json'
 import type { ComponentPublicInstance, VNode } from '@opentiny/vue-common'
@@ -43,16 +43,8 @@ interface ModalPromise extends Promise<string> {
   vm?: ComponentPublicInstance
 }
 
-// 定义TINYModal接口
-interface TINYModalInstance extends ComponentPublicInstance {
-  version: string
-  model: {
-    prop: string
-    event: string
-  }
-  tiny_mode?: boolean
-  tiny_theme?: string
-  installed: boolean
+// 定义TinyModal接口
+interface TinyModalInstance {
   alert: (message: string | ModalOptions, title?: string, options?: ModalOptions) => ModalPromise
   confirm: (message: string | ModalOptions, title?: string, options?: ModalOptions) => ModalPromise
   message: (message: string | ModalOptions, title?: string, options?: ModalOptions) => ModalPromise
@@ -62,18 +54,18 @@ interface TINYModalInstance extends ComponentPublicInstance {
 
 // 定义setupComponent接口
 interface SetupComponent {
-  TINYModal: {
+  TinyModal: {
     install: (Vue: any) => void
     init: (root: any) => void
   }
 }
 
-// 扩展TINYModal类型
-const TINYModalComponent = TINYModal as unknown as TINYModalInstance
+// 扩展TinyModal类型
+const TinyModalComponent = TinyModal as unknown as TinyModalInstance & typeof TinyModal
 
-TINYModalComponent.version = version
+TinyModalComponent.version = version
 
-TINYModalComponent.model = {
+TinyModalComponent.model = {
   prop: 'modelValue',
   event: 'update:modelValue'
 }
@@ -105,12 +97,12 @@ export function Modal(options: ModalOptions): ModalPromise {
         el: document.createElement('div'),
         propsData: Object.assign(
           {
-            'tiny_mode': TINYModalComponent.tiny_mode,
-            'tiny_theme': TINYModalComponent.tiny_theme
+            'tiny_mode': TinyModalComponent.tiny_mode,
+            'tiny_theme': TinyModalComponent.tiny_theme
           },
           options
         ),
-        component: options.componentType === 'popconfirm' ? Popconfirm : TINYModalComponent
+        component: options.componentType === 'popconfirm' ? Popconfirm : TinyModalComponent
       })
 
       const open = $modal[options.componentType === 'popconfirm' ? 'show' : 'open'] as Function
@@ -149,7 +141,7 @@ const defOpts: Record<ModalType, Partial<ModalOptions>> = {
 }
 
 types.forEach((type) => {
-  TINYModalComponent[type] = Modal[type] = function (
+  TinyModalComponent[type] = Modal[type] = function (
     message: string | ModalOptions,
     title?: string,
     options?: ModalOptions
@@ -181,18 +173,18 @@ export const message = (Modal as any).message
 export const confirm = (Modal as any).confirm
 export const popconfirm = (Modal as any).popconfirm
 
-TINYModalComponent.installed = false
-;(setupComponent as SetupComponent).TINYModal = {
+TinyModalComponent.installed = false
+;(setupComponent as SetupComponent).TinyModal = {
   install(Vue: any) {
-    if (TINYModalComponent.installed) return
+    if (TinyModalComponent.installed) return
     // vue3 或 vue2
     const isVue2 = !!Vue.component
     const tinyMode = isVue2 ? Vue.prototype.tiny_mode : Vue.config.globalProperties.tiny_mode
     const tinyTheme = isVue2 ? Vue.prototype.tiny_theme : Vue.config.globalProperties.tiny_theme
     const specifyPc = typeof process === 'object' ? process.env?.TINY_MODE : null
-    TINYModalComponent.tiny_mode = specifyPc || (tinyMode && tinyMode.value)
-    TINYModalComponent.tiny_theme = tinyTheme && tinyTheme.value
-    TINYModalComponent.installed = true
+    TinyModalComponent.tiny_mode = specifyPc || (tinyMode && tinyMode.value)
+    TinyModalComponent.tiny_theme = tinyTheme && tinyTheme.value
+    TinyModalComponent.installed = true
   },
   init(root: any) {
     let prefix = root.$TinyModalApiPrefix || root.$apiPrefix || '$'
@@ -204,8 +196,8 @@ TINYModalComponent.installed = false
   }
 }
 
-TINYModalComponent.install = function (Vue: any) {
-  Vue.component(TINYModalComponent.name, TINYModalComponent)
+TinyModalComponent.install = function (Vue: any) {
+  Vue.component(TinyModalComponent.name, TinyModalComponent)
 }
 
-export default TINYModalComponent
+export default TinyModalComponent
