@@ -1,4 +1,4 @@
-import { defineConfig, type TsdownPlugin } from 'tsdown'
+import { defineConfig } from 'tsdown'
 import vue from 'unplugin-vue/rolldown'
 import vueJsx from 'unplugin-vue-jsx/rolldown'
 import virtualTemplate from './internals/unplugin-virtual-template/rolldown.ts'
@@ -6,32 +6,17 @@ import svgLoader from './internals/vite-svg-loader/rolldown.ts'
 
 process.env.NODE_ENV = 'production'
 
-const componentStyle = (): TsdownPlugin => {
-  return {
-    name: 'component-style',
-    tsdownConfig() {
-      return {
-        deps: {
-          neverBundle: ['@opentiny/vue-theme/*/index.less']
-        }
-      }
-    }
-  }
-}
-
 export default defineConfig({
-  entry: {
-    'index': './src/index.ts',
-    '*': './src/components/*/index.ts',
-    'icons': './icons/index.ts',
-    'locale': './locale/src/index.ts'
-  },
+  unbundle: true,
+  entry: './src/index.ts',
   define: {
     'process.env.TINY_MODE': JSON.stringify('pc'),
     'process.env.BUILD_TARGET': JSON.stringify('component')
   },
   tsconfig: 'tsconfig.build.json',
-  dts: true,
+  dts: {
+    sideEffects: true
+  },
   plugins: [
     vue(),
     vueJsx(),
@@ -42,8 +27,7 @@ export default defineConfig({
       svgoConfig: {
         plugins: ['preset-default', 'prefixIds']
       }
-    }),
-    componentStyle()
+    })
   ],
-  exports: true
+  css: { inject: true }
 })
