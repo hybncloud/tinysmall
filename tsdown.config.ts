@@ -14,6 +14,9 @@ export default defineConfig({
     'process.env.BUILD_TARGET': JSON.stringify('component')
   },
   tsconfig: 'tsconfig.build.json',
+  treeshake: {
+    moduleSideEffects: [{ test: /\.css$/, sideEffects: true }]
+  },
   dts: {
     sideEffects: true
   },
