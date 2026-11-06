@@ -50,11 +50,11 @@ appData.lang = getLocaleMode()
 i18n.global.locale = appData.lang
 
 createApp(App)
-.use(router)
-.use(i18n)
-.use(VxeUITable)
-.use(createHead())
-.use(app => {
-  app.config.performance = true
-})
-.mount('#app')
+  .use(router)
+  .use(i18n)
+  .use(VxeUITable)
+  .use(createHead())
+  .use((app) => {
+    app.config.performance = true
+  })
+  .mount('#app')

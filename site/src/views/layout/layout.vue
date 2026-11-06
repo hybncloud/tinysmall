@@ -2,9 +2,7 @@
   <div class="main-layout ti-hp100 ti-f-c ti-f-box-stretch">
     <div class="content-layout ti-fi-1">
       <div id="layoutSider" class="layout-sider">
-        <div class="wp100 h50 fw-bold text-center f20 f-center">
-          TinySmall
-        </div>
+        <div class="wp100 h50 fw-bold text-center f20 f-center">TinySmall</div>
         <tiny-tree-menu
           ref="treeMenuRef"
           class="main-menu"
@@ -39,10 +37,7 @@
           </template>
         </tiny-tree-menu>
       </div>
-      <div
-        id="doc-layout"
-        class="md-tiny"
-      >
+      <div id="doc-layout" class="md-tiny">
         <router-view />
       </div>
     </div>

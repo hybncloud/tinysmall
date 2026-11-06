@@ -10,7 +10,8 @@
     margin: 0 var(--tv-DialogBox-responsive-space-part);
 
     & &__header {
-      padding: var(--tv-DialogBox-responsive-space-unit) var(--tv-DialogBox-responsive-space-unit) var(--tv-DialogBox-responsive-space-part);
+      padding: var(--tv-DialogBox-responsive-space-unit) var(--tv-DialogBox-responsive-space-unit)
+        var(--tv-DialogBox-responsive-space-part);
 
       .@{dialog-box-prefix-cls}__title {
         font-size: var(--tv-DialogBox-responsive-font-size-xl);
@@ -24,7 +25,8 @@
     }
 
     & &__footer {
-      padding: var(--tv-DialogBox-responsive-space-part) var(--tv-DialogBox-responsive-space-unit) var(--tv-DialogBox-responsive-space-unit);
+      padding: var(--tv-DialogBox-responsive-space-part) var(--tv-DialogBox-responsive-space-unit)
+        var(--tv-DialogBox-responsive-space-unit);
     }
   }
 }
@@ -40,7 +42,6 @@
 
 @media screen and (max-width: 600px) {
   .@{dialog-box-prefix-cls} {
-
     width: 320px !important;
   }
 }

@@ -1,6 +1,8 @@
 <template>
   <tiny-tabs v-model="activeName" @click="click" tab-style="card">
-    <tiny-tab-item title="表单组件" name="first"> 表单组件，具有与用户交互，并可完成数据采集功能的控件。 </tiny-tab-item>
+    <tiny-tab-item title="表单组件" name="first">
+      表单组件，具有与用户交互，并可完成数据采集功能的控件。
+    </tiny-tab-item>
     <tiny-tab-item title="数据组件" name="second">
       数据组件，提供了非常强大数据表格功能，在 Grid 可以展示数据列表，可以对数据列表进行选择、编辑等。
     </tiny-tab-item>

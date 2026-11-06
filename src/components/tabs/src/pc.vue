@@ -107,7 +107,8 @@ export default defineComponent({
               ev.preventDefault()
               handleTabAdd()
             }
-          }}>
+          }}
+        >
           <icon-plus aria-hidden="true" />
         </span>
       ) : null
@@ -174,7 +175,8 @@ export default defineComponent({
           'tiny-tabs--small': size === 'small',
           'tiny-tabs--large': size === 'large',
           'tiny-tabs--header-only': headerOnly
-        }}>
+        }}
+      >
         {position !== 'bottom' ? [header, panels] : [panels, header]}
       </div>
     )

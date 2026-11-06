@@ -34,7 +34,7 @@ const changeDisabled = () => {
 }
 </script>
 <style lang="less">
-  .tiny-search__suffix {
-    fill: var(--tv-color-icon);
-  }
+.tiny-search__suffix {
+  fill: var(--tv-color-icon);
+}
 </style>

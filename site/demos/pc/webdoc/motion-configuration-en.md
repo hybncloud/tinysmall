@@ -68,13 +68,21 @@ motion/
 
 ```less
 @keyframes fade-in {
-  0%   { opacity: 0; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes fade-out {
-  0%   { opacity: 1; }
-  100% { opacity: 0; }
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 ```
 
@@ -95,15 +103,33 @@ Component usage example:
 
 ```less
 @keyframes slide-left-in {
-  0%   { opacity: 0; transform: translateX(var(--tv-motion-slide-offset-left)); }
-  50%  { opacity: var(--tv-motion-slide-opacity-mid); transform: translateX(var(--tv-motion-slide-offset-left-mid)); }
-  100% { opacity: 1; transform: translateX(0%); }
+  0% {
+    opacity: 0;
+    transform: translateX(var(--tv-motion-slide-offset-left));
+  }
+  50% {
+    opacity: var(--tv-motion-slide-opacity-mid);
+    transform: translateX(var(--tv-motion-slide-offset-left-mid));
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
 }
 
 @keyframes slide-left-out {
-  0%   { opacity: 1; transform: translateX(0%); }
-  50%  { opacity: var(--tv-motion-slide-opacity-mid); transform: translateX(var(--tv-motion-slide-offset-left-mid)); }
-  100% { opacity: 0; transform: translateX(var(--tv-motion-slide-offset-left)); }
+  0% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+  50% {
+    opacity: var(--tv-motion-slide-opacity-mid);
+    transform: translateX(var(--tv-motion-slide-offset-left-mid));
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(var(--tv-motion-slide-offset-left));
+  }
 }
 ```
 
@@ -122,13 +148,21 @@ Component usage example:
 
 ```less
 @keyframes ants-x {
-  0%   { background-position: 0 0; }
-  100% { background-position: var(--tv-motion-ants-shift, 8px) 0; }
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: var(--tv-motion-ants-shift, 8px) 0;
+  }
 }
 
 @keyframes ants-x-rev {
-  0%   { background-position: 0 0; }
-  100% { background-position: calc(-1 * var(--tv-motion-ants-shift, 8px)) 0; }
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: calc(-1 * var(--tv-motion-ants-shift, 8px)) 0;
+  }
 }
 ```
 
@@ -168,16 +202,16 @@ Component usage example:
 
 1. **Naming Convention**
 
-   * Use `{type}-{direction}-{state}` format, e.g., `slide-left-in`.
-   * Ensure global uniqueness to avoid conflicts.
+   - Use `{type}-{direction}-{state}` format, e.g., `slide-left-in`.
+   - Ensure global uniqueness to avoid conflicts.
 
 2. **Category Management**
 
-   * Motions must be written in the corresponding category file (e.g., slide → `slide.less`).
-   * New variables must be declared in `index.less` first, then used in the specific file.
+   - Motions must be written in the corresponding category file (e.g., slide → `slide.less`).
+   - New variables must be declared in `index.less` first, then used in the specific file.
 
 3. **Documentation & Comments**
 
-   * Each motion category should provide example code and usage instructions.
-   * Add comments before `@keyframes` to indicate purpose and source.
-   * Group related motions together for easier lookup and maintenance.
+   - Each motion category should provide example code and usage instructions.
+   - Add comments before `@keyframes` to indicate purpose and source.
+   - Group related motions together for easier lookup and maintenance.

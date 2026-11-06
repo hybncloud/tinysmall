@@ -5,5 +5,8 @@ test('highlight-first-item', async ({ page }) => {
   await page.goto('autocomplete#highlight-first-item')
   await page.getByRole('textbox', { name: '请输入内容', exact: true }).click()
   await page.getByRole('option', { name: 'TGBYX 公司' }).click()
-  await expect(page.getByRole('textbox', { name: '请输入内容', exact: true })).toHaveAttribute('highlightfirstitem', 'true')
+  await expect(page.getByRole('textbox', { name: '请输入内容', exact: true })).toHaveAttribute(
+    'highlightfirstitem',
+    'true'
+  )
 })

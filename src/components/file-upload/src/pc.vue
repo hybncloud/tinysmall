@@ -205,7 +205,8 @@ export default defineComponent({
               effect="light"
               content={(slots.tip && slots.tip()) || tipMsg}
               placement="right"
-              popper-options={popperConfig}>
+              popper-options={popperConfig}
+            >
               <div class="prompt-tip">
                 <TinyIconHelpCircle />
               </div>
@@ -231,7 +232,8 @@ export default defineComponent({
           tabindex="0"
           aria-label={t('ui.fileUpload.downloadFile')}
           title={t('ui.fileUpload.downloadFile')}
-          onClick={() => execDownload(file)}>
+          onClick={() => execDownload(file)}
+        >
           <TinyIconDownload class="download-icon" />
         </span>
       ),
@@ -242,7 +244,8 @@ export default defineComponent({
           tabindex="0"
           aria-label={t('ui.fileUpload.updateFile')}
           title={t('ui.fileUpload.updateFile')}
-          onClick={() => updateFile(file)}>
+          onClick={() => updateFile(file)}
+        >
           <TinyIconFileCloudupload class="refres-icon" />
         </span>
       ),
@@ -254,7 +257,8 @@ export default defineComponent({
           aria-label={t('ui.fileUpload.deleteFile')}
           title={t('ui.fileUpload.deleteFile')}
           onClick={() => handleRemove(file)}
-          onKeydown={(event) => handleEnter(event, () => handleRemove(file))}>
+          onKeydown={(event) => handleEnter(event, () => handleRemove(file))}
+        >
           <TinyIconClose class="close-icon" />
         </span>
       )
@@ -272,7 +276,8 @@ export default defineComponent({
             class={['thumb-item-name', !showDel ? 'hide-close-icon' : '', !showDownload ? 'hide-download-icon' : '']}
             onClick={() => {
               handleFileClick(file)
-            }}>
+            }}
+          >
             {file.name}
           </span>,
           getThumIcon(file)
@@ -471,7 +476,8 @@ export default defineComponent({
               marginwidth="0"
               marginheight="0"
               scrolling="no"
-              src={iframeUrl}></iframe>
+              src={iframeUrl}
+            ></iframe>
           )
         }
       })

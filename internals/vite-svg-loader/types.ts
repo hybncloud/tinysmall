@@ -1,4 +1,4 @@
-import { Config } from "svgo"
+import { Config } from 'svgo'
 
 export interface Options {
   svgoConfig: Config

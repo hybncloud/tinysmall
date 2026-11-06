@@ -4,5 +4,5 @@
 
 <script setup>
 import Pc from './pc.vue'
-let componentDocs  = Pc
+let componentDocs = Pc
 </script>

@@ -96,7 +96,8 @@ describe('PC Mode', () => {
           end: '18:30',
           minTime: '09:00',
           maxTime: '14:30'
-        }}></TimeSelect>
+        }}
+      ></TimeSelect>
     ))
 
     await wrapper.find('input').trigger('focus')
@@ -161,7 +162,8 @@ describe('PC Mode', () => {
         v-model={value.value}
         popper-append-to-body={false}
         onFocus={handleFocus}
-        onBlur={handleBlur}></TimeSelect>
+        onBlur={handleBlur}
+      ></TimeSelect>
     ))
     await wrapper.find('input').trigger('focus')
     await nextTick()

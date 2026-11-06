@@ -58,7 +58,7 @@
             text-align: center;
             vertical-align: middle;
             color: var(--tv-Table-nodata-text-color);
-            background-color: transparent;        
+            background-color: transparent;
           }
         }
       }
@@ -117,21 +117,21 @@
       .@{svg-prefix-cls} {
         font-size: var(--tv-Table-icon-font-size);
         border-radius: var(--tv-Table-check-icon-border-radius);
-          & path:last-child{
-            fill: var(--tv-Table-icon-border-color);
+        & path:last-child {
+          fill: var(--tv-Table-icon-border-color);
+        }
+
+        & path:first-child {
+          fill: transparent;
+        }
+        &.is-check {
+          & path:last-child {
+            fill: var(--tv-Table-half-check-icon-color);
           }
 
           & path:first-child {
-            fill: transparent;
+            fill: var(--tv-Table-check-icon-color);
           }
-           &.is-check {
-              & path:last-child{
-                fill: var(--tv-Table-half-check-icon-color);
-              }
-          
-              & path:first-child {
-                fill: var(--tv-Table-check-icon-color);
-              } 
         }
       }
     }

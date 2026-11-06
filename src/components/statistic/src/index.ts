@@ -29,7 +29,7 @@ export const statisticProps = {
   },
   duration: {
     type: Number,
-    default: 2000 
+    default: 2000
   },
   startValue: {
     type: Number,
@@ -37,7 +37,7 @@ export const statisticProps = {
   },
   useAnimation: {
     type: Boolean,
-    default: false 
+    default: false
   }
 }
 

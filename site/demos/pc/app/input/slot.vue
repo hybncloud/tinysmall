@@ -8,12 +8,12 @@
     </tiny-input>
     <tiny-input placeholder="prefix" v-model="input">
       <template #prefix>
-        <tiny-icon-search/>
+        <tiny-icon-search />
       </template>
     </tiny-input>
     <tiny-input placeholder="suffix" v-model="input">
       <template #suffix>
-        <tiny-icon-calendar/>
+        <tiny-icon-calendar />
       </template>
     </tiny-input>
   </div>

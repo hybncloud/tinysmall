@@ -9,7 +9,13 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-import type { IRateApi, IRateProps, IRateRenderlessParamUtils, IRateState, ISharedRenderlessParamHooks } from '../../types'
+import type {
+  IRateApi,
+  IRateProps,
+  IRateRenderlessParamUtils,
+  IRateState,
+  ISharedRenderlessParamHooks
+} from '../../types'
 import {
   getTextStyle,
   handelKey,

@@ -7,8 +7,7 @@ import TinyThemeTool from '@opentiny/vue-theme/theme-tool'
 
 const isEn = appData.lang === 'enUS'
 
-const themeData = [
-]
+const themeData = []
 
 const currentThemeKey = hooks.ref(DEFAULT_THEME)
 

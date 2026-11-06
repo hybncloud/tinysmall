@@ -1,4 +1,3 @@
-
 // 批量导入vue组件示例文件, 进行vue组件示例的渲染
 const vueFiles = import.meta.glob(`@demos/app/**/*.vue`)
 // 所有demo组件实例
@@ -24,7 +23,7 @@ const languageMap = {
 }
 
 const getWebdocPath = (path) => {
-    return path
+  return path
 }
 
 const staticDemoPath = '@demos/app'

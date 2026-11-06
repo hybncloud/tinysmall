@@ -71,7 +71,7 @@ export const uploadListProps = {
   selected: Object,
   triggerClick: {
     type: Function,
-    default: () => { }
+    default: () => {}
   },
   isHwh5: {
     type: Boolean,
@@ -79,7 +79,7 @@ export const uploadListProps = {
   },
   triggerPlay: {
     type: Function,
-    default: () => { }
+    default: () => {}
   },
   mode: String,
   lockScroll: {

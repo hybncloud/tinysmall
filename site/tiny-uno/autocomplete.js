@@ -69,7 +69,7 @@ export default {
   ],
   shorthands: {
     nums: '(0|1|2|3|4|5|6|7|8|9)',
-    signnums:'(-|0|1|2|3|4|5|6|7|8|9)',
+    signnums: '(-|0|1|2|3|4|5|6|7|8|9)',
 
     colors:
       '(white|black|main|mainless|second|secondless|light|lightless|\
@@ -91,12 +91,12 @@ primary|success|warning|error|primaryless|successless|warningless|errorless)',
     box: '(start|center|end|stretch)',
     wraps: '(wrap|nowrap)',
 
-    overflows:'(auto|scroll|hidden|visible)',
-    cursors:'(def|hand|disable)',
-    imagefits:'(cover|contain|fill)',
+    overflows: '(auto|scroll|hidden|visible)',
+    cursors: '(def|hand|disable)',
+    imagefits: '(cover|contain|fill)',
 
-    transOrigins:'(c|l|t|r|b)',
-    animations:'(line|bounce|shake)',
-    aniProps:'(width|height|opacity)'
+    transOrigins: '(c|l|t|r|b)',
+    animations: '(line|bounce|shake)',
+    aniProps: '(width|height|opacity)'
   }
 }

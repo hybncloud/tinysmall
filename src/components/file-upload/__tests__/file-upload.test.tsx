@@ -20,7 +20,8 @@ describe('PC Mode', () => {
         auto-upload={false}
         v-slots={{
           tip: () => <div class="tiny-upload__tip">只能上传 jpg/png 文件，且不超过500 kb</div>
-        }}></FileUpload>
+        }}
+      ></FileUpload>
     ))
     expect(wrapper.find('.tiny-upload__tip').exists()).toBe(true)
   })

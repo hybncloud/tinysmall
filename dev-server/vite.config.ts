@@ -12,55 +12,52 @@ import path from 'node:path'
 const abs = (...paths: string[]): string => path.join(import.meta.dirname, ...paths)
 
 export default defineConfig({
-    tsconfig: abs('../tsconfig.vue.json'),
-    define: {
-        'process.env.TINY_MODE': JSON.stringify('pc'),
-        'process.env.BUILD_TARGET': JSON.stringify('component')
-    },
-    resolve: {
-        tsconfigPaths: true,
-        alias: {
-            'virtual:common/adapter/vue': abs('../src/common/adapter/vue3/index.ts'),
-            'virtual:locale/vue': abs('../locale/src/vue3/index.ts')
+  tsconfig: abs('../tsconfig.vue.json'),
+  define: {
+    'process.env.TINY_MODE': JSON.stringify('pc'),
+    'process.env.BUILD_TARGET': JSON.stringify('component')
+  },
+  resolve: {
+    tsconfigPaths: true,
+    alias: {
+      'virtual:common/adapter/vue': abs('../src/common/adapter/vue3/index.ts'),
+      'virtual:locale/vue': abs('../locale/src/vue3/index.ts')
+    }
+  },
+  publicDir: '../site/public',
+  plugins: [
+    vue({ include: [/\.vue$/, /\.md$/] }),
+    vueJsx(),
+    virtualTemplate({
+      include: ['./src/components/*/src/index.ts', './src/components/*/src/index.vue']
+    }),
+    svgLoader({
+      svgoConfig: {
+        plugins: ['preset-default', 'prefixIds']
+      }
+    }),
+    dynamicImport(),
+    markdown({
+      markdownOptions: {
+        html: true,
+        linkify: true,
+        typographer: true
+      }
+    }),
+    unocss({
+      content: {
+        pipeline: {
+          include: [/\.js$/, /\.ts$/, /\.vue$/, /\.html$/, /\.jsx$/, /\.tsx$/]
         }
-    },
-    publicDir: '../site/public',
-    plugins: [
-        vue({ include: [/\.vue$/, /\.md$/] }),
-        vueJsx(),
-        virtualTemplate({
-            include: ['./src/components/*/src/index.ts', './src/components/*/src/index.vue']
-        }),
-        svgLoader({
-            svgoConfig: {
-                plugins: [
-                    'preset-default',
-                    'prefixIds'
-                ]
-            }
-        }),
-        dynamicImport(),
-        markdown({
-            markdownOptions: {
-                html: true,
-                linkify: true,
-                typographer: true
-            }
-        }),
-        unocss({
-            content: {
-                pipeline: {
-                    include: [/\.js$/, /\.ts$/, /\.vue$/, /\.html$/, /\.jsx$/, /\.tsx$/]
-                }
-            },
-            presets: [],
-            rules,
-            shortcuts,
-            variants,
-            safelist: [
-                ...Array.from({ length: 24 }, (_, i) => `c-rand${i + 1}`),
-                ...Array.from({ length: 24 }, (_, i) => `bg-rand${i + 1}`)
-            ]
-        })
-    ]
+      },
+      presets: [],
+      rules,
+      shortcuts,
+      variants,
+      safelist: [
+        ...Array.from({ length: 24 }, (_, i) => `c-rand${i + 1}`),
+        ...Array.from({ length: 24 }, (_, i) => `bg-rand${i + 1}`)
+      ]
+    })
+  ]
 })

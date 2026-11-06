@@ -11,9 +11,7 @@
           <icon-editor-menu-left v-if="state.showFixedMenu" />
           <icon-editor-menu-right v-else />
         </div>
-        <div>
-          TinySmall
-        </div>
+        <div>TinySmall</div>
       </div>
     </div>
     <div class="fi-1 of-auto">
@@ -42,9 +40,7 @@ export default {
   setup() {
     const { state: modeState, fn: modeFn } = useModeCtx()
     const state = hooks.reactive({
-      groupData: [
-        { text: 'PC', value: 'pc' }
-      ],
+      groupData: [{ text: 'PC', value: 'pc' }],
       vueVersion: hooks.version,
       showFixedMenu: false
     })

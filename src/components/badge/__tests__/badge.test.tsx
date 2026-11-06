@@ -45,7 +45,8 @@ describe('PC Mode', () => {
         value={5}
         v-slots={{
           content: () => <div class="badge__content">自定义</div>
-        }}>
+        }}
+      >
         自定义内容插槽
       </Badge>
     ))

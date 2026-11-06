@@ -24,7 +24,8 @@ describe('PC Mode', () => {
         v-slots={{
           open: () => <span class="yes">是</span>,
           close: () => <span class="no">否</span>
-        }}></Switch>
+        }}
+      ></Switch>
     ))
     expect(wrapper.find('.no').exists()).toBe(true)
   })

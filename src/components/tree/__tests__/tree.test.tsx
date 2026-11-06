@@ -116,7 +116,8 @@ describe('PC Mode', () => {
         data={data}
         v-slots={{
           default: (scopeData: any) => <div class="custom-label">{scopeData.data.label}</div>
-        }}></Tree>
+        }}
+      ></Tree>
     ))
     expect(wrapper.find('.custom-label').exists()).toBe(true)
   })

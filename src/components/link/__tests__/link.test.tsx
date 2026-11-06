@@ -77,7 +77,8 @@ describe('PC Mode', () => {
       <Link
         v-slots={{
           icon: () => iconTest
-        }}></Link>
+        }}
+      ></Link>
     ))
     expect(wrapper.text()).toContain(iconTest)
   })
@@ -87,7 +88,8 @@ describe('PC Mode', () => {
       <Link
         v-slots={{
           default: () => iconTest
-        }}></Link>
+        }}
+      ></Link>
     ))
     expect(wrapper.text()).toContain(iconTest)
   })

@@ -12,11 +12,7 @@
       <template #default>
         <div class="card-layout" v-for="num in cardData.length" :key="num">
           <div v-if="num === pos + 1" :class="['card-dsp']">
-            <div
-              v-for="(child, childIndex) in item.children"
-              :key="childIndex"
-              @click="curIndex = childIndex"
-            >
+            <div v-for="(child, childIndex) in item.children" :key="childIndex" @click="curIndex = childIndex">
               <div>{{ child.content }}</div>
             </div>
           </div>

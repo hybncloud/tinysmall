@@ -44,7 +44,7 @@ onMounted(() => {
   //   }
   // })
   // common.renderHeader()
-  
+
   window.addEventListener('tiny-toggle-lang', handleLangToggle)
 })
 

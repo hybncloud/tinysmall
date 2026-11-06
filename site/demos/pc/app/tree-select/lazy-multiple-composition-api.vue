@@ -55,4 +55,3 @@ function afterLoad(data) {
   width: 280px;
 }
 </style>
-

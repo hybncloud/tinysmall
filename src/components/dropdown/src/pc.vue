@@ -143,7 +143,8 @@ export default defineComponent({
             onClick={handleMainButtonClick}
             disabled={disabled}
             class="tiny-dropdown__title-button"
-            reset-time={0}>
+            reset-time={0}
+          >
             {defaultSlot || <span>{title}</span>}
           </tiny-button>
           <tiny-button
@@ -152,7 +153,8 @@ export default defineComponent({
             size={size}
             class={`tiny-dropdown__caret-button ${triggerClass}`}
             disabled={disabled}
-            reset-time={0}>
+            reset-time={0}
+          >
             <ButtonIconDown class={visibleClass} aria-label="down"></ButtonIconDown>
           </tiny-button>
         </tiny-button-group>
@@ -198,7 +200,8 @@ export default defineComponent({
             showIcon ? ' is-show-icon ' : ''
           } ${triggerClass}`}
           reset-time={0}
-          aria-label="down">
+          aria-label="down"
+        >
           {prefixInner}
           {defaultTriggerElm}
           {suffixInner}
@@ -207,7 +210,8 @@ export default defineComponent({
         <span
           ref="trigger"
           class={`is-text${state.visible ? ' is-expand' : ' is-hide'}${disabled ? ' is-disabled' : ''} ${triggerClass}`}
-          aria-label="down">
+          aria-label="down"
+        >
           {prefixInner}
           {defaultTriggerElm}
           {suffixInner}
@@ -220,7 +224,8 @@ export default defineComponent({
         options={menuOptions.options}
         text-field={menuOptions.textField || menuOptions['text-field']}
         popper-class={menuOptions.popperClass || menuOptions['popper-class']}
-        placement={menuOptions.placement}></tiny-dropdown-menu>
+        placement={menuOptions.placement}
+      ></tiny-dropdown-menu>
     )
 
     const menuElm = disabled ? null : (slots.dropdown && slots.dropdown()) || defaulMenuElm

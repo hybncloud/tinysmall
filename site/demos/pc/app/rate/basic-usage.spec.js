@@ -1,7 +1,6 @@
 import { test, expect } from '@playwright/test'
 
 test.describe('Rate 基本用法', () => {
-
   test('鼠标 hover 时，icon 高亮', async ({ page }) => {
     page.on('pageerror', (exception) => expect(exception).toBeNull())
     await page.goto('rate#basic-usage')

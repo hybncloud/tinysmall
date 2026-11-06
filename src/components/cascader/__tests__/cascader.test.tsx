@@ -108,7 +108,8 @@ describe('PC Mode', () => {
         filterable={true}
         v-slots={{
           empty: () => <div class="custom_empty">没有选项</div>
-        }}></Cascader>
+        }}
+      ></Cascader>
     ))
 
     expect(wrapper.find('.custom_empty').exists()).toBe(true)

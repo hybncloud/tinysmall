@@ -30,8 +30,6 @@ describe('PC Mode', () => {
   })
 
   test('separator-icon', () => {
-
-
     const options = [
       {
         label: '导航1',
@@ -46,15 +44,12 @@ describe('PC Mode', () => {
         replace: true
       }
     ]
-    const wrapper = mount(
-      () => <Breadcrumb options={options} separatorIcon={IconBoat()}></Breadcrumb>,
-    )
+    const wrapper = mount(() => <Breadcrumb options={options} separatorIcon={IconBoat()}></Breadcrumb>)
     expect(wrapper.find('.tiny-breadcrumb__separator-cls').exists()).toBeTruthy()
     expect(wrapper.findAll('.tiny-breadcrumb__separator-cls')).toHaveLength(3)
   })
 
   test('separator', () => {
-
     const options = [
       {
         label: '导航1',
@@ -69,16 +64,13 @@ describe('PC Mode', () => {
         replace: true
       }
     ]
-    const wrapper = mount(
-      () => <Breadcrumb options={options} separator='/'></Breadcrumb>,
-    )
+    const wrapper = mount(() => <Breadcrumb options={options} separator="/"></Breadcrumb>)
 
     expect(wrapper.find('.tiny-breadcrumb__separator').exists()).toBeTruthy()
     expect(wrapper.find('.tiny-breadcrumb__separator').text()).toBe('/')
   })
 
   test('text-field, 指定面包屑的显示字段,结合options使用,默认为label', () => {
-
     const options = [
       {
         name: '导航1',
@@ -93,9 +85,7 @@ describe('PC Mode', () => {
         replace: true
       }
     ]
-    const wrapper = mount(
-      () => <Breadcrumb options={options} separator='/' textField='name'></Breadcrumb>,
-    )
+    const wrapper = mount(() => <Breadcrumb options={options} separator="/" textField="name"></Breadcrumb>)
 
     expect(wrapper.find('.tiny-breadcrumb').exists()).toBeTruthy()
     expect(wrapper.find('.tiny-breadcrumb__item').exists()).toBeTruthy()

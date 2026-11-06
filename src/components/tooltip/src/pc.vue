@@ -200,7 +200,8 @@ export default defineComponent({
                         aria-hidden={this.disabled || !this.state.showPopper ? 'true' : 'false'}
                         aria-live="polite"
                         onMouseenter={() => mouseenter()}
-                        onMouseleave={() => mouseleave()}>
+                        onMouseleave={() => mouseleave()}
+                      >
                         {addWrapper ? (
                           <div class="tiny-tooltip__content-wrapper" style={`max-height:${this.contentMaxHeight};`}>
                             {content}

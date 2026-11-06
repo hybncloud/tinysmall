@@ -31,7 +31,7 @@ export const computedRightNodePos =
     const nodesLength = dataLength - 1 - endIndex
 
     return Array.from({ length: nodesLength }).map((item, index) => ({
-      zIndex: dataLength - index,
+      zIndex: dataLength - index
     }))
   }
 

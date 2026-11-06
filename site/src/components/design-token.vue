@@ -14,7 +14,7 @@
 <script setup>
 import { camelize, capitalize } from '@vue/shared'
 import { computed } from 'vue'
- import { VxeTable, VxeColumn } from 'vxe-table'
+import { VxeTable, VxeColumn } from 'vxe-table'
 
 const props = defineProps({
   name: String,

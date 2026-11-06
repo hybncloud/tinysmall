@@ -18,7 +18,6 @@ test('start 滑块开始滑动事件', async ({ page }) => {
   await page.waitForTimeout(2000)
 })
 
-
 test('change 事件', async ({ page }) => {
   page.on('pageerror', (exception) => expect(exception).toBeNull())
   await page.goto('slider#slider-event')

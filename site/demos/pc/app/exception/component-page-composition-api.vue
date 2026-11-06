@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="demo-split">
-     <tiny-exception component-page type="nodata"></tiny-exception>
+      <tiny-exception component-page type="nodata"></tiny-exception>
     </div>
   </div>
 </template>

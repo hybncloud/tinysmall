@@ -47,7 +47,7 @@ describe('PC Mode', () => {
 
   test('text', () => {
     const TEXT = '危险按钮'
-    const wrapper = mount(() => <Button text={TEXT} type='danger'></Button>)
+    const wrapper = mount(() => <Button text={TEXT} type="danger"></Button>)
     expect(wrapper.find('.tiny-button').text()).toBe(TEXT)
   })
 
@@ -63,7 +63,11 @@ describe('PC Mode', () => {
 
   test('img', () => {
     const url = ref('/static/images/mountain.png')
-    const wrapper = mount(() => <Button><img src={url.value} /></Button>)
+    const wrapper = mount(() => (
+      <Button>
+        <img src={url.value} />
+      </Button>
+    ))
     expect(wrapper.find('img').exists()).toBeTruthy()
     expect(wrapper.find('img').attributes('src')).toBe(url.value)
   })

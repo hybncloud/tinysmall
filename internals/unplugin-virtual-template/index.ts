@@ -1,7 +1,11 @@
 import { createUnplugin } from 'unplugin'
 import { createFilter } from '@rollup/pluginutils'
 import type { UserOptions } from './types.ts'
-import { transformVirtualTemplate, transformConditionalTemplate, transformVirtualTemplateForBuild } from './core/index.ts'
+import {
+  transformVirtualTemplate,
+  transformConditionalTemplate,
+  transformVirtualTemplateForBuild
+} from './core/index.ts'
 
 export default createUnplugin<UserOptions>((options = {}) => {
   const filter = createFilter(options.include || ['**/*'], options.exclude || [])

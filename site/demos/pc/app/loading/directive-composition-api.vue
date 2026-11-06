@@ -7,9 +7,7 @@
       tiny-loading__background="rgba(0,0,0,0.8)"
       tiny-loading__custom-class="tiny-demo-loading-custom"
     >
-      <div class="tiny-demo-v-loading-bg">
-        v-loading
-      </div>
+      <div class="tiny-demo-v-loading-bg">v-loading</div>
     </div>
   </div>
 </template>

@@ -31,7 +31,8 @@ export default defineComponent({
                 class={[`${anchorClass}-link-title`, currentLink === item.link && `${anchorClass}-link-title--active`]}
                 onClick={(e) => linkClick(e, item)}
                 ref={item.link}
-                v-auto-tip>
+                v-auto-tip
+              >
                 {item.title}
               </a>
               {item.children ? renderLinks(item.children) : null}
@@ -50,7 +51,8 @@ export default defineComponent({
     return (
       <div
         class={[isAffix ? `${anchorClass}__affix` : '', `${anchorClass}__wrapper`, `tiny-anchor__${type}`]}
-        ref="anchorWrapRef">
+        ref="anchorWrapRef"
+      >
         <div class={anchorClass} ref="anchorRef" role="navigation" aria-label="Anchor">
           {type === 'line' && renderMask}
           {type === 'line' && renderOrbit}

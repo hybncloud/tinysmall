@@ -42,12 +42,14 @@ export default defineComponent({
       <div
         ref="bar"
         class={['tiny-scrollbar__bar', 'is-' + bar.key, show ? 'is-show' : '']}
-        onMousedown={clickTrackHandler}>
+        onMousedown={clickTrackHandler}
+      >
         <div
           ref="thumb"
           class="tiny-scrollbar__thumb"
           onMousedown={clickThumbHandler}
-          style={renderThumbStyle({ bar, move, size })}></div>
+          style={renderThumbStyle({ bar, move, size })}
+        ></div>
       </div>
     )
   }

@@ -12,7 +12,11 @@
 <template>
   <div
     class="tiny-button-group"
-    :class="[size ? 'tiny-button-group--' + size : '', border ? '' : 'tiny-button-group--borderless', displayMode === 'merged' ? 'tiny-button-group--merged' : '']"
+    :class="[
+      size ? 'tiny-button-group--' + size : '',
+      border ? '' : 'tiny-button-group--borderless',
+      displayMode === 'merged' ? 'tiny-button-group--merged' : ''
+    ]"
   >
     <slot>
       <template v-if="data.length > 0">

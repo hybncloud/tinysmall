@@ -119,7 +119,8 @@ export default {
         'en-US': 'Prompt'
       },
       desc: {
-        'zh-CN': '<p>通过 <code>tip</code> 属性设置提示信息，<code>tip-position</code> 属性设置提示信息的位置，<code>tip-effect</code> 属性设置提示信息的主题（light/dark）。</p>\n',
+        'zh-CN':
+          '<p>通过 <code>tip</code> 属性设置提示信息，<code>tip-position</code> 属性设置提示信息的位置，<code>tip-effect</code> 属性设置提示信息的主题（light/dark）。</p>\n',
         'en-US':
           '<p>Set the prompt information through the <code>tip</code> attribute, set the position of the prompt information through the <code>tip-position</code> attribute, and set the theme of the prompt information (light/dark) through the <code>tip-effect</code> attribute.</p>\n'
       },

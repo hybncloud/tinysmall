@@ -8,7 +8,7 @@ test('[Input]event: input, change', async ({ page }) => {
 
   // input event
   await input.fill('2')
-  const dialogModelInputEvent = await page.locator('.tiny-modal',  { hasText: 'input' })
+  const dialogModelInputEvent = await page.locator('.tiny-modal', { hasText: 'input' })
   await expect(dialogModelInputEvent).toBeVisible()
 
   // change event
@@ -34,7 +34,6 @@ test('[Input]event: focus, blur', async ({ page }) => {
   await expect(dialogModelBlurEvent).toBeVisible()
 })
 
-
 test('[Input]event: clear', async ({ page }) => {
   page.on('pageerror', (exception) => expect(exception).toBeNull())
   await page.goto('input#event')
@@ -49,5 +48,3 @@ test('[Input]event: clear', async ({ page }) => {
   const dialogModelFocusEvent = await page.locator('.tiny-modal', { hasText: 'clear' })
   await expect(dialogModelFocusEvent).toBeVisible()
 })
-
-

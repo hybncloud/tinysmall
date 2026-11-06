@@ -1,4 +1,9 @@
-import type { ITagInputApi, ITagInputState, ISharedRenderlessParamUtils, ISharedRenderlessParamHooks } from '../../types'
+import type {
+  ITagInputApi,
+  ITagInputState,
+  ISharedRenderlessParamUtils,
+  ISharedRenderlessParamHooks
+} from '../../types'
 import {
   addTag,
   removeTag,

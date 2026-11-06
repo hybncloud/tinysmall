@@ -207,7 +207,7 @@ const optionsDis = ref([
 </script>
 
 <style scoped>
-.cascader-demo-disabled > :not(:last-child){
+.cascader-demo-disabled > :not(:last-child) {
   margin-right: 12px;
 }
 </style>

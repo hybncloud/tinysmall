@@ -1,4 +1,10 @@
-import type { ColorPanelContext, IColor, IColorPoint, IColorSelectPanelRef, ISharedRenderlessParamHooks } from '../../types'
+import type {
+  ColorPanelContext,
+  IColor,
+  IColorPoint,
+  IColorSelectPanelRef,
+  ISharedRenderlessParamHooks
+} from '../../types'
 import { draggable } from './use-drag'
 import { getClientXY } from './getClientXY'
 

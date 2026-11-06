@@ -5,7 +5,8 @@ test('配置防抖', async ({ page }) => {
   await page.goto('notify#debounceDelay')
   await page.getByRole('button', { name: 'Debounce' }).click()
   const db = page.locator('.tiny-notify').filter({
-    hasText:'通知消息的标题通知消息的正文，通知消息的正文，通知消息的正文，通知消息的正文，通知消息的正文，通知消息的正文'
+    hasText:
+      '通知消息的标题通知消息的正文，通知消息的正文，通知消息的正文，通知消息的正文，通知消息的正文，通知消息的正文'
   })
   await expect(db).not.toBeVisible()
   await page.waitForTimeout(3000)

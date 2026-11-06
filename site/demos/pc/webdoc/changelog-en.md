@@ -241,4 +241,3 @@ Tiny Vue 团队在正常情况下使用 每月 发布策略。
 
 - @ga163 made their first contribution in https://github.com/opentiny/tiny-vue/pull/4125
 - @zhengshui made their first contribution in https://github.com/opentiny/tiny-vue/pull/4131
-

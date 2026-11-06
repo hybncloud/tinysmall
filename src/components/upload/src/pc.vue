@@ -97,7 +97,8 @@ export default defineComponent({
             onClick={($event) => handleClick($event, type)}
             onPaste={handlePaste}
             onKeydown={handleKeydown}
-            tabindex="0">
+            tabindex="0"
+          >
             {drag ? (
               <UploadDragger disabled={disabled} onFile={uploadFiles}>
                 {defaultSlot}

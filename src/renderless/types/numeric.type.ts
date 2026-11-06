@@ -102,8 +102,10 @@ export interface INumericUnitPrecision {
   zeroize: boolean
 }
 
-export interface INumericInitStateParams
-  extends Pick<INumericRenderlessParams, 'constants' | 'reactive' | 'computed' | 'props' | 'api' | 'parent'> {
+export interface INumericInitStateParams extends Pick<
+  INumericRenderlessParams,
+  'constants' | 'reactive' | 'computed' | 'props' | 'api' | 'parent'
+> {
   $service: ReturnType<typeof initService>
 }
 

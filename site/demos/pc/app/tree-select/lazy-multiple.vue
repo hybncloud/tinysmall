@@ -63,4 +63,3 @@ export default {
   width: 280px;
 }
 </style>
-

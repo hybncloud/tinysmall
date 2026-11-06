@@ -158,9 +158,9 @@ export default {
       },
       desc: {
         'zh-CN':
-        '<p>通过 <code>display-mode</code> 属性设置按钮组显示模式，可选值有 <code>default</code>（默认）和 <code>merged</code>（选块合并）。</p>',
+          '<p>通过 <code>display-mode</code> 属性设置按钮组显示模式，可选值有 <code>default</code>（默认）和 <code>merged</code>（选块合并）。</p>',
         'en-US':
-        '<p>Set the display mode of the button group through the <code>display-mode</code> attribute. The optional values are: <code>default</code> (default) and <code>merged</code> (merged).</p>'
+          '<p>Set the display mode of the button group through the <code>display-mode</code> attribute. The optional values are: <code>default</code> (default) and <code>merged</code> (merged).</p>'
       },
       codeFiles: ['display-mode.vue']
     }

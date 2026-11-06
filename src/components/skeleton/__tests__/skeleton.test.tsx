@@ -29,7 +29,8 @@ describe('PC Mode', () => {
       <Skeleton
         v-slots={{
           placeholder: () => <div class="tiny-placeholder">加载中</div>
-        }}></Skeleton>
+        }}
+      ></Skeleton>
     ))
     await nextTick()
     expect(wrapper.find('.tiny-placeholder').exists()).toBe(true)

@@ -1,7 +1,8 @@
 <template>
   <div>
     <p>场景 1：配置式配置映射字段</p>
-    <tiny-base-select v-model="value1" multiple :options="options" value-field="val" text-field="text"> </tiny-base-select>
+    <tiny-base-select v-model="value1" multiple :options="options" value-field="val" text-field="text">
+    </tiny-base-select>
     <p>场景 2：嵌套表格配置映射字段</p>
     <tiny-base-select
       v-model="value2"

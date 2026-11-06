@@ -68,13 +68,21 @@ motion/
 
 ```less
 @keyframes fade-in {
-  0%   { opacity: 0; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes fade-out {
-  0%   { opacity: 1; }
-  100% { opacity: 0; }
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 ```
 
@@ -95,15 +103,33 @@ motion/
 
 ```less
 @keyframes slide-left-in {
-  0%   { opacity: 0; transform: translateX(var(--tv-motion-slide-offset-left)); }
-  50%  { opacity: var(--tv-motion-slide-opacity-mid); transform: translateX(var(--tv-motion-slide-offset-left-mid)); }
-  100% { opacity: 1; transform: translateX(0%); }
+  0% {
+    opacity: 0;
+    transform: translateX(var(--tv-motion-slide-offset-left));
+  }
+  50% {
+    opacity: var(--tv-motion-slide-opacity-mid);
+    transform: translateX(var(--tv-motion-slide-offset-left-mid));
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
 }
 
 @keyframes slide-left-out {
-  0%   { opacity: 1; transform: translateX(0%); }
-  50%  { opacity: var(--tv-motion-slide-opacity-mid); transform: translateX(var(--tv-motion-slide-offset-left-mid)); }
-  100% { opacity: 0; transform: translateX(var(--tv-motion-slide-offset-left)); }
+  0% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+  50% {
+    opacity: var(--tv-motion-slide-opacity-mid);
+    transform: translateX(var(--tv-motion-slide-offset-left-mid));
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(var(--tv-motion-slide-offset-left));
+  }
 }
 ```
 
@@ -122,13 +148,21 @@ motion/
 
 ```less
 @keyframes ants-x {
-  0%   { background-position: 0 0; }
-  100% { background-position: var(--tv-motion-ants-shift, 8px) 0; }
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: var(--tv-motion-ants-shift, 8px) 0;
+  }
 }
 
 @keyframes ants-x-rev {
-  0%   { background-position: 0 0; }
-  100% { background-position: calc(-1 * var(--tv-motion-ants-shift, 8px)) 0; }
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: calc(-1 * var(--tv-motion-ants-shift, 8px)) 0;
+  }
 }
 ```
 
@@ -168,16 +202,16 @@ motion/
 
 1. **命名规范**
 
-   * 采用 `{type}-{direction}-{state}` 格式，例如 `slide-left-in`。
-   * 保证命名全局唯一，避免冲突。
+   - 采用 `{type}-{direction}-{state}` 格式，例如 `slide-left-in`。
+   - 保证命名全局唯一，避免冲突。
 
 2. **分类管理**
 
-   * 动效必须写在对应分类文件中（如滑动类 → `slide.less`）。
-   * 新增变量需先在 `index.less` 中声明，再在具体文件中调用。
+   - 动效必须写在对应分类文件中（如滑动类 → `slide.less`）。
+   - 新增变量需先在 `index.less` 中声明，再在具体文件中调用。
 
 3. **文档与注释**
 
-   * 每类动效提供示例代码和调用方式说明。
-   * 在 `@keyframes` 前添加注释，标注用途和来源。
-   * 同类动效按分组书写，便于快速查找与维护。
+   - 每类动效提供示例代码和调用方式说明。
+   - 在 `@keyframes` 前添加注释，标注用途和来源。
+   - 同类动效按分组书写，便于快速查找与维护。

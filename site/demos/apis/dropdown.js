@@ -531,7 +531,7 @@ export default {
           },
           mode: ['pc'],
           pcDemo: 'tip'
-        },
+        }
       ],
       events: [],
       methods: [],

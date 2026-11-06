@@ -12,7 +12,5 @@
   "proseWrap": "preserve",
   "arrowParens": "always",
   "sortPackageJson": false,
-  "ignorePatterns": [
-    "./site/public/**"
-  ]
+  "ignorePatterns": ["./site/public/**"]
 }

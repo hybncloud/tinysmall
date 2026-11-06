@@ -1,6 +1,4 @@
 /**
  * All contributors on GitHub
  */
-export default [
-  
-]
+export default []

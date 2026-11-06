@@ -130,7 +130,8 @@ export default {
           type: '() => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '设置日期背景色，使用函数返回颜色值时，返回十六进制、rgb、rgba 是自定义颜色，使用颜色名则是预设颜色',
+            'zh-CN':
+              '设置日期背景色，使用函数返回颜色值时，返回十六进制、rgb、rgba 是自定义颜色，使用颜色名则是预设颜色',
             'en-US': ''
           },
           mode: ['pc', 'mobile-first'],

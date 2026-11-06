@@ -1,8 +1,8 @@
 import { createUnplugin } from 'unplugin'
 import type { UserOptions } from './types.ts'
 import fs from 'node:fs/promises'
-import { optimize as optimizeSvg  } from 'svgo'
-import { compileTemplate  } from 'vue/compiler-sfc'
+import { optimize as optimizeSvg } from 'svgo'
+import { compileTemplate } from 'vue/compiler-sfc'
 
 export default createUnplugin<UserOptions>((options = {}) => {
   const { svgoConfig } = options
@@ -11,7 +11,7 @@ export default createUnplugin<UserOptions>((options = {}) => {
     name: 'internals/svg-loader',
     enforce: 'pre',
 
-    async load (id) {
+    async load(id) {
       if (!id.endsWith('.svg?component')) {
         return
       }

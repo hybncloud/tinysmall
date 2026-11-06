@@ -13,7 +13,6 @@ test('[Input]input-icon: blur, focus', async ({ page }) => {
 
   await blurBtn.click('button')
   await expect(input).not.toBeFocused()
-  
 })
 
 test('[Input]input-icon: select', async ({ page }) => {
@@ -23,10 +22,9 @@ test('[Input]input-icon: select', async ({ page }) => {
   const input = await page.locator('.demo-input input').nth(1)
   const selectBtn = await page.locator('.demo-input button', { hasText: 'select' })
 
-  
   await input.fill('444444')
   await selectBtn.click('button')
-  
+
   // 获取选中的文字
   const selectedText = await page.evaluate(() => {
     const selection = window.getSelection()

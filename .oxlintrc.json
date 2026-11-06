@@ -1,22 +1,13 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": [
-    "unicorn",
-    "vue",
-    "import",
-    "typescript"
-  ],
-  "jsPlugins": [
-  ],
+  "plugins": ["unicorn", "vue", "import", "typescript"],
+  "jsPlugins": [],
   "categories": {
     "correctness": "off"
   },
   "env": {
     "builtin": true
   },
-  "ignorePatterns": [
-    "./site/public/**"
-  ],
-  "rules": {
-  }
+  "ignorePatterns": ["./site/public/**"],
+  "rules": {}
 }

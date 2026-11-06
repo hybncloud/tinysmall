@@ -5,5 +5,7 @@ test('select-event', async ({ page }) => {
   await page.goto('autocomplete#select-event')
   await page.getByRole('textbox', { name: '请输入内容', exact: true }).click()
   await page.getByRole('option', { name: 'GFD 科技 YX 公司' }).click()
-  await expect(page.locator('div').filter({ hasText: '当前选择：{"value":"GFD 科技 YX 公司","address":"福州"}' }).nth(1)).toBeVisible()
+  await expect(
+    page.locator('div').filter({ hasText: '当前选择：{"value":"GFD 科技 YX 公司","address":"福州"}' }).nth(1)
+  ).toBeVisible()
 })

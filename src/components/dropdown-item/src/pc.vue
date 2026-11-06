@@ -14,7 +14,9 @@
   <!-- TINY-TODO:  tiny-dropdown-menu__item命名不规范，后续统一有个迭代去掉 -->
   <li
     v-auto-tip="
-      state.computedTip ? { always: true, content: state.computedTip, effect: tipEffect, placement: tipPosition } : false
+      state.computedTip
+        ? { always: true, content: state.computedTip, effect: tipEffect, placement: tipPosition }
+        : false
     "
     :class="[
       'tiny-dropdown-item',

@@ -80,7 +80,8 @@ export default defineComponent({
             e.preventDefault()
             scrollPrev()
           }
-        }}>
+        }}
+      >
         <IconChevronLeft aria-hidden="true" />
       </span>,
       !showMoreTabs ? (
@@ -96,7 +97,8 @@ export default defineComponent({
               e.preventDefault()
               scrollNext()
             }
-          }}>
+          }}
+        >
           <IconChevronRight aria-hidden="true" />
         </span>
       ) : null
@@ -187,7 +189,8 @@ export default defineComponent({
               e.preventDefault()
               onTabRemove(pane, e)
             }
-          }}>
+          }}
+        >
           <IconClose aria-hidden="true" />
         </span>
       ) : null
@@ -297,7 +300,8 @@ export default defineComponent({
           state.scrollable ? 'is-scrollable' : '',
           showMoreTabs ? 'is-show-more' : '',
           `is-${state.rootTabs.position}`
-        ]}>
+        ]}
+      >
         {[scrollBtn, moreTabs]}
         <div class={['tiny-tabs__nav-scroll']} ref="navScroll">
           <div
@@ -311,7 +315,8 @@ export default defineComponent({
             style={state.navStyle}
             role="tablist"
             aria-label="标签页列表" // 无障碍：为 tablist 提供标签，帮助屏幕阅读器识别
-            on-keydown={changeTab}>
+            on-keydown={changeTab}
+          >
             {!tabStyle ? <TabBar ref="tabBar" tabs={panes} /> : null}
             {tabs}
           </div>
@@ -324,7 +329,8 @@ export default defineComponent({
             manual={true}
             effect="light"
             content={state.tooltipContent}
-            placement="top"></Tooltip>
+            placement="top"
+          ></Tooltip>
         ) : null}
       </div>
     )

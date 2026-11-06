@@ -68,7 +68,8 @@
                       :class="{ 'type-link': row.typeAnchorName || row.linkTo }"
                       :id="row.typeAnchorName ? row.type : ''"
                       @click="toOuterType(row)"
-                      >{{ row.type }} <OuterLink v-if="row.linkTo"></OuterLink></span>
+                      >{{ row.type }} <OuterLink v-if="row.linkTo"></OuterLink
+                    ></span>
                   </template>
                 </VxeColumn>
                 <VxeColumn
@@ -98,7 +99,7 @@ import { i18nByKey } from '@site/tools'
 import { router } from '@site/router.js'
 import AsyncHighlight from './async-highlight.vue'
 import VersionTip from './version-tip.vue'
- import { VxeTable, VxeColumn } from 'vxe-table'
+import { VxeTable, VxeColumn } from 'vxe-table'
 
 const props = defineProps({ currentJson: {}, chartCode: {}, tableData: {} })
 
@@ -120,7 +121,7 @@ const apiExpandConf = {
   trigger: 'row',
   expandRowKeys: [],
   accordion: false,
-  visibleMethod : ({row}) => row.typeAnchorName,
+  visibleMethod: ({ row }) => row.typeAnchorName,
   showIcon: true // 配置是否显示展开图标
 }
 

@@ -21,7 +21,8 @@ describe('PC Mode', () => {
               <DropdownItem>蚵仔煎</DropdownItem>
             </DropdownMenu>
           )
-        }}></Dropdown>
+        }}
+      ></Dropdown>
     ))
 
     const triggerEle = wrapper.find('.tiny-dropdown__trigger')
@@ -46,7 +47,8 @@ describe('PC Mode', () => {
               <DropdownItem>蚵仔煎</DropdownItem>
             </DropdownMenu>
           )
-        }}></Dropdown>
+        }}
+      ></Dropdown>
     ))
 
     const triggerEle = wrapper.find('.test-default')
@@ -73,7 +75,8 @@ describe('PC Mode', () => {
               <DropdownItem>蚵仔煎</DropdownItem>
             </DropdownMenu>
           )
-        }}></Dropdown>
+        }}
+      ></Dropdown>
     ))
 
     const triggerEle = wrapper.find('.tiny-dropdown__trigger')

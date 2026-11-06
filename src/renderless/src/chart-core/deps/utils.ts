@@ -14,11 +14,11 @@ import { extend, copyArray } from '@opentiny/utils'
 import { isObject } from '@opentiny/utils'
 
 export const cloneDeep = (data) => {
-    if (isObject(data)) {
-        return extend(true, data)
-    } else if (Array.isArray(data)) {
-        return copyArray(data)
-    } else {
-        return data
-    }
+  if (isObject(data)) {
+    return extend(true, data)
+  } else if (Array.isArray(data)) {
+    return copyArray(data)
+  } else {
+    return data
+  }
 }

@@ -42,7 +42,8 @@ describe('PC Mode', () => {
         show-more={2}
         onEdit={handleEdit}
         data={groupData}
-        v-model={checkedVal}></ButtonGroup>
+        v-model={checkedVal}
+      ></ButtonGroup>
     ))
     const buttons = wrapper.findAll('button')
     await buttons[buttons.length - 1].trigger('click')
@@ -109,7 +110,8 @@ describe('PC Mode', () => {
         v-model={checkedVal}
         data={groupData}
         textField={textField}
-        valueField={valueField}></ButtonGroup>
+        valueField={valueField}
+      ></ButtonGroup>
     ))
 
     const buttons = wrapper.findAll('button')

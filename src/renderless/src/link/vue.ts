@@ -9,7 +9,13 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-import type { ILinkState, ILinkProps, ILinkRenderlessParamUtils, ISharedRenderlessParamHooks, ILinkApi } from '../../types'
+import type {
+  ILinkState,
+  ILinkProps,
+  ILinkRenderlessParamUtils,
+  ISharedRenderlessParamHooks,
+  ILinkApi
+} from '../../types'
 import { xss } from '@opentiny/utils'
 import { handleClick } from './index'
 

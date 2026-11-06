@@ -17,14 +17,14 @@ const langMap = new Map([
 
 $local._lang = langMap.get($local._lang) || 'zhCN'
 
-
 const i18n = initI18n({
-  createI18n: ({ locale, messages }) => createI18n({
-    locale, // set locale
-    // legacy: false, // 如果要支持compositionAPI，此项必须设置为false。
-    fallbackLocale: 'zhCN', // set fallback locale
-    messages // set locale messages
-  }),
+  createI18n: ({ locale, messages }) =>
+    createI18n({
+      locale, // set locale
+      // legacy: false, // 如果要支持compositionAPI，此项必须设置为false。
+      fallbackLocale: 'zhCN', // set fallback locale
+      messages // set locale messages
+    }),
   i18n: {
     locale: $local._lang
   },

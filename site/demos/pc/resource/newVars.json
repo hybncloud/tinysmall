@@ -183,10 +183,7 @@
   "--ti-button-info-disabled-border-color": "--ti-button-info-disabled-border-color",
   "--ti-button-info-plain-bgcolor": "--ti-button-info-plain-bg-color",
   "--ti-button-info-plain-disabled-bgcolor": "--ti-button-info-plain-disabled-bg-color",
-  "--ti-button-padding": [
-    "--ti-button-padding-vertical",
-    "--ti-button-padding-horizontal"
-  ],
+  "--ti-button-padding": ["--ti-button-padding-vertical", "--ti-button-padding-horizontal"],
   "--ti-calendar-bgcolor": "--ti-calendar-bg-color",
   "--ti-calendar-list-item-selected-font-color": "--ti-calendar-list-item-selected-text-color",
   "--ti-calendar-hover-color": "--ti-calendar-hover-text-color",
@@ -467,10 +464,7 @@
   "--ti-dropdown-menu-item-divided-margin": "--ti-dropdown-menu-item-divided-margin-top",
   "--ti-dropdown-menu-box-shadow": "--ti-dropdown-menu-box-shadow",
   "--ti-dropdown-menu-gap": "--ti-dropdown-menu-margin-vertical",
-  "--ti-dropdown-menu-padding": [
-    "--ti-dropdown-menu-padding-vertical",
-    "--ti-dropdown-menu-padding-horizontal"
-  ],
+  "--ti-dropdown-menu-padding": ["--ti-dropdown-menu-padding-vertical", "--ti-dropdown-menu-padding-horizontal"],
   "--ti-errortips-box-background": "--ti-errortips-box-bg-color",
   "--ti-errortips-body-color": "--ti-errortips-body-text-color",
   "--ti-errortips-body-font-size": "--ti-errortips-body-font-size",
@@ -506,10 +500,7 @@
   "--ti-fallmenu-background-normal": "--ti-fallmenu-bg-color-normal",
   "--ti-fallmenu-background-hover": "--ti-fallmenu-bg-color-hover",
   "--ti-fallmenu-icon-font-size": "--ti-fallmenu-icon-font-size",
-  "--ti-fallmenu-slot-color": [
-    "--ti-fallmenu-slot-text-color",
-    "--ti-fallmenu-slot-bg-color"
-  ],
+  "--ti-fallmenu-slot-color": ["--ti-fallmenu-slot-text-color", "--ti-fallmenu-slot-bg-color"],
   "--ti-fallmenu-title-font-size": "--ti-fallmenu-title-font-size",
   "--ti-fallmenu-box-title-color": "--ti-fallmenu-box-title-text-color",
   "--ti-fallmenu-box-font-color": "--ti-fallmenu-box-text-color",
@@ -532,10 +523,7 @@
   "--ti-form-item-label-font-size": "--ti-form-item-label-font-size",
   "--ti-form-item-label-color": "--ti-form-item-label-text-color",
   "--ti-form-item-error-font-size": "--ti-form-item-error-font-size",
-  "--ti-form-item-error-color": [
-    "--ti-form-item-error-text-color",
-    "--ti-form-item-error-border-color"
-  ],
+  "--ti-form-item-error-color": ["--ti-form-item-error-text-color", "--ti-form-item-error-border-color"],
   "--ti-form-item-error-bgcolor": "--ti-form-item-error-bg-color",
   "--ti-grid-font-family": "--ti-grid-font-family",
   "--ti-grid-font-color": "--ti-grid-text-color",
@@ -584,10 +572,7 @@
   "--ti-grid-modal-btn-color": "--ti-grid-modal-btn-text-color",
   "--ti-grid-modal-box-shadow": "--ti-grid-modal-box-shadow",
   "--ti-grid-modal-border-color": "--ti-grid-modal-border-color",
-  "--ti-table-td-padding": [
-    "--ti-table-td-padding-vertical",
-    "--ti-table-td-padding-horizontal"
-  ],
+  "--ti-table-td-padding": ["--ti-table-td-padding-vertical", "--ti-table-td-padding-horizontal"],
   "--ti-table-th-spacing-line-color": "--ti-table-th-spacing-line-text-color",
   "--ti-grid-header-icon-font-size": "--ti-grid-header-icon-font-size",
   "--ti-table-nodata-td-bg-img-url": "--ti-table-nodata-td-bg-img-url",
@@ -713,10 +698,7 @@
   "--ti-menubar-dropdown-border-color": "--ti-menubar-dropdown-border-color",
   "--ti-menubar-dropdown-hover-border-color": "--ti-menubar-dropdown-hover-border-color",
   "--ti-menubar-dropdown-hover-background": "--ti-menubar-dropdown-hover-bg-color",
-  "--ti-milestone-color": [
-    "--ti-milestone-text-color",
-    "--ti-milestone-bg-color"
-  ],
+  "--ti-milestone-color": ["--ti-milestone-text-color", "--ti-milestone-bg-color"],
   "--ti-milestone-font-size": "--ti-milestone-font-size",
   "--ti-milestone-icon-width": "--ti-milestone-icon-width",
   "--ti-milestone-icon-height": "--ti-milestone-icon-height",
@@ -782,10 +764,7 @@
   "--ti-nav-menu-popmenu-more-item-active-background": "--ti-nav-menu-popmenu-more-item-active-bg-color",
   "--ti-nav-menu-popmenu-node-title-font-size": "--ti-nav-menu-popmenu-node-title-font-size",
   "--ti-nav-menu-popmenu-node-item-font-size": "--ti-nav-menu-popmenu-node-item-font-size",
-  "--ti-notify-info-background": [
-    "--ti-notify-info-bg-color",
-    "--ti-notify-bg-color"
-  ],
+  "--ti-notify-info-background": ["--ti-notify-info-bg-color", "--ti-notify-bg-color"],
   "--ti-notify-info-icon-color": "--ti-notify-info-icon-color",
   "--ti-notify-warning-background": "--ti-notify-warning-bg-color",
   "--ti-notify-warning-icon-color": "--ti-notify-warning-icon-color",
@@ -860,10 +839,7 @@
   "--ti-pager-font-normal": "--ti-pager-font-normal-text-color",
   "--ti-pager-height": "--ti-pager-height",
   "--ti-pager-input-width": "--ti-pager-input-width",
-  "--ti-pager-list-padding": [
-    "--ti-pager-poplist-item-padding-vertical",
-    "--ti-pager-poplist-item-padding-horizontal"
-  ],
+  "--ti-pager-list-padding": ["--ti-pager-poplist-item-padding-vertical", "--ti-pager-poplist-item-padding-horizontal"],
   "--ti-pager-list-light-shadow": "--ti-pager-poplist-item-unchecked-box-shadow",
   "--ti-pager-input-height": "--ti-pager-input-height",
   "--ti-pager-input-border-radius": "--ti-pager-input-border-radius",
@@ -893,10 +869,7 @@
   "--ti-date-picker-range-hover-bgcolor": "--ti-date-picker-range-hover-bg-color",
   "--ti-date-table-td-width": "--ti-date-table-td-width",
   "--ti-date-table-td-height": "--ti-date-table-td-height",
-  "--ti-date-table-td-padding": [
-    "--ti-date-table-td-padding-vertical",
-    "--ti-date-table-td-padding-horizontal"
-  ],
+  "--ti-date-table-td-padding": ["--ti-date-table-td-padding-vertical", "--ti-date-table-td-padding-horizontal"],
   "--ti-date-table-td-span-width": "--ti-date-table-td-span-width",
   "--ti-date-table-td-span-height": "--ti-date-table-td-span-height",
   "--ti-date-table-th-font-color": "--ti-date-table-th-text-color",
@@ -940,10 +913,7 @@
   "--ti-time-panel-content-split-line-display": "--ti-time-panel-content-split-line-display",
   "--ti-time-panel-btn-cancel-display": "--ti-time-panel-btn-cancel-display",
   "--ti-time-panel-btn-bgcolor": "--ti-time-panel-btn-bg-color",
-  "--ti-time-panel-btn-padding": [
-    "--ti-time-panel-btn-padding-vertical",
-    "--ti-time-panel-btn-padding-horizontal"
-  ],
+  "--ti-time-panel-btn-padding": ["--ti-time-panel-btn-padding-vertical", "--ti-time-panel-btn-padding-horizontal"],
   "--ti-time-panel-btn-radius": "--ti-time-panel-btn-border-radius",
   "--ti-time-panel-btn-height": "--ti-time-panel-btn-height",
   "--ti-time-panel-btn-min-width": "--ti-time-panel-btn-min-width",
@@ -979,10 +949,7 @@
   "--ti-popover-placement-arrow-after-border-color": "--ti-popover-placement-arrow-after-border-color",
   "--ti-popover-box-shadow": "--ti-popover-box-shadow",
   "--ti-popover-arrow-border-color": "--ti-popover-arrow-border-color",
-  "--ti-popover-padding": [
-    "--ti-popover-padding-vertical",
-    "--ti-popover-padding-horizontal"
-  ],
+  "--ti-popover-padding": ["--ti-popover-padding-vertical", "--ti-popover-padding-horizontal"],
   "--ti-progress-text-color": "--ti-progress-text-color",
   "--ti-progress-text-font-size": "--ti-progress-text-font-size",
   "--ti-progress-bar-border-radius": "--ti-progress-bar-border-radius",
@@ -1052,10 +1019,7 @@
   "--ti-scroll-text-background": "--ti-scroll-text-bg-color",
   "--ti-search-font-size": "--ti-search-font-size",
   "--ti-search-input-height": "--ti-search-input-height",
-  "--ti-search-inputinner-height": [
-    "--ti-search-input-btn-width",
-    "--ti-search-input-btn-line-height"
-  ],
+  "--ti-search-inputinner-height": ["--ti-search-input-btn-width", "--ti-search-input-btn-line-height"],
   "--ti-search-input-color": "--ti-search-input-text-color",
   "--ti-search-input-background": "--ti-search-input-bg-color",
   "--ti-search-input-btn-color": "--ti-search-input-btn-text-color",
@@ -1145,10 +1109,7 @@
   "--ti-slider-handle-bgcolor": "--ti-slider-handle-bg-color",
   "--ti-slider-handle-border-color": "--ti-slider-handle-border-color",
   "--ti-slider-handle-radius": "--ti-slider-handle-border-radius",
-  "--ti-slider-handle-color-hover": [
-    "--ti-slider-handle-text-color-hover",
-    "--ti-slider-handle-border-color-hover"
-  ],
+  "--ti-slider-handle-color-hover": ["--ti-slider-handle-text-color-hover", "--ti-slider-handle-border-color-hover"],
   "--ti-slider-handle-box-shadow": "--ti-slider-handle-box-shadow",
   "--ti-slider-handle-top": "--ti-slider-handle-top",
   "--ti-slider-handle-border-width": "--ti-slider-handle-border-weight",
@@ -1167,10 +1128,7 @@
   "--ti-slider-input-border-color": "--ti-slider-input-border-color",
   "--ti-slider-input-color": "--ti-slider-input-text-color",
   "--ti-slider-input-bgcolor": "--ti-slider-input-bg-color",
-  "--ti-slider-tips-bgcolor": [
-    "--ti-slider-tips-bg-color",
-    "--ti-slider-tips-border-color"
-  ],
+  "--ti-slider-tips-bgcolor": ["--ti-slider-tips-bg-color", "--ti-slider-tips-border-color"],
   "--ti-slider-tips-color": "--ti-slider-tips-text-color",
   "--ti-slider-tips-margin-left": "--ti-slider-tips-margin-left",
   "--ti-slider-vertical-margin": [
@@ -1242,10 +1200,7 @@
   "--ti-switch-height": "--ti-switch-height",
   "--ti-switch-border-radius": "--ti-switch-border-radius",
   "--ti-switch-inner-font-size": "--ti-switch-inner-font-size",
-  "--ti-switch-dot-size": [
-    "--ti-switch-dot-size-height-width",
-    "--ti-switch-dot-position-left"
-  ],
+  "--ti-switch-dot-size": ["--ti-switch-dot-size-height-width", "--ti-switch-dot-position-left"],
   "--ti-switch-dot-offset": "--ti-switch-dot-offset",
   "--ti-switch-text-width": "--ti-switch-text-width",
   "--ti-table-color": "--ti-table-text-color",
@@ -1406,10 +1361,7 @@
   "--ti-tooltip-popper-light-color": "--ti-tooltip-popper-light-text-color",
   "--ti-tooltip-popper-light-border-color": "--ti-tooltip-popper-light-border-color",
   "--ti-tooltip-box-shadow": "--ti-tooltip-box-shadow",
-  "--ti-tooltip-padding": [
-    "--ti-tooltip-padding-vertical",
-    "--ti-tooltip-padding-horizontal"
-  ],
+  "--ti-tooltip-padding": ["--ti-tooltip-padding-vertical", "--ti-tooltip-padding-horizontal"],
   "--ti-tooltip-validate-icon-color": "--ti-tooltip-validate-icon-color",
   "--ti-top-box-background": "--ti-top-box-bg-color",
   "--ti-top-box-icon-font-size": "--ti-top-box-icon-font-size",
@@ -1508,10 +1460,7 @@
   "--ti-upload-dragger-text-color": "--ti-upload-dragger-text-color",
   "--ti-upload-dragger-text-font-size": "--ti-upload-dragger-text-font-size",
   "--ti-upload-dragger-files-border-color": "--ti-upload-dragger-files-border-color",
-  "--ti-user-account-padding": [
-    "--ti-user-account-padding-vertical",
-    "--ti-user-account-padding-horizontal"
-  ],
+  "--ti-user-account-padding": ["--ti-user-account-padding-vertical", "--ti-user-account-padding-horizontal"],
   "--ti-user-account-line-height": "--ti-user-account-line-height",
   "--ti-usercard-border-color": "--ti-usercard-border-color",
   "--ti-usercard-image-radius": "--ti-usercard-image-border-radius",

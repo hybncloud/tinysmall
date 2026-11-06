@@ -28,7 +28,8 @@ const renderNodeListFunc = (_vm: InstanceType<typeof CascaderMenu>) => () => {
         node-id={`${menuId}-${index}`}
         data-haspopup={hasChildren}
         data-owns={hasChildren ? menuId : null}
-        {...events}></cascader-node>
+        {...events}
+      ></cascader-node>
     )
   }
 

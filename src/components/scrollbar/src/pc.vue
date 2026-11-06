@@ -95,7 +95,8 @@ export default defineComponent({
         ref="wrap"
         style={style}
         onScroll={handleScroll}
-        class={[wrapClass, 'tiny-scrollbar__wrap', gutter ? '' : 'tiny-scrollbar__wrap--hidden-default']}>
+        class={[wrapClass, 'tiny-scrollbar__wrap', gutter ? '' : 'tiny-scrollbar__wrap--hidden-default']}
+      >
         {[view]}
       </div>
     )
@@ -124,7 +125,8 @@ export default defineComponent({
         }}
         onMousemove={(e) => {
           this.$emit('mousemove', e)
-        }}>
+        }}
+      >
         {nodes}
       </div>
     )

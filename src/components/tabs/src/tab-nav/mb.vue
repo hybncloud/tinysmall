@@ -50,7 +50,8 @@ export default defineComponent({
           class="tiny-mobile-tabs__expand"
           onClick={() => {
             expandTabShow()
-          }}>
+          }}
+        >
           <icon-chevron-down></icon-chevron-down>
         </span>
       </div>
@@ -63,7 +64,8 @@ export default defineComponent({
           state.showExpandItem
             ? { display: 'block', width: expandPanesWidth ? expandPanesWidth + 'px' : '' }
             : { display: 'none' }
-        }>
+        }
+      >
         <div class="tiny-mobile-tabs__expand-mask"></div>
         <div class="tiny-mobile-tabs__expand-header">
           <label class="tiny-mobile-tabs__expand-header-title" style={state.expandHeaderStyle}>
@@ -83,7 +85,8 @@ export default defineComponent({
                 class={{
                   'tiny-mobile-tabs__expand-item': true,
                   [`tiny-mobile-tabs__expand-mode-${expandTabsMode}`]: expandTabsMode === 'columns'
-                }}>
+                }}
+              >
                 <div
                   class={{
                     'tiny-mobile-tabs__expand-item-title': true,
@@ -91,7 +94,8 @@ export default defineComponent({
                   }}
                   onClick={(e) => {
                     onTabClick(pane, tabName, e)
-                  }}>
+                  }}
+                >
                   {tabTitle}
                 </div>
               </div>
@@ -149,7 +153,8 @@ export default defineComponent({
           aria-selected={pane.state.active}
           onClick={(e) => {
             onTabClick(pane, tabName, e)
-          }}>
+          }}
+        >
           <span class="tiny-mobile-tabs__name" style={activeColor && pane.state.active ? { color: activeColor } : {}}>
             {tabTitle}
             {btnClose}
@@ -167,17 +172,20 @@ export default defineComponent({
           panes.length > 4 ? 'tiny-mobile-tabs__wrap-scrollable' : '',
           showExpandTabs ? 'is-show-expand' : '',
           `is-${state.rootTabs.position}`
-        ]}>
+        ]}
+      >
         <div class={['tiny-mobile-tabs__nav-scroll']} ref="navScroll">
           <div
             class={['tiny-mobile-tabs__nav', `is-${state.rootTabs.position}`]}
             style={navStyle}
             ref="nav"
-            role="tablist">
+            role="tablist"
+          >
             {tabs}
             <div
               class="tiny-mobile-tabs__line"
-              style={[state.navStyle, activeColor ? { backgroundColor: activeColor } : {}]}></div>
+              style={[state.navStyle, activeColor ? { backgroundColor: activeColor } : {}]}
+            ></div>
           </div>
         </div>
         {[tabsExpandIcon, tabsExpandContent]}

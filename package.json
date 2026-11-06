@@ -1,7 +1,7 @@
 {
   "name": "tinysmall",
   "version": "3.32.0",
-  "description": "An enterprise-class UI component library.",
+  "description": "由 opentiny/tiny-vue 删减改造而来。",
   "type": "module",
   "exports": {
     ".": "./dist/index.mjs",
@@ -13,15 +13,11 @@
   "keywords": [
     "vue",
     "vue3",
-    "frontend",
-    "component-library",
-    "components",
+    "vue-component-library",
     "vue-components",
     "opentiny",
-    "renderless-components",
-    "headless-components"
+    "tinysmall"
   ],
-  "author": "TinySmall Team",
   "license": "MIT",
   "scripts": {
     "dev": "vite dev-server",

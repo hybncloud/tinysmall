@@ -43,12 +43,12 @@ export const uploadProps = {
   onExceed: Function,
   onPreview: {
     type: Function,
-    default: () => { }
+    default: () => {}
   },
   onProgress: Function,
   onRemove: {
     type: Function,
-    default: () => { }
+    default: () => {}
   },
   onStart: Function,
   onSuccess: Function,
@@ -76,7 +76,7 @@ export const uploadProps = {
   customClass: [String, Object, Array],
   handleTriggerClick: {
     type: Function,
-    default: () => { }
+    default: () => {}
   },
   mode: String,
   showTitle: Boolean,

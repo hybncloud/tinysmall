@@ -10,7 +10,12 @@
  *
  */
 
-import type { ICascaderPanelConfig, ICascaderPanelData, ICascaderPanelNode, ICascaderPanelNodePropValue } from '../../types'
+import type {
+  ICascaderPanelConfig,
+  ICascaderPanelData,
+  ICascaderPanelNode,
+  ICascaderPanelNodePropValue
+} from '../../types'
 import Node from './node'
 import { valueEquals, coerceTruthyValueToArray as toArray } from './index'
 

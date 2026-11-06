@@ -9,10 +9,7 @@
     "./internals/unplugin-virtual-template/**/*.ts",
     "./internals/vite-svg-loader/**/*.ts"
   ],
-  "exclude": [
-    "./internals/unplugin-virtual-template/client.d.ts",
-    "./internals/vite-svg-loader/client.d.ts"
-  ],
+  "exclude": ["./internals/unplugin-virtual-template/client.d.ts", "./internals/vite-svg-loader/client.d.ts"],
   "compilerOptions": {
     "module": "preserve",
     "moduleResolution": "bundler",
