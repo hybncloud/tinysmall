@@ -117,7 +117,6 @@ import ComponentContributor from '../../components/contributor.vue'
 import ApiDocs from '../../components/api-docs.vue'
 import DesignToken from '../../components/design-token.vue'
 import useTasksFinish from '../../composable/useTasksFinish'
-import list from '@opentiny/vue-theme/token'
 import { isSaas } from '../../const'
 
 const props = defineProps({ loadData: {}, appMode: {}, demoKey: {} })
@@ -339,7 +338,7 @@ const loadPage = () => {
         document.querySelector('.tiny-tabs__header').style.display = 'none'
       }
     }
-    state.tokenList = list[state.cmpId] || []
+    state.tokenList = []
     const { finishTask, waitTasks: allDemoMounted } = useTasksFinish(state.currJson.demos.length)
     finishMountTask = finishTask
 

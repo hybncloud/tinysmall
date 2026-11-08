@@ -4,7 +4,6 @@ import type { PropType } from '@opentiny/vue-common'
 import type { Tag, TextDirection, breakPoint } from './props'
 import { configProviderContextKey } from '../index'
 import '@opentiny/vue-theme/config-provider/index.less'
-import TinyThemeTool from '@opentiny/vue-theme/theme-tool'
 import { isObject } from '@opentiny/utils'
 
 /**
@@ -96,8 +95,8 @@ export default defineComponent({
       () => theme.value,
       () => {
         if (isObject(theme.value) && hasAnyKey(theme.value, ['data'])) {
-          const themeTool = new TinyThemeTool()
-          themeTool.changeTheme(theme.value)
+          // const themeTool = new TinyThemeTool()
+          // themeTool.changeTheme(theme.value)
         }
 
         if (isObject(theme.value) && !hasAnyKey(theme.value, ['data'])) {

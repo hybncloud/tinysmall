@@ -3,7 +3,7 @@
     <div class="content-layout ti-fi-1">
       <div id="layoutSider" class="layout-sider">
         <div class="wp100 h50 fw-bold text-center f20 f-center">TinySmall</div>
-        <tiny-tree-menu
+        <tiny-tree
           ref="treeMenuRef"
           class="main-menu"
           :default-expanded-keys="expandKeys"
@@ -18,13 +18,13 @@
           <template #default="{ data }">
             <RouterLink :to="{ path: getMenuLink(data) }" class="node-name-container">
               <!-- 分类图标 -->
-              <component
+              <!-- <component
                 v-if="data.type === 'overview' || data.children"
                 :is="menuIcons[data.key]"
                 class="menu-type-icon"
-              ></component>
+              ></component> -->
               <span class="node-name-label">{{ data.label }}</span>
-              <version-tip
+              <!-- <version-tip
                 class="node-float-tip"
                 v-if="data.meta || data.versionTipOption"
                 :meta="data.meta"
@@ -32,10 +32,10 @@
                 render-type="tag"
                 :is-from-menu="true"
               >
-              </version-tip>
+              </version-tip> -->
             </RouterLink>
           </template>
-        </tiny-tree-menu>
+        </tiny-tree>
       </div>
       <div id="doc-layout" class="md-tiny">
         <router-view />
@@ -49,7 +49,7 @@
 <script>
 import { useRoute } from 'vue-router'
 import { defineComponent, reactive, computed, toRefs, watch, onMounted, onUnmounted } from 'vue'
-import { TreeMenu, Dropdown, DropdownMenu, Tooltip, Tag, Radio, RadioGroup, Button } from '@opentiny/vue'
+import { Tree, Dropdown, DropdownMenu, Tooltip, Tag, Radio, RadioGroup, Button } from '@opentiny/vue'
 import { genMenus, getMenuIcons } from '@site/menus'
 import { router } from '@site/router.js'
 import { getWord, i18nByKey, appData, appFn, useApiMode, useTemplateMode } from '@site/tools'
@@ -59,7 +59,7 @@ import VersionTip from '@site/components/version-tip.vue'
 export default defineComponent({
   name: 'LayoutVue',
   components: {
-    TinyTreeMenu: TreeMenu,
+    TinyTree: Tree,
     TinyDropdown: Dropdown,
     TinyDropdownMenu: DropdownMenu,
     TinyTooltip: Tooltip,

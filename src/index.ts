@@ -23,8 +23,6 @@ import Col from '@opentiny/vue-col'
 import Collapse from '@opentiny/vue-collapse'
 import CollapseItem from '@opentiny/vue-collapse-item'
 import CollapseTransition from '@opentiny/vue-collapse-transition'
-import ColorPicker from '@opentiny/vue-color-picker'
-import ColorSelectPanel from '@opentiny/vue-color-select-panel'
 import ConfigProvider from '@opentiny/vue-config-provider'
 import DatePanel from '@opentiny/vue-date-panel'
 import DatePicker from '@opentiny/vue-date-picker'
@@ -47,17 +45,14 @@ import Guide from '@opentiny/vue-guide'
 import Image from '@opentiny/vue-image'
 import ImageViewer from '@opentiny/vue-image-viewer'
 import Input from '@opentiny/vue-input'
-import IpAddress from '@opentiny/vue-ip-address'
 import Layout from '@opentiny/vue-layout'
 import Link from '@opentiny/vue-link'
 import Loading from '@opentiny/vue-loading'
 import Message from '@opentiny/vue-message'
-import Milestone from '@opentiny/vue-milestone'
 import Modal from '@opentiny/vue-modal'
 import MonthRange from '@opentiny/vue-month-range'
 import MonthTable from '@opentiny/vue-month-table'
 import Notify from '@opentiny/vue-notify'
-import NumberAnimation from '@opentiny/vue-number-animation'
 import Numeric from '@opentiny/vue-numeric'
 import Option from '@opentiny/vue-option'
 import OptionGroup from '@opentiny/vue-option-group'
@@ -85,8 +80,6 @@ import SelectDropdown from '@opentiny/vue-select-dropdown'
 import Skeleton from '@opentiny/vue-skeleton'
 import SkeletonItem from '@opentiny/vue-skeleton-item'
 import Slider from '@opentiny/vue-slider'
-import SliderButton from '@opentiny/vue-slider-button'
-import SliderButtonGroup from '@opentiny/vue-slider-button-group'
 import Space from '@opentiny/vue-space'
 import Statistic from '@opentiny/vue-statistic'
 import Steps from '@opentiny/vue-steps'
@@ -96,8 +89,6 @@ import TabItem from '@opentiny/vue-tab-item'
 import Table from '@opentiny/vue-table'
 import Tabs from '@opentiny/vue-tabs'
 import Tag from '@opentiny/vue-tag'
-import TagGroup from '@opentiny/vue-tag-group'
-import TagInput from '@opentiny/vue-tag-input'
 import Time from '@opentiny/vue-time'
 import TimeLine from '@opentiny/vue-time-line'
 import TimePanel from '@opentiny/vue-time-panel'
@@ -110,7 +101,6 @@ import Tooltip from '@opentiny/vue-tooltip'
 import Transfer from '@opentiny/vue-transfer'
 import TransferPanel from '@opentiny/vue-transfer-panel'
 import Tree from '@opentiny/vue-tree'
-import TreeMenu from '@opentiny/vue-tree-menu'
 import TreeSelect from '@opentiny/vue-tree-select'
 import Upload from '@opentiny/vue-upload'
 import UploadDragger from '@opentiny/vue-upload-dragger'
@@ -149,8 +139,6 @@ const components = [
   Collapse,
   CollapseItem,
   CollapseTransition,
-  ColorPicker,
-  ColorSelectPanel,
   ConfigProvider,
   DatePanel,
   DatePicker,
@@ -173,17 +161,14 @@ const components = [
   Image,
   ImageViewer,
   Input,
-  IpAddress,
   Layout,
   Link,
   Loading,
   Message,
-  Milestone,
   Modal,
   MonthRange,
   MonthTable,
   Notify,
-  NumberAnimation,
   Numeric,
   Option,
   OptionGroup,
@@ -211,8 +196,6 @@ const components = [
   Skeleton,
   SkeletonItem,
   Slider,
-  SliderButton,
-  SliderButtonGroup,
   Space,
   Statistic,
   Steps,
@@ -222,8 +205,6 @@ const components = [
   Table,
   Tabs,
   Tag,
-  TagGroup,
-  TagInput,
   Time,
   TimeLine,
   TimePanel,
@@ -236,7 +217,6 @@ const components = [
   Transfer,
   TransferPanel,
   Tree,
-  TreeMenu,
   TreeSelect,
   Upload,
   UploadDragger,
@@ -249,7 +229,7 @@ const components = [
   YearTable
 ]
 
-export const install = (app, opts = {}) => {
+export const install = (app: any, opts: any = {}) => {
   const regex = new RegExp('^' + $prefix)
 
   components.forEach((component) => {
@@ -319,10 +299,6 @@ export {
   CollapseItem as TinyCollapseItem,
   CollapseTransition,
   CollapseTransition as TinyCollapseTransition,
-  ColorPicker,
-  ColorPicker as TinyColorPicker,
-  ColorSelectPanel,
-  ColorSelectPanel as TinyColorSelectPanel,
   ConfigProvider,
   ConfigProvider as TinyConfigProvider,
   DatePanel,
@@ -367,8 +343,6 @@ export {
   ImageViewer as TinyImageViewer,
   Input,
   Input as TinyInput,
-  IpAddress,
-  IpAddress as TinyIpAddress,
   Layout,
   Layout as TinyLayout,
   Link,
@@ -377,8 +351,6 @@ export {
   Loading as TinyLoading,
   Message,
   Message as TinyMessage,
-  Milestone,
-  Milestone as TinyMilestone,
   Modal,
   Modal as TinyModal,
   MonthRange,
@@ -387,8 +359,6 @@ export {
   MonthTable as TinyMonthTable,
   Notify,
   Notify as TinyNotify,
-  NumberAnimation,
-  NumberAnimation as TinyNumberAnimation,
   Numeric,
   Numeric as TinyNumeric,
   Option,
@@ -443,10 +413,6 @@ export {
   SkeletonItem as TinySkeletonItem,
   Slider,
   Slider as TinySlider,
-  SliderButton,
-  SliderButton as TinySliderButton,
-  SliderButtonGroup,
-  SliderButtonGroup as TinySliderButtonGroup,
   Space,
   Space as TinySpace,
   Statistic,
@@ -465,10 +431,6 @@ export {
   Tabs as TinyTabs,
   Tag,
   Tag as TinyTag,
-  TagGroup,
-  TagGroup as TinyTagGroup,
-  TagInput,
-  TagInput as TinyTagInput,
   Time,
   Time as TinyTime,
   TimeLine,
@@ -493,8 +455,6 @@ export {
   TransferPanel as TinyTransferPanel,
   Tree,
   Tree as TinyTree,
-  TreeMenu,
-  TreeMenu as TinyTreeMenu,
   TreeSelect,
   TreeSelect as TinyTreeSelect,
   Upload,
@@ -568,10 +528,6 @@ export default {
   TinyCollapseItem: CollapseItem,
   CollapseTransition,
   TinyCollapseTransition: CollapseTransition,
-  ColorPicker,
-  TinyColorPicker: ColorPicker,
-  ColorSelectPanel,
-  TinyColorSelectPanel: ColorSelectPanel,
   ConfigProvider,
   TinyConfigProvider: ConfigProvider,
   DatePanel,
@@ -616,8 +572,6 @@ export default {
   TinyImageViewer: ImageViewer,
   Input,
   TinyInput: Input,
-  IpAddress,
-  TinyIpAddress: IpAddress,
   Layout,
   TinyLayout: Layout,
   Link,
@@ -626,8 +580,6 @@ export default {
   TinyLoading: Loading,
   Message,
   TinyMessage: Message,
-  Milestone,
-  TinyMilestone: Milestone,
   Modal,
   TinyModal: Modal,
   MonthRange,
@@ -636,8 +588,6 @@ export default {
   TinyMonthTable: MonthTable,
   Notify,
   TinyNotify: Notify,
-  NumberAnimation,
-  TinyNumberAnimation: NumberAnimation,
   Numeric,
   TinyNumeric: Numeric,
   Option,
@@ -692,10 +642,6 @@ export default {
   TinySkeletonItem: SkeletonItem,
   Slider,
   TinySlider: Slider,
-  SliderButton,
-  TinySliderButton: SliderButton,
-  SliderButtonGroup,
-  TinySliderButtonGroup: SliderButtonGroup,
   Space,
   TinySpace: Space,
   Statistic,
@@ -714,10 +660,6 @@ export default {
   TinyTabs: Tabs,
   Tag,
   TinyTag: Tag,
-  TagGroup,
-  TinyTagGroup: TagGroup,
-  TagInput,
-  TinyTagInput: TagInput,
   Time,
   TinyTime: Time,
   TimeLine,
@@ -742,8 +684,6 @@ export default {
   TinyTransferPanel: TransferPanel,
   Tree,
   TinyTree: Tree,
-  TreeMenu,
-  TinyTreeMenu: TreeMenu,
   TreeSelect,
   TinyTreeSelect: TreeSelect,
   Upload,

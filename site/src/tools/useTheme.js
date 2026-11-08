@@ -3,7 +3,6 @@ import { hooks } from '@opentiny/vue-common'
 import { router } from '@site/router'
 import { appData } from './appData'
 import { CURRENT_THEME_KEY, DEFAULT_THEME, themeToolValuesMap } from '../const'
-import TinyThemeTool from '@opentiny/vue-theme/theme-tool'
 
 const isEn = appData.lang === 'enUS'
 

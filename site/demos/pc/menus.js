@@ -109,18 +109,12 @@ export const cmpMenus = [
       {
         'nameCn': '虚拟化容器',
         'name': 'VirtualScrollBox',
-        'key': 'virtual-scroll-box',
-        'meta': {
-          'stable': '3.19.0'
-        }
+        'key': 'virtual-scroll-box'
       },
       {
         'nameCn': '间距',
         'name': 'Space',
-        'key': 'space',
-        'meta': {
-          'stable': '3.27.0'
-        }
+        'key': 'space'
       }
     ]
   },
@@ -133,11 +127,9 @@ export const cmpMenus = [
       { 'nameCn': '锚点', 'name': 'Anchor', 'key': 'anchor' },
       { 'nameCn': '面包屑', 'name': 'Breadcrumb', 'key': 'breadcrumb' },
       { 'nameCn': '下拉菜单', 'name': 'Dropdown', 'key': 'dropdown' },
-      { 'nameCn': '导航菜单', 'name': 'NavMenu', 'key': 'nav-menu' },
       { 'nameCn': '分页', 'name': 'Pager', 'key': 'pager' },
       { 'nameCn': '步骤条', 'name': 'Steps', 'key': 'steps' },
-      { 'nameCn': '页签', 'name': 'Tabs', 'key': 'tabs' },
-      { 'nameCn': '树型菜单', 'name': 'TreeMenu', 'key': 'tree-menu' }
+      { 'nameCn': '页签', 'name': 'Tabs', 'key': 'tabs' }
     ]
   },
   {
@@ -154,30 +146,18 @@ export const cmpMenus = [
       { 'nameCn': '级联选择器', 'name': 'Cascader', 'key': 'cascader' },
       { 'nameCn': '级联面板', 'name': 'CascaderPanel', 'key': 'cascader-panel' },
       { 'nameCn': '多选框', 'name': 'Checkbox', 'key': 'checkbox' },
-      { 'nameCn': '颜色选择器', 'name': 'ColorPicker', 'key': 'color-picker' },
-      { 'nameCn': '颜色选择面板', 'name': 'ColorSelectPanel', 'key': 'color-select-panel' },
       { 'nameCn': '日期选择器', 'name': 'DatePicker', 'key': 'date-picker' },
       { 'nameCn': '日期选择面板', 'name': 'DatePanel', 'key': 'date-panel' },
       { 'nameCn': '下拉时间', 'name': 'DropTimes', 'key': 'drop-times' },
       { 'nameCn': '文件上传', 'name': 'FileUpload', 'key': 'file-upload' },
       { 'nameCn': '表单', 'name': 'Form', 'key': 'form' },
       { 'nameCn': '输入框', 'name': 'Input', 'key': 'input' },
-      { 'nameCn': ' IP地址输入框', 'name': 'IpAddress', 'key': 'ip-address' },
       { 'nameCn': '数字输入框', 'name': 'Numeric', 'key': 'numeric' },
-      { 'nameCn': '标签输入框', 'name': 'TagInput', 'key': 'tag-input', 'meta': { 'experimental': '3.29.0' } },
       { 'nameCn': '弹出上传', 'name': 'PopUpload', 'key': 'pop-upload' },
       { 'nameCn': '单选框', 'name': 'Radio', 'key': 'radio' },
       { 'nameCn': '评分', 'name': 'Rate', 'key': 'rate' },
       { 'nameCn': '搜索', 'name': 'Search', 'key': 'search' },
       { 'nameCn': '滑块', 'name': 'Slider', 'key': 'slider' },
-      {
-        'nameCn': '滑动按钮组',
-        'name': 'SliderButton',
-        'key': 'slider-button',
-        'meta': {
-          'stable': '3.31.0'
-        }
-      },
       { 'nameCn': '开关', 'name': 'Switch', 'key': 'switch' },
       { 'nameCn': '时间选择器', 'name': 'TimePicker', 'key': 'time-picker' },
       { 'nameCn': '时间选择', 'name': 'TimeSelect', 'key': 'time-select' },
@@ -202,30 +182,17 @@ export const cmpMenus = [
       { 'nameCn': '引导', 'name': 'Guide', 'key': 'guide' },
       { 'nameCn': '图片', 'name': 'Image', 'key': 'image' },
       { 'nameCn': '无限滚动', 'name': 'InfiniteScroll', 'key': 'infinite-scroll' },
-      { 'nameCn': '里程碑', 'name': 'Milestone', 'key': 'milestone' },
       { 'nameCn': '二维码', 'name': 'QrCode', 'key': 'qr-code' },
       { 'nameCn': '统计数值', 'name': 'Statistic', 'key': 'statistic' },
       { 'nameCn': '标签', 'name': 'Tag', 'key': 'tag' },
-      { 'nameCn': '标签组', 'name': 'TagGroup', 'key': 'tag-group' },
       { 'nameCn': '时间线', 'name': 'Timeline', 'key': 'time-line' },
       { 'nameCn': '树形控件', 'name': 'Tree', 'key': 'tree' },
       {
         'nameCn': '虚拟化树形控件',
         'name': 'VirtualTree',
-        'key': 'virtual-tree',
-        'meta': {
-          'stable': '3.19.0'
-        }
+        'key': 'virtual-tree'
       },
-      { 'nameCn': '用户头像', 'name': 'UserHead', 'key': 'user-head' },
-      {
-        'nameCn': '数值动画',
-        'name': 'NumberAnimation',
-        'key': 'number-animation',
-        'meta': {
-          'stable': '3.23.0'
-        }
-      }
+      { 'nameCn': '用户头像', 'name': 'UserHead', 'key': 'user-head' }
     ]
   },
   {
@@ -238,10 +205,7 @@ export const cmpMenus = [
       {
         'nameCn': '异常页',
         'name': 'Exception',
-        'key': 'exception',
-        'meta': {
-          'stable': '3.27.0'
-        }
+        'key': 'exception'
       },
       { 'nameCn': '加载', 'name': 'Loading', 'key': 'loading' },
       { 'nameCn': '模态框', 'name': 'Modal', 'key': 'modal' },
@@ -266,10 +230,7 @@ export const cmpMenus = [
       {
         'nameCn': '粘性布局',
         'name': 'Sticky',
-        'key': 'sticky',
-        'meta': {
-          'stable': '3.19.0'
-        }
+        'key': 'sticky'
       }
     ]
   }

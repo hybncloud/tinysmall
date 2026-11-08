@@ -1,12 +1,12 @@
 <template>
   <div class="wp100 hp100 f-r of-hidden">
     <div class="w230 pt20 of-auto sm-hidden b-r bg-white" :class="{ 'fixed-menu': showFixedMenu }">
-      <tiny-tree-menu
+      <tiny-tree
         class="!w213"
         :data="menuData"
         :filter-node-method="fn.searchMenu"
         @current-change="fn.clickMenu"
-      ></tiny-tree-menu>
+      ></tiny-tree>
     </div>
     <div class="fi-1 f-c px20 pb30 f-c pr200 of-auto" ref="rightRef">
       <!-- 标题 -->
@@ -101,16 +101,7 @@
 
 <script>
 import { hooks } from '@opentiny/vue-common'
-import {
-  Floatbar,
-  TreeMenu,
-  Button,
-  Tooltip,
-  Dropdown,
-  DropdownMenu,
-  DropdownItem,
-  ConfigProvider
-} from '@opentiny/vue'
+import { Floatbar, Tree, Button, Tooltip, Dropdown, DropdownMenu, DropdownItem, ConfigProvider } from '@opentiny/vue'
 import { iconStarActive, iconSelect } from '@opentiny/vue-icon'
 import Loading from '@opentiny/vue-loading'
 import { menuData, demoStr, demoVue, mds, demos } from './resourcePc.js'
@@ -124,7 +115,7 @@ export default {
   },
   components: {
     TinyFloatbar: Floatbar,
-    TinyTreeMenu: TreeMenu,
+    TinyTree: Tree,
     TinyButton: Button,
     TinyTooltip: Tooltip,
     TinyDropdown: Dropdown,
