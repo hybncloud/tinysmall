@@ -181,7 +181,6 @@ export const cmpMenus = [
       { 'nameCn': '折叠面板', 'name': 'Collapse', 'key': 'collapse' },
       { 'nameCn': '引导', 'name': 'Guide', 'key': 'guide' },
       { 'nameCn': '图片', 'name': 'Image', 'key': 'image' },
-      { 'nameCn': '无限滚动', 'name': 'InfiniteScroll', 'key': 'infinite-scroll' },
       { 'nameCn': '二维码', 'name': 'QrCode', 'key': 'qr-code' },
       { 'nameCn': '统计数值', 'name': 'Statistic', 'key': 'statistic' },
       { 'nameCn': '标签', 'name': 'Tag', 'key': 'tag' },
