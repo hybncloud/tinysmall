@@ -8,3 +8,7 @@ allowBuilds:
 
 packages:
   - site
+
+permissions:
+  '@unhead/vue':
+    skills: false
