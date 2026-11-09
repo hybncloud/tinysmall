@@ -30,9 +30,7 @@
               <IconOpeninVscode @click="fn.openInVscode(state.currDemo)" class="ml12 cur-hand" />
             </span>
           </div>
-          <config-provider :design="design">
-            <component :is="state.comp" v-loading="state.demoLoading"></component>
-          </config-provider>
+          <component :is="state.comp" v-loading="state.demoLoading"></component>
         </div>
       </div>
       <!-- API表格 -->
@@ -141,8 +139,7 @@ export default {
       currMd: hooks.computed(() => mds[`${modeState.pathName}.cn.md`]),
       demoLoading: false
     })
-    // hui chart 新增图表类型，新增图表的 api 和原有图表的api 区分开。
-    const huiNewChart = ['chart-process']
+    // 新增图表的 api 和原有图表的api 区分开。
     const fn = {
       // 菜单搜索：忽略大小写
       searchMenu: (value, data) => {
@@ -169,9 +166,7 @@ export default {
       }
     }
 
-    hooks.onMounted(() => {
-      _switchPath()
-    })
+    hooks.onMounted(() => _switchPath())
 
     // 以下私有方法，无须传递给vue模板的。
     async function _switchPath() {
@@ -179,24 +174,19 @@ export default {
       const componentName = getPath(modeState.pathName)
       // 查找demos配置
       const demosModule = demos[`../../site/demos/pc/app/${componentName}/webdoc/${modeState.pathName}.js`]
-
       const demosConfig = await getDemosConfig(demosModule)
       state.demos = demosConfig.demos
       state.currDemo = state.demos.find((d) => d.demoId === modeState.demoId) || state.demos?.[0]
-
-      if (huiNewChart.includes(modeState.pathName)) {
-        state.currApi = (await getApisConfig('hui', 'pc')).apis
-      } else {
-        state.currApi = (await getApisConfig(componentName, 'pc')).apis
-      }
+      state.currApi = (await getApisConfig(componentName, 'pc')).apis
       await _switchDemo()
     }
+
     async function _switchDemo() {
       if (!state.currDemo) {
         return
       }
       modeState.demoId = state.currDemo.demoId
-      const path = `../../site/demos/pc/app/${getPath(modeState.pathName)}/${state.currDemo?.codeFiles[0]}`
+      const path = `../../site/demos/pc/app/${getPath(modeState.pathName)}/${state.currDemo.codeFiles[0]}`
       // 查找源码  查找组件
       state.currDemoSrc = await demoStr[path]()
       const comp = await demoVue[path]()
@@ -207,16 +197,13 @@ export default {
       modeFn.pushToUrl()
     }
 
-    const design = {}
-
     return {
       menuData,
       state,
       fn,
       modeState,
       modeFn,
-      rightRef,
-      design
+      rightRef
     }
   }
 }

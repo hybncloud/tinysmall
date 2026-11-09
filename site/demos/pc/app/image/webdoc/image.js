@@ -14,12 +14,12 @@ export default {
         'zh-CN':
           '通过 <code>src</code> 设置图片路径。<br>' +
           ' 通过 <code>fit</code> 属性确定图片如何适应到容器框，同原生 css 的 object-fit 属性。<br>' +
-          '<p class="custom-block-title">object-fit 说明</p>' +
+          '<p class="custom-block-title">object-fit 说明 </p> ' +
           '<p>fill：被替换的内容将被缩放，以在填充元素的内容框时保持其宽高比<br>' +
           'contain：被替换的内容大小可以填充元素的内容框<br>' +
           'cover：被替换的内容大小保持其宽高比，同时填充元素的整个内容框<br>' +
           'none：被替换的内容尺寸不会被改变<br>' +
-          'scale-down：内容的尺寸就像是指定了 none 或 contain，取决于哪一个将导致更小的对象尺寸。',
+          'scale-down：内容的尺寸就像是指定了 none 或 contain，取决于哪一个将导致更小的对象尺寸。</p>',
         'en-US':
           'Use <code>src</code> to set the image path.<br>' +
           'The <code>fit</code> attribute determines how the image fits into the container box, which is the same as the object-fit attribute of the native CSS.<br>' +

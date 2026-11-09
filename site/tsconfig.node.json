@@ -1,20 +1,13 @@
 {
   "extends": "@tsconfig/node22/tsconfig.json",
-  "include": [
-    "./vite.config.ts",
-    "./markdown.config.ts",
-    "./uno.config.ts",
-    "./tiny-uno/**/*.js",
-    "../internals/unplugin-virtual-template/**/*.ts",
-    "../internals/vite-svg-loader/**/*.ts"
-  ],
+  "include": ["./vite.config.ts", "./postcss.config.mjs"],
   "exclude": ["../internals/unplugin-virtual-template/client.d.ts", "../internals/vite-svg-loader/client.d.ts"],
   "compilerOptions": {
     "module": "preserve",
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "allowJs": true,
-    "types": ["node", "./dependencies"],
+    "types": ["node"],
     "noEmit": true,
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo"
   }

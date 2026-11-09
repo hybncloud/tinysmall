@@ -10,6 +10,7 @@ export const demoStr = import.meta.glob('../../site/demos/pc/app/**/*.vue', {
   query: '?raw',
   import: 'default'
 })
+
 export const demoVue = import.meta.glob('../../site/demos/pc/app/**/*.vue', { eager: false })
 
 // demos配置

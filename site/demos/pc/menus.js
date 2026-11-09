@@ -1,5 +1,3 @@
-const envTarget = import.meta.env.VITE_BUILD_TARGET || 'open'
-const envTheme = import.meta.env.VITE_TINY_THEME || 'default'
 export const standaloneMenus = [
   {
     label: '组件总览',
@@ -7,89 +5,35 @@ export const standaloneMenus = [
   }
 ]
 
-const docMenusChildren = [
-  { 'title': '更新日志', 'titleEn': 'Changelog', 'key': 'changelog' },
-  { 'title': '环境准备', 'titleEn': 'envpreparation', 'key': 'envpreparation' },
-  {
-    'title': '适配AUI',
-    'titleEn': 'Adapter AUI',
-    'key': 'aui-adapter',
-    showScene: {
-      theme: ['saas']
-    }
-  },
-  { 'title': '安装', 'titleEn': 'installation', 'key': 'installation' },
-  { 'title': '引入组件', 'titleEn': 'importComponents', 'key': 'import-components' },
-  {
-    'title': '后端适配器',
-    'titleEn': 'adapter',
-    'key': 'adapter',
-    showScene: {
-      target: ['inner']
-    }
-  },
-  {
-    'title': '开发示例',
-    'titleEn': 'developDemo',
-    'key': 'develop-demo',
-    showScene: {
-      target: ['inner']
-    }
-  },
-  { 'title': '国际化', 'titleEn': 'i18n', 'key': 'i18n' },
-  {
-    'title': '主题配置',
-    'titleEn': 'theme',
-    'key': 'theme',
-    showScene: {
-      theme: ['default']
-    }
-  },
-  {
-    'title': '暗黑模式',
-    'titleEn': 'theme-dark',
-    'key': 'theme-dark',
-    showScene: {
-      theme: ['default']
-    }
-  },
-  {
-    'title': '全局动效配置',
-    'titleEn': 'motion-configuration',
-    'key': 'motion-configuration',
-    showScene: {
-      theme: ['default']
-    }
-  },
-  {
-    'title': 'Skills 使用指南',
-    'titleEn': 'Skills Guide',
-    'key': 'skills'
-  },
-  { 'title': '表单校验配置', 'titleEn': 'formValid', 'key': 'form-valid' },
-  { 'title': '常见问题', 'titleEn': 'faq', 'key': 'faq' },
-  {
-    'title': '社区求助',
-    'titleEn': 'help',
-    'key': 'help',
-    showScene: {
-      target: ['inner']
-    }
-  }
-]
 export const docMenus = [
   {
     'label': '使用指南',
     'labelEn': 'Usage Guidelines',
     'key': 'docs-usage-guidelines',
-    'children': docMenusChildren.filter((item) => {
-      if (!item.showScene) {
-        return true
-      }
-      // 根据envTarget和envTheme判断是否展示文档
-      const { target, theme } = item.showScene
-      return (target?.includes(envTarget) ?? true) && (theme?.includes(envTheme) ?? true)
-    })
+    'children': [
+      { 'title': '更新日志', 'titleEn': 'Changelog', 'key': 'changelog' },
+      { 'title': '环境准备', 'titleEn': 'envpreparation', 'key': 'envpreparation' },
+      { 'title': '安装', 'titleEn': 'installation', 'key': 'installation' },
+      { 'title': '引入组件', 'titleEn': 'importComponents', 'key': 'import-components' },
+      { 'title': '国际化', 'titleEn': 'i18n', 'key': 'i18n' },
+      {
+        'title': '主题配置',
+        'titleEn': 'theme',
+        'key': 'theme'
+      },
+      {
+        'title': '暗黑模式',
+        'titleEn': 'theme-dark',
+        'key': 'theme-dark'
+      },
+      {
+        'title': '全局动效配置',
+        'titleEn': 'motion-configuration',
+        'key': 'motion-configuration'
+      },
+      { 'title': '表单校验配置', 'titleEn': 'formValid', 'key': 'form-valid' },
+      { 'title': '常见问题', 'titleEn': 'faq', 'key': 'faq' }
+    ]
   }
 ]
 

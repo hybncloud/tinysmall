@@ -4,10 +4,11 @@
   "version": "3.32.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vitepress dev",
     "build": "run-p type-check \"build-only {@}\" --",
-    "build-only": "vite build",
-    "type-check": "vue-tsc --build"
+    "build-only": "vitepress build",
+    "type-check": "vue-tsc --build",
+    "preview": "vitepress preview"
   },
   "devDependencies": {
     "@floating-ui/dom": "^1.6.9",
@@ -30,6 +31,7 @@
     "fs-extra": "^11.4.1",
     "github-markdown-css": "^5.9.0",
     "gradient-parser": "^1.1.0",
+    "gray-matter": "^4.0.3",
     "highlight.js": "^11.12.0",
     "less": "^4.9.1",
     "magic-string": "^1.4.5",
@@ -41,6 +43,7 @@
     "markdown-it-sup": "^2.0.0",
     "marked": "^18.1.2",
     "npm-run-all2": "^9.0.4",
+    "postcss": "^8.5.32",
     "prismjs": "^1.30.0",
     "qrcode": "1.5.1",
     "shepherd.js": "11.0.1",
@@ -56,6 +59,7 @@
     "vite": "^8.3.5",
     "vite-plugin-dynamic-import": "^1.6.0",
     "vite-plugin-static-copy": "^4.1.1",
+    "vitepress": "2.0.0-alpha.21",
     "vitest": "^5.0.5",
     "vue": "^3.5.44",
     "vue-i18n": "^11.4.16",

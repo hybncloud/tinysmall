@@ -3,9 +3,7 @@ import { hooks } from '@opentiny/vue-common'
 import { $local } from './useStorage'
 
 const defaultPath = {
-  pc: '/pc/button/base',
-  mobile: '/mobile/navbar/left-right-arrow',
-  'mobile-first': '/mobile-first/calendar-bar/basic-usage'
+  pc: '/pc/button/base'
 }
 const modeNames = Object.keys(defaultPath)
 

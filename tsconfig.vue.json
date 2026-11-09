@@ -40,7 +40,6 @@
     "./icons/src/**/*.ts",
     "./locale/src/**/*.ts",
     "./theme/src/**/*.ts",
-    "./site/demos/**/*.js",
     "./dev-server/src/**/*.js",
     "./dev-server/src/**/*.ts",
     "./dev-server/src/**/*.tsx",
