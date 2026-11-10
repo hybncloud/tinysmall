@@ -30,7 +30,7 @@ import {
   TinyInput,
   TinyNumeric,
   TinyButton
-} from '@opentiny/vue'
+} from 'tinysmall'
 import { iconWarningTriangle } from '@opentiny/vue-icon'
 
 const ruleFormRef = ref()

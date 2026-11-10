@@ -88,7 +88,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import { TinyProgress } from '@opentiny/vue'
+import { TinyProgress } from 'tinysmall'
 import { iconOperationfaildL, iconSuccessful } from '@opentiny/vue-icon'
 
 const TinyIconOperationfaildL = iconOperationfaildL()

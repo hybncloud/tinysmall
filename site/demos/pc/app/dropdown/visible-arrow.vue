@@ -19,7 +19,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyDropdown, TinyDropdownMenu, TinyDropdownItem, TinySwitch } from '@opentiny/vue'
+import { TinyDropdown, TinyDropdownMenu, TinyDropdownItem, TinySwitch } from 'tinysmall'
 
 const isShowArrow = ref(true)
 </script>

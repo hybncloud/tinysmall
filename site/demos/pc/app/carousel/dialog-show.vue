@@ -23,7 +23,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyCarousel, TinyCarouselItem, TinyButton, TinyDialogBox } from '@opentiny/vue'
+import { TinyCarousel, TinyCarouselItem, TinyButton, TinyDialogBox } from 'tinysmall'
 
 const boxVisibility = ref(false)
 function handleSubmit() {

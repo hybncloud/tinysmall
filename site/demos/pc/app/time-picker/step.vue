@@ -6,7 +6,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyTimePicker } from '@opentiny/vue'
+import { TinyTimePicker } from 'tinysmall'
 
 const step = ref({
   hour: 2,

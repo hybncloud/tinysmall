@@ -4,7 +4,7 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue'
-import { TinyTransfer } from '@opentiny/vue'
+import { TinyTransfer } from 'tinysmall'
 import Sortable from 'sortablejs'
 
 const generateData = () => {

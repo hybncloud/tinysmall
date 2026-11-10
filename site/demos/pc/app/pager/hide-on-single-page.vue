@@ -7,7 +7,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyPager, TinySwitch } from '@opentiny/vue'
+import { TinyPager, TinySwitch } from 'tinysmall'
 
 const isHide = ref(false)
 </script>

@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-import { TinyException, TinyModal, TinyButton } from '@opentiny/vue'
+import { TinyException, TinyModal, TinyButton } from 'tinysmall'
 
 const test = () => {
   TinyModal.message({ status: 'info', message: '自定义按钮被点击' })

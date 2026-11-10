@@ -6,7 +6,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyCheckboxButton, TinyCheckboxGroup, TinyModal } from '@opentiny/vue'
+import { TinyCheckboxButton, TinyCheckboxGroup, TinyModal } from 'tinysmall'
 
 const list = ref([])
 const checked = ref([])

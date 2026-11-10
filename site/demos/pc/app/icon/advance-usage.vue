@@ -102,7 +102,7 @@
 
 <script setup lang="js">
 import Svgs from '@opentiny/vue-icon'
-import { TinyForm, TinyFormItem, TinyModal, TinyInput, TinyRadioGroup, TinyRadio, TinySwitch } from '@opentiny/vue'
+import { TinyForm, TinyFormItem, TinyModal, TinyInput, TinyRadioGroup, TinyRadio, TinySwitch } from 'tinysmall'
 import { advanceIcons, batch3Icons, batch4Icons } from './advance-icons.js'
 import { getCurrentInstance, ref, watch } from 'vue'
 

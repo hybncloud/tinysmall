@@ -8,7 +8,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import { TinyLoading } from '@opentiny/vue'
+import { TinyLoading } from 'tinysmall'
 
 const loadingInstance = ref(null)
 

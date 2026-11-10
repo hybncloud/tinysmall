@@ -8,7 +8,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyCheckboxButton, TinyCheckboxGroup } from '@opentiny/vue'
+import { TinyCheckboxButton, TinyCheckboxGroup } from 'tinysmall'
 
 const cities = ref(['上海', '北京', '广州', '深圳'])
 const sizeList = ref(['medium', '', 'small', 'mini'])

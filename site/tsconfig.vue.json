@@ -4,6 +4,7 @@
     "allowJs": true,
     "noImplicitAny": false,
     "paths": {
+      "tinysmall": ["../src/index.ts"],
       "@opentiny/utils": ["../src/utils"],
       "@opentiny/vue": ["../src/index.ts"],
       "@opentiny/vue-*": ["../src/components/*"],

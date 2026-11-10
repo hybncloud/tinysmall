@@ -31,7 +31,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyTreeSelect } from '@opentiny/vue'
+import { TinyTreeSelect } from 'tinysmall'
 
 const value = ref([9, 6])
 

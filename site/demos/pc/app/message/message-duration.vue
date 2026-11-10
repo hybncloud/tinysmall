@@ -7,7 +7,7 @@
 </template>
 
 <script setup>
-import { Button as TinyButton, Message } from '@opentiny/vue'
+import { Button as TinyButton, Message } from 'tinysmall'
 
 function btnClick() {
   Message.message({

@@ -42,7 +42,7 @@
 </template>
 
 <script setup>
-import { TinyLayout, TinyRow, TinyCol } from '@opentiny/vue'
+import { TinyLayout, TinyRow, TinyCol } from 'tinysmall'
 </script>
 
 <style scoped>

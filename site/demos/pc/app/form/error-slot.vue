@@ -28,7 +28,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyForm, TinyFormItem, TinyInput, TinyButton } from '@opentiny/vue'
+import { TinyForm, TinyFormItem, TinyInput, TinyButton } from 'tinysmall'
 import { iconError } from '@opentiny/vue-icon'
 
 const TinyIconError = iconError()

@@ -17,7 +17,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyDatePanel, TinyDateRange, TinyMonthRange, TinyYearRange } from '@opentiny/vue'
+import { TinyDatePanel, TinyDateRange, TinyMonthRange, TinyYearRange } from 'tinysmall'
 
 const value = ref('2025-01-15')
 const month = ref('2025-06')

@@ -13,7 +13,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyInput, TinyModal } from '@opentiny/vue'
+import { TinyInput, TinyModal } from 'tinysmall'
 
 const input = ref('')
 const textMemoryRef = ref()

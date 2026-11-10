@@ -7,7 +7,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyRadioGroup, TinyModal } from '@opentiny/vue'
+import { TinyRadioGroup, TinyModal } from 'tinysmall'
 
 function handleClick() {
   TinyModal.message({ message: 'click', status: 'info' })

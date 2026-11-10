@@ -11,7 +11,7 @@
 </template>
 
 <script setup>
-import { TinyLink } from '@opentiny/vue'
+import { TinyLink } from 'tinysmall'
 </script>
 
 <style scoped>

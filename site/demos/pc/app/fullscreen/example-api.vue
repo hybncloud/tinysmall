@@ -27,7 +27,7 @@
 
 <script setup lang="jsx">
 import { ref, getCurrentInstance } from 'vue'
-import { TinyFullscreen } from '@opentiny/vue'
+import { TinyFullscreen } from 'tinysmall'
 
 const fullscreen = ref(false)
 const teleport = ref(true)

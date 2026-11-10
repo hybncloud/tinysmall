@@ -16,7 +16,7 @@
 
 <script setup>
 import { iconMail } from '@opentiny/vue-icon'
-import { TinyButton } from '@opentiny/vue'
+import { TinyButton } from 'tinysmall'
 
 const TinyIconMail = iconMail()
 </script>

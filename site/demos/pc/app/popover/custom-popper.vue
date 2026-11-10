@@ -35,7 +35,7 @@
 </template>
 
 <script setup lang="jsx">
-import { TinyPopover, TinyButton } from '@opentiny/vue'
+import { TinyPopover, TinyButton } from 'tinysmall'
 </script>
 
 <style>

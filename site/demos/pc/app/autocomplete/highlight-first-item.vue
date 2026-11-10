@@ -11,7 +11,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import { TinyAutocomplete } from '@opentiny/vue'
+import { TinyAutocomplete } from 'tinysmall'
 
 const restaurants = ref([])
 const value = ref('')

@@ -19,7 +19,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyCalendarView, TinyButton, TinyModal } from '@opentiny/vue'
+import { TinyCalendarView, TinyButton, TinyModal } from 'tinysmall'
 
 const workingDays = ref([])
 const offDays = ref([])

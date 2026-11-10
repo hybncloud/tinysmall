@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-import { TinyBreadcrumb, TinyBreadcrumbItem, TinyNotify } from '@opentiny/vue'
+import { TinyBreadcrumb, TinyBreadcrumbItem, TinyNotify } from 'tinysmall'
 
 function breadcrumbClick(value) {
   TinyNotify({

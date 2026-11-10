@@ -21,7 +21,7 @@
 </template>
 
 <script setup>
-import { TinyProgress } from '@opentiny/vue'
+import { TinyProgress } from 'tinysmall'
 import { IconFrown, IconMeh, IconSmile } from '@opentiny/vue-icon'
 
 const TinyIconSmile = IconSmile()

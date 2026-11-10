@@ -32,13 +32,7 @@
 </template>
 
 <script setup>
-import {
-  Button as TinyButton,
-  Modal,
-  Form as TinyForm,
-  FormItem as TinyFormItem,
-  Input as TinyInput
-} from '@opentiny/vue'
+import { Button as TinyButton, Modal, Form as TinyForm, FormItem as TinyFormItem, Input as TinyInput } from 'tinysmall'
 import { ref } from 'vue'
 
 const TinyModal = Modal

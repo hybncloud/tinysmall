@@ -7,7 +7,7 @@
 
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
-import { TinyNumeric } from '@opentiny/vue'
+import { TinyNumeric } from 'tinysmall'
 
 const value = ref(1)
 const precision = ref(2)

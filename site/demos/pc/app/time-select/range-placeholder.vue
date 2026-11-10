@@ -25,7 +25,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyTimeSelect } from '@opentiny/vue'
+import { TinyTimeSelect } from 'tinysmall'
 
 const startTime = ref('')
 const endTime = ref('')

@@ -20,7 +20,7 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue'
-import { TinySearch, TinyModal } from '@opentiny/vue'
+import { TinySearch, TinyModal } from 'tinysmall'
 
 const searchTypes = ref([
   {

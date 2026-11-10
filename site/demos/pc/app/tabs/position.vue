@@ -16,7 +16,7 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue'
-import { TinyTabs, TinyTabItem, TinyRadioGroup, TinyRadioButton } from '@opentiny/vue'
+import { TinyTabs, TinyTabItem, TinyRadioGroup, TinyRadioButton } from 'tinysmall'
 
 const activeName4 = ref('navigation1')
 const position = ref('left')

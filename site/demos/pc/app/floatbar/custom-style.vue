@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="jsx">
-import { TinyFloatbar } from '@opentiny/vue'
+import { TinyFloatbar } from 'tinysmall'
 </script>
 
 <style scoped>

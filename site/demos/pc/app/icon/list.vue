@@ -28,7 +28,7 @@
 <script setup>
 import { ref } from 'vue'
 import Svgs from '@opentiny/vue-icon'
-import { TinyModal, TinyInput } from '@opentiny/vue'
+import { TinyModal, TinyInput } from 'tinysmall'
 import { iconGroups } from './iconGroups.js'
 
 const all = Object.values(iconGroups).flat()

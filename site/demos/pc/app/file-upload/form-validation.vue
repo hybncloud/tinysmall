@@ -30,7 +30,7 @@
 
 <script setup>
 import { ref, reactive } from 'vue'
-import { TinyForm, TinyFormItem, TinyFileUpload, TinyButton, TinyModal } from '@opentiny/vue'
+import { TinyForm, TinyFormItem, TinyFileUpload, TinyButton, TinyModal } from 'tinysmall'
 
 const action = ref('http://localhost:3000/api/upload')
 const ruleFormRef = ref(null)

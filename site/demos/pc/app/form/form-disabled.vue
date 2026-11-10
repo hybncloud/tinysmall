@@ -99,7 +99,7 @@ import {
   TinyOption,
   TinySlider,
   TinyTimePicker
-} from '@opentiny/vue'
+} from 'tinysmall'
 
 const createData = reactive({
   checked: false,

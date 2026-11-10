@@ -45,7 +45,7 @@ import {
   TinyNumeric,
   TinyBaseSelect,
   TinyOption
-} from '@opentiny/vue'
+} from 'tinysmall'
 
 const activeNames = ref(['1', '2'])
 const formData = ref({

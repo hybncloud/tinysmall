@@ -16,7 +16,7 @@
 </template>
 
 <script setup lang="jsx">
-import { TinyPopover, TinyNotify, TinyButton } from '@opentiny/vue'
+import { TinyPopover, TinyNotify, TinyButton } from 'tinysmall'
 
 function enter() {
   TinyNotify({

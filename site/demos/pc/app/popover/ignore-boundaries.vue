@@ -46,7 +46,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import { TinyPopover, TinyButton } from '@opentiny/vue'
+import { TinyPopover, TinyButton } from 'tinysmall'
 
 const visible = ref(false)
 const visible1 = ref(false)

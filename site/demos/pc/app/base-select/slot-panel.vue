@@ -81,7 +81,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyBaseSelect, TinyTree } from '@opentiny/vue'
+import { TinyBaseSelect, TinyTree } from 'tinysmall'
 
 const treeRef = ref()
 

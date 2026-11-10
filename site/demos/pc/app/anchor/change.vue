@@ -4,7 +4,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyAnchor } from '@opentiny/vue'
+import { TinyAnchor } from 'tinysmall'
 
 const links = ref([
   {

@@ -18,7 +18,7 @@
 
 <script setup lang="jsx">
 import { onMounted, ref } from 'vue'
-import { TinyTree, TinyButton } from '@opentiny/vue'
+import { TinyTree, TinyButton } from 'tinysmall'
 
 const treeRef = ref()
 const data = ref([

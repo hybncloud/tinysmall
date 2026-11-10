@@ -7,7 +7,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyInput } from '@opentiny/vue'
+import { TinyInput } from 'tinysmall'
 import { iconCalendar } from '@opentiny/vue-icon'
 
 const TinyIconCalendar = iconCalendar()

@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-import { TinyException } from '@opentiny/vue'
+import { TinyException } from 'tinysmall'
 </script>
 
 <style scoped>

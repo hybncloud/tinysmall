@@ -14,7 +14,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyTimePicker } from '@opentiny/vue'
+import { TinyTimePicker } from 'tinysmall'
 
 const defaultValue = ref('2020-02-10 18:40')
 const value = ref('')

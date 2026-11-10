@@ -6,7 +6,7 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue'
-import { TinyProgress, TinyButton } from '@opentiny/vue'
+import { TinyProgress, TinyButton } from 'tinysmall'
 
 const percentage = ref(50)
 const customColors = ref([

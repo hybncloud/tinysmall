@@ -17,7 +17,7 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue'
-import { TinyFloatbar, TinyButton } from '@opentiny/vue'
+import { TinyFloatbar, TinyButton } from 'tinysmall'
 
 const lists = ref(['custom-A', 'custom-B', 'custom-C', 'custom-D'])
 

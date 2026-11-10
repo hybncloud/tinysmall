@@ -19,7 +19,7 @@
 </template>
 
 <script setup>
-import { TinyTimeLine } from '@opentiny/vue'
+import { TinyTimeLine } from 'tinysmall'
 
 const items = [
   { desc: '提交申请', user: '张三', datetime: new Date(Date.now() - 60 * 60 * 1e3).toLocaleString(), status: 'done' },

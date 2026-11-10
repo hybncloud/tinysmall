@@ -7,7 +7,7 @@
 </template>
 
 <script setup>
-import { TinyCalendar, TinyButton } from '@opentiny/vue'
+import { TinyCalendar, TinyButton } from 'tinysmall'
 
 function toToday(scope) {
   let year = new Date().getFullYear()

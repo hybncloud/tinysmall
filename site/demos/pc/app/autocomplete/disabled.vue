@@ -6,7 +6,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyAutocomplete } from '@opentiny/vue'
+import { TinyAutocomplete } from 'tinysmall'
 
 const value = ref('')
 </script>

@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-import { TinyQrCode, TinyRadioButton, TinyRadioGroup } from '@opentiny/vue'
+import { TinyQrCode, TinyRadioButton, TinyRadioGroup } from 'tinysmall'
 import { reactive } from 'vue'
 
 const params = reactive({

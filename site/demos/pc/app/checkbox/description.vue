@@ -8,7 +8,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyCheckbox, TinyCheckboxGroup } from '@opentiny/vue'
+import { TinyCheckbox, TinyCheckboxGroup } from 'tinysmall'
 
 const checked = ref(['复选框 1', '复选框 2', '复选框 3'])
 </script>

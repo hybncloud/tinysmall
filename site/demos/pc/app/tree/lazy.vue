@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="jsx">
-import { TinyTree } from '@opentiny/vue'
+import { TinyTree } from 'tinysmall'
 
 // node 为点击的节点，resolve 为回调函数，用于异步返回下层节点的数据
 function load(node, resolve) {

@@ -15,7 +15,7 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue'
-import { TinyTabs, TinyTabItem, TinyModal } from '@opentiny/vue'
+import { TinyTabs, TinyTabItem, TinyModal } from 'tinysmall'
 
 const tabs = ref([
   {

@@ -7,7 +7,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyCheckbox, TinyModal, TinyButton } from '@opentiny/vue'
+import { TinyCheckbox, TinyModal, TinyButton } from 'tinysmall'
 
 const checked = ref('假文本')
 

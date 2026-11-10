@@ -45,7 +45,7 @@ import {
   TinyRadioGroup,
   TinyNumeric,
   TinyButtonGroup
-} from '@opentiny/vue'
+} from 'tinysmall'
 import { iconWarning } from '@opentiny/vue-icon'
 
 const ruleFormRef = ref()

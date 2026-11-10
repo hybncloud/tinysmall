@@ -4,7 +4,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinySwitch, TinyModal } from '@opentiny/vue'
+import { TinySwitch, TinyModal } from 'tinysmall'
 
 const value = ref(false)
 

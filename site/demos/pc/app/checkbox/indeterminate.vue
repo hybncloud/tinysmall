@@ -13,7 +13,7 @@
 
 <script setup>
 import { ref, computed } from 'vue'
-import { TinyCheckbox, TinyCheckboxGroup, TinySwitch } from '@opentiny/vue'
+import { TinyCheckbox, TinyCheckboxGroup, TinySwitch } from 'tinysmall'
 
 const isDisabled = ref(false)
 const checkboxGroup = ref(['北京'])

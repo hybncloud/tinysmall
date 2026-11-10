@@ -13,7 +13,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyPager, TinySwitch } from '@opentiny/vue'
+import { TinyPager, TinySwitch } from 'tinysmall'
 
 const totalLoading = ref(true)
 </script>

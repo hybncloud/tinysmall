@@ -9,7 +9,7 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue'
-import { TinyTooltip, TinySlider } from '@opentiny/vue'
+import { TinyTooltip, TinySlider } from 'tinysmall'
 
 const offset = ref(10)
 const show = ref(true)

@@ -30,7 +30,7 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue'
-import { TinyButton, TinyDialogBox, TinyNotify, TinyInput, TinyModal } from '@opentiny/vue'
+import { TinyButton, TinyDialogBox, TinyNotify, TinyInput, TinyModal } from 'tinysmall'
 
 const boxVisibility = ref(false)
 const isDragOutSideFlag = ref(false)

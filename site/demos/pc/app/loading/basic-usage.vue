@@ -7,7 +7,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import { TinyLoading, TinyButton } from '@opentiny/vue'
+import { TinyLoading, TinyButton } from 'tinysmall'
 
 const loadingInstance = ref(null)
 

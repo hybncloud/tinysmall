@@ -16,7 +16,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyTimeSelect } from '@opentiny/vue'
+import { TinyTimeSelect } from 'tinysmall'
 
 const value = ref('')
 </script>

@@ -15,7 +15,7 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue'
-import { TinyPopover, TinyButton } from '@opentiny/vue'
+import { TinyPopover, TinyButton } from 'tinysmall'
 
 const popperOption = ref({ bubbling: true })
 </script>

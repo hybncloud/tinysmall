@@ -28,7 +28,7 @@
 </template>
 
 <script setup lang="jsx">
-import { TinyTooltip, TinyLink } from '@opentiny/vue'
+import { TinyTooltip, TinyLink } from 'tinysmall'
 import { iconOperationfaild } from '@opentiny/vue-icon'
 
 const IconOperationfaild = iconOperationfaild()

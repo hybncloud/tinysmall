@@ -8,7 +8,7 @@
 </template>
 
 <script setup>
-import { TinyTag } from '@opentiny/vue'
+import { TinyTag } from 'tinysmall'
 import { iconTime, iconFileupload, iconChevronRight } from '@opentiny/vue-icon'
 
 const TinyIconTime = iconTime()

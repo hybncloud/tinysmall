@@ -27,7 +27,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyDatePicker } from '@opentiny/vue'
+import { TinyDatePicker } from 'tinysmall'
 
 const value = ref(new Date('2023-05-24'))
 const selectedValue = ref(1590076800000)

@@ -24,7 +24,7 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue'
-import { TinyTransfer, TinyTable } from '@opentiny/vue'
+import { TinyTransfer, TinyTable } from 'tinysmall'
 
 const getGridData = () => {
   const data = []

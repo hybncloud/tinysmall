@@ -56,7 +56,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyConfigProvider, TinyButton, TinyInput, TinyLayout, TinyRow, TinyCol } from '@opentiny/vue'
+import { TinyConfigProvider, TinyButton, TinyInput, TinyLayout, TinyRow, TinyCol } from 'tinysmall'
 
 const direction = ref('ltr')
 const input = ref('')

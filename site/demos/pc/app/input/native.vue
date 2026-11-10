@@ -30,7 +30,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyInput } from '@opentiny/vue'
+import { TinyInput } from 'tinysmall'
 
 const input = ref('')
 const inputStep = ref(2)

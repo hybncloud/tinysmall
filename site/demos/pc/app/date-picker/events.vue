@@ -23,7 +23,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyLayout, TinyRow, TinyCol, TinyDatePicker, TinyModal } from '@opentiny/vue'
+import { TinyLayout, TinyRow, TinyCol, TinyDatePicker, TinyModal } from 'tinysmall'
 
 const valueFocus = ref('')
 const valueBlur = ref('')

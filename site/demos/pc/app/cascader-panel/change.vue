@@ -13,7 +13,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyCascaderPanel, TinyModal, TinyButton } from '@opentiny/vue'
+import { TinyCascaderPanel, TinyModal, TinyButton } from 'tinysmall'
 
 const value = ref('')
 const optionsCascader = ref([

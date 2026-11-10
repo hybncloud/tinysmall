@@ -43,7 +43,7 @@
 
 <script setup>
 import { iconPlus, iconPlusCircle, iconPlusSquare, iconCheckedLinear, iconCheckedSur } from '@opentiny/vue-icon'
-import { TinyDropdown, TinyDropdownMenu, TinyDropdownItem } from '@opentiny/vue'
+import { TinyDropdown, TinyDropdownMenu, TinyDropdownItem } from 'tinysmall'
 
 const tinyIconPlus = iconPlus()
 const tinyIconPlusCircle = iconPlusCircle()

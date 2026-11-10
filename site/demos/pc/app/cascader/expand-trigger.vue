@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-import { TinyCascader } from '@opentiny/vue'
+import { TinyCascader } from 'tinysmall'
 import { ref } from 'vue'
 
 const options = ref([

@@ -9,7 +9,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { TinyNumeric } from '@opentiny/vue'
+import { TinyNumeric } from 'tinysmall'
 
 const controls = ref(false)
 const value1 = ref(1)

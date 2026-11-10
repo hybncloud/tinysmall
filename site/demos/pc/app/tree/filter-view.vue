@@ -45,7 +45,7 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue'
-import { TinyTree, TinyRadioGroup, TinyRadio, TinyInput } from '@opentiny/vue'
+import { TinyTree, TinyRadioGroup, TinyRadio, TinyInput } from 'tinysmall'
 
 const treeRef = ref()
 const viewType = ref('tree')

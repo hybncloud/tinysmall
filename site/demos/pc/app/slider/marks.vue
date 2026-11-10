@@ -4,7 +4,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinySlider } from '@opentiny/vue'
+import { TinySlider } from 'tinysmall'
 
 const marks = ref({
   10: '10%',

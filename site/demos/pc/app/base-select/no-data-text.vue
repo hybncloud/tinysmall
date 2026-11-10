@@ -17,7 +17,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyBaseSelect, TinyOption } from '@opentiny/vue'
+import { TinyBaseSelect, TinyOption } from 'tinysmall'
 
 const options = ref([])
 const value = ref('')

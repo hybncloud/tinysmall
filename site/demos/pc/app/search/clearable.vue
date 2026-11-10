@@ -6,7 +6,7 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue'
-import { TinySearch } from '@opentiny/vue'
+import { TinySearch } from 'tinysmall'
 
 const value = ref('')
 </script>

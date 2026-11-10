@@ -9,7 +9,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyActionMenu } from '@opentiny/vue'
+import { TinyActionMenu } from 'tinysmall'
 import { iconSmile } from '@opentiny/vue-icon'
 
 const options = ref([

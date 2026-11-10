@@ -31,7 +31,7 @@
 
 <script setup>
 import { ref, reactive } from 'vue'
-import { TinyForm, TinyFormItem, TinyInput, TinyButton, TinySwitch } from '@opentiny/vue'
+import { TinyForm, TinyFormItem, TinyInput, TinyButton, TinySwitch } from 'tinysmall'
 
 const hideRequiredAsterisk = ref(true)
 const createData = reactive({

@@ -14,7 +14,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyLoading, TinyButton } from '@opentiny/vue'
+import { TinyLoading, TinyButton } from 'tinysmall'
 
 const isLoading = ref(false)
 

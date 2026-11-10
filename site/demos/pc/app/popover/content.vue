@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="jsx">
-import { TinyPopover, TinyButton } from '@opentiny/vue'
+import { TinyPopover, TinyButton } from 'tinysmall'
 
 import { IconRefres } from '@opentiny/vue-icon'
 const tinyIconRefres = IconRefres()

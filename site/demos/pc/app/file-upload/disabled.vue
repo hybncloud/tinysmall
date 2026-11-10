@@ -7,5 +7,5 @@
 </template>
 
 <script setup>
-import { TinyFileUpload, TinyButton } from '@opentiny/vue'
+import { TinyFileUpload, TinyButton } from 'tinysmall'
 </script>

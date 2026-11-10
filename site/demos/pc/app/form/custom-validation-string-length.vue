@@ -17,7 +17,7 @@
 <script setup>
 import { reactive, ref } from 'vue'
 
-import { Form as TinyForm, FormItem as TinyFormItem, Input as TinyInput } from '@opentiny/vue'
+import { Form as TinyForm, FormItem as TinyFormItem, Input as TinyInput } from 'tinysmall'
 
 const state = reactive({
   value0: '',

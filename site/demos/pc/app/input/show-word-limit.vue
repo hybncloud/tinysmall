@@ -8,7 +8,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyInput } from '@opentiny/vue'
+import { TinyInput } from 'tinysmall'
 
 const text = ref('')
 const textarea = ref('')

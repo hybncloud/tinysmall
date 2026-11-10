@@ -20,7 +20,7 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue'
-import { TinyProgress, TinyButton } from '@opentiny/vue'
+import { TinyProgress, TinyButton } from 'tinysmall'
 
 const percentageText = ref(45)
 const testInside = ref(false)

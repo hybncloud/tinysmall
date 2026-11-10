@@ -17,7 +17,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyFileUpload, TinyButton, TinyModal } from '@opentiny/vue'
+import { TinyFileUpload, TinyButton, TinyModal } from 'tinysmall'
 
 const action = ref('http://localhost:3000/api/upload')
 const fileList = ref([])

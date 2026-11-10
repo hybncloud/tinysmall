@@ -14,7 +14,7 @@
 
 <script setup lang="jsx">
 import { ref, getCurrentInstance } from 'vue'
-import { TinyTabs, TinyTabItem, TinyNotify } from '@opentiny/vue'
+import { TinyTabs, TinyTabItem, TinyNotify } from 'tinysmall'
 
 const activeName = ref('first')
 const tabs = ref([

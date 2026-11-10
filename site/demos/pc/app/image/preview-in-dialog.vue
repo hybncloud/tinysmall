@@ -12,7 +12,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyButton, TinyDialogBox, TinyImage } from '@opentiny/vue'
+import { TinyButton, TinyDialogBox, TinyImage } from 'tinysmall'
 
 const show = ref(false)
 const url = ref(`${import.meta.env.VITE_APP_BUILD_BASE_URL}static/images/mountain.png`)

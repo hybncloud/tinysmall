@@ -27,7 +27,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyForm, TinyFormItem, TinyButton, TinyTimePicker, TinyDatePicker, TinyInput, TinyModal } from '@opentiny/vue'
+import { TinyForm, TinyFormItem, TinyButton, TinyTimePicker, TinyDatePicker, TinyInput, TinyModal } from 'tinysmall'
 
 const ruleFormRef = ref()
 const ruleForm = ref({

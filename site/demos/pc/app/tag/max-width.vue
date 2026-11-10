@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="jsx">
-import { TinyTag } from '@opentiny/vue'
+import { TinyTag } from 'tinysmall'
 </script>
 
 <style scoped>

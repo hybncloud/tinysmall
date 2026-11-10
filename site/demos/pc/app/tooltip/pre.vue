@@ -6,7 +6,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyTooltip, TinyButton } from '@opentiny/vue'
+import { TinyTooltip, TinyButton } from 'tinysmall'
 
 const content = ref(
   [

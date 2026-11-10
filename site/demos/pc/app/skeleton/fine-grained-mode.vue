@@ -13,5 +13,5 @@
 </template>
 
 <script setup>
-import { TinySkeleton, TinySkeletonItem } from '@opentiny/vue'
+import { TinySkeleton, TinySkeletonItem } from 'tinysmall'
 </script>

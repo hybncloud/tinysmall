@@ -11,5 +11,5 @@
 </template>
 
 <script setup>
-import { TinyBreadcrumb, TinyBreadcrumbItem } from '@opentiny/vue'
+import { TinyBreadcrumb, TinyBreadcrumbItem } from 'tinysmall'
 </script>

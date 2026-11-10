@@ -9,7 +9,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyBaseSelect, TinyOption } from '@opentiny/vue'
+import { TinyBaseSelect, TinyOption } from 'tinysmall'
 import { iconSetting } from '@opentiny/vue-icon'
 
 const TinyIconSetting = iconSetting()

@@ -44,7 +44,7 @@ import {
   TinyButton,
   TinyButtonGroup,
   TinyModal
-} from '@opentiny/vue'
+} from 'tinysmall'
 
 const sizeList = ref([
   { text: 'medium', value: 'medium' },

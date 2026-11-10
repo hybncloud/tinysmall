@@ -4,7 +4,7 @@
 
 <script setup>
 import { onMounted } from 'vue'
-import { TinyLoading } from '@opentiny/vue'
+import { TinyLoading } from 'tinysmall'
 
 onMounted(() => {
   TinyLoading.service({

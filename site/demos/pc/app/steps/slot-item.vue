@@ -17,7 +17,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinySteps } from '@opentiny/vue'
+import { TinySteps } from 'tinysmall'
 import { iconYes, iconClose } from '@opentiny/vue-icon'
 
 const IconYes = iconYes()

@@ -15,7 +15,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { TinyNumeric } from '@opentiny/vue'
+import { TinyNumeric } from 'tinysmall'
 
 const value = ref(0)
 const restrictValue = ref(0)

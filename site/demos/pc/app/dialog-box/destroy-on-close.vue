@@ -19,7 +19,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyButton, TinyDialogBox, TinyRadio } from '@opentiny/vue'
+import { TinyButton, TinyDialogBox, TinyRadio } from 'tinysmall'
 
 const value = ref(true)
 const boxVisibility = ref(false)

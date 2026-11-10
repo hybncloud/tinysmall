@@ -13,7 +13,7 @@
 </template>
 
 <script setup>
-import { TinySwitch } from '@opentiny/vue'
+import { TinySwitch } from 'tinysmall'
 </script>
 
 <style scoped>

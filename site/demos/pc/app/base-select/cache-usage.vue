@@ -15,7 +15,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyBaseSelect } from '@opentiny/vue'
+import { TinyBaseSelect } from 'tinysmall'
 
 const cacheOp = ref({
   key: 'test'

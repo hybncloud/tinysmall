@@ -19,7 +19,7 @@
 
 <script setup>
 import { reactive, ref } from 'vue'
-import { TinySteps } from '@opentiny/vue'
+import { TinySteps } from 'tinysmall'
 import { iconPagelink, iconFileupload, iconVersiontree, iconCheckedTrue } from '@opentiny/vue-icon'
 
 const TinyIconPagelink = iconPagelink()

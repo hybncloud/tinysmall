@@ -10,7 +10,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyConfigProvider, TinyButton } from '@opentiny/vue'
+import { TinyConfigProvider, TinyButton } from 'tinysmall'
 
 const theme = ref({
   data: {}

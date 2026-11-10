@@ -3,5 +3,5 @@
 </template>
 
 <script setup>
-import { TinyUserHead } from '@opentiny/vue'
+import { TinyUserHead } from 'tinysmall'
 </script>

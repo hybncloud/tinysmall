@@ -11,7 +11,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyTreeSelect } from '@opentiny/vue'
+import { TinyTreeSelect } from 'tinysmall'
 
 const value1 = ref('')
 const value2 = ref(1)

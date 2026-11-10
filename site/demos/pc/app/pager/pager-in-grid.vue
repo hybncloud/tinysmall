@@ -14,7 +14,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyPager } from '@opentiny/vue'
+import { TinyPager } from 'tinysmall'
 
 const custPager = ref({
   currentPage: 1,

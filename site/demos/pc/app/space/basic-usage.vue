@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { TinyButton, TinySpace } from '@opentiny/vue'
+import { TinyButton, TinySpace } from 'tinysmall'
 
 export default {
   components: {

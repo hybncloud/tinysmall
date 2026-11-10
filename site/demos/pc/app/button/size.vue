@@ -39,7 +39,7 @@
 </template>
 
 <script setup>
-import { TinyButton, TinyLayout, TinyRow } from '@opentiny/vue'
+import { TinyButton, TinyLayout, TinyRow } from 'tinysmall'
 import { iconDel, iconYes, iconEdit, iconMail, iconSearch } from '@opentiny/vue-icon'
 
 const IconDel = iconDel()

@@ -41,7 +41,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyFullscreen, TinyModal } from '@opentiny/vue'
+import { TinyFullscreen, TinyModal } from 'tinysmall'
 
 const teleport = ref(true)
 const fullscreen = ref(false)

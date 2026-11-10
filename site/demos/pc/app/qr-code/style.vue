@@ -6,7 +6,7 @@
 </template>
 
 <script setup>
-import { TinyQrCode } from '@opentiny/vue'
+import { TinyQrCode } from 'tinysmall'
 import { ref } from 'vue'
 
 const params = ref({

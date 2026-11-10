@@ -34,7 +34,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinySteps } from '@opentiny/vue'
+import { TinySteps } from 'tinysmall'
 
 const active = ref(0)
 const data = ref([

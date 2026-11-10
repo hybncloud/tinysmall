@@ -6,7 +6,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyButtonGroup, TinyModal } from '@opentiny/vue'
+import { TinyButtonGroup, TinyModal } from 'tinysmall'
 
 const checkedVal = ref('Button1')
 const groupData = ref([

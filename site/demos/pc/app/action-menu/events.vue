@@ -11,7 +11,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyActionMenu, TinyNotify } from '@opentiny/vue'
+import { TinyActionMenu, TinyNotify } from 'tinysmall'
 
 const options = ref([
   {

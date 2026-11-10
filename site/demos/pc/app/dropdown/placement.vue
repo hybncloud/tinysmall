@@ -23,7 +23,7 @@
 <script setup>
 import { reactive } from 'vue'
 import { iconStarDisable } from '@opentiny/vue-icon'
-import { TinyDropdown, TinyDropdownMenu, TinyDropdownItem } from '@opentiny/vue'
+import { TinyDropdown, TinyDropdownMenu, TinyDropdownItem } from 'tinysmall'
 
 const options = reactive([
   {

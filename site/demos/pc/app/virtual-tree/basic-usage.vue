@@ -14,7 +14,7 @@
 
 <script setup>
 import { computed, ref } from 'vue'
-import { TinyVirtualTree, TinyButton, TinyModal } from '@opentiny/vue'
+import { TinyVirtualTree, TinyButton, TinyModal } from 'tinysmall'
 
 const defaultProps = { children: 'children', label: 'label' }
 const data5 = ref([])

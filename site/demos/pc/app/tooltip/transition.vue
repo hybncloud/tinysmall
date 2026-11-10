@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="jsx">
-import { TinyTooltip } from '@opentiny/vue'
+import { TinyTooltip } from 'tinysmall'
 </script>
 
 <style>

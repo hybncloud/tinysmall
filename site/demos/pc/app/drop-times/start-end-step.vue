@@ -6,7 +6,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyDropTimes } from '@opentiny/vue'
+import { TinyDropTimes } from 'tinysmall'
 
 const value = ref('')
 </script>

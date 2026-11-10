@@ -7,7 +7,7 @@
 </template>
 
 <script setup>
-import { TinyButton, TinyNotify } from '@opentiny/vue'
+import { TinyButton, TinyNotify } from 'tinysmall'
 
 function manualCloseClick() {
   const instance = TinyNotify({

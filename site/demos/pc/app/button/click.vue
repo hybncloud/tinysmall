@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-import { TinyButton, TinyModal } from '@opentiny/vue'
+import { TinyButton, TinyModal } from 'tinysmall'
 
 function click() {
   TinyModal.message({ message: 'click', status: 'info' })

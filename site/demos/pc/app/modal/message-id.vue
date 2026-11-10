@@ -7,7 +7,7 @@
 </template>
 
 <script setup>
-import { Button as TinyButton, Modal } from '@opentiny/vue'
+import { Button as TinyButton, Modal } from 'tinysmall'
 
 function btnClick() {
   Modal.message({

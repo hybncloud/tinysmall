@@ -14,7 +14,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyTree, TinyButton } from '@opentiny/vue'
+import { TinyTree, TinyButton } from 'tinysmall'
 
 const data = ref([
   {

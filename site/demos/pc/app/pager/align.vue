@@ -8,7 +8,7 @@
 <script setup>
 import { reactive } from 'vue'
 
-import { TinyPager, TinyRadioGroup } from '@opentiny/vue'
+import { TinyPager, TinyRadioGroup } from 'tinysmall'
 
 const state = reactive({
   align: 'left',

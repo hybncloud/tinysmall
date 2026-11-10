@@ -9,7 +9,7 @@
 
 <script setup>
 import { reactive } from 'vue'
-import { TinyNumeric, TinyQrCode } from '@opentiny/vue'
+import { TinyNumeric, TinyQrCode } from 'tinysmall'
 
 const params = reactive({
   value: '测试二维码数据',

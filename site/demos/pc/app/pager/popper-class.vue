@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-import { TinyPager } from '@opentiny/vue'
+import { TinyPager } from 'tinysmall'
 </script>
 
 <style>

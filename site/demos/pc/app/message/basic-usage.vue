@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-import { Button as TinyButton, Message } from '@opentiny/vue'
+import { Button as TinyButton, Message } from 'tinysmall'
 
 function infoClick() {
   console.log(Message, 18)

@@ -17,7 +17,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyTreeSelect } from '@opentiny/vue'
+import { TinyTreeSelect } from 'tinysmall'
 import { iconPopup } from '@opentiny/vue-icon'
 
 const tinyIconPopup = iconPopup()

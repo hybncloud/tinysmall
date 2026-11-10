@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-import { TinyNotify, TinyButton } from '@opentiny/vue'
+import { TinyNotify, TinyButton } from 'tinysmall'
 
 function handleClick(pos) {
   TinyNotify({

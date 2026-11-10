@@ -36,7 +36,7 @@
 
 <script setup>
 import { ref, reactive } from 'vue'
-import { TinyForm, TinyFormItem, TinyInput, TinyButton, TinyModal, TinyRadio } from '@opentiny/vue'
+import { TinyForm, TinyFormItem, TinyInput, TinyButton, TinyModal, TinyRadio } from 'tinysmall'
 import { iconHelpCircle } from '@opentiny/vue-icon'
 
 const createData = reactive({

@@ -8,7 +8,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyDropTimes, TinyModal } from '@opentiny/vue'
+import { TinyDropTimes, TinyModal } from 'tinysmall'
 
 const value = ref('')
 

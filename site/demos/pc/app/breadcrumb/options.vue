@@ -7,7 +7,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyBreadcrumb, TinyNotify } from '@opentiny/vue'
+import { TinyBreadcrumb, TinyNotify } from 'tinysmall'
 
 const options = ref([
   {

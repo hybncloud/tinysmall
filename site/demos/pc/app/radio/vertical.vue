@@ -15,7 +15,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyRadio, TinyRadioGroup, TinyRadioButton } from '@opentiny/vue'
+import { TinyRadio, TinyRadioGroup, TinyRadioButton } from 'tinysmall'
 
 const value = ref('1')
 </script>

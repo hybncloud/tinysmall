@@ -4,7 +4,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyNumeric } from '@opentiny/vue'
+import { TinyNumeric } from 'tinysmall'
 
 const value = ref(1)
 const unit = ref('kg')

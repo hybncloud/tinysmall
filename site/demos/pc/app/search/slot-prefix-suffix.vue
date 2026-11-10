@@ -21,7 +21,7 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue'
-import { TinySearch, TinyButton } from '@opentiny/vue'
+import { TinySearch, TinyButton } from 'tinysmall'
 import { IconCalendar, IconSearch } from '@opentiny/vue-icon'
 
 const value = ref('')

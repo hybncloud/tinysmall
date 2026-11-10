@@ -8,7 +8,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyInput, TinyForm, TinyFormItem } from '@opentiny/vue'
+import { TinyInput, TinyForm, TinyFormItem } from 'tinysmall'
 
 const ruleForm = ref({
   name: ''

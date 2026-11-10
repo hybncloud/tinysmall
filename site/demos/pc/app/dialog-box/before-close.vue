@@ -23,7 +23,7 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue'
-import { TinyButton, TinyDialogBox, Modal } from '@opentiny/vue'
+import { TinyButton, TinyDialogBox, Modal } from 'tinysmall'
 
 const box1 = ref(false)
 const box2 = ref(false)

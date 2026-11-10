@@ -17,7 +17,7 @@
 
 <script setup>
 import { provide, ref, reactive, nextTick, onBeforeMount } from 'vue'
-import { TinyVirtualScrollBox, TinyTree } from '@opentiny/vue'
+import { TinyVirtualScrollBox, TinyTree } from 'tinysmall'
 
 const config = reactive({
   width: 600,

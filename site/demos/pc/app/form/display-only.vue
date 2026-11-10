@@ -70,7 +70,7 @@ import {
   TinyBaseSelect,
   TinyOption,
   TinyModal
-} from '@opentiny/vue'
+} from 'tinysmall'
 
 const displayOnly = ref(true)
 const top = ref(false)

@@ -9,7 +9,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyButton, TinyLoading } from '@opentiny/vue'
+import { TinyButton, TinyLoading } from 'tinysmall'
 
 const vLoading = TinyLoading.directive
 

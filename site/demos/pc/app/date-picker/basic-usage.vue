@@ -11,7 +11,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { TinyDatePicker } from '@opentiny/vue'
+import { TinyDatePicker } from 'tinysmall'
 
 const value = ref('')
 const dateTimeValue = ref('')

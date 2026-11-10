@@ -19,7 +19,7 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue'
-import { TinyButton, TinyDialogBox } from '@opentiny/vue'
+import { TinyButton, TinyDialogBox } from 'tinysmall'
 
 const visible1 = ref(false)
 const visible2 = ref(false)

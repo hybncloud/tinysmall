@@ -17,7 +17,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyCascader } from '@opentiny/vue'
+import { TinyCascader } from 'tinysmall'
 import { iconFilletExternalLink } from '@opentiny/vue-icon'
 
 const TinyIconFilletExternalLink = iconFilletExternalLink()

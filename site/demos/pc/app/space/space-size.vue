@@ -22,7 +22,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { TinyButton, TinySpace, TinySlider } from '@opentiny/vue'
+import { TinyButton, TinySpace, TinySlider } from 'tinysmall'
 
 const rowValue = ref(10)
 const columnValue = ref(10)

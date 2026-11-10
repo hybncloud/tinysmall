@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-import { TinyCarousel, TinyCarouselItem } from '@opentiny/vue'
+import { TinyCarousel, TinyCarouselItem } from 'tinysmall'
 </script>
 
 <style scoped>

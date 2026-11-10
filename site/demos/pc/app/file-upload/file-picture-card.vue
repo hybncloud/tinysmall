@@ -35,7 +35,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyFileUpload, TinyDialogBox } from '@opentiny/vue'
+import { TinyFileUpload, TinyDialogBox } from 'tinysmall'
 import { iconPlus, iconView, iconDownload, iconDel } from '@opentiny/vue-icon'
 
 const action = ref('http://localhost:3000/api/upload')

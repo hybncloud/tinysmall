@@ -13,7 +13,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyCalendarView, TinyModal } from '@opentiny/vue'
+import { TinyCalendarView, TinyModal } from 'tinysmall'
 
 const eventslist = ref([])
 

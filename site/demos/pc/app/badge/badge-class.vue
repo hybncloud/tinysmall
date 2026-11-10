@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-import { TinyBadge } from '@opentiny/vue'
+import { TinyBadge } from 'tinysmall'
 </script>
 
 <style>

@@ -13,7 +13,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyTimeLine, TinyModal } from '@opentiny/vue'
+import { TinyTimeLine, TinyModal } from 'tinysmall'
 
 const active = ref(1)
 const data = ref([

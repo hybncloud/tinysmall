@@ -12,7 +12,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyNumeric, TinyModal } from '@opentiny/vue'
+import { TinyNumeric, TinyModal } from 'tinysmall'
 
 const value = ref(1)
 

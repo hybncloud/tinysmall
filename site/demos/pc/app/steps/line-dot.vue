@@ -4,7 +4,7 @@
 
 <script setup>
 import { ref, reactive } from 'vue'
-import { TinySteps, TinyModal } from '@opentiny/vue'
+import { TinySteps, TinyModal } from 'tinysmall'
 
 const active = ref(1)
 const data = reactive([

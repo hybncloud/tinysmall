@@ -22,7 +22,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyCollapse, TinyCollapseItem, TinyModal } from '@opentiny/vue'
+import { TinyCollapse, TinyCollapseItem, TinyModal } from 'tinysmall'
 
 const activeNames = ref([1, 3])
 

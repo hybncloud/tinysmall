@@ -6,7 +6,7 @@
 </template>
 
 <script setup>
-import { TinyInput, TinySwitch } from '@opentiny/vue'
+import { TinyInput, TinySwitch } from 'tinysmall'
 import { ref } from 'vue'
 
 const showTooltip = ref(false)

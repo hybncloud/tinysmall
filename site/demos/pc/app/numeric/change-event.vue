@@ -8,7 +8,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { TinyNumeric, TinyModal, TinyButton } from '@opentiny/vue'
+import { TinyNumeric, TinyModal, TinyButton } from 'tinysmall'
 
 const value = ref(1)
 

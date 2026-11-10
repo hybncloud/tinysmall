@@ -13,7 +13,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyCascader } from '@opentiny/vue'
+import { TinyCascader } from 'tinysmall'
 
 const value = ref(['zhinan', 'anzhuang', 'anzhuangcli'])
 const options = ref([

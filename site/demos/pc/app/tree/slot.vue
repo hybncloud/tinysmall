@@ -41,7 +41,7 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue'
-import { TinyTree, TinyButton, TinyLink } from '@opentiny/vue'
+import { TinyTree, TinyButton, TinyLink } from 'tinysmall'
 import { iconPlusSquare } from '@opentiny/vue-icon'
 
 const TinyIconPlusSquare = iconPlusSquare()

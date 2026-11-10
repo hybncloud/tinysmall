@@ -12,7 +12,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyTimeSelect, TinyModal } from '@opentiny/vue'
+import { TinyTimeSelect, TinyModal } from 'tinysmall'
 
 const value1 = ref('08:30')
 

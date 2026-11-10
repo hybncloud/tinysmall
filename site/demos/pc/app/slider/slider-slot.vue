@@ -8,7 +8,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinySlider } from '@opentiny/vue'
+import { TinySlider } from 'tinysmall'
 
 const value = ref(40)
 </script>

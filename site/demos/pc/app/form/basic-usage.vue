@@ -42,7 +42,7 @@ import {
   TinyInput,
   TinyButton,
   TinyModal
-} from '@opentiny/vue'
+} from 'tinysmall'
 
 const createData = reactive({
   quantity: 0,

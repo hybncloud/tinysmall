@@ -24,7 +24,7 @@
 </template>
 
 <script setup lang="jsx">
-import { Button as TinyButton, Modal, Notify } from '@opentiny/vue'
+import { Button as TinyButton, Modal, Notify } from 'tinysmall'
 import { ref } from 'vue'
 
 const TinyModal = Modal

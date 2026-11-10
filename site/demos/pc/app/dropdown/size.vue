@@ -56,7 +56,7 @@
 </template>
 
 <script setup>
-import { TinyDropdown, TinyDropdownMenu, TinyDropdownItem } from '@opentiny/vue'
+import { TinyDropdown, TinyDropdownMenu, TinyDropdownItem } from 'tinysmall'
 </script>
 
 <style lang="less" scoped>

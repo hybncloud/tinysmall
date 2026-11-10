@@ -31,7 +31,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyDatePicker, TinyModal } from '@opentiny/vue'
+import { TinyDatePicker, TinyModal } from 'tinysmall'
 import tzData from '@opentiny/vue-renderless/picker/timezone'
 
 const timezoneValue = ref('')

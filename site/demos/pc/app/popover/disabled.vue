@@ -21,7 +21,7 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue'
-import { TinyPopover, TinyButton, TinySwitch } from '@opentiny/vue'
+import { TinyPopover, TinyButton, TinySwitch } from 'tinysmall'
 
 const disabled = ref(false)
 </script>

@@ -6,7 +6,7 @@
 </template>
 
 <script setup lang="jsx">
-import { TinySearch } from '@opentiny/vue'
+import { TinySearch } from 'tinysmall'
 </script>
 
 <style scoped>

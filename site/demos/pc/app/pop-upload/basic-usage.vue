@@ -4,7 +4,7 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue'
-import { TinyPopUpload } from '@opentiny/vue'
+import { TinyPopUpload } from 'tinysmall'
 
 const action = ref('http://localhost:3000/api/upload')
 const requestData = ref({

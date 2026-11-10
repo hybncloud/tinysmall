@@ -6,7 +6,7 @@
 </template>
 
 <script setup lang="jsx">
-import { TinyButton, TinyNotify } from '@opentiny/vue'
+import { TinyButton, TinyNotify } from 'tinysmall'
 
 function successClick() {
   TinyNotify({

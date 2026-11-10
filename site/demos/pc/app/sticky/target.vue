@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-import { TinySticky, TinyButton } from '@opentiny/vue'
+import { TinySticky, TinyButton } from 'tinysmall'
 </script>
 
 <style scoped>

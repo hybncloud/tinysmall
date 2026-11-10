@@ -26,7 +26,7 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue'
-import { TinyPopover, TinyButton } from '@opentiny/vue'
+import { TinyPopover, TinyButton } from 'tinysmall'
 
 const visible = ref(false)
 </script>

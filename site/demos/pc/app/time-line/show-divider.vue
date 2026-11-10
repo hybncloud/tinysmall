@@ -5,7 +5,7 @@
 
 <script setup>
 import { ref, reactive } from 'vue'
-import { TinyTimeLine, TinyModal } from '@opentiny/vue'
+import { TinyTimeLine, TinyModal } from 'tinysmall'
 
 const normalActive = ref(0)
 const data = reactive([{ name: 'Basic Info' }, { name: 'BOQ Info' }, { name: 'Involved Parties' }, { name: 'Billing' }])

@@ -23,7 +23,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyPager, TinyModal, TinyButton } from '@opentiny/vue'
+import { TinyPager, TinyModal, TinyButton } from 'tinysmall'
 
 const currentPage = ref(10)
 

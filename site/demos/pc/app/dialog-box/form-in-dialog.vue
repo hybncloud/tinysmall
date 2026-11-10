@@ -60,7 +60,7 @@ import {
   TinyNotify,
   TinyOption,
   TinyBaseSelect
-} from '@opentiny/vue'
+} from 'tinysmall'
 
 const options = ref([
   { value: 'js', label: 'js' },

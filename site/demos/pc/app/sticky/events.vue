@@ -7,7 +7,7 @@
 </template>
 
 <script setup>
-import { TinySticky, TinyButton, TinyModal } from '@opentiny/vue'
+import { TinySticky, TinyButton, TinyModal } from 'tinysmall'
 
 let isShowNumber = 0
 

@@ -6,7 +6,7 @@
 </template>
 
 <script setup>
-import { TinyButton, TinyNotify, TinyModal } from '@opentiny/vue'
+import { TinyButton, TinyNotify, TinyModal } from 'tinysmall'
 
 function baseClick() {
   TinyNotify({

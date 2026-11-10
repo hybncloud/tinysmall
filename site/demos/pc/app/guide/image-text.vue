@@ -7,7 +7,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyGuide, TinyButton } from '@opentiny/vue'
+import { TinyGuide, TinyButton } from 'tinysmall'
 
 const showStep = ref(false)
 const imgUrl = `${import.meta.env.VITE_APP_BUILD_BASE_URL}static/images/1.jpg`

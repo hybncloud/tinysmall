@@ -8,7 +8,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyRadio } from '@opentiny/vue'
+import { TinyRadio } from 'tinysmall'
 
 const value = ref('1')
 </script>

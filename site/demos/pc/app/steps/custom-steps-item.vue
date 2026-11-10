@@ -6,7 +6,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinySteps } from '@opentiny/vue'
+import { TinySteps } from 'tinysmall'
 
 const stepsData = ref([
   {

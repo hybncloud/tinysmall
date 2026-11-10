@@ -4,7 +4,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyCheckbox } from '@opentiny/vue'
+import { TinyCheckbox } from 'tinysmall'
 
 const checked = ref(true)
 </script>

@@ -14,7 +14,7 @@
 
 <script setup>
 import { ref, computed } from 'vue'
-import { TinyTag, TinyModal } from '@opentiny/vue'
+import { TinyTag, TinyModal } from 'tinysmall'
 
 const tags = ref([
   { name: '标签一', type: '' },

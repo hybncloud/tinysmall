@@ -18,7 +18,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyImage } from '@opentiny/vue'
+import { TinyImage } from 'tinysmall'
 
 const url = ref(`${import.meta.env.VITE_APP_BUILD_BASE_URL}static/images/mountain.png`)
 </script>
