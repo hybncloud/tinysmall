@@ -1,12 +1,12 @@
 <template>
   <div class="qr-code-container">
-    <tiny-color-picker v-model="params.color" />
+    <input v-model="params.color" type="color" />
     <tiny-qr-code v-bind="params"></tiny-qr-code>
   </div>
 </template>
 
 <script setup>
-import { TinyQrCode, TinyColorPicker } from '@opentiny/vue'
+import { TinyQrCode } from '@opentiny/vue'
 import { ref } from 'vue'
 
 const params = ref({

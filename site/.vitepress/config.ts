@@ -1,39 +1,38 @@
 import { defineConfig } from 'vitepress'
 import { docMenus, cmpMenus } from '../demos/pc/menus.js'
 
-// https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: 'TinySmall',
-  description: 'A Vue Components',
+  description: '由 opentiny/tiny-vue 删减改造而来。',
   themeConfig: {
-    // https://vitepress.dev/reference/default-theme-config
     nav: [
-      // { text: '首页', link: '/' },
-      // { text: '指南', link: '/guides/envpreparation' },
-      // { text: '组件', link: '/components/button' }
+      { text: '首页', link: '/' },
+      { text: '指南', link: '/guides/installation', activeMatch: '/guides/' },
+      { text: '组件', link: '/components/button', activeMatch: '/components/' }
     ],
-
-    sidebar: [
-      ...docMenus.map((docGrpMenu) => ({
+    sidebar: {
+      '/guides/': docMenus.map((docGrpMenu) => ({
         text: docGrpMenu.label,
         items: docGrpMenu.children.map((docMenu) => ({
           text: `${docMenu.title}`,
           link: `/guides/${docMenu.key}`
         }))
       })),
-      ...cmpMenus.map((cmpGrpMenu) => ({
+      '/components/': cmpMenus.map((cmpGrpMenu) => ({
         text: cmpGrpMenu.label,
         items: cmpGrpMenu.children.map((cmpMenu) => ({
           text: `${cmpMenu.nameCn} ${cmpMenu.name}`,
           link: `/components/${cmpMenu.key}`
         }))
       }))
-    ],
-    outline: {
-      level: 'deep',
-      label: '本页目录'
     },
-    socialLinks: [{ icon: 'github', link: 'https://github.com/vuejs/vitepress' }]
+    outline: {
+      level: 'deep'
+    },
+    socialLinks: [{ icon: 'github', link: 'https://github.com/hybncloud/tinysmall' }]
   },
-  srcExclude: ['./demos/**', './src/**']
+  srcExclude: ['./demos/pc/app/*/webdoc/*.md'],
+  rewrites: {
+    'demos/pc/webdoc/:slug.md': 'guides/:slug.md'
+  }
 })

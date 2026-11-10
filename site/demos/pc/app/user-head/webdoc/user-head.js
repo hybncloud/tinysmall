@@ -149,19 +149,6 @@ export default {
         'en-US': '<p>Customize the image content by slot<code>#default</code>. </p>\n'
       },
       codeFiles: ['custom-user-head-content.vue']
-    },
-    {
-      demoId: 'render-user-head-in-grid',
-      name: {
-        'zh-CN': 'Grid 单元格展示头像',
-        'en-US': 'Avatar Displayed in Grid Cells'
-      },
-      desc: {
-        'zh-CN': '可通过 Grid 单元格<code>renderer</code>属性设置传入封装用户头像组件（HTML 格式）。',
-        'en-US':
-          'Pass in the encapsulated user avatar component (in HTML format) through the Grid cell attribute<code>renderer</code>.'
-      },
-      codeFiles: ['render-user-head-in-grid.vue']
     }
   ],
   features: [

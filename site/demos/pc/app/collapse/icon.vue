@@ -36,7 +36,7 @@ const IconDeltaRightO = iconDeltaRightO()
 </script>
 
 <style scoped lang="less">
-.demo-collapse-wrap ::v-deep .tiny-collapse-item__content > * {
+.demo-collapse-wrap :deep(.tiny-collapse-item__content > *) {
   line-height: 1.6;
 }
 

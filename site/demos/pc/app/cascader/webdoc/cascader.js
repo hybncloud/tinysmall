@@ -58,7 +58,7 @@ export default {
       codeFiles: ['clearable.vue']
     },
     {
-      demoId: 'clearable1',
+      demoId: 'separator',
       name: {
         'zh-CN': '分隔符',
         'en-US': 'Separator'

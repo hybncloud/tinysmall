@@ -7,9 +7,6 @@
       <tiny-form-item label="等级" prop="radio">
         <tiny-radio-group v-model="createData.radio" :options="options"></tiny-radio-group>
       </tiny-form-item>
-      <tiny-form-item label="IP字段" prop="ip">
-        <tiny-ip-address v-model="createData.ip"></tiny-ip-address>
-      </tiny-form-item>
       <tiny-form-item label="必填" prop="users" :validate-icon="validateIcon">
         <tiny-input v-model="createData.users"></tiny-input>
       </tiny-form-item>
@@ -47,7 +44,6 @@ import {
   TinyModal,
   TinyRadioGroup,
   TinyNumeric,
-  TinyIpAddress,
   TinyButtonGroup
 } from '@opentiny/vue'
 import { iconWarning } from '@opentiny/vue-icon'
@@ -72,7 +68,6 @@ const createData = reactive({
   url: '',
   email: '',
   datepicker: '',
-  ip: '',
   num1: 0
 })
 const rules = ref({

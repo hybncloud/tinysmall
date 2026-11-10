@@ -161,7 +161,7 @@ const disableStatus = () => {
 .card-demo {
   border: 0;
 }
-/deep/ .tiny-button.tiny-button--text.tiny-button.is-only-icon {
+:deep(.tiny-button.tiny-button--text.tiny-button.is-only-icon) {
   font-size: 16px;
   border: none;
   .tiny-svg {

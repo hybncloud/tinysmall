@@ -17,11 +17,6 @@
           </tiny-row>
           <tiny-row>
             <tiny-col :span="6">
-              <tiny-form-item label="网站IP">
-                <tiny-ip-address v-model="formData.ip"></tiny-ip-address>
-              </tiny-form-item>
-            </tiny-col>
-            <tiny-col :span="6">
               <tiny-form-item label="城市">
                 <tiny-base-select v-model="formData.city" placeholder="请选择">
                   <tiny-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
@@ -48,7 +43,6 @@ import {
   TinyCol,
   TinyInput,
   TinyNumeric,
-  TinyIpAddress,
   TinyBaseSelect,
   TinyOption
 } from '@opentiny/vue'
@@ -57,8 +51,7 @@ const activeNames = ref(['1', '2'])
 const formData = ref({
   name: '',
   employees: 1,
-  city: '',
-  ip: '192.168.0.1'
+  city: ''
 })
 const options = ref([
   {
@@ -85,7 +78,7 @@ const options = ref([
 </script>
 
 <style scoped lang="less">
-.demo-collapse-wrap ::v-deep .tiny-collapse-item__content > * {
+.demo-collapse-wrap :deep(.tiny-collapse-item__content > *) {
   line-height: 1.6;
 }
 </style>

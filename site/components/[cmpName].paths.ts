@@ -34,6 +34,7 @@ export default defineRoutes({
         const { default: apiDef } = await import(apiDefUrl)
         const md = fs.readFileSync(mdFile, 'utf-8')
         const matteredMd = matter(md)
+        const importedCodeFiles = new Set<string>()
         return {
           params: {
             cmpName,
@@ -44,14 +45,16 @@ export default defineRoutes({
             EOL,
             '<script setup>',
             EOL,
+            "import { defineClientComponent } from 'vitepress';",
+            EOL,
             ...demoDef.demos.map((demo: any) => {
+              if (importedCodeFiles.has(demo.codeFiles[0])) return ''
+              importedCodeFiles.add(demo.codeFiles[0])
               const codeImportName = demo.codeFiles[0].replaceAll('.', '_').replaceAll('-', '_')
-              return `import ${codeImportName} from "../demos/pc/app/${cmpName}/${demo.codeFiles[0]}";`
+              return `const ${codeImportName} = defineClientComponent(() => import("../demos/pc/app/${cmpName}/${demo.codeFiles[0]}"));`
             }),
             EOL,
             '</script>',
-            EOL,
-            `## 示例`,
             EOL,
             ...demoDef.demos.map((demo: any) => {
               const encodedDesc = encodeURIComponent(demo.desc['zh-CN'])
@@ -60,7 +63,7 @@ export default defineRoutes({
                 `<h3 id="${demo.demoId}">${demo.name['zh-CN']}</h3>`,
                 EOL,
                 EOL,
-                `<DemoDesc v-html="decodeURIComponent(\`${encodedDesc}\`)" />`,
+                `<p v-html="decodeURIComponent(\`${encodedDesc}\`)" />`,
                 EOL,
                 EOL,
                 '::: raw',
