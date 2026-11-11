@@ -1,14 +1,15 @@
 <template>
   <div class="wp100 hp100 f-r of-hidden">
-    <div class="w230 pt20 of-auto sm-hidden b-r bg-white" :class="{ 'fixed-menu': showFixedMenu }">
+    <div class="w330 of-auto sm-hidden b-r bg-white" :class="{ 'fixed-menu': showFixedMenu }">
       <tiny-tree
-        class="!w213"
+        class="!w313"
         :data="menuData"
         :filter-node-method="fn.searchMenu"
+        defaultExpandAll
         @current-change="fn.clickMenu"
       ></tiny-tree>
     </div>
-    <div class="fi-1 f-c px20 pb30 f-c pr200 of-auto" ref="rightRef">
+    <div class="fi-1 f-c px20 pb30 f-c pr200 of-auto">
       <!-- 标题 -->
       <div class="py20 f24 fw-bold text-center">
         <component :is="state.currMd" class="component-md"></component>
@@ -77,7 +78,7 @@
       </div>
     </div>
     <!-- 右边浮动所有的demos -->
-    <tiny-floatbar v-if="state.demos.length > 0" class="!top120 !z1 !right25">
+    <div v-if="state.demos.length > 0" class="fixed !top120 !z1 !right25">
       <div class="f12 ofy-auto" style="max-height: calc(100vh - 240px)">
         <div
           v-for="demo in state.demos"
@@ -93,33 +94,33 @@
           <IconOpeninVscode @click.stop="fn.openInVscode(demo)" class="f18 cur-hand" />
         </div>
       </div>
-    </tiny-floatbar>
+    </div>
   </div>
 </template>
 
 <script>
 import { hooks } from '@opentiny/vue-common'
-import { Floatbar, Tree, Button, Tooltip, Dropdown, DropdownMenu, DropdownItem, ConfigProvider } from '@opentiny/vue'
+import { Tree, Button, Tooltip, Dropdown, DropdownMenu, DropdownItem, ConfigProvider } from '@opentiny/vue'
 import { iconStarActive, iconSelect } from '@opentiny/vue-icon'
 import Loading from '@opentiny/vue-loading'
-import { menuData, demoStr, demoVue, mds, demos } from './resourcePc.js'
-import { useModeCtx } from './uses'
-import { getDemosConfig, getPath, getApisConfig } from './utils/componentsDoc'
-import SvgTheme from './assets/theme.svg?component'
+import { menuData, demoVue, mds, demos } from './resourcePc.js'
+import { getDemosConfig, getApisConfig } from './componentsDoc.js'
+import { modeState } from './useModeCtx.js'
+import router from './router.js'
+import { cmpMenus } from '../../site/demos/pc/menus.js'
+import { watch } from 'vue'
 
 export default {
   props: {
     showFixedMenu: Boolean
   },
   components: {
-    TinyFloatbar: Floatbar,
     TinyTree: Tree,
     TinyButton: Button,
     TinyTooltip: Tooltip,
     TinyDropdown: Dropdown,
     TinyDropdownMenu: DropdownMenu,
     TinyDropdownItem: DropdownItem,
-    SvgTheme,
     IconStarIcon: iconStarActive(),
     IconOpeninVscode: iconSelect(),
     ConfigProvider
@@ -128,18 +129,19 @@ export default {
     loading: Loading.directive
   },
   setup() {
-    const { state: modeState, fn: modeFn } = useModeCtx()
-    const rightRef = hooks.ref('')
+    const _componentName = () => modeState.pathName ?? cmpMenus[0].children[0].key
+
     const state = hooks.reactive({
       demos: [], // 组件的所有示例  {component,content,demoId,findIntroStr,link,title}[]
       currDemo: null, // 选中的demo
       currApi: [], // 当前path下的api
       comp: null, // 当前示例的组件实例
-      currDemoSrc: '',
-      currMd: hooks.computed(() => mds[`${modeState.pathName}.cn.md`]),
+      currMd: hooks.computed(
+        () => mds[`../../site/demos/pc/app/${_componentName()}/webdoc/${_componentName()}.cn.md`].default
+      ),
       demoLoading: false
     })
-    // 新增图表的 api 和原有图表的api 区分开。
+
     const fn = {
       // 菜单搜索：忽略大小写
       searchMenu: (value, data) => {
@@ -148,62 +150,59 @@ export default {
       },
       // 点击菜单：如果是二级菜单，根据path 刷新整个页面内容
       clickMenu: async (menu) => {
-        if (menu.nameCn && menu.key !== state.key) {
-          modeState.pathName = menu.key
-          await _switchPath()
+        if (menu.nameCn) {
+          router.push(`/${menu.key}`)
         }
       },
       // 点击示例
       selectDemo: async (demoId) => {
-        const demo = state.demos.find((d) => d.demoId === demoId)
-        if (state.currDemo !== demo) {
-          state.currDemo = demo
-          await _switchDemo()
-        }
+        router.push({ name: 'demo', params: { cmpName: _componentName(), codeFile: demoId } })
+        router.push(`/${_componentName()}/${demoId}`)
       },
       openInVscode: (demo) => {
-        fetch(`/__open-in-editor?file=../sites/demos/pc/app/${getPath(modeState.pathName)}/${demo.codeFiles[0]}`)
+        fetch(`/__open-in-editor?file=../../sites/demos/pc/app/${_componentName()}/${demo.codeFiles[0]}`)
       }
     }
 
-    hooks.onMounted(() => _switchPath())
+    watch(
+      modeState,
+      () => {
+        _switchPath()
+      },
+      {
+        deep: true,
+        immediate: true
+      }
+    )
 
     // 以下私有方法，无须传递给vue模板的。
     async function _switchPath() {
       state.demoLoading = true
-      const componentName = getPath(modeState.pathName)
+      const componentName = _componentName()
       // 查找demos配置
-      const demosModule = demos[`../../site/demos/pc/app/${componentName}/webdoc/${modeState.pathName}.js`]
+      const demosModule = componentName
+        ? demos[`../../site/demos/pc/app/${componentName}/webdoc/${componentName}.js`]
+        : demos[0]
       const demosConfig = await getDemosConfig(demosModule)
       state.demos = demosConfig.demos
-      state.currDemo = state.demos.find((d) => d.demoId === modeState.demoId) || state.demos?.[0]
-      state.currApi = (await getApisConfig(componentName, 'pc')).apis
+      state.currDemo = state.demos.find((d) => d.demoId === modeState.demoId) || state.demos[0]
+      state.currApi = (await getApisConfig(componentName)).apis
       await _switchDemo()
     }
 
     async function _switchDemo() {
-      if (!state.currDemo) {
-        return
-      }
-      modeState.demoId = state.currDemo.demoId
-      const path = `../../site/demos/pc/app/${getPath(modeState.pathName)}/${state.currDemo.codeFiles[0]}`
-      // 查找源码  查找组件
-      state.currDemoSrc = await demoStr[path]()
+      const componentName = _componentName()
+      const path = `../../site/demos/pc/app/${componentName}/${state.currDemo.codeFiles[0]}`
       const comp = await demoVue[path]()
-
       state.demoLoading = false
       state.comp = hooks.markRaw(comp.default)
-      modeFn.cacheCtx()
-      modeFn.pushToUrl()
     }
 
     return {
       menuData,
       state,
       fn,
-      modeState,
-      modeFn,
-      rightRef
+      modeState
     }
   }
 }

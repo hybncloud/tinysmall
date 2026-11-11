@@ -45,11 +45,6 @@ export default defineConfig({
       }
     }),
     unocss({
-      content: {
-        pipeline: {
-          include: [/\.js$/, /\.ts$/, /\.vue$/, /\.html$/, /\.jsx$/, /\.tsx$/]
-        }
-      },
       presets: [],
       rules,
       shortcuts,

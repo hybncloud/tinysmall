@@ -5,24 +5,13 @@
 // 同web-doc的菜单资源
 import { cmpMenus } from '../../site/demos/pc/menus.js'
 
-export const demoStr = import.meta.glob('../../site/demos/pc/app/**/*.vue', {
-  eager: false,
-  query: '?raw',
-  import: 'default'
-})
-
 export const demoVue = import.meta.glob('../../site/demos/pc/app/**/*.vue', { eager: false })
 
 // demos配置
 export const demos = import.meta.glob('../../site/demos/pc/app/*/webdoc/*.js', { eager: false })
 
 // 组件的md
-const allMD = import.meta.glob('../../site/demos/pc/app/*/webdoc/*.cn.md', { eager: true })
-export const mds = {}
-for (const path in allMD) {
-  let key = path.split('/').slice(-1)[0]
-  mds[key] = allMD[path].default
-}
+export const mds = import.meta.glob('../../site/demos/pc/app/*/webdoc/*.cn.md', { eager: true })
 
 const menuData = cmpMenus.slice(0)
 function processMenu(menu, isTop) {
