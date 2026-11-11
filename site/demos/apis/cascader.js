@@ -6,9 +6,6 @@ export default {
       type: 'component',
       props: [
         {
-          mode: []
-        },
-        {
           name: 'before-filter',
           type: '(value: string) => boolean | Promise',
           defaultValue: '',

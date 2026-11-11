@@ -4,7 +4,6 @@ import vueJsx from 'unplugin-vue-jsx/vite'
 import virtualTemplate from '../internals/unplugin-virtual-template/vite.ts'
 import svgLoader from '../internals/vite-svg-loader/vite.ts'
 import markdown from 'unplugin-vue-markdown/vite'
-import dynamicImport from 'vite-plugin-dynamic-import'
 import unocss from 'unocss/vite'
 import { rules, shortcuts, variants } from './vite-plugins/vite-plugin-uno-preset.js'
 import path from 'node:path'
@@ -36,7 +35,6 @@ export default defineConfig({
         plugins: ['preset-default', 'prefixIds']
       }
     }),
-    dynamicImport(),
     markdown({
       markdownOptions: {
         html: true,

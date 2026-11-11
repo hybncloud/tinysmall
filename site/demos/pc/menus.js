@@ -50,11 +50,7 @@ export const cmpMenus = [
       { 'nameCn': '栅格布局', 'name': 'Layout', 'key': 'layout' },
       { 'nameCn': '链接', 'name': 'Link', 'key': 'link' },
       { 'nameCn': '分割线', 'name': 'Divider', 'key': 'divider' },
-      {
-        'nameCn': '虚拟化容器',
-        'name': 'VirtualScrollBox',
-        'key': 'virtual-scroll-box'
-      },
+
       {
         'nameCn': '间距',
         'name': 'Space',
@@ -166,8 +162,11 @@ export const cmpMenus = [
     'labelEn': 'Other',
     'key': 'cmp-other-components',
     'children': [
-      { 'nameCn': '浮动块', 'name': 'Floatbar', 'key': 'floatbar' },
-      { 'nameCn': '全屏', 'name': 'Fullscreen', 'key': 'fullscreen' },
+      {
+        'nameCn': '虚拟化容器',
+        'name': 'VirtualScrollBox',
+        'key': 'virtual-scroll-box'
+      },
       { 'nameCn': '文字滚动', 'name': 'ScrollText', 'key': 'scroll-text' },
       { 'nameCn': '水印', 'name': 'Watermark', 'key': 'watermark' },
       {

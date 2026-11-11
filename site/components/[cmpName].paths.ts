@@ -119,7 +119,7 @@ export default defineRoutes({
                       api.props
                         .map(
                           (prop: any) =>
-                            `| ${html(prop.name)} | ${html(prop.type)} | ${html(prop.defaultValue)} | ${html(prop.desc?.['zh-CN'])} |`
+                            `| ${html(prop.name)} | ${html(prop.type)} | ${html(prop.defaultValue)} | ${html(prop.desc['zh-CN'])} |`
                         )
                         .join(EOL),
                       EOL
@@ -135,8 +135,7 @@ export default defineRoutes({
                       EOL,
                       api.events
                         .map(
-                          (event: any) =>
-                            `| ${html(event.name)} | ${html(event.type)} | ${html(event.desc?.['zh-CN'])} |`
+                          (event: any) => `| ${html(event.name)} | ${html(event.type)} | ${html(event.desc['zh-CN'])} |`
                         )
                         .join(EOL),
                       EOL
@@ -150,7 +149,7 @@ export default defineRoutes({
                       EOL,
                       `| ------- | ------- |`,
                       EOL,
-                      api.slots.map((slot: any) => `| ${html(slot.name)} | ${html(slot.desc?.['zh-CN'])} |`).join(EOL),
+                      api.slots.map((slot: any) => `| ${html(slot.name)} | ${html(slot.desc['zh-CN'])} |`).join(EOL),
                       EOL
                     ]
                   : [])

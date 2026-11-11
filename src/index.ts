@@ -37,10 +37,8 @@ import DropdownMenu from '@opentiny/vue-dropdown-menu'
 import Exception from '@opentiny/vue-exception'
 import FileUpload from '@opentiny/vue-file-upload'
 import FilterBox from '@opentiny/vue-filter-box'
-import Floatbar from '@opentiny/vue-floatbar'
 import Form from '@opentiny/vue-form'
 import FormItem from '@opentiny/vue-form-item'
-import Fullscreen from '@opentiny/vue-fullscreen'
 import Guide from '@opentiny/vue-guide'
 import Image from '@opentiny/vue-image'
 import ImageViewer from '@opentiny/vue-image-viewer'
@@ -153,10 +151,8 @@ const components = [
   Exception,
   FileUpload,
   FilterBox,
-  Floatbar,
   Form,
   FormItem,
-  Fullscreen,
   Guide,
   Image,
   ImageViewer,
@@ -327,14 +323,10 @@ export {
   FileUpload as TinyFileUpload,
   FilterBox,
   FilterBox as TinyFilterBox,
-  Floatbar,
-  Floatbar as TinyFloatbar,
   Form,
   Form as TinyForm,
   FormItem,
   FormItem as TinyFormItem,
-  Fullscreen,
-  Fullscreen as TinyFullscreen,
   Guide,
   Guide as TinyGuide,
   Image,
@@ -556,14 +548,10 @@ export default {
   TinyFileUpload: FileUpload,
   FilterBox,
   TinyFilterBox: FilterBox,
-  Floatbar,
-  TinyFloatbar: Floatbar,
   Form,
   TinyForm: Form,
   FormItem,
   TinyFormItem: FormItem,
-  Fullscreen,
-  TinyFullscreen: Fullscreen,
   Guide,
   TinyGuide: Guide,
   Image,
