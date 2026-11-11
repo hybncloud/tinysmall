@@ -1,4 +1,0 @@
-import { svg } from '@opentiny/vue-common'
-import Processing from '@opentiny/vue-theme/svgs/processing.svg?component'
-
-export default () => svg({ name: 'IconProcessing', component: Processing, filledComponent: Processing })()

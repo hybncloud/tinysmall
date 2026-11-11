@@ -3,7 +3,7 @@ import 'uno.css'
 import { createI18n } from 'vue-i18n'
 import { initI18n } from '@opentiny/vue-locale'
 import { Loading } from '@opentiny/vue'
-import App from '@/App.vue'
+import App from './App.vue'
 
 import './style.css'
 import router from './router'

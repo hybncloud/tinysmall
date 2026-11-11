@@ -1,4 +1,0 @@
-import { svg } from '@opentiny/vue-common'
-import Material from '@opentiny/vue-theme/svgs/material.svg?component'
-
-export default () => svg({ name: 'IconMaterial', component: Material, filledComponent: Material })()

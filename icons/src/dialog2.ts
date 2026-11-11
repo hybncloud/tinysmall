@@ -1,4 +1,0 @@
-import { svg } from '@opentiny/vue-common'
-import Dialog2 from '@opentiny/vue-theme/svgs/dialog2.svg?component'
-
-export default () => svg({ name: 'IconDialog2', component: Dialog2, filledComponent: Dialog2 })()

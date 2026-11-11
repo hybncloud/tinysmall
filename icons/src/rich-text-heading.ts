@@ -1,5 +1,0 @@
-import { svg } from '@opentiny/vue-common'
-import RichTextHeading from '@opentiny/vue-theme/svgs/rich-text-heading.svg?component'
-
-export default () =>
-  svg({ name: 'IconRichTextHeading', component: RichTextHeading, filledComponent: RichTextHeading })()

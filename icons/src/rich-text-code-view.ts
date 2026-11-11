@@ -1,5 +1,0 @@
-import { svg } from '@opentiny/vue-common'
-import RichTextCodeView from '@opentiny/vue-theme/svgs/rich-text-code-view.svg?component'
-
-export default () =>
-  svg({ name: 'IconRichTextCodeView', component: RichTextCodeView, filledComponent: RichTextCodeView })()

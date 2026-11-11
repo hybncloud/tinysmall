@@ -1,4 +1,0 @@
-import { svg } from '@opentiny/vue-common'
-import Sent from '@opentiny/vue-theme/svgs/sent.svg?component'
-
-export default () => svg({ name: 'IconSent', component: Sent, filledComponent: Sent })()

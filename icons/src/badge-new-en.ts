@@ -1,4 +1,0 @@
-import { svg } from '@opentiny/vue-common'
-import BadgeNewEn from '@opentiny/vue-theme/svgs/badge-new-en.svg?component'
-
-export default () => svg({ name: 'IconBadgeNewEn', component: BadgeNewEn, filledComponent: BadgeNewEn })()

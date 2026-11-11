@@ -1,4 +1,0 @@
-import { svg } from '@opentiny/vue-common'
-import UpO from '@opentiny/vue-theme/svgs/up-o.svg?component'
-
-export default () => svg({ name: 'IconUpO', component: UpO, filledComponent: UpO })()
