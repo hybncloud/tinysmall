@@ -28,9 +28,9 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@opentiny/vue-renderless/breadcrumb/vue'
-import { props, setup, defineComponent } from '@opentiny/vue-common'
-import BreadcrumbItem from '@opentiny/vue-breadcrumb-item'
+import { renderless, api } from '@tinysmall/renderless/breadcrumb/vue'
+import { props, setup, defineComponent } from '@tinysmall/common'
+import BreadcrumbItem from '@tinysmall/breadcrumb-item'
 
 export default defineComponent({
   components: {

@@ -10,12 +10,12 @@
  *
  */
 
-import { POSITION, VALIDATE_STATE } from '@opentiny/utils'
-import { omitText } from '@opentiny/utils'
-import { merge } from '@opentiny/utils'
-import { Validator } from '@opentiny/utils'
-import { isNull } from '@opentiny/utils'
-import { debounce } from '@opentiny/utils'
+import { POSITION, VALIDATE_STATE } from '@tinysmall/utils'
+import { omitText } from '@tinysmall/utils'
+import { merge } from '@tinysmall/utils'
+import { Validator } from '@tinysmall/utils'
+import { isNull } from '@tinysmall/utils'
+import { debounce } from '@tinysmall/utils'
 import type {
   IFormItemRenderlessParams,
   IFormInstance,

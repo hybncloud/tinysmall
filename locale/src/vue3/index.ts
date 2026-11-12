@@ -3,7 +3,7 @@ import enUS from '../lang/en'
 import esLA from '../lang/es-LA'
 import ptBR from '../lang/pt-BR'
 import format from '../format'
-import { extend as _extend } from '@opentiny/utils'
+import { extend as _extend } from '@tinysmall/utils'
 
 let lang = zhCN
 let i18nHandler = null as any

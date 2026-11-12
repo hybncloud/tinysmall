@@ -10,8 +10,8 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-import { directive } from '@opentiny/vue-common'
-import { isObject } from '@opentiny/utils'
+import { directive } from '@tinysmall/common'
+import { isObject } from '@tinysmall/utils'
 
 class TinyTouch {
   constructor(element, tinyBinding, type) {

@@ -10,12 +10,12 @@
  *
  -->
 <script lang="tsx">
-import { $prefix, setup, h, defineComponent } from '@opentiny/vue-common'
+import { $prefix, setup, h, defineComponent } from '@tinysmall/common'
 
 // 此处引入 h 是为了防止打包后 h 被重命名导致组件报错的问题
-import { renderless, api } from '@opentiny/vue-renderless/tab-nav/vue'
-import { iconClose, iconChevronDown } from '@opentiny/vue-icon'
-import type { ITabNavApi } from '@opentiny/vue-renderless/types/tab-nav.type'
+import { renderless, api } from '@tinysmall/renderless/tab-nav/vue'
+import { iconClose, iconChevronDown } from '@tinysmall/icon'
+import type { ITabNavApi } from '@tinysmall/renderless/types/tab-nav.type'
 import { tabNavMobileProps } from './index'
 
 export default defineComponent({

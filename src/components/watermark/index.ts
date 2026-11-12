@@ -1,5 +1,5 @@
 import Watermark from './src/pc.vue'
-import '@opentiny/vue-theme/watermark/index.less'
+import '@tinysmall/theme/watermark/index.less'
 import { version } from 'package.json'
 
 /* istanbul ignore next */

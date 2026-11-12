@@ -24,9 +24,9 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@opentiny/vue-renderless/month-table/vue'
-import { $prefix, setup, defineComponent } from '@opentiny/vue-common'
-import { isDate1 } from '@opentiny/utils'
+import { renderless, api } from '@tinysmall/renderless/month-table/vue'
+import { $prefix, setup, defineComponent } from '@tinysmall/common'
+import { isDate1 } from '@tinysmall/utils'
 
 export default defineComponent({
   name: $prefix + 'MonthTable',

@@ -1,7 +1,7 @@
-import Carousel from '@opentiny/vue-carousel'
-import CarouselItem from '@opentiny/vue-carousel-item'
+import Carousel from '@tinysmall/carousel'
+import CarouselItem from '@tinysmall/carousel-item'
 import { describe, expect, test, vi } from 'vitest'
-import { mountPcMode } from '@opentiny-internal/vue-test-utils'
+import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
 
 describe('PC Mode', () => {
   const mount = mountPcMode

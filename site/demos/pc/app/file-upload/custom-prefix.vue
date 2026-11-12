@@ -16,8 +16,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyFileUpload, TinyButton } from 'tinysmall'
-import Modal from '@opentiny/vue-modal'
+import { TinyFileUpload, TinyButton, TinyModal } from 'tinysmall'
 
 const action = ref('http://localhost:3000/api/upload')
 const fileList = ref([
@@ -44,7 +43,7 @@ function beforeAddFile(callback) {
   // })
 
   // 方式 3：调用回调函数
-  Modal.confirm({
+  TinyModal.confirm({
     title: 'beforeAddFile 钩子函数',
     status: 'info',
     message: '您确定要继续添加文件吗？',
@@ -58,12 +57,12 @@ function beforeAddFile(callback) {
 }
 
 function beforeRemove() {
-  Modal.message({ message: '触发删除文件前回调事件', status: 'info' })
+  TinyModal.message({ message: '触发删除文件前回调事件', status: 'info' })
   return true
 }
 
 function beforeAvatarUpload() {
-  Modal.message({ message: '触发上传前回调事件', status: 'info' })
+  TinyModal.message({ message: '触发上传前回调事件', status: 'info' })
   return true
 }
 </script>

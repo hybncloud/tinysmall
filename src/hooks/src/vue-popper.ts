@@ -10,9 +10,9 @@
  *
  */
 
-import { PopupManager, PopperJS, on, off, isDisplayNone } from '@opentiny/utils'
+import { PopupManager, PopperJS, on, off, isDisplayNone } from '@tinysmall/utils'
 import type { ISharedRenderlessFunctionParams } from '../types/shared.type'
-import { isServer } from '@opentiny/utils'
+import { isServer } from '@tinysmall/utils'
 
 export interface IPopperState {
   popperJS: PopperJS | null

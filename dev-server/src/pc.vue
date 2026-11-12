@@ -99,10 +99,10 @@
 </template>
 
 <script>
-import { hooks } from '@opentiny/vue-common'
-import { Tree, Button, Tooltip, Dropdown, DropdownMenu, DropdownItem, ConfigProvider } from '@opentiny/vue'
-import { iconStarActive, iconSelect } from '@opentiny/vue-icon'
-import Loading from '@opentiny/vue-loading'
+import { hooks } from '@tinysmall/common'
+import { Tree, Button, Tooltip, Dropdown, DropdownMenu, DropdownItem, ConfigProvider } from '@tinysmall/vue'
+import { iconStarActive, iconSelect } from '@tinysmall/icon'
+import Loading from '@tinysmall/loading'
 import { menuData, demoVue, mds, demos } from './resourcePc.js'
 import { getDemosConfig, getApisConfig } from './componentsDoc.js'
 import { modeState } from './useModeCtx.js'

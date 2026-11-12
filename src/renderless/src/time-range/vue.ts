@@ -30,7 +30,7 @@ import {
   compuAmPmMode,
   adjustSpinners
 } from './index'
-import { parseDate1 as parseDate } from '@opentiny/utils'
+import { parseDate1 as parseDate } from '@tinysmall/utils'
 
 export const api = [
   'state',

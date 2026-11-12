@@ -46,10 +46,10 @@
 </template>
 
 <script lang="ts">
-import { setup, $prefix, $props, defineComponent } from '@opentiny/vue-common'
-import { renderless, api } from '@opentiny/vue-renderless/popup/vue'
-import { iconClose } from '@opentiny/vue-icon'
-import '@opentiny/vue-theme/popup/index.less'
+import { setup, $prefix, $props, defineComponent } from '@tinysmall/common'
+import { renderless, api } from '@tinysmall/renderless/popup/vue'
+import { iconClose } from '@tinysmall/icon'
+import '@tinysmall/theme/popup/index.less'
 
 const $constants = {
   OVERFLOWHIDDEN: 'tiny-overflow-hidde'

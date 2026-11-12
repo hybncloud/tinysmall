@@ -1,5 +1,5 @@
-import { $props, $prefix, $setup, defineComponent } from '@opentiny/vue-common'
-import type { ITooltipApi } from '@opentiny/vue-renderless/types/tooltip.type'
+import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
+import type { ITooltipApi } from '@tinysmall/renderless/types/tooltip.type'
 
 import template from 'virtual-template?pc'
 

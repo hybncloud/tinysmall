@@ -47,9 +47,9 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@opentiny/vue-renderless/link/vue'
-import { props, setup, defineComponent } from '@opentiny/vue-common'
-import type { ILinkApi } from '@opentiny/vue-renderless/types/link.type'
+import { renderless, api } from '@tinysmall/renderless/link/vue'
+import { props, setup, defineComponent } from '@tinysmall/common'
+import type { ILinkApi } from '@tinysmall/renderless/types/link.type'
 
 export default defineComponent({
   props: [...props, 'disabled', 'href', 'icon', 'type', 'underline', 'value'],

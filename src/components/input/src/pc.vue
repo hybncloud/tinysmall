@@ -269,16 +269,16 @@
 </template>
 
 <script>
-import { renderless, api } from '@opentiny/vue-renderless/input/vue'
-import { props, setup, defineComponent, directive } from '@opentiny/vue-common'
-import { Clickoutside } from '@opentiny/vue-directive'
+import { renderless, api } from '@tinysmall/renderless/input/vue'
+import { props, setup, defineComponent, directive } from '@tinysmall/common'
+import { Clickoutside } from '@tinysmall/directive'
 import TinyTallStorage from './tall-storage.vue'
-import { IconClose, IconEyeopen, IconEyeclose } from '@opentiny/vue-icon'
-import Tooltip from '@opentiny/vue-tooltip'
-import TinyButton from '@opentiny/vue-button'
-import TinyDialogBox from '@opentiny/vue-dialog-box'
-import '@opentiny/vue-theme/input/index.less'
-import '@opentiny/vue-theme/textarea/index.less'
+import { IconClose, IconEyeopen, IconEyeclose } from '@tinysmall/icon'
+import Tooltip from '@tinysmall/tooltip'
+import TinyButton from '@tinysmall/button'
+import TinyDialogBox from '@tinysmall/dialog-box'
+import '@tinysmall/theme/input/index.less'
+import '@tinysmall/theme/textarea/index.less'
 
 export default defineComponent({
   inheritAttrs: false, // 勿删，兼容灵雀特殊场景,MR#1861

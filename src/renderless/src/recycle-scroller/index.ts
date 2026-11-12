@@ -1,5 +1,5 @@
-import { getScrollContainer } from '@opentiny/utils'
-import { isNull } from '@opentiny/utils'
+import { getScrollContainer } from '@tinysmall/utils'
+import { isNull } from '@tinysmall/utils'
 
 let supportsPassive = false
 

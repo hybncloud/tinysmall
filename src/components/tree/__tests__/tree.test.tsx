@@ -1,7 +1,7 @@
-import { mountPcMode } from '@opentiny-internal/vue-test-utils'
+import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
 import { nextTick } from 'vue'
 import { describe, expect, test, vi } from 'vitest'
-import Tree from '@opentiny/vue-tree'
+import Tree from '@tinysmall/tree'
 
 const data = [
   {

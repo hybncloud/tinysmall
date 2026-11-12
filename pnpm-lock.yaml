@@ -284,6 +284,9 @@ importers:
       '@floating-ui/dom':
         specifier: ^1.6.9
         version: 1.8.0
+      '@opentiny/vue-icon':
+        specifier: ^3.32.0
+        version: 3.32.0
       '@rollup/pluginutils':
         specifier: ^5.5.1
         version: 5.5.1
@@ -704,6 +707,27 @@ packages:
 
   '@one-ini/wasm@0.2.1':
     resolution: {integrity: sha512-TUqERXGNTifZ9y2g3wPxQrw3HpHv/02DsW3D90T9x0hhonrL1ZqpSmNrU2XkoIq0fP1N6gZfVQzy2Fw1ZvGBNg==}
+
+  '@opentiny/utils@3.32.0':
+    resolution: {integrity: sha512-i6ek+ZSWJnRW8wwGVfub9fOJV8NpNWKnx2iEbMU7UcReZZICs6kf5UD6nIOCZzWigFcyG0gV7qH2F3p19xDe8g==}
+
+  '@opentiny/vue-common@3.32.0':
+    resolution: {integrity: sha512-CzE+J5KDtlgh1m3eo5cDqiLvyxnia3ZzXE0PitaeuVCzdBVwiW6zv7A4wUi9eoZ7eRB5fx04lF6fMs1Qf7zgNg==}
+
+  '@opentiny/vue-hooks@3.32.0':
+    resolution: {integrity: sha512-HcI+Y1LjQI8ovdH9cpq4WPgJ6AvSe5W+pyQoHEeRsb0GLA/aS6P5Ke6IWMoHAgugJCQN7zUIFVgtwGOjudsNtQ==}
+
+  '@opentiny/vue-icon@3.32.0':
+    resolution: {integrity: sha512-yo4WT7bA/Kwe+eFnsN3Q3vvcvpaoni99ld27h7J/JSpAnDoHjawkdbMgWX4jodShKlAKH/WcH0bq90rWjPl8dg==}
+
+  '@opentiny/vue-locale@3.32.0':
+    resolution: {integrity: sha512-TyeEMfyucoTDtFDfC8V5STh/Tjt2gGqd8lSTTfTYkCQAdYDb1kuUwSmTvXRRpx/eUPaDbQwf70i3Akrtr9JUXA==}
+
+  '@opentiny/vue-renderless@3.32.0':
+    resolution: {integrity: sha512-Xv3v5fzpsgfNQKqCnjo8v7lRpwhy3pPVFZVb6KVn6H6SHOekoKqxzupNirSXN6DYTzjEfJ+IW6amKM74jL8h7Q==}
+
+  '@opentiny/vue-theme@3.32.0':
+    resolution: {integrity: sha512-NuKdLmAovsBhlt/D9CpT7i9m7U0otKdWUd2Z3LM61gyDmWNk7rUiFerbgMe/+F9iplD6jqFOoshJRXhZyvwBvQ==}
 
   '@oxc-parser/binding-android-arm-eabi@0.153.0':
     resolution: {integrity: sha512-BcWu25dMwMjHpaDCEidmpAi7rGg1qZoihJeUUH9bD55pVZ0z4Wa5CQgqSTo0R41H81oozisQKW3WqvAN2m77IQ==}
@@ -1756,6 +1780,13 @@ packages:
   color-name@1.1.4:
     resolution: {integrity: sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==}
 
+  color-string@1.9.1:
+    resolution: {integrity: sha512-shrVawQFojnZv6xM40anx4CkoDP+fZsw/ZerEMsW/pyzsRbElpsL/DBVW7q3ExxwusdNXI3lXpuhEZkzs8p5Eg==}
+
+  color@4.2.3:
+    resolution: {integrity: sha512-1rXeuUUiGGrykh+CeBdu5Ie7OJwinCgQY0bc7GCRxy5xVHy+moaqkpL/jqQq0MtQOeYcrqEz4abc5f0KtU7W4A==}
+    engines: {node: '>=12.5.0'}
+
   colorette@2.0.20:
     resolution: {integrity: sha512-IfEDxwoWIjkeXL1eXcDiow4UbKjhLdq6/EuSVR9GMN7KVH3r9gQ83e73hsz1Nd1T3ijd5xv1wcWRYO+D6kCI2w==}
 
@@ -2083,6 +2114,9 @@ packages:
 
   ini@1.3.8:
     resolution: {integrity: sha512-JV/yugV2uzW5iMRSiZAyDtQd+nxtUnjeLt0acNdw98kKLrvuRVyB80tsREOE7yvGVgalhZ6RNXCmEHkUKBKxew==}
+
+  is-arrayish@0.3.4:
+    resolution: {integrity: sha512-m6UrgzFVUYawGBh1dUsWR5M2Clqic9RVXC/9f8ceNlv2IcO9j9J/z8UoCLPqtsPBFNzEpfR3xftohbfqDx8EQA==}
 
   is-extendable@0.1.1:
     resolution: {integrity: sha512-5BMULNob1vgFX6EjQw5izWDxrecWK9AM72rugNr0TFldMOi0fj6Jk+zeKIt0xGj4cEfQIJth4w3OKWOJ4f+AFw==}
@@ -2677,6 +2711,9 @@ packages:
     resolution: {integrity: sha512-imjLsVHgPuWhvpU3P+zOekvMYqnel7QmKsFC4Sn0fCuAvaaalBsxwKEsrU8Ko5BdFnZA6Go/8a0RzahS634UgA==}
     engines: {node: '>=20'}
 
+  simple-swizzle@0.2.4:
+    resolution: {integrity: sha512-nAu1WFPQSMNr2Zn9PGSZK9AGn4t/y97lEm+MXTtUDwfP0ksAIX4nO+6ruD9Jwut4C49SB1Ws+fbXsm/yScWOHw==}
+
   sortablejs@1.15.7:
     resolution: {integrity: sha512-Kk8wLQPlS+yi1ZEf48a4+fzHa4yxjC30M/Sr2AnQu+f/MPwvvX9XjZ6OWejiz8crBsLwSq8GHqaxaET7u6ux0A==}
 
@@ -2731,6 +2768,9 @@ packages:
 
   tabbable@6.5.1:
     resolution: {integrity: sha512-dMCuwDUY6Noz3zVKLefBC4wq+aJV20yc7vWmM7uTNGwtQSFF5kX7OUIUsxuVajz/bdt5Xqdah3/0NLjth+cM5A==}
+
+  tailwind-merge@1.14.0:
+    resolution: {integrity: sha512-3mFKyCo/MBcgyOTlrY8T7odzZFx+w+qKSMAmdFzRvqBfLlSigU6TZnlFHK0lkMwj9Bj8OYU+9yW9lmGuS0QEnQ==}
 
   tinybench@6.2.2:
     resolution: {integrity: sha512-nIZ2N2dFpjBsg2hgitKu7mA+FvsIJuGJOwysRngmVRRmWgR/UyPjwJj8c/fT/dhm8EkHnF5EOogRf+0Z2qrimA==}
@@ -3581,6 +3621,43 @@ snapshots:
   '@mdit-vue/types@3.0.2': {}
 
   '@one-ini/wasm@0.2.1': {}
+
+  '@opentiny/utils@3.32.0':
+    dependencies:
+      xss: 1.0.14
+
+  '@opentiny/vue-common@3.32.0':
+    dependencies:
+      '@opentiny/utils': 3.32.0
+      '@opentiny/vue-hooks': 3.32.0
+      '@opentiny/vue-locale': 3.32.0
+      '@opentiny/vue-renderless': 3.32.0
+      '@opentiny/vue-theme': 3.32.0
+      tailwind-merge: 1.14.0
+
+  '@opentiny/vue-hooks@3.32.0':
+    dependencies:
+      '@floating-ui/dom': 1.8.0
+      '@opentiny/utils': 3.32.0
+
+  '@opentiny/vue-icon@3.32.0':
+    dependencies:
+      '@opentiny/vue-common': 3.32.0
+      '@opentiny/vue-theme': 3.32.0
+
+  '@opentiny/vue-locale@3.32.0':
+    dependencies:
+      '@opentiny/utils': 3.32.0
+      '@opentiny/vue-renderless': 3.32.0
+      '@opentiny/vue-theme': 3.32.0
+
+  '@opentiny/vue-renderless@3.32.0':
+    dependencies:
+      '@opentiny/utils': 3.32.0
+      '@opentiny/vue-hooks': 3.32.0
+      color: 4.2.3
+
+  '@opentiny/vue-theme@3.32.0': {}
 
   '@oxc-parser/binding-android-arm-eabi@0.153.0':
     optional: true
@@ -4450,6 +4527,16 @@ snapshots:
 
   color-name@1.1.4: {}
 
+  color-string@1.9.1:
+    dependencies:
+      color-name: 1.1.4
+      simple-swizzle: 0.2.4
+
+  color@4.2.3:
+    dependencies:
+      color-convert: 2.0.1
+      color-string: 1.9.1
+
   colorette@2.0.20: {}
 
   comma-separated-tokens@2.0.3: {}
@@ -4727,6 +4814,8 @@ snapshots:
   import-without-cache@0.4.1: {}
 
   ini@1.3.8: {}
+
+  is-arrayish@0.3.4: {}
 
   is-extendable@0.1.1: {}
 
@@ -5329,6 +5418,10 @@ snapshots:
       '@shikijs/vscode-textmate': 10.1.0
       '@types/hast': 3.0.5
 
+  simple-swizzle@0.2.4:
+    dependencies:
+      is-arrayish: 0.3.4
+
   sortablejs@1.15.7: {}
 
   source-map-js@1.2.2: {}
@@ -5379,6 +5472,8 @@ snapshots:
     optional: true
 
   tabbable@6.5.1: {}
+
+  tailwind-merge@1.14.0: {}
 
   tinybench@6.2.2: {}
 

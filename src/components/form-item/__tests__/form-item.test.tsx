@@ -1,8 +1,8 @@
-import { mountPcMode } from '@opentiny-internal/vue-test-utils'
+import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
 import { describe, expect, test } from 'vitest'
-import Form from '@opentiny/vue-form'
-import FormItem from '@opentiny/vue-form-item'
-import Input from '@opentiny/vue-input'
+import Form from '@tinysmall/form'
+import FormItem from '@tinysmall/form-item'
+import Input from '@tinysmall/input'
 
 describe('PC Mode', () => {
   test('should remove built-in layout while preserving validation when no-style is true', async () => {

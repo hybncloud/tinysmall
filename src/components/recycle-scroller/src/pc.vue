@@ -49,10 +49,10 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@opentiny/vue-renderless/recycle-scroller/vue'
-import { props, setup, defineComponent } from '@opentiny/vue-common'
-import { ObserveVisibility } from '@opentiny/vue-directive'
-import '@opentiny/vue-theme/recycle-scroller/index.less'
+import { renderless, api } from '@tinysmall/renderless/recycle-scroller/vue'
+import { props, setup, defineComponent } from '@tinysmall/common'
+import { ObserveVisibility } from '@tinysmall/directive'
+import '@tinysmall/theme/recycle-scroller/index.less'
 
 export default defineComponent({
   emits: ['resize', 'visible', 'hidden', 'update', 'scroll-start', 'scroll-end'],

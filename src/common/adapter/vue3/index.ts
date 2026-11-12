@@ -11,7 +11,7 @@
  */
 import * as hooks from 'vue'
 
-import { camelize, capitalize, hyphenate } from '@opentiny/utils'
+import { camelize, capitalize, hyphenate } from '@tinysmall/utils'
 import { bindFilter, emitter, getElementCssClass, getElementStatusClass } from '../utils'
 import { __TINY__ } from '../__longque__'
 

@@ -5,8 +5,8 @@
 </template>
 
 <script lang="ts">
-import { $prefix, $props, defineComponent } from '@opentiny/vue-common'
-import DropdownItem from '@opentiny/vue-dropdown-item'
+import { $prefix, $props, defineComponent } from '@tinysmall/common'
+import DropdownItem from '@tinysmall/dropdown-item'
 
 export default defineComponent({
   name: $prefix + 'TabDropdownItem',

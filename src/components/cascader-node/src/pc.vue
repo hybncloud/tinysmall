@@ -10,17 +10,17 @@
  *
  -->
 <script lang="tsx">
-import { renderless, api } from '@opentiny/vue-renderless/cascader-node/vue'
-import { $prefix, setup, h, $props, defineComponent } from '@opentiny/vue-common'
-import Checkbox from '@opentiny/vue-checkbox'
-import Radio from '@opentiny/vue-radio'
-import { isEqual } from '@opentiny/utils'
-import { iconLoadingShadow, iconChevronRight, iconYes } from '@opentiny/vue-icon'
-import type { PropType } from '@opentiny/vue-common'
-import { AutoTip } from '@opentiny/vue-directive'
-import type { ICascaderNodeApi, ICascaderNodeRenderlessParams } from '@opentiny/vue-renderless/types/cascader-node.type'
-import type { ICascaderPanelNode } from '@opentiny/vue-renderless/types/cascader-panel.type'
-import '@opentiny/vue-theme/cascader-node/index.less'
+import { renderless, api } from '@tinysmall/renderless/cascader-node/vue'
+import { $prefix, setup, h, $props, defineComponent } from '@tinysmall/common'
+import Checkbox from '@tinysmall/checkbox'
+import Radio from '@tinysmall/radio'
+import { isEqual } from '@tinysmall/utils'
+import { iconLoadingShadow, iconChevronRight, iconYes } from '@tinysmall/icon'
+import type { PropType } from '@tinysmall/common'
+import { AutoTip } from '@tinysmall/directive'
+import type { ICascaderNodeApi, ICascaderNodeRenderlessParams } from '@tinysmall/renderless/types/cascader-node.type'
+import type { ICascaderPanelNode } from '@tinysmall/renderless/types/cascader-panel.type'
+import '@tinysmall/theme/cascader-node/index.less'
 
 export default defineComponent({
   name: $prefix + 'CascaderNode',

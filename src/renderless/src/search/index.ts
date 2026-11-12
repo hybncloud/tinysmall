@@ -10,9 +10,9 @@
  *
  */
 import type { ISearchRenderlessParams, ISearchValue } from '../../types'
-import { on, off } from '@opentiny/utils'
-import { PopupManager } from '@opentiny/utils'
-import { isObject, typeOf } from '@opentiny/utils'
+import { on, off } from '@tinysmall/utils'
+import { PopupManager } from '@tinysmall/utils'
+import { isObject, typeOf } from '@tinysmall/utils'
 
 export const emitInput =
   ({ emit }: Pick<ISearchRenderlessParams, 'emit'>) =>

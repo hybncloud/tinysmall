@@ -1,6 +1,6 @@
-import { mountPcMode } from '@opentiny-internal/vue-test-utils'
+import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
 import { describe, expect, test } from 'vitest'
-import YearRange from '@opentiny/vue-year-range'
+import YearRange from '@tinysmall/year-range'
 import { nextTick } from 'vue'
 
 describe('PC Mode', () => {

@@ -66,11 +66,11 @@
 </template>
 
 <script lang="tsx">
-import { renderless, api } from '@opentiny/vue-renderless/collapse-item/vue'
-import { props, setup, defineComponent } from '@opentiny/vue-common'
-import CollapseTransition from '@opentiny/vue-collapse-transition'
-import { iconChevronRight } from '@opentiny/vue-icon'
-import type { ICollapseItemApi } from '@opentiny/vue-renderless/types/collapse-item.type'
+import { renderless, api } from '@tinysmall/renderless/collapse-item/vue'
+import { props, setup, defineComponent } from '@tinysmall/common'
+import CollapseTransition from '@tinysmall/collapse-transition'
+import { iconChevronRight } from '@tinysmall/icon'
+import type { ICollapseItemApi } from '@tinysmall/renderless/types/collapse-item.type'
 
 export default defineComponent({
   props: [...props, 'title', 'titleRight', 'name', 'disabled', 'expandIcon'],

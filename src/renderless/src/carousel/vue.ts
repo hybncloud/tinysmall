@@ -29,7 +29,7 @@ import {
   computedHasIndicators,
   canActive
 } from './index'
-import { addResizeListener, removeResizeListener } from '@opentiny/utils'
+import { addResizeListener, removeResizeListener } from '@tinysmall/utils'
 
 export const api = [
   'state',

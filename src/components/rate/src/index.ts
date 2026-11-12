@@ -9,8 +9,8 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-import { $props, $prefix, $setup, defineComponent } from '@opentiny/vue-common'
-import { t } from '@opentiny/vue-locale'
+import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
+import { t } from '@tinysmall/locale'
 import template from 'virtual-template?pc'
 
 export const $constants = {

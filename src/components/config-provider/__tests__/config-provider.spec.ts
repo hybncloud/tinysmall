@@ -1,9 +1,9 @@
-import { mountPcMode } from '@opentiny-internal/vue-test-utils'
+import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
 import { describe, test, expect } from 'vitest'
-import ConfigProvider, { configProviderContextKey } from '@opentiny/vue-config-provider'
+import ConfigProvider, { configProviderContextKey } from '@tinysmall/config-provider'
 import { defineComponent, h, inject } from 'vue'
 import type { ConfigProviderProps } from '../src/props'
-import { isVue2 } from '@opentiny/vue-common'
+import { isVue2 } from '@tinysmall/common'
 
 describe('PC Mode', () => {
   const mount = mountPcMode

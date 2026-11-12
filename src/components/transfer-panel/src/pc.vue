@@ -106,12 +106,12 @@
 </template>
 
 <script lang="ts">
-import { $prefix, setup, defineComponent } from '@opentiny/vue-common'
-import { renderless, api } from '@opentiny/vue-renderless/transfer-panel/vue'
-import Checkbox from '@opentiny/vue-checkbox'
-import Input from '@opentiny/vue-input'
-import Pager from '@opentiny/vue-pager'
-import { iconArrowUp, iconArrowDown, iconYes, iconSearch } from '@opentiny/vue-icon'
+import { $prefix, setup, defineComponent } from '@tinysmall/common'
+import { renderless, api } from '@tinysmall/renderless/transfer-panel/vue'
+import Checkbox from '@tinysmall/checkbox'
+import Input from '@tinysmall/input'
+import Pager from '@tinysmall/pager'
+import { iconArrowUp, iconArrowDown, iconYes, iconSearch } from '@tinysmall/icon'
 
 export const transferPanelProps = {
   columns: Array,

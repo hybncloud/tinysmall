@@ -10,10 +10,10 @@
  *
  -->
 <script lang="tsx">
-import { renderless, api } from '@opentiny/vue-renderless/tag/vue'
-import { props, setup, h, defineComponent } from '@opentiny/vue-common'
-import { iconClose } from '@opentiny/vue-icon'
-import type { ITagApi } from '@opentiny/vue-renderless/types/tag.type'
+import { renderless, api } from '@tinysmall/renderless/tag/vue'
+import { props, setup, h, defineComponent } from '@tinysmall/common'
+import { iconClose } from '@tinysmall/icon'
+import type { ITagApi } from '@tinysmall/renderless/types/tag.type'
 
 export default defineComponent({
   components: {

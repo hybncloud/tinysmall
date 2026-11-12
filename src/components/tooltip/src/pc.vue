@@ -12,7 +12,7 @@
  -->
 
 <script lang="tsx">
-import { renderless, api } from '@opentiny/vue-renderless/tooltip/vue'
+import { renderless, api } from '@tinysmall/renderless/tooltip/vue'
 import {
   $prefix,
   setup,
@@ -25,10 +25,10 @@ import {
   hooks,
   stringifyCssClass,
   deduplicateCssClass
-} from '@opentiny/vue-common'
-import type { ITinyVm } from '@opentiny/vue-renderless/types/shared.type'
-import '@opentiny/vue-theme/tooltip/index.less'
-import type { ITooltipApi } from '@opentiny/vue-renderless/types/tooltip.type'
+} from '@tinysmall/common'
+import type { ITinyVm } from '@tinysmall/renderless/types/shared.type'
+import '@tinysmall/theme/tooltip/index.less'
+import type { ITooltipApi } from '@tinysmall/renderless/types/tooltip.type'
 
 export default defineComponent({
   name: $prefix + 'Tooltip',

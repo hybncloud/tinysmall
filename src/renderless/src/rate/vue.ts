@@ -33,7 +33,7 @@ import {
   computedActiveColor,
   computedActiveClass
 } from './index'
-import { on, off } from '@opentiny/utils'
+import { on, off } from '@tinysmall/utils'
 
 export const api = [
   'state',

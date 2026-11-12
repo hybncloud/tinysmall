@@ -1,4 +1,4 @@
-import { svg } from '@opentiny/vue-common'
-import ArrowUp from '@opentiny/vue-theme/svgs/arrow-up.svg?component'
+import { svg } from '@tinysmall/common'
+import ArrowUp from '@tinysmall/theme/svgs/arrow-up.svg?component'
 
 export default () => svg({ name: 'IconArrowUp', component: ArrowUp, filledComponent: ArrowUp })()

@@ -11,10 +11,10 @@
  */
 
 import type { IImageProps, IImageRenderlessParams, IImageState } from '../../types'
-import { on, off, getScrollContainer, isInContainer } from '@opentiny/utils'
-import { typeOf } from '@opentiny/utils'
+import { on, off, getScrollContainer, isInContainer } from '@tinysmall/utils'
+import { typeOf } from '@tinysmall/utils'
 import { rafThrottle } from '../image-viewer'
-import { xss } from '@opentiny/utils'
+import { xss } from '@tinysmall/utils'
 
 const isSupportObjectFit = () => document.documentElement.style.objectFit !== undefined
 

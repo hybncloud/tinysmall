@@ -10,7 +10,7 @@
  *
  */
 import Time from './src/index'
-import '@opentiny/vue-theme/time-panel/index.less'
+import '@tinysmall/theme/time-panel/index.less'
 import { version } from 'package.json'
 
 /* istanbul ignore next */

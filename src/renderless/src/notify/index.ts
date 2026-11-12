@@ -10,9 +10,9 @@
  *
  */
 
-import { KEY_CODE } from '@opentiny/utils'
-import { on, off } from '@opentiny/utils'
-import { PopupManager } from '@opentiny/utils'
+import { KEY_CODE } from '@tinysmall/utils'
+import { on, off } from '@tinysmall/utils'
+import { PopupManager } from '@tinysmall/utils'
 
 export const startTimer =
   ({ api, state }) =>

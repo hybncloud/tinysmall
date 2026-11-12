@@ -48,7 +48,7 @@ import {
   handleMouseenter,
   handleMouseleave
 } from './index'
-import { nanoid } from '@opentiny/utils'
+import { nanoid } from '@tinysmall/utils'
 import type {
   IFormItemApi,
   IFormItemProps,

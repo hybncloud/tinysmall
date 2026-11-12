@@ -10,9 +10,9 @@
  *
  -->
 <script lang="ts">
-import Picker from '@opentiny/vue-picker'
-import { $props } from '@opentiny/vue-common'
-import { extend } from '@opentiny/utils'
+import Picker from '@tinysmall/picker'
+import { $props } from '@tinysmall/common'
+import { extend } from '@tinysmall/utils'
 
 const DatePicker = extend(
   true,

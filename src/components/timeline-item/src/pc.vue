@@ -165,11 +165,11 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@opentiny/vue-renderless/timeline-item/vue'
-import { props, setup, defineComponent } from '@opentiny/vue-common'
-import { iconWarn, iconClose, iconYes } from '@opentiny/vue-icon'
-import '@opentiny/vue-theme/steps/index.less'
-import type { ITimelineItemApi } from '@opentiny/vue-renderless/types/timeline-item.type'
+import { renderless, api } from '@tinysmall/renderless/timeline-item/vue'
+import { props, setup, defineComponent } from '@tinysmall/common'
+import { iconWarn, iconClose, iconYes } from '@tinysmall/icon'
+import '@tinysmall/theme/steps/index.less'
+import type { ITimelineItemApi } from '@tinysmall/renderless/types/timeline-item.type'
 
 export default defineComponent({
   emits: ['click'],

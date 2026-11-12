@@ -1,7 +1,7 @@
-import { throttle } from '@opentiny/utils'
-import { getDirection } from '@opentiny/utils'
-import { POSITION } from '@opentiny/utils'
-import { emulate } from '@opentiny/utils'
+import { throttle } from '@tinysmall/utils'
+import { getDirection } from '@tinysmall/utils'
+import { POSITION } from '@tinysmall/utils'
+import { emulate } from '@tinysmall/utils'
 
 // 鼠标进入幻灯片事件
 export const handleMouseEnter =

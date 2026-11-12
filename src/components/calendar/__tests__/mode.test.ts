@@ -1,6 +1,6 @@
-import { mountPcMode } from '@opentiny-internal/vue-test-utils'
+import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
 import { afterEach, describe, expect, test } from 'vitest'
-import Calendar from '@opentiny/vue-calendar'
+import Calendar from '@tinysmall/calendar'
 
 const flush = () => new Promise((resolve) => setTimeout(resolve, 0))
 

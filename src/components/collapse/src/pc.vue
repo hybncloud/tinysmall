@@ -16,8 +16,8 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@opentiny/vue-renderless/collapse/vue'
-import { props, setup, defineComponent } from '@opentiny/vue-common'
+import { renderless, api } from '@tinysmall/renderless/collapse/vue'
+import { props, setup, defineComponent } from '@tinysmall/common'
 
 export default defineComponent({
   props: [...props, 'accordion', 'modelValue', 'beforeClose', 'size'],

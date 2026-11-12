@@ -11,7 +11,7 @@
  */
 
 import { handleScroll, update } from './index'
-import { addResizeListener, removeResizeListener } from '@opentiny/utils'
+import { addResizeListener, removeResizeListener } from '@tinysmall/utils'
 
 export const api = ['state', 'update', 'handleScroll']
 

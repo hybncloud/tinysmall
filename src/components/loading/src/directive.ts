@@ -9,11 +9,11 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-import { afterLeave } from '@opentiny/utils'
-import { PopupManager } from '@opentiny/utils'
-import { addClass, getStyle, removeClass } from '@opentiny/utils'
+import { afterLeave } from '@tinysmall/utils'
+import { PopupManager } from '@tinysmall/utils'
+import { addClass, getStyle, removeClass } from '@tinysmall/utils'
 import Loading from './index'
-import { hooks, directive, createComponent, appProperties } from '@opentiny/vue-common'
+import { hooks, directive, createComponent, appProperties } from '@tinysmall/common'
 import { constants, defaults } from './service'
 
 const insertDom = (parent, el, binding) => {

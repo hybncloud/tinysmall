@@ -102,15 +102,15 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@opentiny/vue-renderless/numeric/vue'
-import { props, setup, directive, defineComponent } from '@opentiny/vue-common'
-import { RepeatClick } from '@opentiny/vue-directive'
-import { iconChevronDown, iconChevronUp, iconMinus, iconPlus } from '@opentiny/vue-icon'
-import '@opentiny/vue-theme/numeric/index.less'
-import type { INumericApi } from '@opentiny/vue-renderless/types/numeric.type'
-import Radio from '@opentiny/vue-radio'
-import RadioGroup from '@opentiny/vue-radio-group'
-import Tag from '@opentiny/vue-tag'
+import { renderless, api } from '@tinysmall/renderless/numeric/vue'
+import { props, setup, directive, defineComponent } from '@tinysmall/common'
+import { RepeatClick } from '@tinysmall/directive'
+import { iconChevronDown, iconChevronUp, iconMinus, iconPlus } from '@tinysmall/icon'
+import '@tinysmall/theme/numeric/index.less'
+import type { INumericApi } from '@tinysmall/renderless/types/numeric.type'
+import Radio from '@tinysmall/radio'
+import RadioGroup from '@tinysmall/radio-group'
+import Tag from '@tinysmall/tag'
 
 export default defineComponent({
   directives: directive({

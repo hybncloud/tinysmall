@@ -246,16 +246,16 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@opentiny/vue-renderless/date-panel/vue'
-import { $prefix, setup, directive, defineComponent, $props } from '@opentiny/vue-common'
-import { language } from '@opentiny/vue-locale'
-import { Clickoutside } from '@opentiny/vue-directive'
-import TimePicker from '@opentiny/vue-time'
-import DateTable from '@opentiny/vue-date-table'
-import YearTable from '@opentiny/vue-year-table'
-import MonthTable from '@opentiny/vue-month-table'
-import Input from '@opentiny/vue-input'
-import Button from '@opentiny/vue-button'
+import { renderless, api } from '@tinysmall/renderless/date-panel/vue'
+import { $prefix, setup, directive, defineComponent, $props } from '@tinysmall/common'
+import { language } from '@tinysmall/locale'
+import { Clickoutside } from '@tinysmall/directive'
+import TimePicker from '@tinysmall/time'
+import DateTable from '@tinysmall/date-table'
+import YearTable from '@tinysmall/year-table'
+import MonthTable from '@tinysmall/month-table'
+import Input from '@tinysmall/input'
+import Button from '@tinysmall/button'
 import {
   iconDoubleRight,
   iconDoubleLeft,
@@ -263,8 +263,8 @@ import {
   iconChevronRight,
   iconChevronDown,
   iconChevronUp
-} from '@opentiny/vue-icon'
-import Popup from '@opentiny/vue-popup'
+} from '@tinysmall/icon'
+import Popup from '@tinysmall/popup'
 
 export default defineComponent({
   name: $prefix + 'DatePanel',

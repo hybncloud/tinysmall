@@ -18,11 +18,11 @@ import type {
   INumericGetEmitValueParams,
   INumericUnitPrecision
 } from '../../types'
-import { formatNumber, roundFixed } from '@opentiny/utils'
-import { getMiniDecimal, lessEquals, equalsDecimal } from '@opentiny/utils'
-import { isNumber, isNull } from '@opentiny/utils'
-import { MOUSEDELTA } from '@opentiny/utils'
-import { on, off } from '@opentiny/utils'
+import { formatNumber, roundFixed } from '@tinysmall/utils'
+import { getMiniDecimal, lessEquals, equalsDecimal } from '@tinysmall/utils'
+import { isNumber, isNull } from '@tinysmall/utils'
+import { MOUSEDELTA } from '@tinysmall/utils'
+import { on, off } from '@tinysmall/utils'
 
 export const initService = (
   service: INumericRenderlessParamUtils['service']

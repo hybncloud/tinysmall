@@ -10,7 +10,7 @@
  *
  */
 import DatePanel from './src/index'
-import '@opentiny/vue-theme/date-panel/index.less'
+import '@tinysmall/theme/date-panel/index.less'
 import { version } from 'package.json'
 
 /* istanbul ignore next */

@@ -121,11 +121,11 @@
 </template>
 
 <script lang="tsx">
-import { renderless, api } from '@opentiny/vue-renderless/search/vue'
-import { props, setup, defineComponent } from '@opentiny/vue-common'
-import { iconChevronDown, iconSearch, iconClose } from '@opentiny/vue-icon'
-import '@opentiny/vue-theme/search/index.less'
-import type { ISearchApi } from '@opentiny/vue-renderless/types/search.type'
+import { renderless, api } from '@tinysmall/renderless/search/vue'
+import { props, setup, defineComponent } from '@tinysmall/common'
+import { iconChevronDown, iconSearch, iconClose } from '@tinysmall/icon'
+import '@tinysmall/theme/search/index.less'
+import type { ISearchApi } from '@tinysmall/renderless/types/search.type'
 
 export default defineComponent({
   props: [

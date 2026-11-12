@@ -1,5 +1,5 @@
-import { $props, $prefix, $setup, defineComponent } from '@opentiny/vue-common'
-import { browserInfo } from '@opentiny/utils'
+import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
+import { browserInfo } from '@tinysmall/utils'
 import template from 'virtual-template?pc'
 
 export default defineComponent({

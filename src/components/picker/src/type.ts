@@ -1,4 +1,4 @@
-import { iconClose } from '@opentiny/vue-icon'
+import { iconClose } from '@tinysmall/icon'
 
 export const pickerProps = {
   type: {

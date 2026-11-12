@@ -1,7 +1,7 @@
 import { ref } from 'vue'
-import Transfer from '@opentiny/vue-transfer'
+import Transfer from '@tinysmall/transfer'
 import { describe, expect, test } from 'vitest'
-import { mountPcMode } from '@opentiny-internal/vue-test-utils'
+import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
 
 describe('PC Mode', () => {
   const mount = mountPcMode

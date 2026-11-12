@@ -1,4 +1,4 @@
-// @opentiny/vue-renderless/space/vue/index.ts
+// @tinysmall/renderless/space/vue/index.ts
 import type { ISpaceProps } from '../../types'
 import { getGapStyle } from './index'
 

@@ -56,8 +56,8 @@ import {
   handleTextareaMouseUp
 } from './index'
 import useStorageBox from '../tall-storage/vue-storage-box'
-import { on, off } from '@opentiny/utils'
-import { debounceBoth } from '@opentiny/utils'
+import { on, off } from '@tinysmall/utils'
+import { debounceBoth } from '@tinysmall/utils'
 
 export const api = [
   'blur',

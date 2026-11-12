@@ -10,10 +10,10 @@
  *
  */
 
-import { debounce } from '@opentiny/utils'
-import { userPopper } from '@opentiny/vue-hooks'
+import { debounce } from '@tinysmall/utils'
+import { userPopper } from '@tinysmall/hooks'
 import type { Ref } from 'vue'
-import { guid } from '@opentiny/utils'
+import { guid } from '@tinysmall/utils'
 import {
   computedVisible,
   watchVisible,

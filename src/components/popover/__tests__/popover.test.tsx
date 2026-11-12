@@ -1,7 +1,7 @@
-import { mountPcMode as mount } from '@opentiny-internal/vue-test-utils'
+import { mountPcMode as mount } from '@tinysmall-internal/vue-test-utils'
 import { describe, test, expect, afterEach } from 'vitest'
-import Button from '@opentiny/vue-button'
-import Popover from '@opentiny/vue-popover'
+import Button from '@tinysmall/button'
+import Popover from '@tinysmall/popover'
 import { ref } from 'vue'
 
 describe('PC Mode', () => {

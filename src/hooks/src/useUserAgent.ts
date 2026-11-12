@@ -1,4 +1,4 @@
-import { isServer } from '@opentiny/utils'
+import { isServer } from '@tinysmall/utils'
 
 function getIsIOS() {
   if (isServer) return false

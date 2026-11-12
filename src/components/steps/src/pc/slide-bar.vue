@@ -49,9 +49,9 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@opentiny/vue-renderless/steps/slide-bar'
-import { defineComponent, setup, $props } from '@opentiny/vue-common'
-import { iconChevronLeft, iconChevronRight } from '@opentiny/vue-icon'
+import { renderless, api } from '@tinysmall/renderless/steps/slide-bar'
+import { defineComponent, setup, $props } from '@tinysmall/common'
+import { iconChevronLeft, iconChevronRight } from '@tinysmall/icon'
 
 export default defineComponent({
   emits: ['click'],

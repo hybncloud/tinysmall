@@ -28,10 +28,10 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@opentiny/vue-renderless/drop-times/vue'
-import { props, setup, defineComponent } from '@opentiny/vue-common'
-import Select from '@opentiny/vue-base-select'
-import Option from '@opentiny/vue-option'
+import { renderless, api } from '@tinysmall/renderless/drop-times/vue'
+import { props, setup, defineComponent } from '@tinysmall/common'
+import Select from '@tinysmall/base-select'
+import Option from '@tinysmall/option'
 
 export default defineComponent({
   components: {

@@ -1,6 +1,6 @@
 import { cloneDeep } from '../chart-core/deps/utils'
-import { getDirection } from '@opentiny/utils'
-import { getDays, lastMonth, nextMonth, getCalendar, transformArray } from '@opentiny/utils'
+import { getDirection } from '@tinysmall/utils'
+import { getDays, lastMonth, nextMonth, getCalendar, transformArray } from '@tinysmall/utils'
 
 const getTime = (date) => new Date(date).getTime()
 

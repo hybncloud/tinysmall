@@ -43,9 +43,9 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@opentiny/vue-renderless/panel/vue'
-import { props, setup, defineComponent } from '@opentiny/vue-common'
-import { iconChevronDown, iconChevronRight } from '@opentiny/vue-icon'
+import { renderless, api } from '@tinysmall/renderless/panel/vue'
+import { props, setup, defineComponent } from '@tinysmall/common'
+import { iconChevronDown, iconChevronRight } from '@tinysmall/icon'
 
 export default defineComponent({
   components: {

@@ -1,7 +1,7 @@
-import Link from '@opentiny/vue-link'
+import Link from '@tinysmall/link'
 import { describe, expect, test } from 'vitest'
-import { iconEdit } from '@opentiny/vue-icon'
-import { mountPcMode } from '@opentiny-internal/vue-test-utils'
+import { iconEdit } from '@tinysmall/icon'
+import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
 
 const iconTest = 'IconDel()'
 const IconEdit = iconEdit()

@@ -16,9 +16,9 @@ import type {
   ICascaderPanelNodeValue
 } from '../../types'
 
-import { isEqual } from '@opentiny/utils'
-import { capitalize } from '@opentiny/utils'
-import { isNull } from '@opentiny/utils'
+import { isEqual } from '@tinysmall/utils'
+import { capitalize } from '@tinysmall/utils'
+import { isNull } from '@tinysmall/utils'
 
 let uid = 0
 

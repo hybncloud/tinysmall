@@ -11,8 +11,8 @@
  *
  */
 import type { ITabBarPcRenderlessParams, ITabBarStyle } from '../../types'
-import { POSITION } from '@opentiny/utils'
-import { capitalize } from '@opentiny/utils'
+import { POSITION } from '@tinysmall/utils'
+import { capitalize } from '@tinysmall/utils'
 
 export const computedBarStyle =
   (parent: ITabBarPcRenderlessParams['parent']) =>

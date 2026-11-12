@@ -52,7 +52,7 @@ import {
   fileUploadChange,
   deleteFile
 } from './index'
-import { formatFileSize } from '@opentiny/utils'
+import { formatFileSize } from '@tinysmall/utils'
 
 export const api = [
   'state',

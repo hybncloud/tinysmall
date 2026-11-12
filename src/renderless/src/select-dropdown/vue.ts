@@ -21,10 +21,10 @@ import {
   cancelSearch,
   handleClear
 } from './index'
-import { userPopper } from '@opentiny/vue-hooks'
-import { PopupManager } from '@opentiny/utils'
-import { debounce } from '@opentiny/utils'
-import { isServer } from '@opentiny/utils'
+import { userPopper } from '@tinysmall/hooks'
+import { PopupManager } from '@tinysmall/utils'
+import { debounce } from '@tinysmall/utils'
+import { isServer } from '@tinysmall/utils'
 
 export const api = [
   'state',

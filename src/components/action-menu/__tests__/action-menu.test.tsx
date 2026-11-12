@@ -1,6 +1,6 @@
-import { mountPcMode } from '@opentiny-internal/vue-test-utils'
+import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
 import { describe, test, expect, vi } from 'vitest'
-import ActionMenu from '@opentiny/vue-action-menu'
+import ActionMenu from '@tinysmall/action-menu'
 
 describe('PC Mode', () => {
   const mount = mountPcMode

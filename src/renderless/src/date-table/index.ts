@@ -20,7 +20,7 @@ import {
   clearTime,
   formatDate,
   DATEPICKER
-} from '@opentiny/utils'
+} from '@tinysmall/utils'
 
 const formatJudg = ({ day, offset, j, i, cell, count, dateCountOfLastMonth }) => {
   const nodfpm = day + offset <= 0 ? 7 + day + offset : day + offset

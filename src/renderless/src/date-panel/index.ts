@@ -34,7 +34,7 @@ import {
   off,
   getDateWithNewTimezone,
   getLocalTimezone
-} from '@opentiny/utils'
+} from '@tinysmall/utils'
 
 export const getYearLabel =
   ({ state, t }) =>

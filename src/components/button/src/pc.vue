@@ -45,11 +45,11 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@opentiny/vue-renderless/button/vue'
-import { props, setup, defineComponent } from '@opentiny/vue-common'
-import { iconLoadingShadow } from '@opentiny/vue-icon'
-import type { IButtonApi } from '@opentiny/vue-renderless/types/button.type'
-import '@opentiny/vue-theme/button/index.less'
+import { renderless, api } from '@tinysmall/renderless/button/vue'
+import { props, setup, defineComponent } from '@tinysmall/common'
+import { iconLoadingShadow } from '@tinysmall/icon'
+import type { IButtonApi } from '@tinysmall/renderless/types/button.type'
+import '@tinysmall/theme/button/index.less'
 
 export default defineComponent({
   emits: ['click'],

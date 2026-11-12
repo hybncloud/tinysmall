@@ -1,4 +1,4 @@
-import { svg } from '@opentiny/vue-common'
-import View from '@opentiny/vue-theme/svgs/view.svg?component'
+import { svg } from '@tinysmall/common'
+import View from '@tinysmall/theme/svgs/view.svg?component'
 
 export default () => svg({ name: 'IconView', component: View, filledComponent: View })()

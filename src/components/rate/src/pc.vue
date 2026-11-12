@@ -65,9 +65,9 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@opentiny/vue-renderless/rate/vue'
-import { props, setup, defineComponent } from '@opentiny/vue-common'
-import { iconStarActive, iconStarDisable, iconSmile, iconFrown, iconMeh } from '@opentiny/vue-icon'
+import { renderless, api } from '@tinysmall/renderless/rate/vue'
+import { props, setup, defineComponent } from '@tinysmall/common'
+import { iconStarActive, iconStarDisable, iconSmile, iconFrown, iconMeh } from '@tinysmall/icon'
 
 export default defineComponent({
   props: [

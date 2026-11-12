@@ -24,9 +24,9 @@
 </template>
 
 <script>
-import { renderless, api } from '@opentiny/vue-renderless/skeleton/vue'
-import { props, setup, defineComponent } from '@opentiny/vue-common'
-import SkeletonItem from '@opentiny/vue-skeleton-item'
+import { renderless, api } from '@tinysmall/renderless/skeleton/vue'
+import { props, setup, defineComponent } from '@tinysmall/common'
+import SkeletonItem from '@tinysmall/skeleton-item'
 
 export default defineComponent({
   emits: ['update:modelValue'],

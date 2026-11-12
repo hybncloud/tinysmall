@@ -92,11 +92,11 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@opentiny/vue-renderless/dialog-box/vue'
-import { props, setup, defineComponent } from '@opentiny/vue-common'
-import { iconClose, iconFullscreen, iconMinscreen } from '@opentiny/vue-icon'
-import '@opentiny/vue-theme/dialog-box/index.less'
-import type { IDialogBoxApi } from '@opentiny/vue-renderless/types/dialog-box.type'
+import { renderless, api } from '@tinysmall/renderless/dialog-box/vue'
+import { props, setup, defineComponent } from '@tinysmall/common'
+import { iconClose, iconFullscreen, iconMinscreen } from '@tinysmall/icon'
+import '@tinysmall/theme/dialog-box/index.less'
+import type { IDialogBoxApi } from '@tinysmall/renderless/types/dialog-box.type'
 
 export default defineComponent({
   components: {

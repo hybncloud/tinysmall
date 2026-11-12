@@ -28,11 +28,11 @@
 </template>
 
 <script lang="ts">
-import { $prefix, setup, props, defineComponent } from '@opentiny/vue-common'
-import { renderless, api } from '@opentiny/vue-renderless/loading/vue'
-import '@opentiny/vue-theme/loading/index.less'
-import { iconLoadingShadow } from '@opentiny/vue-icon'
-import type { ILoadingApi } from '@opentiny/vue-renderless/types/loading.type'
+import { $prefix, setup, props, defineComponent } from '@tinysmall/common'
+import { renderless, api } from '@tinysmall/renderless/loading/vue'
+import '@tinysmall/theme/loading/index.less'
+import { iconLoadingShadow } from '@tinysmall/icon'
+import type { ILoadingApi } from '@tinysmall/renderless/types/loading.type'
 
 export default defineComponent({
   inheritAttrs: false,

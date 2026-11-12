@@ -10,12 +10,12 @@
  *
  */
 
-import { toDate1, getDateWithNewTimezone, getStrTimezone, getLocalTimezone, parseIso8601 } from '@opentiny/utils'
-import { isNumber, isDate } from '@opentiny/utils'
-import { userPopper } from '@opentiny/vue-hooks'
-import { DATEPICKER } from '@opentiny/utils'
-import { formatDate, parseDate1 as parseDate, isDateObject, getWeekNumber, prevDate, nextDate } from '@opentiny/utils'
-import { extend } from '@opentiny/utils'
+import { toDate1, getDateWithNewTimezone, getStrTimezone, getLocalTimezone, parseIso8601 } from '@tinysmall/utils'
+import { isNumber, isDate } from '@tinysmall/utils'
+import { userPopper } from '@tinysmall/hooks'
+import { DATEPICKER } from '@tinysmall/utils'
+import { formatDate, parseDate1 as parseDate, isDateObject, getWeekNumber, prevDate, nextDate } from '@tinysmall/utils'
+import { extend } from '@tinysmall/utils'
 import globalTimezone from './timezone'
 
 const iso8601Reg = /^\d{4}-\d{2}-\d{2}(.)\d{2}:\d{2}:\d{2}(.+)$/

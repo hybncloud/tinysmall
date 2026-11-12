@@ -45,9 +45,9 @@
 </template>
 
 <script lang="ts">
-import { setup, $prefix, defineComponent } from '@opentiny/vue-common'
-import { renderless, api } from '@opentiny/vue-renderless/pager-item/vue'
-import { iconPopup, iconDoubleLeft, iconDoubleRight } from '@opentiny/vue-icon'
+import { setup, $prefix, defineComponent } from '@tinysmall/common'
+import { renderless, api } from '@tinysmall/renderless/pager-item/vue'
+import { iconPopup, iconDoubleLeft, iconDoubleRight } from '@tinysmall/icon'
 
 export default defineComponent({
   name: $prefix + 'PagerItem',

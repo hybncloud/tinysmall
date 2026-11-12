@@ -564,15 +564,15 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@opentiny/vue-renderless/base-select/vue'
-import { props, setup, directive, defineComponent } from '@opentiny/vue-common'
-import TinyTag from '@opentiny/vue-tag'
-import TinyInput from '@opentiny/vue-input'
-import TinyOption from '@opentiny/vue-option'
-import TinyScrollbar from '@opentiny/vue-scrollbar'
-import TinySelectDropdown from '@opentiny/vue-select-dropdown'
-import TinyButton from '@opentiny/vue-button'
-import { Clickoutside, AutoTip } from '@opentiny/vue-directive'
+import { renderless, api } from '@tinysmall/renderless/base-select/vue'
+import { props, setup, directive, defineComponent } from '@tinysmall/common'
+import TinyTag from '@tinysmall/tag'
+import TinyInput from '@tinysmall/input'
+import TinyOption from '@tinysmall/option'
+import TinyScrollbar from '@tinysmall/scrollbar'
+import TinySelectDropdown from '@tinysmall/select-dropdown'
+import TinyButton from '@tinysmall/button'
+import { Clickoutside, AutoTip } from '@tinysmall/directive'
 import {
   iconClose,
   iconHalfselect,
@@ -585,13 +585,13 @@ import {
   iconChevronUp,
   iconAddCircle,
   iconLoadingShadow
-} from '@opentiny/vue-icon'
-import TinyTooltip from '@opentiny/vue-tooltip'
-import FilterBox from '@opentiny/vue-filter-box'
-import RecycleScroller from '@opentiny/vue-recycle-scroller'
+} from '@tinysmall/icon'
+import TinyTooltip from '@tinysmall/tooltip'
+import FilterBox from '@tinysmall/filter-box'
+import RecycleScroller from '@tinysmall/recycle-scroller'
 
-import '@opentiny/vue-theme/select/index.less'
-import '@opentiny/vue-theme/base-select/index.less'
+import '@tinysmall/theme/select/index.less'
+import '@tinysmall/theme/base-select/index.less'
 
 const getReference = (el, binding, vnode) => {
   const _ref = binding.expression ? binding.value : binding.arg

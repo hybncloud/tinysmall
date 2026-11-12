@@ -11,10 +11,10 @@
  */
 import service from './src/service'
 import directive from './src/directive'
-import { setupComponent } from '@opentiny/vue-common'
+import { setupComponent } from '@tinysmall/common'
 import { version } from 'package.json'
-import type { App } from '@opentiny/vue-common'
-import type { ILoadingState } from '@opentiny/vue-renderless/types/loading.type'
+import type { App } from '@tinysmall/common'
+import type { ILoadingState } from '@tinysmall/renderless/types/loading.type'
 
 // 定义LoadingConfig接口
 interface LoadingConfig {

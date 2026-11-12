@@ -32,8 +32,9 @@
 <script setup>
 import { ref } from 'vue'
 import { TinyDatePicker, TinyModal } from 'tinysmall'
-import tzData from '@opentiny/vue-renderless/picker/timezone'
+// import tzData from '@tinysmall/renderless/picker/timezone'
 
+const tzData = {}
 const timezoneValue = ref('')
 const value = ref('')
 const referenceDate = ref('2020-10-28T00:00:00.000+0800')

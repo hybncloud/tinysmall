@@ -17,4 +17,4 @@ export {
   getScrollParent,
   useScrollParent,
   isDisplayNone
-} from '@opentiny/utils'
+} from '@tinysmall/utils'

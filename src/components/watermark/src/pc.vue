@@ -5,9 +5,9 @@
 </template>
 
 <script lang="ts">
-import { $prefix, setup, defineComponent } from '@opentiny/vue-common'
-import { renderless, api } from '@opentiny/vue-renderless/watermark/vue'
-import '@opentiny/vue-theme/watermark/index.less'
+import { $prefix, setup, defineComponent } from '@tinysmall/common'
+import { renderless, api } from '@tinysmall/renderless/watermark/vue'
+import '@tinysmall/theme/watermark/index.less'
 
 const $constants = {
   font: {

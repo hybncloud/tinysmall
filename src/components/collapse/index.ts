@@ -10,7 +10,7 @@
  *
  */
 import Collapse from './src/index'
-import '@opentiny/vue-theme/collapse/index.less'
+import '@tinysmall/theme/collapse/index.less'
 import { version } from 'package.json'
 
 Collapse.model = {

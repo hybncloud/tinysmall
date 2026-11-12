@@ -247,14 +247,14 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@opentiny/vue-renderless/date-range/vue'
-import { props, setup, directive, defineComponent } from '@opentiny/vue-common'
-import { Clickoutside } from '@opentiny/vue-directive'
-import TimePicker from '@opentiny/vue-time'
-import DateTable from '@opentiny/vue-date-table'
-import Input from '@opentiny/vue-input'
-import Button from '@opentiny/vue-button'
-import { iconDoubleRight, iconDoubleLeft, iconChevronLeft, iconChevronRight } from '@opentiny/vue-icon'
+import { renderless, api } from '@tinysmall/renderless/date-range/vue'
+import { props, setup, directive, defineComponent } from '@tinysmall/common'
+import { Clickoutside } from '@tinysmall/directive'
+import TimePicker from '@tinysmall/time'
+import DateTable from '@tinysmall/date-table'
+import Input from '@tinysmall/input'
+import Button from '@tinysmall/button'
+import { iconDoubleRight, iconDoubleLeft, iconChevronLeft, iconChevronRight } from '@tinysmall/icon'
 
 export default defineComponent({
   directives: directive({ Clickoutside }),

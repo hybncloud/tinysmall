@@ -34,7 +34,7 @@ import {
   syncMenuState,
   syncMultiCheckState
 } from './index'
-import { merge } from '@opentiny/utils'
+import { merge } from '@tinysmall/utils'
 import { isEmpty } from '../cascader'
 import Store from './store'
 import type {

@@ -21,7 +21,7 @@ import {
   getCellStyle,
   getMonthOfCell
 } from './index'
-import { DATEPICKER } from '@opentiny/utils'
+import { DATEPICKER } from '@tinysmall/utils'
 
 export const api = ['state', 'handleMonthTableClick', 'handleMouseMove', 'getCellStyle']
 

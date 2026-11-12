@@ -104,10 +104,10 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@opentiny/vue-renderless/time-range/vue'
-import { $prefix, setup, defineComponent } from '@opentiny/vue-common'
-import TimeSpinner from '@opentiny/vue-time-spinner'
-import Button from '@opentiny/vue-button'
+import { renderless, api } from '@tinysmall/renderless/time-range/vue'
+import { $prefix, setup, defineComponent } from '@tinysmall/common'
+import TimeSpinner from '@tinysmall/time-spinner'
+import Button from '@tinysmall/button'
 
 export default defineComponent({
   name: $prefix + 'TimeRange',

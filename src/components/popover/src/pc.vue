@@ -33,10 +33,10 @@
 </template>
 
 <script lang="ts">
-import { setup, props, defineComponent } from '@opentiny/vue-common'
-import { renderless, api } from '@opentiny/vue-renderless/popover/vue'
-import '@opentiny/vue-theme/popover/index.less'
-import type { IPopoverApi } from '@opentiny/vue-renderless/types/popover.type'
+import { setup, props, defineComponent } from '@tinysmall/common'
+import { renderless, api } from '@tinysmall/renderless/popover/vue'
+import '@tinysmall/theme/popover/index.less'
+import type { IPopoverApi } from '@tinysmall/renderless/types/popover.type'
 
 export default defineComponent({
   emits: ['update:modelValue', 'hide', 'show', 'after-enter', 'after-leave', 'created'],

@@ -28,10 +28,10 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@opentiny/vue-renderless/user-head/vue'
-import { props, setup, defineComponent } from '@opentiny/vue-common'
-import { iconUser } from '@opentiny/vue-icon'
-import '@opentiny/vue-theme/user-head/index.less'
+import { renderless, api } from '@tinysmall/renderless/user-head/vue'
+import { props, setup, defineComponent } from '@tinysmall/common'
+import { iconUser } from '@tinysmall/icon'
+import '@tinysmall/theme/user-head/index.less'
 
 export default defineComponent({
   components: {

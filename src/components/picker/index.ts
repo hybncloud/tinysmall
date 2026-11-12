@@ -10,8 +10,8 @@
  *
  */
 import Picker from './src/index'
-import '@opentiny/vue-theme/picker/index.less'
-import '@opentiny/vue-theme/input/index.less'
+import '@tinysmall/theme/picker/index.less'
+import '@tinysmall/theme/input/index.less'
 import { version } from 'package.json'
 
 Picker.model = {

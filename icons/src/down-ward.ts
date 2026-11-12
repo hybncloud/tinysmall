@@ -1,4 +1,4 @@
-import { svg } from '@opentiny/vue-common'
-import DownWard from '@opentiny/vue-theme/svgs/down-ward.svg?component'
+import { svg } from '@tinysmall/common'
+import DownWard from '@tinysmall/theme/svgs/down-ward.svg?component'
 
 export default () => svg({ name: 'IconDownWard', component: DownWard, filledComponent: DownWard })()

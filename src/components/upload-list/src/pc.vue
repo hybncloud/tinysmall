@@ -338,11 +338,11 @@
 </template>
 
 <script lang="tsx">
-import { $prefix, setup, props, defineComponent } from '@opentiny/vue-common'
-import { renderless, api } from '@opentiny/vue-renderless/upload-list/vue'
-import Progress from '@opentiny/vue-progress'
-import Tooltip from '@opentiny/vue-tooltip'
-import Button from '@opentiny/vue-button'
+import { $prefix, setup, props, defineComponent } from '@tinysmall/common'
+import { renderless, api } from '@tinysmall/renderless/upload-list/vue'
+import Progress from '@tinysmall/progress'
+import Tooltip from '@tinysmall/tooltip'
+import Button from '@tinysmall/button'
 import {
   iconDocument,
   iconSuccessful,
@@ -373,9 +373,9 @@ import {
   iconWordType,
   iconZipType,
   iconFileuploadPro
-} from '@opentiny/vue-icon'
-import Modal from '@opentiny/vue-modal'
-import type { IUploadListApi } from '@opentiny/vue-renderless/types/upload-list.type'
+} from '@tinysmall/icon'
+import Modal from '@tinysmall/modal'
+import type { IUploadListApi } from '@tinysmall/renderless/types/upload-list.type'
 
 export default defineComponent({
   name: $prefix + 'UploadList',

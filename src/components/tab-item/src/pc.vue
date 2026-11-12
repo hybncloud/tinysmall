@@ -24,9 +24,9 @@
 </template>
 
 <script lang="ts">
-import { $prefix, setup, defineComponent } from '@opentiny/vue-common'
-import { renderless, api } from '@opentiny/vue-renderless/tab-item/vue'
-import type { ITabItemApi } from '@opentiny/vue-renderless/types/tab-item.type'
+import { $prefix, setup, defineComponent } from '@tinysmall/common'
+import { renderless, api } from '@tinysmall/renderless/tab-item/vue'
+import type { ITabItemApi } from '@tinysmall/renderless/types/tab-item.type'
 
 export default defineComponent({
   name: $prefix + 'TabItem',

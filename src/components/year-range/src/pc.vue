@@ -104,11 +104,11 @@
 </template>
 
 <script>
-import { renderless, api } from '@opentiny/vue-renderless/year-range/vue'
-import { setup, directive, props, defineComponent } from '@opentiny/vue-common'
-import { Clickoutside } from '@opentiny/vue-directive'
-import YearTable from '@opentiny/vue-year-table'
-import { IconDoubleRight, IconDoubleLeft } from '@opentiny/vue-icon'
+import { renderless, api } from '@tinysmall/renderless/year-range/vue'
+import { setup, directive, props, defineComponent } from '@tinysmall/common'
+import { Clickoutside } from '@tinysmall/directive'
+import YearTable from '@tinysmall/year-table'
+import { IconDoubleRight, IconDoubleLeft } from '@tinysmall/icon'
 
 export default defineComponent({
   directives: directive({ Clickoutside }),

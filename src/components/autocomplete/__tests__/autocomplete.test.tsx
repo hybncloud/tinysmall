@@ -1,6 +1,6 @@
-import { mountPcMode } from '@opentiny-internal/vue-test-utils'
+import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
 import { describe, expect, test, vi } from 'vitest'
-import Autocomplete from '@opentiny/vue-autocomplete'
+import Autocomplete from '@tinysmall/autocomplete'
 import { nextTick } from 'vue'
 
 const loadAll = [

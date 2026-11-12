@@ -157,14 +157,14 @@
 </template>
 
 <script lang="ts">
-import Alert from '@opentiny/vue-alert'
-import Button from '@opentiny/vue-button'
-import Modal from '@opentiny/vue-modal'
-import FileUpload from '@opentiny/vue-file-upload'
-import Progress from '@opentiny/vue-progress'
-import Popconfirm from '@opentiny/vue-popconfirm'
-import { renderless, api } from '@opentiny/vue-renderless/pop-upload/vue'
-import { props, setup, defineComponent } from '@opentiny/vue-common'
+import Alert from '@tinysmall/alert'
+import Button from '@tinysmall/button'
+import Modal from '@tinysmall/modal'
+import FileUpload from '@tinysmall/file-upload'
+import Progress from '@tinysmall/progress'
+import Popconfirm from '@tinysmall/popconfirm'
+import { renderless, api } from '@tinysmall/renderless/pop-upload/vue'
+import { props, setup, defineComponent } from '@tinysmall/common'
 
 export default defineComponent({
   components: {

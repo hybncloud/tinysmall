@@ -1,6 +1,6 @@
-import { mountPcMode } from '@opentiny-internal/vue-test-utils'
+import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
 import { describe, expect, test, vi } from 'vitest'
-import Numeric from '@opentiny/vue-numeric'
+import Numeric from '@tinysmall/numeric'
 import { nextTick, ref } from 'vue'
 
 const mouseup = new Event('mouseup')

@@ -10,6 +10,6 @@
  *
  */
 
-import { isPlainObject } from '@opentiny/utils'
+import { isPlainObject } from '@tinysmall/utils'
 
 export default isPlainObject

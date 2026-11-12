@@ -1,7 +1,7 @@
 <script lang="ts">
-import { defineComponent, props, setup, h } from '@opentiny/vue-common'
-import { renderless, api } from '@opentiny/vue-renderless/space/vue'
-import type { ISpaceApi } from '@opentiny/vue-renderless/types/space.type'
+import { defineComponent, props, setup, h } from '@tinysmall/common'
+import { renderless, api } from '@tinysmall/renderless/space/vue'
+import type { ISpaceApi } from '@tinysmall/renderless/types/space.type'
 
 export default defineComponent({
   name: 'TinySpace',

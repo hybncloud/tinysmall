@@ -1,5 +1,5 @@
-import { $props, $prefix, $setup, defineComponent } from '@opentiny/vue-common'
-import { uploadAjax } from '@opentiny/utils'
+import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
+import { uploadAjax } from '@tinysmall/utils'
 import template from 'virtual-template?pc'
 
 export const uploadProps = {

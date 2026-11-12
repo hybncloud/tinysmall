@@ -1,5 +1,5 @@
 import Divider from './src/index'
-import '@opentiny/vue-theme/divider/index.less'
+import '@tinysmall/theme/divider/index.less'
 import { version } from 'package.json'
 
 /* istanbul ignore next */

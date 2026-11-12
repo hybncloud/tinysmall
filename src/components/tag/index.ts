@@ -10,7 +10,7 @@
  *
  */
 import Tag from './src/index'
-import '@opentiny/vue-theme/tag/index.less'
+import '@tinysmall/theme/tag/index.less'
 import { version } from 'package.json'
 
 /* istanbul ignore next */

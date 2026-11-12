@@ -19,16 +19,16 @@ import {
   getCustomProps,
   isVnode
 } from './adapter'
-import { t } from '@opentiny/vue-locale'
+import { t } from '@tinysmall/locale'
 import { stringifyCssClass, stringifyCssClassObject, stringifyCssClassArray, deduplicateCssClass } from './csscls'
-import '@opentiny/vue-theme/base/index.less'
+import '@tinysmall/theme/base/index.less'
 import { defineComponent, isVue2, isVue3 } from './adapter'
 import { useBreakpoint } from './breakpoint'
 import { useDefer } from './usedefer'
 import { GRADIENT_ICONS_LIST, generateIcon } from './generateIcon'
 
-import { useInstanceSlots as createUseInstanceSlots } from '@opentiny/vue-hooks'
-import { useRelation as createUseRelation } from '@opentiny/vue-hooks'
+import { useInstanceSlots as createUseInstanceSlots } from '@tinysmall/hooks'
+import { useRelation as createUseRelation } from '@tinysmall/hooks'
 import type { Component } from 'vue'
 
 export const useInstanceSlots = createUseInstanceSlots({ ...hooks, isVue2 })

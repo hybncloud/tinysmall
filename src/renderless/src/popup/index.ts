@@ -10,10 +10,10 @@
  *
  */
 
-import { on, off } from '@opentiny/utils'
-import { touchStart, touchMove } from '@opentiny/utils'
+import { on, off } from '@tinysmall/utils'
+import { touchStart, touchMove } from '@tinysmall/utils'
 import { getScroller } from '../dropdown-menu'
-import { isNull } from '@opentiny/utils'
+import { isNull } from '@tinysmall/utils'
 
 export const getStyle = (props) => () => {
   const style = { ...props.popupStyle }

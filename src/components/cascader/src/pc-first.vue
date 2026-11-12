@@ -132,14 +132,14 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@opentiny/vue-renderless/cascader/vue'
-import { props, setup, defineComponent, directive } from '@opentiny/vue-common'
-import { Clickoutside } from '@opentiny/vue-directive'
-import Input from '@opentiny/vue-input'
-import Scrollbar from '@opentiny/vue-scrollbar'
-import CascaderPanel from '@opentiny/vue-cascader-panel'
-import Tooltip from '@opentiny/vue-tooltip'
-import { IconClose, IconChevronDown, IconYes, IconChevronUp } from '@opentiny/vue-icon'
+import { renderless, api } from '@tinysmall/renderless/cascader/vue'
+import { props, setup, defineComponent, directive } from '@tinysmall/common'
+import { Clickoutside } from '@tinysmall/directive'
+import Input from '@tinysmall/input'
+import Scrollbar from '@tinysmall/scrollbar'
+import CascaderPanel from '@tinysmall/cascader-panel'
+import Tooltip from '@tinysmall/tooltip'
+import { IconClose, IconChevronDown, IconYes, IconChevronUp } from '@tinysmall/icon'
 import { classes } from './token'
 
 export default defineComponent({

@@ -10,7 +10,7 @@
  *
  */
 
-import { clearMilliseconds, timeWithinRange, limitTimeRange, modifyDate } from '@opentiny/utils'
+import { clearMilliseconds, timeWithinRange, limitTimeRange, modifyDate } from '@tinysmall/utils'
 
 export const minTimeOfDay =
   ({ MIN_TIME }) =>

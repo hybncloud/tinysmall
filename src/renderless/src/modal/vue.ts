@@ -48,7 +48,7 @@ import {
   doEmitAndClose,
   runBeforeClose
 } from './index'
-import { nanoid } from '@opentiny/utils'
+import { nanoid } from '@tinysmall/utils'
 import type { IModalApi, IModalProps, IModalRenderlessParamUtils, ISharedRenderlessParamHooks } from '../../types'
 
 export const api = [

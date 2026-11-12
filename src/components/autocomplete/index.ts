@@ -10,7 +10,7 @@
  *
  */
 import Autocomplete from './src/index'
-import '@opentiny/vue-theme/autocomplete/index.less'
+import '@tinysmall/theme/autocomplete/index.less'
 import { version } from 'package.json'
 
 Autocomplete.model = {

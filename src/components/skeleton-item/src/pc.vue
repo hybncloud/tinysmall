@@ -12,9 +12,9 @@
 </template>
 
 <script>
-import { renderless, api } from '@opentiny/vue-renderless/skeleton-item/vue'
-import { props, setup, defineComponent } from '@opentiny/vue-common'
-import { iconPicture } from '@opentiny/vue-icon'
+import { renderless, api } from '@tinysmall/renderless/skeleton-item/vue'
+import { props, setup, defineComponent } from '@tinysmall/common'
+import { iconPicture } from '@tinysmall/icon'
 
 export default defineComponent({
   emits: ['update:modelValue'],

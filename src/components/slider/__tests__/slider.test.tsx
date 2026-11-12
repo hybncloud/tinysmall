@@ -1,6 +1,6 @@
-import { mountPcMode } from '@opentiny-internal/vue-test-utils'
+import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
 import { describe, expect, test, vi } from 'vitest'
-import Slider from '@opentiny/vue-slider'
+import Slider from '@tinysmall/slider'
 import { nextTick, ref } from 'vue'
 
 let value = 40

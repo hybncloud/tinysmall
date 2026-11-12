@@ -1,4 +1,4 @@
-import { on, off, isServer } from '@opentiny/utils'
+import { on, off, isServer } from '@tinysmall/utils'
 
 export const onMountedOrActivated =
   ({ onMounted, onActivated, nextTick }) =>

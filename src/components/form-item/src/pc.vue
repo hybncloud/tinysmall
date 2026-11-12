@@ -21,12 +21,12 @@ import {
   hooks,
   stringifyCssClass,
   deduplicateCssClass
-} from '@opentiny/vue-common'
-import { renderless, api } from '@opentiny/vue-renderless/form-item/vue'
+} from '@tinysmall/common'
+import { renderless, api } from '@tinysmall/renderless/form-item/vue'
 import LabelWrap from './label-wrap'
-import Tooltip from '@opentiny/vue-tooltip'
-import { iconError } from '@opentiny/vue-icon'
-import type { IFormItemApi, IFormItemInstance } from '@opentiny/vue-renderless/types/form-item.type'
+import Tooltip from '@tinysmall/tooltip'
+import { iconError } from '@tinysmall/icon'
+import type { IFormItemApi, IFormItemInstance } from '@tinysmall/renderless/types/form-item.type'
 
 const $constants = {
   FORM_NAME: 'Form',

@@ -10,7 +10,7 @@
  *
  */
 import Link from './src/index'
-import '@opentiny/vue-theme/link/index.less'
+import '@tinysmall/theme/link/index.less'
 import { version } from 'package.json'
 
 /* istanbul ignore next */

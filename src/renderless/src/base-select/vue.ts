@@ -103,10 +103,10 @@ import {
   computedCurrentSizeMap,
   watchOptionsWhenAutoSelect
 } from './index'
-import { debounce } from '@opentiny/utils'
-import { isNumber } from '@opentiny/utils'
-import { useUserAgent } from '@opentiny/vue-hooks'
-import { isServer } from '@opentiny/utils'
+import { debounce } from '@tinysmall/utils'
+import { isNumber } from '@tinysmall/utils'
+import { useUserAgent } from '@tinysmall/hooks'
+import { isServer } from '@tinysmall/utils'
 
 export const api = [
   'state',

@@ -23,7 +23,7 @@ import {
   getZindex
 } from './index'
 
-import { nanoid } from '@opentiny/utils'
+import { nanoid } from '@tinysmall/utils'
 
 export const api = [
   'state',

@@ -9,10 +9,10 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-import type { PropType } from '@opentiny/vue-common'
-import { $setup, $prefix, defineComponent } from '@opentiny/vue-common'
-import { iconClose } from '@opentiny/vue-icon'
-import { api } from '@opentiny/vue-renderless/picker/vue'
+import type { PropType } from '@tinysmall/common'
+import { $setup, $prefix, defineComponent } from '@tinysmall/common'
+import { iconClose } from '@tinysmall/icon'
+import { api } from '@tinysmall/renderless/picker/vue'
 import template from 'virtual-template?pc'
 
 const currentYear = new Date().getFullYear()

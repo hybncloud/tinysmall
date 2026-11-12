@@ -27,7 +27,7 @@ import {
   doPick,
   watchModelValue
 } from './index'
-import { nextYear } from '@opentiny/utils'
+import { nextYear } from '@tinysmall/utils'
 
 export const api = [
   'state',

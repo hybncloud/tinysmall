@@ -1,10 +1,10 @@
 <script lang="ts">
-import { $props, $prefix, $setup, defineComponent } from '@opentiny/vue-common'
+import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
 import PcStandardTemplate from './pc/pc-standard.vue'
 import PcAdvancedTemplate from './pc/pc-advanced.vue'
 import PcLineTemplate from './pc/pc-line.vue'
 import PcDotTemplate from './pc/pc-dot.vue'
-import '@opentiny/vue-theme/steps/index.less'
+import '@tinysmall/theme/steps/index.less'
 
 const template = (mode, props) => {
   if (props.advanced) {

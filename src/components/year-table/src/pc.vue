@@ -40,9 +40,9 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@opentiny/vue-renderless/year-table/vue'
-import { setup, props, defineComponent } from '@opentiny/vue-common'
-import '@opentiny/vue-theme/year-table/index.less'
+import { renderless, api } from '@tinysmall/renderless/year-table/vue'
+import { setup, props, defineComponent } from '@tinysmall/common'
+import '@tinysmall/theme/year-table/index.less'
 
 export default defineComponent({
   emits: ['pick', 'changerange'],

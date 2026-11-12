@@ -10,10 +10,10 @@
  *
  -->
 <script lang="tsx">
-import Button from '@opentiny/vue-button'
-import { props, setup, h, defineComponent } from '@opentiny/vue-common'
-import { renderless, api } from '@opentiny/vue-renderless/modal/vue'
-import '@opentiny/vue-theme/modal/index.less'
+import Button from '@tinysmall/button'
+import { props, setup, h, defineComponent } from '@tinysmall/common'
+import { renderless, api } from '@tinysmall/renderless/modal/vue'
+import '@tinysmall/theme/modal/index.less'
 
 import {
   iconHelpSolid,
@@ -25,9 +25,9 @@ import {
   iconClose,
   iconFullscreenRight,
   iconMinscreenRight
-} from '@opentiny/vue-icon'
-import '@opentiny/vue-theme/modal/index.less'
-import type { IModalApi } from '@opentiny/vue-renderless/types/modal.type'
+} from '@tinysmall/icon'
+import '@tinysmall/theme/modal/index.less'
+import type { IModalApi } from '@tinysmall/renderless/types/modal.type'
 
 export default defineComponent({
   props: [

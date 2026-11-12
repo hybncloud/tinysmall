@@ -1,5 +1,5 @@
 import QrCode from './src/pc.vue'
-import '@opentiny/vue-theme/qr-code/index.less'
+import '@tinysmall/theme/qr-code/index.less'
 import { version } from 'package.json'
 
 /* istanbul ignore next */

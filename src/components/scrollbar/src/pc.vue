@@ -10,10 +10,10 @@
  *
  -->
 <script lang="tsx">
-import { renderless, api } from '@opentiny/vue-renderless/scrollbar/vue'
-import { $prefix, setup, h, defineComponent } from '@opentiny/vue-common'
-import { calcScrollWidth } from '@opentiny/utils'
-import { toObject, isObject } from '@opentiny/utils'
+import { renderless, api } from '@tinysmall/renderless/scrollbar/vue'
+import { $prefix, setup, h, defineComponent } from '@tinysmall/common'
+import { calcScrollWidth } from '@tinysmall/utils'
+import { toObject, isObject } from '@tinysmall/utils'
 import Bar from './bar.vue'
 
 export default defineComponent({

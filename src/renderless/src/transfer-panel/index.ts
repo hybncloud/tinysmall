@@ -10,7 +10,7 @@
  *
  */
 
-import { copyArray } from '@opentiny/utils'
+import { copyArray } from '@tinysmall/utils'
 import { getFlatData } from '../transfer'
 
 export const showFilterData = (data, sign) => {

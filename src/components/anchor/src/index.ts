@@ -9,7 +9,7 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-import { $prefix, $setup, defineComponent } from '@opentiny/vue-common'
+import { $prefix, $setup, defineComponent } from '@tinysmall/common'
 import template from 'virtual-template?pc'
 
 export const anchorProps = {

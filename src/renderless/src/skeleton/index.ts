@@ -1,4 +1,4 @@
-import { isNumber, isNull } from '@opentiny/utils'
+import { isNumber, isNull } from '@tinysmall/utils'
 
 export const toPxStyle = (value: string | number): undefined | string => {
   if (isNull(value)) {

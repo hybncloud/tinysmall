@@ -1,10 +1,10 @@
 <script lang="ts">
-import { provideDesignConfig, hooks, props as _props, isVue2, $prefix, defineComponent } from '@opentiny/vue-common'
-import type { PropType } from '@opentiny/vue-common'
+import { provideDesignConfig, hooks, props as _props, isVue2, $prefix, defineComponent } from '@tinysmall/common'
+import type { PropType } from '@tinysmall/common'
 import type { Tag, TextDirection, breakPoint } from './props'
 import { configProviderContextKey } from '../index'
-import '@opentiny/vue-theme/config-provider/index.less'
-import { isObject } from '@opentiny/utils'
+import '@tinysmall/theme/config-provider/index.less'
+import { isObject } from '@tinysmall/utils'
 
 /**
  * 检查对象是否具有任何一个指定的键

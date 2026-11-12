@@ -51,11 +51,11 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@opentiny/vue-renderless/time-line/vue'
-import { props, setup, defineComponent } from '@opentiny/vue-common'
-import '@opentiny/vue-theme/steps/index.less'
-import TimelineItem from '@opentiny/vue-timeline-item'
-import type { ITimelineApi } from '@opentiny/vue-renderless/types/time-line.type'
+import { renderless, api } from '@tinysmall/renderless/time-line/vue'
+import { props, setup, defineComponent } from '@tinysmall/common'
+import '@tinysmall/theme/steps/index.less'
+import TimelineItem from '@tinysmall/timeline-item'
+import type { ITimelineApi } from '@tinysmall/renderless/types/time-line.type'
 
 export default defineComponent({
   emits: ['click'],

@@ -268,12 +268,12 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@opentiny/vue-renderless/calendar/vue'
-import { props, setup, defineComponent } from '@opentiny/vue-common'
-import Tooltip from '@opentiny/vue-tooltip'
-import Popover from '@opentiny/vue-popover'
-import Button from '@opentiny/vue-button'
-import { iconChevronUp, iconChevronDown } from '@opentiny/vue-icon'
+import { renderless, api } from '@tinysmall/renderless/calendar/vue'
+import { props, setup, defineComponent } from '@tinysmall/common'
+import Tooltip from '@tinysmall/tooltip'
+import Popover from '@tinysmall/popover'
+import Button from '@tinysmall/button'
+import { iconChevronUp, iconChevronDown } from '@tinysmall/icon'
 
 export default defineComponent({
   components: {

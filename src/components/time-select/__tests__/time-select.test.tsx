@@ -1,8 +1,8 @@
-import { mountPcMode } from '@opentiny-internal/vue-test-utils'
+import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
 import { describe, expect, test, vi } from 'vitest'
-import TimeSelect from '@opentiny/vue-time-select'
+import TimeSelect from '@tinysmall/time-select'
 import { nextTick, ref } from 'vue'
-import { iconBoat } from '@opentiny/vue-icon'
+import { iconBoat } from '@tinysmall/icon'
 
 let value = '18:00'
 

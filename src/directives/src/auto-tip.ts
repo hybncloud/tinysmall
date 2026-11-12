@@ -10,8 +10,8 @@
  *
  */
 
-import Tooltip from '@opentiny/vue-tooltip'
-import { createComponent, h, hooks } from '@opentiny/vue-common'
+import Tooltip from '@tinysmall/tooltip'
+import { createComponent, h, hooks } from '@tinysmall/common'
 
 interface TooltipDirectiveConfig {
   always?: boolean // 是否文字不超长，也触发提示, 默认为 false

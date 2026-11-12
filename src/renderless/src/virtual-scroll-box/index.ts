@@ -1,4 +1,4 @@
-import { calcScrollWidth } from '@opentiny/utils'
+import { calcScrollWidth } from '@tinysmall/utils'
 
 export const computedBarSize = (props) => () => {
   let barSize = +props.scrollbarSize

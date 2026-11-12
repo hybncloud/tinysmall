@@ -10,8 +10,8 @@
  *
  */
 
-import { extend, copyArray } from '@opentiny/utils'
-import { isObject } from '@opentiny/utils'
+import { extend, copyArray } from '@tinysmall/utils'
+import { isObject } from '@tinysmall/utils'
 
 export const cloneDeep = (data) => {
   if (isObject(data)) {

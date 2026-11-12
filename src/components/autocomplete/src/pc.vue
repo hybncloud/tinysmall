@@ -104,12 +104,12 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@opentiny/vue-renderless/autocomplete/vue'
-import { props, setup, directive, defineComponent } from '@opentiny/vue-common'
-import TinyScrollbar from '@opentiny/vue-scrollbar'
-import TinyInput from '@opentiny/vue-input'
-import { Clickoutside } from '@opentiny/vue-directive'
-import { IconLoadingShadow } from '@opentiny/vue-icon'
+import { renderless, api } from '@tinysmall/renderless/autocomplete/vue'
+import { props, setup, directive, defineComponent } from '@tinysmall/common'
+import TinyScrollbar from '@tinysmall/scrollbar'
+import TinyInput from '@tinysmall/input'
+import { Clickoutside } from '@tinysmall/directive'
+import { IconLoadingShadow } from '@tinysmall/icon'
 
 export default defineComponent({
   components: {

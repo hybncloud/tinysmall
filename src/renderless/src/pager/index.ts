@@ -1,5 +1,5 @@
 import type { IPagerRenderlessParams } from '../../types'
-import { emitEvent } from '@opentiny/utils'
+import { emitEvent } from '@tinysmall/utils'
 
 export const computedShowPager =
   ({ props, state }: Pick<IPagerRenderlessParams, 'props' | 'state'>) =>

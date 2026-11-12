@@ -20,7 +20,7 @@ import {
   prevYear,
   nextYear,
   nextMonth1 as nextMonth
-} from '@opentiny/utils'
+} from '@tinysmall/utils'
 
 export const calcDefaultValue = (defaultValue) => {
   if (Array.isArray(defaultValue)) {

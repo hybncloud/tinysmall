@@ -1,6 +1,6 @@
-import { mountPcMode } from '@opentiny-internal/vue-test-utils'
+import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
 import { describe, expect, test, vi } from 'vitest'
-import Cascader from '@opentiny/vue-cascader'
+import Cascader from '@tinysmall/cascader'
 import { nextTick } from 'vue'
 
 const options = [

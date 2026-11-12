@@ -116,13 +116,13 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@opentiny/vue-renderless/button-group/vue'
-import { props, setup, defineComponent } from '@opentiny/vue-common'
-import Popover from '@opentiny/vue-popover'
-import Button from '@opentiny/vue-button'
-import { iconPopup, iconEditor } from '@opentiny/vue-icon'
-import { AutoTip } from '@opentiny/vue-directive'
-import type { IButtonGroupApi } from '@opentiny/vue-renderless/types/button-group.type'
+import { renderless, api } from '@tinysmall/renderless/button-group/vue'
+import { props, setup, defineComponent } from '@tinysmall/common'
+import Popover from '@tinysmall/popover'
+import Button from '@tinysmall/button'
+import { iconPopup, iconEditor } from '@tinysmall/icon'
+import { AutoTip } from '@tinysmall/directive'
+import type { IButtonGroupApi } from '@tinysmall/renderless/types/button-group.type'
 
 export default defineComponent({
   emits: ['change', 'edit', 'update:modelValue'],

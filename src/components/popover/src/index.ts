@@ -9,8 +9,8 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-import { $props, $prefix, $setup, defineComponent } from '@opentiny/vue-common'
-import type { IPopoverApi } from '@opentiny/vue-renderless/types/popover.type'
+import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
+import type { IPopoverApi } from '@tinysmall/renderless/types/popover.type'
 import template from 'virtual-template?pc'
 
 export const popoverProps = {

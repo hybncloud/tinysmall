@@ -1,4 +1,4 @@
-import { DATEPICKER } from '@opentiny/utils'
+import { DATEPICKER } from '@tinysmall/utils'
 import {
   handleQuarterTableClick,
   showYearPicker,

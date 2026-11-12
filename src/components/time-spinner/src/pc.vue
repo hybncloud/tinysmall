@@ -152,11 +152,11 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@opentiny/vue-renderless/time-spinner/vue'
-import { props, setup, directive, defineComponent } from '@opentiny/vue-common'
-import Scrollbar from '@opentiny/vue-scrollbar'
-import { RepeatClick } from '@opentiny/vue-directive'
-import { iconChevronDown, iconChevronUp } from '@opentiny/vue-icon'
+import { renderless, api } from '@tinysmall/renderless/time-spinner/vue'
+import { props, setup, directive, defineComponent } from '@tinysmall/common'
+import Scrollbar from '@tinysmall/scrollbar'
+import { RepeatClick } from '@tinysmall/directive'
+import { iconChevronDown, iconChevronUp } from '@tinysmall/icon'
 
 export default defineComponent({
   emits: ['change', 'select-range'],

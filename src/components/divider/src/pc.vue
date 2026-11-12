@@ -27,8 +27,8 @@
 </template>
 
 <script>
-import { renderless, api } from '@opentiny/vue-renderless/divider/vue'
-import { props, setup, defineComponent } from '@opentiny/vue-common'
+import { renderless, api } from '@tinysmall/renderless/divider/vue'
+import { props, setup, defineComponent } from '@tinysmall/common'
 
 export default defineComponent({
   props: [

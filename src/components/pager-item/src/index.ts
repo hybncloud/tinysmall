@@ -1,5 +1,5 @@
-import { $props, $prefix, $setup, defineComponent } from '@opentiny/vue-common'
-import { IconPopup, IconDoubleLeft, IconDoubleRight } from '@opentiny/vue-icon'
+import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
+import { IconPopup, IconDoubleLeft, IconDoubleRight } from '@tinysmall/icon'
 import template from 'virtual-template?pc'
 
 export default defineComponent({

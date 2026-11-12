@@ -10,7 +10,7 @@
  *
  */
 import FileUpload from './src/index'
-import '@opentiny/vue-theme/file-upload/index.less'
+import '@tinysmall/theme/file-upload/index.less'
 import { version } from 'package.json'
 
 /* istanbul ignore next */

@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest'
-import { handleMaxTimePick, handleTimeChange, handleTimeInput } from '@opentiny/vue-renderless/date-range'
+import { handleMaxTimePick, handleTimeChange, handleTimeInput } from '@tinysmall/renderless/date-range'
 
 describe('datetimerange end time vs start (#4185)', () => {
   test('handleMaxTimePick clamps end instead of rewriting start', () => {

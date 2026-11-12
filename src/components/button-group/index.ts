@@ -10,7 +10,7 @@
  *
  */
 import ButtonGroup from './src/index'
-import '@opentiny/vue-theme/button-group/index.less'
+import '@tinysmall/theme/button-group/index.less'
 import { version } from 'package.json'
 
 ButtonGroup.model = {

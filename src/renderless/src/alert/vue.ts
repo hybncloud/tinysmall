@@ -27,7 +27,7 @@ import {
   watchAutoHide,
   handlerTargetNode
 } from './index'
-import { nanoid } from '@opentiny/utils'
+import { nanoid } from '@tinysmall/utils'
 
 export const api = ['handleClose', 'state', 'handleHeaderClick']
 

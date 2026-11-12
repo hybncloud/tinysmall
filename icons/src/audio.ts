@@ -1,4 +1,4 @@
-import { svg } from '@opentiny/vue-common'
-import Audio from '@opentiny/vue-theme/svgs/audio.svg?component'
+import { svg } from '@tinysmall/common'
+import Audio from '@tinysmall/theme/svgs/audio.svg?component'
 
 export default () => svg({ name: 'IconAudio', component: Audio, filledComponent: Audio })()

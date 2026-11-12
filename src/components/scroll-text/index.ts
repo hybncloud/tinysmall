@@ -10,7 +10,7 @@
  *
  */
 import ScrollText from './src/index'
-import '@opentiny/vue-theme/scroll-text/index.less'
+import '@tinysmall/theme/scroll-text/index.less'
 import { version } from 'package.json'
 
 /* istanbul ignore next */

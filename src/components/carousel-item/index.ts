@@ -10,7 +10,7 @@
  *
  */
 import CarouselItem from './src/index'
-import '@opentiny/vue-theme/carousel-item/index.less'
+import '@tinysmall/theme/carousel-item/index.less'
 import { version } from 'package.json'
 
 /* istanbul ignore next */

@@ -77,10 +77,10 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@opentiny/vue-renderless/table/vue'
-import { setup, props, defineComponent } from '@opentiny/vue-common'
-import { iconRadioselected, iconRadio, iconCheck, iconCheckedSur, iconHalfselect } from '@opentiny/vue-icon'
-import '@opentiny/vue-theme/table/index.less'
+import { renderless, api } from '@tinysmall/renderless/table/vue'
+import { setup, props, defineComponent } from '@tinysmall/common'
+import { iconRadioselected, iconRadio, iconCheck, iconCheckedSur, iconHalfselect } from '@tinysmall/icon'
+import '@tinysmall/theme/table/index.less'
 
 export default defineComponent({
   components: {

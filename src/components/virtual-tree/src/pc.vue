@@ -37,10 +37,10 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@opentiny/vue-renderless/virtual-tree/vue'
-import { defineComponent, props, setup } from '@opentiny/vue-common'
-import VirtualScrollBox from '@opentiny/vue-virtual-scroll-box'
-import Tree from '@opentiny/vue-tree'
+import { renderless, api } from '@tinysmall/renderless/virtual-tree/vue'
+import { defineComponent, props, setup } from '@tinysmall/common'
+import VirtualScrollBox from '@tinysmall/virtual-scroll-box'
+import Tree from '@tinysmall/tree'
 
 export default defineComponent({
   inheritAttrs: false,

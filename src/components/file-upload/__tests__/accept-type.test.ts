@@ -1,5 +1,5 @@
 import { describe, expect, test, vi } from 'vitest'
-import { beforeUpload } from '@opentiny/vue-renderless/file-upload'
+import { beforeUpload } from '@tinysmall/renderless/file-upload'
 import { $constants as constants } from '../src/index'
 
 /**

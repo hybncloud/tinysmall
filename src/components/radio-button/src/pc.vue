@@ -45,9 +45,9 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@opentiny/vue-renderless/radio-button/vue'
-import { props, setup, defineComponent } from '@opentiny/vue-common'
-import type { IRadioButtonApi } from '@opentiny/vue-renderless/types/radio-button.type'
+import { renderless, api } from '@tinysmall/renderless/radio-button/vue'
+import { props, setup, defineComponent } from '@tinysmall/common'
+import type { IRadioButtonApi } from '@tinysmall/renderless/types/radio-button.type'
 
 export default defineComponent({
   emits: ['change'],

@@ -1,6 +1,6 @@
-import { mountPcMode } from '@opentiny-internal/vue-test-utils'
+import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
 import { test, describe, expect } from 'vitest'
-import SkeletonItem from '@opentiny/vue-skeleton-item'
+import SkeletonItem from '@tinysmall/skeleton-item'
 import { nextTick } from 'vue'
 
 describe('PC Mode', () => {

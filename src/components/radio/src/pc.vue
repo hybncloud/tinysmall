@@ -59,11 +59,11 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@opentiny/vue-renderless/radio/vue'
-import { props, setup, defineComponent } from '@opentiny/vue-common'
-import type { IRadioApi } from '@opentiny/vue-renderless/types/radio.type'
-import { AutoTip } from '@opentiny/vue-directive'
-import '@opentiny/vue-theme/radio/index.less'
+import { renderless, api } from '@tinysmall/renderless/radio/vue'
+import { props, setup, defineComponent } from '@tinysmall/common'
+import type { IRadioApi } from '@tinysmall/renderless/types/radio.type'
+import { AutoTip } from '@tinysmall/directive'
+import '@tinysmall/theme/radio/index.less'
 
 export default defineComponent({
   emits: ['change', 'update:modelValue'],

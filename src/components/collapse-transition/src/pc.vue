@@ -17,8 +17,8 @@
 </template>
 
 <script lang="ts">
-import { addClass as addCls, removeClass as rmvCls } from '@opentiny/utils'
-import { $prefix, defineComponent } from '@opentiny/vue-common'
+import { addClass as addCls, removeClass as rmvCls } from '@tinysmall/utils'
+import { $prefix, defineComponent } from '@tinysmall/common'
 
 export default defineComponent({
   name: $prefix + 'CollapseTransition',

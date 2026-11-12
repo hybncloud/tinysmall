@@ -10,7 +10,7 @@
  *
  */
 
-import { merge } from '@opentiny/utils'
+import { merge } from '@tinysmall/utils'
 
 import type { IFormRenderlessParams } from '../../types'
 

@@ -10,11 +10,11 @@
  *
  */
 
-import { PopupManager } from '@opentiny/utils'
-import { getStyle, addClass } from '@opentiny/utils'
-import { createComponent, hooks, appProperties } from '@opentiny/vue-common'
+import { PopupManager } from '@tinysmall/utils'
+import { getStyle, addClass } from '@tinysmall/utils'
+import { createComponent, hooks, appProperties } from '@tinysmall/common'
 import Loading from './index'
-import type { ILoadingState } from '@opentiny/vue-renderless/types/loading.type'
+import type { ILoadingState } from '@tinysmall/renderless/types/loading.type'
 
 interface LoadingConfig {
   text?: string | null

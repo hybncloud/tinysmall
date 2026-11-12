@@ -64,14 +64,14 @@
 </template>
 
 <script lang="ts">
-import type { IActionMenuApi } from '@opentiny/vue-renderless/types/action-menu.type'
-import { setup, $prefix, defineComponent } from '@opentiny/vue-common'
-import { renderless, api } from '@opentiny/vue-renderless/action-menu/vue'
-import { iconEllipsis } from '@opentiny/vue-icon'
-import '@opentiny/vue-theme/action-menu/index.less'
-import Dropdown from '@opentiny/vue-dropdown'
-import DropdownMenu from '@opentiny/vue-dropdown-menu'
-import DropdownItem from '@opentiny/vue-dropdown-item'
+import type { IActionMenuApi } from '@tinysmall/renderless/types/action-menu.type'
+import { setup, $prefix, defineComponent } from '@tinysmall/common'
+import { renderless, api } from '@tinysmall/renderless/action-menu/vue'
+import { iconEllipsis } from '@tinysmall/icon'
+import '@tinysmall/theme/action-menu/index.less'
+import Dropdown from '@tinysmall/dropdown'
+import DropdownMenu from '@tinysmall/dropdown-menu'
+import DropdownItem from '@tinysmall/dropdown-item'
 
 export default defineComponent({
   name: $prefix + 'ActionMenu',

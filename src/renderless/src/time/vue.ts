@@ -25,7 +25,7 @@ import {
   adjustPosition
 } from './index'
 import { compuAmPmMode } from '../time-range'
-import { isDate1 as isDate } from '@opentiny/utils'
+import { isDate1 as isDate } from '@tinysmall/utils'
 
 export const api = [
   'state',

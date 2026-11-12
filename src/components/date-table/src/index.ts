@@ -1,6 +1,6 @@
-import { $prefix, $props, $setup, defineComponent } from '@opentiny/vue-common'
+import { $prefix, $props, $setup, defineComponent } from '@tinysmall/common'
 import template from 'virtual-template?pc'
-import { isDate1 } from '@opentiny/utils'
+import { isDate1 } from '@tinysmall/utils'
 
 export default defineComponent({
   name: $prefix + 'DateTable',

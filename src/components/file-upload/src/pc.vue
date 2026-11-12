@@ -10,22 +10,22 @@
  *
  -->
 <script lang="tsx">
-import { renderless, api } from '@opentiny/vue-renderless/file-upload/vue'
-import { props, setup, h, defineComponent, isVue3 } from '@opentiny/vue-common'
-import UploadList from '@opentiny/vue-upload-list'
-import Upload from '@opentiny/vue-upload'
-import Progress from '@opentiny/vue-progress'
-import '@opentiny/vue-theme/file-upload/index.less'
-import '@opentiny/vue-theme/upload-list/index.less'
-import '@opentiny/vue-theme/upload-dragger/index.less'
-import '@opentiny/vue-theme/upload/index.less'
-import Modal from '@opentiny/vue-modal'
-import DialogBox from '@opentiny/vue-dialog-box'
-import Popover from '@opentiny/vue-popover'
-import Button from '@opentiny/vue-button'
-import Input from '@opentiny/vue-input'
-import Switch from '@opentiny/vue-switch'
-import Tooltip from '@opentiny/vue-tooltip'
+import { renderless, api } from '@tinysmall/renderless/file-upload/vue'
+import { props, setup, h, defineComponent, isVue3 } from '@tinysmall/common'
+import UploadList from '@tinysmall/upload-list'
+import Upload from '@tinysmall/upload'
+import Progress from '@tinysmall/progress'
+import '@tinysmall/theme/file-upload/index.less'
+import '@tinysmall/theme/upload-list/index.less'
+import '@tinysmall/theme/upload-dragger/index.less'
+import '@tinysmall/theme/upload/index.less'
+import Modal from '@tinysmall/modal'
+import DialogBox from '@tinysmall/dialog-box'
+import Popover from '@tinysmall/popover'
+import Button from '@tinysmall/button'
+import Input from '@tinysmall/input'
+import Switch from '@tinysmall/switch'
+import Tooltip from '@tinysmall/tooltip'
 import {
   iconAttachment,
   iconDownload,
@@ -34,9 +34,9 @@ import {
   iconFileCloudupload,
   iconPlus,
   iconHelpCircle
-} from '@opentiny/vue-icon'
+} from '@tinysmall/icon'
 import Streamsaver from 'streamsaver'
-import type { IFileUploadApi } from '@opentiny/vue-renderless/types/file-upload.type'
+import type { IFileUploadApi } from '@tinysmall/renderless/types/file-upload.type'
 
 const TinyIconAttachment = iconAttachment()
 const TinyIconSuccessful = iconSuccessful()

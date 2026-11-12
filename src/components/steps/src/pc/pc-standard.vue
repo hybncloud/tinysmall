@@ -29,9 +29,9 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@opentiny/vue-renderless/steps/vue'
-import { props, setup, defineComponent } from '@opentiny/vue-common'
-import { iconRefresh, iconYes } from '@opentiny/vue-icon'
+import { renderless, api } from '@tinysmall/renderless/steps/vue'
+import { props, setup, defineComponent } from '@tinysmall/common'
+import { iconRefresh, iconYes } from '@tinysmall/icon'
 
 export default defineComponent({
   emits: ['click'],

@@ -10,7 +10,7 @@
  *
  */
 import MonthTable from './src/pc.vue'
-import '@opentiny/vue-theme/month-table/index.less'
+import '@tinysmall/theme/month-table/index.less'
 import { version } from 'package.json'
 
 /* istanbul ignore next */

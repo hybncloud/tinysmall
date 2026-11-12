@@ -1,7 +1,7 @@
-import { mountPcMode } from '@opentiny-internal/vue-test-utils'
+import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
 import { describe, test, expect, vi } from 'vitest'
-import Breadcrumb from '@opentiny/vue-breadcrumb'
-import BreadcrumbItem from '@opentiny/vue-breadcrumb-item'
+import Breadcrumb from '@tinysmall/breadcrumb'
+import BreadcrumbItem from '@tinysmall/breadcrumb-item'
 
 describe('PC Mode', () => {
   const mount = mountPcMode

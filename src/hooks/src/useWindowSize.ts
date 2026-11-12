@@ -1,4 +1,4 @@
-import { on, isServer } from '@opentiny/utils'
+import { on, isServer } from '@tinysmall/utils'
 
 let width
 let height

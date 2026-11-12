@@ -1,5 +1,5 @@
 import FilterBox from './src/pc.vue'
-import '@opentiny/vue-theme/filter-box/index.less'
+import '@tinysmall/theme/filter-box/index.less'
 import { version } from 'package.json'
 
 /* istanbul ignore next */

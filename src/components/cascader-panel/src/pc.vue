@@ -22,11 +22,11 @@
 </template>
 
 <script lang="ts">
-import { $prefix, setup, defineComponent } from '@opentiny/vue-common'
-import { renderless, api } from '@opentiny/vue-renderless/cascader-panel/vue'
-import CascaderMenu from '@opentiny/vue-cascader-menu'
-import type { ICascaderPanelApi } from '@opentiny/vue-renderless/types/cascader-panel.type'
-import '@opentiny/vue-theme/cascader-panel/index.less'
+import { $prefix, setup, defineComponent } from '@tinysmall/common'
+import { renderless, api } from '@tinysmall/renderless/cascader-panel/vue'
+import CascaderMenu from '@tinysmall/cascader-menu'
+import type { ICascaderPanelApi } from '@tinysmall/renderless/types/cascader-panel.type'
+import '@tinysmall/theme/cascader-panel/index.less'
 
 export default defineComponent({
   name: $prefix + 'CascaderPanel',

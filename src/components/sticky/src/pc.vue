@@ -7,9 +7,9 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@opentiny/vue-renderless/sticky/vue'
-import { setup, props, defineComponent } from '@opentiny/vue-common'
-import '@opentiny/vue-theme/sticky/index.less'
+import { renderless, api } from '@tinysmall/renderless/sticky/vue'
+import { setup, props, defineComponent } from '@tinysmall/common'
+import '@tinysmall/theme/sticky/index.less'
 
 export default defineComponent({
   emits: ['change', 'scroll'],

@@ -1,7 +1,7 @@
-import { mountPcMode } from '@opentiny-internal/vue-test-utils'
+import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
 import { describe, expect, test, vi } from 'vitest'
-import ButtonGroup from '@opentiny/vue-button-group'
-import Button from '@opentiny/vue-button'
+import ButtonGroup from '@tinysmall/button-group'
+import Button from '@tinysmall/button'
 
 const groupData = [
   { text: 'Button1', value: 'Button1' },

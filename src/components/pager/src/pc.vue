@@ -172,15 +172,15 @@
 </template>
 
 <script lang="tsx">
-import Pager from '@opentiny/vue-pager-item'
-import TinyBaseSelect from '@opentiny/vue-base-select'
-import Popover from '@opentiny/vue-popover'
-import Loading from '@opentiny/vue-loading'
-import { $prefix, setup, defineComponent, props } from '@opentiny/vue-common'
-import { renderless, api } from '@opentiny/vue-renderless/pager/vue'
-import { IconChevronDown, iconChevronLeft, iconChevronRight } from '@opentiny/vue-icon'
-import type { IPagerApi } from '@opentiny/vue-renderless/types/pager.type'
-import '@opentiny/vue-theme/pager/index.less'
+import Pager from '@tinysmall/pager-item'
+import TinyBaseSelect from '@tinysmall/base-select'
+import Popover from '@tinysmall/popover'
+import Loading from '@tinysmall/loading'
+import { $prefix, setup, defineComponent, props } from '@tinysmall/common'
+import { renderless, api } from '@tinysmall/renderless/pager/vue'
+import { IconChevronDown, iconChevronLeft, iconChevronRight } from '@tinysmall/icon'
+import type { IPagerApi } from '@tinysmall/renderless/types/pager.type'
+import '@tinysmall/theme/pager/index.less'
 
 export default defineComponent({
   name: $prefix + 'Pager',

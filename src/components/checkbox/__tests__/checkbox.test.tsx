@@ -1,6 +1,6 @@
-import { mountPcMode } from '@opentiny-internal/vue-test-utils'
+import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
 import { describe, expect, test, vi } from 'vitest'
-import Checkbox from '@opentiny/vue-checkbox'
+import Checkbox from '@tinysmall/checkbox'
 
 let checked = ''
 

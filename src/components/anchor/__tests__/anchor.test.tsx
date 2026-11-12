@@ -1,4 +1,4 @@
-import { mountPcMode } from '@opentiny-internal/vue-test-utils'
+import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
 import { describe, test } from 'vitest'
 import { reactive } from 'vue'
 

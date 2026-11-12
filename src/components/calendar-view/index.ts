@@ -10,7 +10,7 @@
  *
  */
 import CalendarView from './src/index'
-import '@opentiny/vue-theme/calendar-view/index.less'
+import '@tinysmall/theme/calendar-view/index.less'
 import { version } from 'package.json'
 
 CalendarView.model = {

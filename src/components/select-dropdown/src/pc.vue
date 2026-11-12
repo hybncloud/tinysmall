@@ -24,9 +24,9 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@opentiny/vue-renderless/select-dropdown/vue'
-import { props, setup, defineComponent } from '@opentiny/vue-common'
-import '@opentiny/vue-theme/select-dropdown/index.less'
+import { renderless, api } from '@tinysmall/renderless/select-dropdown/vue'
+import { props, setup, defineComponent } from '@tinysmall/common'
+import '@tinysmall/theme/select-dropdown/index.less'
 
 export default defineComponent({
   props: [

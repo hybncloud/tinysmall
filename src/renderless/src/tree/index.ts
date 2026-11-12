@@ -10,15 +10,15 @@
  *
  */
 
-import { getNodeKey as innerGetNodekey } from '@opentiny/utils'
-import { KEY_CODE } from '@opentiny/utils'
-import { TreeStore } from '@opentiny/utils'
-import { addClass, removeClass } from '@opentiny/utils'
-import { on, off } from '@opentiny/utils'
-import { getDataset } from '@opentiny/utils'
-import { copyArray } from '@opentiny/utils'
+import { getNodeKey as innerGetNodekey } from '@tinysmall/utils'
+import { KEY_CODE } from '@tinysmall/utils'
+import { TreeStore } from '@tinysmall/utils'
+import { addClass, removeClass } from '@tinysmall/utils'
+import { on, off } from '@tinysmall/utils'
+import { getDataset } from '@tinysmall/utils'
+import { copyArray } from '@tinysmall/utils'
 
-import { logger } from '@opentiny/utils'
+import { logger } from '@tinysmall/utils'
 
 export const setChildren = (props) => (data) => (props.data = data)
 

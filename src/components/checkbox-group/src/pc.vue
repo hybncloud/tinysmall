@@ -23,11 +23,11 @@
 </template>
 
 <script lang="tsx">
-import { renderless, api } from '@opentiny/vue-renderless/checkbox-group/vue'
-import { props, setup, defineComponent } from '@opentiny/vue-common'
-import Checkbox from '@opentiny/vue-checkbox'
-import CheckboxButton from '@opentiny/vue-checkbox-button'
-import '@opentiny/vue-theme/checkbox-group/index.less'
+import { renderless, api } from '@tinysmall/renderless/checkbox-group/vue'
+import { props, setup, defineComponent } from '@tinysmall/common'
+import Checkbox from '@tinysmall/checkbox'
+import CheckboxButton from '@tinysmall/checkbox-button'
+import '@tinysmall/theme/checkbox-group/index.less'
 
 export default defineComponent({
   components: {

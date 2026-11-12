@@ -42,9 +42,9 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@opentiny/vue-renderless/time-panel/vue'
-import { props, setup, defineComponent } from '@opentiny/vue-common'
-import Scrollbar from '@opentiny/vue-scrollbar'
+import { renderless, api } from '@tinysmall/renderless/time-panel/vue'
+import { props, setup, defineComponent } from '@tinysmall/common'
+import Scrollbar from '@tinysmall/scrollbar'
 
 export default defineComponent({
   emits: ['dodestroy', 'pick'],

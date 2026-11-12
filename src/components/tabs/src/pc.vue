@@ -10,12 +10,12 @@
  *
  -->
 <script lang="tsx">
-import { renderless, api } from '@opentiny/vue-renderless/tabs/vue'
-import { props, setup, h, defineComponent } from '@opentiny/vue-common'
+import { renderless, api } from '@tinysmall/renderless/tabs/vue'
+import { props, setup, h, defineComponent } from '@tinysmall/common'
 import TabNav from './tab-nav/pc.vue'
-import { iconPlus } from '@opentiny/vue-icon'
-import '@opentiny/vue-theme/tabs/index.less'
-import type { ITabsApi } from '@opentiny/vue-renderless/types/tabs.type'
+import { iconPlus } from '@tinysmall/icon'
+import '@tinysmall/theme/tabs/index.less'
+import type { ITabsApi } from '@tinysmall/renderless/types/tabs.type'
 
 export default defineComponent({
   emits: [

@@ -1,6 +1,6 @@
 /* eslint-disable unused-imports/no-unused-vars */
-import { modifyDate, nextYear, prevYear } from '@opentiny/utils'
-import { DATEPICKER } from '@opentiny/utils'
+import { modifyDate, nextYear, prevYear } from '@tinysmall/utils'
+import { DATEPICKER } from '@tinysmall/utils'
 
 const getTarget = (event) => {
   let target = event.target

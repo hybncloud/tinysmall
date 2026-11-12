@@ -24,10 +24,10 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@opentiny/vue-renderless/exception/vue'
-import { setup, defineComponent, $props } from '@opentiny/vue-common'
-import Button from '@opentiny/vue-button'
-import '@opentiny/vue-theme/exception/index.less'
+import { renderless, api } from '@tinysmall/renderless/exception/vue'
+import { setup, defineComponent, $props } from '@tinysmall/common'
+import Button from '@tinysmall/button'
+import '@tinysmall/theme/exception/index.less'
 
 import {
   iconNoData,
@@ -39,7 +39,7 @@ import {
   iconPageNothing,
   iconPageServererror,
   iconPageWeaknet
-} from '@opentiny/vue-icon'
+} from '@tinysmall/icon'
 
 const $constants = {
   INTERNALCONFIG: {

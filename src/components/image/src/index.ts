@@ -9,10 +9,10 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-import { $props, $prefix, $setup, defineComponent } from '@opentiny/vue-common'
-import type { IImageApi } from '@opentiny/vue-renderless/types/image.type'
+import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
+import type { IImageApi } from '@tinysmall/renderless/types/image.type'
 import template from 'virtual-template?pc'
-import { isServer } from '@opentiny/utils'
+import { isServer } from '@tinysmall/utils'
 
 export const $constants = {
   NONE: 'none',

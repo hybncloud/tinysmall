@@ -1,6 +1,6 @@
-import { mountPcMode } from '@opentiny-internal/vue-test-utils'
+import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
 import { describe, expect, test } from 'vitest'
-import Notify from '@opentiny/vue-notify'
+import Notify from '@tinysmall/notify'
 
 describe('PC Mode', () => {
   const mount = mountPcMode

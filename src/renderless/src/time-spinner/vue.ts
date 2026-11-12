@@ -30,7 +30,7 @@ import {
   emitSelectRange,
   selectDateScroll
 } from './index'
-import { getRangeHours, getRangeMinutes } from '@opentiny/utils'
+import { getRangeHours, getRangeMinutes } from '@tinysmall/utils'
 
 export const api = [
   'state',

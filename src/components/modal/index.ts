@@ -10,12 +10,12 @@
  *
  */
 
-import { createComponent, setupComponent } from '@opentiny/vue-common'
-import { MsgQueue } from '@opentiny/vue-renderless/modal'
+import { createComponent, setupComponent } from '@tinysmall/common'
+import { MsgQueue } from '@tinysmall/renderless/modal'
 import TinyModal from './src/index'
-import Popconfirm from '@opentiny/vue-popconfirm'
+import Popconfirm from '@tinysmall/popconfirm'
 import { version } from 'package.json'
-import type { ComponentPublicInstance, VNode } from '@opentiny/vue-common'
+import type { ComponentPublicInstance, VNode } from '@tinysmall/common'
 
 // 定义Modal选项接口
 interface ModalOptions {

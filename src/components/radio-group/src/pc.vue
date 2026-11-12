@@ -30,11 +30,11 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@opentiny/vue-renderless/radio-group/vue'
-import { props, setup, defineComponent } from '@opentiny/vue-common'
-import Radio from '@opentiny/vue-radio'
-import RadioButton from '@opentiny/vue-radio-button'
-import type { IRadioGroupApi } from '@opentiny/vue-renderless/types/radio-group.type'
+import { renderless, api } from '@tinysmall/renderless/radio-group/vue'
+import { props, setup, defineComponent } from '@tinysmall/common'
+import Radio from '@tinysmall/radio'
+import RadioButton from '@tinysmall/radio-button'
+import type { IRadioGroupApi } from '@tinysmall/renderless/types/radio-group.type'
 
 export default defineComponent({
   components: {

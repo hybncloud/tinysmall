@@ -22,10 +22,10 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@opentiny/vue-renderless/filter-box/vue'
-import { $props, $prefix, setup, defineComponent } from '@opentiny/vue-common'
-import { iconDownWard, iconError, iconHelpCircle } from '@opentiny/vue-icon'
-import TinyTooltip from '@opentiny/vue-tooltip'
+import { renderless, api } from '@tinysmall/renderless/filter-box/vue'
+import { $props, $prefix, setup, defineComponent } from '@tinysmall/common'
+import { iconDownWard, iconError, iconHelpCircle } from '@tinysmall/icon'
+import TinyTooltip from '@tinysmall/tooltip'
 
 export default defineComponent({
   name: $prefix + 'FilterBox',

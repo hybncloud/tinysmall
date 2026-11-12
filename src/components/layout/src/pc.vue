@@ -16,8 +16,8 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@opentiny/vue-renderless/layout/vue'
-import { props, setup, defineComponent } from '@opentiny/vue-common'
+import { renderless, api } from '@tinysmall/renderless/layout/vue'
+import { props, setup, defineComponent } from '@tinysmall/common'
 
 export default defineComponent({
   props: [...props, 'tag'],

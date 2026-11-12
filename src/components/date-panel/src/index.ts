@@ -1,4 +1,4 @@
-import { $prefix, $props, $setup, defineComponent } from '@opentiny/vue-common'
+import { $prefix, $props, $setup, defineComponent } from '@tinysmall/common'
 import template from 'virtual-template?pc'
 
 export default defineComponent({

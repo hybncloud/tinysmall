@@ -13,9 +13,9 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@opentiny/vue-renderless/option-group/vue'
-import { setup, $prefix, props, defineComponent } from '@opentiny/vue-common'
-import '@opentiny/vue-theme/option-group/index.less'
+import { renderless, api } from '@tinysmall/renderless/option-group/vue'
+import { setup, $prefix, props, defineComponent } from '@tinysmall/common'
+import '@tinysmall/theme/option-group/index.less'
 
 export default defineComponent({
   name: $prefix + 'OptionGroup',

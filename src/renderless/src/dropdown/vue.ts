@@ -10,7 +10,7 @@
  *
  */
 
-import { guid } from '@opentiny/utils'
+import { guid } from '@tinysmall/utils'
 import type {
   IDropdownState,
   IDropdownApi,

@@ -1,4 +1,4 @@
-import type { DATEPICKER } from '@opentiny/utils'
+import type { DATEPICKER } from '@tinysmall/utils'
 
 export interface IDateTableRow {
   /** 列数，从0开始，[0, 6] */

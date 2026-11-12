@@ -1,9 +1,9 @@
-import { mountPcMode } from '@opentiny-internal/vue-test-utils'
+import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
 import { describe, expect, test, vi } from 'vitest'
-import Modal from '@opentiny/vue-modal'
-import Form from '@opentiny/vue-form'
-import FormItem from '@opentiny/vue-form-item'
-import Input from '@opentiny/vue-input'
+import Modal from '@tinysmall/modal'
+import Form from '@tinysmall/form'
+import FormItem from '@tinysmall/form-item'
+import Input from '@tinysmall/input'
 import { nextTick, reactive, ref } from 'vue'
 
 const ASYNC_WAIT_TIME = 500

@@ -10,7 +10,7 @@
  *
  */
 import Col from './src/index'
-import '@opentiny/vue-theme/col/index.less'
+import '@tinysmall/theme/col/index.less'
 import { version } from 'package.json'
 
 /* istanbul ignore next */

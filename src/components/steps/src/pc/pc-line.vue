@@ -142,10 +142,10 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@opentiny/vue-renderless/steps/vue'
-import { props, setup, defineComponent } from '@opentiny/vue-common'
-import { IconFinish, IconWarn } from '@opentiny/vue-icon'
-import { AutoTip } from '@opentiny/vue-directive'
+import { renderless, api } from '@tinysmall/renderless/steps/vue'
+import { props, setup, defineComponent } from '@tinysmall/common'
+import { IconFinish, IconWarn } from '@tinysmall/icon'
+import { AutoTip } from '@tinysmall/directive'
 
 export default defineComponent({
   components: {

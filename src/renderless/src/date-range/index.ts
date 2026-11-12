@@ -23,7 +23,7 @@ import {
   prevMonth,
   modifyWithTimeString,
   DATEPICKER
-} from '@opentiny/utils'
+} from '@tinysmall/utils'
 
 export const calcDefaultValue = (defaultVal) => {
   if (Array.isArray(defaultVal)) {

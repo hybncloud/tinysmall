@@ -16,7 +16,7 @@ import type {
   IDropdownItemTag,
   IDropdownItemOptionStyle
 } from '../../types'
-import { on, off } from '@opentiny/utils'
+import { on, off } from '@tinysmall/utils'
 
 export const getTitle = (props: IDropdownItemRenderlessParams['props']) => (): string => {
   if (props.title) {

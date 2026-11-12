@@ -1,5 +1,5 @@
-import { debounce } from '@opentiny/utils'
-import { on, off } from '@opentiny/utils'
+import { debounce } from '@tinysmall/utils'
+import { on, off } from '@tinysmall/utils'
 
 const getBoundingPosition =
   ({ state }) =>

@@ -10,10 +10,10 @@
  *
  */
 
-import { createComponent } from '@opentiny/vue-common'
+import { createComponent } from '@tinysmall/common'
 import NotifyConstructor from './src/pc.vue'
-import '@opentiny/vue-theme/notify/index.less'
-import { IconSuccess, iconError, IconPrompt, iconWarningTriangle } from '@opentiny/vue-icon'
+import '@tinysmall/theme/notify/index.less'
+import { IconSuccess, iconError, IconPrompt, iconWarningTriangle } from '@tinysmall/icon'
 
 type NotifyType = 'warning' | 'error' | 'info' | 'success'
 type NotifyPosition = 'top-right' | 'bottom-right' | 'top-left' | 'bottom-left'

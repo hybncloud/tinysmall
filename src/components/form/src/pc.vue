@@ -39,12 +39,12 @@
 </template>
 
 <script lang="tsx">
-import { renderless, api } from '@opentiny/vue-renderless/form/vue'
-import { props, setup, defineComponent } from '@opentiny/vue-common'
-import type { IFormApi } from '@opentiny/vue-renderless/types/form.type'
-import Tooltip from '@opentiny/vue-tooltip'
-import '@opentiny/vue-theme/form/index.less'
-import '@opentiny/vue-theme/form-item/index.less'
+import { renderless, api } from '@tinysmall/renderless/form/vue'
+import { props, setup, defineComponent } from '@tinysmall/common'
+import type { IFormApi } from '@tinysmall/renderless/types/form.type'
+import Tooltip from '@tinysmall/tooltip'
+import '@tinysmall/theme/form/index.less'
+import '@tinysmall/theme/form-item/index.less'
 
 export default defineComponent({
   components: {

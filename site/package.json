@@ -12,6 +12,7 @@
   },
   "devDependencies": {
     "@floating-ui/dom": "^1.6.9",
+    "@opentiny/vue-icon": "^3.32.0",
     "@rollup/pluginutils": "^5.5.1",
     "@tsconfig/node22": "^22.0.6",
     "@types/gradient-parser": "^1.1.0",

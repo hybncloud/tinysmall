@@ -1,6 +1,6 @@
-import { mountPcMode } from '@opentiny-internal/vue-test-utils'
+import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
 import { describe, expect, test } from 'vitest'
-import DatePanel from '@opentiny/vue-date-panel'
+import DatePanel from '@tinysmall/date-panel'
 import { nextTick } from 'vue'
 
 describe('PC Mode', () => {

@@ -1,6 +1,6 @@
-import { mountPcMode } from '@opentiny-internal/vue-test-utils'
-import Tabs from '@opentiny/vue-tabs'
-import TabItem from '@opentiny/vue-tab-item'
+import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import Tabs from '@tinysmall/tabs'
+import TabItem from '@tinysmall/tab-item'
 import { describe, expect, test, vi } from 'vitest'
 import { reactive, nextTick } from 'vue'
 

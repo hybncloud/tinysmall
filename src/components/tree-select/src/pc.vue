@@ -49,10 +49,10 @@
 </template>
 
 <script lang="ts">
-import { $prefix, defineComponent, setup } from '@opentiny/vue-common'
-import { renderless, api } from '@opentiny/vue-renderless/tree-select/vue'
-import Tree from '@opentiny/vue-tree'
-import BaseSelect from '@opentiny/vue-base-select'
+import { $prefix, defineComponent, setup } from '@tinysmall/common'
+import { renderless, api } from '@tinysmall/renderless/tree-select/vue'
+import Tree from '@tinysmall/tree'
+import BaseSelect from '@tinysmall/base-select'
 
 export default defineComponent({
   name: $prefix + 'TreeSelect',

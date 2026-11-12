@@ -53,7 +53,7 @@ import {
   watchPickerVisible,
   watchModelValue
 } from './index'
-import { nextMonth1, extractDateFormat, extractTimeFormat } from '@opentiny/utils'
+import { nextMonth1, extractDateFormat, extractTimeFormat } from '@tinysmall/utils'
 
 export const api = [
   'state',

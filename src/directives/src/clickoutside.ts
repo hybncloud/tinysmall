@@ -10,7 +10,7 @@
  *
  */
 
-import { on, isServer } from '@opentiny/utils'
+import { on, isServer } from '@tinysmall/utils'
 
 const nodeList = []
 const nameSpace = '@@clickoutsideContext'

@@ -10,7 +10,7 @@
  *
  */
 
-import { formatDateByPattern as format } from '@opentiny/utils'
+import { formatDateByPattern as format } from '@tinysmall/utils'
 import type {
   ITimelineItemRenderlessParams,
   ITimelineItem,

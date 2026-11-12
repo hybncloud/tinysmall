@@ -10,7 +10,7 @@
  *
  */
 import DateRange from './src/index'
-import '@opentiny/vue-theme/date-range/index.less'
+import '@tinysmall/theme/date-range/index.less'
 import { version } from 'package.json'
 
 /* istanbul ignore next */

@@ -10,8 +10,8 @@
  *
  */
 
-import { scrollIntoView } from '@opentiny/utils'
-import { DATEPICKER } from '@opentiny/utils'
+import { scrollIntoView } from '@tinysmall/utils'
+import { DATEPICKER } from '@tinysmall/utils'
 
 export const parseTime = () => (time) => {
   const values = (time || '').split(':')

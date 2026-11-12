@@ -70,7 +70,7 @@ import {
   formatInputValue
 } from './index'
 import { dateMobileToggle, timeMobileToggle, dateToTimeArray, timeArrayToDate, timeMobileConfirm } from './mb'
-import { DATEPICKER, nanoid } from '@opentiny/utils'
+import { DATEPICKER, nanoid } from '@tinysmall/utils'
 import type {
   IPickerProps,
   IPickerApi,

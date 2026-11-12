@@ -18,7 +18,7 @@ import type {
   ICollapseItemRenderlessParamUtils
 } from '../../types'
 import { handleFocus, handleEnterClick, handleHeaderClick, handleHeaderContainerClick } from './index'
-import { guid } from '@opentiny/utils'
+import { guid } from '@tinysmall/utils'
 
 export const api = [
   'state',

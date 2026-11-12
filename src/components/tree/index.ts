@@ -10,7 +10,7 @@
  *
  */
 import Tree from './src/index.js'
-import '@opentiny/vue-theme/tree/index.less'
+import '@tinysmall/theme/tree/index.less'
 import { version } from 'package.json'
 
 /* istanbul ignore next */

@@ -30,11 +30,11 @@ import type {
   IFileUploadLargeDocumentDownload
 } from '../../types'
 
-import { extend } from '@opentiny/utils'
-import { xss, logger, sha256 } from '@opentiny/utils'
-import { uploadAjax } from '@opentiny/utils'
-import { isObject } from '@opentiny/utils'
-import { isEmptyObject } from '@opentiny/utils'
+import { extend } from '@tinysmall/utils'
+import { xss, logger, sha256 } from '@tinysmall/utils'
+import { uploadAjax } from '@tinysmall/utils'
+import { isObject } from '@tinysmall/utils'
+import { isEmptyObject } from '@tinysmall/utils'
 
 let initTokenPromise = null
 

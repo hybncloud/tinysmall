@@ -10,7 +10,7 @@
  *
  */
 import Statistic from './src/index'
-import '@opentiny/vue-theme/statistic/index.less'
+import '@tinysmall/theme/statistic/index.less'
 import { version } from 'package.json'
 
 Statistic.model = {

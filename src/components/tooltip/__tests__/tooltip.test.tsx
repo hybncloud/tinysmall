@@ -1,6 +1,6 @@
-import { mountPcMode as mount } from '@opentiny-internal/vue-test-utils'
+import { mountPcMode as mount } from '@tinysmall-internal/vue-test-utils'
 import { describe, test, expect } from 'vitest'
-import Tooltip from '@opentiny/vue-tooltip'
+import Tooltip from '@tinysmall/tooltip'
 
 describe('PC Mode', () => {
   document.body.innerHTML = `

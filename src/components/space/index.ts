@@ -11,7 +11,7 @@
  */
 
 import Space from './src/index'
-import '@opentiny/vue-theme/space/index.less'
+import '@tinysmall/theme/space/index.less'
 import { version } from 'package.json'
 
 /* istanbul ignore next */

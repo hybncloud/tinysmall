@@ -27,7 +27,7 @@ import {
   emitPick,
   emitDestroy
 } from './index'
-import { DATEPICKER } from '@opentiny/utils'
+import { DATEPICKER } from '@tinysmall/utils'
 
 export const api = ['state', 'handleMenuEnter', 'handleClick', 'handleClear', 'emitDestroy']
 

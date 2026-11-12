@@ -28,9 +28,9 @@
 </template>
 
 <script lang="ts">
-import { $prefix, setup, defineComponent } from '@opentiny/vue-common'
-import { renderless, api } from '@opentiny/vue-renderless/tall-storage/vue'
-import '@opentiny/vue-theme/tall-storage/index.less'
+import { $prefix, setup, defineComponent } from '@tinysmall/common'
+import { renderless, api } from '@tinysmall/renderless/tall-storage/vue'
+import '@tinysmall/theme/tall-storage/index.less'
 
 export default defineComponent({
   name: $prefix + 'TallStorage',

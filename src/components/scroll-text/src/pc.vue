@@ -29,8 +29,8 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@opentiny/vue-renderless/scroll-text/vue'
-import { props, setup, defineComponent } from '@opentiny/vue-common'
+import { renderless, api } from '@tinysmall/renderless/scroll-text/vue'
+import { props, setup, defineComponent } from '@tinysmall/common'
 
 export default defineComponent({
   props: [...props, 'text', 'time', 'styles', 'direction', 'hoverStop', 'widthAdapt'],

@@ -10,7 +10,7 @@
  *
  */
 import PopUpload from './src/index'
-import '@opentiny/vue-theme/pop-upload/index.less'
+import '@tinysmall/theme/pop-upload/index.less'
 import { version } from 'package.json'
 
 /* istanbul ignore next */

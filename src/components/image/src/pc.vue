@@ -52,11 +52,11 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@opentiny/vue-renderless/image/vue'
-import { props, setup, defineComponent, Teleport } from '@opentiny/vue-common'
-import ImageViewer from '@opentiny/vue-image-viewer'
-import { iconImageError } from '@opentiny/vue-icon'
-import type { IImageApi } from '@opentiny/vue-renderless/types/image.type'
+import { renderless, api } from '@tinysmall/renderless/image/vue'
+import { props, setup, defineComponent, Teleport } from '@tinysmall/common'
+import ImageViewer from '@tinysmall/image-viewer'
+import { iconImageError } from '@tinysmall/icon'
+import type { IImageApi } from '@tinysmall/renderless/types/image.type'
 
 export default defineComponent({
   components: {

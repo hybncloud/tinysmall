@@ -11,13 +11,13 @@
  -->
 
 <script lang="tsx">
-import { renderless, api } from '@opentiny/vue-renderless/dropdown/vue'
-import { setup, $prefix, directive, defineComponent, h, $props } from '@opentiny/vue-common'
-import Button from '@opentiny/vue-button'
-import ButtonGroup from '@opentiny/vue-button-group'
-import { Clickoutside } from '@opentiny/vue-directive'
-import DropdownMenu from '@opentiny/vue-dropdown-menu'
-import { iconDownWard } from '@opentiny/vue-icon'
+import { renderless, api } from '@tinysmall/renderless/dropdown/vue'
+import { setup, $prefix, directive, defineComponent, h, $props } from '@tinysmall/common'
+import Button from '@tinysmall/button'
+import ButtonGroup from '@tinysmall/button-group'
+import { Clickoutside } from '@tinysmall/directive'
+import DropdownMenu from '@tinysmall/dropdown-menu'
+import { iconDownWard } from '@tinysmall/icon'
 
 export default defineComponent({
   name: $prefix + 'Dropdown',

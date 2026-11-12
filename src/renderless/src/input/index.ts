@@ -10,8 +10,8 @@
  *
  */
 
-import { omitText } from '@opentiny/utils'
-import { isServer } from '@opentiny/utils'
+import { omitText } from '@tinysmall/utils'
+import { isServer } from '@tinysmall/utils'
 import type { IInputApi, IInputRenderlessParamUtils, IInputRenderlessParams, IInputState } from 'types/input.type'
 
 const HIDDEN_STYLE = `

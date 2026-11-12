@@ -31,8 +31,8 @@ import {
   hideScrollbar,
   toggleFullScreen
 } from './index'
-import { nanoid } from '@opentiny/utils'
-import { usePopup } from '@opentiny/vue-hooks'
+import { nanoid } from '@tinysmall/utils'
+import { usePopup } from '@tinysmall/hooks'
 import type {
   IDialogBoxApi,
   IDialogBoxProps,

@@ -48,11 +48,11 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@opentiny/vue-renderless/switch/vue'
-import { props, setup, defineComponent } from '@opentiny/vue-common'
-import '@opentiny/vue-theme/switch/index.less'
-import type { ISwitchApi } from '@opentiny/vue-renderless/types/switch.type'
-import { IconLoadingShadow } from '@opentiny/vue-icon'
+import { renderless, api } from '@tinysmall/renderless/switch/vue'
+import { props, setup, defineComponent } from '@tinysmall/common'
+import '@tinysmall/theme/switch/index.less'
+import type { ISwitchApi } from '@tinysmall/renderless/types/switch.type'
+import { IconLoadingShadow } from '@tinysmall/icon'
 
 export default defineComponent({
   emits: ['change', 'update:modelValue'],

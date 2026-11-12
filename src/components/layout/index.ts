@@ -10,7 +10,7 @@
  *
  */
 import Layout from './src/index'
-import '@opentiny/vue-theme/layout/index.less'
+import '@tinysmall/theme/layout/index.less'
 import { version } from 'package.json'
 
 /* istanbul ignore next */

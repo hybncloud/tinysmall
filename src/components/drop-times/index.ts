@@ -10,7 +10,7 @@
  *
  */
 import DropTimes from './src/index'
-import '@opentiny/vue-theme/drop-times/index.less'
+import '@tinysmall/theme/drop-times/index.less'
 import { version } from 'package.json'
 
 DropTimes.model = {

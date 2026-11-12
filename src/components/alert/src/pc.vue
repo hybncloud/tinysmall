@@ -57,11 +57,11 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@opentiny/vue-renderless/alert/vue'
-import { props, setup, defineComponent } from '@opentiny/vue-common'
-import { iconClose, iconSuccess, iconError, iconHelp, iconWarning, iconWarningTriangle } from '@opentiny/vue-icon'
-import type { IAlertApi } from '@opentiny/vue-renderless/types/alert.type'
-import '@opentiny/vue-theme/alert/index.less'
+import { renderless, api } from '@tinysmall/renderless/alert/vue'
+import { props, setup, defineComponent } from '@tinysmall/common'
+import { iconClose, iconSuccess, iconError, iconHelp, iconWarning, iconWarningTriangle } from '@tinysmall/icon'
+import type { IAlertApi } from '@tinysmall/renderless/types/alert.type'
+import '@tinysmall/theme/alert/index.less'
 
 export default defineComponent({
   props: [

@@ -90,10 +90,10 @@
 </template>
 
 <script lang="ts">
-import Popover from '@opentiny/vue-popover'
-import { renderless, api } from '@opentiny/vue-renderless/steps/vue'
-import { props, setup, defineComponent } from '@opentiny/vue-common'
-import { iconFinish, iconWarn, iconChevronLeft, iconChevronRight } from '@opentiny/vue-icon'
+import Popover from '@tinysmall/popover'
+import { renderless, api } from '@tinysmall/renderless/steps/vue'
+import { props, setup, defineComponent } from '@tinysmall/common'
+import { iconFinish, iconWarn, iconChevronLeft, iconChevronRight } from '@tinysmall/icon'
 import SlideBar from './slide-bar.vue'
 
 export default defineComponent({

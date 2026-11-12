@@ -42,11 +42,11 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@opentiny/vue-renderless/dropdown-menu/vue'
-import { props, setup, defineComponent } from '@opentiny/vue-common'
-import DropdownItem from '@opentiny/vue-dropdown-item'
-import '@opentiny/vue-theme/dropdown-menu/index.less'
-import type { IDropdownMenuApi } from '@opentiny/vue-renderless/types/dropdown-menu.type'
+import { renderless, api } from '@tinysmall/renderless/dropdown-menu/vue'
+import { props, setup, defineComponent } from '@tinysmall/common'
+import DropdownItem from '@tinysmall/dropdown-item'
+import '@tinysmall/theme/dropdown-menu/index.less'
+import type { IDropdownMenuApi } from '@tinysmall/renderless/types/dropdown-menu.type'
 
 export default defineComponent({
   components: {

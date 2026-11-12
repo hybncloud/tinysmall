@@ -154,17 +154,17 @@
 </template>
 
 <script lang="tsx">
-import { renderless, api } from '@opentiny/vue-renderless/tree/vue'
-import { props, setup, defineComponent, directive, isVue2 } from '@opentiny/vue-common'
-import { iconWarning, iconMarkOn } from '@opentiny/vue-icon'
-import Switch from '@opentiny/vue-switch'
-import Popover from '@opentiny/vue-popover'
-import Button from '@opentiny/vue-button'
-import Checkbox from '@opentiny/vue-checkbox'
-import { Clickoutside } from '@opentiny/vue-directive'
+import { renderless, api } from '@tinysmall/renderless/tree/vue'
+import { props, setup, defineComponent, directive, isVue2 } from '@tinysmall/common'
+import { iconWarning, iconMarkOn } from '@tinysmall/icon'
+import Switch from '@tinysmall/switch'
+import Popover from '@tinysmall/popover'
+import Button from '@tinysmall/button'
+import Checkbox from '@tinysmall/checkbox'
+import { Clickoutside } from '@tinysmall/directive'
 import TreeNode from './tree-node.vue'
-import Radio from '@opentiny/vue-radio'
-import { HighlightQuery } from '@opentiny/vue-directive'
+import Radio from '@tinysmall/radio'
+import { HighlightQuery } from '@tinysmall/directive'
 
 export default defineComponent({
   directives: { ...directive({ Clickoutside }), HighlightQuery },

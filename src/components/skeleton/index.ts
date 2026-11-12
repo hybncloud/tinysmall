@@ -1,5 +1,5 @@
 import Skeleton from './src/index'
-import '@opentiny/vue-theme/skeleton/index.less'
+import '@tinysmall/theme/skeleton/index.less'
 import { version } from 'package.json'
 
 Skeleton.model = {

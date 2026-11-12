@@ -10,7 +10,7 @@
  *
  */
 
-import { on, once } from '@opentiny/utils'
+import { on, once } from '@tinysmall/utils'
 
 // 这个不是标准的指令，待整改为对象格式
 export default (el, binding) => {

@@ -10,7 +10,7 @@
  *
  */
 
-import { DATEPICKER, toDate1 } from '@opentiny/utils'
+import { DATEPICKER, toDate1 } from '@tinysmall/utils'
 import { arrayFindIndex, coerceTruthyValueToArray, arrayFind } from '../date-table'
 
 export const getIsDefault =

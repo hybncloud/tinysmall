@@ -238,9 +238,9 @@
 </template>
 
 <script lang="ts">
-import { setup, directive, h, isVue2, defineComponent } from '@opentiny/vue-common'
-import { renderless, api } from '@opentiny/vue-renderless/tree-node/vue'
-import CollapseTransition from '@opentiny/vue-collapse-transition'
+import { setup, directive, h, isVue2, defineComponent } from '@tinysmall/common'
+import { renderless, api } from '@tinysmall/renderless/tree-node/vue'
+import CollapseTransition from '@tinysmall/collapse-transition'
 import {
   iconChevronRight,
   iconLoadingShadow,
@@ -251,11 +251,11 @@ import {
   iconFinish,
   iconExpand,
   iconPutAway
-} from '@opentiny/vue-icon'
-import Checkbox from '@opentiny/vue-checkbox'
-import Radio from '@opentiny/vue-radio'
-import Input from '@opentiny/vue-input'
-import { Clickoutside } from '@opentiny/vue-directive'
+} from '@tinysmall/icon'
+import Checkbox from '@tinysmall/checkbox'
+import Radio from '@tinysmall/radio'
+import Input from '@tinysmall/input'
+import { Clickoutside } from '@tinysmall/directive'
 
 export default defineComponent({
   name: 'TreeNode',

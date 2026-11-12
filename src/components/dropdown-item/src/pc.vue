@@ -76,12 +76,12 @@
 </template>
 
 <script lang="ts">
-import { props, setup, $prefix, defineComponent } from '@opentiny/vue-common'
-import { renderless, api } from '@opentiny/vue-renderless/dropdown-item/vue'
-import { iconLeftWardArrow } from '@opentiny/vue-icon'
-import '@opentiny/vue-theme/dropdown-item/index.less'
-import { AutoTip } from '@opentiny/vue-directive'
-import type { IDropdownItemApi } from '@opentiny/vue-renderless/types/dropdown-item.type'
+import { props, setup, $prefix, defineComponent } from '@tinysmall/common'
+import { renderless, api } from '@tinysmall/renderless/dropdown-item/vue'
+import { iconLeftWardArrow } from '@tinysmall/icon'
+import '@tinysmall/theme/dropdown-item/index.less'
+import { AutoTip } from '@tinysmall/directive'
+import type { IDropdownItemApi } from '@tinysmall/renderless/types/dropdown-item.type'
 
 export default defineComponent({
   name: $prefix + 'DropdownItem',

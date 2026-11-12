@@ -12,8 +12,8 @@
  */
 
 import type { IDropdownRenderlessParams } from '../../types'
-import { KEY_CODE } from '@opentiny/utils'
-import { addClass, removeClass, on, off } from '@opentiny/utils'
+import { KEY_CODE } from '@tinysmall/utils'
+import { addClass, removeClass, on, off } from '@tinysmall/utils'
 
 export const watchVisible =
   ({ broadcast, emit, nextTick }: Pick<IDropdownRenderlessParams, 'broadcast' | 'emit' | 'nextTick'>) =>

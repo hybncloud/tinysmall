@@ -10,7 +10,7 @@
  *
  */
 import MonthRange from './src/pc.vue'
-import '@opentiny/vue-theme/month-range/index.less'
+import '@tinysmall/theme/month-range/index.less'
 import { version } from 'package.json'
 
 /* istanbul ignore next */

@@ -1,5 +1,5 @@
-import { $props, $setup, $prefix, defineComponent } from '@opentiny/vue-common'
-import type { PropType } from '@opentiny/vue-common'
+import { $props, $setup, $prefix, defineComponent } from '@tinysmall/common'
+import type { PropType } from '@tinysmall/common'
 
 import template from 'virtual-template?pc'
 

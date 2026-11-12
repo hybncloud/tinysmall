@@ -1,4 +1,4 @@
-import { find } from '@opentiny/utils'
+import { find } from '@tinysmall/utils'
 
 const getSingleSelectedData = ({ props, data }) => ({
   ...data,

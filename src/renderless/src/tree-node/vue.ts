@@ -10,7 +10,7 @@
  *
  */
 
-import { debounce } from '@opentiny/utils'
+import { debounce } from '@tinysmall/utils'
 import {
   created,
   handleDragEnd,

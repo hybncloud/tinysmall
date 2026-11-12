@@ -9,10 +9,10 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-import Picker from '@opentiny/vue-picker'
-import '@opentiny/vue-theme/time-picker/index.less'
-import { extend } from '@opentiny/utils'
-import { $prefix, $props } from '@opentiny/vue-common'
+import Picker from '@tinysmall/picker'
+import '@tinysmall/theme/time-picker/index.less'
+import { extend } from '@tinysmall/utils'
+import { $prefix, $props } from '@tinysmall/common'
 import { version } from 'package.json'
 
 const TimePicker = extend(true, { props: { componentName: { type: String, default: 'TimePicker' } } }, Picker, {

@@ -1,5 +1,5 @@
-import { mountPcMode } from '@opentiny-internal/vue-test-utils'
-import Progress from '@opentiny/vue-progress'
+import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import Progress from '@tinysmall/progress'
 import { describe, expect, test } from 'vitest'
 
 describe('PC Mode', () => {

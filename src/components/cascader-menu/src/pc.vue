@@ -1,12 +1,12 @@
 <script lang="tsx">
-import { renderless, api } from '@opentiny/vue-renderless/cascader-menu/vue'
-import { $props, $prefix, h, setup, defineComponent } from '@opentiny/vue-common'
-import { t } from '@opentiny/vue-locale'
-import Scrollbar from '@opentiny/vue-scrollbar'
-import CascaderNode from '@opentiny/vue-cascader-node'
-import type { ICascaderMenuApi, ICascaderMenuRenderlessParams } from '@opentiny/vue-renderless/types/cascader-menu.type'
-import type { ICascaderPanelNode } from '@opentiny/vue-renderless/types/cascader-panel.type'
-import '@opentiny/vue-theme/cascader-menu/index.less'
+import { renderless, api } from '@tinysmall/renderless/cascader-menu/vue'
+import { $props, $prefix, h, setup, defineComponent } from '@tinysmall/common'
+import { t } from '@tinysmall/locale'
+import Scrollbar from '@tinysmall/scrollbar'
+import CascaderNode from '@tinysmall/cascader-node'
+import type { ICascaderMenuApi, ICascaderMenuRenderlessParams } from '@tinysmall/renderless/types/cascader-menu.type'
+import type { ICascaderPanelNode } from '@tinysmall/renderless/types/cascader-panel.type'
+import '@tinysmall/theme/cascader-menu/index.less'
 
 const renderNodeListFunc = (_vm: InstanceType<typeof CascaderMenu>) => () => {
   const events = { on: {} } as { on: { [key: string]: (...args: any[]) => any } }

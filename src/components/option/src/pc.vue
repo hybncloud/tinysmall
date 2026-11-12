@@ -36,11 +36,11 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@opentiny/vue-renderless/option/vue'
-import { $prefix, props, setup, defineComponent } from '@opentiny/vue-common'
-import { AutoTip } from '@opentiny/vue-directive'
-import '@opentiny/vue-theme/option/index.less'
-import { IconCheck, IconCheckedSur, IconFinish } from '@opentiny/vue-icon'
+import { renderless, api } from '@tinysmall/renderless/option/vue'
+import { $prefix, props, setup, defineComponent } from '@tinysmall/common'
+import { AutoTip } from '@tinysmall/directive'
+import '@tinysmall/theme/option/index.less'
+import { IconCheck, IconCheckedSur, IconFinish } from '@tinysmall/icon'
 
 export default defineComponent({
   name: $prefix + 'Option',

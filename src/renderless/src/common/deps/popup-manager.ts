@@ -1,3 +1,3 @@
-import { PopupManager } from '@opentiny/utils'
+import { PopupManager } from '@tinysmall/utils'
 
 export default PopupManager

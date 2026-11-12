@@ -1,5 +1,5 @@
-import { mountPcMode } from '@opentiny-internal/vue-test-utils'
-import Badge from '@opentiny/vue-badge'
+import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import Badge from '@tinysmall/badge'
 import { describe, expect, test } from 'vitest'
 
 describe('PC Mode', () => {

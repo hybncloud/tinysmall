@@ -10,7 +10,7 @@
  *
  */
 import Row from './src/index'
-import '@opentiny/vue-theme/row/index.less'
+import '@tinysmall/theme/row/index.less'
 import { version } from 'package.json'
 
 /* istanbul ignore next */

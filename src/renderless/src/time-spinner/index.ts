@@ -11,9 +11,9 @@
  *
  */
 
-import { modifyTime } from '@opentiny/utils'
-import { DATEPICKER } from '@opentiny/utils'
-import { isServer } from '@opentiny/utils'
+import { modifyTime } from '@tinysmall/utils'
+import { DATEPICKER } from '@tinysmall/utils'
+import { isServer } from '@tinysmall/utils'
 
 export const getArrowHourList = (state) => () => {
   const hours = state.hours

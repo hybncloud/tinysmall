@@ -1,5 +1,5 @@
-import type { PropType } from '@opentiny/vue-common'
-import { $props, $prefix, $setup, defineComponent } from '@opentiny/vue-common'
+import type { PropType } from '@tinysmall/common'
+import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
 import template from 'virtual-template?pc'
 
 export const pagerProps = {

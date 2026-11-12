@@ -1,4 +1,4 @@
-import { $props } from '@opentiny/vue-common'
+import { $props } from '@tinysmall/common'
 
 export const tabNavPcProps = {
   ...$props,

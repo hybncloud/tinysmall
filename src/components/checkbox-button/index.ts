@@ -10,7 +10,7 @@
  *
  */
 import CheckboxButton from './src/index'
-import '@opentiny/vue-theme/checkbox-button/index.less'
+import '@tinysmall/theme/checkbox-button/index.less'
 import { version } from 'package.json'
 
 CheckboxButton.model = {

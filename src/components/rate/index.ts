@@ -10,7 +10,7 @@
  *
  */
 import Rate from './src/index'
-import '@opentiny/vue-theme/rate/index.less'
+import '@tinysmall/theme/rate/index.less'
 import { version } from 'package.json'
 
 Rate.model = {

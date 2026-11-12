@@ -1,8 +1,8 @@
-import Modal from '@opentiny/vue-modal'
-import { extend } from '@opentiny/utils'
-import { $prefix } from '@opentiny/vue-common'
+import Modal from '@tinysmall/modal'
+import { extend } from '@tinysmall/utils'
+import { $prefix } from '@tinysmall/common'
 import { version } from 'package.json'
-import type { ComponentPublicInstance } from '@opentiny/vue-common'
+import type { ComponentPublicInstance } from '@tinysmall/common'
 
 // 定义 Message 组件类型
 interface MessageComponent extends ComponentPublicInstance<typeof Modal> {

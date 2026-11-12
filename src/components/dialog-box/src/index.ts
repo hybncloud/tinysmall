@@ -9,7 +9,7 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-import { $prefix, $props, $setup, defineComponent, type PropType } from '@opentiny/vue-common'
+import { $prefix, $props, $setup, defineComponent, type PropType } from '@tinysmall/common'
 import template from 'virtual-template?pc'
 
 export const $constants = {

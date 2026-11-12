@@ -11,7 +11,7 @@
  */
 
 import ActionMenu from './src/index'
-import '@opentiny/vue-theme/action-menu/index.less'
+import '@tinysmall/theme/action-menu/index.less'
 import { version } from 'package.json'
 
 /* istanbul ignore next */

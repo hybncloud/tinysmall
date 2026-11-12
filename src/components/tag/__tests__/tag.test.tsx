@@ -1,7 +1,7 @@
-import { mountPcMode } from '@opentiny-internal/vue-test-utils'
-import Tag from '@opentiny/vue-tag'
+import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import Tag from '@tinysmall/tag'
 import { describe, expect, test, vi } from 'vitest'
-import { iconTime } from '@opentiny/vue-icon'
+import { iconTime } from '@tinysmall/icon'
 import { nextTick } from 'vue'
 
 const IconTime = iconTime()

@@ -58,7 +58,7 @@ import {
   getDisabledConfirm,
   getNowTime
 } from './index'
-import { DATEPICKER, DATE, toDate1, getWeekNumber, modifyDate, extractDateFormat } from '@opentiny/utils'
+import { DATEPICKER, DATE, toDate1, getWeekNumber, modifyDate, extractDateFormat } from '@tinysmall/utils'
 
 export const api = [
   'state',

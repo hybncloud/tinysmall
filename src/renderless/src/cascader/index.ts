@@ -10,12 +10,12 @@
  *
  */
 
-import { isServer, browserInfo } from '@opentiny/utils'
-import { isNull } from '@opentiny/utils'
-import { debounce } from '@opentiny/utils'
-import { isEqual } from '@opentiny/utils'
-import { addResizeListener } from '@opentiny/utils'
-import { KEY_CODE, CASCADER } from '@opentiny/utils'
+import { isServer, browserInfo } from '@tinysmall/utils'
+import { isNull } from '@tinysmall/utils'
+import { debounce } from '@tinysmall/utils'
+import { isEqual } from '@tinysmall/utils'
+import { addResizeListener } from '@tinysmall/utils'
+import { KEY_CODE, CASCADER } from '@tinysmall/utils'
 import type {
   ICascaderState,
   ICascaderProps,

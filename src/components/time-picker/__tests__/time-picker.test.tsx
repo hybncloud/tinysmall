@@ -1,8 +1,8 @@
-import { mountPcMode } from '@opentiny-internal/vue-test-utils'
+import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
 import { describe, expect, test, vi } from 'vitest'
-import TimePicker from '@opentiny/vue-time-picker'
+import TimePicker from '@tinysmall/time-picker'
 import { nextTick } from 'vue'
-import { iconBoat } from '@opentiny/vue-icon'
+import { iconBoat } from '@tinysmall/icon'
 
 let value = new Date(2016, 9, 10, 18, 40)
 

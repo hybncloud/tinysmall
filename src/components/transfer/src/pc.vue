@@ -111,14 +111,14 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@opentiny/vue-renderless/transfer/vue'
-import { props, setup, defineComponent } from '@opentiny/vue-common'
-import Button from '@opentiny/vue-button'
-import TransferPanel from '@opentiny/vue-transfer-panel'
-import { iconDoubleLeft, iconChevronLeft, iconChevronRight, iconDoubleRight } from '@opentiny/vue-icon'
-import '@opentiny/vue-theme/transfer/index.less'
+import { renderless, api } from '@tinysmall/renderless/transfer/vue'
+import { props, setup, defineComponent } from '@tinysmall/common'
+import Button from '@tinysmall/button'
+import TransferPanel from '@tinysmall/transfer-panel'
+import { iconDoubleLeft, iconChevronLeft, iconChevronRight, iconDoubleRight } from '@tinysmall/icon'
+import '@tinysmall/theme/transfer/index.less'
 
-import type { ITransferApi } from '@opentiny/vue-renderless/types/transfer.type'
+import type { ITransferApi } from '@tinysmall/renderless/types/transfer.type'
 
 export default defineComponent({
   components: {

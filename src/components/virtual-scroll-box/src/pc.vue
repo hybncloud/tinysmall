@@ -9,8 +9,8 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@opentiny/vue-renderless/virtual-scroll-box/vue'
-import { defineComponent, props, setup } from '@opentiny/vue-common'
+import { renderless, api } from '@tinysmall/renderless/virtual-scroll-box/vue'
+import { defineComponent, props, setup } from '@tinysmall/common'
 
 export default defineComponent({
   emits: ['change'],

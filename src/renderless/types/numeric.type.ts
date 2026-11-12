@@ -1,5 +1,5 @@
 import type { ExtractPropTypes } from 'vue'
-import type { BigIntDecimal } from '@opentiny/utils'
+import type { BigIntDecimal } from '@tinysmall/utils'
 import type { numericProps, $constants } from '../../components/numeric/src'
 import type {
   focus,

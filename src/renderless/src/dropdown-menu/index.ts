@@ -11,7 +11,7 @@
  */
 
 import type { IDropdownMenuRenderlessParams, IDropdownMenuPopperParams, IDropdownItemVm } from '../../types'
-import { userPopper } from '@opentiny/vue-hooks'
+import { userPopper } from '@tinysmall/hooks'
 
 export const toggleItem =
   (state: IDropdownMenuRenderlessParams['state']) =>

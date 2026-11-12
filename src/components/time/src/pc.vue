@@ -62,10 +62,10 @@
 </template>
 
 <script lang="tsx">
-import { renderless, api } from '@opentiny/vue-renderless/time/vue'
-import { props, setup, defineComponent } from '@opentiny/vue-common'
-import TimeSpinner from '@opentiny/vue-time-spinner'
-import Button from '@opentiny/vue-button'
+import { renderless, api } from '@tinysmall/renderless/time/vue'
+import { props, setup, defineComponent } from '@tinysmall/common'
+import TimeSpinner from '@tinysmall/time-spinner'
+import Button from '@tinysmall/button'
 
 export default defineComponent({
   emits: ['dodestroy', 'pick', 'select-range'],

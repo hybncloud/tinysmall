@@ -1,4 +1,4 @@
-import { svg } from '@opentiny/vue-common'
-import TextType from '@opentiny/vue-theme/svgs/text-type.svg?component'
+import { svg } from '@tinysmall/common'
+import TextType from '@tinysmall/theme/svgs/text-type.svg?component'
 
 export default () => svg({ name: 'IconTextType', component: TextType, filledComponent: TextType })()

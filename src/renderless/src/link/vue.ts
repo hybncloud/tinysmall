@@ -16,7 +16,7 @@ import type {
   ISharedRenderlessParamHooks,
   ILinkApi
 } from '../../types'
-import { xss } from '@opentiny/utils'
+import { xss } from '@tinysmall/utils'
 import { handleClick } from './index'
 
 export const api = ['state', 'handleClick']

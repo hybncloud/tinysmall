@@ -1,4 +1,4 @@
-import { DATEPICKER, formatDate, isDate1 as isDate, nextYear, nextMonth1 as nextMonth } from '@opentiny/utils'
+import { DATEPICKER, formatDate, isDate1 as isDate, nextYear, nextMonth1 as nextMonth } from '@tinysmall/utils'
 
 export const calcDefaultValue = (value) => {
   if (Array.isArray(value)) {

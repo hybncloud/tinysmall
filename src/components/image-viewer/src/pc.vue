@@ -77,8 +77,8 @@
 </template>
 
 <script lang="tsx">
-import { renderless, api } from '@opentiny/vue-renderless/image-viewer/vue'
-import { props, setup, defineComponent } from '@opentiny/vue-common'
+import { renderless, api } from '@tinysmall/renderless/image-viewer/vue'
+import { props, setup, defineComponent } from '@tinysmall/common'
 import {
   iconClose,
   iconChevronLeft,
@@ -89,8 +89,8 @@ import {
   iconMinscreen,
   iconRepeat,
   iconRefres
-} from '@opentiny/vue-icon'
-import '@opentiny/vue-theme/image-viewer/index.less'
+} from '@tinysmall/icon'
+import '@tinysmall/theme/image-viewer/index.less'
 
 export default defineComponent({
   emits: ['close', 'update:preview-visible', 'delete', 'change', 'newImageList'],

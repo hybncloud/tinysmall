@@ -10,15 +10,15 @@
  *
  -->
 <script lang="tsx">
-import { $prefix, setup, h, defineComponent } from '@opentiny/vue-common'
-import { t } from '@opentiny/vue-locale'
-import { renderless, api } from '@opentiny/vue-renderless/tab-nav/vue'
-import Dropdown from '@opentiny/vue-dropdown'
-import DropdownMenu from '@opentiny/vue-dropdown-menu'
+import { $prefix, setup, h, defineComponent } from '@tinysmall/common'
+import { t } from '@tinysmall/locale'
+import { renderless, api } from '@tinysmall/renderless/tab-nav/vue'
+import Dropdown from '@tinysmall/dropdown'
+import DropdownMenu from '@tinysmall/dropdown-menu'
 import TabDropdownItem from './tab-dropdown-item.vue'
-import Tooltip from '@opentiny/vue-tooltip'
-import { iconChevronLeft, iconChevronRight, iconClose } from '@opentiny/vue-icon'
-import type { ITabNavApi } from '@opentiny/vue-renderless/types/tab-nav.type'
+import Tooltip from '@tinysmall/tooltip'
+import { iconChevronLeft, iconChevronRight, iconClose } from '@tinysmall/icon'
+import type { ITabNavApi } from '@tinysmall/renderless/types/tab-nav.type'
 import TabBar from './tab-bar.vue'
 import { tabNavPcProps } from './index'
 

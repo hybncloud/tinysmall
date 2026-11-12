@@ -18,9 +18,9 @@
 
 <script lang="ts">
 import QRCode from 'qrcode'
-import { $prefix, setup, defineComponent } from '@opentiny/vue-common'
-import { renderless, api } from '@opentiny/vue-renderless/qr-code/vue'
-import '@opentiny/vue-theme/qr-code/index.less'
+import { $prefix, setup, defineComponent } from '@tinysmall/common'
+import { renderless, api } from '@tinysmall/renderless/qr-code/vue'
+import '@tinysmall/theme/qr-code/index.less'
 
 export default defineComponent({
   name: $prefix + 'QrCode',

@@ -238,13 +238,13 @@
 </template>
 
 <script>
-import { renderless, api } from '@opentiny/vue-renderless/calendar-view/vue'
-import { props, setup, defineComponent } from '@opentiny/vue-common'
-import Button from '@opentiny/vue-button'
-import DatePicker from '@opentiny/vue-date-picker'
-import RadioButton from '@opentiny/vue-radio-button'
-import RadioGroup from '@opentiny/vue-radio-group'
-import Tooltip from '@opentiny/vue-tooltip'
+import { renderless, api } from '@tinysmall/renderless/calendar-view/vue'
+import { props, setup, defineComponent } from '@tinysmall/common'
+import Button from '@tinysmall/button'
+import DatePicker from '@tinysmall/date-picker'
+import RadioButton from '@tinysmall/radio-button'
+import RadioGroup from '@tinysmall/radio-group'
+import Tooltip from '@tinysmall/tooltip'
 import {
   iconPlus,
   iconCheckedSur,
@@ -253,7 +253,7 @@ import {
   iconMonthView,
   iconAgendaView,
   iconDayView
-} from '@opentiny/vue-icon'
+} from '@tinysmall/icon'
 
 export default defineComponent({
   emits: [

@@ -135,11 +135,11 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@opentiny/vue-renderless/slider/vue'
-import { props, setup, defineComponent } from '@opentiny/vue-common'
-import Input from '@opentiny/vue-input'
-import type { ISliderApi } from '@opentiny/vue-renderless/types/slider.type'
-import '@opentiny/vue-theme/slider/index.less'
+import { renderless, api } from '@tinysmall/renderless/slider/vue'
+import { props, setup, defineComponent } from '@tinysmall/common'
+import Input from '@tinysmall/input'
+import type { ISliderApi } from '@tinysmall/renderless/types/slider.type'
+import '@tinysmall/theme/slider/index.less'
 
 export default defineComponent({
   emits: ['update:modelValue', 'change', 'start', 'stop'],

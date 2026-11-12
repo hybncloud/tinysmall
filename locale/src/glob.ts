@@ -1,9 +1,9 @@
 /* eslint-disable prefer-rest-params */
-import { formatNumber, recoverNumber } from '@opentiny/utils'
-import { toDate, getDateWithNewTimezone } from '@opentiny/utils'
-import { isPlainObject, isDate, isNull } from '@opentiny/utils'
-import { formatDate } from '@opentiny/utils'
-import { isNumber } from '@opentiny/utils'
+import { formatNumber, recoverNumber } from '@tinysmall/utils'
+import { toDate, getDateWithNewTimezone } from '@tinysmall/utils'
+import { isPlainObject, isDate, isNull } from '@tinysmall/utils'
+import { formatDate } from '@tinysmall/utils'
+import { isNumber } from '@tinysmall/utils'
 
 export const getNumberFormat = (config) => {
   const groupSize = 3

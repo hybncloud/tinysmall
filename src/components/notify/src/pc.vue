@@ -10,9 +10,9 @@
  *
  -->
 <script lang="tsx">
-import { $prefix, setup, h, defineComponent } from '@opentiny/vue-common'
-import { renderless, api } from '@opentiny/vue-renderless/notify/vue'
-import { iconClose } from '@opentiny/vue-icon'
+import { $prefix, setup, h, defineComponent } from '@tinysmall/common'
+import { renderless, api } from '@tinysmall/renderless/notify/vue'
+import { iconClose } from '@tinysmall/icon'
 
 export default defineComponent({
   name: $prefix + 'Notify',

@@ -10,7 +10,7 @@
  *
  */
 import Scrollbar from './src/pc.vue'
-import '@opentiny/vue-theme/scrollbar/index.less'
+import '@tinysmall/theme/scrollbar/index.less'
 import { version } from 'package.json'
 
 /* istanbul ignore next */

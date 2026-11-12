@@ -10,7 +10,7 @@
  *
  */
 
-import { range as rangeDate, getDayCountOfMonth, nextDate, toDate1, hasClass, DATEPICKER } from '@opentiny/utils'
+import { range as rangeDate, getDayCountOfMonth, nextDate, toDate1, hasClass, DATEPICKER } from '@tinysmall/utils'
 import { arrayFindIndex, coerceTruthyValueToArray, arrayFind } from '../date-table'
 
 export const datesInMonth = (year, month) => {

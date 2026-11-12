@@ -23,9 +23,9 @@
 </template>
 
 <script lang="ts">
-import { $prefix, setup, props, defineComponent } from '@opentiny/vue-common'
-import { renderless, api } from '@opentiny/vue-renderless/upload-dragger/vue'
-import type { IUploadDraggerApi } from '@opentiny/vue-renderless/types/upload-dragger.type'
+import { $prefix, setup, props, defineComponent } from '@tinysmall/common'
+import { renderless, api } from '@tinysmall/renderless/upload-dragger/vue'
+import type { IUploadDraggerApi } from '@tinysmall/renderless/types/upload-dragger.type'
 
 export default defineComponent({
   name: $prefix + 'UploadDragger',

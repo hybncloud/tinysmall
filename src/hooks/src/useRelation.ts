@@ -1,4 +1,4 @@
-import { noop } from '@opentiny/utils'
+import { noop } from '@tinysmall/utils'
 import { onMountedOrActivated as createHook } from './useEventListener'
 
 /**

@@ -1,6 +1,6 @@
-import { mountPcMode } from '@opentiny-internal/vue-test-utils'
+import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
 import { describe, expect, test, vi } from 'vitest'
-import Radio from '@opentiny/vue-radio'
+import Radio from '@tinysmall/radio'
 
 let value = ''
 

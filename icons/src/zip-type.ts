@@ -1,4 +1,4 @@
-import { svg } from '@opentiny/vue-common'
-import ZipType from '@opentiny/vue-theme/svgs/zip-type.svg?component'
+import { svg } from '@tinysmall/common'
+import ZipType from '@tinysmall/theme/svgs/zip-type.svg?component'
 
 export default () => svg({ name: 'IconZipType', component: ZipType, filledComponent: ZipType })()

@@ -188,21 +188,21 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@opentiny/vue-renderless/cascader/vue'
-import { props, setup, defineComponent, directive } from '@opentiny/vue-common'
+import { renderless, api } from '@tinysmall/renderless/cascader/vue'
+import { props, setup, defineComponent, directive } from '@tinysmall/common'
 
-import { Clickoutside } from '@opentiny/vue-directive'
-import { HighlightQuery } from '@opentiny/vue-directive'
+import { Clickoutside } from '@tinysmall/directive'
+import { HighlightQuery } from '@tinysmall/directive'
 
 // 没有进行vue3，vue2适配
-import Input from '@opentiny/vue-input'
-import Tag from '@opentiny/vue-tag'
-import Scrollbar from '@opentiny/vue-scrollbar'
-import CascaderPanel from '@opentiny/vue-cascader-panel'
-import FilterBox from '@opentiny/vue-filter-box'
-import Tooltip from '@opentiny/vue-tooltip'
-import { iconClose, IconChevronDown, IconUpWard, iconYes } from '@opentiny/vue-icon'
-import '@opentiny/vue-theme/cascader/index.less'
+import Input from '@tinysmall/input'
+import Tag from '@tinysmall/tag'
+import Scrollbar from '@tinysmall/scrollbar'
+import CascaderPanel from '@tinysmall/cascader-panel'
+import FilterBox from '@tinysmall/filter-box'
+import Tooltip from '@tinysmall/tooltip'
+import { iconClose, IconChevronDown, IconUpWard, iconYes } from '@tinysmall/icon'
+import '@tinysmall/theme/cascader/index.less'
 
 export default defineComponent({
   props: [

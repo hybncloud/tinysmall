@@ -86,12 +86,12 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@opentiny/vue-renderless/checkbox/vue'
-import { props, setup, defineComponent } from '@opentiny/vue-common'
-import '@opentiny/vue-theme/checkbox/index.less'
-import { iconHalfselect, iconCheckedSur, iconCheck } from '@opentiny/vue-icon'
-import type { ICheckboxApi } from '@opentiny/vue-renderless/types/checkbox.type'
-import { AutoTip } from '@opentiny/vue-directive'
+import { renderless, api } from '@tinysmall/renderless/checkbox/vue'
+import { props, setup, defineComponent } from '@tinysmall/common'
+import '@tinysmall/theme/checkbox/index.less'
+import { iconHalfselect, iconCheckedSur, iconCheck } from '@tinysmall/icon'
+import type { ICheckboxApi } from '@tinysmall/renderless/types/checkbox.type'
+import { AutoTip } from '@tinysmall/directive'
 export default defineComponent({
   // tiny 新增。 renderless中，没有emit('click')的地方。 此处勿声明，否则会造成丢失click事件。
   emits: ['update:modelValue', 'change', 'complete'],
