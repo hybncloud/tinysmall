@@ -14,7 +14,7 @@
 
 <script setup>
 import { computed, ref } from 'vue'
-import { TinyVirtualTree, TinyButton, TinyModal } from 'tinysmall'
+import { TinyVirtualTree, TinyButton, TinyModal } from '@hybncloud/tinysmall'
 
 const defaultProps = { children: 'children', label: 'label' }
 const data5 = ref([])

@@ -6,7 +6,7 @@
 </template>
 
 <script setup>
-import { TinyQrCode } from 'tinysmall'
+import { TinyQrCode } from '@hybncloud/tinysmall'
 import { ref } from 'vue'
 
 const params = ref({

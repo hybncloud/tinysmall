@@ -4,7 +4,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinySwitch } from 'tinysmall'
+import { TinySwitch } from '@hybncloud/tinysmall'
 
 const value = ref(true)
 </script>

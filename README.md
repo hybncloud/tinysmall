@@ -22,7 +22,7 @@ npm i tinysmall
 
 ```html
 <script lang="ts" setup>
-  import { TinyButton } from 'tinysmall'
+  import { TinyButton } from '@hybncloud/tinysmall'
 </script>
 
 <template>

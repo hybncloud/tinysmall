@@ -39,7 +39,7 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue'
-import { TinyTooltip, TinySwitch, TinyButton } from 'tinysmall'
+import { TinyTooltip, TinySwitch, TinyButton } from '@hybncloud/tinysmall'
 
 const visibleArrow = ref(true)
 const enterable = ref(true)

@@ -7,7 +7,7 @@
 </template>
 
 <script setup>
-import { Button as TinyButton, Message } from 'tinysmall'
+import { Button as TinyButton, Message } from '@hybncloud/tinysmall'
 
 function btnClick() {
   Message.message({

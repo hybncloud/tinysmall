@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts">
-import { TinyButton, TinySpace } from 'tinysmall'
+import { TinyButton, TinySpace } from '@hybncloud/tinysmall'
 
 export default {
   components: {

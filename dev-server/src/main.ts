@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 import 'uno.css'
 import { createI18n } from 'vue-i18n'
 import { initI18n } from '@tinysmall/locale'
-import { Loading } from 'tinysmall'
+import { Loading } from '@hybncloud/tinysmall'
 import App from './App.vue'
 
 import './style.css'

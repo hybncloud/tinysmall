@@ -28,7 +28,7 @@
 </template>
 
 <script setup>
-import { TinyDropdown, TinyDropdownMenu, TinyDropdownItem, TinyNotify } from 'tinysmall'
+import { TinyDropdown, TinyDropdownMenu, TinyDropdownItem, TinyNotify } from '@hybncloud/tinysmall'
 import { iconStarDisable } from '@opentiny/vue-icon'
 
 const options = [

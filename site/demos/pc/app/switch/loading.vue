@@ -6,7 +6,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinySwitch, TinyButton } from 'tinysmall'
+import { TinySwitch, TinyButton } from '@hybncloud/tinysmall'
 
 const value = ref(true)
 const value2 = ref(false)

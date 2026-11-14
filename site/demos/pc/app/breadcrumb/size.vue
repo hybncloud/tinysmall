@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-import { TinyBreadcrumb, TinyBreadcrumbItem, TinyNotify } from 'tinysmall'
+import { TinyBreadcrumb, TinyBreadcrumbItem, TinyNotify } from '@hybncloud/tinysmall'
 
 function breadcrumbClick(value) {
   TinyNotify({

@@ -10,7 +10,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyFileUpload, TinyButton, TinyModal } from 'tinysmall'
+import { TinyFileUpload, TinyButton, TinyModal } from '@hybncloud/tinysmall'
 
 const action = ref('http://localhost:3000/api/upload')
 const uploadRef = ref()

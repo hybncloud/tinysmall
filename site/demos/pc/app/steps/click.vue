@@ -6,7 +6,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinySteps, TinyModal } from 'tinysmall'
+import { TinySteps, TinyModal } from '@hybncloud/tinysmall'
 
 const stepsData = ref([
   {

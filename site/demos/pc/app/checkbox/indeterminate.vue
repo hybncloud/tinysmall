@@ -13,7 +13,7 @@
 
 <script setup>
 import { ref, computed } from 'vue'
-import { TinyCheckbox, TinyCheckboxGroup, TinySwitch } from 'tinysmall'
+import { TinyCheckbox, TinyCheckboxGroup, TinySwitch } from '@hybncloud/tinysmall'
 
 const isDisabled = ref(false)
 const checkboxGroup = ref(['北京'])

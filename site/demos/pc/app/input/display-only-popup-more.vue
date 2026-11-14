@@ -6,7 +6,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyInput } from 'tinysmall'
+import { TinyInput } from '@hybncloud/tinysmall'
 
 const input = ref(
   '表单文本域开启只读模式，\n文本内容超过 5 行自动隐藏。\n表单文本域开启只读模式，\n文本内容超过 5 行自动隐藏。\n表单文本域开启只读模式，\n文本内容超过 5 行自动隐藏。\n表单文本域开启只读模式，\n文本内容超过 5 行自动隐藏。\n表单文本域开启只读模式，\n文本内容超过 5 行自动隐藏'

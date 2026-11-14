@@ -20,7 +20,7 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue'
-import { TinySearch, TinyModal } from 'tinysmall'
+import { TinySearch, TinyModal } from '@hybncloud/tinysmall'
 
 const searchTypes = ref([
   {

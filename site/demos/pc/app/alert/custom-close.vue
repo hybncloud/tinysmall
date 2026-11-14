@@ -14,7 +14,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyAlert, TinySwitch, TinyNotify } from 'tinysmall'
+import { TinyAlert, TinySwitch, TinyNotify } from '@hybncloud/tinysmall'
 import { iconCloseCircle } from '@opentiny/vue-icon'
 
 const show = ref(true)

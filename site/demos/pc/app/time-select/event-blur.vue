@@ -12,7 +12,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyTimeSelect, TinyModal } from 'tinysmall'
+import { TinyTimeSelect, TinyModal } from '@hybncloud/tinysmall'
 
 const value1 = ref('08:30')
 

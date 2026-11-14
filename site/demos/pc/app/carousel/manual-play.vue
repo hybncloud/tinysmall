@@ -21,7 +21,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyCarousel, TinyCarouselItem, TinyNumeric, TinyButton, TinyButtonGroup } from 'tinysmall'
+import { TinyCarousel, TinyCarouselItem, TinyNumeric, TinyButton, TinyButtonGroup } from '@hybncloud/tinysmall'
 
 const index = ref(3)
 const carouselRef = ref()

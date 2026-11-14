@@ -7,7 +7,7 @@
 </template>
 
 <script setup>
-import { TinySticky, TinyButton, TinyModal } from 'tinysmall'
+import { TinySticky, TinyButton, TinyModal } from '@hybncloud/tinysmall'
 
 let isShowNumber = 0
 

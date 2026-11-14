@@ -3,5 +3,5 @@
 </template>
 
 <script setup>
-import { TinyUserHead } from 'tinysmall'
+import { TinyUserHead } from '@hybncloud/tinysmall'
 </script>

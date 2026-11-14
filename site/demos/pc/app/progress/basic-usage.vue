@@ -14,7 +14,7 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue'
-import { TinyProgress, TinyButton } from 'tinysmall'
+import { TinyProgress, TinyButton } from '@hybncloud/tinysmall'
 import { iconMinus, iconPlus } from '@opentiny/vue-icon'
 
 const percentage = ref(45)

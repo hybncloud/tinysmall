@@ -6,7 +6,7 @@
 </template>
 
 <script setup>
-import { TinyLink } from 'tinysmall'
+import { TinyLink } from '@hybncloud/tinysmall'
 </script>
 
 <style scoped>

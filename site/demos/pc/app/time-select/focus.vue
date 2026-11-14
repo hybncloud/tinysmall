@@ -7,7 +7,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyTimeSelect, TinyButton } from 'tinysmall'
+import { TinyTimeSelect, TinyButton } from '@hybncloud/tinysmall'
 
 const value = ref('')
 const timeSelectRef = ref()

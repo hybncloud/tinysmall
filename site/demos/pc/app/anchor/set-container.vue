@@ -22,7 +22,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyAnchor, TinyRow, TinyCol } from 'tinysmall'
+import { TinyAnchor, TinyRow, TinyCol } from '@hybncloud/tinysmall'
 
 const links = ref([
   {

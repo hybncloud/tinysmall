@@ -6,7 +6,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyCheckboxButton, TinyCheckboxGroup, TinyModal } from 'tinysmall'
+import { TinyCheckboxButton, TinyCheckboxGroup, TinyModal } from '@hybncloud/tinysmall'
 
 const list = ref([])
 const checked = ref([])

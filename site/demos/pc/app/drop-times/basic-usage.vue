@@ -8,7 +8,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyDropTimes, TinyModal } from 'tinysmall'
+import { TinyDropTimes, TinyModal } from '@hybncloud/tinysmall'
 
 const value = ref('')
 

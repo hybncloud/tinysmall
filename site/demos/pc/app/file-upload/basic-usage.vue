@@ -8,7 +8,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyFileUpload, TinyButton } from 'tinysmall'
+import { TinyFileUpload, TinyButton } from '@hybncloud/tinysmall'
 
 const requestData = ref({
   id: 123

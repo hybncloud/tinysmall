@@ -4,7 +4,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyNumeric, TinyModal } from 'tinysmall'
+import { TinyNumeric, TinyModal } from '@hybncloud/tinysmall'
 
 const step = ref(2)
 const stepNum = ref(1)

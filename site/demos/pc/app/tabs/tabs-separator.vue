@@ -34,7 +34,7 @@
 
 <script setup lang="jsx">
 import { ref, reactive } from 'vue'
-import { TinyTabs, TinyTabItem } from 'tinysmall'
+import { TinyTabs, TinyTabItem } from '@hybncloud/tinysmall'
 
 const activeName1 = ref('first')
 const activeName2 = ref('second')

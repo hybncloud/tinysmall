@@ -26,7 +26,7 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue'
-import { TinyLayout, TinyRow, TinyCol, TinyButton } from 'tinysmall'
+import { TinyLayout, TinyRow, TinyCol, TinyButton } from '@hybncloud/tinysmall'
 
 const state = ref({
   buttonLabel: '升序',

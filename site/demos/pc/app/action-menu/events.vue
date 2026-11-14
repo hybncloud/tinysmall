@@ -11,7 +11,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyActionMenu, TinyNotify } from 'tinysmall'
+import { TinyActionMenu, TinyNotify } from '@hybncloud/tinysmall'
 
 const options = ref([
   {

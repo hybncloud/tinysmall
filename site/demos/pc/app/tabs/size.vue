@@ -14,7 +14,7 @@
 
 <script setup lang="jsx">
 import { ref, reactive } from 'vue'
-import { TinyTabs, TinyTabItem } from 'tinysmall'
+import { TinyTabs, TinyTabItem } from '@hybncloud/tinysmall'
 
 const activeName = ref('1')
 const tabs = reactive([])

@@ -3,5 +3,5 @@
 </template>
 
 <script setup lang="jsx">
-import { TinyScrollText } from 'tinysmall'
+import { TinyScrollText } from '@hybncloud/tinysmall'
 </script>

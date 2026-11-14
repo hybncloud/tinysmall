@@ -24,7 +24,7 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue'
-import { TinyPopUpload, TinyAlert, TinyLink } from 'tinysmall'
+import { TinyPopUpload, TinyAlert, TinyLink } from '@hybncloud/tinysmall'
 
 const action = ref('http://localhost:3000/api/upload')
 const limit = ref(500)

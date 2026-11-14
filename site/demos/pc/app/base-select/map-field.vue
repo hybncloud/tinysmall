@@ -8,7 +8,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyBaseSelect } from 'tinysmall'
+import { TinyBaseSelect } from '@hybncloud/tinysmall'
 
 const value1 = ref(['选项 1', '选项 2'])
 

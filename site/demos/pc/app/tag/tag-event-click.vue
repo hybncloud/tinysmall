@@ -8,7 +8,7 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue'
-import { TinyTag, Modal } from 'tinysmall'
+import { TinyTag, Modal } from '@hybncloud/tinysmall'
 
 const tags = ref([
   { name: '标签一', type: '' },

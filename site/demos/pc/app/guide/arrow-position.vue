@@ -23,7 +23,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyAlert, TinyButton, TinyGuide } from 'tinysmall'
+import { TinyAlert, TinyButton, TinyGuide } from '@hybncloud/tinysmall'
 
 const showStep1 = ref(false)
 const showStep2 = ref(false)

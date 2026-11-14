@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-import { TinyUserHead } from 'tinysmall'
+import { TinyUserHead } from '@hybncloud/tinysmall'
 import { iconSmile } from '@opentiny/vue-icon'
 
 const tinyIconSmile = iconSmile()

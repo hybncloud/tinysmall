@@ -60,7 +60,7 @@ import {
   TinyNotify,
   TinyOption,
   TinyBaseSelect
-} from 'tinysmall'
+} from '@hybncloud/tinysmall'
 
 const options = ref([
   { value: 'js', label: 'js' },

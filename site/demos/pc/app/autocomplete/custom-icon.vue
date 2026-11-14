@@ -12,7 +12,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import { TinyAutocomplete } from 'tinysmall'
+import { TinyAutocomplete } from '@hybncloud/tinysmall'
 import { iconEdit, iconApp } from '@opentiny/vue-icon'
 
 const restaurants = ref([])

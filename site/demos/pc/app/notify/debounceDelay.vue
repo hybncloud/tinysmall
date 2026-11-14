@@ -6,7 +6,7 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue'
-import { TinyNotify, TinyButton } from 'tinysmall'
+import { TinyNotify, TinyButton } from '@hybncloud/tinysmall'
 
 const handleClick = ref(
   TinyNotify({

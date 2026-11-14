@@ -13,7 +13,7 @@
 </template>
 
 <script setup>
-import { Button as TinyButton, Modal } from 'tinysmall'
+import { Button as TinyButton, Modal } from '@hybncloud/tinysmall'
 import { ref } from 'vue'
 
 const TinyModal = Modal

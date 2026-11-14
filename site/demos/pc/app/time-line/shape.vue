@@ -9,7 +9,7 @@
 
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
-import { TinyTimeLine, TinyButton } from 'tinysmall'
+import { TinyTimeLine, TinyButton } from '@hybncloud/tinysmall'
 
 const data = reactive([
   { name: '已下单', time: '2019-11-11 00:01:30' },

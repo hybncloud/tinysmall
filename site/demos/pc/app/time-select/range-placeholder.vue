@@ -25,7 +25,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyTimeSelect } from 'tinysmall'
+import { TinyTimeSelect } from '@hybncloud/tinysmall'
 
 const startTime = ref('')
 const endTime = ref('')

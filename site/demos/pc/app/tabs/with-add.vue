@@ -15,7 +15,7 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue'
-import { TinyTabs, TinyTabItem, TinyModal } from 'tinysmall'
+import { TinyTabs, TinyTabItem, TinyModal } from '@hybncloud/tinysmall'
 
 const tabs = ref([
   {

@@ -43,7 +43,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyDatePicker } from 'tinysmall'
+import { TinyDatePicker } from '@hybncloud/tinysmall'
 
 const disabledValue = ref('2020/10/29')
 const value = ref('')

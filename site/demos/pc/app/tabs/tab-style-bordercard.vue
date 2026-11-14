@@ -8,7 +8,7 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue'
-import { TinyTabs, TinyTabItem } from 'tinysmall'
+import { TinyTabs, TinyTabItem } from '@hybncloud/tinysmall'
 
 const activeName4 = ref('navigation1')
 const tabs3 = ref([

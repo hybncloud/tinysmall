@@ -13,7 +13,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyInput, TinyModal } from 'tinysmall'
+import { TinyInput, TinyModal } from '@hybncloud/tinysmall'
 
 const input = ref('')
 const textMemoryRef = ref()

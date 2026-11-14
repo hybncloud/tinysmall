@@ -28,7 +28,15 @@
 
 <script setup>
 import { ref, reactive } from 'vue'
-import { TinyForm, TinyFormItem, TinyInput, TinyDatePicker, TinyButton, TinyModal, TinyRadioGroup } from 'tinysmall'
+import {
+  TinyForm,
+  TinyFormItem,
+  TinyInput,
+  TinyDatePicker,
+  TinyButton,
+  TinyModal,
+  TinyRadioGroup
+} from '@hybncloud/tinysmall'
 // import { AutoTip as VAutoTip } from '@opentiny/vue-directive'
 
 function handleClick() {

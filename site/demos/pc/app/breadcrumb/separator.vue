@@ -19,7 +19,7 @@
 </template>
 
 <script setup>
-import { TinyBreadcrumb, TinyBreadcrumbItem } from 'tinysmall'
+import { TinyBreadcrumb, TinyBreadcrumbItem } from '@hybncloud/tinysmall'
 import { IconChevronRight } from '@opentiny/vue-icon'
 
 const iconChevronRight = IconChevronRight()

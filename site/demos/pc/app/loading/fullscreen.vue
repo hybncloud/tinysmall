@@ -9,7 +9,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyButton, TinyLoading } from 'tinysmall'
+import { TinyButton, TinyLoading } from '@hybncloud/tinysmall'
 
 const vLoading = TinyLoading.directive
 

@@ -9,7 +9,7 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue'
-import { TinyTooltip, TinySlider } from 'tinysmall'
+import { TinyTooltip, TinySlider } from '@hybncloud/tinysmall'
 
 const offset = ref(10)
 const show = ref(true)

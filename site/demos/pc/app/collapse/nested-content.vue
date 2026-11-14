@@ -45,7 +45,7 @@ import {
   TinyNumeric,
   TinyBaseSelect,
   TinyOption
-} from 'tinysmall'
+} from '@hybncloud/tinysmall'
 
 const activeNames = ref(['1', '2'])
 const formData = ref({

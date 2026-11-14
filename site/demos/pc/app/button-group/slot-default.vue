@@ -7,5 +7,5 @@
 </template>
 
 <script setup>
-import { TinyButton, TinyButtonGroup } from 'tinysmall'
+import { TinyButton, TinyButtonGroup } from '@hybncloud/tinysmall'
 </script>

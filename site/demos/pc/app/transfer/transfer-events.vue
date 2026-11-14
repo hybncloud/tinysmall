@@ -10,7 +10,7 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue'
-import { TinyTransfer, TinyModal } from 'tinysmall'
+import { TinyTransfer, TinyModal } from '@hybncloud/tinysmall'
 
 const generateData = () => {
   const data = []

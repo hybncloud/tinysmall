@@ -13,7 +13,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyPager, TinySwitch } from 'tinysmall'
+import { TinyPager, TinySwitch } from '@hybncloud/tinysmall'
 
 const totalLoading = ref(true)
 </script>

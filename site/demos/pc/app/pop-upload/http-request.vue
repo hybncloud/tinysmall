@@ -4,7 +4,7 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue'
-import { TinyPopUpload, TinyModal } from 'tinysmall'
+import { TinyPopUpload, TinyModal } from '@hybncloud/tinysmall'
 
 const httpRequest = ref(() => {
   return new Promise((resolve) => {

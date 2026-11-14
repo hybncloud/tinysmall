@@ -23,7 +23,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyPager } from 'tinysmall'
+import { TinyPager } from '@hybncloud/tinysmall'
 
 const currentPage = ref(5)
 </script>

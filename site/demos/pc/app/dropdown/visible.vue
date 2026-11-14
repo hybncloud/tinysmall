@@ -19,7 +19,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyDropdown, TinyDropdownMenu, TinyDropdownItem } from 'tinysmall'
+import { TinyDropdown, TinyDropdownMenu, TinyDropdownItem } from '@hybncloud/tinysmall'
 
 const visible = ref(true)
 const options = [

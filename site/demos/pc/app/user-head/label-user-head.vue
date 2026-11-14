@@ -4,7 +4,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyUserHead } from 'tinysmall'
+import { TinyUserHead } from '@hybncloud/tinysmall'
 
 const text = ref('文字')
 </script>

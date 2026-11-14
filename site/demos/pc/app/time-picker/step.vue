@@ -6,7 +6,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyTimePicker } from 'tinysmall'
+import { TinyTimePicker } from '@hybncloud/tinysmall'
 
 const step = ref({
   hour: 2,

@@ -14,7 +14,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyInput, TinyButton } from 'tinysmall'
+import { TinyInput, TinyButton } from '@hybncloud/tinysmall'
 
 const input = ref('')
 const selectValue = ref('123456')

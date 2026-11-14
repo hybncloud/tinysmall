@@ -11,7 +11,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyBaseSelect, TinyButton } from 'tinysmall'
+import { TinyBaseSelect, TinyButton } from '@hybncloud/tinysmall'
 
 const value = ref('')
 </script>

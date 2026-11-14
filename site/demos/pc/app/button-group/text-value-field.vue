@@ -12,7 +12,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyButtonGroup } from 'tinysmall'
+import { TinyButtonGroup } from '@hybncloud/tinysmall'
 
 const checkedVal = ref(1)
 const textField = ref('text-key')

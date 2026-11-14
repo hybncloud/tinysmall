@@ -6,7 +6,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyTimePicker } from 'tinysmall'
+import { TinyTimePicker } from '@hybncloud/tinysmall'
 
 const startTime = new Date(2016, 9, 10, 18, 40)
 const endTime = new Date(2016, 9, 10, 18, 50)

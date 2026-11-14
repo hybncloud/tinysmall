@@ -7,7 +7,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyBreadcrumb, TinyNotify } from 'tinysmall'
+import { TinyBreadcrumb, TinyNotify } from '@hybncloud/tinysmall'
 
 const options = ref([
   {

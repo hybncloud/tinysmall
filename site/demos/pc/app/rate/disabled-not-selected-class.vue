@@ -4,7 +4,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyRate } from 'tinysmall'
+import { TinyRate } from '@hybncloud/tinysmall'
 
 const rate = ref(3)
 const readiconclass1 = ref('icon-starDisable')

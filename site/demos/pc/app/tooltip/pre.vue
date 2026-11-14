@@ -6,7 +6,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyTooltip, TinyButton } from 'tinysmall'
+import { TinyTooltip, TinyButton } from '@hybncloud/tinysmall'
 
 const content = ref(
   [

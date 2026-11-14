@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="jsx">
-import { TinyTag } from 'tinysmall'
+import { TinyTag } from '@hybncloud/tinysmall'
 </script>
 
 <style scoped>

@@ -27,7 +27,15 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyForm, TinyFormItem, TinyButton, TinyTimePicker, TinyDatePicker, TinyInput, TinyModal } from 'tinysmall'
+import {
+  TinyForm,
+  TinyFormItem,
+  TinyButton,
+  TinyTimePicker,
+  TinyDatePicker,
+  TinyInput,
+  TinyModal
+} from '@hybncloud/tinysmall'
 
 const ruleFormRef = ref()
 const ruleForm = ref({

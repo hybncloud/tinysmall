@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-import { TinyTag } from 'tinysmall'
+import { TinyTag } from '@hybncloud/tinysmall'
 import { IconHeartempty } from '@opentiny/vue-icon'
 
 const tinyIconHeartempty = IconHeartempty()

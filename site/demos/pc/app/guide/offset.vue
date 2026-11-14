@@ -19,7 +19,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyGuide, TinyButton, TinyAlert } from 'tinysmall'
+import { TinyGuide, TinyButton, TinyAlert } from '@hybncloud/tinysmall'
 
 const showStepDefault = ref(false)
 const showStepMainAxis = ref(false)

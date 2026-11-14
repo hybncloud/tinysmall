@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-import { TinyTooltip } from 'tinysmall'
+import { TinyTooltip } from '@hybncloud/tinysmall'
 
 const content = Array(1000).fill('这是很长很长的文本').join('，')
 </script>

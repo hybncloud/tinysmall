@@ -6,7 +6,7 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue'
-import { TinySearch } from 'tinysmall'
+import { TinySearch } from '@hybncloud/tinysmall'
 
 const value = ref('')
 </script>

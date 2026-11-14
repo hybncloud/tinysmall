@@ -11,5 +11,5 @@
 </template>
 
 <script setup>
-import { TinyBreadcrumb, TinyBreadcrumbItem } from 'tinysmall'
+import { TinyBreadcrumb, TinyBreadcrumbItem } from '@hybncloud/tinysmall'
 </script>

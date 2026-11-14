@@ -15,7 +15,7 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue'
-import { TinyTransfer, TinyTree } from 'tinysmall'
+import { TinyTransfer, TinyTree } from '@hybncloud/tinysmall'
 
 const value = ref([3, 4, 5])
 const renderTree = ref({

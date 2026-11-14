@@ -6,7 +6,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyDropTimes } from 'tinysmall'
+import { TinyDropTimes } from '@hybncloud/tinysmall'
 
 const value = ref('')
 </script>

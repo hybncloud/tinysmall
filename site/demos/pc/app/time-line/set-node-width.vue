@@ -20,7 +20,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyTimeLine } from 'tinysmall'
+import { TinyTimeLine } from '@hybncloud/tinysmall'
 
 const active1 = ref(0)
 const active2 = ref(1)

@@ -11,7 +11,7 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue'
-import { TinyTreeSelect } from 'tinysmall'
+import { TinyTreeSelect } from '@hybncloud/tinysmall'
 
 const value = ref([])
 const treeOp = ref({})

@@ -11,7 +11,7 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue'
-import { TinyProgress, TinyButton } from 'tinysmall'
+import { TinyProgress, TinyButton } from '@hybncloud/tinysmall'
 
 const value = ref(20)
 const customColor = ref('#5cb300')

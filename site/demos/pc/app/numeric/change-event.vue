@@ -8,7 +8,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { TinyNumeric, TinyModal, TinyButton } from 'tinysmall'
+import { TinyNumeric, TinyModal, TinyButton } from '@hybncloud/tinysmall'
 
 const value = ref(1)
 

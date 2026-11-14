@@ -3,5 +3,5 @@
 </template>
 
 <script setup>
-import { TinyException } from 'tinysmall'
+import { TinyException } from '@hybncloud/tinysmall'
 </script>

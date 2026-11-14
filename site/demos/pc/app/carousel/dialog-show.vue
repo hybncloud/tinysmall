@@ -23,7 +23,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyCarousel, TinyCarouselItem, TinyButton, TinyDialogBox } from 'tinysmall'
+import { TinyCarousel, TinyCarouselItem, TinyButton, TinyDialogBox } from '@hybncloud/tinysmall'
 
 const boxVisibility = ref(false)
 function handleSubmit() {

@@ -28,7 +28,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyTabs, TinyTabItem, TinyButton } from 'tinysmall'
+import { TinyTabs, TinyTabItem, TinyButton } from '@hybncloud/tinysmall'
 import { iconCalendar, iconReplies } from '@opentiny/vue-icon'
 
 const activeName = ref('second')

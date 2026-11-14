@@ -13,7 +13,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyTimeSelect } from 'tinysmall'
+import { TinyTimeSelect } from '@hybncloud/tinysmall'
 import { iconYes } from '@opentiny/vue-icon'
 
 const IconYes = iconYes()

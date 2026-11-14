@@ -24,7 +24,7 @@
 
 <script setup>
 import { ref, reactive, onMounted } from 'vue'
-import { TinyCarousel, TinyCarouselItem, TinyButton } from 'tinysmall'
+import { TinyCarousel, TinyCarouselItem, TinyButton } from '@hybncloud/tinysmall'
 import { IconChevronRight, IconChevronLeft } from '@opentiny/vue-icon'
 
 const TinyIconChevronRight = IconChevronRight()

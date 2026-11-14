@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-import { TinyNumeric } from 'tinysmall'
+import { TinyNumeric } from '@hybncloud/tinysmall'
 import { ref } from 'vue'
 const step = ref('0.00000000000000000002')
 const stepNum = ref('0.00000000000000000002')

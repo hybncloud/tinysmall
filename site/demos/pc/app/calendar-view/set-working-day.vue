@@ -19,7 +19,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyCalendarView, TinyButton, TinyModal } from 'tinysmall'
+import { TinyCalendarView, TinyButton, TinyModal } from '@hybncloud/tinysmall'
 
 const workingDays = ref([])
 const offDays = ref([])

@@ -56,7 +56,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyConfigProvider, TinyButton, TinyInput, TinyLayout, TinyRow, TinyCol } from 'tinysmall'
+import { TinyConfigProvider, TinyButton, TinyInput, TinyLayout, TinyRow, TinyCol } from '@hybncloud/tinysmall'
 
 const direction = ref('ltr')
 const input = ref('')

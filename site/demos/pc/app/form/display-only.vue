@@ -70,7 +70,7 @@ import {
   TinyBaseSelect,
   TinyOption,
   TinyModal
-} from 'tinysmall'
+} from '@hybncloud/tinysmall'
 
 const displayOnly = ref(true)
 const top = ref(false)

@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-import { TinyScrollText } from 'tinysmall'
+import { TinyScrollText } from '@hybncloud/tinysmall'
 </script>
 
 <style scoped>

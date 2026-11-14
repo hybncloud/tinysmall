@@ -27,7 +27,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyTree, TinyButton, TinyModal } from 'tinysmall'
+import { TinyTree, TinyButton, TinyModal } from '@hybncloud/tinysmall'
 
 const data = ref([
   {

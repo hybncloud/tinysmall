@@ -8,7 +8,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyRadio } from 'tinysmall'
+import { TinyRadio } from '@hybncloud/tinysmall'
 
 const value = ref('1')
 </script>

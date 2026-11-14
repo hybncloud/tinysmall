@@ -6,7 +6,7 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue'
-import { TinyTree } from 'tinysmall'
+import { TinyTree } from '@hybncloud/tinysmall'
 
 const props = ref({
   children: 'children',

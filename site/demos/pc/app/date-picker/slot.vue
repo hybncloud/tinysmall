@@ -81,7 +81,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyDatePicker, TinyButton } from 'tinysmall'
+import { TinyDatePicker, TinyButton } from '@hybncloud/tinysmall'
 
 const value = ref('')
 const dateTimeValue = ref('')

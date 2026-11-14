@@ -4,7 +4,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyCheckbox } from 'tinysmall'
+import { TinyCheckbox } from '@hybncloud/tinysmall'
 
 const checked = ref(true)
 </script>

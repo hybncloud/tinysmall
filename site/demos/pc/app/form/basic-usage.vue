@@ -42,7 +42,7 @@ import {
   TinyInput,
   TinyButton,
   TinyModal
-} from 'tinysmall'
+} from '@hybncloud/tinysmall'
 
 const createData = reactive({
   quantity: 0,

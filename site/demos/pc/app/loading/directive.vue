@@ -14,7 +14,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyLoading, TinyButton } from 'tinysmall'
+import { TinyLoading, TinyButton } from '@hybncloud/tinysmall'
 
 const isLoading = ref(false)
 

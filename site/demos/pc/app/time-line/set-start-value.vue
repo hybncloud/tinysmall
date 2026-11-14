@@ -4,7 +4,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyTimeLine, TinyModal } from 'tinysmall'
+import { TinyTimeLine, TinyModal } from '@hybncloud/tinysmall'
 
 const active = ref(1)
 const data = ref([

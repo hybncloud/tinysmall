@@ -32,7 +32,13 @@
 </template>
 
 <script setup>
-import { Button as TinyButton, Modal, Form as TinyForm, FormItem as TinyFormItem, Input as TinyInput } from 'tinysmall'
+import {
+  Button as TinyButton,
+  Modal,
+  Form as TinyForm,
+  FormItem as TinyFormItem,
+  Input as TinyInput
+} from '@hybncloud/tinysmall'
 import { ref } from 'vue'
 
 const TinyModal = Modal

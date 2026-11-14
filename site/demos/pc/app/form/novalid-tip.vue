@@ -16,7 +16,7 @@
 
 <script setup>
 import { ref, reactive } from 'vue'
-import { TinyForm, TinyFormItem, TinyInput, TinyButton, TinyModal } from 'tinysmall'
+import { TinyForm, TinyFormItem, TinyInput, TinyButton, TinyModal } from '@hybncloud/tinysmall'
 
 const createData = reactive({
   username: '',

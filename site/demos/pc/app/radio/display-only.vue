@@ -12,7 +12,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyRadio, TinyRadioGroup } from 'tinysmall'
+import { TinyRadio, TinyRadioGroup } from '@hybncloud/tinysmall'
 
 const value = ref('1')
 const value1 = ref('B')

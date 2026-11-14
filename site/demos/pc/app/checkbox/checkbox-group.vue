@@ -7,7 +7,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyCheckbox, TinyCheckboxGroup } from 'tinysmall'
+import { TinyCheckbox, TinyCheckboxGroup } from '@hybncloud/tinysmall'
 
 const checked = ref(['复选框 1', '复选框 2'])
 </script>

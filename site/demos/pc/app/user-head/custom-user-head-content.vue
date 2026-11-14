@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-import { TinyUserHead } from 'tinysmall'
+import { TinyUserHead } from '@hybncloud/tinysmall'
 import { iconMail } from '@opentiny/vue-icon'
 
 const TinyIconMail = iconMail()

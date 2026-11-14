@@ -16,7 +16,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyForm, TinyFormItem, TinyInput, TinyButton, TinyModal } from 'tinysmall'
+import { TinyForm, TinyFormItem, TinyInput, TinyButton, TinyModal } from '@hybncloud/tinysmall'
 
 const createData = ref({
   name: '',

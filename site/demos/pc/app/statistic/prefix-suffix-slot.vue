@@ -23,5 +23,5 @@
 </template>
 
 <script setup>
-import { TinyStatistic, TinyLayout, TinyRow, TinyCol } from 'tinysmall'
+import { TinyStatistic, TinyLayout, TinyRow, TinyCol } from '@hybncloud/tinysmall'
 </script>

@@ -6,7 +6,7 @@
 </template>
 
 <script setup>
-import { TinyButton, TinyNotify, TinyModal } from 'tinysmall'
+import { TinyButton, TinyNotify, TinyModal } from '@hybncloud/tinysmall'
 
 function baseClick() {
   TinyNotify({

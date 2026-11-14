@@ -6,7 +6,7 @@
 </template>
 
 <script setup>
-import { TinyInput, TinySwitch } from 'tinysmall'
+import { TinyInput, TinySwitch } from '@hybncloud/tinysmall'
 import { ref } from 'vue'
 
 const showTooltip = ref(false)

@@ -13,7 +13,7 @@
 
 <script setup>
 import { ref, computed } from 'vue'
-import { TinyConfigProvider, TinyTag, TinySwitch } from 'tinysmall'
+import { TinyConfigProvider, TinyTag, TinySwitch } from '@hybncloud/tinysmall'
 
 const tag = ref({
   enable: true,

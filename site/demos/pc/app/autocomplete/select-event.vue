@@ -12,7 +12,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import { TinyAutocomplete, TinyModal } from 'tinysmall'
+import { TinyAutocomplete, TinyModal } from '@hybncloud/tinysmall'
 
 const restaurants = ref([])
 const value = ref('')

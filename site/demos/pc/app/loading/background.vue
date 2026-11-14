@@ -4,7 +4,7 @@
 
 <script setup>
 import { onMounted } from 'vue'
-import { TinyLoading } from 'tinysmall'
+import { TinyLoading } from '@hybncloud/tinysmall'
 
 onMounted(() => {
   TinyLoading.service({

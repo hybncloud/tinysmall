@@ -21,7 +21,7 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue'
-import { TinyPopover, TinyButton, TinySwitch } from 'tinysmall'
+import { TinyPopover, TinyButton, TinySwitch } from '@hybncloud/tinysmall'
 
 const disabled = ref(false)
 </script>

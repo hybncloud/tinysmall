@@ -10,7 +10,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-import { TinyModal, TinyNumeric } from 'tinysmall'
+import { TinyModal, TinyNumeric } from '@hybncloud/tinysmall'
 
 const value = ref(1)
 const inputCount = ref(0)

@@ -17,7 +17,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyCascader } from 'tinysmall'
+import { TinyCascader } from '@hybncloud/tinysmall'
 
 const value = ref('anzhuangcli')
 

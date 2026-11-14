@@ -4,7 +4,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinySlider } from 'tinysmall'
+import { TinySlider } from '@hybncloud/tinysmall'
 
 const marks = ref({
   10: '10%',

@@ -8,7 +8,7 @@
 </template>
 
 <script setup>
-import { TinyButton, TinySpace } from 'tinysmall'
+import { TinyButton, TinySpace } from '@hybncloud/tinysmall'
 
 const order = ['2', '3', '1'] // 自定义顺序：第二个、第三个、然后第一个
 </script>

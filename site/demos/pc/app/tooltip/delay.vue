@@ -13,5 +13,5 @@
 </template>
 
 <script setup lang="jsx">
-import { TinyTooltip } from 'tinysmall'
+import { TinyTooltip } from '@hybncloud/tinysmall'
 </script>

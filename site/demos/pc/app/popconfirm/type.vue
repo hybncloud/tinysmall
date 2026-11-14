@@ -34,7 +34,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyPopconfirm, TinyButton } from 'tinysmall'
+import { TinyPopconfirm, TinyButton } from '@hybncloud/tinysmall'
 import { iconDel } from '@opentiny/vue-icon'
 
 const title = ref('提示标题')

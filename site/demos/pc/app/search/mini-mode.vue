@@ -6,7 +6,7 @@
 </template>
 
 <script setup lang="jsx">
-import { TinySearch } from 'tinysmall'
+import { TinySearch } from '@hybncloud/tinysmall'
 </script>
 
 <style scoped>

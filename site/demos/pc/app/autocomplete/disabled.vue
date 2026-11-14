@@ -6,7 +6,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyAutocomplete } from 'tinysmall'
+import { TinyAutocomplete } from '@hybncloud/tinysmall'
 
 const value = ref('')
 </script>

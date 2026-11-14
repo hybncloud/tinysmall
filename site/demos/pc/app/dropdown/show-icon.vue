@@ -44,7 +44,7 @@
 </template>
 
 <script setup>
-import { TinyDropdown, TinyDropdownMenu, TinyDropdownItem } from 'tinysmall'
+import { TinyDropdown, TinyDropdownMenu, TinyDropdownItem } from '@hybncloud/tinysmall'
 import { iconEllipsis, iconLanguage } from '@opentiny/vue-icon'
 
 const tinyIconEllipsis = iconEllipsis()

@@ -6,7 +6,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyDatePicker } from 'tinysmall'
+import { TinyDatePicker } from '@hybncloud/tinysmall'
 import { iconMinus } from '@opentiny/vue-icon'
 
 const value = ref('')

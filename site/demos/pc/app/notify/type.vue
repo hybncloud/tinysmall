@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="jsx">
-import { TinyNotify, TinyButton } from 'tinysmall'
+import { TinyNotify, TinyButton } from '@hybncloud/tinysmall'
 
 function infoClick() {
   TinyNotify({

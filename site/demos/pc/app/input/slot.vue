@@ -21,7 +21,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyInput } from 'tinysmall'
+import { TinyInput } from '@hybncloud/tinysmall'
 import { iconSearch, iconCalendar } from '@opentiny/vue-icon'
 
 const input = ref('')

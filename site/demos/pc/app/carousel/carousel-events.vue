@@ -12,7 +12,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyCarousel, TinyCarouselItem } from 'tinysmall'
+import { TinyCarousel, TinyCarouselItem } from '@hybncloud/tinysmall'
 
 const curValue = ref(0)
 const preValue = ref(0)

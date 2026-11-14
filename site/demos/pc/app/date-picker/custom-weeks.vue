@@ -32,7 +32,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyDatePicker } from 'tinysmall'
+import { TinyDatePicker } from '@hybncloud/tinysmall'
 
 const eachWeekFirstDay = ref([])
 const value = ref('')

@@ -17,7 +17,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyBaseSelect, TinyModal } from 'tinysmall'
+import { TinyBaseSelect, TinyModal } from '@hybncloud/tinysmall'
 
 const buildOptions = () =>
   Array.from({ length: 100000 }).map((item, i) => JSON.parse(`{"value":"选项 ${i}","label":"北京 ${i}"}`))

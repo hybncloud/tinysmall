@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts" setup>
-import { TinyButton } from 'tinysmall'
+import { TinyButton } from '@hybncloud/tinysmall'
 import { ref } from 'vue'
 const currentLang = ref('zhCN')
 const toggleLocale = () => {

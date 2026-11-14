@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-import { TinyFileUpload } from 'tinysmall'
+import { TinyFileUpload } from '@hybncloud/tinysmall'
 import { iconFileupload } from '@opentiny/vue-icon'
 
 const IconFileUpload = iconFileupload()

@@ -14,7 +14,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyFileUpload, TinyButton } from 'tinysmall'
+import { TinyFileUpload, TinyButton } from '@hybncloud/tinysmall'
 import { IconEditorList } from '@opentiny/vue-icon'
 
 const options = ref({

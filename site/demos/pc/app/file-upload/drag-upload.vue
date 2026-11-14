@@ -7,7 +7,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyFileUpload, TinyModal } from 'tinysmall'
+import { TinyFileUpload, TinyModal } from '@hybncloud/tinysmall'
 import { iconPicture } from '@opentiny/vue-icon'
 
 const action = ref('http://localhost:3000/api/upload')

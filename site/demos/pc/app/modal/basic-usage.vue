@@ -24,7 +24,7 @@
 </template>
 
 <script setup lang="jsx">
-import { Button as TinyButton, Modal, Notify } from 'tinysmall'
+import { Button as TinyButton, Modal, Notify } from '@hybncloud/tinysmall'
 import { ref } from 'vue'
 
 const TinyModal = Modal

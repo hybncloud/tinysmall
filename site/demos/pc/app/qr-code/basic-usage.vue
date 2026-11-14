@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-import { TinyQrCode } from 'tinysmall'
+import { TinyQrCode } from '@hybncloud/tinysmall'
 
 const params = {
   value: '测试二维码数据',

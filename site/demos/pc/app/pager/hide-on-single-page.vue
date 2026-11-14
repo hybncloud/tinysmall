@@ -7,7 +7,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyPager, TinySwitch } from 'tinysmall'
+import { TinyPager, TinySwitch } from '@hybncloud/tinysmall'
 
 const isHide = ref(false)
 </script>

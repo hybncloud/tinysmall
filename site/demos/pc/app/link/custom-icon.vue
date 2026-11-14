@@ -20,7 +20,7 @@
 </template>
 
 <script setup>
-import { TinyLink } from 'tinysmall'
+import { TinyLink } from '@hybncloud/tinysmall'
 import { IconEditor, iconSearch, IconDeleteL, iconFilletExternalLink } from '@opentiny/vue-icon'
 
 const IconEdit = IconEditor()

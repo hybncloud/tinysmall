@@ -30,7 +30,7 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue'
-import { TinyTree, TinyRadioGroup, TinyRadio } from 'tinysmall'
+import { TinyTree, TinyRadioGroup, TinyRadio } from '@hybncloud/tinysmall'
 
 const listenEvent = ref('node-drop')
 const data = ref([

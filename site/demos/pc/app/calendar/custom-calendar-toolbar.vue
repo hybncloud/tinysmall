@@ -7,7 +7,7 @@
 </template>
 
 <script setup>
-import { TinyCalendar, TinyButton } from 'tinysmall'
+import { TinyCalendar, TinyButton } from '@hybncloud/tinysmall'
 
 function toToday(scope) {
   let year = new Date().getFullYear()

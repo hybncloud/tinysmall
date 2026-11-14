@@ -17,7 +17,7 @@
 </template>
 
 <script setup>
-import { TinySkeleton, TinySkeletonItem } from 'tinysmall'
+import { TinySkeleton, TinySkeletonItem } from '@hybncloud/tinysmall'
 </script>
 
 <style scoped>

@@ -1,5 +1,5 @@
 {
-  "name": "tinysmall",
+  "name": "@hybncloud/tinysmall",
   "version": "3.32.0",
   "description": "由 opentiny/tiny-vue 删减改造而来。",
   "type": "module",

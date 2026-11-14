@@ -10,7 +10,7 @@
 
 <script setup>
 import { ref, reactive } from 'vue'
-import { TinyFileUpload, TinyModal } from 'tinysmall'
+import { TinyFileUpload, TinyModal } from '@hybncloud/tinysmall'
 
 const action = ref('http://localhost:3000/api/upload')
 const fileList = reactive([

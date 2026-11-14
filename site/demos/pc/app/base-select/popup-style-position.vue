@@ -6,7 +6,7 @@
 
 <script setup>
 import { reactive, ref } from 'vue'
-import { TinyBaseSelect, TinyOption } from 'tinysmall'
+import { TinyBaseSelect, TinyOption } from '@hybncloud/tinysmall'
 
 const options = reactive([
   { value: '选项 1', label: '北京' },

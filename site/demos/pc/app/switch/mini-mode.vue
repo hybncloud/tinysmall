@@ -3,5 +3,5 @@
 </template>
 
 <script setup>
-import { TinySwitch } from 'tinysmall'
+import { TinySwitch } from '@hybncloud/tinysmall'
 </script>

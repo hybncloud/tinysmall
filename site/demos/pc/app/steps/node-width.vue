@@ -12,7 +12,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinySteps } from 'tinysmall'
+import { TinySteps } from '@hybncloud/tinysmall'
 
 const stepsData = ref([
   {

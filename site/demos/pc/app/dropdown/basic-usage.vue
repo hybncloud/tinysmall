@@ -14,5 +14,5 @@
 </template>
 
 <script setup>
-import { TinyDropdown, TinyDropdownMenu, TinyDropdownItem } from 'tinysmall'
+import { TinyDropdown, TinyDropdownMenu, TinyDropdownItem } from '@hybncloud/tinysmall'
 </script>

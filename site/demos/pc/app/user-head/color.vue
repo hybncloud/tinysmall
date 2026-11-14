@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-import { TinyUserHead } from 'tinysmall'
+import { TinyUserHead } from '@hybncloud/tinysmall'
 import { ref } from 'vue'
 
 const labelText = ref('Ai')

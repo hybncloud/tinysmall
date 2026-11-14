@@ -13,7 +13,7 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue'
-import { TinyTabs, TinyTabItem, TinyNotify } from 'tinysmall'
+import { TinyTabs, TinyTabItem, TinyNotify } from '@hybncloud/tinysmall'
 
 const activeName = ref('second')
 

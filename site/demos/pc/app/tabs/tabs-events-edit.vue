@@ -8,7 +8,7 @@
 
 <script setup lang="jsx">
 import { ref, getCurrentInstance } from 'vue'
-import { TinyTabs, TinyTabItem } from 'tinysmall'
+import { TinyTabs, TinyTabItem } from '@hybncloud/tinysmall'
 
 const activeName = ref('first')
 const tabs = ref([

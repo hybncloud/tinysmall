@@ -3,5 +3,5 @@
 </template>
 
 <script setup>
-import { TinyCalendar } from 'tinysmall'
+import { TinyCalendar } from '@hybncloud/tinysmall'
 </script>

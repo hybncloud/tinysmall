@@ -16,7 +16,7 @@
 </template>
 
 <script setup lang="jsx">
-import { TinyPopover, TinyNotify, TinyButton } from 'tinysmall'
+import { TinyPopover, TinyNotify, TinyButton } from '@hybncloud/tinysmall'
 
 function enter() {
   TinyNotify({

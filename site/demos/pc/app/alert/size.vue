@@ -8,5 +8,5 @@
 </template>
 
 <script setup>
-import { TinyAlert } from 'tinysmall'
+import { TinyAlert } from '@hybncloud/tinysmall'
 </script>

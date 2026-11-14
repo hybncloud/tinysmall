@@ -59,7 +59,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyBaseSelect, TinyOption, TinyOptionGroup } from 'tinysmall'
+import { TinyBaseSelect, TinyOption, TinyOptionGroup } from '@hybncloud/tinysmall'
 
 const options3 = ref([
   {

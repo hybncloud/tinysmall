@@ -8,7 +8,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyInput, TinyForm, TinyFormItem } from 'tinysmall'
+import { TinyInput, TinyForm, TinyFormItem } from '@hybncloud/tinysmall'
 
 const ruleForm = ref({
   name: ''

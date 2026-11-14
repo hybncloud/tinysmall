@@ -104,7 +104,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import { TinyBaseSelect, TinyOption, TinyButton } from 'tinysmall'
+import { TinyBaseSelect, TinyOption, TinyButton } from '@hybncloud/tinysmall'
 
 const loading1 = ref(false)
 const loading2 = ref(false)

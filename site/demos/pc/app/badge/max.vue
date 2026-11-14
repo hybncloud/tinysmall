@@ -7,5 +7,5 @@
 </template>
 
 <script setup>
-import { TinyBadge } from 'tinysmall'
+import { TinyBadge } from '@hybncloud/tinysmall'
 </script>

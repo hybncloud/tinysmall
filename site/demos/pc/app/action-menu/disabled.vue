@@ -10,7 +10,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyActionMenu } from 'tinysmall'
+import { TinyActionMenu } from '@hybncloud/tinysmall'
 import { iconWebPlus, iconSuccessful, iconCloseSquare } from '@opentiny/vue-icon'
 
 const options = ref([

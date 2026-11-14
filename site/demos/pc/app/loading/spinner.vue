@@ -4,7 +4,7 @@
 
 <script setup lang="jsx">
 import { onMounted } from 'vue'
-import { TinyLoading } from 'tinysmall'
+import { TinyLoading } from '@hybncloud/tinysmall'
 import { iconLoadingShadow } from '@opentiny/vue-icon'
 
 const spinnerIcon = iconLoadingShadow()

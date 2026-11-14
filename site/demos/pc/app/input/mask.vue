@@ -7,7 +7,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyInput } from 'tinysmall'
+import { TinyInput } from '@hybncloud/tinysmall'
 
 const input = ref('文字过长时会显示点点点，并且鼠标悬浮出现 tip')
 </script>

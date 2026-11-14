@@ -17,7 +17,7 @@
 </template>
 
 <script setup>
-import { TinyStatistic, TinyLayout, TinyRow, TinyCol } from 'tinysmall'
+import { TinyStatistic, TinyLayout, TinyRow, TinyCol } from '@hybncloud/tinysmall'
 
 const num = 306526.23
 </script>

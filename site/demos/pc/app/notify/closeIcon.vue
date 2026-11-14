@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-import { TinyButton, TinyNotify } from 'tinysmall'
+import { TinyButton, TinyNotify } from '@hybncloud/tinysmall'
 import { IconCloseSquare } from '@opentiny/vue-icon'
 
 function baseClick() {

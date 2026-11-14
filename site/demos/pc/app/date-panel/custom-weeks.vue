@@ -20,7 +20,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyDatePanel, TinyDateRange } from 'tinysmall'
+import { TinyDatePanel, TinyDateRange } from '@hybncloud/tinysmall'
 
 const value = ref('2025-01-15')
 const value1 = ref(['2025-01-15', '2025-02-15'])

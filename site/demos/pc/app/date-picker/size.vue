@@ -35,7 +35,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyDatePicker, TinyRadioGroup, TinyRadioButton } from 'tinysmall'
+import { TinyDatePicker, TinyRadioGroup, TinyRadioButton } from '@hybncloud/tinysmall'
 
 const value = ref('')
 const dateTimeValue = ref('')

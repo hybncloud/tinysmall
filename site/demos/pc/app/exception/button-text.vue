@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-import { TinyException, TinyModal, TinyButton } from 'tinysmall'
+import { TinyException, TinyModal, TinyButton } from '@hybncloud/tinysmall'
 
 const test = () => {
   TinyModal.message({ status: 'info', message: '自定义按钮被点击' })

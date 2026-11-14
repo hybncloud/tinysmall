@@ -16,7 +16,7 @@
 
 <script setup>
 import { ref, reactive } from 'vue'
-import { TinyForm, TinyFormItem, TinyInput, TinyDatePicker, TinyButton } from 'tinysmall'
+import { TinyForm, TinyFormItem, TinyInput, TinyDatePicker, TinyButton } from '@hybncloud/tinysmall'
 
 const ruleFormRef = ref()
 

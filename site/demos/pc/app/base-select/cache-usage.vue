@@ -15,7 +15,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyBaseSelect } from 'tinysmall'
+import { TinyBaseSelect } from '@hybncloud/tinysmall'
 
 const cacheOp = ref({
   key: 'test'

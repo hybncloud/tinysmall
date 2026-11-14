@@ -81,7 +81,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyBaseSelect, TinyTree } from 'tinysmall'
+import { TinyBaseSelect, TinyTree } from '@hybncloud/tinysmall'
 
 const treeRef = ref()
 

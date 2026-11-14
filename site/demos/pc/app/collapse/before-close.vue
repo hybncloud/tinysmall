@@ -22,7 +22,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyCollapse, TinyCollapseItem, TinyModal } from 'tinysmall'
+import { TinyCollapse, TinyCollapseItem, TinyModal } from '@hybncloud/tinysmall'
 
 const activeName = ref('1')
 

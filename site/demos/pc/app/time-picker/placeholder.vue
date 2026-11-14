@@ -19,7 +19,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyTimePicker } from 'tinysmall'
+import { TinyTimePicker } from '@hybncloud/tinysmall'
 
 const value = ref('')
 const rangeValue = ref(['', ''])

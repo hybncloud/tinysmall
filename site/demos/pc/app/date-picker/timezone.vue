@@ -31,7 +31,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyDatePicker, TinyModal } from 'tinysmall'
+import { TinyDatePicker, TinyModal } from '@hybncloud/tinysmall'
 // import tzData from '@tinysmall/renderless/picker/timezone'
 
 const tzData = {}

@@ -5,7 +5,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinySlider } from 'tinysmall'
+import { TinySlider } from '@hybncloud/tinysmall'
 
 const value = ref(40)
 const value2 = ref([40, 60])

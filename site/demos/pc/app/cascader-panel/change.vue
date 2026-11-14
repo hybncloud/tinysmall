@@ -13,7 +13,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyCascaderPanel, TinyModal, TinyButton } from 'tinysmall'
+import { TinyCascaderPanel, TinyModal, TinyButton } from '@hybncloud/tinysmall'
 
 const value = ref('')
 const optionsCascader = ref([

@@ -11,7 +11,7 @@
 </template>
 
 <script setup>
-import { TinyException, TinyButton } from 'tinysmall'
+import { TinyException, TinyButton } from '@hybncloud/tinysmall'
 import { IconSuccess } from '@opentiny/vue-icon'
 
 const TinyIconSuccess = IconSuccess()

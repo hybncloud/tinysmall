@@ -5,7 +5,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyImage, TinyModal } from 'tinysmall'
+import { TinyImage, TinyModal } from '@hybncloud/tinysmall'
 
 const errUrl = ref('')
 const url = ref(`${import.meta.env.VITE_APP_BUILD_BASE_URL}static/images/mountain.png`)

@@ -8,7 +8,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyInput } from 'tinysmall'
+import { TinyInput } from '@hybncloud/tinysmall'
 
 const text = ref('')
 const textarea = ref('')

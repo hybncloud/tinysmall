@@ -23,7 +23,7 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue'
-import { TinyButton, TinyDialogBox, Modal } from 'tinysmall'
+import { TinyButton, TinyDialogBox, Modal } from '@hybncloud/tinysmall'
 
 const box1 = ref(false)
 const box2 = ref(false)

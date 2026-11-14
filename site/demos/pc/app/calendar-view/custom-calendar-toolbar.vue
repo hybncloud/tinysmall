@@ -7,5 +7,5 @@
 </template>
 
 <script setup lang="ts">
-import { TinyCalendarView } from 'tinysmall'
+import { TinyCalendarView } from '@hybncloud/tinysmall'
 </script>

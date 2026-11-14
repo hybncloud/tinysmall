@@ -28,7 +28,7 @@
 </template>
 
 <script setup>
-import { TinyLayout, TinyRow, TinyCol } from 'tinysmall'
+import { TinyLayout, TinyRow, TinyCol } from '@hybncloud/tinysmall'
 </script>
 
 <style scoped>

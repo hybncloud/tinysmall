@@ -35,7 +35,7 @@
 </template>
 
 <script setup lang="jsx">
-import { TinyPopover, TinyButton } from 'tinysmall'
+import { TinyPopover, TinyButton } from '@hybncloud/tinysmall'
 </script>
 
 <style>

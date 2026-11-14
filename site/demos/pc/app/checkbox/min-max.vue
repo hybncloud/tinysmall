@@ -8,7 +8,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyCheckbox, TinyCheckboxGroup } from 'tinysmall'
+import { TinyCheckbox, TinyCheckboxGroup } from '@hybncloud/tinysmall'
 
 const checkboxGroup = ref(['上海', '北京'])
 const cities = ref(['上海', '北京', '广州', '深圳'])

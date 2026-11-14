@@ -57,7 +57,7 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue'
-import { TinyTooltip, TinySwitch } from 'tinysmall'
+import { TinyTooltip, TinySwitch } from '@hybncloud/tinysmall'
 
 const visible = ref(false)
 const manualShow = ref(false)

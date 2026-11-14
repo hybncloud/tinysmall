@@ -7,7 +7,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyCheckbox, TinyModal, TinyButton } from 'tinysmall'
+import { TinyCheckbox, TinyModal, TinyButton } from '@hybncloud/tinysmall'
 
 const checked = ref('假文本')
 

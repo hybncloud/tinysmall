@@ -18,7 +18,7 @@
 
 <script setup>
 import { iconAscending } from '@opentiny/vue-icon'
-import { TinyDropdown, TinyDropdownMenu, TinyDropdownItem } from 'tinysmall'
+import { TinyDropdown, TinyDropdownMenu, TinyDropdownItem } from '@hybncloud/tinysmall'
 
 const TinyIconAscending = iconAscending()
 </script>

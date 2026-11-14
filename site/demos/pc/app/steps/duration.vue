@@ -6,7 +6,7 @@
 
 <script setup>
 import { ref, reactive } from 'vue'
-import { TinySteps } from 'tinysmall'
+import { TinySteps } from '@hybncloud/tinysmall'
 
 const duration = ref(1000)
 const advancedActive = ref(2)

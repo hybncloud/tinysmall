@@ -9,7 +9,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyCheckboxButton, TinyCheckboxGroup, TinyModal } from 'tinysmall'
+import { TinyCheckboxButton, TinyCheckboxGroup, TinyModal } from '@hybncloud/tinysmall'
 
 const checked = ref(['复选框 1'])
 

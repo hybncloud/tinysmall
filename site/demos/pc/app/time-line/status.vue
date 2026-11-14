@@ -20,7 +20,7 @@
 
 <script setup lang="ts">
 import { reactive } from 'vue'
-import { TinyTimeLine } from 'tinysmall'
+import { TinyTimeLine } from '@hybncloud/tinysmall'
 import { iconUpdate } from '@opentiny/vue-icon'
 
 const data1 = reactive([

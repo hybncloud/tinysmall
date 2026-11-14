@@ -8,7 +8,7 @@
 
 <script setup>
 import { computed } from 'vue'
-import { TinyBreadcrumb, TinyBreadcrumbItem } from 'tinysmall'
+import { TinyBreadcrumb, TinyBreadcrumbItem } from '@hybncloud/tinysmall'
 
 const routes = computed(() => {
   return []

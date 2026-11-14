@@ -5,5 +5,5 @@
 </template>
 
 <script setup>
-import { TinySkeleton } from 'tinysmall'
+import { TinySkeleton } from '@hybncloud/tinysmall'
 </script>

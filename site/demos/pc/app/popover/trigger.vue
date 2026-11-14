@@ -26,7 +26,7 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue'
-import { TinyPopover, TinyButton } from 'tinysmall'
+import { TinyPopover, TinyButton } from '@hybncloud/tinysmall'
 
 const visible = ref(false)
 </script>

@@ -7,7 +7,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import { TinyLoading, TinyButton } from 'tinysmall'
+import { TinyLoading, TinyButton } from '@hybncloud/tinysmall'
 
 const loadingInstance = ref(null)
 

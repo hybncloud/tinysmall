@@ -19,7 +19,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyDropdown, TinyDropdownMenu, TinyDropdownItem, TinySwitch } from 'tinysmall'
+import { TinyDropdown, TinyDropdownMenu, TinyDropdownItem, TinySwitch } from '@hybncloud/tinysmall'
 
 const isShowArrow = ref(true)
 </script>

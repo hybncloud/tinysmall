@@ -12,7 +12,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyGuide, TinyButton, TinyDivider } from 'tinysmall'
+import { TinyGuide, TinyButton, TinyDivider } from '@hybncloud/tinysmall'
 
 const showStep = ref(false)
 const domData = ref([

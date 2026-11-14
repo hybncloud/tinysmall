@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-import { TinyNotify, TinyButton } from 'tinysmall'
+import { TinyNotify, TinyButton } from '@hybncloud/tinysmall'
 
 function handleClick(pos) {
   TinyNotify({

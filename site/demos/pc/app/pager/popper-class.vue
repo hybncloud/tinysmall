@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-import { TinyPager } from 'tinysmall'
+import { TinyPager } from '@hybncloud/tinysmall'
 </script>
 
 <style>

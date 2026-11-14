@@ -30,7 +30,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyButton, TinyLayout, TinyRow, TinySwitch } from 'tinysmall'
+import { TinyButton, TinyLayout, TinyRow, TinySwitch } from '@hybncloud/tinysmall'
 import { iconSearch } from '@opentiny/vue-icon'
 
 const disabled = ref(false)

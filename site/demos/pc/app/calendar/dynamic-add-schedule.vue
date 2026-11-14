@@ -4,7 +4,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyCalendar } from 'tinysmall'
+import { TinyCalendar } from '@hybncloud/tinysmall'
 
 const eventslist = ref([
   {

@@ -46,7 +46,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import { TinyPopover, TinyButton } from 'tinysmall'
+import { TinyPopover, TinyButton } from '@hybncloud/tinysmall'
 
 const visible = ref(false)
 const visible1 = ref(false)

@@ -14,7 +14,7 @@
 
 <script setup>
 import { ref, computed } from 'vue'
-import { TinyTag, TinyModal } from 'tinysmall'
+import { TinyTag, TinyModal } from '@hybncloud/tinysmall'
 
 const tags = ref([
   { name: '标签一', type: '' },

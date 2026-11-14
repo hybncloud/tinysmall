@@ -10,7 +10,7 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue'
-import { TinyPopUpload } from 'tinysmall'
+import { TinyPopUpload } from '@hybncloud/tinysmall'
 
 const action = ref('http://localhost:3000/api/upload')
 </script>

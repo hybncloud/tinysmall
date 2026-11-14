@@ -18,7 +18,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyFileUpload, TinyButton } from 'tinysmall'
+import { TinyFileUpload, TinyButton } from '@hybncloud/tinysmall'
 
 const action = ref('http://localhost:3000/api/upload')
 const reUploadTip = (count) => `我是自定义重新上传的左侧提示，${count}个文件变红啦！`

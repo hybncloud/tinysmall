@@ -19,7 +19,7 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue'
-import { TinyTree, TinyButton } from 'tinysmall'
+import { TinyTree, TinyButton } from '@hybncloud/tinysmall'
 
 const treeRef = ref()
 const defaultRadioKey = ref(['1-1'])

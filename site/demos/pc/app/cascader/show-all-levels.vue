@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-import { TinyCascader } from 'tinysmall'
+import { TinyCascader } from '@hybncloud/tinysmall'
 import { ref } from 'vue'
 
 const value = ref(['zhinan', 'anzhuang', 'anzhuangcli'])

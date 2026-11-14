@@ -6,7 +6,7 @@
 
 <script setup>
 import { reactive } from 'vue'
-import { TinyWatermark } from 'tinysmall'
+import { TinyWatermark } from '@hybncloud/tinysmall'
 
 const params = reactive({
   width: 136,

@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-import { TinySwitch } from 'tinysmall'
+import { TinySwitch } from '@hybncloud/tinysmall'
 import { IconArrowLeft, IconArrowRight } from '@opentiny/vue-icon'
 
 const TinyIconArrowLeft = IconArrowLeft()

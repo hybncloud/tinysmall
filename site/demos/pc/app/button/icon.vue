@@ -24,7 +24,7 @@
 </template>
 
 <script setup>
-import { TinyButton, TinyLayout, TinyRow } from 'tinysmall'
+import { TinyButton, TinyLayout, TinyRow } from '@hybncloud/tinysmall'
 import { iconDel, iconYes, iconEdit, iconMail, iconStarO, iconSearch } from '@opentiny/vue-icon'
 
 const TinyIconDel = iconDel()

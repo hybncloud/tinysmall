@@ -8,7 +8,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyInput, TinyModal } from 'tinysmall'
+import { TinyInput, TinyModal } from '@hybncloud/tinysmall'
 
 const inputChange = ref('')
 const focusBlur = ref('')

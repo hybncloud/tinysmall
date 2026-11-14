@@ -4,7 +4,7 @@
     "allowJs": true,
     "noImplicitAny": false,
     "paths": {
-      "tinysmall": ["./src/index.ts"],
+      "@hybncloud/tinysmall": ["./src/index.ts"],
       "@tinysmall/utils": ["./src/utils"],
       "@tinysmall/icon": ["./icons"],
       "@tinysmall/common": ["./src/common"],

@@ -25,7 +25,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyCollapse, TinyCollapseItem } from 'tinysmall'
+import { TinyCollapse, TinyCollapseItem } from '@hybncloud/tinysmall'
 import { iconDeltaRight, iconDeltaRightO } from '@opentiny/vue-icon'
 
 const activeNames = ref(['1', '2'])

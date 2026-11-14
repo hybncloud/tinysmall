@@ -14,7 +14,7 @@
 </template>
 
 <script setup>
-import { TinySkeleton, TinyButton, TinySkeletonItem } from 'tinysmall'
+import { TinySkeleton, TinyButton, TinySkeletonItem } from '@hybncloud/tinysmall'
 import { ref } from 'vue'
 
 const animated = ref(true)

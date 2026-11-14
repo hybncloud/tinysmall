@@ -13,7 +13,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyBaseSelect } from 'tinysmall'
+import { TinyBaseSelect } from '@hybncloud/tinysmall'
 
 const options = ref([
   { value: '选项 1', label: '北京' },

@@ -100,7 +100,7 @@
 
 <script>
 import { hooks } from '@tinysmall/common'
-import { Tree, Button, Tooltip, Dropdown, DropdownMenu, DropdownItem, ConfigProvider } from 'tinysmall'
+import { Tree, Button, Tooltip, Dropdown, DropdownMenu, DropdownItem, ConfigProvider } from '@hybncloud/tinysmall'
 // import { iconStarActive, iconSelect } from '@tinysmall/icon'
 import Loading from '@tinysmall/loading'
 import { menuData, demoVue, mds, demos } from './resourcePc.js'

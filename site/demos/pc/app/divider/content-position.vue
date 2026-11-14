@@ -10,5 +10,5 @@
 </template>
 
 <script setup>
-import { TinyDivider } from 'tinysmall'
+import { TinyDivider } from '@hybncloud/tinysmall'
 </script>

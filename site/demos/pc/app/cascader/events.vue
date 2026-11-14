@@ -17,7 +17,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyCascader, TinyModal } from 'tinysmall'
+import { TinyCascader, TinyModal } from '@hybncloud/tinysmall'
 
 const value = ref('anzhuangcli')
 const options = ref([

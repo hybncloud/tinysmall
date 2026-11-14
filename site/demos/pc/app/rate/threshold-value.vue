@@ -10,7 +10,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyRate } from 'tinysmall'
+import { TinyRate } from '@hybncloud/tinysmall'
 
 const rate1 = ref(3)
 </script>

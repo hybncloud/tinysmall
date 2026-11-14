@@ -6,7 +6,7 @@
 </template>
 
 <script setup>
-import { TinyButton } from 'tinysmall'
+import { TinyButton } from '@hybncloud/tinysmall'
 
 const image = `${import.meta.env.VITE_APP_BUILD_BASE_URL}static/images/button-image.png`
 </script>

@@ -36,7 +36,7 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue'
-import { TinyTree, TinyRadioGroup, TinyRadio } from 'tinysmall'
+import { TinyTree, TinyRadioGroup, TinyRadio } from '@hybncloud/tinysmall'
 
 const showLine = ref('hide')
 const size = ref('medium')

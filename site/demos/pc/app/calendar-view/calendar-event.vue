@@ -16,7 +16,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyCalendarView, TinyModal } from 'tinysmall'
+import { TinyCalendarView, TinyModal } from '@hybncloud/tinysmall'
 
 const eventslist = ref([])
 

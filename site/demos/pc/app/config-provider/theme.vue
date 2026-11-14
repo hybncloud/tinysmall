@@ -10,7 +10,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyConfigProvider, TinyButton } from 'tinysmall'
+import { TinyConfigProvider, TinyButton } from '@hybncloud/tinysmall'
 
 const theme = ref({
   data: {}

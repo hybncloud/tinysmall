@@ -8,7 +8,7 @@
 
 <script setup>
 import { reactive } from 'vue'
-import { TinyFileUpload, TinyButton, TinyModal } from 'tinysmall'
+import { TinyFileUpload, TinyButton, TinyModal } from '@hybncloud/tinysmall'
 
 const fileList = reactive([])
 const httpRequest = reactive(({ onSuccess, file }) => {

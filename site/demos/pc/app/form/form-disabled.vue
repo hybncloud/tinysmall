@@ -99,7 +99,7 @@ import {
   TinyOption,
   TinySlider,
   TinyTimePicker
-} from 'tinysmall'
+} from '@hybncloud/tinysmall'
 
 const createData = reactive({
   checked: false,

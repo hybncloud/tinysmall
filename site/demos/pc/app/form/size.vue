@@ -44,7 +44,7 @@ import {
   TinyButton,
   TinyButtonGroup,
   TinyModal
-} from 'tinysmall'
+} from '@hybncloud/tinysmall'
 
 const sizeList = ref([
   { text: 'medium', value: 'medium' },

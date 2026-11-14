@@ -11,7 +11,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyButtonGroup } from 'tinysmall'
+import { TinyButtonGroup } from '@hybncloud/tinysmall'
 
 const value = ref(1)
 const groupData = ref([

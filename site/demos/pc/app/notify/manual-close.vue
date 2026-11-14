@@ -7,7 +7,7 @@
 </template>
 
 <script setup>
-import { TinyButton, TinyNotify } from 'tinysmall'
+import { TinyButton, TinyNotify } from '@hybncloud/tinysmall'
 
 function manualCloseClick() {
   const instance = TinyNotify({

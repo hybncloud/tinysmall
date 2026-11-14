@@ -15,7 +15,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { TinyNumeric } from 'tinysmall'
+import { TinyNumeric } from '@hybncloud/tinysmall'
 
 const value = ref(0)
 const restrictValue = ref(0)

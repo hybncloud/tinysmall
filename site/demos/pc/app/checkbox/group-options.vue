@@ -4,7 +4,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyCheckboxGroup, TinyModal } from 'tinysmall'
+import { TinyCheckboxGroup, TinyModal } from '@hybncloud/tinysmall'
 
 function handleClick() {
   TinyModal.message({ message: 'click', status: 'info' })

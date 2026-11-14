@@ -4,7 +4,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyCascader } from 'tinysmall'
+import { TinyCascader } from '@hybncloud/tinysmall'
 
 let id = 0
 const value = ref('')

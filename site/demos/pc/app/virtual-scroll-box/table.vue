@@ -24,7 +24,7 @@
 
 <script setup>
 import { reactive } from 'vue'
-import { TinyVirtualScrollBox } from 'tinysmall'
+import { TinyVirtualScrollBox } from '@hybncloud/tinysmall'
 
 const genColumn = (total) => {
   const columns = []

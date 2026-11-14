@@ -8,7 +8,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyBadge, TinyButton } from 'tinysmall'
+import { TinyBadge, TinyButton } from '@hybncloud/tinysmall'
 
 const unread = ref(2)
 

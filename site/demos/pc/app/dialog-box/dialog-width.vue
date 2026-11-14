@@ -28,7 +28,7 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue'
-import { TinyButton, TinyDialogBox, TinyRadio, TinyRadioGroup } from 'tinysmall'
+import { TinyButton, TinyDialogBox, TinyRadio, TinyRadioGroup } from '@hybncloud/tinysmall'
 
 const boxVisibility1 = ref(false)
 const boxVisibility2 = ref(false)

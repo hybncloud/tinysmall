@@ -24,7 +24,7 @@
 <script setup>
 import { ref } from 'vue'
 import { iconStarDisable } from '@opentiny/vue-icon'
-import { TinyDropdown, TinyDropdownMenu, TinyNotify } from 'tinysmall'
+import { TinyDropdown, TinyDropdownMenu, TinyNotify } from '@hybncloud/tinysmall'
 
 const options = ref([
   {

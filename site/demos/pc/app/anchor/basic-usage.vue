@@ -8,7 +8,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import { TinyAnchor, TinySwitch } from 'tinysmall'
+import { TinyAnchor, TinySwitch } from '@hybncloud/tinysmall'
 
 const links = ref([
   {

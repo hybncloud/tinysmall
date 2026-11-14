@@ -16,7 +16,7 @@
 
 <script setup lang="jsx">
 import { ref, onMounted, nextTick } from 'vue'
-import { TinyTabs, TinyTabItem, TinyRadioGroup, TinyRadioButton } from 'tinysmall'
+import { TinyTabs, TinyTabItem, TinyRadioGroup, TinyRadioButton } from '@hybncloud/tinysmall'
 
 const activeName4 = ref('navigation3')
 const position = ref('bottom')

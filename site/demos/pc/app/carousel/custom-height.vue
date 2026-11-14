@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-import { TinyCarousel, TinyCarouselItem } from 'tinysmall'
+import { TinyCarousel, TinyCarouselItem } from '@hybncloud/tinysmall'
 </script>
 
 <style scoped>
