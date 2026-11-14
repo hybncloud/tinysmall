@@ -188,6 +188,9 @@ importers:
         specifier: 1.0.14
         version: 1.0.14
     devDependencies:
+      '@opentiny/vue-icon':
+        specifier: ^3.32.0
+        version: 3.32.0
       '@rollup/pluginutils':
         specifier: ^5.5.1
         version: 5.5.1

@@ -1,21 +1,15 @@
 import { createUnplugin } from 'unplugin'
 import { createFilter } from '@rollup/pluginutils'
 import type { UserOptions } from './types.ts'
-import {
-  transformVirtualTemplate,
-  transformConditionalTemplate,
-  transformVirtualTemplateForBuild
-} from './core/index.ts'
+import MagicString from 'magic-string'
 
 export default createUnplugin<UserOptions>((options = {}) => {
   const filter = createFilter(options.include || ['**/*'], options.exclude || [])
-
   return {
     name: 'internals/unplugin-virtual-template',
     enforce: 'pre',
-    resolveId(id: string) {
-      if (id.startsWith('virtual-template')) {
-        // 返回 id 表明命中，vite不再询问其他插件处理该 id 请求
+    resolveId(id) {
+      if (id === 'virtual-template?pc') {
         return id
       }
       return null
@@ -24,12 +18,28 @@ export default createUnplugin<UserOptions>((options = {}) => {
       return filter(id)
     },
     transform(code, id) {
-      if (process.env.NODE_ENV === 'production') {
-        return transformVirtualTemplateForBuild(code)
-      }
+      const source = new MagicString(code, {
+        filename: id
+      })
 
-      code = transformVirtualTemplate(code)
-      return transformConditionalTemplate(code, id, options.env)
+      source.replace(
+        /import\s+(\w+)\s+from\s+'virtual-template\?pc'/,
+        (_, $1) => `
+import __pc from './pc.vue'
+const ${$1} = () => __pc
+`
+      )
+
+      if (source.hasChanged()) {
+        return {
+          code: source.toString(),
+          map: source.generateMap({
+            source: id,
+            file: `${id}.map`,
+            includeContent: true
+          })
+        }
+      }
     }
   }
 })

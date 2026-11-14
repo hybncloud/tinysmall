@@ -1,7 +1,7 @@
 import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
 import { describe, expect, test, vi } from 'vitest'
 import Button from '@tinysmall/button'
-import { iconBoat } from '@tinysmall/icon'
+import { iconBoat } from '@opentiny/vue-icon'
 import { nextTick, ref } from 'vue'
 
 const AXIOM = 'Hello OpenTiny'

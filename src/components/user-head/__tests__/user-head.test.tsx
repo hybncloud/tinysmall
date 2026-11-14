@@ -2,7 +2,7 @@ import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
 import { nextTick } from 'vue'
 import { describe, expect, test } from 'vitest'
 import UserHead from '@tinysmall/user-head'
-import { iconSmile } from '@tinysmall/icon'
+import { iconSmile } from '@opentiny/vue-icon'
 
 describe('PC Mode', () => {
   const mount = mountPcMode

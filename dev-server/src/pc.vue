@@ -101,7 +101,7 @@
 <script>
 import { hooks } from '@tinysmall/common'
 import { Tree, Button, Tooltip, Dropdown, DropdownMenu, DropdownItem, ConfigProvider } from '@hybncloud/tinysmall'
-// import { iconStarActive, iconSelect } from '@tinysmall/icon'
+import { iconStarActive, iconSelect } from '@opentiny/vue-icon'
 import Loading from '@tinysmall/loading'
 import { menuData, demoVue, mds, demos } from './resourcePc.js'
 import { getDemosConfig, getApisConfig } from './componentsDoc.js'
@@ -121,8 +121,8 @@ export default {
     TinyDropdown: Dropdown,
     TinyDropdownMenu: DropdownMenu,
     TinyDropdownItem: DropdownItem,
-    // IconStarIcon: iconStarActive(),
-    // IconOpeninVscode: iconSelect(),
+    IconStarIcon: iconStarActive(),
+    IconOpeninVscode: iconSelect(),
     ConfigProvider
   },
   directives: {

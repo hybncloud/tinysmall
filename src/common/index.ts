@@ -8,17 +8,7 @@ import {
   getElementStatusClass
 } from './adapter'
 import { defineAsyncComponent, directive, emitter, h, markRaw, Teleport, KeepAlive } from './adapter'
-import {
-  parseVnode,
-  isEmptyVnode,
-  renderComponent,
-  rootConfig,
-  tools,
-  useRouter,
-  getComponentName,
-  getCustomProps,
-  isVnode
-} from './adapter'
+import { parseVnode, isEmptyVnode, renderComponent, tools, useRouter, isVnode } from './adapter'
 import { t } from '@tinysmall/locale'
 import { stringifyCssClass, stringifyCssClassObject, stringifyCssClassArray, deduplicateCssClass } from './csscls'
 import '@tinysmall/theme/base/index.less'
@@ -29,7 +19,7 @@ import { GRADIENT_ICONS_LIST, generateIcon } from './generateIcon'
 
 import { useInstanceSlots as createUseInstanceSlots } from '@tinysmall/hooks'
 import { useRelation as createUseRelation } from '@tinysmall/hooks'
-import type { Component } from 'vue'
+import { type Component } from 'vue'
 
 export const useInstanceSlots = createUseInstanceSlots({ ...hooks, isVue2 })
 export const useRelation = createUseRelation({ ...hooks, isVue2 })
@@ -46,218 +36,36 @@ export const $prefix = 'Tiny'
 export const $props = {
   'tiny_mode': String,
   'tiny_mode_root': Boolean,
-  'tiny_template': [Function, Object],
-  'tiny_renderless': Function,
   'tiny_theme': String,
-  'tiny_mcp_config': Object,
-  'tiny_chart_theme': Object
+  '_constants': Object
 }
 
-export const props: Array<
-  | 'tiny_mode'
-  | 'tiny_mode_root'
-  | 'tiny_template'
-  | 'tiny_renderless'
-  | '_constants'
-  | 'tiny_theme'
-  | 'tiny_chart_theme'
-  | 'tiny_mcp_config'
-> = [
+export const props: Array<'tiny_mode' | 'tiny_mode_root' | '_constants' | 'tiny_theme'> = [
   'tiny_mode',
   'tiny_mode_root',
-  'tiny_template',
-  'tiny_renderless',
   '_constants',
-  'tiny_theme',
-  'tiny_chart_theme',
-  'tiny_mcp_config'
+  'tiny_theme'
 ]
 
-export const resolveMode = (props, context) => {
-  let isRightMode = (mode) => ~['pc', 'mobile', 'mobile-first'].indexOf(mode)
-  let config = rootConfig(context)
-  let tinyModeProp = typeof props.tiny_mode === 'string' ? props.tiny_mode : null
-  let tinyModeInject = hooks.inject('TinyMode', null)
-  let tinyModeGlobal
-
-  // 解决modal、loading、notify 组件（函数式组件，脱离组件树）的内部组件模式判断错误问题。
-  if (typeof config.tiny_mode === 'string') {
-    tinyModeGlobal = config.tiny_mode
-  } else if (config.tiny_mode) {
-    tinyModeGlobal = config.tiny_mode.value
-  }
-
-  if (!isRightMode(tinyModeProp)) tinyModeProp = null
-  if (!isRightMode(tinyModeInject)) tinyModeInject = null
-  if (!isRightMode(tinyModeGlobal)) tinyModeGlobal = null
-
-  let tinyMode = tinyModeProp || tinyModeInject || tinyModeGlobal || 'pc'
-
-  if (props.tiny_mode_root) {
-    hooks.provide('TinyMode', tinyMode)
-  }
-
-  let instance = hooks.getCurrentInstance()
-
-  if (isVue2) {
-    instance = instance.proxy
-  }
-
-  Object.defineProperty(instance, '_tiny_mode', { value: tinyMode })
-
-  return tinyMode
-}
-
-export const resolveTheme = (props, context) => {
-  const isRightTheme = (theme) => ~['tiny', 'saas'].indexOf(theme)
-  const config = rootConfig(context)
-  let tinyThemeProp = typeof props.tiny_theme === 'string' ? props.tiny_theme : null
-  let tinyThemeInject = hooks.inject('TinyTheme', null)
-  let tinyThemeGlobal = config.tiny_theme && config.tiny_theme.value
-
-  if (!isRightTheme(tinyThemeProp)) tinyThemeProp = null
-  if (!isRightTheme(tinyThemeInject)) tinyThemeInject = null
-  if (!isRightTheme(tinyThemeGlobal)) tinyThemeGlobal = null
-
-  const tinyTheme = tinyThemeProp || tinyThemeInject || tinyThemeGlobal || 'tiny'
-
-  return tinyTheme
-}
-
-const resolveChartTheme = (props, context) => {
-  const config = rootConfig(context)
-  let tinyChartProp = typeof props.tiny_chart_theme === 'object' ? props.tiny_chart_theme : null
-  let tinyChartInject = hooks.inject('TinyChartTheme', null)
-  let tinyChartGlobal = config.tiny_chart_theme && config.tiny_chart_theme.value
-
-  const tinyChartTheme = tinyChartProp || tinyChartInject || tinyChartGlobal || null
-
-  return tinyChartTheme
-}
-
-// 提供给没有renderless层的组件使用（比如TinyVuePlus组件）
-export const design = {
-  configKey: Symbol('designConfigKey'),
-  configInstance: null
-}
-
-// 注入规范配置
-export const provideDesignConfig = (designConfig) => {
-  if (Object.keys(designConfig).length) {
-    hooks.provide(design.configKey, designConfig)
-    design.configInstance = designConfig
-  }
-}
-
-const createComponent = createComponentFn(design)
-
-interface DesignConfig {
-  components?: any
-  name?: string
-  version?: string
-}
-
-interface CustomDesignConfig {
-  designConfig: null | DesignConfig
-  twMerge: (str: string) => string
-}
-
-// 允许自定义主题规范，适用于MetaERP项目
-export const customDesignConfig: CustomDesignConfig = {
-  designConfig: null,
-  twMerge: () => ''
-}
-
-const getDesignConfig = () => {
-  // 获取组件级配置和全局配置（inject需要带有默认值，否则控制台会报警告）
-  let globalDesignConfig: DesignConfig =
-    customDesignConfig.designConfig || hooks.inject(design.configKey, null) || design.configInstance
-
-  // globalDesignConfig 可能是响应式对象，比如 computed
-  globalDesignConfig = globalDesignConfig?.value || globalDesignConfig || {}
-  const designConfig = globalDesignConfig?.components?.[getComponentName().replace($prefix, '')]
-  return {
-    designConfig,
-    globalDesignConfig
-  }
-}
-
-const getComponentMcpConfig = () => {
-  const mcpConfig = globalMcpConfig.mcpConfig
-  const componentName = getComponentName().replace($prefix, '')
-  return mcpConfig?.components?.[componentName]
-}
-
-const globalMcpConfig = {
-  mcpConfig: null,
-  createMcpTools: null
-}
-
-export const registerMcpConfig = (mcpConfig, defineTool) => {
-  globalMcpConfig.mcpConfig = mcpConfig
-  globalMcpConfig.createMcpTools = defineTool
-}
+const createComponent = createComponentFn()
 
 export const $setup = ({ props: propData, context, template, extend = {} }) => {
-  const mode = resolveMode(propData, context)
-  const view = hooks.computed(() => {
-    if (typeof propData.tiny_template !== 'undefined') return propData.tiny_template
-
-    const component = template(mode, propData)
-
-    return typeof component === 'function' ? defineAsyncComponent(component) : component
-  })
-
-  const { designConfig } = getDesignConfig()
-  const customDesignProps = {}
-
-  const designProps = designConfig?.props
-
-  if (designProps) {
-    // 获取用户传递的props
-    const customProps = getCustomProps()
-
-    Object.keys(designProps).forEach((key) => {
-      // 传递的属性可能是羊肉串格式也有可能是驼峰格式，需要兼容两种写法
-      const camelKey = key.replace(/-(\w)/g, (_, c) => c.toUpperCase())
-      const kebabKey = key.replace(/([A-Z])/g, '-$1').toLowerCase()
-      // 用户没有配置的属性才进行覆盖
-      if (
-        !Object.prototype.hasOwnProperty.call(customProps, camelKey) &&
-        !Object.prototype.hasOwnProperty.call(customProps, kebabKey)
-      ) {
-        customDesignProps[key] = designProps[key]
-      }
-    })
-  }
-
-  return renderComponent({ view, props: propData, customDesignProps, context, extend })
+  const view = template('pc', propData)
+  return renderComponent({ view, props: propData, context, extend })
 }
 
-export const mergeClass = (...cssClasses) => customDesignConfig.twMerge(stringifyCssClass(cssClasses))
-
 export const setup = ({ props, context, renderless, api, extendOptions = {}, mono = false, classes = {} }) => {
-  const render = typeof props.tiny_renderless === 'function' ? props.tiny_renderless : renderless
-
-  const { designConfig, globalDesignConfig } = getDesignConfig()
   const utils = {
     $prefix,
     t,
-    ...tools(context, resolveMode(props, context)),
-    designConfig,
-    globalDesignConfig,
-    useBreakpoint,
-    mergeClass
+    ...tools(context, 'pc'),
+    designConfig: null,
+    globalDesignConfig: null,
+    useBreakpoint
   }
 
-  utils.vm.theme = resolveTheme(props, context)
-  utils.vm.chartTheme = resolveChartTheme(props, context)
-  const sdk = render(props, hooks, utils, extendOptions)
-
-  // 加载全局配置，合并api
-  if (typeof designConfig?.renderless === 'function') {
-    Object.assign(sdk, designConfig.renderless(props, hooks, utils, sdk))
-  }
+  utils.vm.theme = 'tiny'
+  const sdk = renderless(props, hooks, utils, extendOptions)
 
   const attrs = {
     t,
@@ -266,8 +74,7 @@ export const setup = ({ props, context, renderless, api, extendOptions = {}, mon
     a: filterAttrs,
     d: utils.defineInstanceProperties,
     dp: utils.defineParentInstanceProperties,
-    gcls: (key) => getElementCssClass(classes, key),
-    m: mergeClass
+    gcls: (key: any) => getElementCssClass(classes, key)
   }
 
   /**
@@ -288,13 +95,8 @@ export const setup = ({ props, context, renderless, api, extendOptions = {}, mon
   initComponent()
 
   if (Array.isArray(api)) {
-    // 允许 design里定义的api扩展出来，
-    if (Array.isArray(designConfig?.api)) {
-      api = api.concat(designConfig.api)
-    }
     api.forEach((name) => {
       const value = sdk[name]
-
       if (typeof value !== 'undefined') {
         attrs[name] = value
         // 只有单层组件，才需要给setup传递： mono:true
@@ -304,11 +106,6 @@ export const setup = ({ props, context, renderless, api, extendOptions = {}, mon
         }
       }
     })
-  }
-
-  const componentMcpConfig = getComponentMcpConfig()
-  if (componentMcpConfig && props.tiny_mcp_config && globalMcpConfig.createMcpTools) {
-    globalMcpConfig.createMcpTools(attrs.vm, props.tiny_mcp_config, componentMcpConfig)
   }
 
   return attrs
@@ -349,45 +146,28 @@ export function svg({ name = 'Icon', component, filledComponent = null, deprecat
           }
         },
         setup: (props, context) => {
-          const { fill, width, height, 'custom-class': customClass } = context.attrs || {}
+          const { fill, width, height } = context.attrs || {}
           const mergeProps = Object.assign({}, props, propData || null)
-          const mode = resolveMode(mergeProps, context)
-          const isMobileFirst = mode === 'mobile-first'
-          const tinyTag = { 'data-tag': isMobileFirst ? 'tiny-svg' : null }
-          const attrs = isVue3 ? tinyTag : { attrs: tinyTag }
           let className = 'tiny-svg'
 
           if (props.underlay) {
             className += ' tiny-svg-underlay' // 增加底托效果
           }
 
-          if (isMobileFirst) {
-            className = mergeClass(
-              props.underlay ? 'tiny-svg-underlay' : '',
-              'h-4 w-4 inline-block',
-              customClass || '',
-              mergeProps.class || ''
-            )
-          }
-
-          const extend = Object.assign(
-            {
-              style: {
-                fill,
-                width,
-                height,
-                '--tiny-first-color': props.firstColor || '',
-                '--tiny-second-color': props.secondColor || '',
-
-                '--tiny-underlay-bg': props.underlay ? props.underlay.background : '#eef3fe',
-                '--tiny-underlay-br': props.underlay ? props.underlay.borderRadius : '4px',
-                '--tiny-underlay-scale': props.underlay ? props.underlay.scale : 0.8
-              },
-              class: className,
-              isSvg: true
+          const extend = {
+            style: {
+              fill,
+              width,
+              height,
+              '--tiny-first-color': props.firstColor || '',
+              '--tiny-second-color': props.secondColor || '',
+              '--tiny-underlay-bg': props.underlay ? props.underlay.background : '#eef3fe',
+              '--tiny-underlay-br': props.underlay ? props.underlay.borderRadius : '4px',
+              '--tiny-underlay-scale': props.underlay ? props.underlay.scale : 0.8
             },
-            attrs
-          )
+            class: className,
+            isSvg: true
+          }
 
           // 解决本地运行会报大量警告的问题
           if (process.env.BUILD_TARGET) {

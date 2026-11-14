@@ -109,8 +109,6 @@ export interface ISharedRenderlessParamUtils<CT = never> {
     off: (eventname: string, callback: Function) => void
     once: (eventname: string, callback: Function) => void
   }
-  /** 合并 tailwind 类 */
-  mergeClass: (...cssClasses) => string
 }
 
 /** vue.ts的一个混合上下文，也是index.ts 文件中二层函数的入参混合体。 */
@@ -176,10 +174,6 @@ export interface ITinyVm<CT = never> {
    * @whenUse ⭐ Vue2组件中修改数据不触发响应时，要使用该$set. instance.$set
    */
   $set: (target, propertyName, value) => void
-  /** 返回 props.tiny_renderless */
-  $renderless: Function
-  /** 返回 props.tiny_template */
-  $template: any
 
   /** 适配器或组件内，可能会赋值很多其它属性 */
   [otherProps: string]: any

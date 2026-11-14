@@ -1,7 +1,7 @@
 import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
 import { describe, expect, test, vi } from 'vitest'
 import Switch from '@tinysmall/switch'
-import { IconArrowLeft, IconArrowRight } from '@tinysmall/icon'
+import { IconArrowLeft, IconArrowRight } from '@opentiny/vue-icon'
 import { nextTick, ref } from 'vue'
 
 let value = false

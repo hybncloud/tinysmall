@@ -26,7 +26,6 @@
       "vite/client",
       "./internals/unplugin-virtual-template/client",
       "./internals/vite-svg-loader/client",
-      "./src/common/__longque__",
       "./env"
     ],
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.vue.tsbuildinfo"

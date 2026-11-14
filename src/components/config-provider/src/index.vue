@@ -1,5 +1,5 @@
 <script lang="ts">
-import { provideDesignConfig, hooks, props as _props, isVue2, $prefix, defineComponent } from '@tinysmall/common'
+import { hooks, props as _props, isVue2, $prefix, defineComponent } from '@tinysmall/common'
 import type { PropType } from '@tinysmall/common'
 import type { Tag, TextDirection, breakPoint } from './props'
 import { configProviderContextKey } from '../index'
@@ -33,12 +33,6 @@ const hasAnyKey = (obj: any, keys: string[]): boolean => {
 export default defineComponent({
   name: $prefix + 'ConfigProvider',
   props: {
-    design: {
-      type: Object,
-      default: () => {
-        return {}
-      }
-    },
     breakPoints: {
       type: Object as PropType<breakPoint>,
       default: () => {
@@ -89,8 +83,7 @@ export default defineComponent({
       })
   },
   setup(props, { slots }) {
-    const { direction, design, theme } = hooks.toRefs(props)
-    provideDesignConfig(design)
+    const { direction, theme } = hooks.toRefs(props)
     hooks.watch(
       () => theme.value,
       () => {

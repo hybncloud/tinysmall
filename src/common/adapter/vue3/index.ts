@@ -13,7 +13,6 @@ import * as hooks from 'vue'
 
 import { camelize, capitalize, hyphenate } from '@tinysmall/utils'
 import { bindFilter, emitter, getElementCssClass, getElementStatusClass } from '../utils'
-import { __TINY__ } from '../__longque__'
 
 const Teleport = hooks.Teleport
 
@@ -27,16 +26,10 @@ export const renderComponent = ({
   view = undefined as any,
   component = undefined as any,
   props,
-  customDesignProps,
   context: { attrs, slots },
   extend = {}
 }) => {
-  return () =>
-    hooks.h(
-      (view && view.value) || component,
-      { ref: 'modeTemplate', ...props, ...attrs, ...customDesignProps, ...extend },
-      slots
-    )
+  return () => hooks.h(hooks.unref(view) || component, { ref: 'modeTemplate', ...props, ...attrs, ...extend }, slots)
 }
 
 export const rootConfig = (context) => {
@@ -261,12 +254,7 @@ const originalDefineProperties = (vm, instance, property, filter) => {
   return vm
 }
 
-const harmonyDefineProperties = (vm, instance, property) => {
-  const propertyFilterFlags = __TINY__.SKIP_PREFIX_UNDERSCORE
-  __TINY__.createDelegate(instance[property], vm, propertyFilterFlags)
-}
-
-const defineProperties = __TINY__ ? harmonyDefineProperties : originalDefineProperties
+const defineProperties = originalDefineProperties
 
 const filter = (name) => name.indexOf('_') === 0
 
@@ -313,11 +301,9 @@ const createVm = (vm, instance, context = null) => {
       get: () => instance.parent && createVm({}, getRealParent(instance))
     },
     $refs: { get: () => instance.refs },
-    $renderless: { get: () => instance.props.tiny_renderless },
     $scopedSlots: { get: () => instance.slots },
     $set: { get: () => $set },
-    $slots: { get: () => instance.slots },
-    $template: { get: () => instance.props.tiny_template }
+    $slots: { get: () => instance.slots }
   })
 
   return vm
@@ -342,7 +328,7 @@ export const tools = (context, mode) => {
   const vm = createVm({}, instance, context)
   const emit = context.emit
   const refs = {}
-  const grandParent = typeof instance.props.tiny_template === 'undefined' && getRealParent(instance)
+  const grandParent = getRealParent(instance)
   const parentVm = grandParent ? createVm({}, grandParent) : instance.parent ? createVm({}, instance.parent) : null
 
   const setParentAttribute = ({ name, value }) => {
@@ -497,11 +483,9 @@ export const h: CreateElement = (component, propsData, childData) => {
   return hooks.h(type, props, children)
 }
 
-export const createComponentFn = (design) => {
+export const createComponentFn = () => {
   return ({ component, propsData, el }) => {
-    const comp = Object.assign(component, { provide: { [design.configKey]: design.configInstance } })
-    const vnode = hooks.createVNode(comp, propsData)
-
+    const vnode = hooks.createVNode(component, propsData)
     hooks.render(vnode, el)
     return createVm({}, vnode.component)
   }

@@ -91,7 +91,6 @@ export const modalProps = {
   cancelBtnProps: { type: Object, default: () => ({}) },
   headerDragable: { type: Boolean, default: true },
   footerDragable: Boolean,
-  tiny_theme: String,
   slots: Object
 }
 

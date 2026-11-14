@@ -1,7 +1,7 @@
 import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
 import { describe, expect, test, vi } from 'vitest'
 import Alert from '@tinysmall/alert'
-import { iconBoat } from '@tinysmall/icon'
+import { iconBoat } from '@opentiny/vue-icon'
 
 describe('PC Mode', () => {
   const mount = mountPcMode
