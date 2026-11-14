@@ -75,7 +75,8 @@ export default defineComponent({
     'zIndex',
     'keepStyle',
     'showIndex',
-    'appendToBody'
+    'appendToBody',
+    'previewVisible'
   ],
   setup(props, context) {
     return setup({ props, context, renderless, api }) as unknown as IImageApi

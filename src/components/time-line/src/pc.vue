@@ -78,7 +78,10 @@ export default defineComponent({
     'onlyNumber',
     'lineWidth',
     'shape',
-    'autoColorField'
+    'autoColorField',
+    'limitedNodes',
+    'foldDisabled',
+    'nodeMax'
   ],
   components: {
     TinyTimelineItem: TimelineItem

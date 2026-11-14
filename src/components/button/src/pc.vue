@@ -68,7 +68,6 @@ export default defineComponent({
     'round',
     'circle',
     'tabindex',
-    'customClass',
     'ghost',
     'customStyle'
   ],

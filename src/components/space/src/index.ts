@@ -29,16 +29,6 @@ export const spaceProps = {
     type: Boolean,
     default: false
   },
-  /** 是否显示边框 */
-  border: {
-    type: Boolean,
-    default: true
-  },
-  /** 自定义类名（仅 mobile-first 模板有效） */
-  customClass: {
-    type: String,
-    default: ''
-  },
   order: {
     type: Array as PropType<string[]>,
     default: () => []

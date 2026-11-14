@@ -108,7 +108,8 @@ export default defineComponent({
     'disabled',
     'swipeable',
     'lite',
-    'beforeSwipe'
+    'beforeSwipe',
+    'aspectRatio'
   ],
   setup(props, context) {
     return setup({ props, context, renderless, api })

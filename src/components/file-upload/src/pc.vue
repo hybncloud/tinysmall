@@ -88,7 +88,8 @@ export default defineComponent({
     'showTitle',
     'displayOnly',
     'compact',
-    'promptTip'
+    'promptTip',
+    'lockScroll'
   ],
   emits: ['change', 'hash-progress', 'progress', 'success', 'error', 'remove', 'download'],
   setup(props, context): any {

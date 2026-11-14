@@ -154,7 +154,26 @@ export default defineComponent({
   },
   directives: { AutoTip }, // 新规范
   emits: ['click'],
-  props: [...props, 'vertical', 'nameField', 'statusField', 'data', 'active', 'visibleNum', 'descriptionField', 'size'],
+  props: [
+    ...props,
+    'advanced',
+    'line',
+    'dot',
+    'duration',
+    'vertical',
+    'nameField',
+    'statusField',
+    'countField',
+    'data',
+    'active',
+    'visibleNum',
+    'descriptionField',
+    'size',
+    'noArrow',
+    'flex',
+    'size',
+    'contentCenter'
+  ],
   setup(props: any, context: any) {
     return setup({ props, context, renderless, api })
   }

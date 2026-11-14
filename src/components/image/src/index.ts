@@ -48,21 +48,9 @@ export const imageProps = {
     type: Boolean,
     default: false
   },
-  showHover: {
-    type: Boolean,
-    default: false
-  },
   previewVisible: {
     type: Boolean,
     default: false
-  },
-  round: {
-    type: Boolean,
-    default: false
-  },
-  imageSize: {
-    type: Number,
-    default: 100
   },
   keepStyle: {
     type: Boolean,

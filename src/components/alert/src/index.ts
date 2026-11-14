@@ -65,34 +65,10 @@ export const alertProps = {
     type: String,
     default: ''
   },
-  singleLine: {
-    type: Boolean,
-    default: false
-  },
-  scrolling: {
-    type: Boolean,
-    default: false
-  },
-  showFoldable: {
-    type: Boolean,
-    default: false
-  },
   customClass: [String, Object, Array],
-  offset: {
-    type: [Number, String],
-    default: 0
-  },
-  autoHide: {
-    type: Boolean,
-    default: false
-  },
   showTitle: {
     type: Boolean,
     default: true
-  },
-  target: {
-    type: String,
-    default: ''
   }
 }
 

@@ -68,11 +68,6 @@ export default defineComponent({
       type: String,
       default: '16:2'
     },
-    indicatorStyle: {
-      type: String,
-      default: 'light',
-      validator: (value: string) => Boolean(!value || ~['light', 'dark'].indexOf(value))
-    },
     swipeable: Boolean,
     lite: Boolean,
     beforeSwipe: Function

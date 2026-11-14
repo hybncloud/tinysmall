@@ -294,7 +294,10 @@ export default defineComponent({
     'mouseenter',
     'mouseleave',
     'click',
-    'input'
+    'input',
+    'textAlign',
+    'selectMenu',
+    'isSelect'
   ],
   directives: directive({ Clickoutside }),
   components: {

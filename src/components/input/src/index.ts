@@ -65,21 +65,9 @@ export const inputProps = {
     type: Number,
     default: 5
   },
-  vertical: {
-    type: Boolean,
-    default: false
-  },
   selectMenu: {
     type: Array<{ id: string; label: string }>,
     default: () => []
-  },
-  ellipsis: {
-    type: Boolean,
-    default: false
-  },
-  contentStyle: {
-    type: Object,
-    default: () => ({})
   },
   isSelect: {
     type: Boolean,
@@ -110,10 +98,6 @@ export const inputProps = {
     type: Boolean,
     default: false
   },
-  showTitle: {
-    type: Boolean,
-    default: false
-  },
   validateEvent: {
     type: Boolean,
     default: true
@@ -122,20 +106,11 @@ export const inputProps = {
     type: Boolean,
     default: false
   },
-  // mobile特有属性
-  textareaTitle: {
-    type: String,
-    default: ''
-  },
   displayOnly: {
     type: Boolean,
     default: false
   },
   displayOnlyContent: {
-    type: String,
-    default: ''
-  },
-  customClass: {
     type: String,
     default: ''
   },

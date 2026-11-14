@@ -42,11 +42,6 @@ export const buttonProps = {
     type: String,
     default: 'button'
   },
-  /** 当配置href后，点击按钮则更新 location.href 进行页面跳转  */
-  href: {
-    type: String,
-    default: ''
-  },
   /** 定义按钮尺寸 */
   size: {
     type: String,
@@ -70,16 +65,6 @@ export const buttonProps = {
   disabled: Boolean,
   /** 是否默认聚焦 */
   autofocus: Boolean,
-  /** 自定义类名， 仅 mobile-first 模板时有效 */
-  customClass: {
-    type: String,
-    default: ''
-  },
-  /** 设置通栏按钮,宽度充满水平方向， 仅 mobile-first 模板时有效  */
-  banner: {
-    type: Boolean,
-    default: false
-  },
   /** 自定义样式 */
   customStyle: {
     type: Object,

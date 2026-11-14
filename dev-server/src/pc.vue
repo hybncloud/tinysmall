@@ -100,8 +100,8 @@
 
 <script>
 import { hooks } from '@tinysmall/common'
-import { Tree, Button, Tooltip, Dropdown, DropdownMenu, DropdownItem, ConfigProvider } from '@tinysmall/vue'
-import { iconStarActive, iconSelect } from '@tinysmall/icon'
+import { Tree, Button, Tooltip, Dropdown, DropdownMenu, DropdownItem, ConfigProvider } from 'tinysmall'
+// import { iconStarActive, iconSelect } from '@tinysmall/icon'
 import Loading from '@tinysmall/loading'
 import { menuData, demoVue, mds, demos } from './resourcePc.js'
 import { getDemosConfig, getApisConfig } from './componentsDoc.js'
@@ -121,8 +121,8 @@ export default {
     TinyDropdown: Dropdown,
     TinyDropdownMenu: DropdownMenu,
     TinyDropdownItem: DropdownItem,
-    IconStarIcon: iconStarActive(),
-    IconOpeninVscode: iconSelect(),
+    // IconStarIcon: iconStarActive(),
+    // IconOpeninVscode: iconSelect(),
     ConfigProvider
   },
   directives: {
@@ -156,7 +156,6 @@ export default {
       },
       // 点击示例
       selectDemo: async (demoId) => {
-        router.push({ name: 'demo', params: { cmpName: _componentName(), codeFile: demoId } })
         router.push(`/${_componentName()}/${demoId}`)
       },
       openInVscode: (demo) => {

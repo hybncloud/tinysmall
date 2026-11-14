@@ -86,13 +86,6 @@ export const modalProps = {
   showClose: { type: Boolean, default: true }, // mf 属性
   confirmContent: String,
   cancelContent: String,
-  position: {
-    type: String, // mf 属性
-    default: '',
-    validator(val: string) {
-      return ['', 'bottom-right'].includes(val)
-    }
-  },
   customClass: String, // mf 属性
   confirmBtnProps: { type: Object, default: () => ({}) },
   cancelBtnProps: { type: Object, default: () => ({}) },

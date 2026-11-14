@@ -61,6 +61,12 @@ export default defineComponent({
     'popperClass',
     'popperAppendToBody',
     'checkedStatus',
+    'multiStage',
+    'closeOnClickOutside',
+    'closeOnClickOverlay',
+    'direction',
+    'overlay',
+    'duration',
     // tiny 新增
     'textField',
     'options'

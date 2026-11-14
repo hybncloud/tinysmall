@@ -14,19 +14,7 @@ import template from 'virtual-template?pc'
 
 export const badgeProps = {
   ...$props,
-  showLeft: {
-    type: Boolean,
-    default: false
-  },
   isDot: {
-    type: Boolean,
-    default: false
-  },
-  isFixed: {
-    type: Boolean,
-    default: true
-  },
-  isMini: {
     type: Boolean,
     default: false
   },

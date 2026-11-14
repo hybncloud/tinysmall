@@ -51,17 +51,9 @@ export const timelineProps = {
     type: String,
     default: 'time'
   },
-  tipsField: {
-    type: String,
-    default: 'tips'
-  },
   autoColorField: {
     type: String,
     default: 'autoColor'
-  },
-  showIconField: {
-    type: String,
-    default: 'showIcon'
   },
   start: {
     type: Number,
@@ -84,10 +76,6 @@ export const timelineProps = {
     default: false
   },
   showStatus: {
-    type: Boolean,
-    default: false
-  },
-  subField: {
     type: Boolean,
     default: false
   },

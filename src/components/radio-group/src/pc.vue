@@ -52,7 +52,8 @@ export default defineComponent({
     'textColor',
     'disabled',
     'vertical',
-    'displayOnly'
+    'displayOnly',
+    'showTips'
   ],
   setup(props, context) {
     return setup({ props, context, renderless, api }) as unknown as IRadioGroupApi

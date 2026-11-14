@@ -25,14 +25,8 @@ export const tagProps = {
     default: ''
   },
   closable: Boolean,
-  operable: Boolean,
   disabled: Boolean,
-  selectable: Boolean,
   onlyIcon: Boolean, // 仅图标模式
-  customClass: {
-    type: String,
-    default: ''
-  },
   effect: {
     type: String,
     default: 'light',
@@ -43,11 +37,6 @@ export const tagProps = {
   maxWidth: {
     type: [String, Number],
     default: null
-  },
-  // mobile
-  mini: {
-    type: Boolean,
-    default: false
   }
 }
 

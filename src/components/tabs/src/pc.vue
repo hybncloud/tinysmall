@@ -53,6 +53,7 @@ export default defineComponent({
     'moreShowAll',
     'panelMaxHeight',
     'panelWidth',
+    'showExpandTabs',
     'headerOnly'
   ],
   components: {

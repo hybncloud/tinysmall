@@ -104,7 +104,7 @@ export default defineRoutes({
               ].join('')
             }),
             EOL,
-            `## APIs`,
+            `## API`,
             EOL,
             ...apiDef.apis.map((api: any) => {
               return [
@@ -117,10 +117,9 @@ export default defineRoutes({
                       `| ------- | ------- | ------- | ------- |`,
                       EOL,
                       api.props
-                        .map(
-                          (prop: any) =>
-                            `| ${html(prop.name)} | ${html(prop.type)} | ${html(prop.defaultValue)} | ${html(prop.desc['zh-CN'])} |`
-                        )
+                        .map((prop: any) => {
+                          return `| ${html(prop.name)} | ${html(prop.type)} | ${html(prop.defaultValue)} | ${html(prop.desc['zh-CN'])} |`
+                        })
                         .join(EOL),
                       EOL
                     ]
@@ -134,9 +133,9 @@ export default defineRoutes({
                       `| ------- | ------- | ------- |`,
                       EOL,
                       api.events
-                        .map(
-                          (event: any) => `| ${html(event.name)} | ${html(event.type)} | ${html(event.desc['zh-CN'])} |`
-                        )
+                        .map((event: any) => {
+                          return `| ${html(event.name)} | ${html(event.type)} | ${html(event.desc['zh-CN'])} |`
+                        })
                         .join(EOL),
                       EOL
                     ]
@@ -149,7 +148,27 @@ export default defineRoutes({
                       EOL,
                       `| ------- | ------- |`,
                       EOL,
-                      api.slots.map((slot: any) => `| ${html(slot.name)} | ${html(slot.desc['zh-CN'])} |`).join(EOL),
+                      api.slots
+                        .map((slot: any) => {
+                          return `| ${html(slot.name)} | ${html(slot.desc['zh-CN'])} |`
+                        })
+                        .join(EOL),
+                      EOL
+                    ]
+                  : []),
+                ...(api.methods && api.methods.length
+                  ? [
+                      `### ${api.name} 方法`,
+                      EOL,
+                      `| 名称 | 类型 | 说明 |`,
+                      EOL,
+                      `| ------- | ------- | ------- |`,
+                      EOL,
+                      api.methods
+                        .map((method: any) => {
+                          return `| ${html(method.name)} | ${html(method.type)} | ${html(method.desc['zh-CN'])} |`
+                        })
+                        .join(EOL),
                       EOL
                     ]
                   : [])

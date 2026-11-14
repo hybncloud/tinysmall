@@ -108,9 +108,13 @@ export default defineComponent({
   },
   props: [
     ...props,
+    'advanced',
+    'line',
+    'dot',
     'vertical',
     'nameField',
     'statusField',
+    'countField',
     'descriptionField',
     'data',
     'active',

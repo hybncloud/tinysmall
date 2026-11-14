@@ -5,6 +5,7 @@ import virtualTemplate from '../internals/unplugin-virtual-template/vite.ts'
 import svgLoader from '../internals/vite-svg-loader/vite.ts'
 import markdown from 'unplugin-vue-markdown/vite'
 import unocss from 'unocss/vite'
+import vueDevTools from 'vite-plugin-vue-devtools'
 import { rules, shortcuts, variants } from './vite-plugins/vite-plugin-uno-preset.js'
 import path from 'node:path'
 
@@ -51,6 +52,7 @@ export default defineConfig({
         ...Array.from({ length: 24 }, (_, i) => `c-rand${i + 1}`),
         ...Array.from({ length: 24 }, (_, i) => `bg-rand${i + 1}`)
       ]
-    })
+    }),
+    vueDevTools()
   ]
 })

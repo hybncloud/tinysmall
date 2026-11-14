@@ -41,6 +41,10 @@ export default defineComponent({
   },
   props: [
     ...props,
+    'advanced',
+    'line',
+    'dot',
+    'duration',
     'vertical',
     'showNumber',
     'nameField',
@@ -50,7 +54,11 @@ export default defineComponent({
     'data',
     'space',
     'active',
-    'reverse'
+    'reverse',
+    'noArrow',
+    'flex',
+    'size',
+    'contentCenter'
   ],
   setup(props, context) {
     return setup({ props, context, renderless, api })

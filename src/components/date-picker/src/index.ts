@@ -10,7 +10,7 @@
  *
  */
 import type { PropType } from '@tinysmall/common'
-import { $setup, $prefix, defineComponent } from '@tinysmall/common'
+import { $setup, $prefix, defineComponent, $props } from '@tinysmall/common'
 import { iconClose } from '@tinysmall/icon'
 import { api } from '@tinysmall/renderless/picker/vue'
 import template from 'virtual-template?pc'
@@ -51,15 +51,6 @@ const validator = (value) => {
       value.every((item) => typeof item === 'string' || item instanceof String))
 
   return result
-}
-
-const $props = {
-  'tiny_mode': String,
-  'tiny_mode_root': Boolean,
-  'tiny_template': [Function, Object],
-  'tiny_renderless': Function,
-  'tiny_theme': String,
-  'tiny_chart_theme': Object
 }
 
 export const datePickerProps = {

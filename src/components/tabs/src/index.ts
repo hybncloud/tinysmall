@@ -27,10 +27,6 @@ export const tabsProps = {
   withClose: Boolean,
   withAdd: Boolean,
   size: String,
-  activeColor: {
-    type: String,
-    default: ''
-  },
   modelValue: {},
   editable: Boolean,
   position: {
@@ -40,10 +36,6 @@ export const tabsProps = {
   beforeLeave: Function,
   stretch: Boolean,
   showMoreTabs: Boolean,
-  swipeable: {
-    type: Boolean,
-    default: false
-  },
   popperClass: String,
   popperAppendToBody: {
     type: Boolean,
@@ -59,10 +51,6 @@ export const tabsProps = {
   expandTabsTitle: String,
   expandTabsMode: String,
   tooltipConfig: [String, Object],
-  optimized: {
-    type: Boolean,
-    default: true
-  },
   beforeClose: Function,
   overflowTitle: Boolean,
   titleWidth: String,

@@ -165,7 +165,8 @@ export default defineComponent({
     'filter',
     'blank',
     'changeCompat',
-    'parseInput'
+    'parseInput',
+    'theme'
   ],
   emits: ['update:modelValue', 'change', 'blur', 'focus', 'paste-error', 'filter-change', 'clear'],
   setup(props, context) {

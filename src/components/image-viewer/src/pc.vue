@@ -94,7 +94,22 @@ import '@tinysmall/theme/image-viewer/index.less'
 
 export default defineComponent({
   emits: ['close', 'update:preview-visible', 'delete', 'change', 'newImageList'],
-  props: [...props, 'urlList', 'zIndex', 'onSwitch', 'onClose', 'keepStyle', 'showIndex'],
+  props: [
+    ...props,
+    'urlList',
+    'zIndex',
+    'onSwitch',
+    'onClose',
+    'keepStyle',
+    'showIndex',
+    'previewVisible',
+    'imageFullCurrent',
+    'startPosition',
+    'asyncClose',
+    'deleteButton',
+    'isThumbnail',
+    'isMenuView'
+  ],
   components: {
     IconClose: iconClose(),
     IconChevronLeft: iconChevronLeft(),

@@ -48,18 +48,6 @@ export default defineComponent({
       type: Boolean,
       default: false
     },
-    closeShow: {
-      type: Boolean,
-      default: false
-    },
-    arrowShow: {
-      type: Boolean,
-      default: false
-    },
-    toolShow: {
-      type: Boolean,
-      default: false
-    },
     showIndex: {
       type: Boolean,
       default: false
@@ -99,18 +87,6 @@ export default defineComponent({
     isMenuView: {
       type: Boolean,
       default: false
-    },
-    modalView: {
-      type: Boolean,
-      default: false
-    },
-    modalHeight: {
-      type: [String, Number],
-      default: 400
-    },
-    bgColor: {
-      type: String,
-      default: 'bg-color-icon-primary'
     },
     keepStyle: {
       type: Boolean,

@@ -78,6 +78,8 @@ export default defineComponent({
     'showAutoWidth',
     'showEmptyValue',
     'validateTag',
+    'validatePosition',
+    'wrapFragment',
     'overflowTitle',
     'tooltipConfig'
   ],

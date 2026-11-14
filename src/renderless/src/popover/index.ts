@@ -9,7 +9,7 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-import type { IPopoverRenderlessParams, IPopoverState } from 'types/popover.type'
+import type { IPopoverRenderlessParams, IPopoverState } from '../../types/popover.type'
 import { on, off, addClass, removeClass } from '@tinysmall/utils'
 import { guid } from '@tinysmall/utils'
 import { KEY_CODE } from '@tinysmall/utils'

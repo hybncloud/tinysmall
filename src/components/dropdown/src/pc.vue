@@ -92,6 +92,14 @@ export default defineComponent({
       type: String,
       default: '下拉菜单' // TINY-TODO: 国际化
     },
+    singleButton: {
+      type: Boolean,
+      default: false
+    },
+    showSelfIcon: {
+      type: Boolean,
+      default: false
+    },
     inheritWidth: {
       type: Boolean,
       default: false

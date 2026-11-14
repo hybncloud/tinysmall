@@ -90,13 +90,6 @@ export const cascaderProps = {
     type: Boolean,
     default: false
   },
-  // mf时，传入action-sheet的title
-  title: String,
-  showHeader: {
-    type: Boolean,
-    default: true
-  },
-  levelTitle: Array, // 用来接受小屏下，传入的数组标题，赋值给 cascader-mobile的placeholder属性
   blank: {
     type: Boolean,
     default: false

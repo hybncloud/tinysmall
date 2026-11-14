@@ -48,7 +48,25 @@ import { props, setup, defineComponent } from '@tinysmall/common'
 
 export default defineComponent({
   emits: ['click'],
-  props: [...props, 'vertical', 'nameField', 'statusField', 'data', 'active', 'descriptionField', 'size'],
+  props: [
+    ...props,
+    'advanced',
+    'line',
+    'dot',
+    'duration',
+    'vertical',
+    'nameField',
+    'statusField',
+    'countField',
+    'data',
+    'active',
+    'descriptionField',
+    'size',
+    'noArrow',
+    'flex',
+    'size',
+    'contentCenter'
+  ],
   setup(props: any, context: any) {
     return setup({ props, context, renderless, api })
   }

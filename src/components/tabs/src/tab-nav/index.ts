@@ -40,44 +40,6 @@ export const tabNavPcProps = {
   panelWidth: String
 }
 
-export const tabNavMobileProps = {
-  ...$props,
-  panes: {
-    type: Array,
-    default: () => []
-  },
-  currentName: String,
-  activeColor: {
-    type: String,
-    default: ''
-  },
-  onTabClick: {
-    type: Function,
-    default: () => {}
-  },
-  onTabRemove: {
-    type: Function,
-    default: () => {}
-  },
-  showExpandTabs: Boolean,
-  expandPanesWidth: {
-    type: String,
-    default: ''
-  },
-  expandTabsTitle: {
-    type: String,
-    default: '请选择'
-  },
-  expandTabsMode: {
-    type: String,
-    default: 'columns'
-  },
-  stretch: {
-    type: Boolean,
-    default: false
-  }
-}
-
 export const tabBarProps = {
   ...$props,
   tabs: Array

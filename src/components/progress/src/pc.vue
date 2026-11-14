@@ -104,6 +104,7 @@ export default defineComponent({
   props: [
     ...props,
     'type',
+    'size',
     'percentage',
     'status',
     'strokeWidth',

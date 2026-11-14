@@ -127,19 +127,11 @@ export const fileUploadProps = {
   beforeUpload: Function,
   data: Object,
   disabled: Boolean,
-  display: {
-    type: Boolean,
-    default: () => true
-  },
   drag: Boolean,
   dragger: Boolean,
   edm: {
     type: Object,
     default: () => ({})
-  },
-  fileIconList: {
-    type: Array,
-    default: () => []
   },
   fileList: {
     type: Array,
@@ -150,14 +142,6 @@ export const fileUploadProps = {
     validator(value) {
       return Array.isArray(value) ? value[0] < value[1] : typeof value === 'number'
     }
-  },
-  fileTitle: {
-    type: String,
-    default: () => '附件'
-  },
-  headerShow: {
-    type: Boolean,
-    default: () => true
   },
   headers: {
     type: Object,
@@ -188,10 +172,6 @@ export const fileUploadProps = {
     default: () => true
   },
   size: String,
-  successStatistics: {
-    type: Boolean,
-    default: () => true
-  },
   thumbOption: {
     type: Object,
     default: () => ({
@@ -207,10 +187,6 @@ export const fileUploadProps = {
   type: {
     type: String,
     default: () => 'select'
-  },
-  uploadIcon: {
-    type: Boolean,
-    default: () => true
   },
   withCredentials: {
     type: Boolean,
@@ -230,14 +206,6 @@ export const fileUploadProps = {
   maxNameLength: {
     type: Number,
     default: 0
-  },
-  scale: {
-    type: [Number, String],
-    default: 1
-  },
-  showName: {
-    type: Boolean,
-    default: false
   },
   sourceType: {
     type: String,
@@ -260,13 +228,6 @@ export const fileUploadProps = {
   },
   customClass: [String, Object, Array],
   hwh5: Object,
-  mode: {
-    type: String,
-    default: '',
-    validator(val) {
-      return ['', 'bubble'].includes(val)
-    }
-  },
   cacheToken: {
     type: Boolean,
     default: true

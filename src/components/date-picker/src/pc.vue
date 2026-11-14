@@ -23,7 +23,17 @@ const DatePicker = extend(
         type: Object,
         default: () => ({})
       },
-      componentName: { type: String, default: 'DatePicker' }
+      componentName: { type: String, default: 'DatePicker' },
+      minDate: {
+        type: Date
+      },
+      maxDate: {
+        type: Date
+      },
+      visible: Boolean,
+      formatter: {
+        type: Function
+      }
     }
   },
   Picker

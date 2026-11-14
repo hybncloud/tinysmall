@@ -10,7 +10,6 @@
  *
  */
 import { $prefix, $props, $setup, defineComponent } from '@tinysmall/common'
-import { t } from '@tinysmall/locale'
 import template from 'virtual-template?pc'
 
 export const searchProps = {
@@ -18,14 +17,6 @@ export const searchProps = {
   mini: {
     type: Boolean,
     default: false
-  },
-  big: {
-    type: Boolean,
-    default: false
-  },
-  buttonText: {
-    type: String,
-    default: () => t('ui.search.placeholder')
   },
 
   /**
@@ -70,22 +61,6 @@ export const searchProps = {
   isEnterSearch: {
     type: Boolean,
     default: true
-  },
-  /**
-   * 配置主题色，primary:蓝 gray:灰
-   */
-  themeType: {
-    type: String,
-    default: 'primary',
-    validator: (value: string) => ['primary', 'gray'].includes(value)
-  },
-  showButton: {
-    type: Boolean,
-    default: false
-  },
-  changeBgColor: {
-    type: Boolean,
-    default: false
   },
   size: {
     type: String,

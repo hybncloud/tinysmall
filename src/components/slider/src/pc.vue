@@ -159,7 +159,9 @@ export default defineComponent({
     'height',
     'range',
     'formatTooltip',
-    'changeCompat'
+    'changeCompat',
+    'showSteps',
+    'showLabel'
   ],
   components: {
     TinyInput: Input
