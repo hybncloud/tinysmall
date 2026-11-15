@@ -1,44 +1,34 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="189px" height="38px" viewBox="0 0 189 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>OpenTiny Logo</title>
-    <defs>
-        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
-            <stop stop-color="#FFCC00" offset="0%"></stop>
-            <stop stop-color="#FF9D00" offset="100%"></stop>
-        </linearGradient>
-        <linearGradient x1="41.5583977%" y1="684.931472%" x2="57.6489702%" y2="214.83809%" id="linearGradient-2">
-            <stop stop-color="#5073E5" offset="0%"></stop>
-            <stop stop-color="#5E7CE0" offset="100%"></stop>
-        </linearGradient>
-        <linearGradient x1="44.74774%" y1="89.3284133%" x2="67.1281333%" y2="0%" id="linearGradient-3">
-            <stop stop-color="#5073E5" offset="0%"></stop>
-            <stop stop-color="#5E7CE0" offset="100%"></stop>
-        </linearGradient>
-        <linearGradient x1="42.185134%" y1="684.931472%" x2="57.0810819%" y2="214.83809%" id="linearGradient-4">
-            <stop stop-color="#5073E5" offset="0%"></stop>
-            <stop stop-color="#5E7CE0" offset="100%"></stop>
-        </linearGradient>
-        <linearGradient x1="24.3954947%" y1="56.7227863%" x2="68.844278%" y2="32.8834171%" id="linearGradient-5">
-            <stop stop-color="#FFFFFF" stop-opacity="0" offset="0%"></stop>
-            <stop stop-color="#566DB8" offset="100%"></stop>
-        </linearGradient>
-    </defs>
-    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Tiny-Design-首页" transform="translate(-106.000000, -20.000000)">
-            <g id="导航" transform="translate(0.000000, 1.000000)">
-                <g id="logo-top" transform="translate(106.000000, 19.000000)">
-                    <text id="OpenTiny" font-family="HiraginoSans-W7, Hiragino Sans" font-size="21" font-weight="bold" fill="#242424">
-                        <tspan x="76.2305" y="24">OpenTiny</tspan>
-                    </text>
-                    <g id="编组-21">
-                        <polygon id="路径" fill="url(#linearGradient-1)" points="61 1.99723278 44.8967008 0 20.1759284 1.37793579 32.933574 3.7061054"></polygon>
-                        <polygon id="路径" fill="url(#linearGradient-2)" points="50.0936029 6.53938911 50.0817739 30.0300979 61 27.7599874 60.9645128 5.58721999"></polygon>
-                        <polygon id="路径" fill="url(#linearGradient-3)" points="32.9710327 33.587185 45.3264901 31.154509 45.3304331 6.99805594 32.9197734 7.92893672"></polygon>
-                        <polygon id="路径" fill="url(#linearGradient-4)" points="20.1759284 4.76471618 20.2212732 25.8982258 32.4801266 33.3936547 32.4584399 7.93"></polygon>
-                        <polygon id="路径" fill="url(#linearGradient-5)" points="20.1759284 25.9101141 9.22524348e-13 29.863332 11.645719 38 32.9710327 33.587185"></polygon>
-                    </g>
-                </g>
-            </g>
-        </g>
+<svg width="180" height="40" viewBox="0 0 180 40" xmlns="http://www.w3.org/2000/svg">
+  <title>TinySmall Logo</title>
+  <defs>
+    <linearGradient id="ts-blue" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5E7CE0"/>
+      <stop offset="100%" stop-color="#5073E5"/>
+    </linearGradient>
+    <linearGradient id="ts-yellow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFCC00"/>
+      <stop offset="100%" stop-color="#FF9D00"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Icon: large wireframe cube (TinyVue) nesting a small solid cube (Small) -->
+  <g stroke-linejoin="round" stroke-linecap="round">
+    <!-- outer wireframe cube -->
+    <g fill="none" stroke="url(#ts-blue)" stroke-width="2">
+      <polygon points="20,5 6,12 6,28 20,35 34,28 34,12 20,5"/>
+      <polyline points="6,12 20,19 34,12"/>
+      <line x1="20" y1="19" x2="20" y2="35"/>
     </g>
+    <!-- inner solid cube -->
+    <g stroke="none">
+      <polygon points="20,13.5 14,16.5 20,19.5 26,16.5" fill="url(#ts-yellow)"/>
+      <polygon points="14,16.5 20,19.5 20,26.5 14,23.5" fill="#5E7CE0"/>
+      <polygon points="20,19.5 26,16.5 26,23.5 20,26.5" fill="#5073E5"/>
+    </g>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="52" y="29" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',Arial,sans-serif" font-size="24" font-weight="700">
+    <tspan fill="#242424">Tiny</tspan><tspan fill="#5E7CE0">Small</tspan>
+  </text>
 </svg>
