@@ -16,7 +16,6 @@
     "./src/**/*.vue",
     "./icons/index.ts",
     "./icons/src/**/*.ts",
-    "./locale/src/**/*.ts",
-    "./theme/src/**/*.ts"
+    "./locale/src/**/*.ts"
   ]
 }

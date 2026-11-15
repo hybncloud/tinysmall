@@ -1,6 +1,15 @@
-import { cloneDeep } from '../chart-core/deps/utils'
-import { getDirection } from '@tinysmall/utils'
+import { copyArray, extend, getDirection, isObject } from '@tinysmall/utils'
 import { getDays, lastMonth, nextMonth, getCalendar, transformArray } from '@tinysmall/utils'
+
+export const cloneDeep = (data) => {
+  if (isObject(data)) {
+    return extend(true, data)
+  } else if (Array.isArray(data)) {
+    return copyArray(data)
+  } else {
+    return data
+  }
+}
 
 const getTime = (date) => new Date(date).getTime()
 

@@ -168,12 +168,7 @@ export const cmpMenus = [
         'key': 'virtual-scroll-box'
       },
       { 'nameCn': '文字滚动', 'name': 'ScrollText', 'key': 'scroll-text' },
-      { 'nameCn': '水印', 'name': 'Watermark', 'key': 'watermark' },
-      {
-        'nameCn': '粘性布局',
-        'name': 'Sticky',
-        'key': 'sticky'
-      }
+      { 'nameCn': '水印', 'name': 'Watermark', 'key': 'watermark' }
     ]
   }
 ]

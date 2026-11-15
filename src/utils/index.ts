@@ -1,9 +1,8 @@
 import xss from './xss'
 import logger from './logger'
-import ResizeObserver from './resize-observer'
 import * as nanoid from './nanoid/index'
 
-export { xss, logger, ResizeObserver }
+export { xss, logger }
 
 export { sha256 } from './crypt'
 export { isServer } from './globalConfig'
@@ -159,9 +158,6 @@ export { noop, callInterceptor } from './function'
 
 export { fastdom, fastdomAsync, fastdomSandbox } from './fastdom'
 
-// 待移除。  移到fullscreen组件 内部去， 或起个更好的名字
-export { FullscreenApi, sf } from './fullscreen'
-
 export { NODE_KEY, getNodeKey, markNodeData, getChildState, Node, TreeStore } from './tree-model'
 
 // 待移除， 移到loading中去， 或起个更好的名字
@@ -191,9 +187,6 @@ export {
   isDisplayNone
 } from './dom'
 
-// 待移除  到组件内部中去
-export { init as initEspace, espaceCtrl } from './espace-ctrl'
-
 export { Memorize } from './memorize'
 
 // 待修改名称
@@ -214,8 +207,5 @@ export { getDirection, touchStart, touchMove, resetTouchStatus } from './touch'
 export { emulate } from './touch-emulator'
 
 export { uploadAjax } from './upload-ajax'
-
-// 以下兼容metaErp的变量
-export const log = { logger }
 
 export { nanoid }

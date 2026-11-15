@@ -81,10 +81,8 @@ import Slider from './components/slider'
 import Space from './components/space'
 import Statistic from './components/statistic'
 import Steps from './components/steps'
-import Sticky from './components/sticky'
 import Switch from './components/switch'
 import TabItem from './components/tab-item'
-import Table from './components/table'
 import Tabs from './components/tabs'
 import Tag from './components/tag'
 import Time from './components/time'
@@ -194,10 +192,8 @@ export {
   Space as TinySpace,
   Statistic as TinyStatistic,
   Steps as TinySteps,
-  Sticky as TinySticky,
   Switch as TinySwitch,
   TabItem as TinyTabItem,
-  Table as TinyTable,
   Tabs as TinyTabs,
   Tag as TinyTag,
   Time as TinyTime,

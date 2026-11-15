@@ -10,48 +10,43 @@
  *
  */
 
-import ResizeObserver from '../resize-observer'
 import { isServer } from '../globalConfig'
 
-const cacheKey = '__resizeListeners__'
+type HandledElement = Element & {
+  __resizeListeners__?: ResizeCallback[]
+  __ro__?: ResizeObserver
+}
+
+type ResizeCallback = () => void
 
 /* istanbul ignore next */
-const resizeHandler = (entries) => {
+const resizeHandler: ResizeObserverCallback = (entries) => {
   entries.forEach((entry) => {
-    const listeners = entry.target[cacheKey] || []
-
-    if (listeners.length) {
-      listeners.forEach((fn) => {
-        fn()
-      })
-    }
+    const ele = entry.target as HandledElement
+    const listeners = ele.__resizeListeners__ || []
+    if (listeners.length) listeners.forEach((fn) => fn())
   })
 }
 
 /* istanbul ignore next */
-export const addResizeListener = (el, fn) => {
-  if (isServer) {
-    return
-  }
-
-  if (!el[cacheKey]) {
-    el[cacheKey] = []
+export const addResizeListener = (el: HandledElement, fn: ResizeCallback) => {
+  if (isServer) return
+  if (el.__resizeListeners__) {
+    el.__resizeListeners__.push(fn)
+  } else {
+    el.__resizeListeners__ = []
     el.__ro__ = new ResizeObserver(resizeHandler)
     el.__ro__.observe(el)
   }
-
-  el[cacheKey].push(fn)
 }
 
 /* istanbul ignore next */
-export const removeResizeListener = (el, fn) => {
-  if (!el || !el[cacheKey]) {
-    return
-  }
+export const removeResizeListener = (el: HandledElement | undefined | null, fn: ResizeCallback) => {
+  if (!el || !el.__resizeListeners__) return
 
-  el[cacheKey].splice(el[cacheKey].indexOf(fn), 1)
+  el.__resizeListeners__.splice(el.__resizeListeners__.indexOf(fn), 1)
 
-  if (!el[cacheKey].length) {
+  if (!el.__resizeListeners__.length && el.__ro__) {
     el.__ro__.disconnect()
     delete el.__ro__
   }

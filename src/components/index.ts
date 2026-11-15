@@ -81,10 +81,8 @@ import Slider from './slider'
 import Space from './space'
 import Statistic from './statistic'
 import Steps from './steps'
-import Sticky from './sticky'
 import Switch from './switch'
 import TabItem from './tab-item'
-import Table from './table'
 import Tabs from './tabs'
 import Tag from './tag'
 import Time from './time'
@@ -196,10 +194,8 @@ const components = [
   Space,
   Statistic,
   Steps,
-  Sticky,
   Switch,
   TabItem,
-  Table,
   Tabs,
   Tag,
   Time,
@@ -317,10 +313,8 @@ export default {
   TinySpace: Space,
   TinyStatistic: Statistic,
   TinySteps: Steps,
-  TinySticky: Sticky,
   TinySwitch: Switch,
   TinyTabItem: TabItem,
-  TinyTable: Table,
   TinyTabs: Tabs,
   TinyTag: Tag,
   TinyTime: Time,
