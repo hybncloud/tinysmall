@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
-import { afterLeave } from '..'
+import { afterLeave } from '@tinysmall/renderless/loading/after-leave'
 
 describe('afterLeave 函数', () => {
   // 模拟定时器

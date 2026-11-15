@@ -18,7 +18,13 @@ import type {
   IAutoCompleteRenderlessParams,
   IAutoCompleteRenderlessParamUtils
 } from '../../types'
-import { FORM_ITEM, FORM_EVENT } from '@tinysmall/utils'
+
+const FORM_ITEM = 'FormItem'
+
+const FORM_EVENT = {
+  change: 'form.change',
+  blur: 'form.blur'
+}
 
 export const getData =
   ({

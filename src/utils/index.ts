@@ -147,9 +147,6 @@ export {
   CASCADER
 } from './common'
 
-// 待移除 ，写到各自组件内部中去
-export { FORM_ITEM, FORM_EVENT } from './form'
-
 export { Validator } from './validate'
 
 export { emitEvent, getActualTarget, correctTarget } from './event'
@@ -159,9 +156,6 @@ export { noop, callInterceptor } from './function'
 export { fastdom, fastdomAsync, fastdomSandbox } from './fastdom'
 
 export { NODE_KEY, getNodeKey, markNodeData, getChildState, Node, TreeStore } from './tree-model'
-
-// 待移除， 移到loading中去， 或起个更好的名字
-export { afterLeave } from './after-leave'
 
 export { debounce, debounceBoth } from './debounce'
 export { throttle } from './throttle'

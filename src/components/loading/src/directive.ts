@@ -9,7 +9,7 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-import { afterLeave } from '@tinysmall/utils'
+import { afterLeave } from '@tinysmall/renderless/loading/after-leave'
 import { PopupManager } from '@tinysmall/utils'
 import { addClass, getStyle, removeClass } from '@tinysmall/utils'
 import Loading from './index'
