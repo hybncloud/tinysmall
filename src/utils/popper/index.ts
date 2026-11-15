@@ -12,7 +12,7 @@
 
 import { on, off, isDisplayNone } from '../dom'
 import { PopupManager } from '../popup-manager'
-import { globalConfig, isServer } from '../globalConfig'
+import { isServer } from '../globalConfig'
 import { typeOf } from '../type'
 
 const positions = ['left', 'right', 'top', 'bottom']
@@ -883,12 +883,10 @@ export class PopperJS {
       let scrollTop = noScroll ? 0 : getScrollTopValue(scrollParent)
       let scrollLeft = noScroll ? 0 : getScrollLeftValue(scrollParent)
 
-      // PopupManager.viewportWindow是为了兼容之前已经采用此方法兼容微前端的用户，后续需要采用globalConfig.viewportWindow
-      const viewportWindow = globalConfig.viewportWindow || PopupManager.viewportWindow || window
       boundaries = {
         top: 0 - (offsetParentRect.top - scrollTop),
-        right: viewportWindow.document.documentElement.clientWidth - (offsetParentRect.left - scrollLeft),
-        bottom: viewportWindow.document.documentElement.clientHeight - (offsetParentRect.top - scrollTop),
+        right: window.document.documentElement.clientWidth - (offsetParentRect.left - scrollLeft),
+        bottom: window.document.documentElement.clientHeight - (offsetParentRect.top - scrollTop),
         left: 0 - (offsetParentRect.left - scrollLeft)
       }
     } else {

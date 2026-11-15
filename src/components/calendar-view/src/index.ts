@@ -24,7 +24,7 @@ export const calendarViewProps = {
   mode: {
     type: String,
     default: 'month',
-    validator: (value) => ~['month', 'timeline', 'schedule'].indexOf(value)
+    validator: (value) => ['month', 'timeline', 'schedule'].indexOf(value) !== -1
   },
   modes: {
     type: Array,

@@ -7,9 +7,6 @@
     ".": "./dist/index.mjs",
     "./package.json": "./package.json"
   },
-  "sideEffects": [
-    "**/*.css"
-  ],
   "keywords": [
     "vue",
     "vue3",

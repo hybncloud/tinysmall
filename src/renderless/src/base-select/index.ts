@@ -10,8 +10,6 @@ import { Memorize } from '@tinysmall/utils'
 import { isEmptyObject } from '@tinysmall/utils'
 import { addResizeListener, removeResizeListener } from '@tinysmall/utils'
 import { extend } from '@tinysmall/utils'
-import { BROWSER_NAME } from '@tinysmall/utils'
-import { browserInfo } from '@tinysmall/utils'
 import { isNull } from '@tinysmall/utils'
 import { fastdom } from '@tinysmall/utils'
 import { deepClone } from '../picker-column'
@@ -1907,12 +1905,7 @@ export const computedReadonly =
     if (state.isIOS && props.filterable) {
       return false
     } else {
-      return (
-        props.readonly ||
-        !(props.filterable || props.searchable) ||
-        props.multiple ||
-        (browserInfo.name !== BROWSER_NAME.IE && browserInfo.name !== BROWSER_NAME.Edge && !state.visible)
-      )
+      return props.readonly || !(props.filterable || props.searchable) || props.multiple || !state.visible
     }
   }
 

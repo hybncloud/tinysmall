@@ -4,8 +4,6 @@ import vueJsx from 'unplugin-vue-jsx/rolldown'
 import virtualTemplate from './internals/unplugin-virtual-template/rolldown.ts'
 import svgLoader from './internals/vite-svg-loader/rolldown.ts'
 
-process.env.NODE_ENV = 'production'
-
 export default defineConfig({
   unbundle: true,
   entry: './src/index.ts',
@@ -15,11 +13,10 @@ export default defineConfig({
   },
   tsconfig: 'tsconfig.build.json',
   treeshake: {
-    moduleSideEffects: [{ test: /\.css$/, sideEffects: true }]
+    moduleSideEffects: false
   },
-  dts: {
-    sideEffects: true
-  },
+  platform: 'browser',
+  dts: true,
   plugins: [
     vue(),
     vueJsx(),

@@ -18,11 +18,7 @@ export default defineConfig({
     'process.env.BUILD_TARGET': JSON.stringify('component')
   },
   resolve: {
-    tsconfigPaths: true,
-    alias: {
-      'virtual:common/adapter/vue': abs('../src/common/adapter/vue3/index.ts'),
-      'virtual:locale/vue': abs('../locale/src/vue3/index.ts')
-    }
+    tsconfigPaths: true
   },
   publicDir: '../site/public',
   optimizeDeps: {

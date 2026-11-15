@@ -1,4 +1,4 @@
-import * as vue from 'virtual:locale/vue'
+import * as vue from './vue3/index.ts'
 import glob from './glob'
 import esLA from './lang/es-LA'
 import ptBR from './lang/pt-BR'

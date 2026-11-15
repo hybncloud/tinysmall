@@ -1,4 +1,4 @@
 declare module '*.svg?component' {
-  const src: import('vue').Component
+  const src: any
   export default src
 }

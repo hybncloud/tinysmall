@@ -9,7 +9,7 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-import type { PropType } from '@tinysmall/common'
+import type { PropType } from 'vue'
 import { $setup, $prefix, defineComponent, $props } from '@tinysmall/common'
 import { iconClose } from '@tinysmall/icon'
 import { api } from '@tinysmall/renderless/picker/vue'

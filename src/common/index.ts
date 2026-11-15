@@ -1,4 +1,4 @@
-import hooks from './adapter'
+import hooks from './adapter/index.ts'
 import {
   appContext,
   appProperties,
@@ -6,13 +6,13 @@ import {
   createComponentFn,
   getElementCssClass,
   getElementStatusClass
-} from './adapter'
-import { defineAsyncComponent, directive, emitter, h, markRaw, Teleport, KeepAlive } from './adapter'
-import { parseVnode, isEmptyVnode, renderComponent, tools, useRouter, isVnode } from './adapter'
+} from './adapter/index.ts'
+import { defineAsyncComponent, directive, emitter, h, markRaw, Teleport, KeepAlive } from './adapter/index.ts'
+import { parseVnode, isEmptyVnode, renderComponent, tools, useRouter, isVnode } from './adapter/index.ts'
 import { t } from '@tinysmall/locale'
 import { stringifyCssClass, stringifyCssClassObject, stringifyCssClassArray, deduplicateCssClass } from './csscls'
 import '@tinysmall/theme/base/index.less'
-import { defineComponent } from './adapter'
+import { defineComponent } from './adapter/index.ts'
 import { useBreakpoint } from './breakpoint'
 import { useDefer } from './usedefer'
 import { GRADIENT_ICONS_LIST, generateIcon } from './generateIcon'

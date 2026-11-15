@@ -1,6 +1,4 @@
-interface ImportMetaEnv {
-  readonly VITE_TINY_MODE: 'pc'
-}
+interface ImportMetaEnv {}
 
 interface ImportMeta {
   readonly env: ImportMetaEnv

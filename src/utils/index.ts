@@ -6,7 +6,7 @@ import * as nanoid from './nanoid/index'
 export { xss, logger, ResizeObserver }
 
 export { sha256 } from './crypt'
-export { globalConfig, getViewportWindow, isServer, browserInfo } from './globalConfig'
+export { isServer } from './globalConfig'
 
 export { getDays, getWeek, lastMonth, nextMonth, getCalendar, transformArray, parseDate } from './calendar'
 

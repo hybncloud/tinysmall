@@ -1,5 +1,4 @@
 import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
-import { browserInfo } from '@tinysmall/utils'
 import template from 'virtual-template?pc'
 
 export default defineComponent({
@@ -45,7 +44,7 @@ export default defineComponent({
     },
     width: {
       type: String,
-      default: browserInfo.isMobile ? '350' : '510'
+      default: '510'
     },
     height: {
       type: String,

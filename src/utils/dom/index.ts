@@ -11,7 +11,6 @@
  */
 
 import { hasOwn, isNull } from '../type'
-import { globalConfig } from '../globalConfig'
 import { isServer } from '../globalConfig'
 
 const SPECIAL_CHARS_REGEXP = /([:\-_]+(.))/g
@@ -301,9 +300,8 @@ export const getDomNode = (): {
   visibleHeight: number
   visibleWidth: number
 } => {
-  const viewportWindow: Window = globalConfig.viewportWindow || window
-  let documentElement: HTMLElement = viewportWindow.document.documentElement
-  let bodyElem: HTMLElement = viewportWindow.document.body
+  let documentElement: HTMLElement = window.document.documentElement
+  let bodyElem: HTMLElement = window.document.body
 
   return {
     scrollTop: documentElement.scrollTop || bodyElem.scrollTop,

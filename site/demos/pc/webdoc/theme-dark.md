@@ -8,11 +8,6 @@
 
 在入口文件 `main.js` 引入深色主题样式文件
 
-```js
-// 引入深色模式样式文件
-import '@opentiny/vue-theme/dark-theme-index.css'
-```
-
 然后直接在 HTML 根元素添加 `dark` 类名
 
 ```html
@@ -56,12 +51,5 @@ html.dark {
 ```
 
 然后在入口文件中导入：
-
-```js
-import '@opentiny/vue-theme/dark-theme-index.css'
-
-// 导入自定义深色模式变量
-import './styles/dark-theme.css'
-```
 
 这样，就可以在保留 TinyVue 组件库深色模式基础上，实现个性化的深色主题定制。

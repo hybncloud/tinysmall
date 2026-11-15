@@ -14,7 +14,6 @@ import { KEY_CODE } from '@tinysmall/utils'
 import { on, off, addClass, hasClass, removeClass } from '@tinysmall/utils'
 import { PopupManager } from '@tinysmall/utils'
 import { getDomNode } from '@tinysmall/utils'
-import { getViewportWindow } from '@tinysmall/utils'
 
 import type {
   IModalProps,
@@ -360,13 +359,9 @@ export const open =
         nextTick(() => {
           let modalBoxElem = api.getBox()
 
-          const viewportWindow = getViewportWindow()
+          let clientVisibleWidth = window.document.documentElement.clientWidth || window.document.body.clientWidth
 
-          let clientVisibleWidth =
-            viewportWindow.document.documentElement.clientWidth || viewportWindow.document.body.clientWidth
-
-          let clientVisibleHeight =
-            viewportWindow.document.documentElement.clientHeight || viewportWindow.document.body.clientHeight
+          let clientVisibleHeight = window.document.documentElement.clientHeight || window.document.body.clientHeight
 
           let width = isNaN(props.width) ? props.width : `${props.width}px`
           if (width) {
@@ -1043,8 +1038,6 @@ export const hideScrollbar = (lockScrollClass) => (): void => {
 
 export const resetModalViewPosition = (api: IModalApi) => (): void => {
   const modalBoxElement = api.getBox()
-  const viewportWindow = getViewportWindow()
-  const clientVisibleWidth =
-    viewportWindow.document.documentElement.clientWidth || viewportWindow.document.body.clientWidth
+  const clientVisibleWidth = window.document.documentElement.clientWidth || window.document.body.clientWidth
   modalBoxElement.style.left = `${clientVisibleWidth / 2 - modalBoxElement.offsetWidth / 2}px`
 }

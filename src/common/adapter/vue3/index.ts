@@ -351,7 +351,6 @@ export const tools = (context, mode) => {
   hooks.onMounted(() => onBeforeMount(instance, refs))
 
   return {
-    framework: 'vue3',
     vm,
     emit,
     emitter,

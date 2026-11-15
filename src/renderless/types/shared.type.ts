@@ -13,8 +13,6 @@ export type ISharedRenderlessParamHooks = typeof hooks
 
 /** utils变量: renderless的第三个参数  */
 export interface ISharedRenderlessParamUtils<CT = never> {
-  /** 当前使用的框架 */
-  framework: 'vue3' | 'vue2' | 'vue2.7'
   /** 组件前缀，默认为 Tiny  */
   $prefix: string
 

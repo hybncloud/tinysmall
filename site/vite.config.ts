@@ -13,12 +13,7 @@ export default defineConfig({
     'process.env.BUILD_TARGET': JSON.stringify('component')
   },
   resolve: {
-    tsconfigPaths: true,
-    alias: {
-      'virtual:common/adapter/vue': abs('../src/common/adapter/vue3/index.ts'),
-      'virtual:locale/vue': abs('../locale/src/vue3/index.ts'),
-      '@opentiny/vue-theme/dark-theme-index.css': abs('../theme/src/dark-theme-index.less')
-    }
+    tsconfigPaths: true
   },
   plugins: [
     vueJsx(),

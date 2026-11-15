@@ -8,16 +8,11 @@
  * @author Wilson Page <wilsonpage@me.com>
  * @author Kornel Lesinski <kornel.lesinski@ft.com>
  */
-import { isServer } from '../globalConfig'
+import { isServer } from '../globalConfig/index.ts'
 
-const RAF = (function () {
-  if (!isServer) {
-    return window.requestAnimationFrame.bind(window)
-  }
-  return function (callback) {
-    setTimeout(() => callback(Date.now()), 1000 / 60)
-  }
-})()
+const RAF = !isServer
+  ? window.requestAnimationFrame.bind(window)
+  : (callback) => setTimeout(() => callback(Date.now()), 1000 / 60)
 
 const scheduleFlush = (fastdom) => {
   if (!fastdom.scheduled) {

@@ -16,8 +16,6 @@
       "@tinysmall/renderless/types": ["../src/renderless/types"],
       "@tinysmall/renderless/types/*": ["../src/renderless/types/*"],
       "@tinysmall/renderless/*": ["../src/renderless/src/*"],
-      "virtual:common/adapter/vue": ["../src/common/adapter/vue3/index.ts"],
-      "virtual:locale/vue": ["../locale/src/vue3/index.ts"],
       "package.json": ["../package.json"],
       "@tinysmall-internal/vue-test-utils": ["../internals/vue-test-utils/src"],
       "@demos/*": ["./demos/pc/*"]

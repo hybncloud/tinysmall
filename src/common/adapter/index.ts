@@ -1,6 +1,6 @@
-import vue from 'virtual:common/adapter/vue'
+import vue from './vue3/index.ts'
 
-export * from 'virtual:common/adapter/vue'
+export * from './vue3/index.ts'
 
 export type {
   PropType,
@@ -11,6 +11,6 @@ export type {
   ComputedRef,
   App,
   VNode
-} from 'virtual:common/adapter/vue'
+} from './vue3/index.ts'
 
 export default vue

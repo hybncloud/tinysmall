@@ -12,8 +12,6 @@ import { globalConfig } from '@opentiny/utils'
 
 // 需要判断是否在子应用当中
 if (window.__POWERED_BY_WUJIE__) {
-  // 子应用中可以通过 window.parent 获取主应用的 window
-  globalConfig.viewportWindow = window.parent
 }
 ```
 

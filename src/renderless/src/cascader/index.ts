@@ -10,7 +10,7 @@
  *
  */
 
-import { isServer, browserInfo } from '@tinysmall/utils'
+import { isServer } from '@tinysmall/utils'
 import { isNull } from '@tinysmall/utils'
 import { debounce } from '@tinysmall/utils'
 import { isEqual } from '@tinysmall/utils'
@@ -300,16 +300,6 @@ export const handleInput =
     event = event || window.event
 
     if (!event) {
-      return
-    }
-
-    const reference = vm.$refs.reference
-    const key = 'init-flag'
-    const value = 'true'
-    const isIE = browserInfo.name === 'ie'
-
-    if (isIE && reference.getAttribute(key) !== value && !event.target.value) {
-      reference.setAttribute(key, value)
       return
     }
 
