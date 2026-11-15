@@ -28,14 +28,14 @@ import {
   filterImageUrl,
   handleSwitch
 } from './index'
-import type { ISharedRenderlessParamHooks } from 'types/shared.type'
+import type { ISharedRenderlessParamHooks } from '../../types/shared.type'
 import type {
   IImageApi,
   IImageProps,
   IImageState,
   IImageRenderlessParamUtils,
   IImageRenderlessParams
-} from 'types/image.type'
+} from '../../types/image.type'
 
 export const api = [
   'state',

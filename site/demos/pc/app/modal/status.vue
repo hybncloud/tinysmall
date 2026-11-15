@@ -29,16 +29,15 @@
 </template>
 
 <script setup>
-import { Button as TinyButton, Modal } from '@hybncloud/tinysmall'
+import { TinyButton, TinyModal } from '@hybncloud/tinysmall'
 import { ref } from 'vue'
 
-const TinyModal = Modal
 const show = ref(false)
 const status = ref('')
 
 function infoClick(mode) {
-  mode === 1 && Modal.alert({ message: '基本提示图标', status: 'info' })
-  mode === 2 && Modal.message({ message: '基本提示图标', status: 'info' })
+  mode === 1 && TinyModal.alert({ message: '基本提示图标', status: 'info' })
+  mode === 2 && TinyModal.message({ message: '基本提示图标', status: 'info' })
   if (mode === 3) {
     status.value = 'info'
     show.value = true
@@ -46,8 +45,8 @@ function infoClick(mode) {
 }
 
 function successClick(mode) {
-  mode === 1 && Modal.alert({ message: '成功提示图标', status: 'success' })
-  mode === 2 && Modal.message({ message: '成功提示图标', status: 'success' })
+  mode === 1 && TinyModal.alert({ message: '成功提示图标', status: 'success' })
+  mode === 2 && TinyModal.message({ message: '成功提示图标', status: 'success' })
   if (mode === 3) {
     status.value = 'success'
     show.value = true
@@ -55,8 +54,8 @@ function successClick(mode) {
 }
 
 function warningClick(mode) {
-  mode === 1 && Modal.alert({ message: '警告提示图标', status: 'warning' })
-  mode === 2 && Modal.message({ message: '警告提示图标', status: 'warning' })
+  mode === 1 && TinyModal.alert({ message: '警告提示图标', status: 'warning' })
+  mode === 2 && TinyModal.message({ message: '警告提示图标', status: 'warning' })
   if (mode === 3) {
     status.value = 'warning'
     show.value = true
@@ -64,8 +63,8 @@ function warningClick(mode) {
 }
 
 function errorClick(mode) {
-  mode === 1 && Modal.alert({ message: '错误提示图标', status: 'error' })
-  mode === 2 && Modal.message({ message: '错误提示图标', status: 'error' })
+  mode === 1 && TinyModal.alert({ message: '错误提示图标', status: 'error' })
+  mode === 2 && TinyModal.message({ message: '错误提示图标', status: 'error' })
   if (mode === 3) {
     status.value = 'error'
     show.value = true
@@ -73,8 +72,8 @@ function errorClick(mode) {
 }
 
 function loadingClick(mode) {
-  mode === 1 && Modal.alert({ message: '加载提示图标', status: 'loading' })
-  mode === 2 && Modal.message({ message: '加载提示图标', status: 'loading' })
+  mode === 1 && TinyModal.alert({ message: '加载提示图标', status: 'loading' })
+  mode === 2 && TinyModal.message({ message: '加载提示图标', status: 'loading' })
   if (mode === 3) {
     status.value = 'loading'
     show.value = true

@@ -8,7 +8,7 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue'
-import { TinyTag, Modal } from '@hybncloud/tinysmall'
+import { TinyTag, TinyModal } from '@hybncloud/tinysmall'
 
 const tags = ref([
   { name: '标签一', type: '' },
@@ -19,7 +19,7 @@ const tags = ref([
 ])
 
 function handleClick() {
-  Modal.message('click 事件')
+  TinyModal.message('click 事件')
 }
 </script>
 

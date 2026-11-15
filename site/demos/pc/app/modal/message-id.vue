@@ -7,10 +7,10 @@
 </template>
 
 <script setup>
-import { Button as TinyButton, Modal } from '@hybncloud/tinysmall'
+import { TinyButton, TinyModal } from '@hybncloud/tinysmall'
 
 function btnClick() {
-  Modal.message({
+  TinyModal.message({
     status: 'info',
     message: '自定义消息具有唯一 id，所以不会重复出现',
     id: 'unique'

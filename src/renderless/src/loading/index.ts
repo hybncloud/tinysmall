@@ -10,7 +10,7 @@
  *
  */
 
-import type { ILoadingRenderlessParamUtils, ILoadingRenderlessParams, ILoadingState } from 'types/loading.type'
+import type { ILoadingRenderlessParamUtils, ILoadingRenderlessParams, ILoadingState } from '../../types/loading.type'
 import { afterLeave } from '@tinysmall/utils'
 import { removeClass } from '@tinysmall/utils'
 

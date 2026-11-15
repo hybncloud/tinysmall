@@ -25,10 +25,9 @@
 </template>
 
 <script setup>
-import { Button as TinyButton, Modal } from '@hybncloud/tinysmall'
+import { TinyButton, TinyModal } from '@hybncloud/tinysmall'
 import { ref } from 'vue'
 
-const TinyModal = Modal
 const show = ref(false)
 const fullscreen = ref(false)
 const options = ref({
@@ -39,7 +38,7 @@ const options = ref({
 })
 
 function btnClick(isFull) {
-  Modal.confirm({
+  TinyModal.confirm({
     message: '窗口内容',
     title: '自定义弹窗标题',
     showHeader: true,

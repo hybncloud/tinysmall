@@ -7,10 +7,10 @@
 </template>
 
 <script setup>
-import { Button as TinyButton, Message } from '@hybncloud/tinysmall'
+import { TinyButton, TinyMessage } from '@hybncloud/tinysmall'
 
 function btnClick() {
-  Message.message({
+  TinyMessage.message({
     status: 'info',
     message: '自定义消息的内容，5s 后得自动关闭',
     duration: 5000

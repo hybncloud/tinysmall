@@ -23,7 +23,7 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue'
-import { TinyButton, TinyDialogBox, Modal } from '@hybncloud/tinysmall'
+import { TinyButton, TinyDialogBox, TinyModal } from '@hybncloud/tinysmall'
 
 const box1 = ref(false)
 const box2 = ref(false)
@@ -36,7 +36,7 @@ function beforeCloseProp(type) {
     if (Math.random() > 0.5) {
       box1Ref.value.hide(type) // 手动关闭，使用 box1.value = false 同样效果
     } else {
-      Modal.alert('随机值过小，校验失败')
+      TinyModal.alert('随机值过小，校验失败')
     }
   }, 1000)
 
@@ -48,7 +48,7 @@ function onBeforeClose(event, hideFn) {
     if (Math.random() > 0.5) {
       hideFn() // 手动关闭，使用 box2.value = false 同样效果
     } else {
-      Modal.alert('随机值过小，校验失败')
+      TinyModal.alert('随机值过小，校验失败')
     }
   }, 1000)
 

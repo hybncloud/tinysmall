@@ -10,9 +10,9 @@
  *
  */
 
-import type { ISharedRenderlessParamHooks } from 'types/shared.type'
+import type { ISharedRenderlessParamHooks } from '../../types/shared.type'
 import { handleAfterLeave, setText, close } from './index'
-import type { ILoadingApi, ILoadingState, ILoadingProps, ILoadingRenderlessParamUtils } from 'types/loading.type'
+import type { ILoadingApi, ILoadingState, ILoadingProps, ILoadingRenderlessParamUtils } from '../../types/loading.type'
 
 export const api = ['state', 'handleAfterLeave', 'setText', 'close']
 

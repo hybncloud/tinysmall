@@ -1,4 +1,4 @@
 import { svg } from '@tinysmall/common'
-import Edit from '@tinysmall/theme/svgs/edit.svg?component'
+import Edit from '../svgs/edit.svg?component'
 
 export default () => svg({ name: 'IconEdit', component: Edit, filledComponent: Edit })()

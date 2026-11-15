@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 import 'uno.css'
 import { createI18n } from 'vue-i18n'
 import { initI18n } from '@tinysmall/locale'
-import { Loading } from '@hybncloud/tinysmall'
+import { TinyLoading } from '@hybncloud/tinysmall'
 import App from './App.vue'
 
 import './style.css'
@@ -15,6 +15,6 @@ app.config.globalProperties.tiny_mode = { value: 'pc' }
 app.config.globalProperties.isPcMode = mode === 'pc'
 app.config.globalProperties.isMobileMode = false
 app.use(initI18n({ createI18n, i18n: { legacy: false } }))
-app.use(Loading)
+app.use(TinyLoading)
 app.use(router)
 app.mount('#app')

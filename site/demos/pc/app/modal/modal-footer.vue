@@ -40,10 +40,9 @@
 </template>
 
 <script setup>
-import { Button as TinyButton, Modal, Link as TinyLink } from '@hybncloud/tinysmall'
+import { TinyButton, TinyModal, TinyLink } from '@hybncloud/tinysmall'
 import { ref } from 'vue'
 
-const TinyModal = Modal
 const show = ref(false)
 const show1 = ref(false)
 const options = ref({
@@ -55,7 +54,13 @@ const options = ref({
 })
 
 function btnClick() {
-  Modal.confirm({ message: '窗口内容', title: '自定义弹窗标题', showHeader: true, showFooter: true, ...options.value })
+  TinyModal.confirm({
+    message: '窗口内容',
+    title: '自定义弹窗标题',
+    showHeader: true,
+    showFooter: true,
+    ...options.value
+  })
 }
 function openModal() {
   show.value = true

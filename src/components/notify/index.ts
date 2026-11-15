@@ -15,10 +15,10 @@ import NotifyConstructor from './src/pc.vue'
 import '@tinysmall/theme/notify/index.less'
 import { IconSuccess, iconError, IconPrompt, iconWarningTriangle } from '@tinysmall/icon'
 
-type NotifyType = 'warning' | 'error' | 'info' | 'success'
-type NotifyPosition = 'top-right' | 'bottom-right' | 'top-left' | 'bottom-left'
+export type NotifyType = 'warning' | 'error' | 'info' | 'success'
+export type NotifyPosition = 'top-right' | 'bottom-right' | 'top-left' | 'bottom-left'
 
-interface NotifyOptions {
+export interface NotifyOptions {
   type?: NotifyType
   duration?: number
   position?: NotifyPosition
@@ -30,14 +30,14 @@ interface NotifyOptions {
   [key: string]: any
 }
 
-interface NotifyState {
+export interface NotifyState {
   position: NotifyPosition
   verticalOffset: number
   visible: boolean
   verticalProperty: string
 }
 
-interface NotifyInstance {
+export interface NotifyInstance {
   id: string
   $el: HTMLElement
   dom: HTMLElement

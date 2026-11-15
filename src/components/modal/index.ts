@@ -18,7 +18,7 @@ import { version } from 'package.json'
 import type { ComponentPublicInstance, VNode } from '@tinysmall/common'
 
 // 定义Modal选项接口
-interface ModalOptions {
+export interface ModalOptions {
   id?: string
   events?: {
     hide?: (params: any) => void
@@ -39,12 +39,12 @@ interface ModalOptions {
 }
 
 // 定义ModalPromise接口，扩展Promise
-interface ModalPromise extends Promise<string> {
+export interface ModalPromise extends Promise<string> {
   vm?: ComponentPublicInstance
 }
 
 // 定义TinyModal接口
-interface TinyModalInstance {
+export interface TinyModalInstance {
   alert: (message: string | ModalOptions, title?: string, options?: ModalOptions) => ModalPromise
   confirm: (message: string | ModalOptions, title?: string, options?: ModalOptions) => ModalPromise
   message: (message: string | ModalOptions, title?: string, options?: ModalOptions) => ModalPromise

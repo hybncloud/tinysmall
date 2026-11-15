@@ -12,27 +12,26 @@
 </template>
 
 <script setup>
-import { Button as TinyButton, Message } from '@hybncloud/tinysmall'
+import { TinyButton, TinyMessage } from '@hybncloud/tinysmall'
 
 function infoClick() {
-  console.log(Message, 18)
-  Message.message({ message: '基本提示图标', status: 'info' })
+  TinyMessage.message({ message: '基本提示图标', status: 'info' })
 }
 
 function successClick() {
-  Message.message({ message: '成功提示图标', status: 'success' })
+  TinyMessage.message({ message: '成功提示图标', status: 'success' })
 }
 
 function warningClick() {
-  Message.message({ message: '警告提示图标', status: 'warning' })
+  TinyMessage.message({ message: '警告提示图标', status: 'warning' })
 }
 
 function errorClick() {
-  Message.message({ message: '错误提示图标', status: 'error' })
+  TinyMessage.message({ message: '错误提示图标', status: 'error' })
 }
 
 function loadingClick() {
-  Message.message({ message: '加载提示图标', status: 'loading' })
+  TinyMessage.message({ message: '加载提示图标', status: 'loading' })
 }
 </script>
 

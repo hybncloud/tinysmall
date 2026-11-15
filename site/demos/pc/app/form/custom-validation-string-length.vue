@@ -16,8 +16,7 @@
 
 <script setup>
 import { reactive, ref } from 'vue'
-
-import { Form as TinyForm, FormItem as TinyFormItem, Input as TinyInput } from '@hybncloud/tinysmall'
+import { TinyForm, TinyFormItem, TinyInput } from '@hybncloud/tinysmall'
 
 const state = reactive({
   value0: '',

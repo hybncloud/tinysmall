@@ -7,10 +7,10 @@
 </template>
 
 <script setup>
-import { Button as TinyButton, Modal } from '@hybncloud/tinysmall'
+import { TinyButton, TinyModal } from '@hybncloud/tinysmall'
 
 function btnClick() {
-  Modal.message({
+  TinyModal.message({
     status: 'info',
     message: '自定义消息的内容距离顶部 500px',
     top: 500

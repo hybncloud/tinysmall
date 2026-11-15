@@ -7,10 +7,10 @@
 </template>
 
 <script setup>
-import { Button as TinyButton, Modal } from '@hybncloud/tinysmall'
+import { TinyButton, TinyModal } from '@hybncloud/tinysmall'
 
 function btnClick() {
-  Modal.message({
+  TinyModal.message({
     status: 'info',
     message: '自定义消息的内容可关闭，5s 后得自动关闭',
     messageClosable: true,

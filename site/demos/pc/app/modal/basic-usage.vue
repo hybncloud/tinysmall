@@ -24,24 +24,23 @@
 </template>
 
 <script setup lang="jsx">
-import { Button as TinyButton, Modal, Notify } from '@hybncloud/tinysmall'
+import { TinyButton, TinyModal } from '@hybncloud/tinysmall'
 import { ref } from 'vue'
 
-const TinyModal = Modal
 const show1 = ref(false)
 const show2 = ref(false)
 
 function baseClick() {
-  const modal = Modal.alert('基本提示框', '标题')
+  const modal = TinyModal.alert('基本提示框', '标题')
   setTimeout(() => modal.vm.close(), 3000)
 }
 
 function successClick() {
-  Modal.alert({ message: '成功提示框', status: 'success' })
+  TinyModal.alert({ message: '成功提示框', status: 'success' })
 }
 
 function confirmClick() {
-  Modal.confirm('您确定要删除吗？').then((res) => {
+  TinyModal.confirm('您确定要删除吗？').then((res) => {
     Notify({
       type: 'info',
       title: '触发回调事件',
@@ -50,7 +49,7 @@ function confirmClick() {
   })
 }
 function jsxClick() {
-  Modal.alert({
+  TinyModal.alert({
     message: (
       <div>
         <button> some button </button>
@@ -61,7 +60,7 @@ function jsxClick() {
   })
 }
 function messageClick() {
-  Modal.message('简单的消息')
+  TinyModal.message('简单的消息')
 }
 </script>
 

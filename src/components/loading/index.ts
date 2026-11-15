@@ -17,7 +17,7 @@ import type { App } from '@tinysmall/common'
 import type { ILoadingState } from '@tinysmall/renderless/types/loading.type'
 
 // 定义LoadingConfig接口
-interface LoadingConfig {
+export interface LoadingConfig {
   text?: string | null
   body?: boolean
   lock?: boolean
@@ -31,7 +31,7 @@ interface LoadingConfig {
 }
 
 // 定义LoadingInstance接口
-interface LoadingInstance {
+export interface LoadingInstance {
   state: ILoadingState
   $el: HTMLElement
   originalPosition?: string
@@ -39,10 +39,10 @@ interface LoadingInstance {
 }
 
 // 定义Loading服务的类型
-type LoadingService = (config?: LoadingConfig) => LoadingInstance
+export type LoadingService = (config?: LoadingConfig) => LoadingInstance
 
 // 定义LoadingPlugin接口
-interface LoadingPlugin {
+export interface LoadingPlugin {
   install: (app: App) => void
   service: LoadingService
   directive: any

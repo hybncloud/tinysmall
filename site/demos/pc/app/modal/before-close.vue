@@ -69,10 +69,9 @@
 </template>
 
 <script setup lang="jsx">
-import { Button as TinyButton, Modal } from '@hybncloud/tinysmall'
+import { TinyButton, TinyModal } from '@hybncloud/tinysmall'
 import { ref } from 'vue'
 
-const TinyModal = Modal
 const mainVisible = ref(false)
 const mainVisible1 = ref(false)
 const mainVisible2 = ref(false)
@@ -99,14 +98,14 @@ const onCancelClose = () => {
 
 // 函数式调用：
 const messageClick = () => {
-  Modal.confirm({
+  TinyModal.confirm({
     message: 'Num.1函数式弹窗内容',
     title: '函数式弹窗Num.1',
     status: 'warning',
     width: '600',
     height: '300',
     beforeClose: (type, instance, done) => {
-      Modal.confirm({
+      TinyModal.confirm({
         title: '关闭前确认Num.2',
         message: '确认弹窗关闭Num.1？',
         events: {
@@ -120,7 +119,7 @@ const messageClick = () => {
 }
 
 const handleBeforeClose1 = (type, instance, done) => {
-  Modal.confirm({
+  TinyModal.confirm({
     title: '关闭前确认Num.2',
     message: '确认弹窗关闭Num.1？',
     events: {

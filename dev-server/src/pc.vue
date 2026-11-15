@@ -100,7 +100,14 @@
 
 <script>
 import { hooks } from '@tinysmall/common'
-import { Tree, Button, Tooltip, Dropdown, DropdownMenu, DropdownItem, ConfigProvider } from '@hybncloud/tinysmall'
+import {
+  TinyTree,
+  TinyButton,
+  TinyTooltip,
+  TinyDropdown,
+  TinyDropdownMenu,
+  TinyDropdownItem
+} from '@hybncloud/tinysmall'
 import { iconStarActive, iconSelect } from '@opentiny/vue-icon'
 import Loading from '@tinysmall/loading'
 import { menuData, demoVue, mds, demos } from './resourcePc.js'
@@ -115,15 +122,14 @@ export default {
     showFixedMenu: Boolean
   },
   components: {
-    TinyTree: Tree,
-    TinyButton: Button,
-    TinyTooltip: Tooltip,
-    TinyDropdown: Dropdown,
-    TinyDropdownMenu: DropdownMenu,
-    TinyDropdownItem: DropdownItem,
+    TinyTree,
+    TinyButton,
+    TinyTooltip,
+    TinyDropdown,
+    TinyDropdownMenu,
+    TinyDropdownItem,
     IconStarIcon: iconStarActive(),
-    IconOpeninVscode: iconSelect(),
-    ConfigProvider
+    IconOpeninVscode: iconSelect()
   },
   directives: {
     loading: Loading.directive

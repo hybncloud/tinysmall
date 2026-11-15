@@ -12,7 +12,7 @@
 
 import { omitText } from '@tinysmall/utils'
 import { isServer } from '@tinysmall/utils'
-import type { IInputApi, IInputRenderlessParamUtils, IInputRenderlessParams, IInputState } from 'types/input.type'
+import type { IInputApi, IInputRenderlessParamUtils, IInputRenderlessParams, IInputState } from '../../types/input.type'
 
 const HIDDEN_STYLE = `
 height:0 !important;visibility:hidden !important;overflow:hidden !important;

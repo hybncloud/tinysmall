@@ -30,8 +30,8 @@ import {
 } from './index'
 import { userPopper } from '@tinysmall/hooks'
 import { guid } from '@tinysmall/utils'
-import type { ISharedRenderlessParamHooks, ISharedRenderlessParamUtils } from 'types/shared.type'
-import type { ITooltipApi, ITooltipProps, ITooltipState } from 'types/tooltip.type'
+import type { ISharedRenderlessParamHooks, ISharedRenderlessParamUtils } from '../../types/shared.type'
+import type { ITooltipApi, ITooltipProps, ITooltipState } from '../../types/tooltip.type'
 
 export const api = [
   'state',

@@ -7,10 +7,10 @@
 </template>
 
 <script setup>
-import { Button as TinyButton, Message } from '@hybncloud/tinysmall'
+import { TinyButton, TinyMessage } from '@hybncloud/tinysmall'
 
 function btnClick() {
-  Message.message({
+  TinyMessage.message({
     status: 'info',
     message: '是否显示关闭按钮',
     messageClosable: true
