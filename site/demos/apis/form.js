@@ -10,9 +10,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否禁用该表单内的所有表单组件，若设置为 true，则表单内组件上的 disabled 属性不再生效',
-            'en-US':
-              'Whether to disable all components in the form. If this parameter is set to true, the disabled attribute of components in the form does not take effect.'
+            'zh-CN': '是否禁用该表单内的所有表单组件，若设置为 true，则表单内组件上的 disabled 属性不再生效'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'form-disabled',
@@ -23,8 +21,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否开启仅展示模式',
-            'en-US': 'Enable read-only mode through the display only attribute'
+            'zh-CN': '是否开启仅展示模式'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'display-only',
@@ -35,8 +32,7 @@ export default {
           type: 'Object',
           defaultValue: '',
           desc: {
-            'zh-CN': 'Form 下的 FormItem 组件,请参看 FormItem 的属性配置 Aurora.Widget.Form.FormItem ',
-            'en-US': ''
+            'zh-CN': 'Form 下的 FormItem 组件,请参看 FormItem 的属性配置 Aurora.Widget.Form.FormItem '
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -46,8 +42,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否隐藏必填字段的标签旁边的红色星号',
-            'en-US': 'Whether to hide the red asterisk next to the label of mandatory fields'
+            'zh-CN': '是否隐藏必填字段的标签旁边的红色星号'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'smb-required',
@@ -58,8 +53,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '行内布局模式',
-            'en-US': 'In-line layout mode'
+            'zh-CN': '行内布局模式'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'form-in-row',
@@ -70,9 +64,7 @@ export default {
           type: 'boolean',
           defaultValue: '',
           desc: {
-            'zh-CN': '当 validate-type 设置为 text 时，是否以行内形式展示校验信息(推荐使用 message-type 设置)',
-            'en-US':
-              ' Whether to display the verification information inline form when validate-type is set to text,(It is recommended to use message-type setting)'
+            'zh-CN': '当 validate-type 设置为 text 时，是否以行内形式展示校验信息(推荐使用 message-type 设置)'
           },
           mode: ['pc'],
           pcDemo: ''
@@ -82,8 +74,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': "当出现必填星号时，标签文本是否对齐，当 label-position 为 'right' 时有效",
-            'en-US': 'When a mandatory asterisk appears, is it aligned with the text'
+            'zh-CN': "当出现必填星号时，标签文本是否对齐，当 label-position 为 'right' 时有效"
           },
           mode: ['pc'],
           pcDemo: 'label-align'
@@ -93,8 +84,7 @@ export default {
           type: "'right' | 'left' | 'top'",
           defaultValue: "'right'",
           desc: {
-            'zh-CN': '表单中标签的布局位置',
-            'en-US': 'Layout position of the label in the form'
+            'zh-CN': '表单中标签的布局位置'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'label-position',
@@ -105,8 +95,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '表单中标签后缀',
-            'en-US': 'Label suffix in the form'
+            'zh-CN': '表单中标签后缀'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'form-in-row',
@@ -117,8 +106,7 @@ export default {
           type: 'string',
           defaultValue: "'84px'",
           desc: {
-            'zh-CN': '表单中标签占位宽度',
-            'en-US': 'Label placeholder width in the form'
+            'zh-CN': '表单中标签占位宽度'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'label-position',
@@ -130,9 +118,7 @@ export default {
           defaultValue: "'block'",
           desc: {
             'zh-CN':
-              '当 validate-type 设置为 text 时，配置文本类型错误类型，可配置行内或者块级，其他值都为 absolute 定位',
-            'en-US':
-              'Configure the text type error type, which can be configured at the inline or block level when validate-type is set to text. The default is absolute positioning'
+              '当 validate-type 设置为 text 时，配置文本类型错误类型，可配置行内或者块级，其他值都为 absolute 定位'
           },
           mode: ['pc'],
           pcDemo: 'message-type'
@@ -142,8 +128,7 @@ export default {
           type: '{ [prop: string]: any }',
           defaultValue: '',
           desc: {
-            'zh-CN': '表单数据对象',
-            'en-US': 'Form data object'
+            'zh-CN': '表单数据对象'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'form-validation',
@@ -157,8 +142,7 @@ export default {
             stable: '3.15.0'
           },
           desc: {
-            'zh-CN': '标签超长是否显示提示',
-            'en-US': 'Does the label display a prompt if it is too long'
+            'zh-CN': '标签超长是否显示提示'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'overflow-title',
@@ -170,8 +154,7 @@ export default {
           type: 'Popover.IPopperOption',
           defaultValue: '',
           desc: {
-            'zh-CN': '校验错误提示配置，透传至 Popover 组件',
-            'en-US': 'Verify error prompt configuration and transparently transmit it to Popover component'
+            'zh-CN': '校验错误提示配置，透传至 Popover 组件'
           },
           mode: ['pc'],
           pcDemo: 'popper-options'
@@ -182,8 +165,7 @@ export default {
           type: '{ [prop: string]: IFormRules | IFormRules[]  }',
           defaultValue: '',
           desc: {
-            'zh-CN': '表单验证规则',
-            'en-US': 'Form validation rule'
+            'zh-CN': '表单验证规则'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'form-validation',
@@ -194,8 +176,7 @@ export default {
           type: 'boolean',
           defaultValue: 'true',
           desc: {
-            'zh-CN': '是否显示校验错误信息',
-            'en-US': 'Display verification error information.'
+            'zh-CN': '是否显示校验错误信息'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'novalid-tip',
@@ -206,8 +187,7 @@ export default {
           type: "'medium' | 'small' | 'mini'",
           defaultValue: '',
           desc: {
-            'zh-CN': '表单内组件的尺寸，不设置则为默认尺寸',
-            'en-US': 'Controls the size of components in the form'
+            'zh-CN': '表单内组件的尺寸，不设置则为默认尺寸'
           },
           mode: ['pc'],
           pcDemo: 'size'
@@ -217,8 +197,7 @@ export default {
           type: 'boolean | "deep"',
           defaultValue: 'true',
           desc: {
-            'zh-CN': '是否在 rules 属性改变后立即触发一次验证（"deep"选项新增于3.21.0）',
-            'en-US': 'Whether to trigger a verification immediately after the rules attribute is changed'
+            'zh-CN': '是否在 rules 属性改变后立即触发一次验证（"deep"选项新增于3.21.0）'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'custom-validation-rule',
@@ -230,8 +209,7 @@ export default {
           type: 'IFormPosition',
           defaultValue: "'right'",
           desc: {
-            'zh-CN': '指定校验提示框显示的位置',
-            'en-US': 'Specify the position where the verification dialog box is displayed'
+            'zh-CN': '指定校验提示框显示的位置'
           },
           mode: ['pc'],
           pcDemo: 'validation-position'
@@ -241,8 +219,7 @@ export default {
           type: 'boolean',
           defaultValue: '',
           desc: {
-            'zh-CN': 'vue2下面原生html标签支持显示tooltip校验提示信息',
-            'en-US': ''
+            'zh-CN': 'vue2下面原生html标签支持显示tooltip校验提示信息'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -252,8 +229,7 @@ export default {
           type: "'tip' | 'text'",
           defaultValue: "'tip'",
           desc: {
-            'zh-CN': '校验类型',
-            'en-US': 'Verification type'
+            'zh-CN': '校验类型'
           },
           mode: ['pc'],
           pcDemo: 'validate-type'
@@ -265,8 +241,7 @@ export default {
           type: '(prop: string, isValid: boolean, message: string) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '任一表单项被校验后触发',
-            'en-US': 'Triggered after any form item is verified'
+            'zh-CN': '任一表单项被校验后触发'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'events',
@@ -280,9 +255,7 @@ export default {
           defaultValue: '',
           desc: {
             'zh-CN':
-              '移除表单项的校验结果，可传入待移除的表单项的 prop ，或者 prop 组成的数组，如不传则移除整个表单的校验结果',
-            'en-US':
-              'The verification result of removing a form item is transferred to the prop attribute of the form item to be removed or an array consisting of prop. If this parameter is not transferred, the verification result of the entire form is removed.'
+              '移除表单项的校验结果，可传入待移除的表单项的 prop ，或者 prop 组成的数组，如不传则移除整个表单的校验结果'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'form-validate-field',
@@ -293,8 +266,7 @@ export default {
           type: '() => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '对整个表单进行重置，将所有字段值重置为初始值并移除校验结果',
-            'en-US': 'Reset all field values to the initial values and remove the verification result.'
+            'zh-CN': '对整个表单进行重置，将所有字段值重置为初始值并移除校验结果'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'form-validation',
@@ -307,9 +279,7 @@ export default {
           defaultValue: '',
           desc: {
             'zh-CN':
-              '对整个表单进行校验的方法，参数为一个回调函数（该回调函数会在校验结束后被调用，并传入两个参数：1、是否校验成功 2、未通过校验的字段）返回一个 promise',
-            'en-US':
-              'Method for verifying the entire form. The parameter is a callback function. The callback function will be invoked after the verification is complete and two parameters are transferred: whether the verification is successful and whether the verification fails. If the callback function is not transferred, a promise is returned.'
+              '对整个表单进行校验的方法，参数为一个回调函数（该回调函数会在校验结束后被调用，并传入两个参数：1、是否校验成功 2、未通过校验的字段）返回一个 promise'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'form-validation',
@@ -322,9 +292,7 @@ export default {
           defaultValue: '',
           desc: {
             'zh-CN':
-              '对部分表单字段进行校验的方法, 第一个参数为单个 prop 或者 prop 数组，第二个参数是回调函数，每个表单项检验完后会依次调用该回调',
-            'en-US':
-              'A method for verifying some form fields. The first parameter is a single prop or a prop array, and the second parameter is a callback function. After each form item is verified, the callback will be called in sequence'
+              '对部分表单字段进行校验的方法, 第一个参数为单个 prop 或者 prop 数组，第二个参数是回调函数，每个表单项检验完后会依次调用该回调'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'form-validate-field',
@@ -337,8 +305,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '默认插槽，自定义表单内容',
-            'en-US': 'Default slot'
+            'zh-CN': '默认插槽，自定义表单内容'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'basic-usage',
@@ -349,8 +316,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '标签文本插槽',
-            'en-US': ''
+            'zh-CN': '标签文本插槽'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -366,8 +332,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '表单项错误文本，设置该值会使表单验证状态变为 error',
-            'en-US': 'Form item error text,Setting this value will change the form validation status to error'
+            'zh-CN': '表单项错误文本，设置该值会使表单验证状态变为 error'
           },
           mode: ['pc'],
           pcDemo: ''
@@ -377,8 +342,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '表单项额外提示',
-            'en-US': 'Form item extra tip'
+            'zh-CN': '表单项额外提示'
           },
           mode: ['pc'],
           pcDemo: 'extra-tip'
@@ -388,9 +352,7 @@ export default {
           type: 'boolean',
           defaultValue: '',
           desc: {
-            'zh-CN': '是否以行内形式展示校验信息(推荐使用 message-type 设置)',
-            'en-US':
-              'Whether to display the verification information inline form(It is recommended to use message-type setting) '
+            'zh-CN': '是否以行内形式展示校验信息(推荐使用 message-type 设置)'
           },
           mode: ['pc'],
           pcDemo: ''
@@ -400,8 +362,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '标签文本',
-            'en-US': 'Label text'
+            'zh-CN': '标签文本'
           },
           mode: ['pc'],
           pcDemo: 'form-validation'
@@ -411,8 +372,7 @@ export default {
           type: 'string',
           defaultValue: "'80px'",
           desc: {
-            'zh-CN': '表单域标签的的宽度',
-            'en-US': 'Width of the form field label'
+            'zh-CN': '表单域标签的的宽度'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage'
@@ -422,9 +382,7 @@ export default {
           type: "'inline' | 'block'",
           defaultValue: '',
           desc: {
-            'zh-CN': '配置文本类型错误类型，可配置行内或者块级，不配置则为 absolute 定位',
-            'en-US':
-              'Configure the text type error type, which can be configured at the inline or block level. The default is absolute positioning'
+            'zh-CN': '配置文本类型错误类型，可配置行内或者块级，不配置则为 absolute 定位'
           },
           mode: ['pc'],
           pcDemo: 'message-type'
@@ -437,8 +395,7 @@ export default {
             stable: '3.32.0'
           },
           desc: {
-            'zh-CN': '是否移除表单项的内置布局样式，仅渲染默认插槽内容',
-            'en-US': 'Whether to remove the built-in layout and render only the default slot content'
+            'zh-CN': '是否移除表单项的内置布局样式，仅渲染默认插槽内容'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: '',
@@ -449,9 +406,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '对应表单域 model 字段，如需使用表单校验，该属性是必填的',
-            'en-US':
-              'Is it mandatory? If not set, it will be automatically generated according to the verification rules'
+            'zh-CN': '对应表单域 model 字段，如需使用表单校验，该属性是必填的'
           },
           mode: ['pc'],
           pcDemo: 'form-validation'
@@ -461,9 +416,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否必填，如不设置，则会根据校验规则自动生成',
-            'en-US':
-              'Is it mandatory? If not set, it will be automatically generated according to the verification rules'
+            'zh-CN': '是否必填，如不设置，则会根据校验规则自动生成'
           },
           mode: ['pc'],
           pcDemo: 'form-validation'
@@ -474,8 +427,7 @@ export default {
           type: 'IFormRules',
           defaultValue: '',
           desc: {
-            'zh-CN': '表单项验证规则',
-            'en-US': 'Form validation rule'
+            'zh-CN': '表单项验证规则'
           },
           mode: ['pc'],
           pcDemo: 'form-validation'
@@ -485,8 +437,7 @@ export default {
           type: 'boolean',
           defaultValue: 'true',
           desc: {
-            'zh-CN': '是否显示校验错误信息',
-            'en-US': 'Whether to display verification error information'
+            'zh-CN': '是否显示校验错误信息'
           },
           mode: ['pc'],
           pcDemo: 'novalid-tip'
@@ -496,8 +447,7 @@ export default {
           type: "'medium' | 'small' | 'mini'",
           defaultValue: '',
           desc: {
-            'zh-CN': '用于控制该表单域下组件的尺寸，不设置则为默认尺寸',
-            'en-US': 'Controls the size of the component in the form field'
+            'zh-CN': '用于控制该表单域下组件的尺寸，不设置则为默认尺寸'
           },
           mode: ['pc'],
           pcDemo: 'size'
@@ -507,9 +457,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否开启校验防抖，在连续输入的情况下，会在最后一次输入结束时才开始校验',
-            'en-US':
-              'Enable verification anti shake. In the case of continuous input, verification will only begin at the end of the last input'
+            'zh-CN': '是否开启校验防抖，在连续输入的情况下，会在最后一次输入结束时才开始校验'
           },
           mode: ['pc'],
           pcDemo: 'validate-debounce'
@@ -519,8 +467,7 @@ export default {
           type: 'Component',
           defaultValue: '',
           desc: {
-            'zh-CN': '校验提示框的图标，类型为组件',
-            'en-US': 'Icon for verification prompt box, type is component'
+            'zh-CN': '校验提示框的图标，类型为组件'
           },
           mode: ['pc'],
           pcDemo: 'form-validation'
@@ -531,8 +478,7 @@ export default {
           type: 'IFormPosition',
           defaultValue: "'top-end'",
           desc: {
-            'zh-CN': '指定校验提示框显示的位置',
-            'en-US': 'Specify the position where the verification dialog box is displayed'
+            'zh-CN': '指定校验提示框显示的位置'
           },
           mode: ['pc'],
           pcDemo: 'validation-position'
@@ -542,8 +488,7 @@ export default {
           type: "'text' | 'tip'",
           defaultValue: "'tip'",
           desc: {
-            'zh-CN': '校验提示显示类型',
-            'en-US': 'Verification prompt display type'
+            'zh-CN': '校验提示显示类型'
           },
           mode: ['pc'],
           pcDemo: 'validate-type'
@@ -556,8 +501,7 @@ export default {
           type: '() => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '移除该表单项的校验结果',
-            'en-US': 'Remove the verification result of the table item.'
+            'zh-CN': '移除该表单项的校验结果'
           },
           mode: ['pc'],
           pcDemo: 'form-validation'
@@ -567,8 +511,7 @@ export default {
           type: '() => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '对该表单项进行重置，将其值重置为初始值并移除校验结果',
-            'en-US': 'Reset the table item to the initial value and remove the verification result.'
+            'zh-CN': '对该表单项进行重置，将其值重置为初始值并移除校验结果'
           },
           mode: ['pc'],
           pcDemo: 'form-validate-field'
@@ -579,8 +522,7 @@ export default {
           name: 'default',
           defaultValue: '',
           desc: {
-            'zh-CN': '默认插槽',
-            'en-US': 'Default slot'
+            'zh-CN': '默认插槽'
           },
           mode: ['pc'],
           pcDemo: 'size'
@@ -589,8 +531,7 @@ export default {
           name: 'label',
           defaultValue: '',
           desc: {
-            'zh-CN': '标签文本的内容',
-            'en-US': 'Label text content'
+            'zh-CN': '标签文本的内容'
           },
           mode: ['pc'],
           pcDemo: 'slot-label'
@@ -600,8 +541,7 @@ export default {
           defaultValue: 2,
           type: 'number',
           desc: {
-            'zh-CN': '标签文本显示的行数',
-            'en-US': 'The number of lines displayed in the label text'
+            'zh-CN': '标签文本显示的行数'
           },
           mode: ['mobile-first'],
           pcDemo: 'slot-label'
@@ -610,8 +550,7 @@ export default {
           name: 'error',
           defaultValue: '',
           desc: {
-            'zh-CN': '错误提示内容',
-            'en-US': 'Error content'
+            'zh-CN': '错误提示内容'
           },
           mode: ['pc'],
           pcDemo: 'error-label'
@@ -620,8 +559,7 @@ export default {
           name: 'prompt',
           defaultValue: '',
           desc: {
-            'zh-CN': '强提示插槽',
-            'en-US': 'Prompt slot'
+            'zh-CN': '强提示插槽'
           },
           mode: ['mobile-first'],
           mfDemo: 'prompt-slot'

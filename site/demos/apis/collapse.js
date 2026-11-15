@@ -10,8 +10,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否手风琴模式',
-            'en-US': 'In accordion mode'
+            'zh-CN': '是否手风琴模式'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'accordion',
@@ -22,8 +21,7 @@ export default {
           type: '(item: Component, activeNames: string | number | Array) => boolean',
           defaultValue: '',
           desc: {
-            'zh-CN': '阻止折叠面板切换',
-            'en-US': 'Do not close the folding panel.'
+            'zh-CN': '阻止折叠面板切换'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'before-close',
@@ -34,9 +32,7 @@ export default {
           type: 'string | number | Array',
           defaultValue: '',
           desc: {
-            'zh-CN': '当前激活的面板。如果是手风琴模式，绑定值类型需要为 string | number，否则为 Array',
-            'en-US':
-              'Currently activated panel (In accordion mode, the binding value type must be string. Otherwise, the binding value type is array.)'
+            'zh-CN': '当前激活的面板。如果是手风琴模式，绑定值类型需要为 string | number，否则为 Array'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage'
@@ -46,8 +42,7 @@ export default {
           type: 'String / Array /Number',
           defaultValue: '',
           desc: {
-            'zh-CN': '当前激活的面板(如果是手风琴模式，绑定值类型需要为string，否则为array)',
-            'en-US': ''
+            'zh-CN': '当前激活的面板(如果是手风琴模式，绑定值类型需要为string，否则为array)'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -57,8 +52,7 @@ export default {
           type: 'String',
           defaultValue: '',
           desc: {
-            'zh-CN': '控制折叠面板的尺寸，可选值为 "" | "medium"',
-            'en-US': 'adjust the size of the fold panel. Available options: "" | "medium"'
+            'zh-CN': '控制折叠面板的尺寸，可选值为 "" | "medium"'
           },
           mode: ['pc', 'mobile-first'],
           mfDemo: '',
@@ -74,9 +68,7 @@ export default {
           type: '(activeNames: string | number | Array) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '当前激活面板改变时触发。如果是手风琴模式，参数 activeNames 类型为 string | number，否则为 Array',
-            'en-US':
-              'Triggered when the current active panel changes. (In accordion mode, the type of activeNames is string. Otherwise, the type of activeNames is array.)'
+            'zh-CN': '当前激活面板改变时触发。如果是手风琴模式，参数 activeNames 类型为 string | number，否则为 Array'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'events',
@@ -90,8 +82,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '默认插槽',
-            'en-US': 'Default slot'
+            'zh-CN': '默认插槽'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'disable',
@@ -102,8 +93,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '展开收起icon插槽',
-            'en-US': 'Expand and collapse icon slot'
+            'zh-CN': '展开收起icon插槽'
           },
           mode: ['mobile-first'],
           mfDemo: 'slot-icon'
@@ -119,8 +109,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否禁用',
-            'en-US': 'Disable'
+            'zh-CN': '是否禁用'
           },
           mode: ['pc'],
           pcDemo: 'disable'
@@ -130,8 +119,7 @@ export default {
           type: 'string | number',
           defaultValue: '',
           desc: {
-            'zh-CN': '唯一标志符',
-            'en-US': 'Unique identifier'
+            'zh-CN': '唯一标志符'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage'
@@ -141,8 +129,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '面板标题',
-            'en-US': 'Panel Title'
+            'zh-CN': '面板标题'
           },
           mode: ['pc'],
           pcDemo: 'title'
@@ -152,8 +139,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '自定义面板标题右侧内容',
-            'en-US': ''
+            'zh-CN': '自定义面板标题右侧内容'
           },
           mode: ['pc'],
           pcDemo: 'title'
@@ -163,8 +149,7 @@ export default {
           type: 'Component',
           defaultValue: '',
           desc: {
-            'zh-CN': '自定义icon 图标',
-            'en-US': 'Customized icon'
+            'zh-CN': '自定义icon 图标'
           },
           mode: ['pc'],
           pcDemo: 'icon'
@@ -177,8 +162,7 @@ export default {
           name: 'default',
           defaultValue: '',
           desc: {
-            'zh-CN': '默认插槽',
-            'en-US': 'Default slot'
+            'zh-CN': '默认插槽'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage'
@@ -187,8 +171,7 @@ export default {
           name: 'icon',
           defaultValue: '',
           desc: {
-            'zh-CN': '展开折叠 icon 图标',
-            'en-US': 'Expand and collapse the icon.'
+            'zh-CN': '展开折叠 icon 图标'
           },
           mode: ['pc'],
           pcDemo: 'icon'
@@ -197,8 +180,7 @@ export default {
           name: 'title',
           defaultValue: '',
           desc: {
-            'zh-CN': '标题',
-            'en-US': 'Title'
+            'zh-CN': '标题'
           },
           mode: ['pc'],
           pcDemo: 'title'
@@ -207,8 +189,7 @@ export default {
           name: 'title-right',
           defaultValue: '',
           desc: {
-            'zh-CN': '自定义面板标题右侧内容',
-            'en-US': ''
+            'zh-CN': '自定义面板标题右侧内容'
           },
           mode: ['pc'],
           pcDemo: 'title'

@@ -10,8 +10,7 @@ export default {
           type: '() => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '配置部分禁用',
-            'en-US': 'Configuration section disabled.'
+            'zh-CN': '配置部分禁用'
           },
           mode: ['pc'],
           pcDemo: 'disabled-date'
@@ -21,8 +20,7 @@ export default {
           type: 'string',
           defaultValue: "'yyyy-MM-dd'",
           desc: {
-            'zh-CN': '面板选中日期格式',
-            'en-US': 'Select date format on the panel.'
+            'zh-CN': '面板选中日期格式'
           },
           mode: ['pc'],
           pcDemo: 'format'
@@ -32,8 +30,7 @@ export default {
           type: 'date | string | number',
           defaultValue: '',
           desc: {
-            'zh-CN': '绑定值',
-            'en-US': 'Set the initial value of the calendar component. ;Bound Value.'
+            'zh-CN': '绑定值'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage'
@@ -43,8 +40,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '为 DatePanel 面板添加的 class 类名',
-            'en-US': 'Class name added for DatePanel.'
+            'zh-CN': '为 DatePanel 面板添加的 class 类名'
           },
           mode: ['pc'],
           pcDemo: 'custom-suffix-icon'
@@ -54,8 +50,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '设置日期是否只读',
-            'en-US': 'Set panel component is read-only.'
+            'zh-CN': '设置日期是否只读'
           },
           mode: ['pc'],
           pcDemo: 'readonly'
@@ -65,8 +60,7 @@ export default {
           type: 'Array<T>',
           defaultValue: '[]',
           desc: {
-            'zh-CN': `设置快捷选项`,
-            'en-US': 'Set shortcut options'
+            'zh-CN': `设置快捷选项`
           },
           mode: ['pc'],
           pcDemo: 'shortcuts'
@@ -76,8 +70,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否展示周次序号',
-            'en-US': 'Display week number.'
+            'zh-CN': '是否展示周次序号'
           },
           mode: ['pc'],
           pcDemo: 'custom-weeks'
@@ -88,9 +81,7 @@ export default {
           defaultValue: '',
           desc: {
             'zh-CN':
-              '格式化周次序号，该回调函数有两个参数，customWeeks 用来获取自定义周次的序号，weekFirstDays 用来获取每周次中的首个日期',
-            'en-US':
-              'Format the week number, this callback function has two parameters: customWeeks is used to obtain the custom week number, and weekFirstDays is used to obtain the first date in the week number'
+              '格式化周次序号，该回调函数有两个参数，customWeeks 用来获取自定义周次的序号，weekFirstDays 用来获取每周次中的首个日期'
           },
           mode: ['pc'],
           pcDemo: 'custom-weeks'
@@ -100,9 +91,7 @@ export default {
           type: 'number',
           defaultValue: '7',
           desc: {
-            'zh-CN': '设置每周的第一天是星期几，默认值是7，也就是星期天',
-            'en-US':
-              'Set the first day of each week as the day of the week, with a default value of 7, which is Sunday.'
+            'zh-CN': '设置每周的第一天是星期几，默认值是7，也就是星期天'
           },
           mode: ['pc'],
           pcDemo: 'custom-weeks'
@@ -113,8 +102,7 @@ export default {
           name: 'select-change',
           type: '(value: string) => void',
           desc: {
-            'zh-CN': '用户确认选定的值时触发',
-            'en-US': 'This event is triggered when the user confirms the selected value.'
+            'zh-CN': '用户确认选定的值时触发'
           },
           mode: ['pc'],
           pcDemo: 'event'
@@ -124,8 +112,7 @@ export default {
         {
           name: 'a',
           desc: {
-            'zh-CN': 'am/pm',
-            'en-US': ''
+            'zh-CN': 'am/pm'
           },
           mode: ['pc'],
           pcDemo: ''
@@ -133,8 +120,7 @@ export default {
         {
           name: 'A',
           desc: {
-            'zh-CN': 'AM/PM',
-            'en-US': ''
+            'zh-CN': 'AM/PM'
           },
           mode: ['pc'],
           pcDemo: ''
@@ -142,56 +128,49 @@ export default {
         {
           name: 'd',
           desc: {
-            'zh-CN': '日，不补0',
-            'en-US': ''
+            'zh-CN': '日，不补0'
           },
           mode: ['pc']
         },
         {
           name: 'dd',
           desc: {
-            'zh-CN': '日',
-            'en-US': ''
+            'zh-CN': '日'
           },
           mode: ['pc']
         },
         {
           name: 'M',
           desc: {
-            'zh-CN': '月，不补0',
-            'en-US': ''
+            'zh-CN': '月，不补0'
           },
           mode: ['pc']
         },
         {
           name: 'MM',
           desc: {
-            'zh-CN': '月',
-            'en-US': ''
+            'zh-CN': '月'
           },
           mode: ['pc']
         },
         {
           name: 'W',
           desc: {
-            'zh-CN': '周，不补0',
-            'en-US': ''
+            'zh-CN': '周，不补0'
           },
           mode: ['pc']
         },
         {
           name: 'WW',
           desc: {
-            'zh-CN': '周',
-            'en-US': ''
+            'zh-CN': '周'
           },
           mode: ['pc']
         },
         {
           name: 'yyyy',
           desc: {
-            'zh-CN': '年',
-            'en-US': ''
+            'zh-CN': '年'
           },
           mode: ['pc']
         }
@@ -206,8 +185,7 @@ export default {
           type: 'Array<T>',
           defaultValue: '[]',
           desc: {
-            'zh-CN': '绑定值',
-            'en-US': 'Set the initial value of the calendar component. ;Bound Value'
+            'zh-CN': '绑定值'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage'
@@ -217,8 +195,7 @@ export default {
           type: `'daterange | datetimerange'`,
           defaultValue: 'daterange',
           desc: {
-            'zh-CN': '时间区间类型',
-            'en-US': 'Range type'
+            'zh-CN': '时间区间类型'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage'
@@ -228,8 +205,7 @@ export default {
           type: '() => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '配置部分禁用',
-            'en-US': 'Configuration section disabled.'
+            'zh-CN': '配置部分禁用'
           },
           mode: ['pc'],
           pcDemo: 'disabled-date'
@@ -239,8 +215,7 @@ export default {
           type: 'string',
           defaultValue: "'yyyy-MM-dd'",
           desc: {
-            'zh-CN': '显示在输入框中的格式',
-            'en-US': 'Display format in the text box'
+            'zh-CN': '显示在输入框中的格式'
           },
           mode: ['pc'],
           pcDemo: 'format'
@@ -250,8 +225,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '为 DateRange 下拉弹框添加的 class 类名',
-            'en-US': 'Class name added for DateRange.'
+            'zh-CN': '为 DateRange 下拉弹框添加的 class 类名'
           },
           mode: ['pc'],
           pcDemo: 'custom-suffix-icon'
@@ -261,8 +235,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '设置日期是否只读',
-            'en-US': 'Set whether the calendar component is read-only.'
+            'zh-CN': '设置日期是否只读'
           },
           mode: ['pc'],
           pcDemo: 'disabled'
@@ -272,8 +245,7 @@ export default {
           type: 'Array<T>',
           defaultValue: '[]',
           desc: {
-            'zh-CN': `设置快捷选项`,
-            'en-US': 'Set shortcut options'
+            'zh-CN': `设置快捷选项`
           },
           mode: ['pc'],
           pcDemo: 'shortcuts'
@@ -283,8 +255,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否展示周次序号',
-            'en-US': 'Display week number'
+            'zh-CN': '是否展示周次序号'
           },
           mode: ['pc'],
           pcDemo: 'custom-weeks'
@@ -294,8 +265,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '在范围选择器里取消两个日期面板之间的联动',
-            'en-US': 'Unlink the two date panels in the range selector'
+            'zh-CN': '在范围选择器里取消两个日期面板之间的联动'
           },
           mode: ['pc'],
           pcDemo: 'unlink-panels'
@@ -306,8 +276,7 @@ export default {
           name: 'select-change',
           type: '(value: Date) => void',
           desc: {
-            'zh-CN': '用户确认选定的值时触发',
-            'en-US': 'This event is triggered when the user confirms the selected values.'
+            'zh-CN': '用户确认选定的值时触发'
           },
           mode: ['pc'],
           pcDemo: 'events'
@@ -317,8 +286,7 @@ export default {
         {
           name: 'a',
           desc: {
-            'zh-CN': 'am/pm',
-            'en-US': ''
+            'zh-CN': 'am/pm'
           },
           mode: ['pc'],
           pcDemo: ''
@@ -326,8 +294,7 @@ export default {
         {
           name: 'A',
           desc: {
-            'zh-CN': 'AM/PM',
-            'en-US': ''
+            'zh-CN': 'AM/PM'
           },
           mode: ['pc'],
           pcDemo: ''
@@ -335,24 +302,21 @@ export default {
         {
           name: 'd',
           desc: {
-            'zh-CN': '日，不补0',
-            'en-US': ''
+            'zh-CN': '日，不补0'
           },
           mode: ['pc']
         },
         {
           name: 'dd',
           desc: {
-            'zh-CN': '日',
-            'en-US': ''
+            'zh-CN': '日'
           },
           mode: ['pc']
         },
         {
           name: 'h',
           desc: {
-            'zh-CN': '小时，12小时制，需要和 A 或 a 一起使用，不补0',
-            'en-US': ''
+            'zh-CN': '小时，12小时制，需要和 A 或 a 一起使用，不补0'
           },
           mode: ['pc'],
           pcDemo: ''
@@ -360,8 +324,7 @@ export default {
         {
           name: 'H',
           desc: {
-            'zh-CN': '小时，24小时制，不补0',
-            'en-US': ''
+            'zh-CN': '小时，24小时制，不补0'
           },
           mode: ['pc'],
           pcDemo: ''
@@ -369,8 +332,7 @@ export default {
         {
           name: 'hh',
           desc: {
-            'zh-CN': '小时，12小时制，需要和 A 或 a 一起使用',
-            'en-US': ''
+            'zh-CN': '小时，12小时制，需要和 A 或 a 一起使用'
           },
           mode: ['pc'],
           pcDemo: ''
@@ -378,8 +340,7 @@ export default {
         {
           name: 'HH',
           desc: {
-            'zh-CN': '小时，24小时制',
-            'en-US': ''
+            'zh-CN': '小时，24小时制'
           },
           mode: ['pc'],
           pcDemo: ''
@@ -387,8 +348,7 @@ export default {
         {
           name: 'm',
           desc: {
-            'zh-CN': '分钟，不补0',
-            'en-US': ''
+            'zh-CN': '分钟，不补0'
           },
           mode: ['pc'],
           pcDemo: ''
@@ -396,16 +356,14 @@ export default {
         {
           name: 'M',
           desc: {
-            'zh-CN': '月，不补0',
-            'en-US': ''
+            'zh-CN': '月，不补0'
           },
           mode: ['pc']
         },
         {
           name: 'mm',
           desc: {
-            'zh-CN': '分钟',
-            'en-US': ''
+            'zh-CN': '分钟'
           },
           mode: ['pc'],
           pcDemo: ''
@@ -413,16 +371,14 @@ export default {
         {
           name: 'MM',
           desc: {
-            'zh-CN': '月',
-            'en-US': ''
+            'zh-CN': '月'
           },
           mode: ['pc']
         },
         {
           name: 's',
           desc: {
-            'zh-CN': '秒，不补0',
-            'en-US': ''
+            'zh-CN': '秒，不补0'
           },
           mode: ['pc'],
           pcDemo: ''
@@ -430,8 +386,7 @@ export default {
         {
           name: 'ss',
           desc: {
-            'zh-CN': '秒',
-            'en-US': ''
+            'zh-CN': '秒'
           },
           mode: ['pc'],
           pcDemo: ''
@@ -439,24 +394,21 @@ export default {
         {
           name: 'W',
           desc: {
-            'zh-CN': '周，不补0',
-            'en-US': ''
+            'zh-CN': '周，不补0'
           },
           mode: ['pc']
         },
         {
           name: 'WW',
           desc: {
-            'zh-CN': '周',
-            'en-US': ''
+            'zh-CN': '周'
           },
           mode: ['pc']
         },
         {
           name: 'yyyy',
           desc: {
-            'zh-CN': '年',
-            'en-US': ''
+            'zh-CN': '年'
           },
           mode: ['pc']
         }
@@ -471,8 +423,7 @@ export default {
           type: 'Array<T>',
           defaultValue: '[]',
           desc: {
-            'zh-CN': '绑定值',
-            'en-US': 'Set the initial value of the calendar component. ;Bound Value'
+            'zh-CN': '绑定值'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage'
@@ -482,8 +433,7 @@ export default {
           type: '() => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '配置部分禁用',
-            'en-US': 'Configuration section disabled.'
+            'zh-CN': '配置部分禁用'
           },
           mode: ['pc'],
           pcDemo: 'disabled-date'
@@ -493,8 +443,7 @@ export default {
           type: 'string',
           defaultValue: "'yyyy-MM'",
           desc: {
-            'zh-CN': '显示在输入框中的格式',
-            'en-US': 'Display format in the text box'
+            'zh-CN': '显示在输入框中的格式'
           },
           mode: ['pc'],
           pcDemo: 'format'
@@ -504,8 +453,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '为 MonthRange 下拉弹框添加的 class 类名',
-            'en-US': 'Class name added for MonthRange.'
+            'zh-CN': '为 MonthRange 下拉弹框添加的 class 类名'
           },
           mode: ['pc'],
           pcDemo: 'custom-suffix-icon'
@@ -515,8 +463,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '设置日期是否只读',
-            'en-US': 'Set whether the calendar component is read-only.'
+            'zh-CN': '设置日期是否只读'
           },
           mode: ['pc'],
           pcDemo: 'disabled'
@@ -526,8 +473,7 @@ export default {
           type: 'Array<T>',
           defaultValue: '[]',
           desc: {
-            'zh-CN': `设置快捷选项`,
-            'en-US': 'Set shortcut options'
+            'zh-CN': `设置快捷选项`
           },
           mode: ['pc'],
           pcDemo: 'shortcuts'
@@ -537,8 +483,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '在范围选择器里取消两个日期面板之间的联动',
-            'en-US': 'Unlink the two date panels in the range selector'
+            'zh-CN': '在范围选择器里取消两个日期面板之间的联动'
           },
           mode: ['pc'],
           pcDemo: 'unlink-panels'
@@ -549,8 +494,7 @@ export default {
           name: 'select-change',
           type: '(value: Date) => void',
           desc: {
-            'zh-CN': '用户确认选定的值时触发',
-            'en-US': 'This event is triggered when the user confirms the selected values.'
+            'zh-CN': '用户确认选定的值时触发'
           },
           mode: ['pc'],
           pcDemo: 'events'
@@ -560,24 +504,21 @@ export default {
         {
           name: 'M',
           desc: {
-            'zh-CN': '月，不补0',
-            'en-US': ''
+            'zh-CN': '月，不补0'
           },
           mode: ['pc']
         },
         {
           name: 'MM',
           desc: {
-            'zh-CN': '月',
-            'en-US': ''
+            'zh-CN': '月'
           },
           mode: ['pc']
         },
         {
           name: 'yyyy',
           desc: {
-            'zh-CN': '年',
-            'en-US': ''
+            'zh-CN': '年'
           },
           mode: ['pc']
         }
@@ -592,8 +533,7 @@ export default {
           type: 'Array<T>',
           defaultValue: '[]',
           desc: {
-            'zh-CN': '绑定值',
-            'en-US': 'Set the initial value of the calendar component. ;Bound Value'
+            'zh-CN': '绑定值'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage'
@@ -603,8 +543,7 @@ export default {
           type: '() => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '配置部分禁用',
-            'en-US': 'Configuration section disabled.'
+            'zh-CN': '配置部分禁用'
           },
           mode: ['pc'],
           pcDemo: 'disabled-date'
@@ -614,8 +553,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '为 YearRange 下拉弹框添加的 class 类名',
-            'en-US': 'Class name added for YearRange.'
+            'zh-CN': '为 YearRange 下拉弹框添加的 class 类名'
           },
           mode: ['pc'],
           pcDemo: 'custom-suffix-icon'
@@ -625,8 +563,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '设置日期是否只读',
-            'en-US': 'Set whether the calendar component is read-only.'
+            'zh-CN': '设置日期是否只读'
           },
           mode: ['pc'],
           pcDemo: 'readonly'
@@ -636,8 +573,7 @@ export default {
           type: 'Array<T>',
           defaultValue: '[]',
           desc: {
-            'zh-CN': `设置快捷选项`,
-            'en-US': 'Set shortcut options'
+            'zh-CN': `设置快捷选项`
           },
           mode: ['pc'],
           pcDemo: 'shortcuts'
@@ -647,8 +583,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '在范围选择器里取消两个日期面板之间的联动',
-            'en-US': 'Unlink the two date panels in the range selector'
+            'zh-CN': '在范围选择器里取消两个日期面板之间的联动'
           },
           mode: ['pc'],
           pcDemo: 'unlink-panels'
@@ -659,8 +594,7 @@ export default {
           name: 'select-change',
           type: '(value: Date) => void',
           desc: {
-            'zh-CN': '用户确认选定的值时触发',
-            'en-US': 'This event is triggered when the user confirms the selected values.'
+            'zh-CN': '用户确认选定的值时触发'
           },
           mode: ['pc'],
           pcDemo: 'events'

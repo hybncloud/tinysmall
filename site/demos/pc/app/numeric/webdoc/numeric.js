@@ -7,78 +7,62 @@ export default {
     {
       demoId: 'basic-usage',
       name: {
-        'zh-CN': '基本用法',
-        'en-US': 'Basic Usage'
+        'zh-CN': '基本用法'
       },
       desc: {
-        'zh-CN': '可通过<code>v-model</code>属性设置绑定输入值。',
-        'en-US': 'Bind input value through <code>v-model</code> attribute'
+        'zh-CN': '可通过<code>v-model</code>属性设置绑定输入值。'
       },
       codeFiles: ['basic-usage.vue']
     },
     {
       demoId: 'max-min',
       name: {
-        'zh-CN': '最值与数值循环',
-        'en-US': 'Extremum and loop'
+        'zh-CN': '最值与数值循环'
       },
       desc: {
         'zh-CN':
-          '可通过<code>max</code>属性设置计数器允许的最大值，<code>min</code>属性设置计数器允许的最小值，<code>circulate</code>属性设置当计数器的数值为最大值，继续计数，是否从最小值开始计数。',
-        'en-US':
-          'By setting the maximum value allowed by the<code>max</code>attribute counter, setting the minimum value allowed by the<code>min</code>attribute counter, and setting the<code>cycle</code>attribute, when the counter value reaches the maximum value, continue counting, whether to start counting from the minimum value.'
+          '可通过<code>max</code>属性设置计数器允许的最大值，<code>min</code>属性设置计数器允许的最小值，<code>circulate</code>属性设置当计数器的数值为最大值，继续计数，是否从最小值开始计数。'
       },
       codeFiles: ['max-min.vue']
     },
     {
       demoId: 'about-step',
       name: {
-        'zh-CN': '步长',
-        'en-US': 'Step'
+        'zh-CN': '步长'
       },
       desc: {
         'zh-CN':
-          '可通过<code>step</code>属性设置计数器的加减数值及<code>mode</code>模式为<code>restore</code>、<code>strictly</code>的用法，<code>step-strictly</code>属性设置只能输入 step 的倍数',
-        'en-US':
-          'The addition and subtraction values of the counter can be set through the<code>step</code>attribute, and the<code>mode</code>can be used for<code>restore</code>and<code>strictly</code>modes. The<code>step strictly</code>attribute can only input multiples of step'
+          '可通过<code>step</code>属性设置计数器的加减数值及<code>mode</code>模式为<code>restore</code>、<code>strictly</code>的用法，<code>step-strictly</code>属性设置只能输入 step 的倍数'
       },
       codeFiles: ['about-step.vue']
     },
     {
       demoId: 'precision',
       name: {
-        'zh-CN': '数值精度及格式',
-        'en-US': 'Numerical precision and format'
+        'zh-CN': '数值精度及格式'
       },
       desc: {
-        'zh-CN': '可通过<code>precision</code>属性设置计数器的精度值，<code>format</code>属性设置数字显示格式。',
-        'en-US':
-          'Set the precision value of the counter through the<code>precision</code>attribute,<code>format</code> property sets the numeric display format.'
+        'zh-CN': '可通过<code>precision</code>属性设置计数器的精度值，<code>format</code>属性设置数字显示格式。'
       },
       codeFiles: ['precision.vue']
     },
     {
       demoId: 'dynamic-disabled',
       name: {
-        'zh-CN': '禁用',
-        'en-US': 'Disabled'
+        'zh-CN': '禁用'
       },
       desc: {
-        'zh-CN': '可通过<code>disabled</code>属性设置是否禁用计数器。',
-        'en-US': 'Disable the counter by setting <code>disabled</code>.'
+        'zh-CN': '可通过<code>disabled</code>属性设置是否禁用计数器。'
       },
       codeFiles: ['dynamic-disabled.vue']
     },
     {
       demoId: 'parse-input',
       name: {
-        'zh-CN': '自定义输入值解析',
-        'en-US': 'Custom Input Value Parsing'
+        'zh-CN': '自定义输入值解析'
       },
       desc: {
-        'zh-CN': '自定义输入值解析函数，优先级较高。当输入字符以及粘贴时，会调用该函数进行解析。',
-        'en-US':
-          'Custom input value parsing function with high priority. This function is called for parsing when input characters are entered or pasted'
+        'zh-CN': '自定义输入值解析函数，优先级较高。当输入字符以及粘贴时，会调用该函数进行解析。'
       },
       codeFiles: ['parse-input.vue'],
       meta: {
@@ -89,172 +73,137 @@ export default {
     {
       demoId: 'allow-empty',
       name: {
-        'zh-CN': '可清空',
-        'en-US': 'Clearable'
+        'zh-CN': '可清空'
       },
       desc: {
         'zh-CN':
-          '可通过<code>allow-empty</code>属性设置计数器内容的可清空特性，默认为 <code>false</code>，表示不可清空。',
-        'en-US':
-          'You can use the <code>allow-empty</code> property to set the clearability of counter contents. The default value is <code>false</code>, indicating that the data cannot be cleared. '
+          '可通过<code>allow-empty</code>属性设置计数器内容的可清空特性，默认为 <code>false</code>，表示不可清空。'
       },
       codeFiles: ['allow-empty.vue']
     },
     {
       demoId: 'empty-value',
       name: {
-        'zh-CN': '设定清空输入后的绑定值',
-        'en-US': 'Sets the binding value after the input is cleared'
+        'zh-CN': '设定清空输入后的绑定值'
       },
       desc: {
         'zh-CN':
-          '可通过 <code>empty-value</code> 属性设置计数器在可清空下，清空后组件的绑定值。默认为 <code>undefined</code>。示例中将清空后组件绑定值改为<code>null</code>',
-        'en-US':
-          'You can use the <code>empty-value</code> attribute to set the binding value of the cleared component when the counter can be cleared. The default value is <code>undefined</code>. In the example, the component binding value is changed to <code>null</code>.'
+          '可通过 <code>empty-value</code> 属性设置计数器在可清空下，清空后组件的绑定值。默认为 <code>undefined</code>。示例中将清空后组件绑定值改为<code>null</code>'
       },
       codeFiles: ['empty-value.vue']
     },
     {
       demoId: 'numeric-size',
       name: {
-        'zh-CN': '尺寸',
-        'en-US': 'Size'
+        'zh-CN': '尺寸'
       },
       desc: {
         'zh-CN':
-          '可通过 <code>size</code> 属性设置计数器尺寸，可选值有 <code>medium</code><code>small</code><code>mini</code>。',
-        'en-US':
-          'You can set the counter size through the<code>size</code>attribute,the value can be <code>medium</code><code>small</code><code>mini</code>. '
+          '可通过 <code>size</code> 属性设置计数器尺寸，可选值有 <code>medium</code><code>small</code><code>mini</code>。'
       },
       codeFiles: ['numeric-size.vue']
     },
     {
       demoId: 'controls',
       name: {
-        'zh-CN': '加减按钮',
-        'en-US': 'Control Button'
+        'zh-CN': '加减按钮'
       },
       desc: {
         'zh-CN':
-          '可通过<code>controls</code> 属性设置计数器是否显示加减按钮，<code>controls-position</code> 属性设置加减按钮显示的位置。加减按钮默认分列两侧显示，<code>show-left</code> 属性设置左对齐。',
-        'en-US':
-          'By setting whether the<code>controls</code>attribute counter displays add/subtract buttons, set the position where the<code>controls position</code>attribute add/subtract buttons are displayed. The addition and subtraction buttons are displayed on both sides of the column by default,<code>show-left</code> property set to left'
+          '可通过<code>controls</code> 属性设置计数器是否显示加减按钮，<code>controls-position</code> 属性设置加减按钮显示的位置。加减按钮默认分列两侧显示，<code>show-left</code> 属性设置左对齐。'
       },
       codeFiles: ['controls.vue']
     },
     {
       demoId: 'mouse-wheel',
       name: {
-        'zh-CN': '鼠标滚轮滚动改变值',
-        'en-US': 'Mouse wheel scrolling change value'
+        'zh-CN': '鼠标滚轮滚动改变值'
       },
       desc: {
-        'zh-CN': '可通过<code>mouse-wheel</code>属性设置控制鼠标滚动滑轮的数值。',
-        'en-US':
-          'You can use the <code>mouse-wheel</code> attribute to control whether the scroll wheel can change the value. '
+        'zh-CN': '可通过<code>mouse-wheel</code>属性设置控制鼠标滚动滑轮的数值。'
       },
       codeFiles: ['mouse-wheel.vue']
     },
     {
       demoId: 'unit',
       name: {
-        'zh-CN': '单位',
-        'en-US': 'Unit'
+        'zh-CN': '单位'
       },
       desc: {
-        'zh-CN': '可通过<code>unit</code>属性设置计数器的单位，设置单位后，加减按钮将不可用。',
-        'en-US':
-          'Set the unit of the counter by using the <code>unit</code>property. After setting the unit, the increase and decrease buttons will be disabled.'
+        'zh-CN': '可通过<code>unit</code>属性设置计数器的单位，设置单位后，加减按钮将不可用。'
       },
       codeFiles: ['unit.vue']
     },
     {
       demoId: 'change-event',
       name: {
-        'zh-CN': '值改变事件',
-        'en-US': 'Value change event'
+        'zh-CN': '值改变事件'
       },
       desc: {
         'zh-CN':
-          '可通过<code>@change</code>设置监听数值改变事件。当<code>change-compat</code>为 false 时，仅当加减按钮及直接输入数值时会触发<code>change</code>事件。',
-        'en-US':
-          'The <code>@change</code> event is triggered when the value of the text box is changed. When the<code>change compat</code>is false, the <code>change</code> event will be triggered when only the add and subtract buttons and directly entering numerical values are used.</p>\n'
+          '可通过<code>@change</code>设置监听数值改变事件。当<code>change-compat</code>为 false 时，仅当加减按钮及直接输入数值时会触发<code>change</code>事件。'
       },
       codeFiles: ['change-event.vue']
     },
     {
       demoId: 'input-event',
       name: {
-        'zh-CN': '输入事件',
-        'en-US': 'Input Event'
+        'zh-CN': '输入事件'
       },
       desc: {
-        'zh-CN': '<p>输入时触发<code>input</code>事件。<p>',
-        'en-US': '<p>Trigger the <code>input</code> event upon input. </p>'
+        'zh-CN': '<p>输入时触发<code>input</code>事件。<p>'
       },
       codeFiles: ['input-event.vue']
     },
     {
       demoId: 'focus-event',
       name: {
-        'zh-CN': '聚焦事件',
-        'en-US': 'Focus Event'
+        'zh-CN': '聚焦事件'
       },
       desc: {
-        'zh-CN': '可通过<code>@focus</code>设置监听输入框获得焦点事件。',
-        'en-US': 'The <code>@focus</code> event is triggered when the text box is focused. '
+        'zh-CN': '可通过<code>@focus</code>设置监听输入框获得焦点事件。'
       },
       codeFiles: ['focus-event.vue']
     },
     {
       demoId: 'blur-event',
       name: {
-        'zh-CN': '失焦事件',
-        'en-US': 'Out of Focus Event'
+        'zh-CN': '失焦事件'
       },
       desc: {
-        'zh-CN': '可通过<code>@blur</code>设置监听输入框失去焦点事件。',
-        'en-US': 'The<code>@blur</code>event is triggered when the text box loses focus. '
+        'zh-CN': '可通过<code>@blur</code>设置监听输入框失去焦点事件。'
       },
       codeFiles: ['blur-event.vue']
     },
     {
       demoId: 'string-mode',
       name: {
-        'zh-CN': '高精度',
-        'en-US': 'Out of Focus Event'
+        'zh-CN': '高精度'
       },
       desc: {
-        'zh-CN': '可通过 <code>string-mode</code> 设置高精度模式，当 JS 默认的 Number 不满足数字的长度与精度需求时。',
-        'en-US': 'The<code>@blur</code>event is triggered when the text box loses focus. '
+        'zh-CN': '可通过 <code>string-mode</code> 设置高精度模式，当 JS 默认的 Number 不满足数字的长度与精度需求时。'
       },
       codeFiles: ['string-mode.vue']
     },
     {
       demoId: 'filter-mode',
       name: {
-        'zh-CN': '过滤器模式',
-        'en-US': 'Filter Mode'
+        'zh-CN': '过滤器模式'
       },
       desc: {
         'zh-CN':
-          '通过<code> shape="filter" </code>属性设置切换过滤器模式，过滤器模式下可传入<code>title</code>显示标题，<code>tip</code>显示提示信息，<code>clearable</code>是否显示清除按钮，默认值为<code>true</code>。<code>blank</code>属性将过滤器背景设置为透明。',
-        'en-US':
-          'Set the <code>shape="filter"</code> attribute to switch the filter mode. In the filter mode, you can transfer the <code>title</code> to display the title and <code>tip</code> to display the prompt. <code>clearable</code>Indicates whether to display the Clear button. The default value is <code>true</code>.<code>blank</code> property sets the filter background to transparent.'
+          '通过<code> shape="filter" </code>属性设置切换过滤器模式，过滤器模式下可传入<code>title</code>显示标题，<code>tip</code>显示提示信息，<code>clearable</code>是否显示清除按钮，默认值为<code>true</code>。<code>blank</code>属性将过滤器背景设置为透明。'
       },
       codeFiles: ['filter-mode.vue']
     },
     {
       demoId: 'filter-mode-change',
       name: {
-        'zh-CN': '过滤器模式 change 事件',
-        'en-US': 'Filter Mode'
+        'zh-CN': '过滤器模式 change 事件'
       },
       desc: {
         'zh-CN':
-          '通过<code>filter</code>属性展示筛选框，<code>filter-change</code>事件筛选框选择触发，过滤器模式下点击关闭图标，触发<code>clear</code>事件。',
-        'en-US':
-          'The <code>filter</code> attribute is used to display the filter box. Select Trigger in the <code>filter-change</code> event filter box. In filter mode, click the close icon to trigger the <code>clear</code> event.'
+          '通过<code>filter</code>属性展示筛选框，<code>filter-change</code>事件筛选框选择触发，过滤器模式下点击关闭图标，触发<code>clear</code>事件。'
       },
       codeFiles: ['filter-mode-change.vue']
     }

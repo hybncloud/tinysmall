@@ -10,8 +10,7 @@ export default {
           type: 'number',
           defaultValue: '',
           desc: {
-            'zh-CN': '指定日期，配合 year、month 使用',
-            'en-US': 'Specify the date, used with year and month'
+            'zh-CN': '指定日期，配合 year、month 使用'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'basic-usage',
@@ -22,8 +21,7 @@ export default {
           type: 'Array',
           defaultValue: '',
           desc: {
-            'zh-CN': '配置时间线模式下所展示的时间范围，默认为 [8,18]，可配范围 [0,23]。',
-            'en-US': ''
+            'zh-CN': '配置时间线模式下所展示的时间范围，默认为 [8,18]，可配范围 [0,23]。'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'calendar-timeline-range',
@@ -34,8 +32,7 @@ export default {
           type: '() => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '日期禁用',
-            'en-US': ''
+            'zh-CN': '日期禁用'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'calendar-disabled-day',
@@ -46,8 +43,7 @@ export default {
           type: 'Array',
           defaultValue: '',
           desc: {
-            'zh-CN': '日程事件',
-            'en-US': ''
+            'zh-CN': '日程事件'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'calendar-event',
@@ -58,8 +54,7 @@ export default {
           type: 'string | number',
           defaultValue: '',
           desc: {
-            'zh-CN': '日历高度',
-            'en-US': ''
+            'zh-CN': '日历高度'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: '',
@@ -70,8 +65,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '点标记的颜色',
-            'en-US': ''
+            'zh-CN': '点标记的颜色'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'calendar-day-mark',
@@ -82,8 +76,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '显示模式，可选值有 timeline-时间线模式、schedule-日程模式、month-月模式，默认为月模式。',
-            'en-US': ''
+            'zh-CN': '显示模式，可选值有 timeline-时间线模式、schedule-日程模式、month-月模式，默认为月模式。'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'calendar-mode',
@@ -94,8 +87,7 @@ export default {
           type: 'Array',
           defaultValue: '',
           desc: {
-            'zh-CN': '模式组，显示模式任意组合',
-            'en-US': ''
+            'zh-CN': '模式组，显示模式任意组合'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'calendar-mode',
@@ -106,8 +98,7 @@ export default {
           type: 'number',
           defaultValue: '',
           desc: {
-            'zh-CN': '日历当前显示月份',
-            'en-US': ''
+            'zh-CN': '日历当前显示月份'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'basic-usage',
@@ -118,8 +109,7 @@ export default {
           type: 'boolean',
           defaultValue: '',
           desc: {
-            'zh-CN': '日期多选',
-            'en-US': ''
+            'zh-CN': '日期多选'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'multi-select',
@@ -131,8 +121,7 @@ export default {
           defaultValue: '',
           desc: {
             'zh-CN':
-              '设置日期背景色，使用函数返回颜色值时，返回十六进制、rgb、rgba 是自定义颜色，使用颜色名则是预设颜色',
-            'en-US': ''
+              '设置日期背景色，使用函数返回颜色值时，返回十六进制、rgb、rgba 是自定义颜色，使用颜色名则是预设颜色'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'custom-day-bg-color',
@@ -143,8 +132,7 @@ export default {
           type: '() => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '显示点标记',
-            'en-US': ''
+            'zh-CN': '显示点标记'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'calendar-day-mark',
@@ -155,8 +143,7 @@ export default {
           type: '() => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '显示新增日程按钮',
-            'en-US': ''
+            'zh-CN': '显示新增日程按钮'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'basic-usage',
@@ -167,8 +154,7 @@ export default {
           type: 'Boolean',
           defaultValue: 'true',
           desc: {
-            'zh-CN': '显示日程 tips 时间',
-            'en-US': 'Show schedule tips time'
+            'zh-CN': '显示日程 tips 时间'
           },
           meta: {
             stable: '3.23.0'
@@ -181,8 +167,7 @@ export default {
           type: 'String',
           defaultValue: '',
           desc: {
-            'zh-CN': '绑定值，默认为空',
-            'en-US': ''
+            'zh-CN': '绑定值，默认为空'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -192,8 +177,7 @@ export default {
           type: 'number',
           defaultValue: '',
           desc: {
-            'zh-CN': '日历当前显示年份',
-            'en-US': ''
+            'zh-CN': '日历当前显示年份'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'basic-usage',
@@ -204,8 +188,7 @@ export default {
           type: 'boolean',
           defaultValue: 'true',
           desc: {
-            'zh-CN': '是否展示左上侧按钮显示，默认展示',
-            'en-US': 'Should the upper left button be displayed, Default Display'
+            'zh-CN': '是否展示左上侧按钮显示，默认展示'
           },
           meta: {
             stable: '3.25.0'
@@ -219,8 +202,7 @@ export default {
         {
           name: 'month-change',
           desc: {
-            'zh-CN': '月改变事件',
-            'en-US': ''
+            'zh-CN': '月改变事件'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'calendar-event',
@@ -229,8 +211,7 @@ export default {
         {
           name: 'new-schedule',
           desc: {
-            'zh-CN': '新增日程按钮点击事件',
-            'en-US': ''
+            'zh-CN': '新增日程按钮点击事件'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'calendar-schedule-slot',
@@ -239,8 +220,7 @@ export default {
         {
           name: 'next-week-click',
           desc: {
-            'zh-CN': '下一周按钮点击事件',
-            'en-US': ''
+            'zh-CN': '下一周按钮点击事件'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'calendar-event',
@@ -249,8 +229,7 @@ export default {
         {
           name: 'prev-week-click',
           desc: {
-            'zh-CN': '上一周按钮点击事件',
-            'en-US': ''
+            'zh-CN': '上一周按钮点击事件'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'calendar-event',
@@ -259,8 +238,7 @@ export default {
         {
           name: 'selected-date-change',
           desc: {
-            'zh-CN': '选中日期改变事件',
-            'en-US': ''
+            'zh-CN': '选中日期改变事件'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'multi-select',
@@ -269,8 +247,7 @@ export default {
         {
           name: 'date-click',
           desc: {
-            'zh-CN': '日期点击事件，回调参数为当前点击日期和日程事件',
-            'en-US': 'Date click event, The callback parameters are the current click date and schedule event'
+            'zh-CN': '日期点击事件，回调参数为当前点击日期和日程事件'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'calendar-event',
@@ -282,8 +259,7 @@ export default {
         {
           name: 'week-change',
           desc: {
-            'zh-CN': '周改变事件',
-            'en-US': ''
+            'zh-CN': '周改变事件'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'calendar-event',
@@ -292,8 +268,7 @@ export default {
         {
           name: 'year-change',
           desc: {
-            'zh-CN': '年改变事件',
-            'en-US': ''
+            'zh-CN': '年改变事件'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'calendar-event',
@@ -305,8 +280,7 @@ export default {
         {
           name: 'header',
           desc: {
-            'zh-CN': '头部插槽',
-            'en-US': ''
+            'zh-CN': '头部插槽'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'calendar-schedule-slot',
@@ -315,8 +289,7 @@ export default {
         {
           name: 'timeline',
           desc: {
-            'zh-CN': '时间线插槽，有 timeline1-timeline7 7 个插槽',
-            'en-US': ''
+            'zh-CN': '时间线插槽，有 timeline1-timeline7 7 个插槽'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'calendar-schedule-slot',
@@ -325,8 +298,7 @@ export default {
         {
           name: 'tool',
           desc: {
-            'zh-CN': '工具栏插槽',
-            'en-US': ''
+            'zh-CN': '工具栏插槽'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'calendar-schedule-slot',
@@ -335,8 +307,7 @@ export default {
         {
           name: 'weekday',
           desc: {
-            'zh-CN': '日程插槽，有 weekday1-weekday7 7 个插槽',
-            'en-US': ''
+            'zh-CN': '日程插槽，有 weekday1-weekday7 7 个插槽'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'calendar-schedule-slot',

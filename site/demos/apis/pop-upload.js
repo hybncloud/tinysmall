@@ -10,8 +10,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '接受上传的文件类型',
-            'en-US': 'File type to be uploaded'
+            'zh-CN': '接受上传的文件类型'
           },
           mode: ['pc'],
           pcDemo: 'file-type'
@@ -21,8 +20,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '必选参数，设置上传的地址',
-            'en-US': 'This parameter is mandatory and specifies the upload address.'
+            'zh-CN': '必选参数，设置上传的地址'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage'
@@ -34,9 +32,7 @@ export default {
           defaultValue: '',
           desc: {
             'zh-CN':
-              '删除文件之间的钩子函数，若返回 false 或者返回 Promise 且被 reject，则取消删除，反之则执行删除；入参为点击删除的文件信息',
-            'en-US':
-              'Delete the hook function between files. If it returns false or Promise and is rejected, cancel the deletion. Otherwise, execute the deletion; Enter the file information that was deleted by clicking on the input parameter'
+              '删除文件之间的钩子函数，若返回 false 或者返回 Promise 且被 reject，则取消删除，反之则执行删除；入参为点击删除的文件信息'
           },
           mode: ['pc'],
           pcDemo: 'prevent-delete-file'
@@ -48,9 +44,7 @@ export default {
           defaultValue: '',
           desc: {
             'zh-CN':
-              '上传文件之前的钩子，若返回 false 或者返回 Promise 且被 reject，则停止上传，反之则继续上传；入参为上传的文件信息',
-            'en-US':
-              'If the hook before uploading the file returns false or Promise and is rejected, the upload will be stopped. Otherwise, the upload will continue; Enter the uploaded file information as input'
+              '上传文件之前的钩子，若返回 false 或者返回 Promise 且被 reject，则停止上传，反之则继续上传；入参为上传的文件信息'
           },
           mode: ['pc'],
           pcDemo: 'before-upload'
@@ -60,8 +54,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '设置文件上传弹框中取消按钮的文本；默认为 取消',
-            'en-US': 'Set the text of the Cancel button in the file upload dialog box. The default value is Cancel'
+            'zh-CN': '设置文件上传弹框中取消按钮的文本；默认为 取消'
           },
           mode: ['pc'],
           pcDemo: 'fill-button-text'
@@ -72,8 +65,7 @@ export default {
           type: 'ICustomObject',
           defaultValue: '',
           desc: {
-            'zh-CN': '上传时附带的额外参数',
-            'en-US': 'Extra parameters attached during upload'
+            'zh-CN': '上传时附带的额外参数'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage'
@@ -83,8 +75,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '设置文件上传弹框的标题;默认为 文件上传',
-            'en-US': 'Set the title of the file upload dialog box. The default value is file upload'
+            'zh-CN': '设置文件上传弹框的标题;默认为 文件上传'
           },
           mode: ['pc'],
           pcDemo: 'fill-button-text'
@@ -94,8 +85,7 @@ export default {
           type: 'boolean',
           defaultValue: '',
           desc: {
-            'zh-CN': '是否禁用;默认为 false',
-            'en-US': 'Whether to disable; The default value is false'
+            'zh-CN': '是否禁用;默认为 false'
           },
           mode: ['pc'],
           pcDemo: 'size'
@@ -106,8 +96,7 @@ export default {
           type: 'ICustomObject',
           defaultValue: '',
           desc: {
-            'zh-CN': '设置上传的请求头部',
-            'en-US': 'Set the upload request header'
+            'zh-CN': '设置上传的请求头部'
           },
           mode: ['pc'],
           pcDemo: 'custom-request-headers'
@@ -117,8 +106,7 @@ export default {
           type: '() => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '覆盖默认的上传行为，可以自定义上传的实现',
-            'en-US': 'Overwrite the default upload behavior. You can customize the upload implementation.'
+            'zh-CN': '覆盖默认的上传行为，可以自定义上传的实现'
           },
           mode: ['pc'],
           pcDemo: 'http-request'
@@ -128,8 +116,7 @@ export default {
           type: 'number',
           defaultValue: '',
           desc: {
-            'zh-CN': '最大允许上传个数',
-            'en-US': 'Maximum number of files that can be uploaded'
+            'zh-CN': '最大允许上传个数'
           },
           mode: ['pc'],
           pcDemo: 'file-limit'
@@ -139,8 +126,7 @@ export default {
           type: 'number',
           defaultValue: '',
           desc: {
-            'zh-CN': '最大上传文件大小',
-            'en-US': 'Maximum size of files to be uploaded'
+            'zh-CN': '最大上传文件大小'
           },
           mode: ['pc'],
           pcDemo: 'file-type'
@@ -150,8 +136,7 @@ export default {
           type: 'boolean',
           defaultValue: '',
           desc: {
-            'zh-CN': '是否支持多选文件',
-            'en-US': 'Specifies whether multiple files can be selected.'
+            'zh-CN': '是否支持多选文件'
           },
           mode: ['pc'],
           pcDemo: 'file-limit'
@@ -161,8 +146,7 @@ export default {
           type: `'large' | 'medium' | 'small' | 'mini'`,
           defaultValue: '',
           desc: {
-            'zh-CN': '设置组件大小',
-            'en-US': 'Set the component size'
+            'zh-CN': '设置组件大小'
           },
           mode: ['pc'],
           pcDemo: 'size'
@@ -172,9 +156,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '设置文件上传弹框中提交按钮的文本;默认为 开始上传',
-            'en-US':
-              'Set the text of the Submit button in the file upload dialog box. The default value is Start uploading'
+            'zh-CN': '设置文件上传弹框中提交按钮的文本;默认为 开始上传'
           },
           mode: ['pc'],
           pcDemo: 'fill-button-text'
@@ -184,8 +166,7 @@ export default {
           type: 'string',
           defaultValue: "'选择文件'",
           desc: {
-            'zh-CN': '打开弹出框的按钮的文本配置属性',
-            'en-US': 'Text configuration attribute of the button for opening a dialog box'
+            'zh-CN': '打开弹出框的按钮的文本配置属性'
           },
           mode: ['pc'],
           pcDemo: 'fill-button-text'
@@ -195,8 +176,7 @@ export default {
           type: 'Array',
           defaultValue: '',
           desc: {
-            'zh-CN': "对上传文件进行校验的类型，比如 ['.png', '.jpg']",
-            'en-US': "Type of the uploaded file to be verified, for example, ['.png', '.jpg']"
+            'zh-CN': "对上传文件进行校验的类型，比如 ['.png', '.jpg']"
           },
           mode: ['pc'],
           pcDemo: 'file-type'
@@ -206,8 +186,7 @@ export default {
           type: 'string',
           defaultValue: "'file'",
           desc: {
-            'zh-CN': '上传的文件字段名',
-            'en-US': 'Field name of the uploaded file'
+            'zh-CN': '上传的文件字段名'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage'
@@ -217,8 +196,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '支持发送 cookie 凭证信息',
-            'en-US': 'Cookie credential information can be sent.'
+            'zh-CN': '支持发送 cookie 凭证信息'
           },
           mode: ['pc'],
           pcDemo: 'custom-request-headers'
@@ -231,8 +209,7 @@ export default {
           type: '(file: IFile) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '文件上传失败时触发的事件； file 为当前上传失败文件信息',
-            'en-US': 'Event triggered when file upload fails; file is the current upload failure file information'
+            'zh-CN': '文件上传失败时触发的事件； file 为当前上传失败文件信息'
           },
           mode: ['pc'],
           pcDemo: 'upload-events'
@@ -243,8 +220,7 @@ export default {
           type: '(files: File | File[], fileList: IFile[]) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '文件超出个数限制时触发的事件； files 为上传的文件',
-            'en-US': 'Event triggered when the number of files exceeds the limit; Files are uploaded files'
+            'zh-CN': '文件超出个数限制时触发的事件； files 为上传的文件'
           },
           mode: ['pc'],
           pcDemo: 'upload-events'
@@ -255,8 +231,7 @@ export default {
           type: '(file: IFile) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '文件上传时触发的事件',
-            'en-US': 'Event triggered during file upload'
+            'zh-CN': '文件上传时触发的事件'
           },
           mode: ['pc'],
           pcDemo: 'upload-events'
@@ -267,9 +242,7 @@ export default {
           type: '(file: IFile, fileList: IFile[]) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '从文件列表移除文件时触发的事件； file 为当前移除的文件信息',
-            'en-US':
-              'Event triggered when removing a file from the file list; File is the information of the currently removed file'
+            'zh-CN': '从文件列表移除文件时触发的事件； file 为当前移除的文件信息'
           },
           mode: ['pc'],
           pcDemo: 'upload-events'
@@ -280,9 +253,7 @@ export default {
           type: '(res: ProgressEvent, file: IFile) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '文件上传成功时触发的事件； res 为上传成功后的响应信息事件对象，file 为当前上传的文件',
-            'en-US':
-              'Event triggered when the file is successfully uploaded; Res is the response information event object after successful upload'
+            'zh-CN': '文件上传成功时触发的事件； res 为上传成功后的响应信息事件对象，file 为当前上传的文件'
           },
           mode: ['pc'],
           pcDemo: 'upload-events'
@@ -294,8 +265,7 @@ export default {
           name: 'uploadTip',
           defaultValue: '',
           desc: {
-            'zh-CN': '自定义上传提示内容',
-            'en-US': 'Customize upload prompt content'
+            'zh-CN': '自定义上传提示内容'
           },
           meta: {
             stable: '3.18.0'

@@ -10,8 +10,7 @@ export default {
           type: "'up' | 'left' | 'down' | 'right'",
           defaultValue: "'left'",
           desc: {
-            'zh-CN': '滚动的方向',
-            'en-US': 'Scrolling direction'
+            'zh-CN': '滚动的方向'
           },
           mode: ['pc'],
           pcDemo: 'scroll-direction'
@@ -21,8 +20,7 @@ export default {
           type: 'boolean',
           defaultValue: 'true',
           desc: {
-            'zh-CN': 'hover 滚动是否停止',
-            'en-US': 'Whether to stop scrolling.'
+            'zh-CN': 'hover 滚动是否停止'
           },
           mode: ['pc'],
           pcDemo: 'hover-stop'
@@ -32,8 +30,7 @@ export default {
           type: 'string',
           defaultValue: "'ScrollText'",
           desc: {
-            'zh-CN': '滚动的文本内容',
-            'en-US': 'Scrolled text content'
+            'zh-CN': '滚动的文本内容'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage'
@@ -43,8 +40,7 @@ export default {
           type: 'number',
           defaultValue: '5',
           desc: {
-            'zh-CN': '整个滚动过程所用的时间',
-            'en-US': 'Time taken for scrolling'
+            'zh-CN': '整个滚动过程所用的时间'
           },
           mode: ['pc'],
           pcDemo: 'scroll-time'
@@ -57,8 +53,7 @@ export default {
           name: 'default',
           defaultValue: '',
           desc: {
-            'zh-CN': '默认插槽，滚动的内容的插槽',
-            'en-US': 'Default slot, the slot for scrolling content'
+            'zh-CN': '默认插槽，滚动的内容的插槽'
           },
           mode: ['pc'],
           pcDemo: 'custom-scroll-text'

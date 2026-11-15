@@ -10,8 +10,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '内容可清空',
-            'en-US': 'The counter can be cleared'
+            'zh-CN': '内容可清空'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'allow-empty',
@@ -22,8 +21,7 @@ export default {
           type: 'any',
           defaultValue: 'undefined',
           desc: {
-            'zh-CN': '设置计数器在可清空下，清空后组件的绑定值',
-            'en-US': 'Sets the bound value of the cleared component when the counter can be cleared.'
+            'zh-CN': '设置计数器在可清空下，清空后组件的绑定值'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'empty-value',
@@ -34,8 +32,7 @@ export default {
           type: 'boolean',
           defaultValue: 'true',
           desc: {
-            'zh-CN': '过滤器背景设置为透明，默认值为true',
-            'en-US': 'The filter background is set to transparent. The default value is true.'
+            'zh-CN': '过滤器背景设置为透明，默认值为true'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'filter-mode',
@@ -46,8 +43,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '向上到达最大值后，是否从最小值开始，或反过来',
-            'en-US': 'When the maximum value is reached, start from the minimum value, or vice versa'
+            'zh-CN': '向上到达最大值后，是否从最小值开始，或反过来'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'max-min',
@@ -58,8 +54,7 @@ export default {
           type: 'boolean',
           defaultValue: 'true',
           desc: {
-            'zh-CN': '是否使用加减按钮',
-            'en-US': 'Whether to use the control button'
+            'zh-CN': '是否使用加减按钮'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'controls',
@@ -70,8 +65,7 @@ export default {
           type: "'' | 'right'",
           defaultValue: '',
           desc: {
-            'zh-CN': '加减按钮位置，可选值为 right，表示加减按钮均位于最右侧',
-            'en-US': 'Control button position; The optional value of this attribute is right'
+            'zh-CN': '加减按钮位置，可选值为 right，表示加减按钮均位于最右侧'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'controls',
@@ -82,8 +76,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '禁用',
-            'en-US': 'Whether to disable the counter'
+            'zh-CN': '禁用'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'dynamic-disabled',
@@ -94,8 +87,7 @@ export default {
           type: 'boolean',
           defaultValue: '',
           desc: {
-            'zh-CN': '设置只读态',
-            'en-US': ''
+            'zh-CN': '设置只读态'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -106,9 +98,7 @@ export default {
           type: 'INumericFormat',
           defaultValue: '',
           desc: {
-            'zh-CN': '数字格式化置项',
-            'en-US':
-              "For the specific configuration of the digital formatting entry, refer to the <a href='#INumericFormat'>property description</a>"
+            'zh-CN': '数字格式化置项'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'precision',
@@ -119,8 +109,7 @@ export default {
           type: 'boolean',
           defaultValue: '',
           desc: {
-            'zh-CN': '隐藏单位',
-            'en-US': ''
+            'zh-CN': '隐藏单位'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -130,8 +119,7 @@ export default {
           type: 'boolean',
           defaultValue: '',
           desc: {
-            'zh-CN': '精度细化，默认值为 true ',
-            'en-US': ''
+            'zh-CN': '精度细化，默认值为 true '
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -141,8 +129,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '组件 arial-label 属性取值',
-            'en-US': 'The value of arial-label attribute'
+            'zh-CN': '组件 arial-label 属性取值'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: '',
@@ -153,9 +140,7 @@ export default {
           type: 'number',
           defaultValue: 'Infinity',
           desc: {
-            'zh-CN': '规定组件可输入的最大数值，指定合法值的范围，支持整数和小数',
-            'en-US':
-              'Maximum value that can be entered in a component to create a valid value range. Integers and decimals are supported'
+            'zh-CN': '规定组件可输入的最大数值，指定合法值的范围，支持整数和小数'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'max-min',
@@ -166,9 +151,7 @@ export default {
           type: 'number',
           defaultValue: '-Infinity',
           desc: {
-            'zh-CN': '规定组件可输入的最小数值，指定合法值的范围，支持整数和小数',
-            'en-US':
-              'Specify the minimum value that can be entered for a component to create a valid value range. Integers and decimals are supported'
+            'zh-CN': '规定组件可输入的最小数值，指定合法值的范围，支持整数和小数'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'max-min',
@@ -179,8 +162,7 @@ export default {
           type: 'boolean',
           defaultValue: '',
           desc: {
-            'zh-CN': '在配置了精度情况下，是否对v-model绑字值进行精度截取，配为false时，精度仅用来作展示',
-            'en-US': ''
+            'zh-CN': '在配置了精度情况下，是否对v-model绑字值进行精度截取，配为false时，精度仅用来作展示'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -190,8 +172,7 @@ export default {
           type: 'boolean',
           defaultValue: 'true',
           desc: {
-            'zh-CN': '鼠标滚动滑轮是否改变数值',
-            'en-US': 'Whether to change the value of the scroll wheel'
+            'zh-CN': '鼠标滚动滑轮是否改变数值'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'mouse-wheel',
@@ -202,8 +183,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '原生属性',
-            'en-US': 'Native attribute'
+            'zh-CN': '原生属性'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: '',
@@ -214,8 +194,7 @@ export default {
           type: 'string',
           defaultValue: "''",
           desc: {
-            'zh-CN': '输入框内的提示占位文本',
-            'en-US': 'Set the placeholder text in the text box'
+            'zh-CN': '输入框内的提示占位文本'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'basic-usage',
@@ -226,8 +205,7 @@ export default {
           type: 'Function',
           defaultValue: '',
           desc: {
-            'zh-CN': '高精度的数据在IE下需要Bignumberjs兼容',
-            'en-US': ''
+            'zh-CN': '高精度的数据在IE下需要Bignumberjs兼容'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -237,8 +215,7 @@ export default {
           type: 'number',
           defaultValue: '',
           desc: {
-            'zh-CN': '数值精度',
-            'en-US': 'Numeric precision'
+            'zh-CN': '数值精度'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'precision',
@@ -249,8 +226,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': "设置输入的shape='filter,切换至过滤器模式'",
-            'en-US': "Set Input Shape = 'Filter'"
+            'zh-CN': "设置输入的shape='filter,切换至过滤器模式'"
           },
           mode: ['pc'],
           pcDemo: 'filter-mode'
@@ -260,8 +236,7 @@ export default {
           type: 'boolean',
           defaultValue: 'true',
           desc: {
-            'zh-CN': '设置左对齐',
-            'en-US': 'Set Left Alignment'
+            'zh-CN': '设置左对齐'
           },
           mode: ['pc'],
           pcDemo: 'controls'
@@ -271,8 +246,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '计数器尺寸，该属性的可选值为 medium | small | mini',
-            'en-US': 'Counter size,The optional values of this attribute are medium | small | mini'
+            'zh-CN': '计数器尺寸，该属性的可选值为 medium | small | mini'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'numeric-size',
@@ -287,8 +261,7 @@ export default {
             stable: '3.20.0'
           },
           desc: {
-            'zh-CN': '步长',
-            'en-US': 'Increment or decrement value each time'
+            'zh-CN': '步长'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'about-step',
@@ -299,8 +272,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否只能输入 step 的倍数',
-            'en-US': 'Whether to enter only multiples of step'
+            'zh-CN': '是否只能输入 step 的倍数'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'about-step',
@@ -311,8 +283,7 @@ export default {
           type: 'boolean',
           defaultValue: '',
           desc: {
-            'zh-CN': '严格控制输入，包含合法性输入与小数点长度验证，不允许输入超过精度设置',
-            'en-US': ''
+            'zh-CN': '严格控制输入，包含合法性输入与小数点长度验证，不允许输入超过精度设置'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -322,8 +293,7 @@ export default {
           type: 'boolean',
           defaultValue: '',
           desc: {
-            'zh-CN': '使用字符串模式，精度超过JS限制时使用',
-            'en-US': ''
+            'zh-CN': '使用字符串模式，精度超过JS限制时使用'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -333,8 +303,7 @@ export default {
           type: 'boolean',
           defaultValue: '',
           desc: {
-            'zh-CN': 'Numeric组件的 tabindex ',
-            'en-US': ''
+            'zh-CN': 'Numeric组件的 tabindex '
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -344,8 +313,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '数值的单位。在设置单位时，加减按钮将不可用',
-            'en-US': 'Unit of measurement. When setting the unit, the increase and decrease buttons will be disabled'
+            'zh-CN': '数值的单位。在设置单位时，加减按钮将不可用'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'unit',
@@ -356,8 +324,7 @@ export default {
           type: 'boolean',
           defaultValue: '',
           desc: {
-            'zh-CN': '配置unit属性后，设置输入框内的数字是否居中显示，默认值为 false',
-            'en-US': ''
+            'zh-CN': '配置unit属性后，设置输入框内的数字是否居中显示，默认值为 false'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -367,8 +334,7 @@ export default {
           type: 'number',
           defaultValue: '0',
           desc: {
-            'zh-CN': '设置输入组件的默认值，默认为 0',
-            'en-US': 'Set the default value of the input component. The default value is 0'
+            'zh-CN': '设置输入组件的默认值，默认为 0'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'basic-usage',
@@ -379,9 +345,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '设置除加减按钮及直接输入数值之外，值改变后是否触发change事件',
-            'en-US':
-              'Set whether to trigger the change event after the value is changed, except for the plus and minus buttons and direct input of values.'
+            'zh-CN': '设置除加减按钮及直接输入数值之外，值改变后是否触发change事件'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'change-event',
@@ -392,8 +356,7 @@ export default {
           type: 'boolean',
           defaultValue: '',
           desc: {
-            'zh-CN': '验证事件，默认值为true',
-            'en-US': ''
+            'zh-CN': '验证事件，默认值为true'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -403,8 +366,7 @@ export default {
           type: 'boolean',
           defaultValue: '',
           desc: {
-            'zh-CN': '使用字符串模式，精度超过JS限制时使用',
-            'en-US': ''
+            'zh-CN': '使用字符串模式，精度超过JS限制时使用'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'string-mode',
@@ -415,9 +377,7 @@ export default {
           type: '(value:string)=>string',
           defaultValue: '',
           desc: {
-            'zh-CN': '自定义输入值解析函数，优先级较高。当输入字符以及粘贴时，会调用该函数进行解析。',
-            'en-US':
-              'custom input value parsing function with high priority.This function is called for parsing when input characters are entered or pasted'
+            'zh-CN': '自定义输入值解析函数，优先级较高。当输入字符以及粘贴时，会调用该函数进行解析。'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'parse-input',
@@ -433,8 +393,7 @@ export default {
           type: '(event: FocusEvent) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '组件失去焦点时触发的回调函数',
-            'en-US': 'The callback function triggered when a component loses focus'
+            'zh-CN': '组件失去焦点时触发的回调函数'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'blur-event',
@@ -445,8 +404,7 @@ export default {
           type: '(newVal: number | undefined, oldVal: number | undefined) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '组件的值变化时触发的回调函数',
-            'en-US': 'The callback function triggered when the value of a component changes'
+            'zh-CN': '组件的值变化时触发的回调函数'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'change-event',
@@ -456,8 +414,7 @@ export default {
           name: 'filter-change',
           type: '(label) => void',
           desc: {
-            'zh-CN': '选择过滤器面板值的回调函数',
-            'en-US': 'Callback function for selecting filter panel values'
+            'zh-CN': '选择过滤器面板值的回调函数'
           },
           mode: ['pc'],
           pcDemo: 'filter-mode-change'
@@ -467,8 +424,7 @@ export default {
           type: '(event: FocusEvent) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '组件获得焦点时触发的回调函数',
-            'en-US': 'The callback function triggered when a component obtains the focus'
+            'zh-CN': '组件获得焦点时触发的回调函数'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'focus-event',
@@ -479,8 +435,7 @@ export default {
           type: '(event: InputEvent) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '输入值时触发事件',
-            'en-US': 'Trigger event when input value is entered '
+            'zh-CN': '输入值时触发事件'
           },
           mode: ['pc', 'mobile-first'],
           mfDemo: ''

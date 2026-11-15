@@ -11,9 +11,7 @@ export default {
           defaultValue: '',
           desc: {
             'zh-CN':
-              '限制文件类型（thumbnail-mode 模式下此参数无效）,支持<code> 后缀名（.pdf），MIME类型（image/png），MIME类型通配符（image/*）</code>, 多个格式以逗号分隔',
-            'en-US':
-              'Restrict the types of files. This parameter is invalid in thumbnail-mode mode, support <code>suffix (.pdf), MIME type (image/png), MIME type wildcard (image/*)</code>, separated by commas'
+              '限制文件类型（thumbnail-mode 模式下此参数无效）,支持<code> 后缀名（.pdf），MIME类型（image/png），MIME类型通配符（image/*）</code>, 多个格式以逗号分隔'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'accept-file-image',
@@ -24,8 +22,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '上传的地址，必填参数',
-            'en-US': 'The address for uploading files, required parameter'
+            'zh-CN': '上传的地址，必填参数'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'basic-usage',
@@ -36,8 +33,7 @@ export default {
           type: 'boolean',
           defaultValue: 'true',
           desc: {
-            'zh-CN': '是否在选取文件后立即进行上传',
-            'en-US': 'Whether to upload a file immediately after it is selected'
+            'zh-CN': '是否在选取文件后立即进行上传'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'manual-upload',
@@ -49,9 +45,7 @@ export default {
           defaultValue: '',
           desc: {
             'zh-CN':
-              '文件选择之前的钩子，若返回 false 或者返回 Promise 且被 reject，则停止添加文件。如果不用以上 2 种方式，也可以通过执行参数中的回调函数继续进行上传【3.13.0版本新增】',
-            'en-US':
-              'If false is returned or Promise is returned and rejected, the system stops adding files. If the preceding two methods are not used, you can continue the upload by executing the callback function in the parameter [Added in 3.13.0]'
+              '文件选择之前的钩子，若返回 false 或者返回 Promise 且被 reject，则停止添加文件。如果不用以上 2 种方式，也可以通过执行参数中的回调函数继续进行上传【3.13.0版本新增】'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'custom-prefix',
@@ -64,9 +58,7 @@ export default {
           defaultValue: '',
           desc: {
             'zh-CN':
-              '删除文件前的钩子，参数为上传的文件和文件列表，若返回 false 或者返回 Promise 且被 reject，则停止删除',
-            'en-US':
-              'Hook before deleting files. The parameters are the uploaded files and file list. If false is returned or Promise is returned and rejected, the deletion stops'
+              '删除文件前的钩子，参数为上传的文件和文件列表，若返回 false 或者返回 Promise 且被 reject，则停止删除'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'prevent-delete-file',
@@ -78,9 +70,7 @@ export default {
           type: '(file: IFile) => boolean | Promise',
           defaultValue: '',
           desc: {
-            'zh-CN': '上传文件之前的钩子，参数为上传的文件，若返回 false 或者返回 Promise 且被 reject，则停止上传',
-            'en-US':
-              'Hook before uploading a file. The parameter is the file to be uploaded. If false is returned or Promise is returned and rejected, the upload stops'
+            'zh-CN': '上传文件之前的钩子，参数为上传的文件，若返回 false 或者返回 Promise 且被 reject，则停止上传'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'before-upload-limit',
@@ -92,8 +82,7 @@ export default {
           defaultValue: '',
           desc: {
             'zh-CN':
-              '使用 EDM 时，可配置是否缓存token（存在多个file-upload时，若配置cache-token为false，token会调用多次。否则，只调用一次）',
-            'en-US': ''
+              '使用 EDM 时，可配置是否缓存token（存在多个file-upload时，若配置cache-token为false，token会调用多次。否则，只调用一次）'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -103,8 +92,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '自定义class',
-            'en-US': ''
+            'zh-CN': '自定义class'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -115,8 +103,7 @@ export default {
           type: 'IData',
           defaultValue: '',
           desc: {
-            'zh-CN': '上传时附带的额外参数，参数自定义',
-            'en-US': 'Extra parameters attached during upload, parameter customization'
+            'zh-CN': '上传时附带的额外参数，参数自定义'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'basic-usage',
@@ -127,8 +114,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否禁用',
-            'en-US': 'Is it disabled'
+            'zh-CN': '是否禁用'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'disabled',
@@ -139,8 +125,7 @@ export default {
           type: 'boolean',
           defaultValue: '',
           desc: {
-            'zh-CN': '文件上传模式，通过 display-only 设置组件是否只读',
-            'en-US': ''
+            'zh-CN': '文件上传模式，通过 display-only 设置组件是否只读'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -150,8 +135,7 @@ export default {
           type: 'Object',
           defaultValue: '',
           desc: {
-            'zh-CN': '配置 EDM 下载功能所需的参数,例如：edm:{download:{token:() =>{}}},token为鉴权token',
-            'en-US': ''
+            'zh-CN': '配置 EDM 下载功能所需的参数,例如：edm:{download:{token:() =>{}}},token为鉴权token'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -161,8 +145,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否启用拖拽上传',
-            'en-US': 'Whether to enable drag-and-drop upload'
+            'zh-CN': '是否启用拖拽上传'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'drag-upload',
@@ -173,8 +156,7 @@ export default {
           type: 'Object',
           defaultValue: '',
           desc: {
-            'zh-CN': '使用 EDM 的上传下载预览功能，可在该对象里边配置上传、下载、预览功能的参数',
-            'en-US': ''
+            'zh-CN': '使用 EDM 的上传下载预览功能，可在该对象里边配置上传、下载、预览功能的参数'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -185,8 +167,7 @@ export default {
           type: 'IEncryptConfig',
           defaultValue: '',
           desc: {
-            'zh-CN': '设置水印和加密弹窗',
-            'en-US': 'Setting the watermark and encryption pop-up window'
+            'zh-CN': '设置水印和加密弹窗'
           },
           mode: ['pc'],
           pcDemo: 'encrypt-config'
@@ -197,8 +178,7 @@ export default {
           type: 'IFileListItem[]',
           defaultValue: '',
           desc: {
-            'zh-CN': '上传的文件列表',
-            'en-US': 'List of uploaded files'
+            'zh-CN': '上传的文件列表'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'upload-file-list',
@@ -209,8 +189,7 @@ export default {
           type: 'Number | Array',
           defaultValue: '',
           desc: {
-            'zh-CN': '限制文件大小，单位为 KB；当为 Number 类型时，小于该值停止上传；为数组时[min,max] 设置上传范围',
-            'en-US': ''
+            'zh-CN': '限制文件大小，单位为 KB；当为 Number 类型时，小于该值停止上传；为数组时[min,max] 设置上传范围'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'file-size',
@@ -222,8 +201,7 @@ export default {
           type: 'IHeaders',
           defaultValue: '',
           desc: {
-            'zh-CN': '设置上传的请求头部;通过设置 headers 为头部请求信息',
-            'en-US': 'Set the upload request header. You can set headers to the header request information'
+            'zh-CN': '设置上传的请求头部;通过设置 headers 为头部请求信息'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'upload-request',
@@ -235,9 +213,7 @@ export default {
           typeAnchorName: 'ICustomParam',
           defaultValue: '',
           desc: {
-            'zh-CN': '覆盖默认的上传行为，可以自定义上传的实现; 由于 TinyVue 官网为 Mock 上传不能执行上传',
-            'en-US':
-              'Overwrite the default upload behavior. You can customize the upload implementation. The upload cannot be performed because the TinyVue official website uses Mock upload'
+            'zh-CN': '覆盖默认的上传行为，可以自定义上传的实现; 由于 TinyVue 官网为 Mock 上传不能执行上传'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'http-request',
@@ -248,8 +224,7 @@ export default {
           type: 'Object',
           defaultValue: '',
           desc: {
-            'zh-CN': '在we码小程序中，可配置 hwh5属性 进行原生的上传和下载',
-            'en-US': ''
+            'zh-CN': '在we码小程序中，可配置 hwh5属性 进行原生的上传和下载'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -259,9 +234,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '配置 `list-type` 等于 `picture-single` 或 `picture-card` 模式下图片的背景色。',
-            'en-US':
-              'Configure the background color of the image when `list-type` is set to `picture-single` or `picture-card`.'
+            'zh-CN': '配置 `list-type` 等于 `picture-single` 或 `picture-card` 模式下图片的背景色。'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -272,8 +245,7 @@ export default {
           defaultValue: '',
           desc: {
             'zh-CN':
-              '配置为 true,则在文件列表模式（show-file-list为true），hover文件名时，展示对应的文件路径，没有文件路径则只展示文件名',
-            'en-US': ''
+              '配置为 true,则在文件列表模式（show-file-list为true），hover文件名时，展示对应的文件路径，没有文件路径则只展示文件名'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -283,9 +255,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '达到最大上传个数时，是否隐藏上传按钮，默认不隐藏',
-            'en-US':
-              'Whether to hide the upload button when the number of uploaded files reaches the maximum. By default, the button is not hidden'
+            'zh-CN': '达到最大上传个数时，是否隐藏上传按钮，默认不隐藏'
           },
           mode: ['pc'],
           pcDemo: 'max-file-count'
@@ -296,8 +266,7 @@ export default {
           defaultValue: '',
           desc: {
             'zh-CN':
-              '配置为 true,启用 EDM 上传文件夹的功能，最多只能上传 5 层;{edm:upload:{isFolder:true,token:() =>{}}}',
-            'en-US': ''
+              '配置为 true,启用 EDM 上传文件夹的功能，最多只能上传 5 层;{edm:upload:{isFolder:true,token:() =>{}}}'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -307,8 +276,7 @@ export default {
           type: 'number',
           defaultValue: '',
           desc: {
-            'zh-CN': '最大允许上传个数',
-            'en-US': 'Maximum number of files that can be uploaded'
+            'zh-CN': '最大允许上传个数'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'max-file-count',
@@ -319,8 +287,7 @@ export default {
           type: 'Object',
           defaultValue: '',
           desc: {
-            'zh-CN': 'EDM文件列表模式下，配置更新和删除文件的功能',
-            'en-US': ''
+            'zh-CN': 'EDM文件列表模式下，配置更新和删除文件的功能'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -331,8 +298,7 @@ export default {
           type: 'IListType',
           defaultValue: "'text'",
           desc: {
-            'zh-CN': '文件列表的类型',
-            'en-US': 'File list type'
+            'zh-CN': '文件列表的类型'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'upload-file-list-thumb',
@@ -343,9 +309,7 @@ export default {
           type: 'number',
           defaultValue: '20',
           desc: {
-            'zh-CN': '列表项的文件名最大字符数，默认超出20个字符隐藏',
-            'en-US':
-              'The maximum number of characters in the file name of a list item, which is hidden if it exceeds 20 characters by default'
+            'zh-CN': '列表项的文件名最大字符数，默认超出20个字符隐藏'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'paste-upload',
@@ -356,9 +320,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '配置 merge-service 为 true 且开启多文件上传走默认服务会将多个上传服务合并为一个服务上传',
-            'en-US':
-              'If merge-service is set to true and multiple files are uploaded using the default service, multiple upload services are combined into one service'
+            'zh-CN': '配置 merge-service 为 true 且开启多文件上传走默认服务会将多个上传服务合并为一个服务上传'
           },
           mode: ['pc'],
           pcDemo: ''
@@ -368,8 +330,7 @@ export default {
           type: 'boolean',
           defaultValue: '',
           desc: {
-            'zh-CN': '配置 mergeService 为true 且开启多文件上传走默认服务会将多个上传服务合并为一个服务上传',
-            'en-US': ''
+            'zh-CN': '配置 mergeService 为true 且开启多文件上传走默认服务会将多个上传服务合并为一个服务上传'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -379,8 +340,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '气泡上传，在 list-type 为默认值 text 时，设置 mode 为 bubble 时进行气泡模式的上传',
-            'en-US': ''
+            'zh-CN': '气泡上传，在 list-type 为默认值 text 时，设置 mode 为 bubble 时进行气泡模式的上传'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -390,8 +350,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否支持多选文件',
-            'en-US': 'Specifies whether multiple files can be selected'
+            'zh-CN': '是否支持多选文件'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'multiple-file',
@@ -402,8 +361,7 @@ export default {
           type: 'string',
           defaultValue: "'file'",
           desc: {
-            'zh-CN': '上传的文件字段名',
-            'en-US': 'Field name of the uploaded file'
+            'zh-CN': '上传的文件字段名'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'upload-file-list-slot',
@@ -414,8 +372,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否开启点击下载文件，默认不开启',
-            'en-US': 'Whether to enable file download by clicking. By default, this function is disabled'
+            'zh-CN': '是否开启点击下载文件，默认不开启'
           },
           mode: ['pc'],
           pcDemo: 'upload-file-list'
@@ -425,8 +382,7 @@ export default {
           type: 'Function',
           defaultValue: '',
           desc: {
-            'zh-CN': '配置 EDM 批量打包下载的 token；配置结构为 edm:{download:packageToken:() =>{}},返回一个 Promise',
-            'en-US': ''
+            'zh-CN': '配置 EDM 批量打包下载的 token；配置结构为 edm:{download:packageToken:() =>{}},返回一个 Promise'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -437,8 +393,7 @@ export default {
           defaultValue: '',
           desc: {
             'zh-CN':
-              "配置 EDM 单文件下载参数白名单（默认会携带docId，wmType，docVersion）,若需携带其他参数，需配置paramsWhitelist，例如：edm:{download:{paramsWhitelist: ['paramA', 'paramB']}},",
-            'en-US': ''
+              "配置 EDM 单文件下载参数白名单（默认会携带docId，wmType，docVersion）,若需携带其他参数，需配置paramsWhitelist，例如：edm:{download:{paramsWhitelist: ['paramA', 'paramB']}},"
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -448,8 +403,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否启用粘贴键快捷上传功能【3.11.0版本新增】',
-            'en-US': 'Is the paste key quick upload function enabled [New in version 3.11.0]'
+            'zh-CN': '是否启用粘贴键快捷上传功能【3.11.0版本新增】'
           },
           mode: ['pc'],
           pcDemo: 'paste-upload'
@@ -460,8 +414,7 @@ export default {
           defaultValue: '',
           desc: {
             'zh-CN':
-              "配置 EDM 预览功能所需的参数,例如：edm:{preview:{plugin：util.default,previewUrl:./_index.html?appid=应用Id,packageName: 'jslib',token:() =>{}}}",
-            'en-US': ''
+              "配置 EDM 预览功能所需的参数,例如：edm:{preview:{plugin：util.default,previewUrl:./_index.html?appid=应用Id,packageName: 'jslib',token:() =>{}}}"
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -471,8 +424,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '设置提示是否为 tip 类型，悬浮图标时显示 tip 提示',
-            'en-US': 'Set whether the prompt is of the tip type. The tip is displayed when the icon is suspended.'
+            'zh-CN': '设置提示是否为 tip 类型，悬浮图标时显示 tip 提示'
           },
           metaData: {
             new: '3.19.0'
@@ -486,9 +438,7 @@ export default {
           type: '(count: number) => string',
           defaultValue: '',
           desc: {
-            'zh-CN': '自定义重新上传的左侧提示文字，需要与 re-uploadable 搭配使用【3.12.0版本新增】',
-            'en-US':
-              'Customize the left prompt for re uploading, which needs to be used in conjunction with re-uploadable [added in version 3.12.0]'
+            'zh-CN': '自定义重新上传的左侧提示文字，需要与 re-uploadable 搭配使用【3.12.0版本新增】'
           },
           mode: ['pc'],
           pcDemo: 'custom-upload-tip'
@@ -498,8 +448,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否启用重新上传功能【3.12.0版本新增】',
-            'en-US': 'Is the re upload function enabled [New in version 3.12.0]'
+            'zh-CN': '是否启用重新上传功能【3.12.0版本新增】'
           },
           mode: ['pc'],
           pcDemo: 'custom-upload-tip'
@@ -509,8 +458,7 @@ export default {
           type: 'boolean',
           defaultValue: 'true',
           desc: {
-            'zh-CN': '是否显示已上传文件列表',
-            'en-US': 'Whether to display the list of uploaded files'
+            'zh-CN': '是否显示已上传文件列表'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'upload-file-list',
@@ -521,8 +469,7 @@ export default {
           type: 'boolean',
           defaultValue: '',
           desc: {
-            'zh-CN': '上传请求参数，默认为 false',
-            'en-US': ''
+            'zh-CN': '上传请求参数，默认为 false'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -532,8 +479,7 @@ export default {
           type: 'boolean',
           defaultValue: '',
           desc: {
-            'zh-CN': '配置 show-title 为 false 隐藏标题，默认为 true',
-            'en-US': ''
+            'zh-CN': '配置 show-title 为 false 隐藏标题，默认为 true'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -543,8 +489,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '数据源类型',
-            'en-US': ''
+            'zh-CN': '数据源类型'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -555,8 +500,7 @@ export default {
           type: 'IThumbOption',
           defaultValue: '',
           desc: {
-            'zh-CN': '文件列表的显示类型为 thumb 时的相关配置',
-            'en-US': 'Related configurations when the display type of the file list is thumb'
+            'zh-CN': '文件列表的显示类型为 thumb 时的相关配置'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'upload-file-list-thumb',
@@ -567,8 +511,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '通过 title 可自定义标题',
-            'en-US': ''
+            'zh-CN': '通过 title 可自定义标题'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -578,8 +521,7 @@ export default {
           type: 'Function',
           defaultValue: '',
           desc: {
-            'zh-CN': '使用 EDM 上传下载预览所需的token,返回值为 Promise',
-            'en-US': ''
+            'zh-CN': '使用 EDM 上传下载预览所需的token,返回值为 Promise'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -589,8 +531,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': 'EDM 需要更新文档的 docId',
-            'en-US': ''
+            'zh-CN': 'EDM 需要更新文档的 docId'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -600,8 +541,7 @@ export default {
           type: 'Object',
           defaultValue: '',
           desc: {
-            'zh-CN': '配置 EDM 上传功能所需的参数,例如：edm:{upload:{token:() =>{}}}',
-            'en-US': ''
+            'zh-CN': '配置 EDM 上传功能所需的参数,例如：edm:{upload:{token:() =>{}}}'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -611,8 +551,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '支持发送 cookie 凭证信息',
-            'en-US': 'Cookie credential information can be sent'
+            'zh-CN': '支持发送 cookie 凭证信息'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'upload-request',
@@ -626,9 +565,7 @@ export default {
           type: '(file: IFile, fileList: IFile[]) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '文件状态改变时触发的事件，添加文件、上传成功和上传失败时都会被触发',
-            'en-US':
-              'The event triggered when the file status changes, including adding a file, successfully uploading, and failing to upload, will be triggered'
+            'zh-CN': '文件状态改变时触发的事件，添加文件、上传成功和上传失败时都会被触发'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'upload-events',
@@ -639,8 +576,7 @@ export default {
           type: 'function(arg1, arg2)',
           defaultValue: '',
           desc: {
-            'zh-CN': '文件下载时触发的事件',
-            'en-US': ''
+            'zh-CN': '文件下载时触发的事件'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -651,9 +587,7 @@ export default {
           type: '(file: IFile) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '拖拽文件失败时触发的事件，开启拖拽时有效； file 为上传失败文件信息',
-            'en-US':
-              'Event triggered when dragging a file fails, effective when dragging is enabled; File is the information of the failed upload file'
+            'zh-CN': '拖拽文件失败时触发的事件，开启拖拽时有效； file 为上传失败文件信息'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'drag-upload',
@@ -666,9 +600,7 @@ export default {
           defaultValue: '',
           desc: {
             'zh-CN':
-              '文件上传失败时触发的事件； message 为错误信息事件对象，file 为当前上传失败文件信息，fileList 为上传成功 file 数组',
-            'en-US':
-              'Event triggered when file upload fails; Message is the error message event object, file is the current upload failure file information, and fileList is the upload success file array'
+              '文件上传失败时触发的事件； message 为错误信息事件对象，file 为当前上传失败文件信息，fileList 为上传成功 file 数组'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'upload-events',
@@ -680,8 +612,7 @@ export default {
           type: '(files: File | File[], fileList: IFile[]) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '文件超出个数限制时触发的事件； files 为上传的文件',
-            'en-US': 'Event triggered when the number of files exceeds the limit; Files are uploaded files'
+            'zh-CN': '文件超出个数限制时触发的事件； files 为上传的文件'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'upload-events',
@@ -692,8 +623,7 @@ export default {
           type: '(percentage: number) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '文件上传生成 hash 值触发的事件； percentage 为生成的进度值',
-            'en-US': 'Event triggered by file upload to generate hash value; percentage is the generated progress value'
+            'zh-CN': '文件上传生成 hash 值触发的事件； percentage 为生成的进度值'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'upload-events',
@@ -705,8 +635,7 @@ export default {
           type: '(file: IFile) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '点击文件列表中已上传的文件时触发的事件',
-            'en-US': 'Event triggered when clicking on an uploaded file in the file list'
+            'zh-CN': '点击文件列表中已上传的文件时触发的事件'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'upload-events',
@@ -718,8 +647,7 @@ export default {
           type: '(message: ProgressEvent, file: IFile) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '文件上传时触发的事件； message 为进度条事件对象',
-            'en-US': 'Event triggered during file upload; Message is the progress bar event object'
+            'zh-CN': '文件上传时触发的事件； message 为进度条事件对象'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'upload-events',
@@ -731,9 +659,7 @@ export default {
           type: '(file: IFile) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '从文件列表移除文件时触发的事件； file 为当前移除的文件信息',
-            'en-US':
-              'Event triggered when removing a file from the file list; File is the information of the currently removed file'
+            'zh-CN': '从文件列表移除文件时触发的事件； file 为当前移除的文件信息'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'upload-events',
@@ -746,9 +672,7 @@ export default {
           defaultValue: '',
           desc: {
             'zh-CN':
-              '文件上传成功时触发的事件； res 为上传成功后的响应信息事件对象，file 为当前上传的文件，fileList 为所有上传文件数组',
-            'en-US':
-              'Event triggered when the file is successfully uploaded; Res is the response information event object after successful upload, file is the current uploaded file, and fileList is an array of all uploaded files'
+              '文件上传成功时触发的事件； res 为上传成功后的响应信息事件对象，file 为当前上传的文件，fileList 为所有上传文件数组'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'upload-events',
@@ -761,8 +685,7 @@ export default {
           type: '() => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '取消上传请求',
-            'en-US': 'Cancel the upload request'
+            'zh-CN': '取消上传请求'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'abort-quest',
@@ -773,8 +696,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': 'edm 取消下载请求',
-            'en-US': ''
+            'zh-CN': 'edm 取消下载请求'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -784,8 +706,7 @@ export default {
           type: '() => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '清空已上传的文件列表（该方法不支持在 before-upload 中调用）',
-            'en-US': 'Clear the list of uploaded files. (This method cannot be invoked in before-upload)'
+            'zh-CN': '清空已上传的文件列表（该方法不支持在 before-upload 中调用）'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'clear-files',
@@ -796,8 +717,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '下载 EDM 文件',
-            'en-US': ''
+            'zh-CN': '下载 EDM 文件'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -807,8 +727,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '预览 EDM 文件预览的 Url，返回值为 Promise',
-            'en-US': ''
+            'zh-CN': '预览 EDM 文件预览的 Url，返回值为 Promise'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -818,8 +737,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '预览 EDM 文件',
-            'en-US': ''
+            'zh-CN': '预览 EDM 文件'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -829,8 +747,7 @@ export default {
           type: '() => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '手动上传文件列表',
-            'en-US': 'List of manually uploaded files'
+            'zh-CN': '手动上传文件列表'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'manual-upload',
@@ -843,8 +760,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '定义文件显示内容',
-            'en-US': 'Custom File Display Content'
+            'zh-CN': '定义文件显示内容'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'upload-file-list-slot',
@@ -855,8 +771,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '提示说明文字',
-            'en-US': 'Prompt Description'
+            'zh-CN': '提示说明文字'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'custom-upload-tip',
@@ -867,8 +782,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '触发文件选择框的内容',
-            'en-US': 'Content of the triggering file selection box'
+            'zh-CN': '触发文件选择框的内容'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'custom-trigger',

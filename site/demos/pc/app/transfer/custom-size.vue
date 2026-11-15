@@ -41,7 +41,7 @@
 
 <script setup lang="jsx">
 import { ref } from 'vue'
-import { TinyTransfer, TinyTable, TinyTree } from '@hybncloud/tinysmall'
+import { TinyTransfer, TinyTree } from '@hybncloud/tinysmall'
 
 const generateData = () => {
   const data = []
@@ -147,7 +147,7 @@ const treeConfig = ref({
 
 // grid 示例
 const renderGrid = ref({
-  plugin: TinyTable
+  plugin: null
 })
 const gridValue = ref(['5', '6', '10'])
 const gridData = ref(getGridData())

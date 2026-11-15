@@ -10,8 +10,7 @@ export default {
           type: 'number',
           defaultValue: '-1',
           desc: {
-            'zh-CN': '当前步骤索引，从0开始计数',
-            'en-US': 'Current step index and count from 0'
+            'zh-CN': '当前步骤索引，从0开始计数'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'advanced-steps',
@@ -22,8 +21,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否开启高级向导模式',
-            'en-US': 'Enable Advanced Wizard Mode'
+            'zh-CN': '是否开启高级向导模式'
           },
           mode: ['mobile-first', 'pc'],
           pcDemo: 'advanced-steps',
@@ -34,8 +32,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '使步骤条内容默认居中显示',
-            'en-US': 'Make the step bar content appear centered by default'
+            'zh-CN': '使步骤条内容默认居中显示'
           },
           meta: {
             stable: '3.22.0'
@@ -49,8 +46,7 @@ export default {
           type: 'string',
           defaultValue: "'count'",
           desc: {
-            'zh-CN': '条形步骤条里徽标计数对应的字段名',
-            'en-US': 'Custom field name corresponding to logo count in bar steps'
+            'zh-CN': '条形步骤条里徽标计数对应的字段名'
           },
           mode: ['pc'],
           pcDemo: 'custom-steps-item'
@@ -61,8 +57,7 @@ export default {
           type: 'IStepsItem[]',
           defaultValue: '[]',
           desc: {
-            'zh-CN': '步骤条的数据',
-            'en-US': 'data of steps'
+            'zh-CN': '步骤条的数据'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'line-horizontal',
@@ -73,8 +68,7 @@ export default {
           type: 'String',
           defaultValue: 'description',
           desc: {
-            'zh-CN': '描述字段',
-            'en-US': 'Description field'
+            'zh-CN': '描述字段'
           },
           mode: ['mobile-first']
         },
@@ -86,8 +80,7 @@ export default {
             stable: '3.19.0'
           },
           desc: {
-            'zh-CN': '点状形步骤条，当值只支持垂直样式',
-            'en-US': 'Dot shaped step bar, values only support vertical style'
+            'zh-CN': '点状形步骤条，当值只支持垂直样式'
           },
           mode: ['pc'],
           pcDemo: 'line-dot'
@@ -97,8 +90,7 @@ export default {
           type: 'number',
           defaultValue: '300',
           desc: {
-            'zh-CN': '节点滚动的持续时间（单位 ms），仅高级向导模式有效',
-            'en-US': 'time of node scrolling(unit: ms), only apply for advanced mode'
+            'zh-CN': '节点滚动的持续时间（单位 ms），仅高级向导模式有效'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'duration',
@@ -109,8 +101,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '节点是否自适应宽度',
-            'en-US': 'responsible node width'
+            'zh-CN': '节点是否自适应宽度'
           },
           mode: ['pc'],
           pcDemo: 'node-width'
@@ -124,9 +115,7 @@ export default {
           },
           desc: {
             'zh-CN':
-              '步骤条块的内联样式，数据类型为{ [statusName: string]: styleObject },，不同状态可根据key值差异化配置， key值为status字段的值，value值为对应节点的样式对象',
-            'en-US':
-              'Customize the inline style of step blocks, with data type {[statusName: string]: styleObject}. Different states can be configured differently based on key values, where the key value is the value of the status field and the value value is the style object of the corresponding node'
+              '步骤条块的内联样式，数据类型为{ [statusName: string]: styleObject },，不同状态可根据key值差异化配置， key值为status字段的值，value值为对应节点的样式对象'
           },
           mode: ['mobile-first']
         },
@@ -135,8 +124,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '通过 line 设置横向单链型步骤条',
-            'en-US': 'Set horizontal single chain step bar through line'
+            'zh-CN': '通过 line 设置横向单链型步骤条'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage'
@@ -146,8 +134,7 @@ export default {
           type: 'string',
           defaultValue: "'name'",
           desc: {
-            'zh-CN': '节点名称对应的字段名',
-            'en-US': 'Field name corresponds to  name of node'
+            'zh-CN': '节点名称对应的字段名'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'custom-steps-item',
@@ -159,8 +146,7 @@ export default {
           defaultValue: '',
           desc: {
             'zh-CN':
-              '添加属性 no-arrow 隐藏左右箭头，在 PC 端按住 shift+鼠标滚轮 进行节点左右滚动，移动端触屏左右滑动即可，仅开启 advanced 高级向导模式有效',
-            'en-US': ''
+              '添加属性 no-arrow 隐藏左右箭头，在 PC 端按住 shift+鼠标滚轮 进行节点左右滚动，移动端触屏左右滑动即可，仅开启 advanced 高级向导模式有效'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -171,8 +157,7 @@ export default {
           defaultValue: '',
           desc: {
             'zh-CN':
-              'line 单链型模式支持 mini、small、medium、large 4 种尺寸，默认值为 medium。advanced 高级向导模式支持 medium、large 2 种尺寸，默认值为 medium',
-            'en-US': ''
+              'line 单链型模式支持 mini、small、medium、large 4 种尺寸，默认值为 medium。advanced 高级向导模式支持 medium、large 2 种尺寸，默认值为 medium'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -182,9 +167,7 @@ export default {
           type: 'string | number',
           defaultValue: '',
           desc: {
-            'zh-CN': '节点宽度, 可取值数字、带长度单位数值与百分比，传数字则默认以 px 为长度单位',
-            'en-US':
-              'Node width can be set to numeric values, values with length units, or percentages. Numeric values will default to using pixels as the length unit'
+            'zh-CN': '节点宽度, 可取值数字、带长度单位数值与百分比，传数字则默认以 px 为长度单位'
           },
           mode: ['pc'],
           pcDemo: 'node-width'
@@ -194,8 +177,7 @@ export default {
           type: 'string',
           defaultValue: "'status'",
           desc: {
-            'zh-CN': '数据状态对应的字段名，用于条形步骤条',
-            'en-US': 'Field name corresponding to data status, used for bar steps '
+            'zh-CN': '数据状态对应的字段名，用于条形步骤条'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'custom-steps-item',
@@ -206,8 +188,7 @@ export default {
           type: 'Boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否开启垂直单链型',
-            'en-US': 'Indicates whether to enable the vertical single chain mode.'
+            'zh-CN': '是否开启垂直单链型'
           },
           mode: ['mobile-first'],
           mfDemo: 'vertical'
@@ -217,8 +198,7 @@ export default {
           type: 'Number',
           defaultValue: '5',
           desc: {
-            'zh-CN': '控制信息可见的节点数，默认可见5个',
-            'en-US': 'Control the number of visible nodes for information, with a default of 5 visible nodes'
+            'zh-CN': '控制信息可见的节点数，默认可见5个'
           },
           mode: ['mobile-first', 'pc'],
           pcDemo: 'line-horizontal',
@@ -231,8 +211,7 @@ export default {
           type: '(index: number, node: <a href="#IStepsItem">IStepsItem</a>) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '节点点击事件，参数：<li>index: 点击节点的索引</li><li>node：点击节点的数据</li>',
-            'en-US': 'Node click event. Parameter: (index: node index, node: node data information)'
+            'zh-CN': '节点点击事件，参数：<li>index: 点击节点的索引</li><li>node：点击节点的数据</li>'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'click',
@@ -246,8 +225,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '滚动块底部插槽，仅开启 advanced 高级向导模式有效',
-            'en-US': ''
+            'zh-CN': '滚动块底部插槽，仅开启 advanced 高级向导模式有效'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -260,8 +238,7 @@ export default {
             stable: '3.27.0'
           },
           desc: {
-            'zh-CN': '单链型圆形节点插槽',
-            'en-US': 'Single chain circular node slot'
+            'zh-CN': '单链型圆形节点插槽'
           },
           mode: ['pc'],
           pcDemo: 'slot-icon',
@@ -272,8 +249,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '步骤条数据项插槽，用于条形步骤条',
-            'en-US': 'Step bar data item slot, used for bar steps'
+            'zh-CN': '步骤条数据项插槽，用于条形步骤条'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'slot-item',
@@ -284,8 +260,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '步骤条数据项底部插槽，用于条形步骤条',
-            'en-US': 'Step bar data item bottom slot, used for bar steps'
+            'zh-CN': '步骤条数据项底部插槽，用于条形步骤条'
           },
           meta: {
             stable: '3.19.0'
@@ -299,8 +274,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '前置插槽，仅开启 advanced 高级向导模式有效',
-            'en-US': ''
+            'zh-CN': '前置插槽，仅开启 advanced 高级向导模式有效'
           },
           mode: ['mobile-first'],
           mfDemo: ''

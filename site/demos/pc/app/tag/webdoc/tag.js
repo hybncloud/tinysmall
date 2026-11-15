@@ -7,19 +7,13 @@ export default {
     {
       demoId: 'basic-usage',
       name: {
-        'zh-CN': '基本用法',
-        'en-US': 'Basic Usage'
+        'zh-CN': '基本用法'
       },
       desc: {
         'zh-CN': `
           通过默认插槽，可以将文字和图标显示为一个标签。 <br>
           通过 <code>value</code> 属性，也可以设置标签值。 <br>
           通过 <code>only-icon</code> 属性，设置标签只有图标。
-        `,
-        'en-US': `
-          Through the default slot, text and ICONS can be displayed as a label. <br>
-          Tag values can also be set using the <code>value</code> property. <br>
-          Use the <code>only-icon</code> property to set the label to only ICONS.
         `
       },
       codeFiles: ['basic-usage.vue']
@@ -27,22 +21,18 @@ export default {
     {
       demoId: 'effect',
       name: {
-        'zh-CN': '主题',
-        'en-US': 'Subject'
+        'zh-CN': '主题'
       },
       desc: {
         'zh-CN':
-          '通过 <code>effect</code> 设置主题，可选值： <code>(dark / light / plain)</code> ； <code>type</code> 设置类型，可选值： <code>(success / info / warning / danger / alerting / error)</code> 。',
-        'en-US':
-          'Set the theme through <code>effect</code> , with optional values: <code>(dark/light/plain)</code> ; <code>type</code> Set the type, optional values: <code>(success/info/warning/danger/alerting/error)</code> .'
+          '通过 <code>effect</code> 设置主题，可选值： <code>(dark / light / plain)</code> ； <code>type</code> 设置类型，可选值： <code>(success / info / warning / danger / alerting / error)</code> 。'
       },
       codeFiles: ['effect.vue']
     },
     {
       demoId: 'color-border',
       name: {
-        'zh-CN': '其它颜色',
-        'en-US': 'Other Color'
+        'zh-CN': '其它颜色'
       },
       desc: {
         'zh-CN': `
@@ -52,14 +42,6 @@ export default {
         <div class="tip custom-block">
           避免同时使用  <code>color</code> 和  <code>type</code>\ <code>effect</code>属性！
         </div>
-        `,
-        'en-US': `
-          Use <code>color</code> to set the color. You can use the preset value or customize the color value.<br>
-          When the custom color value is a string, only the background color can be set; <br>
-          If it is an array, the first value is the background color, and the second value is the text color. <br>
-          <div class="tip custom-block">
-            Avoid using both <code>color</code> and <code>type</code>\ <code>effect</code> properties!
-          </div>
         `
       },
       codeFiles: ['color-border.vue']
@@ -67,87 +49,71 @@ export default {
     {
       demoId: 'size',
       name: {
-        'zh-CN': '尺寸',
-        'en-US': 'Size'
+        'zh-CN': '尺寸'
       },
       desc: {
-        'zh-CN': '通过 <code>size</code> 设置尺寸大小，可选值： <code>(medium / small)</code> 。',
-        'en-US': 'Set the size through <code>size</code> , with optional values: <code>(medium/small)</code> .'
+        'zh-CN': '通过 <code>size</code> 设置尺寸大小，可选值： <code>(medium / small)</code> 。'
       },
       codeFiles: ['size.vue']
     },
     {
       demoId: 'max-width',
       name: {
-        'zh-CN': '最大宽度',
-        'en-US': 'Max width'
+        'zh-CN': '最大宽度'
       },
       desc: {
-        'zh-CN': '通过 <code>maxWidth</code> 设置最大宽度 。',
-        'en-US': 'Set the maxWidth through <code>maxWidth</code>.'
+        'zh-CN': '通过 <code>maxWidth</code> 设置最大宽度 。'
       },
       codeFiles: ['max-width.vue']
     },
     {
       demoId: 'disabled',
       name: {
-        'zh-CN': '禁用',
-        'en-US': 'Disabled'
+        'zh-CN': '禁用'
       },
       desc: {
-        'zh-CN': '通过 <code>disabled</code> 设置禁用。',
-        'en-US': 'You can set <code>disabled</code> to disable. '
+        'zh-CN': '通过 <code>disabled</code> 设置禁用。'
       },
       codeFiles: ['disabled.vue']
     },
     {
       demoId: 'delete',
       name: {
-        'zh-CN': '删除操作',
-        'en-US': 'Delete'
+        'zh-CN': '删除操作'
       },
       desc: {
         'zh-CN':
-          '通过 <code>closable</code> 设置展示关闭按钮， <code>before-delete</code> 设置删除前的操作，可以在此钩子中做提示或确认；<code>close</code> 监听关闭按钮点击事件，做删除操作。',
-        'en-US':
-          'Set the display close button through<code>close</code>, and<code>before-delete</code>to set the operation before deletion, which can be prompted or confirmed in this hook< Code>close</code>Listen to the close button click event and perform the deletion operation.'
+          '通过 <code>closable</code> 设置展示关闭按钮， <code>before-delete</code> 设置删除前的操作，可以在此钩子中做提示或确认；<code>close</code> 监听关闭按钮点击事件，做删除操作。'
       },
       codeFiles: ['delete.vue']
     },
     {
       demoId: 'slot-default',
       name: {
-        'zh-CN': '默认插槽',
-        'en-US': 'Default slot'
+        'zh-CN': '默认插槽'
       },
       desc: {
-        'zh-CN': '通过 <code>default</code> 默认插槽自定义标签内容，生成图标标签。',
-        'en-US':
-          'Generate icon labels by customizing the label content for the default slot through <code>default</code> .'
+        'zh-CN': '通过 <code>default</code> 默认插槽自定义标签内容，生成图标标签。'
       },
       codeFiles: ['slot-default.vue']
     },
     {
       demoId: 'tag-event-click',
       name: {
-        'zh-CN': '点击事件',
-        'en-US': 'Click Event'
+        'zh-CN': '点击事件'
       },
       desc: {
-        'zh-CN': '通过 <code>click</code> 监听点击事件。',
-        'en-US': 'Listen for click events through <code>click</code> .'
+        'zh-CN': '通过 <code>click</code> 监听点击事件。'
       },
       codeFiles: ['tag-event-click.vue']
     },
     {
       demoId: 'rounded',
       name: {
-        'zh-CN': '圆角标签',
-        'en-US': 'Set rounded corner label'
+        'zh-CN': '圆角标签'
       },
       desc: {
-        'zh-CN': '通过使用 <code>round</code> 属性设置圆角标签。',
-        'en-US': 'Set the rounded corners by using the <code>round</code> property.'
+        'zh-CN': '通过使用 <code>round</code> 属性设置圆角标签。'
       },
       codeFiles: ['rounded.vue']
     }

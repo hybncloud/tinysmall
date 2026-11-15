@@ -10,8 +10,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否默认聚焦',
-            'en-US': 'Whether to focus by default'
+            'zh-CN': '是否默认聚焦'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'autofocus',
@@ -22,8 +21,7 @@ export default {
           type: 'boolean',
           defaultValue: '',
           desc: {
-            'zh-CN': '设置通栏按钮',
-            'en-US': ''
+            'zh-CN': '设置通栏按钮'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -33,8 +31,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否圆形按钮',
-            'en-US': 'Round button'
+            'zh-CN': '是否圆形按钮'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: '',
@@ -45,8 +42,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '设置 custom-class 属性定制按钮样式',
-            'en-US': 'Set the custom-class attribute to customize the button style'
+            'zh-CN': '设置 custom-class 属性定制按钮样式'
           },
           mode: ['mobile-first'],
           mfDemo: 'button-class'
@@ -56,8 +52,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否被禁用按钮',
-            'en-US': 'Sets whether the button is disabled'
+            'zh-CN': '是否被禁用按钮'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'dynamic-disabled',
@@ -68,8 +63,7 @@ export default {
           type: 'object',
           defaultValue: '',
           desc: {
-            'zh-CN': '设置 custom-style 属性按钮样式',
-            'en-US': 'Set the custom-style attribute to customize the button style'
+            'zh-CN': '设置 custom-style 属性按钮样式'
           },
           meta: {
             stable: '3.25.0'
@@ -83,8 +77,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否幽灵按钮',
-            'en-US': 'Is ghost button'
+            'zh-CN': '是否幽灵按钮'
           },
           mode: ['pc'],
           pcDemo: 'ghost'
@@ -94,8 +87,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '通过设置 href 属性可跳转到指定页面',
-            'en-US': 'Set the href attribute to jump to a specified page'
+            'zh-CN': '通过设置 href 属性可跳转到指定页面'
           },
           mode: ['mobile-first'],
           mfDemo: 'link'
@@ -105,8 +97,7 @@ export default {
           type: 'Component',
           defaultValue: '',
           desc: {
-            'zh-CN': '按钮左侧展示的图标，接收为<code>Icon</code>组件',
-            'en-US': 'The icon displayed by the button is received as an <code>Icon</code> component'
+            'zh-CN': '按钮左侧展示的图标，接收为<code>Icon</code>组件'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'icon',
@@ -117,8 +108,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否加载中状态',
-            'en-US': 'Loading status'
+            'zh-CN': '是否加载中状态'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'loading',
@@ -129,8 +119,7 @@ export default {
           type: "'button' | 'submit' | 'reset'",
           defaultValue: "'button'",
           desc: {
-            'zh-CN': '对应按钮原生<code>type</code>属性',
-            'en-US': 'Set the button native <code>type</code> attribute'
+            'zh-CN': '对应按钮原生<code>type</code>属性'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: '',
@@ -141,8 +130,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否朴素按钮',
-            'en-US': 'Simple button'
+            'zh-CN': '是否朴素按钮'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'basic-usage',
@@ -153,8 +141,7 @@ export default {
           type: 'number',
           defaultValue: '1000',
           desc: {
-            'zh-CN': '设置按钮禁用时间，防止重复提交，单位毫秒',
-            'en-US': 'Set the button disable time, in milliseconds, to prevent repeated submission'
+            'zh-CN': '设置按钮禁用时间，防止重复提交，单位毫秒'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'reset-time',
@@ -165,8 +152,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否圆角按钮',
-            'en-US': 'Whether to round the corner button'
+            'zh-CN': '是否圆角按钮'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'basic-usage',
@@ -177,8 +163,7 @@ export default {
           type: "'large' | 'medium' | 'small' | 'mini'",
           defaultValue: '',
           desc: {
-            'zh-CN': '定义按钮尺寸',
-            'en-US': 'Define the button size'
+            'zh-CN': '定义按钮尺寸'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'size',
@@ -189,8 +174,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '按钮显示的文本',
-            'en-US': 'Set the text displayed by the button'
+            'zh-CN': '按钮显示的文本'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'text',
@@ -202,8 +186,7 @@ export default {
           type: 'IButtonType',
           defaultValue: "'default'",
           desc: {
-            'zh-CN': '展示按钮不同的状态，设置为<code>text</code>则展示为文本按钮',
-            'en-US': 'Display different states of buttons, set to <code>text</code> to display as text buttons'
+            'zh-CN': '展示按钮不同的状态，设置为<code>text</code>则展示为文本按钮'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'basic-usage',
@@ -216,8 +199,7 @@ export default {
           type: '(event: PointEvent) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '当按钮被点击时触发的回调函数',
-            'en-US': 'Sets the callback function triggered when a button is clicked'
+            'zh-CN': '当按钮被点击时触发的回调函数'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'click',
@@ -231,8 +213,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '默认插槽，自定义按钮展示内容',
-            'en-US': 'Default slot'
+            'zh-CN': '默认插槽，自定义按钮展示内容'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'image',

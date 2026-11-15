@@ -10,8 +10,7 @@ export default {
           type: '(close: () => void) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '删除前回调函数',
-            'en-US': 'Delete callback function before deletion'
+            'zh-CN': '删除前回调函数'
           },
           mode: ['pc'],
           pcDemo: 'delete'
@@ -21,8 +20,7 @@ export default {
           type: 'boolean',
           defaultValue: '',
           desc: {
-            'zh-CN': '是否设置圆角标签',
-            'en-US': 'Whether to set the rounded corner label'
+            'zh-CN': '是否设置圆角标签'
           },
           mode: ['pc', 'mobile-first'],
           meta: {
@@ -36,8 +34,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否可关闭',
-            'en-US': 'Can be disabled'
+            'zh-CN': '是否可关闭'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'delete',
@@ -50,9 +47,7 @@ export default {
           defaultValue: '',
           desc: {
             'zh-CN':
-              '控制标签文本色和背景色，可使用 IColor 类型中的预设值，也可自定义值，若自定义值为字符串则只能设置标签的背景色；若为数组则第一个值设置背景色，第二个设置文本色；【注：3.15.0新增支持数组类型】',
-            'en-US':
-              'Control the text color and background color of the label. You can use the preset value in the IColor type or customize the value. If the customized value is a character string, you can only set the background color of the label. If it is an array, the first value sets the background color and the second sets the text color. [Note: The array type is supported in 3.15.0]'
+              '控制标签文本色和背景色，可使用 IColor 类型中的预设值，也可自定义值，若自定义值为字符串则只能设置标签的背景色；若为数组则第一个值设置背景色，第二个设置文本色；【注：3.15.0新增支持数组类型】'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'color-border',
@@ -63,8 +58,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '标签class',
-            'en-US': 'Tag class'
+            'zh-CN': '标签class'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -74,8 +68,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '设置最大宽度',
-            'en-US': 'set max width'
+            'zh-CN': '设置最大宽度'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'max-width',
@@ -88,8 +81,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否禁用',
-            'en-US': 'Whether to disable'
+            'zh-CN': '是否禁用'
           },
           mode: ['pc'],
           pcDemo: 'disabled'
@@ -100,8 +92,7 @@ export default {
           type: 'IEffect',
           defaultValue: "'light'",
           desc: {
-            'zh-CN': '主题',
-            'en-US': 'Subject'
+            'zh-CN': '主题'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'effect',
@@ -112,8 +103,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否有边框',
-            'en-US': 'Whether there is a border stroke'
+            'zh-CN': '是否有边框'
           },
           mode: ['mobile-first'],
           pcDemo: 'color3',
@@ -124,8 +114,7 @@ export default {
           type: 'boolean',
           defaultValue: '',
           desc: {
-            'zh-CN': '是否可操作',
-            'en-US': 'Operable or Not'
+            'zh-CN': '是否可操作'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -135,8 +124,7 @@ export default {
           type: 'boolean',
           defaultValue: '',
           desc: {
-            'zh-CN': '是否可选择',
-            'en-US': ''
+            'zh-CN': '是否可选择'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -147,8 +135,7 @@ export default {
           type: 'ISize',
           defaultValue: '',
           desc: {
-            'zh-CN': '尺寸',
-            'en-US': 'Size'
+            'zh-CN': '尺寸'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'size',
@@ -160,8 +147,7 @@ export default {
           type: 'IType',
           defaultValue: '',
           desc: {
-            'zh-CN': '显示类型',
-            'en-US': 'Display type'
+            'zh-CN': '显示类型'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'effect',
@@ -172,8 +158,7 @@ export default {
           type: 'number | string',
           defaultValue: '',
           desc: {
-            'zh-CN': '配置式标签，自定义标签内容【3.9.1新增】',
-            'en-US': 'Configurable labels, custom label content [Added in 3.9.1]'
+            'zh-CN': '配置式标签，自定义标签内容【3.9.1新增】'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'basic-usage',
@@ -184,8 +169,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否为纯图标的模式【3.19新增】',
-            'en-US': 'Whether it is a pure icon mode [Added in 3.19]'
+            'zh-CN': '是否为纯图标的模式【3.19新增】'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'basic-usage',
@@ -198,8 +182,7 @@ export default {
           type: '(event: Event) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '点击标签时触发的事件',
-            'en-US': 'Event triggered when clicking on Tag'
+            'zh-CN': '点击标签时触发的事件'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'tag-event-click',
@@ -210,8 +193,7 @@ export default {
           type: '(event: Event)) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '点击关闭按钮时触发的事件',
-            'en-US': 'Event triggered when the close button is clicked'
+            'zh-CN': '点击关闭按钮时触发的事件'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'delete',
@@ -225,8 +207,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '标签内容',
-            'en-US': 'Label Content'
+            'zh-CN': '标签内容'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'slot-default',

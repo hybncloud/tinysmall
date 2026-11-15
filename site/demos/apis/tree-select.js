@@ -10,8 +10,7 @@ export default {
           type: 'string',
           defaultValue: "'off'",
           desc: {
-            'zh-CN': '输入框的原生 autocomplete 属性',
-            'en-US': 'The native autocomplete attribute of the input box'
+            'zh-CN': '输入框的原生 autocomplete 属性'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'native-properties',
@@ -22,8 +21,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '点击可展开或收起显示不全的选项。仅用于多选',
-            'en-US': 'Click to expand or collapse options. Only applicable to multiple selections'
+            'zh-CN': '点击可展开或收起显示不全的选项。仅用于多选'
           },
           pcDemo: 'collapse-tags'
         },
@@ -32,8 +30,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否将多个标签折叠显示。仅适用多选',
-            'en-US': 'Whether to collapse multiple labels for display. Only applicable to multiple selections'
+            'zh-CN': '是否将多个标签折叠显示。仅适用多选'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'collapse-tags',
@@ -44,9 +41,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否启用一键复制的功能。点击复制按钮一键复制所有标签的文本内容并以逗号分隔，仅适用于多选',
-            'en-US':
-              'Is the one click copy function enabled. Click the copy button to copy the text content of all labels with one click, separated by commas, only applicable to multiple selections'
+            'zh-CN': '是否启用一键复制的功能。点击复制按钮一键复制所有标签的文本内容并以逗号分隔，仅适用于多选'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'copy-multi',
@@ -57,8 +52,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否禁用',
-            'en-US': 'Is it disabled'
+            'zh-CN': '是否禁用'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'disabled',
@@ -69,8 +63,7 @@ export default {
           type: 'Component',
           defaultValue: '',
           desc: {
-            'zh-CN': '自定义下拉图标',
-            'en-US': 'Custom drop-down icon'
+            'zh-CN': '自定义下拉图标'
           },
           mode: ['pc'],
           pcDemo: 'multiple'
@@ -80,8 +73,7 @@ export default {
           type: 'String',
           defaultValue: '',
           desc: {
-            'zh-CN': '自定义下拉选项样式',
-            'en-US': 'Custom drop-down options style'
+            'zh-CN': '自定义下拉选项样式'
           },
           mode: ['pc'],
           pcDemo: 'multiple'
@@ -91,8 +83,7 @@ export default {
           type: "'input' | 'underline'",
           defaultValue: "'input'",
           desc: {
-            'zh-CN': '输入框的显示类型',
-            'en-US': 'Display type of input box'
+            'zh-CN': '输入框的显示类型'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'input-box-type',
@@ -103,9 +94,7 @@ export default {
           type: 'number',
           defaultValue: '1',
           desc: {
-            'zh-CN': '多行默认最大显示行数，超出后选项自动隐藏',
-            'en-US':
-              'Default maximum display lines for multiple lines, with automatic hiding option for exceeding lines'
+            'zh-CN': '多行默认最大显示行数，超出后选项自动隐藏'
           },
           mode: ['pc'],
           pcDemo: 'collapse-tags'
@@ -115,8 +104,7 @@ export default {
           type: 'string | number | Array<string|number>',
           defaultValue: '',
           desc: {
-            'zh-CN': '绑定值',
-            'en-US': 'Bind value'
+            'zh-CN': '绑定值'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage'
@@ -126,8 +114,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否允许选择多个选项',
-            'en-US': 'Allow multiple options to be selected'
+            'zh-CN': '是否允许选择多个选项'
           },
           mode: ['pc'],
           pcDemo: 'multiple'
@@ -137,8 +124,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '输入框的原生 name 属性',
-            'en-US': 'The native name attribute of the input box'
+            'zh-CN': '输入框的原生 name 属性'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'native-properties',
@@ -149,8 +135,7 @@ export default {
           type: 'string',
           defaultValue: "'请选择'",
           desc: {
-            'zh-CN': '占位符',
-            'en-US': 'Placeholder'
+            'zh-CN': '占位符'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'native-properties',
@@ -162,8 +147,7 @@ export default {
           type: 'IPlacement',
           defaultValue: "'bottom-start'",
           desc: {
-            'zh-CN': '下拉弹框相对于触发源的弹出位置',
-            'en-US': 'The pop-up position of the pull-down pop-up box relative to the trigger source'
+            'zh-CN': '下拉弹框相对于触发源的弹出位置'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'popup-style-position',
@@ -174,8 +158,7 @@ export default {
           type: 'boolean',
           defaultValue: 'true',
           desc: {
-            'zh-CN': '是否将弹出框的 dom 元素插入至 body 元素',
-            'en-US': 'Whether to insert the dom element of the pop-up box into the body element'
+            'zh-CN': '是否将弹出框的 dom 元素插入至 body 元素'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'popup-style-position',
@@ -186,8 +169,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '自定义下拉框的类名，用于自定义样式',
-            'en-US': 'The class name of the custom dropdown box, used for customizing styles'
+            'zh-CN': '自定义下拉框的类名，用于自定义样式'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'popup-style-position',
@@ -198,8 +180,7 @@ export default {
           type: "'medium' | 'small' | 'mini'",
           defaultValue: '',
           desc: {
-            'zh-CN': '输入框尺寸。',
-            'en-US': 'Text box size'
+            'zh-CN': '输入框尺寸。'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'size',
@@ -210,9 +191,7 @@ export default {
           type: "'success' | 'info' | 'warning' | 'danger'",
           defaultValue: '',
           desc: {
-            'zh-CN': '标签类型，仅多选适用。使用 aurora 主题时设置该属性为 info',
-            'en-US':
-              'Label type, only applicable for multiple choices. Set this property to info when using the aurora theme'
+            'zh-CN': '标签类型，仅多选适用。使用 aurora 主题时设置该属性为 info'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'tag-type',
@@ -223,8 +202,7 @@ export default {
           type: 'string',
           defaultValue: "'label'",
           desc: {
-            'zh-CN': '显示值字段',
-            'en-US': 'Show Value Fields'
+            'zh-CN': '显示值字段'
           },
           mode: ['pc'],
           pcDemo: 'map-field'
@@ -234,8 +212,7 @@ export default {
           type: 'string',
           defaultValue: "','",
           desc: {
-            'zh-CN': '自定义复制文本的分隔符，需结合 copyable 属性使用',
-            'en-US': 'The separator for custom copied text needs to be used in conjunction with the copyable attribute'
+            'zh-CN': '自定义复制文本的分隔符，需结合 copyable 属性使用'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'copy-multi',
@@ -247,9 +224,7 @@ export default {
           type: 'ITreeOption',
           defaultValue: '',
           desc: {
-            'zh-CN': '下拉树时，内置树组件的配置，用法同 Tree 组件。',
-            'en-US':
-              'When pulling down a tree, the configuration of the built-in tree component is the same as that of the Tree component. To be used in conjunction with the render type attribute'
+            'zh-CN': '下拉树时，内置树组件的配置，用法同 Tree 组件。'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage'
@@ -259,8 +234,7 @@ export default {
           type: 'string',
           defaultValue: "'value'",
           desc: {
-            'zh-CN': '绑定值字段',
-            'en-US': 'Bind Value Field'
+            'zh-CN': '绑定值字段'
           },
           mode: ['pc'],
           pcDemo: 'map-field'
@@ -270,8 +244,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否懒加载子节点，配合 load 属性使用',
-            'en-US': 'Whether to lazily load child nodes and use them in conjunction with the load attribute'
+            'zh-CN': '是否懒加载子节点，配合 load 属性使用'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'lazy',
@@ -283,9 +256,7 @@ export default {
           defaultValue: '',
           desc: {
             'zh-CN':
-              '加载子树数据的方法。点击节点后，组件开始调用load方法，只有在load函数内调用resolve(data)，才表示返回下级的数据成功。',
-            'en-US':
-              'Method of loading subtree data. After the node is clicked, the component starts to call the load method. Only when resolve(data) is called in the load function, the data at the lower level is successfully returned.'
+              '加载子树数据的方法。点击节点后，组件开始调用load方法，只有在load函数内调用resolve(data)，才表示返回下级的数据成功。'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'lazy',
@@ -296,8 +267,7 @@ export default {
           type: 'Function',
           defaultValue: '',
           desc: {
-            'zh-CN': '节点懒加载完成后的回调函数',
-            'en-US': 'Callback function after node lazy loading is completed'
+            'zh-CN': '节点懒加载完成后的回调函数'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'lazy',

@@ -10,8 +10,7 @@ export default {
           type: 'Boolean',
           defaultValue: '',
           desc: {
-            'zh-CN': '是否展示边框。默认为 false。在 split-button 属性为 false 时生效',
-            'en-US': ''
+            'zh-CN': '是否展示边框。默认为 false。在 split-button 属性为 false 时生效'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -21,8 +20,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否禁用',
-            'en-US': 'Is it disabled'
+            'zh-CN': '是否禁用'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'disabled',
@@ -33,8 +31,7 @@ export default {
           type: 'boolean',
           defaultValue: 'true',
           desc: {
-            'zh-CN': '点击菜单项后是否收起菜单。默认点击后收起',
-            'en-US': 'Whether to collapse the menu after clicking on the menu item. Collapse after clicking by default'
+            'zh-CN': '点击菜单项后是否收起菜单。默认点击后收起'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'hide-on-click',
@@ -45,9 +42,7 @@ export default {
           type: 'number',
           defaultValue: '150',
           desc: {
-            'zh-CN': '延时多久收起下拉菜单，单位毫秒。注意：仅在 trigger 为 hover 时有效',
-            'en-US':
-              'How long is the delay in retracting the pull-down menu, in milliseconds. Note: Only valid when trigger is hover'
+            'zh-CN': '延时多久收起下拉菜单，单位毫秒。注意：仅在 trigger 为 hover 时有效'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'trigger',
@@ -58,9 +53,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '下拉弹框的最小宽度是否继承触发源的宽度，默认不继承',
-            'en-US':
-              'Whether the minimum width of the dropdown pop-up inherit the width of the trigger source.It is not inherited by default'
+            'zh-CN': '下拉弹框的最小宽度是否继承触发源的宽度，默认不继承'
           },
           mode: ['pc'],
           pcDemo: 'inherit-width'
@@ -72,8 +65,7 @@ export default {
           defaultValue:
             '<pre>\n{\n  options:[],\n  textField:"label",\n  popperClass:"",\n  placement:"bottom-end"\n}\n</pre>',
           desc: {
-            'zh-CN': '配置式且只使用 tiny-dropdown 组件时使用',
-            'en-US': 'Used when configuring and only using the tiny dropdown component'
+            'zh-CN': '配置式且只使用 tiny-dropdown 组件时使用'
           },
           mode: ['pc'],
           pcDemo: 'options'
@@ -83,8 +75,7 @@ export default {
           type: 'Boolean',
           defaultValue: '',
           desc: {
-            'zh-CN': '是否展示圆角。默认为 false。在 border 属性为 true 时生效',
-            'en-US': ''
+            'zh-CN': '是否展示圆角。默认为 false。在 border 属性为 true 时生效'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -94,8 +85,7 @@ export default {
           type: 'boolean',
           defaultValue: 'true',
           desc: {
-            'zh-CN': '是否显示下拉触发源图标',
-            'en-US': 'Is the dropdown trigger source icon displayed'
+            'zh-CN': '是否显示下拉触发源图标'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'show-icon',
@@ -106,8 +96,7 @@ export default {
           type: 'Boolean',
           defaultValue: '',
           desc: {
-            'zh-CN': '更多图标下拉菜单。默认值：false',
-            'en-US': ''
+            'zh-CN': '更多图标下拉菜单。默认值：false'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -117,9 +106,7 @@ export default {
           type: 'number',
           defaultValue: '250',
           desc: {
-            'zh-CN': '延时多久展开下拉菜单，单位毫秒。注意：仅在 trigger 为 hover 时有效',
-            'en-US':
-              'How long is the delay to expand the drop-down menu, in milliseconds. Note: Only valid when trigger is hover'
+            'zh-CN': '延时多久展开下拉菜单，单位毫秒。注意：仅在 trigger 为 hover 时有效'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'trigger',
@@ -130,8 +117,7 @@ export default {
           type: 'Boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '下拉触发元素呈现为按钮组。',
-            'en-US': 'The drop-down trigger element is rendered as a button group.'
+            'zh-CN': '下拉触发元素呈现为按钮组。'
           },
           mode: ['mobile-first'],
           mfDemo: 'button-dropdown'
@@ -141,8 +127,7 @@ export default {
           type: '"medium" | "small" | "mini"',
           defaultValue: '',
           desc: {
-            'zh-CN': '菜单尺寸。注意：只在 split-button为 true 的情况下生效',
-            'en-US': 'Menu size. Note: Only takes effect when split-button is true'
+            'zh-CN': '菜单尺寸。注意：只在 split-button为 true 的情况下生效'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'size',
@@ -153,8 +138,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '下拉触发元素呈现为按钮',
-            'en-US': 'Dropdown trigger elements are presented as button groups'
+            'zh-CN': '下拉触发元素呈现为按钮'
           },
           mode: ['pc'],
           pcDemo: 'split-button'
@@ -164,8 +148,7 @@ export default {
           type: 'Component',
           defaultValue: '',
           desc: {
-            'zh-CN': '下拉触发源图标',
-            'en-US': 'Dropdown trigger source icon'
+            'zh-CN': '下拉触发源图标'
           },
           mode: ['pc'],
           pcDemo: 'show-icon'
@@ -175,8 +158,7 @@ export default {
           type: 'number',
           defaultValue: '0',
           desc: {
-            'zh-CN': '初始化触发元素的原生属性 tabindex',
-            'en-US': 'Initialize the native attribute tabindex of the triggering element'
+            'zh-CN': '初始化触发元素的原生属性 tabindex'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: '',
@@ -187,8 +169,7 @@ export default {
           type: 'string',
           defaultValue: "'下拉菜单'",
           desc: {
-            'zh-CN': '自定义触发源的文本',
-            'en-US': 'Text for custom trigger source'
+            'zh-CN': '自定义触发源的文本'
           },
           mode: ['pc'],
           pcDemo: 'options'
@@ -198,8 +179,7 @@ export default {
           type: "'hover' | 'click' | 'contextmenu'",
           defaultValue: "'hover'",
           desc: {
-            'zh-CN': '触发下拉的方式',
-            'en-US': 'Trigger the dropdown method'
+            'zh-CN': '触发下拉的方式'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'trigger',
@@ -215,8 +195,7 @@ export default {
           type: 'IButtonType',
           defaultValue: '',
           desc: {
-            'zh-CN': '按钮类型。注意：只在 split-button 为 true 的情况下有效',
-            'en-US': 'Button type. Note: Only valid if split button is true'
+            'zh-CN': '按钮类型。注意：只在 split-button 为 true 的情况下有效'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'split-button',
@@ -227,8 +206,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '手动控制下拉弹框显隐，优先级高于trigger',
-            'en-US': 'Manually control the display and hide of the dropdown menu, with priority higher than the trigger'
+            'zh-CN': '手动控制下拉弹框显隐，优先级高于trigger'
           },
           mode: ['pc'],
           pcDemo: 'visible'
@@ -238,8 +216,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '下拉弹框是否显示箭头，默认不显示',
-            'en-US': 'Indicates whether to display arrows. The default value is not displayed'
+            'zh-CN': '下拉弹框是否显示箭头，默认不显示'
           },
           mode: ['pc'],
           pcDemo: 'visible-arrow'
@@ -249,9 +226,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否懒加载下拉菜单及内部的项，以优化性能，默认初始全加载菜单及内部项。',
-            'en-US':
-              'Indicates whether to lazily load the drop-down menu and internal items to optimize performance. The default value is false. The menu and internal items are loaded initially.'
+            'zh-CN': '是否懒加载下拉菜单及内部的项，以优化性能，默认初始全加载菜单及内部项。'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'lazy-show-popper',
@@ -267,8 +242,7 @@ export default {
           type: '() => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '监听左侧按钮点击事件，仅 split-button 为 true 时生效',
-            'en-US': 'Listen for the left button click event, only effective when split-button is true'
+            'zh-CN': '监听左侧按钮点击事件，仅 split-button 为 true 时生效'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'events',
@@ -280,8 +254,7 @@ export default {
           type: '(data:IItemClickParam) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '监听点击菜单项事件',
-            'en-US': 'Listen for menu item click events'
+            'zh-CN': '监听点击菜单项事件'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'events',
@@ -292,8 +265,7 @@ export default {
           type: '(status:boolean) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '监听下拉框的显示或隐藏状态',
-            'en-US': 'Monitor the display or hidden status of the dropdown box'
+            'zh-CN': '监听下拉框的显示或隐藏状态'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'events',
@@ -307,8 +279,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '自定义触发源文本区域。 注意： 必须是一个元素或者或者组件',
-            'en-US': 'Customize the trigger source text area. Note: must be an element or component'
+            'zh-CN': '自定义触发源文本区域。 注意： 必须是一个元素或者或者组件'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'basic-usage',
@@ -319,8 +290,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '自定义下拉列表区域，通常使用 tiny-dropdown-menu 组件',
-            'en-US': 'Customize the dropdown list area, usually using the tiny dropdown menu component'
+            'zh-CN': '自定义下拉列表区域，通常使用 tiny-dropdown-menu 组件'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'basic-usage',
@@ -337,8 +307,7 @@ export default {
           type: 'String',
           defaultValue: '',
           desc: {
-            'zh-CN': '设置弹出下拉自定义样式。',
-            'en-US': 'Set the custom style of the pop-up drop-down list.'
+            'zh-CN': '设置弹出下拉自定义样式。'
           },
           mode: ['mobile-first']
         },
@@ -347,8 +316,7 @@ export default {
           type: 'Number | String',
           defaultValue: '400',
           desc: {
-            'zh-CN': '设置下拉最大高度。',
-            'en-US': 'Sets the maximum pull-down height. '
+            'zh-CN': '设置下拉最大高度。'
           },
           mode: ['mobile-first'],
           mfDemo: 'max-height'
@@ -358,8 +326,7 @@ export default {
           type: 'Boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '设置二级下拉菜单。',
-            'en-US': 'Sets the level-2 drop-down list. '
+            'zh-CN': '设置二级下拉菜单。'
           },
           mode: ['mobile-first'],
           mfDemo: 'multi-stage'
@@ -370,8 +337,7 @@ export default {
           type: 'IItemData []',
           defaultValue: '[]',
           desc: {
-            'zh-CN': '通过配置式设置菜单项的属性',
-            'en-US': 'Setting menu item properties through configuration'
+            'zh-CN': '通过配置式设置菜单项的属性'
           },
           mode: ['pc'],
           pcDemo: 'options'
@@ -382,8 +348,7 @@ export default {
           type: 'IPlacementType',
           defaultValue: "'bottom-end'",
           desc: {
-            'zh-CN': '菜单弹出位置',
-            'en-US': 'Menu pop-up location '
+            'zh-CN': '菜单弹出位置'
           },
           mode: ['pc'],
           pcDemo: 'placement',
@@ -396,8 +361,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '下拉弹框的类名，用于自定义样式',
-            'en-US': 'The class name of the dropdown pop-up box, used for customizing styles'
+            'zh-CN': '下拉弹框的类名，用于自定义样式'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage'
@@ -407,8 +371,7 @@ export default {
           type: 'string',
           defaultValue: "'label'",
           desc: {
-            'zh-CN': '菜单项文本的字段,结合 options 属性使用',
-            'en-US': 'The field of menu item text, used in conjunction with the options attribute'
+            'zh-CN': '菜单项文本的字段,结合 options 属性使用'
           },
           mode: ['pc'],
           pcDemo: 'options'
@@ -421,8 +384,7 @@ export default {
           name: 'default',
           defaultValue: '',
           desc: {
-            'zh-CN': '下拉弹框区域，通常使用 tiny-dropdown-item 组件',
-            'en-US': 'Dropdown the pop-up area, usually using the tiny-dropdown item component'
+            'zh-CN': '下拉弹框区域，通常使用 tiny-dropdown-item 组件'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage'
@@ -438,8 +400,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否禁用',
-            'en-US': 'Is it disabled'
+            'zh-CN': '是否禁用'
           },
           mode: ['pc'],
           pcDemo: 'disabled'
@@ -449,8 +410,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否显示分割线',
-            'en-US': 'Show split lines'
+            'zh-CN': '是否显示分割线'
           },
           mode: ['pc'],
           pcDemo: 'events'
@@ -460,8 +420,7 @@ export default {
           type: 'Component',
           defaultValue: '',
           desc: {
-            'zh-CN': '内嵌图标',
-            'en-US': 'Embedded icon'
+            'zh-CN': '内嵌图标'
           },
           mode: ['pc'],
           pcDemo: 'events'
@@ -472,8 +431,7 @@ export default {
           type: 'IItemData',
           defaultValue: '',
           desc: {
-            'zh-CN': '菜单项的配置信息',
-            'en-US': 'Configuration information for menu items'
+            'zh-CN': '菜单项的配置信息'
           },
           mode: ['pc'],
           pcDemo: 'events'
@@ -483,8 +441,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '菜单项的文本',
-            'en-US': 'Text for menu items'
+            'zh-CN': '菜单项的文本'
           },
           mode: ['pc'],
           pcDemo: 'events'
@@ -494,8 +451,7 @@ export default {
           type: 'String',
           defaultValue: '',
           desc: {
-            'zh-CN': '设置二级下拉菜单标志',
-            'en-US': 'Sets the level-2 drop-down menu flag.'
+            'zh-CN': '设置二级下拉菜单标志'
           },
           mode: ['mobile-first']
         },
@@ -504,8 +460,7 @@ export default {
           type: 'string | Function',
           defaultValue: '',
           desc: {
-            'zh-CN': '提示信息内容，支持字符串或函数。函数接收参数 { itemData, vm }',
-            'en-US': 'Tooltip content, supports string or function. Function receives parameters { itemData, vm }'
+            'zh-CN': '提示信息内容，支持字符串或函数。函数接收参数 { itemData, vm }'
           },
           mode: ['pc'],
           pcDemo: 'tip'
@@ -515,8 +470,7 @@ export default {
           type: 'string',
           defaultValue: "'right'",
           desc: {
-            'zh-CN': '提示信息的位置，可选值：top / right / bottom / left',
-            'en-US': 'Position of tooltip, optional values: top / right / bottom / left'
+            'zh-CN': '提示信息的位置，可选值：top / right / bottom / left'
           },
           mode: ['pc'],
           pcDemo: 'tip'
@@ -526,8 +480,7 @@ export default {
           type: 'string',
           defaultValue: "'light'",
           desc: {
-            'zh-CN': '提示信息的主题，可选值：light（浅色）/ dark（深色）',
-            'en-US': 'Theme of tooltip, optional values: light / dark'
+            'zh-CN': '提示信息的主题，可选值：light（浅色）/ dark（深色）'
           },
           mode: ['pc'],
           pcDemo: 'tip'
@@ -540,8 +493,7 @@ export default {
           name: 'default',
           defaultValue: '',
           desc: {
-            'zh-CN': '菜单项文本区域',
-            'en-US': 'Menu item text area'
+            'zh-CN': '菜单项文本区域'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage'

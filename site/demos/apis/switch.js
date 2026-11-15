@@ -10,8 +10,7 @@ export default {
           type: '(done: () => void) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '开关值变化前置处理',
-            'en-US': 'Pre processing of switch value changes'
+            'zh-CN': '开关值变化前置处理'
           },
           mode: ['pc'],
           pcDemo: 'before-change'
@@ -21,8 +20,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否禁用',
-            'en-US': 'Disable'
+            'zh-CN': '是否禁用'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'dynamic-disable',
@@ -33,8 +31,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否加载中状态',
-            'en-US': 'Loading status'
+            'zh-CN': '是否加载中状态'
           },
           meta: {
             stable: '3.19.0'
@@ -47,8 +44,7 @@ export default {
           type: 'boolean | string | number',
           defaultValue: 'false',
           desc: {
-            'zh-CN': 'switch 关闭时的值',
-            'en-US': 'Value when switch is disabled'
+            'zh-CN': 'switch 关闭时的值'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'custom-true-false-value',
@@ -59,8 +55,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '设置是否显示为 mini 模式，mini 模式下不会显示 slot 的内容',
-            'en-US': 'Sets whether to display in mini mode. In mini mode, the content of the slot is not displayed'
+            'zh-CN': '设置是否显示为 mini 模式，mini 模式下不会显示 slot 的内容'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'mini-mode',
@@ -71,8 +66,7 @@ export default {
           type: 'boolean | string | number',
           defaultValue: '',
           desc: {
-            'zh-CN': '开关绑定值',
-            'en-US': 'Switch bind value'
+            'zh-CN': '开关绑定值'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage'
@@ -82,8 +76,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': 'switch 是否显示内容里面的文字',
-            'en-US': 'Switch whether to display the text in the content'
+            'zh-CN': 'switch 是否显示内容里面的文字'
           },
           mode: ['pc'],
           pcDemo: 'custom-open-close'
@@ -93,8 +86,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '定义开关尺寸',
-            'en-US': ''
+            'zh-CN': '定义开关尺寸'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -104,8 +96,7 @@ export default {
           type: 'boolean | string | number',
           defaultValue: 'true',
           desc: {
-            'zh-CN': 'switch 打开时的值',
-            'en-US': 'Value when switch is enabled'
+            'zh-CN': 'switch 打开时的值'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'custom-true-false-value',
@@ -116,8 +107,7 @@ export default {
           type: 'number | string',
           defaultValue: '',
           desc: {
-            'zh-CN': '定义开关的宽度',
-            'en-US': 'Define the width of the switch'
+            'zh-CN': '定义开关的宽度'
           },
           mode: ['pc'],
           mfDemo: '',
@@ -131,8 +121,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '展示开关不同的状态',
-            'en-US': ''
+            'zh-CN': '展示开关不同的状态'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -142,8 +131,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '<p>绑定值</p>',
-            'en-US': 'display different button'
+            'zh-CN': '<p>绑定值</p>'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -153,8 +141,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '设置开关为只读状态',
-            'en-US': 'Set the switch to read-only status'
+            'zh-CN': '设置开关为只读状态'
           },
           meta: {
             stable: '3.31.0'
@@ -170,8 +157,7 @@ export default {
           type: '(value: boolean | string | number) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': 'switch 状态发生变化时的回调函数',
-            'en-US': 'Callback function for switch changes'
+            'zh-CN': 'switch 状态发生变化时的回调函数'
           },
           mode: ['pc'],
           pcDemo: 'event-change'
@@ -181,8 +167,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': 'switch发生变化的回调函数',
-            'en-US': ''
+            'zh-CN': 'switch发生变化的回调函数'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -195,8 +180,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '关闭内容，当 show-text 为 true 时有效',
-            'en-US': 'Close Content'
+            'zh-CN': '关闭内容，当 show-text 为 true 时有效'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'custom-open-close',
@@ -207,8 +191,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '开启内容，当 show-text 为 true 时有效',
-            'en-US': 'Enable Content'
+            'zh-CN': '开启内容，当 show-text 为 true 时有效'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'custom-open-close',
@@ -219,8 +202,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '开启时开关的图标',
-            'en-US': 'Icon of the switch when turned on'
+            'zh-CN': '开启时开关的图标'
           },
           mode: ['pc'],
           pcDemo: 'custom-open-close-icon',
@@ -231,8 +213,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '关闭时开关的图标',
-            'en-US': 'Icon of the switch when turned off'
+            'zh-CN': '关闭时开关的图标'
           },
           mode: ['pc'],
           pcDemo: 'custom-open-close-icon',

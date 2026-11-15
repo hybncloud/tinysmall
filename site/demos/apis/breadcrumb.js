@@ -11,8 +11,7 @@ export default {
           type: 'IOptionsItem[]',
           defaultValue: '',
           desc: {
-            'zh-CN': '单独使用 Breadcrumb，通过 option 配置生成面包屑',
-            'en-US': 'Use Breadcrumb alone to generate bread crumbs through option configuration'
+            'zh-CN': '单独使用 Breadcrumb，通过 option 配置生成面包屑'
           },
           mode: ['pc'],
           pcDemo: 'options'
@@ -22,8 +21,7 @@ export default {
           type: 'string',
           defaultValue: '>',
           desc: {
-            'zh-CN': '分隔符',
-            'en-US': 'Separator'
+            'zh-CN': '分隔符'
           },
           mode: ['pc'],
           pcDemo: 'separator'
@@ -33,8 +31,7 @@ export default {
           type: 'vueComponent',
           defaultValue: '',
           desc: {
-            'zh-CN': '图标分隔符',
-            'en-US': 'Icon separator'
+            'zh-CN': '图标分隔符'
           },
           mode: ['pc'],
           pcDemo: 'separator'
@@ -44,8 +41,7 @@ export default {
           type: "'medium'",
           defaultValue: "'medium'",
           desc: {
-            'zh-CN': '设置面包屑尺寸大小',
-            'en-US': 'Set breadcrumb size'
+            'zh-CN': '设置面包屑尺寸大小'
           },
           mode: ['pc'],
           pcDemo: 'size'
@@ -55,8 +51,7 @@ export default {
           type: 'string',
           defaultValue: 'label',
           desc: {
-            'zh-CN': '指定面包屑的显示键值，结合 options 使用',
-            'en-US': 'Specify the display key value for bread crumbs, used in conjunction with options'
+            'zh-CN': '指定面包屑的显示键值，结合 options 使用'
           },
           mode: ['pc'],
           pcDemo: 'options'
@@ -69,8 +64,7 @@ export default {
           type: '(value: ISelectValue) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '点击 BreadcrumbItem 时触发',
-            'en-US': 'This event is triggered when BreadcrumbItem is clicked.'
+            'zh-CN': '点击 BreadcrumbItem 时触发'
           },
           mode: ['pc'],
           pcDemo: 'options'
@@ -88,8 +82,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '定义面包屑的显示文本',
-            'en-US': 'Define the breadcrumb display text'
+            'zh-CN': '定义面包屑的显示文本'
           },
           mode: ['pc'],
           pcDemo: 'base'
@@ -99,8 +92,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '在使用 to 进行路由跳转时，启用 replace 将不会向 浏览器历史记录 history 里添加新记录',
-            'en-US': 'When using to for routing jump, enabling replace will not add new records to the browser history'
+            'zh-CN': '在使用 to 进行路由跳转时，启用 replace 将不会向 浏览器历史记录 history 里添加新记录'
           },
           mode: ['pc'],
           pcDemo: 'slot-default'
@@ -110,8 +102,7 @@ export default {
           type: "'medium'",
           defaultValue: "'medium'",
           desc: {
-            'zh-CN': '设置面包屑尺寸大小',
-            'en-US': 'Set breadcrumb size'
+            'zh-CN': '设置面包屑尺寸大小'
           },
           mode: ['pc'],
           pcDemo: 'size'
@@ -122,8 +113,7 @@ export default {
           type: 'string | IOptionsItemTo',
           defaultValue: '',
           desc: {
-            'zh-CN': '路由跳转对象，同 vue-router 的 to',
-            'en-US': 'Route redirection object, which is the same as to of vue-router'
+            'zh-CN': '路由跳转对象，同 vue-router 的 to'
           },
           mode: ['pc'],
           pcDemo: 'slot-default'
@@ -136,8 +126,7 @@ export default {
           type: '(value: ISelectValue) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '点击 BreadcrumbItem 时触发',
-            'en-US': 'This event is triggered when BreadcrumbItem is clicked.'
+            'zh-CN': '点击 BreadcrumbItem 时触发'
           },
           mode: ['pc'],
           pcDemo: 'base'
@@ -149,8 +138,7 @@ export default {
           name: 'default',
           defaultValue: '',
           desc: {
-            'zh-CN': '默认插槽',
-            'en-US': 'Default slot'
+            'zh-CN': '默认插槽'
           },
           mode: ['pc'],
           pcDemo: 'slot-default'

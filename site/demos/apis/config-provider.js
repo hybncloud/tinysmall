@@ -10,8 +10,7 @@ export default {
           type: 'ConfigProviderProps',
           defaultValue: '',
           desc: {
-            'zh-CN': '规范，可以通过该属于定制一些自定义的交互规范',
-            'en-US': 'Standardization can be achieved by customizing some custom interaction specifications'
+            'zh-CN': '规范，可以通过该属于定制一些自定义的交互规范'
           },
           mode: ['pc'],
           pcDemo: 'base'
@@ -21,8 +20,7 @@ export default {
           type: "'ltr' | 'rtl'",
           defaultValue: 'ltr',
           desc: {
-            'zh-CN': '文字样式方向',
-            'en-US': 'Text layout direction'
+            'zh-CN': '文字样式方向'
           },
           mode: ['pc'],
           pcDemo: 'text-direct'
@@ -32,9 +30,7 @@ export default {
           type: 'object',
           defaultValue: "{enable: true,name: 'div'}",
           desc: {
-            'zh-CN': '是否被元素包裹, 如果是vue2且没有一个单一节点, 组件会自动创建一个div',
-            'en-US':
-              'Whether it is wrapped by elements, if it is Vue2 and there is no single node, the component will automatically create a div'
+            'zh-CN': '是否被元素包裹, 如果是vue2且没有一个单一节点, 组件会自动创建一个div'
           },
           mode: ['pc'],
           pcDemo: 'tag'
@@ -47,8 +43,7 @@ export default {
             stable: '3.23.0'
           },
           desc: {
-            'zh-CN': '自定义主题色,格式：{data:{"tv-base-color-brand":"#595959",....}}',
-            'en-US': 'Customized theme color, in {data:"tv-base-color-brand":"#595959",....} format.'
+            'zh-CN': '自定义主题色,格式：{data:{"tv-base-color-brand":"#595959",....}}'
           },
           mode: ['pc'],
           pcDemo: 'theme',

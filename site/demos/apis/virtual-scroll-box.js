@@ -10,8 +10,7 @@ export default {
           type: 'string | number',
           defaultValue: '',
           desc: {
-            'zh-CN': '虚拟滚动区域的宽度',
-            'en-US': 'Width of the virtual scrolling area'
+            'zh-CN': '虚拟滚动区域的宽度'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'table',
@@ -22,8 +21,7 @@ export default {
           type: 'string | number',
           defaultValue: '',
           desc: {
-            'zh-CN': '虚拟滚动区域的高度',
-            'en-US': 'Height of the virtual scrolling area'
+            'zh-CN': '虚拟滚动区域的高度'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'table',
@@ -34,8 +32,7 @@ export default {
           type: 'string | number',
           defaultValue: '200',
           desc: {
-            'zh-CN': '虚拟滚动行缓冲区高度',
-            'en-US': 'Indicates the height of the virtual scrolling line buffer. The default value is 200'
+            'zh-CN': '虚拟滚动行缓冲区高度'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'table',
@@ -46,8 +43,7 @@ export default {
           type: 'string | number',
           defaultValue: '200',
           desc: {
-            'zh-CN': '虚拟滚动列缓冲区宽度',
-            'en-US': 'Width of the virtual scrolling column buffer. The default value is 200'
+            'zh-CN': '虚拟滚动列缓冲区宽度'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'table',
@@ -58,8 +54,7 @@ export default {
           type: 'string | number',
           defaultValue: '6',
           desc: {
-            'zh-CN': '滚动条尺寸',
-            'en-US': 'Scroll Bar Size'
+            'zh-CN': '滚动条尺寸'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'table',
@@ -70,8 +65,7 @@ export default {
           type: 'Array<{string: any}>',
           defaultValue: '',
           desc: {
-            'zh-CN': '所有的列',
-            'en-US': 'All the columns'
+            'zh-CN': '所有的列'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'table',
@@ -82,8 +76,7 @@ export default {
           type: 'Array<number | string>',
           defaultValue: '',
           desc: {
-            'zh-CN': '每个列对应的宽度',
-            'en-US': 'Width of each column'
+            'zh-CN': '每个列对应的宽度'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'table',
@@ -94,8 +87,7 @@ export default {
           type: 'Array<{string: any}>',
           defaultValue: '',
           desc: {
-            'zh-CN': '所有的行',
-            'en-US': 'All the lines'
+            'zh-CN': '所有的行'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'table',
@@ -106,8 +98,7 @@ export default {
           type: 'Array<number | string>',
           defaultValue: '',
           desc: {
-            'zh-CN': '每个行对应的高度',
-            'en-US': 'Height of each row'
+            'zh-CN': '每个行对应的高度'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'table',
@@ -118,8 +109,7 @@ export default {
           type: 'Array<{string: any}>',
           defaultValue: '',
           desc: {
-            'zh-CN': '行固定配置',
-            'en-US': 'Fixed line configuration'
+            'zh-CN': '行固定配置'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'table',
@@ -130,8 +120,7 @@ export default {
           type: 'Array<{string: any}>',
           defaultValue: '',
           desc: {
-            'zh-CN': '列固定配置',
-            'en-US': 'Fixed Column Configuration'
+            'zh-CN': '列固定配置'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'table',
@@ -142,8 +131,7 @@ export default {
           type: 'Array<{string: any}>',
           defaultValue: '',
           desc: {
-            'zh-CN': '单元格合并配置',
-            'en-US': 'Cell Merge Configuration'
+            'zh-CN': '单元格合并配置'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'table',
@@ -156,9 +144,7 @@ export default {
           type: '(arg: IRefreshArgs) => void',
           typeAnchorName: 'IRefreshArgs',
           desc: {
-            'zh-CN': '刷新虚拟滚动状态。默认不保持之前的滚动位置，可以通过参数控制',
-            'en-US':
-              'Refreshes the virtual scrolling status. By default, the previous scrolling position is not retained, which can be controlled by parameters'
+            'zh-CN': '刷新虚拟滚动状态。默认不保持之前的滚动位置，可以通过参数控制'
           },
           mode: ['pc'],
           pcDemo: 'btn-events'
@@ -170,8 +156,7 @@ export default {
           type: '(arg: IChangeArgs) => void',
           typeAnchorName: 'IChangeArgs',
           desc: {
-            'zh-CN': '在虚滚状态改变时抛出',
-            'en-US': 'Thrown when the virtual roll state changes'
+            'zh-CN': '在虚滚状态改变时抛出'
           },
           mode: ['pc'],
           pcDemo: 'btn-events'
@@ -182,8 +167,7 @@ export default {
           name: 'default',
           defaultValue: '',
           desc: {
-            'zh-CN': '默认插槽',
-            'en-US': 'Basic Slot'
+            'zh-CN': '默认插槽'
           },
           mode: ['pc'],
           pcDemo: 'table'

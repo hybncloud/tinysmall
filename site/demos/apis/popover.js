@@ -10,8 +10,7 @@ export default {
           type: 'boolean',
           defaultValue: 'true',
           desc: {
-            'zh-CN': '是否添加到body上',
-            'en-US': 'Whether to add it to the body'
+            'zh-CN': '是否添加到body上'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: '',
@@ -22,8 +21,7 @@ export default {
           type: 'number',
           defaultValue: '0',
           desc: {
-            'zh-CN': '弹出层的箭头偏移位置',
-            'en-US': "the layer's arrow offset "
+            'zh-CN': '弹出层的箭头偏移位置'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'offset',
@@ -34,8 +32,7 @@ export default {
           type: 'number',
           defaultValue: '200',
           desc: {
-            'zh-CN': '触发方式为 hover 时的隐藏延迟，单位为毫秒',
-            'en-US': 'The close delay when the trigger mode is hover, in milliseconds'
+            'zh-CN': '触发方式为 hover 时的隐藏延迟，单位为毫秒'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'delay',
@@ -46,8 +43,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '弹出层的内容',
-            'en-US': 'Layer Content.'
+            'zh-CN': '弹出层的内容'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'basic-usage',
@@ -58,8 +54,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否禁用',
-            'en-US': 'Whether the status is visible'
+            'zh-CN': '是否禁用'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'disabled',
@@ -70,8 +65,7 @@ export default {
           type: "'auto' | number",
           defaultValue: "'auto'",
           desc: {
-            'zh-CN': '弹出层高度',
-            'en-US': 'Layer height'
+            'zh-CN': '弹出层高度'
           },
           mode: ['pc'],
           pcDemo: ''
@@ -81,8 +75,7 @@ export default {
           type: 'number',
           defaultValue: '0',
           desc: {
-            'zh-CN': '弹出层的偏移量',
-            'en-US': 'Layer offset'
+            'zh-CN': '弹出层的偏移量'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'offset',
@@ -93,8 +86,7 @@ export default {
           type: 'number',
           defaultValue: '0',
           desc: {
-            'zh-CN': '触发方式为 hover 时的显示延迟，单位为毫秒',
-            'en-US': 'The display delay when the trigger mode is hover, in milliseconds'
+            'zh-CN': '触发方式为 hover 时的显示延迟，单位为毫秒'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'delay',
@@ -106,8 +98,7 @@ export default {
           type: 'IPopperPlacement',
           defaultValue: "'bottom'",
           desc: {
-            'zh-CN': '弹出层出现的位置',
-            'en-US': 'Layer Placement'
+            'zh-CN': '弹出层出现的位置'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'custom-popper',
@@ -118,8 +109,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '为弹出层添加类名',
-            'en-US': 'Add a class name for the pop-up layer.'
+            'zh-CN': '为弹出层添加类名'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'custom-popper',
@@ -131,8 +121,7 @@ export default {
           typeAnchorName: 'IPopperOption',
           defaultValue: '{}',
           desc: {
-            'zh-CN': '弹出层参数',
-            'en-US': 'layer parameters; Refer to the description of IPopperOption'
+            'zh-CN': '弹出层参数'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'popper-options',
@@ -143,8 +132,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '弹出层的标题',
-            'en-US': 'Layer Title'
+            'zh-CN': '弹出层的标题'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'basic-usage',
@@ -155,8 +143,7 @@ export default {
           type: 'Boolean | String',
           defaultValue: 'true',
           desc: {
-            'zh-CN': '<p>组件的旋转中心点</p>',
-            'en-US': 'display different button'
+            'zh-CN': '<p>组件的旋转中心点</p>'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -166,8 +153,7 @@ export default {
           type: 'string',
           defaultValue: "'fade-in-linear'",
           desc: {
-            'zh-CN': '定义渐变动画',
-            'en-US': 'Define gradient animation'
+            'zh-CN': '定义渐变动画'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'transition',
@@ -178,8 +164,7 @@ export default {
           type: "'click' | 'focus' | 'hover' | 'manual'",
           defaultValue: "'click'",
           desc: {
-            'zh-CN': '触发方式',
-            'en-US': 'Trigger mode'
+            'zh-CN': '触发方式'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'trigger',
@@ -190,8 +175,7 @@ export default {
           type: 'boolean',
           defaultValue: '',
           desc: {
-            'zh-CN': '状态是否可见',
-            'en-US': ''
+            'zh-CN': '状态是否可见'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -201,8 +185,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '状态是否可见，仅在 <code> trigger="manual" </code> 时有效',
-            'en-US': 'Status is visible only when <code>trigger="manual"</code>'
+            'zh-CN': '状态是否可见，仅在 <code> trigger="manual" </code> 时有效'
           },
           mode: ['pc'],
           pcDemo: 'trigger'
@@ -212,8 +195,7 @@ export default {
           type: 'boolean',
           defaultValue: 'true',
           desc: {
-            'zh-CN': '是否显示弹出层的箭头',
-            'en-US': "whether to show layer's arrow"
+            'zh-CN': '是否显示弹出层的箭头'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'custom-popper',
@@ -224,8 +206,7 @@ export default {
           type: "'auto' | number",
           defaultValue: "'auto'",
           desc: {
-            'zh-CN': '弹出层宽度',
-            'en-US': 'Layer width'
+            'zh-CN': '弹出层宽度'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'basic-usage',
@@ -238,8 +219,7 @@ export default {
           type: '() =>void',
           defaultValue: '',
           desc: {
-            'zh-CN': '进入的动画播放完毕后触发',
-            'en-US': 'This event is triggered after the animation is played.'
+            'zh-CN': '进入的动画播放完毕后触发'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'events',
@@ -250,8 +230,7 @@ export default {
           type: '() =>void',
           defaultValue: '',
           desc: {
-            'zh-CN': '离开的动画播放完毕后触发',
-            'en-US': 'Triggered after the hidden animation is played.'
+            'zh-CN': '离开的动画播放完毕后触发'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'events',
@@ -262,8 +241,7 @@ export default {
           type: '() =>void',
           defaultValue: '',
           desc: {
-            'zh-CN': '隐藏时触发',
-            'en-US': 'Triggered when hidden'
+            'zh-CN': '隐藏时触发'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'events',
@@ -274,8 +252,7 @@ export default {
           type: '() =>void',
           defaultValue: '',
           desc: {
-            'zh-CN': '显示时触发',
-            'en-US': 'Triggered when display'
+            'zh-CN': '显示时触发'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'events',
@@ -289,8 +266,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '弹出层元素插槽',
-            'en-US': 'The layer element slot'
+            'zh-CN': '弹出层元素插槽'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'content',
@@ -301,8 +277,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '触发源元素插槽，该插槽是必传插槽。',
-            'en-US': "The layer's reference element slot"
+            'zh-CN': '触发源元素插槽，该插槽是必传插槽。'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'content',

@@ -11,8 +11,7 @@ export default {
           type: 'IButtonGroupData[]',
           defaultValue: '',
           desc: {
-            'zh-CN': '按钮组数据',
-            'en-US': 'button group data'
+            'zh-CN': '按钮组数据'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'basic-usage',
@@ -23,8 +22,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否被禁用按钮组',
-            'en-US': 'Sets whether the button group is disabled'
+            'zh-CN': '是否被禁用按钮组'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'disabled',
@@ -35,8 +33,7 @@ export default {
           type: 'number | string',
           defaultValue: '',
           desc: {
-            'zh-CN': '默认选中按钮的值',
-            'en-US': 'Default value of the selected button'
+            'zh-CN': '默认选中按钮的值'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage'
@@ -46,8 +43,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否朴素按钮',
-            'en-US': 'Indicates whether the button is a simple button'
+            'zh-CN': '是否朴素按钮'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'plain',
@@ -58,8 +54,7 @@ export default {
           type: 'number',
           defaultValue: '',
           desc: {
-            'zh-CN': '当超过给定的按钮数量时显示更多按钮',
-            'en-US': 'Show more buttons when the given number of buttons is exceeded'
+            'zh-CN': '当超过给定的按钮数量时显示更多按钮'
           },
           mode: ['pc'],
           pcDemo: 'show-more'
@@ -69,8 +64,7 @@ export default {
           type: "'medium' | 'small' | 'mini'",
           defaultValue: '',
           desc: {
-            'zh-CN': '按钮组尺寸大小',
-            'en-US': 'Set the component size'
+            'zh-CN': '按钮组尺寸大小'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'size',
@@ -81,8 +75,7 @@ export default {
           type: 'string',
           defaultValue: "'text'",
           desc: {
-            'zh-CN': '按钮显示文字的字段值',
-            'en-US': 'Field value of the button displayed text'
+            'zh-CN': '按钮显示文字的字段值'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'text-value-field',
@@ -93,8 +86,7 @@ export default {
           type: 'Number / String',
           defaultValue: '',
           desc: {
-            'zh-CN': '默认选中按钮的值',
-            'en-US': ''
+            'zh-CN': '默认选中按钮的值'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -104,8 +96,7 @@ export default {
           type: 'string',
           defaultValue: "'value'",
           desc: {
-            'zh-CN': '按钮选中值的字段值',
-            'en-US': 'Field value of the button value'
+            'zh-CN': '按钮选中值的字段值'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'text-value-field',
@@ -118,9 +109,7 @@ export default {
           defaultValue: "'default'",
           desc: {
             'zh-CN':
-              '按钮组显示模式，可选值为"default"和"merged"，默认为"default"。当设置为"merged"时，按钮组内的按钮将合并显示，形成一个整体的外观。',
-            'en-US':
-              'Button group display mode, optional values are "default" and "merged", the default is "default". When set to "merged", the buttons in the button group will be merged to form an overall appearance.'
+              '按钮组显示模式，可选值为"default"和"merged"，默认为"default"。当设置为"merged"时，按钮组内的按钮将合并显示，形成一个整体的外观。'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'display-mode',
@@ -135,8 +124,7 @@ export default {
           type: '(value: string | number) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '当选中按钮发生改变时触发',
-            'en-US': 'Set the callback function triggered when the selected button is changed'
+            'zh-CN': '当选中按钮发生改变时触发'
           },
           mode: ['pc'],
           pcDemo: 'change-event'
@@ -149,8 +137,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '默认插槽，自定义按钮组内容',
-            'en-US': 'button group content'
+            'zh-CN': '默认插槽，自定义按钮组内容'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'slot-default',
@@ -161,8 +148,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '自定义数据为空时展示内容',
-            'en-US': 'customize content when data is empty'
+            'zh-CN': '自定义数据为空时展示内容'
           },
           meta: {
             stable: '3.17.0'

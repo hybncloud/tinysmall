@@ -10,48 +10,40 @@ export default {
     {
       demoId: 'basic-usage',
       name: {
-        'zh-CN': '基本用法',
-        'en-US': 'Basic Usage'
+        'zh-CN': '基本用法'
       },
       desc: {
-        'zh-CN': '通过 <code>value</code> 设置二维码的内容， <code>size</code> 设置二维码的大小。',
-        'en-US': 'Set the content of the QR code<code>value</code> , and <code>type</code> Set the size of the QR code.'
+        'zh-CN': '通过 <code>value</code> 设置二维码的内容， <code>size</code> 设置二维码的大小。'
       },
       codeFiles: ['basic-usage.vue']
     },
     {
       demoId: 'style',
       name: {
-        'zh-CN': '自定义样式',
-        'en-US': 'style'
+        'zh-CN': '自定义样式'
       },
       desc: {
-        'zh-CN': '<p>通过 <code>style</code> 设置二维码样式。</p>',
-        'en-US': '<p> <code>style</code>, see QR code style</p>'
+        'zh-CN': '<p>通过 <code>style</code> 设置二维码样式。</p>'
       },
       codeFiles: ['style.vue']
     },
     {
       demoId: 'icon',
       name: {
-        'zh-CN': '自定义 icon ',
-        'en-US': 'icon'
+        'zh-CN': '自定义 icon '
       },
       desc: {
-        'zh-CN': '<p>通过 <code>icon</code> 设置二维码图标。</p>',
-        'en-US': '<p> <code>icon</code>, see QR code icon</p>'
+        'zh-CN': '<p>通过 <code>icon</code> 设置二维码图标。</p>'
       },
       codeFiles: ['icon.vue']
     },
     {
       demoId: 'level',
       name: {
-        'zh-CN': '二维码纠错等级',
-        'en-US': 'Error Code Level'
+        'zh-CN': '二维码纠错等级'
       },
       desc: {
-        'zh-CN': '<p>通过 <code>level</code> 设置二维码纠错等级。</p>',
-        'en-US': '<p> <code>level</code> , see QR code error correction level</p>'
+        'zh-CN': '<p>通过 <code>level</code> 设置二维码纠错等级。</p>'
       },
       codeFiles: ['level.vue']
     }

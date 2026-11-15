@@ -10,8 +10,7 @@ export default {
           type: "'fill' | 'contain' | 'cover' | 'none' | 'scale-down '",
           defaultValue: '',
           desc: {
-            'zh-CN': '确定图片如何适应容器大小',
-            'en-US': 'Determine how the image adapts to the container frame '
+            'zh-CN': '确定图片如何适应容器大小'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'basic-usage',
@@ -22,8 +21,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '设置预览的图片的大小',
-            'en-US': ''
+            'zh-CN': '设置预览的图片的大小'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -33,8 +31,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否懒加载',
-            'en-US': 'Whether to enable lazy loading'
+            'zh-CN': '是否懒加载'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'lazy',
@@ -45,8 +42,7 @@ export default {
           type: 'string[]',
           defaultValue: '[]',
           desc: {
-            'zh-CN': '指定预览大图时的图片列表',
-            'en-US': 'Specifies the list of images to use when previewing a large image'
+            'zh-CN': '指定预览大图时的图片列表'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'preview',
@@ -57,8 +53,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '开启移动端预览大图的功能',
-            'en-US': 'Enable the function of previewing large images on mobile devices.'
+            'zh-CN': '开启移动端预览大图的功能'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -68,8 +63,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '通过 round 设置是否展示圆形',
-            'en-US': 'Use round to set whether to display a circle.'
+            'zh-CN': '通过 round 设置是否展示圆形'
           },
           mode: ['mobile-first'],
           mfDemo: 'round'
@@ -80,9 +74,7 @@ export default {
           defaultValue: '',
           desc: {
             'zh-CN':
-              '指定滚动容器。启用懒加载时，监听滚动容器的 scroll 事件来懒加载。\n                该属性用于设置图片的容器,当未设置容器时，默认会取最近一个 overflow 值为 auto 或 scroll 的父元素做为滚动容器\n              ',
-            'en-US':
-              'Specifies the scroll container. When lazy loading is enabled, the scroll event of the image component container is monitored for lazy loading. \n                This property is used to set the image container. When the container is not set, the default will take the parent element of the last overflow value as auto or scroll as the scroll container \n              '
+              '指定滚动容器。启用懒加载时，监听滚动容器的 scroll 事件来懒加载。\n                该属性用于设置图片的容器,当未设置容器时，默认会取最近一个 overflow 值为 auto 或 scroll 的父元素做为滚动容器\n              '
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: '',
@@ -93,8 +85,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '设置预览的图片的悬浮效果',
-            'en-US': 'Sets the floating effect of the previewed image.'
+            'zh-CN': '设置预览的图片的悬浮效果'
           },
           mode: ['mobile-first'],
           mfDemo: 'show-hover'
@@ -104,8 +95,7 @@ export default {
           type: 'boolean',
           defaultValue: '',
           desc: {
-            'zh-CN': '开启图片序列号展示',
-            'en-US': 'Enable the display of image serial numbers.'
+            'zh-CN': '开启图片序列号展示'
           },
           mode: ['pc', 'mobile-first'],
           mfDemo: 'preview-src-list',
@@ -116,8 +106,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '设置图片路径',
-            'en-US': 'Set the path of the preview image.'
+            'zh-CN': '设置图片路径'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'basic-usage',
@@ -128,8 +117,7 @@ export default {
           type: 'number',
           defaultValue: '2000',
           desc: {
-            'zh-CN': '图片预览功能时，设置最外层元素的 z-index',
-            'en-US': 'For the image preview function, set the z-index of the outermost element'
+            'zh-CN': '图片预览功能时，设置最外层元素的 z-index'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: '',
@@ -140,8 +128,7 @@ export default {
           type: 'boolean',
           defaultValue: '',
           desc: {
-            'zh-CN': '保持图片样式属性',
-            'en-US': 'Preserve Picture Style Properties'
+            'zh-CN': '保持图片样式属性'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'keep-style',
@@ -155,9 +142,7 @@ export default {
             stable: '3.19.0'
           },
           desc: {
-            'zh-CN': '预览弹框是否显示在 body 下面。\n为 <code>false</code> 时显示在当前节点下面',
-            'en-US':
-              'Indicates whether the preview dialog box is displayed under the body.\nWhen <code>false</code>, it is displayed under the current node.'
+            'zh-CN': '预览弹框是否显示在 body 下面。\n为 <code>false</code> 时显示在当前节点下面'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'preview',
@@ -170,8 +155,7 @@ export default {
           type: 'Function()',
           defaultValue: '',
           desc: {
-            'zh-CN': '图片删除触发',
-            'en-US': 'Triggered by image deletion.'
+            'zh-CN': '图片删除触发'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -181,8 +165,7 @@ export default {
           type: '(ev) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '图片加载失败后触发的事件，参数为原生的失败事件',
-            'en-US': 'When the Image loading failure triggered,the parameter is a native failure event'
+            'zh-CN': '图片加载失败后触发的事件，参数为原生的失败事件'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'events',
@@ -193,8 +176,7 @@ export default {
           type: '(ev) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '图片加载成功的触发的事件，参数为原生的成功事件',
-            'en-US': 'When the image loading success triggered,the parameter is a native success event.'
+            'zh-CN': '图片加载成功的触发的事件，参数为原生的成功事件'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'events',
@@ -208,8 +190,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '图片加载失败的占位内容插槽',
-            'en-US': 'Error Slot that fails to be loaded'
+            'zh-CN': '图片加载失败的占位内容插槽'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'slot',
@@ -220,8 +201,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '图片加载的占位内容插槽',
-            'en-US': 'Placeholder Slot that is not loaded to the image'
+            'zh-CN': '图片加载的占位内容插槽'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'slot',
@@ -232,8 +212,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '设置图片计数插槽',
-            'en-US': 'Set Picture Count Slot'
+            'zh-CN': '设置图片计数插槽'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'count-slot',

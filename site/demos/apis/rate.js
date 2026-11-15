@@ -10,8 +10,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否允许半选',
-            'en-US': 'Whether to allow half selection'
+            'zh-CN': '是否允许半选'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'allow-half',
@@ -22,8 +21,7 @@ export default {
           type: '[string, string, string]',
           defaultValue: "['#FADB14', '#FADB14', '#FADB14']",
           desc: {
-            'zh-CN': 'icon 的颜色数组，为 Threshold 三个分段所对应的颜色',
-            'en-US': 'icon color array, which is the color corresponding to the Threshold three segments.'
+            'zh-CN': 'icon 的颜色数组，为 Threshold 三个分段所对应的颜色'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'custom-3-threshold-colors',
@@ -34,8 +32,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否为只读',
-            'en-US': 'Read-only'
+            'zh-CN': '是否为只读'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'dynamic-disable',
@@ -46,8 +43,7 @@ export default {
           type: 'string',
           defaultValue: "'#D9D9D9'",
           desc: {
-            'zh-CN': '禁用状态下未选中 icon 的颜色',
-            'en-US': 'Color of unselected icons in disabled state'
+            'zh-CN': '禁用状态下未选中 icon 的颜色'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'disabled-not-selected-color',
@@ -59,8 +55,7 @@ export default {
           type: 'IRateIconName',
           defaultValue: "'icon-starActive'",
           desc: {
-            'zh-CN': '只读状态下未选中的图标样式名',
-            'en-US': 'Icon style name that is not selected in read-only state.'
+            'zh-CN': '只读状态下未选中的图标样式名'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'disabled-not-selected-class',
@@ -71,9 +66,7 @@ export default {
           type: 'number',
           defaultValue: '4',
           desc: {
-            'zh-CN': '高分和中等分数的界限值，值本身被划分在高分中',
-            'en-US':
-              'The threshold between the high score and the medium score. The value is divided into the high score.'
+            'zh-CN': '高分和中等分数的界限值，值本身被划分在高分中'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'threshold-value',
@@ -85,8 +78,7 @@ export default {
           type: '[IRateIconName, IRateIconName, IRateIconName]',
           defaultValue: "['icon-starActive', 'icon-starActive', 'icon-starActive']",
           desc: {
-            'zh-CN': '三个分段对应的图标样式名',
-            'en-US': 'Icon style name corresponding to the three segments'
+            'zh-CN': '三个分段对应的图标样式名'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'custom-3-threshold-icon',
@@ -97,9 +89,7 @@ export default {
           type: 'number',
           defaultValue: '2',
           desc: {
-            'zh-CN': '低分和中等分数的界限值，值本身被划分在低分中',
-            'en-US':
-              'The threshold value of the low score and the medium score. The value is divided into the low score.'
+            'zh-CN': '低分和中等分数的界限值，值本身被划分在低分中'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'threshold-value',
@@ -110,8 +100,7 @@ export default {
           type: 'number',
           defaultValue: '5',
           desc: {
-            'zh-CN': '最大分值',
-            'en-US': 'Maximum score'
+            'zh-CN': '最大分值'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'max-score',
@@ -122,8 +111,7 @@ export default {
           type: 'number',
           defaultValue: '0',
           desc: {
-            'zh-CN': '绑定值',
-            'en-US': 'Bound Value'
+            'zh-CN': '绑定值'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage'
@@ -133,8 +121,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '评分其他形态单选',
-            'en-US': 'Single choice for scoring other forms'
+            'zh-CN': '评分其他形态单选'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'radio-rate',
@@ -145,8 +132,7 @@ export default {
           type: 'string',
           defaultValue: "'{value}'",
           desc: {
-            'zh-CN': '分数显示模板，用“{value}”代表分数',
-            'en-US': 'Score display template'
+            'zh-CN': '分数显示模板，用“{value}”代表分数'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'show-score',
@@ -157,9 +143,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否显示当前分数，show-score 和 show-text 不能同时为真',
-            'en-US':
-              'Whether to display the current score. The values of show-score and show-text cannot be true at the same time.'
+            'zh-CN': '是否显示当前分数，show-score 和 show-text 不能同时为真'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'show-score',
@@ -170,9 +154,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否显示辅助文字，若为真，则会从 texts 数组中选取当前分数对应的文字内容',
-            'en-US':
-              'Indicates whether to display auxiliary text. If yes, the text corresponding to the current score is selected from the texts array.'
+            'zh-CN': '是否显示辅助文字，若为真，则会从 texts 数组中选取当前分数对应的文字内容'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'texts-and-text-color',
@@ -183,8 +165,7 @@ export default {
           type: 'string',
           defaultValue: "'18px'",
           desc: {
-            'zh-CN': '图标字体大小',
-            'en-US': 'Icon font size'
+            'zh-CN': '图标字体大小'
           },
           mode: ['pc'],
           pcDemo: 'size-and-space'
@@ -194,8 +175,7 @@ export default {
           type: 'string',
           defaultValue: "'24px'",
           desc: {
-            'zh-CN': '每个图标所占宽度',
-            'en-US': 'Width of each icon'
+            'zh-CN': '每个图标所占宽度'
           },
           mode: ['pc'],
           pcDemo: 'size-and-space'
@@ -205,8 +185,7 @@ export default {
           type: 'string',
           defaultValue: "'#666666'",
           desc: {
-            'zh-CN': '辅助文字的颜色',
-            'en-US': 'Color of auxiliary text'
+            'zh-CN': '辅助文字的颜色'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'texts-and-text-color',
@@ -217,8 +196,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否在图标下显示对应的文字',
-            'en-US': 'Whether to display the corresponding text under the icon'
+            'zh-CN': '是否在图标下显示对应的文字'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'text-on-bottom',
@@ -229,8 +207,7 @@ export default {
           type: 'string[]',
           defaultValue: "['很差', '差', '一般', '好', '很好']",
           desc: {
-            'zh-CN': '辅助文字数组，文字的数量应该与max属性一致',
-            'en-US': 'Auxiliary text array'
+            'zh-CN': '辅助文字数组，文字的数量应该与max属性一致'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'texts-and-text-color',
@@ -241,8 +218,7 @@ export default {
           type: 'String',
           defaultValue: '',
           desc: {
-            'zh-CN': '设置尺寸 large small(默认)',
-            'en-US': ''
+            'zh-CN': '设置尺寸 large small(默认)'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -252,8 +228,7 @@ export default {
           type: 'Number',
           defaultValue: '',
           desc: {
-            'zh-CN': '绑定值',
-            'en-US': ''
+            'zh-CN': '绑定值'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -263,8 +238,7 @@ export default {
           type: 'string',
           defaultValue: "'#BFBFBF'",
           desc: {
-            'zh-CN': '未选中 icon 的颜色',
-            'en-US': 'Color of unselected icons'
+            'zh-CN': '未选中 icon 的颜色'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'not-selected-color',
@@ -276,8 +250,7 @@ export default {
           type: 'IRateIconName',
           defaultValue: "'icon-starDisable'",
           desc: {
-            'zh-CN': '未选中 icon 的图标样式名',
-            'en-US': 'Class name of unselected icons.'
+            'zh-CN': '未选中 icon 的图标样式名'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'not-selected-class',
@@ -288,8 +261,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否可清空',
-            'en-US': 'Whether to clear'
+            'zh-CN': '是否可清空'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'clearable',
@@ -305,8 +277,7 @@ export default {
           type: '(value: number) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '分值改变时触发',
-            'en-US': 'This event is triggered when the score changes.'
+            'zh-CN': '分值改变时触发'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'rate-events',

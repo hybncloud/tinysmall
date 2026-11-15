@@ -10,8 +10,7 @@ export default {
           type: 'boolean',
           defaultValue: 'true',
           desc: {
-            'zh-CN': '是否有边框',
-            'en-US': 'Whether has border style'
+            'zh-CN': '是否有边框'
           },
           mode: ['pc'],
           pcDemo: ''
@@ -21,8 +20,7 @@ export default {
           type: 'string',
           defaultValue: "'#000'",
           desc: {
-            'zh-CN': '二维码颜色, 仅支持十六进制',
-            'en-US': 'QRCode Color'
+            'zh-CN': '二维码颜色, 仅支持十六进制'
           },
           mode: ['pc'],
           pcDemo: 'style'
@@ -32,8 +30,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '二维码中图片的地址（目前只支持图片地址）',
-            'en-US': 'include image url (only image link are supported)'
+            'zh-CN': '二维码中图片的地址（目前只支持图片地址）'
           },
           mode: ['pc'],
           pcDemo: 'icon'
@@ -43,8 +40,7 @@ export default {
           type: 'number',
           defaultValue: '50',
           desc: {
-            'zh-CN': '二维码中图片的大小，icon 覆盖面积不能超过二维码面积的 30%， 否则影响扫码',
-            'en-US': 'include image size，no more than 30%'
+            'zh-CN': '二维码中图片的大小，icon 覆盖面积不能超过二维码面积的 30%， 否则影响扫码'
           },
           mode: ['pc'],
           pcDemo: 'icon'
@@ -54,8 +50,7 @@ export default {
           type: 'string',
           defaultValue: "'Medium'",
           desc: {
-            'zh-CN': "二维码纠错等级, 可选 'Low' | 'Medium' | 'Quality' | 'High'",
-            'en-US': 'Error Code Level'
+            'zh-CN': "二维码纠错等级, 可选 'Low' | 'Medium' | 'Quality' | 'High'"
           },
           mode: ['pc'],
           pcDemo: 'level'
@@ -65,8 +60,7 @@ export default {
           type: 'number',
           defaultValue: '200',
           desc: {
-            'zh-CN': '二维码大小',
-            'en-US': 'QRCode size'
+            'zh-CN': '二维码大小'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage'
@@ -76,8 +70,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '扫描后的文本',
-            'en-US': 'scanned text'
+            'zh-CN': '扫描后的文本'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage'
@@ -88,8 +81,7 @@ export default {
           name: 'change',
           type: '() => void',
           desc: {
-            'zh-CN': '二维码发生变化后的回调',
-            'en-US': 'chang callback'
+            'zh-CN': '二维码发生变化后的回调'
           },
           mode: ['pc'],
           pcDemo: 'level'

@@ -10,9 +10,7 @@ export default {
           type: 'number',
           defaultValue: '2',
           desc: {
-            'zh-CN': '最多显示菜单按钮的个数，其他菜单在下拉弹框显示',
-            'en-US':
-              'The maximum number of displayed menu buttons, and other menus are displayed in the drop-down pop-up box'
+            'zh-CN': '最多显示菜单按钮的个数，其他菜单在下拉弹框显示'
           },
           mode: ['pc'],
           pcDemo: 'max-show-num'
@@ -22,8 +20,7 @@ export default {
           type: '"default" | "card"',
           defaultValue: '"default"',
           desc: {
-            'zh-CN': '菜单按钮模式',
-            'en-US': 'Card mode'
+            'zh-CN': '菜单按钮模式'
           },
           mode: ['pc'],
           pcDemo: 'card-mode'
@@ -33,8 +30,7 @@ export default {
           type: 'string',
           defaultValue: "'更多'",
           desc: {
-            'zh-CN': '下拉按钮文本',
-            'en-US': 'Dropdown button text'
+            'zh-CN': '下拉按钮文本'
           },
           mode: ['pc'],
           pcDemo: 'more-text'
@@ -45,8 +41,7 @@ export default {
           type: 'IItemData[]',
           defaultValue: '[]',
           desc: {
-            'zh-CN': '菜单项列表的数据',
-            'en-US': 'Data for menu item list'
+            'zh-CN': '菜单项列表的数据'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage'
@@ -56,8 +51,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '下拉弹框的类名，用于自定义样式',
-            'en-US': 'The class name of the dropdown pop-up box, used for customizing styles'
+            'zh-CN': '下拉弹框的类名，用于自定义样式'
           },
           mode: ['pc'],
           pcDemo: 'popper-class'
@@ -67,8 +61,7 @@ export default {
           type: 'boolean',
           defaultValue: 'true',
           desc: {
-            'zh-CN': '是否显示下拉触发源图标',
-            'en-US': 'Is the dropdown trigger source icon displayed'
+            'zh-CN': '是否显示下拉触发源图标'
           },
           mode: ['pc'],
           pcDemo: 'icon'
@@ -78,8 +71,7 @@ export default {
           type: 'string | number',
           defaultValue: "'5px'",
           desc: {
-            'zh-CN': '菜单按钮之间的间距',
-            'en-US': 'Spacing between menu buttons'
+            'zh-CN': '菜单按钮之间的间距'
           },
           mode: ['pc'],
           pcDemo: 'spacing'
@@ -89,8 +81,7 @@ export default {
           type: 'Component',
           defaultValue: '',
           desc: {
-            'zh-CN': '下拉触发源图标',
-            'en-US': 'Dropdown trigger source icon'
+            'zh-CN': '下拉触发源图标'
           },
           mode: ['pc'],
           pcDemo: 'icon'
@@ -100,8 +91,7 @@ export default {
           type: 'string',
           defaultValue: "'label'",
           desc: {
-            'zh-CN': '菜单按钮文本的键值',
-            'en-US': 'Key values for menu button text'
+            'zh-CN': '菜单按钮文本的键值'
           },
           mode: ['pc'],
           pcDemo: 'text-field'
@@ -112,8 +102,7 @@ export default {
           type: 'IPlacement',
           defaultValue: "'bottom-end'",
           desc: {
-            'zh-CN': '二级下拉面板的显示位置',
-            'en-US': 'The position of the secondary drop-down panel'
+            'zh-CN': '二级下拉面板的显示位置'
           },
           mode: ['pc'],
           pcDemo: '',
@@ -129,8 +118,7 @@ export default {
           type: '(data:IItemClickParams) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '监听菜单项的点击事件',
-            'en-US': 'Listen for click events on menu items'
+            'zh-CN': '监听菜单项的点击事件'
           },
           mode: ['pc'],
           pcDemo: 'events'
@@ -140,8 +128,7 @@ export default {
           type: '() => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '监听下拉按钮的点击事件。trigger 为 click 时生效',
-            'en-US': 'Listen for the click event of the drop-down button. Effective when trigger is click'
+            'zh-CN': '监听下拉按钮的点击事件。trigger 为 click 时生效'
           },
           mode: ['pc'],
           pcDemo: 'events'
@@ -151,8 +138,7 @@ export default {
           type: '(status: boolean) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '监听下拉弹框的显示或隐藏状态变化',
-            'en-US': 'Monitor the display or hidden state changes of the dropdown pop-up box'
+            'zh-CN': '监听下拉弹框的显示或隐藏状态变化'
           },
           mode: ['pc'],
           pcDemo: 'events'
@@ -165,8 +151,7 @@ export default {
           type: '插槽',
           defaultValue: '',
           desc: {
-            'zh-CN': '菜单选项插槽',
-            'en-US': 'Menu option slot'
+            'zh-CN': '菜单选项插槽'
           },
           mode: ['pc'],
           pcDemo: 'slot-item'

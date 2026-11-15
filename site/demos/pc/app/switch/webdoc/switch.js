@@ -7,140 +7,113 @@ export default {
     {
       demoId: 'basic-usage',
       name: {
-        'zh-CN': '基本用法',
-        'en-US': 'Basic Usage'
+        'zh-CN': '基本用法'
       },
       desc: {
-        'zh-CN': '<p>通过 <code>v-model</code> 绑定开关值。</p>',
-        'en-US': '<p>Bind switch values through <code>v model</code> .</p>'
+        'zh-CN': '<p>通过 <code>v-model</code> 绑定开关值。</p>'
       },
       codeFiles: ['basic-usage.vue']
     },
     {
       demoId: 'mini-mode',
       name: {
-        'zh-CN': '迷你尺寸',
-        'en-US': 'Mini Size'
+        'zh-CN': '迷你尺寸'
       },
       desc: {
-        'zh-CN': '<p>通过 <code>mini</code> 设置小尺寸开关。</p>',
-        'en-US': '<p>Set small size switches through <code>mini</code> .'
+        'zh-CN': '<p>通过 <code>mini</code> 设置小尺寸开关。</p>'
       },
       codeFiles: ['mini-mode.vue']
     },
     {
       demoId: 'width',
       name: {
-        'zh-CN': '自定义宽度',
-        'en-US': 'Custom width'
+        'zh-CN': '自定义宽度'
       },
       desc: {
-        'zh-CN': '<p>通过 <code>width</code> 设置开关的宽度。</p>',
-        'en-US': '<p>Set the width of the switch through <code>width</code> .</p>'
+        'zh-CN': '<p>通过 <code>width</code> 设置开关的宽度。</p>'
       },
       codeFiles: ['width.vue']
     },
     {
       demoId: 'loading',
       name: {
-        'zh-CN': '加载中状态',
-        'en-US': 'Loading status'
+        'zh-CN': '加载中状态'
       },
       desc: {
-        'zh-CN': '<p>通过 <code>loading</code> 设置开关显示加载状态。</p>',
-        'en-US': '<p>Set the switch to display the loading status through<code>loading</code>.'
+        'zh-CN': '<p>通过 <code>loading</code> 设置开关显示加载状态。</p>'
       },
       codeFiles: ['loading.vue']
     },
     {
       demoId: 'custom-open-close',
       name: {
-        'zh-CN': '自定义开关显示',
-        'en-US': 'Customized switch display'
+        'zh-CN': '自定义开关显示'
       },
       desc: {
         'zh-CN':
-          '<p>通过 <code>show-text</code> 配置是否显示开关文本，开启配置后，可以使用具名插槽 <code>open</code> 和 <code>close</code> 自定义开关内容。</p>',
-        'en-US':
-          '<p>Configure whether to display switch text through <code>show text</code> . After enabling the configuration, you can customize the switch content using named slots <code>open</code> and <code>close</code> .</p>'
+          '<p>通过 <code>show-text</code> 配置是否显示开关文本，开启配置后，可以使用具名插槽 <code>open</code> 和 <code>close</code> 自定义开关内容。</p>'
       },
       codeFiles: ['custom-open-close.vue']
     },
     {
       demoId: 'before-change',
       name: {
-        'zh-CN': '变更前置处理',
-        'en-US': 'Before change'
+        'zh-CN': '变更前置处理'
       },
       desc: {
         'zh-CN':
-          '<p>通过 <code>before-change</code> 设置开关变化前置处理逻辑，参数为一个回调函数，调用后完成变更。</p>',
-        'en-US':
-          '<p>By setting the pre processing logic for switch changes through <code>before change</code> , the parameter is a callback function that completes the change after being called. </p>'
+          '<p>通过 <code>before-change</code> 设置开关变化前置处理逻辑，参数为一个回调函数，调用后完成变更。</p>'
       },
       codeFiles: ['before-change.vue']
     },
     {
       demoId: 'custom-true-false-value',
       name: {
-        'zh-CN': '自定义开关取值',
-        'en-US': 'User-defined switch value'
+        'zh-CN': '自定义开关取值'
       },
       desc: {
-        'zh-CN': '<p>通过 <code>true-label</code> 设置开关开启时的值， <code>false-label</code> 设置关闭时的值。</p>',
-        'en-US':
-          '<p>Set the value when the switch is turned on by <code>true label</code> , and set the value when it is turned off by <code>false label</code> . </p>'
+        'zh-CN': '<p>通过 <code>true-label</code> 设置开关开启时的值， <code>false-label</code> 设置关闭时的值。</p>'
       },
       codeFiles: ['custom-true-false-value.vue']
     },
     {
       demoId: 'dynamic-disable',
       name: {
-        'zh-CN': '禁用状态',
-        'en-US': 'Disabled'
+        'zh-CN': '禁用状态'
       },
       desc: {
-        'zh-CN': '<p>通过 <code>disabled</code> 设置开关禁用状态。</p>',
-        'en-US': '<p>Set the switch disable status through <code>disabled</code> . </p>'
+        'zh-CN': '<p>通过 <code>disabled</code> 设置开关禁用状态。</p>'
       },
       codeFiles: ['dynamic-disable.vue']
     },
     {
       demoId: 'custom-open-close-icon',
       name: {
-        'zh-CN': '自定义开关图标',
-        'en-US': 'Custom switch icon'
+        'zh-CN': '自定义开关图标'
       },
       desc: {
-        'zh-CN': '<p>通过具名插槽 <code>active-icon</code> 和 <code>inactive-icon</code> 自定义开关图标。</p>',
-        'en-US':
-          '<p>Customize switch icons through named slots<code>active icon</code>and<code>inactive icon</code> .</p>'
+        'zh-CN': '<p>通过具名插槽 <code>active-icon</code> 和 <code>inactive-icon</code> 自定义开关图标。</p>'
       },
       codeFiles: ['custom-open-close-icon.vue']
     },
     {
       demoId: 'event-change',
       name: {
-        'zh-CN': '变更事件',
-        'en-US': 'Event change'
+        'zh-CN': '变更事件'
       },
       desc: {
-        'zh-CN': '<p>当开关值变化后，会触发 <code>change</code> 事件。</p>',
-        'en-US': '<p>When the switch value changes, the <code>change</code> event will be triggered.</p>'
+        'zh-CN': '<p>当开关值变化后，会触发 <code>change</code> 事件。</p>'
       },
       codeFiles: ['event-change.vue']
     },
     {
       demoId: 'display-only',
       name: {
-        'zh-CN': '只读状态',
-        'en-US': 'Display only'
+        'zh-CN': '只读状态'
       },
       desc: {
         'zh-CN':
-          '<p>通过 <code>display-only</code> 设置开关为只读状态。当设置 <code>display-only</code> 为 <code>true</code> 时，开关为只读状态，无法进行交互操作。</p>',
-        'en-US':
-          '<p><code>display-only</code> property indicates that the switch is in read-only mode, with a default value of <code>false</code>. When set to <code>true</code>, the switch is in read-only mode and cannot be interacted with.</p>'
+          '<p>通过 <code>display-only</code> 设置开关为只读状态。当设置 <code>display-only</code> 为 <code>true</code> 时，开关为只读状态，无法进行交互操作。</p>'
       },
       codeFiles: ['display-only.vue']
     }

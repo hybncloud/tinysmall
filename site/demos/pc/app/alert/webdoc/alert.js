@@ -7,22 +7,18 @@ export default {
     {
       demoId: 'basic-usage',
       name: {
-        'zh-CN': '基本用法',
-        'en-US': 'Basic Usage'
+        'zh-CN': '基本用法'
       },
       desc: {
         'zh-CN':
-          '<p>通过 <code>description</code> 属性或者 <code>description</code> 插槽来设置提示内容。<br> 通过 <code>type</code> 属性，设置不同的类型。</p>',
-        'en-US':
-          '<p>Set the prompt content through the <code>description</code> attribute or <code>description</code> slot, and set different types through <code>type</code> . </p>'
+          '<p>通过 <code>description</code> 属性或者 <code>description</code> 插槽来设置提示内容。<br> 通过 <code>type</code> 属性，设置不同的类型。</p>'
       },
       codeFiles: ['basic-usage.vue']
     },
     {
       demoId: 'size',
       name: {
-        'zh-CN': '尺寸模式',
-        'en-US': 'Size Mode'
+        'zh-CN': '尺寸模式'
       },
       desc: {
         'zh-CN': `
@@ -34,16 +30,6 @@ export default {
               <li> <code>large</code> 模式下，显示全部元素，相当于完整模式。</li> 
             </ul>
           </div>
-        `,
-        'en-US': `
-          Use <code>size</code> to set different size modes, optional values: <code>small</code>, <code>medium</code>, <code>normal</code>, <code>large</code>. <br>
-          <div class="tip custom-block">
-          <p class="custom-block-title"> Size pattern difference </p>
-          <ul>
-            <li> <code>small</code> 、<code>medium</code> 、<code>normal</code> mode, the header and interactive areas are not displayed, which is equivalent to simple mode. </li>
-            <li> <code>large</code> mode, all elements are displayed, equivalent to the full mode. </li>
-          </ul>
-          </div>
         `
       },
       codeFiles: ['size.vue']
@@ -51,74 +37,60 @@ export default {
     {
       demoId: 'title',
       name: {
-        'zh-CN': '自定义标题',
-        'en-US': 'Custom Title'
+        'zh-CN': '自定义标题'
       },
       desc: {
         'zh-CN': `当 <code>size</code> 为 <code>large</code> 时，通过 <code>title </code>属性或 <code>title </code>插槽，可以自定义组件的标题 ，通过 <code> show-title </code>属性控制标题是否显示<br>
-           如果未自定义标题，会根据对应的 <code>type</code> 显示相应的默认标题。`,
-        'en-US':
-          '<p>When <code>size</code> is set to large, the title is displayed. You can set <code>title</code> or <code>slot</code> to customize the title. <br>The default title is displayed according to the set <code>type</code> . </p>'
+           如果未自定义标题，会根据对应的 <code>type</code> 显示相应的默认标题。`
       },
       codeFiles: ['title.vue']
     },
     {
       demoId: 'center',
       name: {
-        'zh-CN': '内容居中',
-        'en-US': 'Center content'
+        'zh-CN': '内容居中'
       },
       desc: {
-        'zh-CN': '<p>通过 <code>center</code> 设置内容显示居中。</p>',
-        'en-US': '<p>You can use the <code>center</code> property to center the text. </p>'
+        'zh-CN': '<p>通过 <code>center</code> 设置内容显示居中。</p>'
       },
       codeFiles: ['center.vue']
     },
     {
       demoId: 'icon',
       name: {
-        'zh-CN': '自定义警告图标',
-        'en-US': 'Customized alert icon'
+        'zh-CN': '自定义警告图标'
       },
       desc: {
         'zh-CN':
-          '通过 <code>icon </code> 属性设置自定义图标，如果未自定义图标，默认会根据不同的 <code>type</code> 的值自动使用对应图标。',
-        'en-US':
-          'You can use the <code>icon </code> property to set a custom icon. If no custom icon is specified, the icon is automatically used according to the <code>type</code> value.'
+          '通过 <code>icon </code> 属性设置自定义图标，如果未自定义图标，默认会根据不同的 <code>type</code> 的值自动使用对应图标。'
       },
       codeFiles: ['icon.vue']
     },
     {
       demoId: 'slot-default',
       name: {
-        'zh-CN': '自定义交互操作',
-        'en-US': 'Customized Interaction'
+        'zh-CN': '自定义交互操作'
       },
       desc: {
         'zh-CN':
-          '<p>当 <code>size</code> 为 <code>large</code> 时，通过默认插槽自定义交互操作区域，显示在  <code>description</code> 值的下方。</p>',
-        'en-US':
-          '<p>When <code>size</code> is <code>large</code> , set the default slot custom interaction operation,displayed below the <code>description</code> value </p>'
+          '<p>当 <code>size</code> 为 <code>large</code> 时，通过默认插槽自定义交互操作区域，显示在  <code>description</code> 值的下方。</p>'
       },
       codeFiles: ['slot-default.vue']
     },
     {
       demoId: 'show-icon',
       name: {
-        'zh-CN': '是否显示图标',
-        'en-US': 'Display icon'
+        'zh-CN': '是否显示图标'
       },
       desc: {
-        'zh-CN': '通过 <code>show-icon</code> 属性，设置左侧图标是否显示。',
-        'en-US': 'Use the <code>show-icon</code> property to set whether the icon on the left is displayed.'
+        'zh-CN': '通过 <code>show-icon</code> 属性，设置左侧图标是否显示。'
       },
       codeFiles: ['show-icon.vue']
     },
     {
       demoId: 'custom-close',
       name: {
-        'zh-CN': '自定义关闭按钮',
-        'en-US': 'custom close button'
+        'zh-CN': '自定义关闭按钮'
       },
       desc: {
         'zh-CN': `
@@ -128,16 +100,6 @@ export default {
           <div class="tip custom-block">
             <p class="custom-block-title"> 组件关闭或隐藏时，会有渐隐动画，详见示例！ </p>
           </div>
-        `,
-        'en-US': `
-          Enable the built-in close icon with the <code>closable</code> property, which defaults to <code>true</code>. <br />
-          Set the close button text by <code>close-text</code> instead of the close icon, effective only if <code>closable</code> is <code>true</code>. <br />
-          Unblock the built-in closing function when <code>closable</code> is set to <code>false</code>. At this point, you can completely customize the presentation of the close button area via the <code>close</code> slot.
-          <div class="tip custom-block">
-            <p class="custom-block-title"> 
-              When the component is closed or hidden, there will be a fade animation, see the example! 
-            </p>
-          </div>
         `
       },
       codeFiles: ['custom-close.vue']
@@ -145,12 +107,10 @@ export default {
     {
       demoId: 'custom-class',
       name: {
-        'zh-CN': '自定义类名',
-        'en-US': 'custom close button'
+        'zh-CN': '自定义类名'
       },
       desc: {
-        'zh-CN': '<p>通过 <code>custom-class</code> 设置自定义类名。</p>',
-        'en-US': 'Set the user-defined class name through <code>custom-class</code>.'
+        'zh-CN': '<p>通过 <code>custom-class</code> 设置自定义类名。</p>'
       },
       codeFiles: ['custom-class.vue']
     }

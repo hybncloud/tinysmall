@@ -11,8 +11,7 @@ export default {
           type: 'string | IColorItem[] | (percentage: string) => string',
           defaultValue: '',
           desc: {
-            'zh-CN': '进度条背景色（会覆盖 status 状态颜色）',
-            'en-US': 'Background color of the progress bar (overwrites the status color)'
+            'zh-CN': '进度条背景色（会覆盖 status 状态颜色）'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'custom-color',
@@ -23,8 +22,7 @@ export default {
           type: '() => string',
           defaultValue: '',
           desc: {
-            'zh-CN': '自定义进度条的文字',
-            'en-US': 'Customize the text of the progress bar'
+            'zh-CN': '自定义进度条的文字'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'format-text',
@@ -35,8 +33,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '环形进度条底部描述文字',
-            'en-US': ''
+            'zh-CN': '环形进度条底部描述文字'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -46,8 +43,7 @@ export default {
           type: 'number',
           defaultValue: '0',
           desc: {
-            'zh-CN': '百分比（必填）；该属性的可选值为 0-100',
-            'en-US': 'Percentage (mandatory) The optional values for this property are 0 - 100'
+            'zh-CN': '百分比（必填）；该属性的可选值为 0-100'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'basic-usage',
@@ -58,8 +54,7 @@ export default {
           type: 'boolean',
           defaultValue: 'true',
           desc: {
-            'zh-CN': '是否显示进度条文字内容',
-            'en-US': 'Display progress bar text'
+            'zh-CN': '是否显示进度条文字内容'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'format-text',
@@ -70,8 +65,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '进度条尺寸',
-            'en-US': ''
+            'zh-CN': '进度条尺寸'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -81,8 +75,7 @@ export default {
           type: "'success' | 'exception' | 'warning'",
           defaultValue: '',
           desc: {
-            'zh-CN': '进度条当前状态',
-            'en-US': 'Current status of the progress bar'
+            'zh-CN': '进度条当前状态'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'progress-status',
@@ -93,8 +86,7 @@ export default {
           type: 'number',
           defaultValue: '6',
           desc: {
-            'zh-CN': 'line 类型进度条的宽度，单位 px',
-            'en-US': 'The width of the progress bar of type line, in px'
+            'zh-CN': 'line 类型进度条的宽度，单位 px'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'basic-usage',
@@ -105,9 +97,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '进度条显示文字内置在进度条内（只在 type=line 时可用）',
-            'en-US':
-              'The text displayed on the progress bar is embedded in the progress bar. This parameter is available only when type is set to line'
+            'zh-CN': '进度条显示文字内置在进度条内（只在 type=line 时可用）'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'format-text',
@@ -118,8 +108,7 @@ export default {
           type: "'line' | 'circle' | 'dashboard'",
           defaultValue: "'line'",
           desc: {
-            'zh-CN': '进度条类型',
-            'en-US': 'Progress bar type'
+            'zh-CN': '进度条类型'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'progress-type-circle',
@@ -130,8 +119,7 @@ export default {
           type: 'number',
           defaultValue: '126',
           desc: {
-            'zh-CN': '环形进度条画布宽度（只在 type 为 circle 或 dashboard 时可用）',
-            'en-US': 'Circular progress bar canvas width (available only when type is circle or dashboard)'
+            'zh-CN': '环形进度条画布宽度（只在 type 为 circle 或 dashboard 时可用）'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'progress-type-circle',
@@ -144,8 +132,7 @@ export default {
         {
           name: 'statusIcon',
           desc: {
-            'zh-CN': '状态插槽，successIcon / exceptionIcon / warningIcon',
-            'en-US': 'Status slot, successIcon / exceptionIcon / warningIcon'
+            'zh-CN': '状态插槽，successIcon / exceptionIcon / warningIcon'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'slot-icon-status',

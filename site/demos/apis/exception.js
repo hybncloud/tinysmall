@@ -10,8 +10,7 @@ export default {
           type: 'boolean',
           defaultValue: '',
           desc: {
-            'zh-CN': '设置组件级异常',
-            'en-US': 'Set component-level exception'
+            'zh-CN': '设置组件级异常'
           },
           mode: ['pc', 'mobile-first'],
           mfDemo: 'component-page',
@@ -22,8 +21,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '设置自定义类',
-            'en-US': 'Setting Custom Classes'
+            'zh-CN': '设置自定义类'
           },
           mode: ['pc', 'mobile-first'],
           mfDemo: 'exception-class',
@@ -34,8 +32,7 @@ export default {
           type: 'boolean',
           defaultValue: '',
           desc: {
-            'zh-CN': '设置页面级异常',
-            'en-US': 'Set page-level exception'
+            'zh-CN': '设置页面级异常'
           },
           mode: ['pc', 'mobile-first'],
           mfDemo: 'page-empty',
@@ -46,8 +43,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '设置二级标题',
-            'en-US': 'Set Level-2 Title'
+            'zh-CN': '设置二级标题'
           },
           mode: ['pc', 'mobile-first'],
           mfDemo: 'sub-message',
@@ -59,8 +55,7 @@ export default {
           type: 'IType',
           defaultValue: 'nodata',
           desc: {
-            'zh-CN': '<p>设置缺省页类型，默认为nodata</p>',
-            'en-US': '<p>Set exception type, The default value is nodata</p>'
+            'zh-CN': '<p>设置缺省页类型，默认为nodata</p>'
           },
           mode: ['pc', 'mobile-first'],
           mfDemo: 'page-empty',
@@ -75,8 +70,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '<p>设置内容</p>',
-            'en-US': '<p>Set content</p>'
+            'zh-CN': '<p>设置内容</p>'
           },
           mode: ['pc', 'mobile-first'],
           mfDemo: 'slot',
@@ -87,8 +81,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '图标插槽',
-            'en-US': 'Icon Slot'
+            'zh-CN': '图标插槽'
           },
           mode: ['pc', 'mobile-first'],
           mfDemo: 'slot',

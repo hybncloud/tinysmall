@@ -10,8 +10,7 @@ export default {
           type: 'boolean',
           defaultValue: ' true',
           desc: {
-            'zh-CN': '是否将弹出层的元素添加到body上',
-            'en-US': 'Whether to append to body'
+            'zh-CN': '是否将弹出层的元素添加到body上'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: '',
@@ -22,8 +21,7 @@ export default {
           type: 'number',
           defaultValue: '300',
           desc: {
-            'zh-CN': '延迟关闭的时长，单位毫秒',
-            'en-US': 'Close Delay time, in milliseconds.'
+            'zh-CN': '延迟关闭的时长，单位毫秒'
           },
           mode: ['pc'],
           pcDemo: 'delay'
@@ -33,8 +31,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '显示的内容',
-            'en-US': 'Displayed content.'
+            'zh-CN': '显示的内容'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'content',
@@ -48,9 +45,7 @@ export default {
             stable: '3.19.0'
           },
           desc: {
-            'zh-CN': '内容最大高度，仅当使用content设置内容时生效，使用插槽等其他方式时无效',
-            'en-US':
-              'The maximum height of the content. It only takes effect when content is set using content. It is invalid when using other methods such as slots.'
+            'zh-CN': '内容最大高度，仅当使用content设置内容时生效，使用插槽等其他方式时无效'
           },
           mode: ['pc'],
           pcDemo: 'content-max-height',
@@ -61,8 +56,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': 'Tooltip 是否禁用',
-            'en-US': 'Whether Tooltip is disable'
+            'zh-CN': 'Tooltip 是否禁用'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'control',
@@ -73,8 +67,7 @@ export default {
           type: "'dark' | 'light'",
           defaultValue: "'dark'",
           desc: {
-            'zh-CN': '提示的主题',
-            'en-US': 'Default theme'
+            'zh-CN': '提示的主题'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'theme',
@@ -85,8 +78,7 @@ export default {
           type: 'boolean',
           defaultValue: ' true',
           desc: {
-            'zh-CN': '鼠标是否可进入到 tooltip 的弹出层中',
-            'en-US': 'Whether the mouse can enter the pop-up layer of the tooltip'
+            'zh-CN': '鼠标是否可进入到 tooltip 的弹出层中'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'custom-popper',
@@ -97,9 +89,7 @@ export default {
           type: 'number',
           defaultValue: ' 0',
           desc: {
-            'zh-CN': '出现后自动隐藏的时长，单位毫秒，为 0 则不会自动隐藏',
-            'en-US':
-              'Duration of automatic hiding after appearing, in milliseconds. If 0, it will not be automatically hidden'
+            'zh-CN': '出现后自动隐藏的时长，单位毫秒，为 0 则不会自动隐藏'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'delay',
@@ -110,9 +100,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '手动控制模式，设置为 true 后，mouseenter 和 mouseleave 事件将不会生效',
-            'en-US':
-              'Manual control mode. If this parameter is set to true, the mouseenter and mouseleave events do not take effect.'
+            'zh-CN': '手动控制模式，设置为 true 后，mouseenter 和 mouseleave 事件将不会生效'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'control',
@@ -123,8 +111,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '配置 manual = true时，控制弹出状态',
-            'en-US': 'If manual is set to true, the pop-up status is controlled'
+            'zh-CN': '配置 manual = true时，控制弹出状态'
           },
           mode: ['pc'],
           pcDemo: 'control'
@@ -134,8 +121,7 @@ export default {
           type: 'number',
           defaultValue: '0',
           desc: {
-            'zh-CN': '弹出层出现位置的偏移量',
-            'en-US': 'Offset of the occurrence position'
+            'zh-CN': '弹出层出现位置的偏移量'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'offset',
@@ -146,8 +132,7 @@ export default {
           type: 'number',
           defaultValue: '0',
           desc: {
-            'zh-CN': '延迟出现的时长，单位毫秒',
-            'en-US': 'Open delay time, in milliseconds.'
+            'zh-CN': '延迟出现的时长，单位毫秒'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'delay',
@@ -159,8 +144,7 @@ export default {
           type: 'IPopperPlacement',
           defaultValue: "'bottom'",
           desc: {
-            'zh-CN': 'Tooltip 的出现位置',
-            'en-US': 'Location where the tooltip appears'
+            'zh-CN': 'Tooltip 的出现位置'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'basic-usage',
@@ -171,8 +155,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '为 Tooltip 的弹出层添加类名',
-            'en-US': 'Add a class name to the pop-up layer of Tooltip'
+            'zh-CN': '为 Tooltip 的弹出层添加类名'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'custom-popper',
@@ -184,8 +167,7 @@ export default {
           type: 'IPopperOption',
           defaultValue: ' { }',
           desc: {
-            'zh-CN': '弹出层参数',
-            'en-US': 'Advanced parameters; Refer to the description of IPopperOption'
+            'zh-CN': '弹出层参数'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'popper-options',
@@ -196,8 +178,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': 'content 文本是否预格式化',
-            'en-US': 'Indicates whether the content text is preformatted.'
+            'zh-CN': 'content 文本是否预格式化'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'content',
@@ -208,8 +189,7 @@ export default {
           type: '(h: Vue.h, content:string)=> VNode',
           defaultValue: '',
           desc: {
-            'zh-CN': '自定义渲染函数,返回需要渲染的节点内容',
-            'en-US': 'A custom rendering function that returns the contents of the node to be rendered'
+            'zh-CN': '自定义渲染函数,返回需要渲染的节点内容'
           },
           mode: ['pc'],
           pcDemo: 'content'
@@ -219,8 +199,7 @@ export default {
           type: 'number',
           defaultValue: '',
           desc: {
-            'zh-CN': '设置组件的触发源的 tabindex',
-            'en-US': 'Sets the tabindex of the trigger source of the component.'
+            'zh-CN': '设置组件的触发源的 tabindex'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: '',
@@ -231,8 +210,7 @@ export default {
           type: 'string',
           defaultValue: "'tiny-fade-in-linear'",
           desc: {
-            'zh-CN': '定义渐变动画的类名',
-            'en-US': 'Define the class name of the gradient animation'
+            'zh-CN': '定义渐变动画的类名'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'transition',
@@ -243,8 +221,7 @@ export default {
           type: "'normal' | 'warning' | 'error' | 'info' | 'success'",
           defaultValue: '',
           desc: {
-            'zh-CN': '提示的类型， type 的优先级大于 effect ',
-            'en-US': 'The default type is provided. The priority of type is higher than that of effect.'
+            'zh-CN': '提示的类型， type 的优先级大于 effect '
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'theme',
@@ -255,8 +232,7 @@ export default {
           type: 'Boolean',
           defaultValue: '',
           desc: {
-            'zh-CN': '状态是否可见',
-            'en-US': ''
+            'zh-CN': '状态是否可见'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -266,8 +242,7 @@ export default {
           type: " 'always' | 'auto'",
           defaultValue: "'always'",
           desc: {
-            'zh-CN': '提示的智能出现的模式',
-            'en-US': 'The pattern of intelligent emergence of hints'
+            'zh-CN': '提示的智能出现的模式'
           },
           mode: ['pc'],
           pcDemo: 'control'
@@ -277,8 +252,7 @@ export default {
           type: 'boolean',
           defaultValue: 'true',
           desc: {
-            'zh-CN': '是否显示箭头',
-            'en-US': 'Indicates whether to display the tooltip arrow.'
+            'zh-CN': '是否显示箭头'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'custom-popper',
@@ -289,8 +263,7 @@ export default {
           type: 'String',
           defaultValue: '',
           desc: {
-            'zh-CN': '设置 z-index 属性为 relative 时，弹出层样式属性 zIndex 值参考 Reference 及其父级 Dom',
-            'en-US': ''
+            'zh-CN': '设置 z-index 属性为 relative 时，弹出层样式属性 zIndex 值参考 Reference 及其父级 Dom'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -304,8 +277,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '内容插槽',
-            'en-US': 'Content Slot'
+            'zh-CN': '内容插槽'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'content',
@@ -316,8 +288,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '默认插槽',
-            'en-US': 'Default slot'
+            'zh-CN': '默认插槽'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'basic-usage',

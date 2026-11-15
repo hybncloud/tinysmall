@@ -10,8 +10,7 @@ export default {
           type: 'number',
           defaultValue: '0',
           desc: {
-            'zh-CN': '设置引导框对齐轴距离',
-            'en-US': ''
+            'zh-CN': '设置引导框对齐轴距离'
           },
           mode: ['pc'],
           pcDemo: 'offset'
@@ -21,8 +20,7 @@ export default {
           type: 'boolean',
           defaultValue: 'true',
           desc: {
-            'zh-CN': '是否显示工具提示的箭头',
-            'en-US': ''
+            'zh-CN': '是否显示工具提示的箭头'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage'
@@ -32,8 +30,7 @@ export default {
           type: 'number',
           defaultValue: '0',
           desc: {
-            'zh-CN': '设置引导框横轴距离',
-            'en-US': ''
+            'zh-CN': '设置引导框横轴距离'
           },
           mode: ['pc'],
           pcDemo: 'offset'
@@ -44,8 +41,7 @@ export default {
           type: 'IDomData[]',
           defaultValue: '',
           desc: {
-            'zh-CN': '用户引导参数',
-            'en-US': ''
+            'zh-CN': '用户引导参数'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage'
@@ -55,8 +51,7 @@ export default {
           type: 'number',
           defaultValue: '',
           desc: {
-            'zh-CN': '设置引导框高度',
-            'en-US': ''
+            'zh-CN': '设置引导框高度'
           },
           mode: ['pc'],
           pcDemo: 'size'
@@ -66,8 +61,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '当元素突出显示时（即，当其步骤处于活动状态时）应用于元素的类名',
-            'en-US': ''
+            'zh-CN': '当元素突出显示时（即，当其步骤处于活动状态时）应用于元素的类名'
           },
           mode: ['pc'],
           pcDemo: ''
@@ -77,8 +71,7 @@ export default {
           type: 'number',
           defaultValue: '18',
           desc: {
-            'zh-CN': '设置引导框主轴（纵轴）距离',
-            'en-US': ''
+            'zh-CN': '设置引导框主轴（纵轴）距离'
           },
           mode: ['pc'],
           pcDemo: 'offset'
@@ -88,8 +81,7 @@ export default {
           type: 'number',
           defaultValue: '0',
           desc: {
-            'zh-CN': '在模态叠加层开口周围添加的填充量',
-            'en-US': ''
+            'zh-CN': '在模态叠加层开口周围添加的填充量'
           },
           mode: ['pc'],
           pcDemo: 'modal-overlay-opening'
@@ -99,8 +91,7 @@ export default {
           type: 'number',
           defaultValue: '0',
           desc: {
-            'zh-CN': '在模态叠加层开口周围添加的边界半径量',
-            'en-US': ''
+            'zh-CN': '在模态叠加层开口周围添加的边界半径量'
           },
           mode: ['pc'],
           pcDemo: 'modal-overlay-opening'
@@ -111,8 +102,7 @@ export default {
           type: 'IPosition',
           defaultValue: "'bottom'",
           desc: {
-            'zh-CN': '引导框箭头位置，该属性的可选值可参考 IPosition 类型',
-            'en-US': ''
+            'zh-CN': '引导框箭头位置，该属性的可选值可参考 IPosition 类型'
           },
           mode: ['pc'],
           pcDemo: 'arrow-position'
@@ -122,8 +112,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否开启指引',
-            'en-US': ''
+            'zh-CN': '是否开启指引'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage'
@@ -133,8 +122,7 @@ export default {
           type: 'number',
           defaultValue: '510',
           desc: {
-            'zh-CN': '设置引导框宽度',
-            'en-US': ''
+            'zh-CN': '设置引导框宽度'
           },
           mode: ['pc'],
           pcDemo: 'size'
@@ -144,8 +132,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否显示遮罩层',
-            'en-US': ''
+            'zh-CN': '是否显示遮罩层'
           },
           mode: ['pc'],
           pcDemo: 'mask',
@@ -158,8 +145,7 @@ export default {
           type: 'boolean',
           defaultValue: 'true',
           desc: {
-            'zh-CN': '是否显示关闭按钮',
-            'en-US': ''
+            'zh-CN': '是否显示关闭按钮'
           },
           mode: ['pc'],
           pcDemo: 'show-close',
@@ -175,8 +161,7 @@ export default {
           name: 'main',
           defaultValue: '',
           desc: {
-            'zh-CN': '设置引导框内容',
-            'en-US': ''
+            'zh-CN': '设置引导框内容'
           },
           mode: ['pc'],
           pcDemo: 'highlight-box'

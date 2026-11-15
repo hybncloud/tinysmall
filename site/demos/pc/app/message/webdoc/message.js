@@ -7,48 +7,40 @@ export default {
     {
       demoId: 'basic-usage',
       name: {
-        'zh-CN': '基本用法',
-        'en-US': 'Basic Usage'
+        'zh-CN': '基本用法'
       },
       desc: {
-        'zh-CN': `通过<code>status</code>属性设置组件状态，可选值有<code>info</code>、<code>success</code>、<code>warning</code>、<code>error</code>、<code>loading</code>五种状态。<code>message</code> 属性设置提示信息。`,
-        'en-US': `Set the component status via the <code>status</code> attribute, with optional values including <code>info</code>, <code>success</code>, <code>warning</code>, <code>error</code>, and <code>loading</code>. The <code>message</code> attribute sets the prompt information.`
+        'zh-CN': `通过<code>status</code>属性设置组件状态，可选值有<code>info</code>、<code>success</code>、<code>warning</code>、<code>error</code>、<code>loading</code>五种状态。<code>message</code> 属性设置提示信息。`
       },
       codeFiles: ['basic-usage.vue']
     },
     {
       demoId: 'message-duration',
       name: {
-        'zh-CN': '自定义时长',
-        'en-US': 'Custom Duration'
+        'zh-CN': '自定义时长'
       },
       desc: {
-        'zh-CN': `<code>duration</code> 属性用于设置消息提示的显示时长，单位为毫秒。`,
-        'en-US': `The <code>duration</code> attribute is used to set the display duration of the message prompt, in milliseconds.`
+        'zh-CN': `<code>duration</code> 属性用于设置消息提示的显示时长，单位为毫秒。`
       },
       codeFiles: ['message-duration.vue']
     },
     {
       demoId: 'message-close',
       name: {
-        'zh-CN': '消息显示关闭按钮',
-        'en-US': 'Message Close Button'
+        'zh-CN': '消息显示关闭按钮'
       },
       desc: {
-        'zh-CN': `<code>message-closable</code> 属性用于设置消息提示是否可关闭。`,
-        'en-US': `The <code>message-closable</code> attribute is used to set whether the message prompt can be closed.`
+        'zh-CN': `<code>message-closable</code> 属性用于设置消息提示是否可关闭。`
       },
       codeFiles: ['message-close.vue']
     },
     {
       demoId: 'prevent-duplicate',
       name: {
-        'zh-CN': '防止重复消息提示',
-        'en-US': 'Prevent Duplicate Message Prompts'
+        'zh-CN': '防止重复消息提示'
       },
       desc: {
-        'zh-CN': `<code>id</code> 属性设置防止重复提示。`,
-        'en-US': `The <code>id</code> attribute is set to prevent duplicate prompts.`
+        'zh-CN': `<code>id</code> 属性设置防止重复提示。`
       },
       codeFiles: ['prevent-duplicate.vue']
     }

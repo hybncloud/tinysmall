@@ -10,9 +10,7 @@ export default {
           type: 'string[]',
           defaultValue: '[]',
           desc: {
-            'zh-CN': '通过传入一个2值的字符串数组，自定义左右穿梭按钮的文案',
-            'en-US':
-              'Customize the copy of the left and right shuttle button by passing in an array of 2-valued strings'
+            'zh-CN': '通过传入一个2值的字符串数组，自定义左右穿梭按钮的文案'
           },
           mode: ['pc'],
           pcDemo: 'custom-btns'
@@ -23,8 +21,7 @@ export default {
           type: 'IColumnConfig',
           defaultValue: '',
           desc: {
-            'zh-CN': '在渲染类型为 table 时，设置穿梭框表格的列配置',
-            'en-US': "When the render type is table, set the transfer's table column configuration"
+            'zh-CN': '在渲染类型为 table 时，设置穿梭框表格的列配置'
           },
           mode: ['pc'],
           pcDemo: 'nested-table'
@@ -34,8 +31,7 @@ export default {
           type: 'ITransferData[]',
           defaultValue: '[]',
           desc: {
-            'zh-CN': '左右列表的全量数据源',
-            'en-US': 'Full data source for the left and right lists'
+            'zh-CN': '左右列表的全量数据源'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage'
@@ -46,8 +42,7 @@ export default {
           type: 'IDropConfig',
           defaultValue: '',
           desc: {
-            'zh-CN': '设置穿梭框列表项可拖拽的参数，参见sortablejs插件',
-            'en-US': 'To set drag-and-drop parameters for shuttle list items, see sortablejs plugin'
+            'zh-CN': '设置穿梭框列表项可拖拽的参数，参见sortablejs插件'
           },
           mode: ['pc'],
           pcDemo: 'drop-config'
@@ -58,9 +53,7 @@ export default {
           defaultValue: '',
           desc: {
             'zh-CN':
-              '\n              设置穿梭框的搜索过滤函数，仅在默认列表和嵌套表时有效<br>\n              嵌套树时，请使用treeConfig进行搜索配置<br>\n            ',
-            'en-US':
-              '\n              Set the search filter function for the transfer to work only for default lists and nested tables. <br>\n              When nesting trees, use treeConfig for search configuration. <br>\n            '
+              '\n              设置穿梭框的搜索过滤函数，仅在默认列表和嵌套表时有效<br>\n              嵌套树时，请使用treeConfig进行搜索配置<br>\n            '
           },
           mode: ['pc'],
           pcDemo: 'custom-filter'
@@ -70,8 +63,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '启用搜索时，搜索框占位文本',
-            'en-US': "When Search, filter box's placeholder"
+            'zh-CN': '启用搜索时，搜索框占位文本'
           },
           mode: ['pc'],
           pcDemo: 'custom-filter'
@@ -81,8 +73,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否启用搜索的功能',
-            'en-US': 'Whether to enable the search function'
+            'zh-CN': '是否启用搜索的功能'
           },
           mode: ['pc'],
           pcDemo: 'custom-filter'
@@ -94,8 +85,7 @@ export default {
             // eslint-disable-next-line no-template-curly-in-string
             "{ <br>&nbsp;&nbsp; noChecked:'${checked}/${total}', <br>&nbsp;&nbsp; hasChecked: '${checked}/${total}' <br>}",
           desc: {
-            'zh-CN': '列表顶部勾选状态文案',
-            'en-US': 'Check the status copy at the top of the list'
+            'zh-CN': '列表顶部勾选状态文案'
           },
           mode: ['pc'],
           pcDemo: 'custom-titles'
@@ -106,9 +96,7 @@ export default {
           type: 'IColumnConfig',
           defaultValue: '',
           desc: {
-            'zh-CN': '在渲染类型为 table 时，左边表格的列配置,优先级高于 columns',
-            'en-US':
-              "When the render type is table, set the transfer's left table column configuration,the priority is higher than that of columns"
+            'zh-CN': '在渲染类型为 table 时，左边表格的列配置,优先级高于 columns'
           },
           mode: ['pc'],
           pcDemo: ''
@@ -118,8 +106,7 @@ export default {
           type: 'string[]',
           defaultValue: '[]',
           desc: {
-            'zh-CN': '默认左侧列表的已勾选项的 key 数组',
-            'en-US': 'The key array of the checked items in the left list'
+            'zh-CN': '默认左侧列表的已勾选项的 key 数组'
           },
           mode: ['pc'],
           pcDemo: 'default-checked'
@@ -130,8 +117,7 @@ export default {
           type: 'IPagerOp',
           defaultValue: "{ mode: 'fixed',pageVO: {currentPage: 1,pageSize: 10}",
           desc: {
-            'zh-CN': '在渲染类型为 table 时，设置表格的分页配置',
-            'en-US': 'When the render type is table, set the paging configuration'
+            'zh-CN': '在渲染类型为 table 时，设置表格的分页配置'
           },
           mode: ['pc'],
           pcDemo: 'nested-table'
@@ -141,8 +127,7 @@ export default {
           type: '{key:string, label:string, disabled:string}',
           defaultValue: '',
           desc: {
-            'zh-CN': '数据源的字段别名映射配置',
-            'en-US': 'Field alias mapping configuration for the data source'
+            'zh-CN': '数据源的字段别名映射配置'
           },
           mode: ['pc'],
           pcDemo: 'custom-render'
@@ -153,9 +138,7 @@ export default {
           defaultValue: '',
           desc: {
             'zh-CN':
-              '设置左右区域的渲染类型,Table 和 Tree 对象需要从组件包中引入相应的组件变量。<br>该属性值的plugin设置为Table时设置渲染为表格;该属性值的 plugin 设置为Tree渲染为树',
-            'en-US':
-              'Sets the rendering type for the left and right regions. <br>This property renders to a Table when plugin is set to table; The value of the pluginplugin set to Tree renders as a tree'
+              '设置左右区域的渲染类型,Table 和 Tree 对象需要从组件包中引入相应的组件变量。<br>该属性值的plugin设置为Table时设置渲染为表格;该属性值的 plugin 设置为Tree渲染为树'
           },
           mode: ['pc'],
           pcDemo: 'nested-table'
@@ -165,8 +148,7 @@ export default {
           type: '(h: Vue.h, item: any) => vnode',
           defaultValue: '',
           desc: {
-            'zh-CN': '数据项的自定义渲染函数',
-            'en-US': 'Custom data item rendering function'
+            'zh-CN': '数据项的自定义渲染函数'
           },
           mode: ['pc'],
           pcDemo: 'custom-render'
@@ -177,9 +159,7 @@ export default {
           type: 'IColumnConfig',
           defaultValue: '',
           desc: {
-            'zh-CN': '在渲染类型为 table 时，右边表格的列配置,优先级高于 columns',
-            'en-US':
-              "When the render type is table, set the transfer's right table column configuration,the priority is higher than that of columns"
+            'zh-CN': '在渲染类型为 table 时，右边表格的列配置,优先级高于 columns'
           },
           mode: ['pc'],
           pcDemo: ''
@@ -189,8 +169,7 @@ export default {
           type: 'string[]',
           defaultValue: '[]',
           desc: {
-            'zh-CN': '默认右侧列表的已勾选项的 key 数组',
-            'en-US': 'The key array of the checked items in the right list'
+            'zh-CN': '默认右侧列表的已勾选项的 key 数组'
           },
           mode: ['pc'],
           pcDemo: 'default-checked'
@@ -200,8 +179,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否显示全部移动按钮',
-            'en-US': 'Whether to show all move buttons'
+            'zh-CN': '是否显示全部移动按钮'
           },
           mode: ['pc'],
           pcDemo: 'custom-btns'
@@ -211,8 +189,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '在渲染类型为 table 时，设置表格是否显示分页',
-            'en-US': 'Sets whether pagination should be displayed when the render type is table.'
+            'zh-CN': '在渲染类型为 table 时，设置表格是否显示分页'
           },
           mode: ['pc'],
           pcDemo: 'nested-table'
@@ -223,9 +200,7 @@ export default {
           defaultValue: '"original"',
           desc: {
             'zh-CN':
-              ' 右侧列表元素的插入排序策略<br>\n                &nbsp; 若为 original，则保持与数据源相同的顺序 <br>\n                &nbsp; 若为 push，则新加入的元素排在最后 <br>\n                &nbsp; 若为 unshift，则新加入的元素排在最前。',
-            'en-US':
-              'The insertion sort strategy for the elements in the list on the right<br>\n                &nbsp;  If original, it maintains the same order as the data source<br>\n                &nbsp;  If it is a push, the new element is listed last<br>\n                &nbsp;  If unshift is used, the new element is listed first\n              '
+              ' 右侧列表元素的插入排序策略<br>\n                &nbsp; 若为 original，则保持与数据源相同的顺序 <br>\n                &nbsp; 若为 push，则新加入的元素排在最后 <br>\n                &nbsp; 若为 unshift，则新加入的元素排在最前。'
           },
           mode: ['pc'],
           pcDemo: 'target-order'
@@ -236,9 +211,7 @@ export default {
           defaultValue: '[]',
           desc: {
             'zh-CN':
-              '自定义列表的标题；不设置titles时，左右列表的标题默认显示为： <code> 列表 1</code>，<code> 列表 2</code>',
-            'en-US':
-              'Custom list titles When titles are not set, the titles of the left and right lists are displayed by default: <code> list 1</code>,<code> list 2</code>'
+              '自定义列表的标题；不设置titles时，左右列表的标题默认显示为： <code> 列表 1</code>，<code> 列表 2</code>'
           },
           mode: ['pc'],
           pcDemo: 'custom-titles'
@@ -248,8 +221,7 @@ export default {
           type: 'boolean',
           defaultValue: 'true',
           desc: {
-            'zh-CN': '组件初始化状态下未选中时，默认按钮显示禁用状态',
-            'en-US': 'When a component is initialized unselected, the default button is disabled'
+            'zh-CN': '组件初始化状态下未选中时，默认按钮显示禁用状态'
           },
           mode: ['pc'],
           pcDemo: 'custom-btns'
@@ -259,8 +231,7 @@ export default {
           type: 'boolean',
           defaultValue: 'true',
           desc: {
-            'zh-CN': '组件初始化状态下未选中时，默认按钮显示禁用状态',
-            'en-US': 'When a component is initialized unselected, the default button is disabled'
+            'zh-CN': '组件初始化状态下未选中时，默认按钮显示禁用状态'
           },
           mode: ['pc'],
           pcDemo: 'custom-btns'
@@ -271,8 +242,7 @@ export default {
           type: 'Tree props',
           defaultValue: '',
           desc: {
-            'zh-CN': '在渲染类型为 tree 时，设置树的相关配置属性',
-            'en-US': 'Set the tree-related configuration attributes when the plug-in is set to tree.'
+            'zh-CN': '在渲染类型为 tree 时，设置树的相关配置属性'
           },
           mode: ['pc'],
           pcDemo: 'nested-tree'
@@ -282,8 +252,7 @@ export default {
           type: 'string[]',
           defaultValue: '[]',
           desc: {
-            'zh-CN': '移动到右列表的数据项的key的数组值',
-            'en-US': 'The array value of the key of the data item that moves to the right list'
+            'zh-CN': '移动到右列表的数据项的key的数组值'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage'
@@ -293,9 +262,7 @@ export default {
           type: 'Object',
           defaultValue: '',
           desc: {
-            'zh-CN': '指定左右面板容器的样式,当面板的宽度大于外部容器的50%宽度时，面板会自适应容器的宽度。',
-            'en-US':
-              "Specify the style of the left and right panel containers. When the width of the panel is greater than 50% of the external container's width, the panel will adapt to the width of the container"
+            'zh-CN': '指定左右面板容器的样式,当面板的宽度大于外部容器的50%宽度时，面板会自适应容器的宽度。'
           },
           mode: ['pc'],
           pcDemo: 'custom-size',
@@ -308,8 +275,7 @@ export default {
           type: 'Object',
           defaultValue: '',
           desc: {
-            'zh-CN': '指定面板内容区域的样式',
-            'en-US': 'Specify the style of the content area of the designated panel.'
+            'zh-CN': '指定面板内容区域的样式'
           },
           mode: ['pc'],
           pcDemo: 'custom-size',
@@ -323,9 +289,7 @@ export default {
           defaultValue: '',
           desc: {
             'zh-CN':
-              '嵌套表格时，设置表格的高度值。嵌套表格的默认高度为400px, 当自定义面板内容区域的高度之后，可能会与表格高度不匹配。 可以通过该属性设置一个匹配的表格高度。',
-            'en-US':
-              'When nesting tables, set the height value of the table. The default height of a nested table is 400px. After customizing the height of the panel content area, it may not match the height of the table. You can use this property to set a matching table height.'
+              '嵌套表格时，设置表格的高度值。嵌套表格的默认高度为400px, 当自定义面板内容区域的高度之后，可能会与表格高度不匹配。 可以通过该属性设置一个匹配的表格高度。'
           },
           mode: ['pc'],
           pcDemo: 'custom-size',
@@ -341,9 +305,7 @@ export default {
           defaultValue: '',
           desc: {
             'zh-CN':
-              '右侧列表元素变化时触发的事件;<br>\n                value: 穿梭框右侧数据值列表<br>\n                move: 数据移动方向，是left或者right<br>\n                keyArray: 被移动的数据值列表',
-            'en-US':
-              'Fires when the right side of the list changes <br>\n                value: List of data values to the right of the Array <br>\n                move: direction to move the data, either left or right<br>\n                keyArray:A list of data values whose Array has been moved\n              '
+              '右侧列表元素变化时触发的事件;<br>\n                value: 穿梭框右侧数据值列表<br>\n                move: 数据移动方向，是left或者right<br>\n                keyArray: 被移动的数据值列表'
           },
           mode: ['pc'],
           pcDemo: 'transfer-events'
@@ -354,9 +316,7 @@ export default {
           defaultValue: '',
           desc: {
             'zh-CN':
-              '左侧列表元素选择时触发的事件;<br>\n              checked: 穿梭框左侧被选中的数据值列表<br>\n              statusChanged: 穿梭框左侧选中状态发生变化的数据值列表',
-            'en-US':
-              'Triggered when an element in the left list is selected/unselected by the user. <br>\n              checked: List of selected values to the left of the Array <br>\n              statusChanged: The list of data values whose status has changed is selected on the left side of the Array transfer'
+              '左侧列表元素选择时触发的事件;<br>\n              checked: 穿梭框左侧被选中的数据值列表<br>\n              statusChanged: 穿梭框左侧选中状态发生变化的数据值列表'
           },
           mode: ['pc'],
           pcDemo: 'transfer-events'
@@ -367,9 +327,7 @@ export default {
           defaultValue: '',
           desc: {
             'zh-CN':
-              '右侧列表元素选择时触发的事件;<br>\n              checked: 穿梭框右侧被选中的数据值列表<br>\n              statusChanged: 穿梭框右侧选中状态发生变化的数据值列表',
-            'en-US':
-              'Triggered when an element in the list on the right is selected/unselected by the user <br>\n              checked: List of selected data values to the right of the Array shuttle box <br>\n              statusChanged: The list of data values whose status has changed is selected to the right of the Array shuttle box'
+              '右侧列表元素选择时触发的事件;<br>\n              checked: 穿梭框右侧被选中的数据值列表<br>\n              statusChanged: 穿梭框右侧选中状态发生变化的数据值列表'
           },
           mode: ['pc'],
           pcDemo: 'transfer-events'
@@ -381,8 +339,7 @@ export default {
           type: '(name: string) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '开启过滤功能时，清空左右面板的搜索关键词',
-            'en-US': 'When the filtering function is enabled, clear the search keywords on the left and right panels'
+            'zh-CN': '开启过滤功能时，清空左右面板的搜索关键词'
           },
           mode: ['pc'],
           pcDemo: 'custom-filter'
@@ -393,8 +350,7 @@ export default {
           name: 'button-panel',
           defaultValue: '',
           desc: {
-            'zh-CN': '穿梭按钮插槽',
-            'en-US': 'Customized transfer button'
+            'zh-CN': '穿梭按钮插槽'
           },
           mode: ['pc'],
           pcDemo: ''
@@ -403,8 +359,7 @@ export default {
           name: 'default',
           defaultValue: '',
           desc: {
-            'zh-CN': '数据项的内容插槽，插槽数据上下文为： { option }',
-            'en-US': 'The content of the custom data item, slot data context is {option}.'
+            'zh-CN': '数据项的内容插槽，插槽数据上下文为： { option }'
           },
           mode: ['pc'],
           pcDemo: 'custom-render'
@@ -413,8 +368,7 @@ export default {
           name: 'left-footer',
           defaultValue: '',
           desc: {
-            'zh-CN': '左侧列表底部的内容插槽',
-            'en-US': 'Content at the bottom of the left list'
+            'zh-CN': '左侧列表底部的内容插槽'
           },
           mode: ['pc'],
           pcDemo: 'custom-footer'
@@ -423,8 +377,7 @@ export default {
           name: 'left-panel',
           defaultValue: '',
           desc: {
-            'zh-CN': '左侧自定义内容插槽',
-            'en-US': 'Customized content on the left'
+            'zh-CN': '左侧自定义内容插槽'
           },
           mode: ['pc'],
           pcDemo: ''
@@ -433,8 +386,7 @@ export default {
           name: 'right-footer',
           defaultValue: '',
           desc: {
-            'zh-CN': '右侧列表底部的内容插槽',
-            'en-US': 'Content at the bottom of the right list'
+            'zh-CN': '右侧列表底部的内容插槽'
           },
           mode: ['pc'],
           pcDemo: 'custom-footer'
@@ -443,8 +395,7 @@ export default {
           name: 'right-panel',
           defaultValue: '',
           desc: {
-            'zh-CN': '右侧自定义内容插槽',
-            'en-US': 'Customized content on the right'
+            'zh-CN': '右侧自定义内容插槽'
           },
           mode: ['pc'],
           pcDemo: ''

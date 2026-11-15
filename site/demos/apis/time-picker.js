@@ -10,8 +10,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否使用箭头进行时间选择',
-            'en-US': 'Whether to use arrows for time selection'
+            'zh-CN': '是否使用箭头进行时间选择'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage'
@@ -21,9 +20,7 @@ export default {
           type: 'Component',
           defaultValue: 'IconOperationfaild',
           desc: {
-            'zh-CN': '自定义清空图标',
-            'en-US':
-              'Indicates whether to insert a pop-up box to the body element. If a fault occurs in locating the fault in the dialog box that is displayed, you can set this attribute to false'
+            'zh-CN': '自定义清空图标'
           },
           mode: ['pc'],
           pcDemo: 'clearable'
@@ -33,8 +30,7 @@ export default {
           type: 'boolean',
           defaultValue: 'true',
           desc: {
-            'zh-CN': '是否显示清除按钮',
-            'en-US': 'Display Clear Button'
+            'zh-CN': '是否显示清除按钮'
           },
           mode: ['pc'],
           pcDemo: 'clearable'
@@ -44,8 +40,7 @@ export default {
           type: 'Date | string | number | Array',
           defaultValue: '',
           desc: {
-            'zh-CN': '当选中的日期值为空时，选择器面板打开时默认显示的时间，需设置为可被 new Date() 解析的值',
-            'en-US': 'Native attribute'
+            'zh-CN': '当选中的日期值为空时，选择器面板打开时默认显示的时间，需设置为可被 new Date() 解析的值'
           },
           mode: ['pc'],
           pcDemo: 'default-value'
@@ -55,8 +50,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '禁用',
-            'en-US': 'Disabled'
+            'zh-CN': '禁用'
           },
           mode: ['pc'],
           pcDemo: 'disabled'
@@ -66,8 +60,7 @@ export default {
           type: 'boolean',
           defaultValue: 'true',
           desc: {
-            'zh-CN': '文本框可输入',
-            'en-US': 'The text box can be entered.'
+            'zh-CN': '文本框可输入'
           },
           mode: ['pc'],
           pcDemo: 'editable'
@@ -77,8 +70,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '范围选择时结束日期的占位内容',
-            'en-US': 'Placeholder of the end date when the range is selected'
+            'zh-CN': '范围选择时结束日期的占位内容'
           },
           mode: ['pc'],
           pcDemo: 'placeholder'
@@ -88,9 +80,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否为时间范围选择',
-            'en-US':
-              'Indicates whether to use arrows to select time. This parameter is valid only for <tiny-time-picker>.'
+            'zh-CN': '是否为时间范围选择'
           },
           mode: ['pc'],
           pcDemo: 'is-range'
@@ -100,8 +90,7 @@ export default {
           type: 'Date | string | number | Array',
           defaultValue: '',
           desc: {
-            'zh-CN': '日期选择器选中的日期值，可设置选择器的初始值',
-            'en-US': 'Date value selected by the date selector. You can set the initial value of the selector.'
+            'zh-CN': '日期选择器选中的日期值，可设置选择器的初始值'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage'
@@ -111,8 +100,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '原生 input <code>name</code> 属性',
-            'en-US': 'Native input <code>name</code> attribute'
+            'zh-CN': '原生 input <code>name</code> 属性'
           },
           mode: ['pc'],
           pcDemo: 'name'
@@ -123,8 +111,7 @@ export default {
           type: 'IPickerOptions',
           defaultValue: '',
           desc: {
-            'zh-CN': '配置可选的时间范围、下拉框中显示的格式',
-            'en-US': ''
+            'zh-CN': '配置可选的时间范围、下拉框中显示的格式'
           },
           mode: ['pc'],
           pcDemo: 'disabled'
@@ -134,8 +121,7 @@ export default {
           type: 'string',
           defaultValue: "''",
           desc: {
-            'zh-CN': '非范围选择时的占位内容',
-            'en-US': 'Placeholder content for non-range selection'
+            'zh-CN': '非范围选择时的占位内容'
           },
           mode: ['pc'],
           pcDemo: 'placeholder'
@@ -145,8 +131,7 @@ export default {
           type: 'boolean',
           defaultValue: 'true',
           desc: {
-            'zh-CN': '是否将弹出框插入至 body 元素，在弹出框的定位出现问题时，可将该属性设置为 false',
-            'en-US': ''
+            'zh-CN': '是否将弹出框插入至 body 元素，在弹出框的定位出现问题时，可将该属性设置为 false'
           },
           mode: ['pc'],
           pcDemo: 'popper-class'
@@ -156,8 +141,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': 'TimePicker 下拉框的 class 类名',
-            'en-US': 'The following table lists the options of the current time and date selector.'
+            'zh-CN': 'TimePicker 下拉框的 class 类名'
           },
           mode: ['pc'],
           pcDemo: 'popper-class'
@@ -168,8 +152,7 @@ export default {
           type: 'IPopperOption',
           defaultValue: ' { }',
           desc: {
-            'zh-CN': '弹出层参数',
-            'en-US': 'Advanced parameters; Refer to the description of IPopperOption'
+            'zh-CN': '弹出层参数'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: '',
@@ -180,9 +163,7 @@ export default {
           type: 'string',
           defaultValue: "'-'",
           desc: {
-            'zh-CN': '选择范围时的分隔符',
-            'en-US':
-              'Optional. When the selected date is empty, the time displayed by default when the selector panel is opened. Set it to a value that can be parsed by new Date().'
+            'zh-CN': '选择范围时的分隔符'
           },
           mode: ['pc'],
           pcDemo: 'is-range'
@@ -192,8 +173,7 @@ export default {
           type: "'medium' | 'small' | '' | 'mini'",
           defaultValue: "''",
           desc: {
-            'zh-CN': '输入框尺寸',
-            'en-US': 'Text box size; The values of this attribute are medium, small, and mini'
+            'zh-CN': '输入框尺寸'
           },
           mode: ['pc'],
           pcDemo: 'size'
@@ -203,8 +183,7 @@ export default {
           type: 'string',
           defaultValue: "''",
           desc: {
-            'zh-CN': '范围选择时开始日期的占位内容',
-            'en-US': 'Placeholder of the start date when the range is selected'
+            'zh-CN': '范围选择时开始日期的占位内容'
           },
           mode: ['pc'],
           pcDemo: 'placeholder'
@@ -215,8 +194,7 @@ export default {
           type: 'IStep',
           defaultValue: '',
           desc: {
-            'zh-CN': '自定义时分秒步长',
-            'en-US': 'Indicates whether to select a time range. This parameter is valid only for <tiny-time-picker>.'
+            'zh-CN': '自定义时分秒步长'
           },
           mode: ['pc'],
           pcDemo: 'step'
@@ -226,8 +204,7 @@ export default {
           type: 'object',
           defaultValue: 'IconCalendar',
           desc: {
-            'zh-CN': '自定义头部图标的类名',
-            'en-US': 'Custom Clear Icon'
+            'zh-CN': '自定义头部图标的类名'
           },
           mode: ['pc'],
           pcDemo: 'suffix-icon'
@@ -238,8 +215,7 @@ export default {
           name: 'blur',
           type: '() => void',
           desc: {
-            'zh-CN': '当 input 失去焦点时触发',
-            'en-US': 'This event is triggered when the input loses focus. arg:{object Time Component Vue Object}'
+            'zh-CN': '当 input 失去焦点时触发'
           },
           mode: ['pc'],
           pcDemo: 'event'
@@ -248,9 +224,7 @@ export default {
           name: 'change',
           type: '(date: Date | Date[]) => void',
           desc: {
-            'zh-CN': '用户确认选定的值时触发',
-            'en-US':
-              'This event is triggered when the user confirms the selected value. arg:{Date|Array is the time object of the currently selected value when it is not selected in a range. When the range is selected, it is the time object array of the currently selected value}'
+            'zh-CN': '用户确认选定的值时触发'
           },
           mode: ['pc'],
           pcDemo: 'event'
@@ -259,8 +233,7 @@ export default {
           name: 'focus',
           type: '() => void',
           desc: {
-            'zh-CN': '当 input 获得焦点时触发',
-            'en-US': 'This event is triggered when the input is focused. arg:{object Time Component Vue object}'
+            'zh-CN': '当 input 获得焦点时触发'
           },
           mode: ['pc'],
           pcDemo: 'event'
@@ -271,8 +244,7 @@ export default {
           name: 'focus',
           type: '() => void',
           desc: {
-            'zh-CN': '使 input 获取焦点',
-            'en-US': 'Enable input to focus.'
+            'zh-CN': '使 input 获取焦点'
           },
           mode: ['pc'],
           pcDemo: 'event'
@@ -283,8 +255,7 @@ export default {
         {
           name: 'a',
           desc: {
-            'zh-CN': 'am/pm',
-            'en-US': ''
+            'zh-CN': 'am/pm'
           },
           mode: ['pc'],
           pcDemo: ''
@@ -292,8 +263,7 @@ export default {
         {
           name: 'A',
           desc: {
-            'zh-CN': 'AM/PM',
-            'en-US': ''
+            'zh-CN': 'AM/PM'
           },
           mode: ['pc'],
           pcDemo: ''
@@ -301,8 +271,7 @@ export default {
         {
           name: 'h',
           desc: {
-            'zh-CN': '小时，12小时制，需要和 A 或 a 一起使用，不补0',
-            'en-US': ''
+            'zh-CN': '小时，12小时制，需要和 A 或 a 一起使用，不补0'
           },
           mode: ['pc'],
           pcDemo: ''
@@ -310,8 +279,7 @@ export default {
         {
           name: 'H',
           desc: {
-            'zh-CN': '小时，24小时制，不补0',
-            'en-US': ''
+            'zh-CN': '小时，24小时制，不补0'
           },
           mode: ['pc'],
           pcDemo: ''
@@ -319,8 +287,7 @@ export default {
         {
           name: 'hh',
           desc: {
-            'zh-CN': '小时，12小时制，需要和 A 或 a 一起使用',
-            'en-US': ''
+            'zh-CN': '小时，12小时制，需要和 A 或 a 一起使用'
           },
           mode: ['pc'],
           pcDemo: ''
@@ -328,8 +295,7 @@ export default {
         {
           name: 'HH',
           desc: {
-            'zh-CN': '小时，24小时制',
-            'en-US': ''
+            'zh-CN': '小时，24小时制'
           },
           mode: ['pc'],
           pcDemo: ''
@@ -337,8 +303,7 @@ export default {
         {
           name: 'm',
           desc: {
-            'zh-CN': '分钟，不补0',
-            'en-US': ''
+            'zh-CN': '分钟，不补0'
           },
           mode: ['pc'],
           pcDemo: ''
@@ -346,8 +311,7 @@ export default {
         {
           name: 'mm',
           desc: {
-            'zh-CN': '分钟',
-            'en-US': ''
+            'zh-CN': '分钟'
           },
           mode: ['pc'],
           pcDemo: ''
@@ -355,8 +319,7 @@ export default {
         {
           name: 's',
           desc: {
-            'zh-CN': '秒，不补0',
-            'en-US': ''
+            'zh-CN': '秒，不补0'
           },
           mode: ['pc'],
           pcDemo: ''
@@ -364,8 +327,7 @@ export default {
         {
           name: 'ss',
           desc: {
-            'zh-CN': '秒',
-            'en-US': ''
+            'zh-CN': '秒'
           },
           mode: ['pc'],
           pcDemo: ''

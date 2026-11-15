@@ -10,8 +10,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否禁用',
-            'en-US': 'Disable'
+            'zh-CN': '是否禁用'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'dynamic-disable',
@@ -22,8 +21,7 @@ export default {
           type: 'Function(value)',
           defaultValue: '',
           desc: {
-            'zh-CN': '格式化刻度值',
-            'en-US': ''
+            'zh-CN': '格式化刻度值'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -33,8 +31,7 @@ export default {
           type: '(currentValue: number) => string',
           defaultValue: '',
           desc: {
-            'zh-CN': '格式化 tooltip 提示',
-            'en-US': 'Format tooltip message'
+            'zh-CN': '格式化 tooltip 提示'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'show-tip',
@@ -45,8 +42,7 @@ export default {
           type: 'string',
           defaultValue: "'300px'",
           desc: {
-            'zh-CN': 'Slider 组件的高度，当 vertical 为 true 时有效',
-            'en-US': 'Height of Slider component, effective when vertical is true'
+            'zh-CN': 'Slider 组件的高度，当 vertical 为 true 时有效'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'vertical-mode',
@@ -57,9 +53,7 @@ export default {
           type: 'number',
           defaultValue: '100',
           desc: {
-            'zh-CN': '设置最大值，必需是整数，可以负数，必需大于所设置的最小值',
-            'en-US':
-              'Set the maximum value. The value must be an integer and can be a negative number. The value must be greater than the minimum value set'
+            'zh-CN': '设置最大值，必需是整数，可以负数，必需大于所设置的最小值'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'max-min',
@@ -70,8 +64,7 @@ export default {
           type: 'number',
           defaultValue: '0',
           desc: {
-            'zh-CN': '设置最小值',
-            'en-US': 'Set the minimum value'
+            'zh-CN': '设置最小值'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'max-min',
@@ -82,9 +75,7 @@ export default {
           type: 'number',
           defaultValue: '1',
           desc: {
-            'zh-CN': '设置总步数，即按快捷键 PageDown/PageUp 时，每次移动的距离是 "⌈(max-min)/num-pages⌉"',
-            'en-US':
-              'Set the total number of steps. That is, when you press PageDown or PageUp, the moving distance is "⌈(max-min)/num-pages⌉".'
+            'zh-CN': '设置总步数，即按快捷键 PageDown/PageUp 时，每次移动的距离是 "⌈(max-min)/num-pages⌉"'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'shortcut-operation',
@@ -95,8 +86,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否显示输入框',
-            'en-US': 'Indicates whether to display the text box.'
+            'zh-CN': '是否显示输入框'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'show-input',
@@ -107,8 +97,7 @@ export default {
           type: 'boolean',
           defaultValue: '',
           desc: {
-            'zh-CN': '显示 Label，需结合show-steps一起使用',
-            'en-US': ''
+            'zh-CN': '显示 Label，需结合show-steps一起使用'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -118,8 +107,7 @@ export default {
           type: 'boolean',
           defaultValue: '',
           desc: {
-            'zh-CN': '显示刻度，需结合 step 一起使用，最前与最后的刻度默认不显示',
-            'en-US': ''
+            'zh-CN': '显示刻度，需结合 step 一起使用，最前与最后的刻度默认不显示'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -129,8 +117,7 @@ export default {
           type: 'boolean',
           defaultValue: 'true',
           desc: {
-            'zh-CN': '是否显示 tooltip',
-            'en-US': 'Whether to display tooltip'
+            'zh-CN': '是否显示 tooltip'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'show-tip',
@@ -141,9 +128,7 @@ export default {
           type: 'number',
           defaultValue: '1',
           desc: {
-            'zh-CN': '设置滑块移动时，每步位移距离，必需是大于0的正整数',
-            'en-US':
-              'Displacement distance of each step when the slider moves. The value must be a positive integer greater than 0'
+            'zh-CN': '设置滑块移动时，每步位移距离，必需是大于0的正整数'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'about-step',
@@ -154,8 +139,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '输入框后面显示的单位，仅在输入框模式下有效',
-            'en-US': 'The units displayed after the input box, only valid in input box mode'
+            'zh-CN': '输入框后面显示的单位，仅在输入框模式下有效'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'show-input',
@@ -166,8 +150,7 @@ export default {
           type: 'number | [number, number]',
           defaultValue: '',
           desc: {
-            'zh-CN': '设置单滑块的当前值，必需是整数或数组',
-            'en-US': 'Sets the current value of a single slider. The value must be an integer or an array.'
+            'zh-CN': '设置单滑块的当前值，必需是整数或数组'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'basic-usage',
@@ -178,8 +161,7 @@ export default {
           type: '{ [key:number]: string }',
           defaultValue: '',
           desc: {
-            'zh-CN': '<p>设置滑杆的刻度值</p>',
-            'en-US': 'Set the scale value of the slide bar'
+            'zh-CN': '<p>设置滑杆的刻度值</p>'
           },
           mode: ['pc'],
           pcDemo: 'marks'
@@ -189,8 +171,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否竖向模式',
-            'en-US': 'Whether the vertical mode is used'
+            'zh-CN': '是否竖向模式'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'vertical-mode',
@@ -203,9 +184,7 @@ export default {
           type: '(value: number | [number, number]) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '值改变时触发（使用鼠标拖曳时，只在松开鼠标后触发）',
-            'en-US':
-              'Triggered when the value changes (When you drag the mouse, it is triggered only after you release the mouse).'
+            'zh-CN': '值改变时触发（使用鼠标拖曳时，只在松开鼠标后触发）'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'slider-event',
@@ -216,8 +195,7 @@ export default {
           type: '(event: Event, value: number | [number, number]) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '设置滑块滑动开始时，触发该事件',
-            'en-US': 'This event is triggered when the slider starts to slide.'
+            'zh-CN': '设置滑块滑动开始时，触发该事件'
           },
           mode: ['pc'],
           pcDemo: 'slider-event'
@@ -227,8 +205,7 @@ export default {
           type: 'Function(arg)',
           defaultValue: '',
           desc: {
-            'zh-CN': '设置滑块滑动开始时，触发该事件',
-            'en-US': ''
+            'zh-CN': '设置滑块滑动开始时，触发该事件'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -238,8 +215,7 @@ export default {
           type: '(value: number | [number, number]) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '设置滑块滑动结束时，触发该事件',
-            'en-US': 'This event is triggered when the slider sliding ends. '
+            'zh-CN': '设置滑块滑动结束时，触发该事件'
           },
           mode: ['pc'],
           pcDemo: 'slider-event'
@@ -249,8 +225,7 @@ export default {
           type: 'Function(arg)',
           defaultValue: '',
           desc: {
-            'zh-CN': '设置滑块滑动结束时，触发该事件',
-            'en-US': ''
+            'zh-CN': '设置滑块滑动结束时，触发该事件'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -263,9 +238,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '显示滑块值的插槽，仅仅 v-model 是单数值时才有效，插槽参数为：slotArg: { slotScope: number }',
-            'en-US':
-              'Slot for displaying slider values, valid only if v-model is a single value. Slot parameters are: slotArg: {slotScope: number}'
+            'zh-CN': '显示滑块值的插槽，仅仅 v-model 是单数值时才有效，插槽参数为：slotArg: { slotScope: number }'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'slider-slot',

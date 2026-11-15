@@ -10,8 +10,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否禁用',
-            'en-US': 'Disable'
+            'zh-CN': '是否禁用'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'dynamic-disable',
@@ -22,8 +21,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否只读状态',
-            'en-US': 'Is display only'
+            'zh-CN': '是否只读状态'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'display-only',
@@ -34,8 +32,7 @@ export default {
           type: 'boolean | number | string',
           defaultValue: '',
           desc: {
-            'zh-CN': 'radio 选中时的值',
-            'en-US': 'Value when radio is selected'
+            'zh-CN': 'radio 选中时的值'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'basic-usage',
@@ -46,8 +43,7 @@ export default {
           type: 'boolean | number | string',
           defaultValue: '',
           desc: {
-            'zh-CN': '绑定值',
-            'en-US': 'Bound Value'
+            'zh-CN': '绑定值'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage'
@@ -57,8 +53,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '原生 name 属性',
-            'en-US': 'Native name attribute'
+            'zh-CN': '原生 name 属性'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: '',
@@ -69,8 +64,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': 'Radio 组件的 tabindex。默认值为 1 ',
-            'en-US': ''
+            'zh-CN': 'Radio 组件的 tabindex。默认值为 1 '
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -80,8 +74,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '单选框文本内容',
-            'en-US': 'Radio Box Text Content'
+            'zh-CN': '单选框文本内容'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'radio-text',
@@ -92,8 +85,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '绑定值',
-            'en-US': ''
+            'zh-CN': '绑定值'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -105,8 +97,7 @@ export default {
           type: '(value: boolean | number | string) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '绑定值变化时触发的事件',
-            'en-US': 'Event triggered when the binding value changes'
+            'zh-CN': '绑定值变化时触发的事件'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'radio-events',
@@ -120,8 +111,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': 'radio 的默认插槽',
-            'en-US': 'Radio default slot'
+            'zh-CN': 'radio 的默认插槽'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'default-slot',
@@ -138,8 +128,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否禁用单选组',
-            'en-US': 'Disable radio group'
+            'zh-CN': '是否禁用单选组'
           },
           mode: ['pc'],
           pcDemo: 'dynamic-disable'
@@ -149,8 +138,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否只读状态',
-            'en-US': 'Is display only'
+            'zh-CN': '是否只读状态'
           },
           mode: ['pc'],
           pcDemo: 'display-only'
@@ -160,8 +148,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '按钮形式单选选中时的背景颜色',
-            'en-US': 'Set the background color for button form when radio selected'
+            'zh-CN': '按钮形式单选选中时的背景颜色'
           },
           mode: ['pc'],
           pcDemo: 'active-color'
@@ -171,8 +158,7 @@ export default {
           type: 'string[] | number[]',
           defaultValue: '',
           desc: {
-            'zh-CN': '单选组绑定值',
-            'en-US': 'Radio group binding value'
+            'zh-CN': '单选组绑定值'
           },
           mode: ['pc'],
           pcDemo: 'radio-group'
@@ -183,8 +169,7 @@ export default {
           type: 'IRadioGroupOptions[]',
           defaultValue: '',
           desc: {
-            'zh-CN': '配置式单选组设置列表',
-            'en-US': 'Configuration based radio group settings list'
+            'zh-CN': '配置式单选组设置列表'
           },
           mode: ['pc'],
           pcDemo: 'group-options'
@@ -194,8 +179,7 @@ export default {
           type: "'medium' | small' | 'mini'",
           defaultValue: '',
           desc: {
-            'zh-CN': '单选组尺寸',
-            'en-US': 'Radio Group Size'
+            'zh-CN': '单选组尺寸'
           },
           mode: ['pc'],
           pcDemo: 'radio-size'
@@ -205,8 +189,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '按钮形式单选激活时的文本颜色',
-            'en-US': 'Set the text color for button format radio active'
+            'zh-CN': '按钮形式单选激活时的文本颜色'
           },
           mode: ['pc'],
           pcDemo: 'active-color'
@@ -216,8 +199,7 @@ export default {
           type: "'radio' | 'button'",
           defaultValue: "'radio'",
           desc: {
-            'zh-CN': '配置式单选组的展示形式',
-            'en-US': 'Set the display format of configurable radio groups'
+            'zh-CN': '配置式单选组的展示形式'
           },
           mode: ['pc'],
           pcDemo: 'group-options'
@@ -227,8 +209,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '垂直显示单选组',
-            'en-US': 'Vertical display of radio groups'
+            'zh-CN': '垂直显示单选组'
           },
           mode: ['pc'],
           pcDemo: 'vertical'
@@ -240,8 +221,7 @@ export default {
           type: '(value: number[] | string[]) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '绑定值变化时触发的事件',
-            'en-US': 'Event triggered when the binding value changes'
+            'zh-CN': '绑定值变化时触发的事件'
           },
           mode: ['pc'],
           pcDemo: 'radio-events'
@@ -253,8 +233,7 @@ export default {
           name: 'default',
           defaultValue: '',
           desc: {
-            'zh-CN': 'radio-group 的默认插槽',
-            'en-US': 'Radio group default slot'
+            'zh-CN': 'radio-group 的默认插槽'
           },
           mode: ['pc'],
           pcDemo: 'radio-group'
@@ -270,8 +249,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否禁用',
-            'en-US': 'Is disabled'
+            'zh-CN': '是否禁用'
           },
           mode: ['pc'],
           pcDemo: 'dynamic-disable'
@@ -281,8 +259,7 @@ export default {
           type: 'boolean | number | string',
           defaultValue: '',
           desc: {
-            'zh-CN': 'Radio 的 value',
-            'en-US': 'Radio value'
+            'zh-CN': 'Radio 的 value'
           },
           mode: ['pc'],
           pcDemo: 'radio-group'
@@ -292,8 +269,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '原生name属性',
-            'en-US': 'Native name attribute'
+            'zh-CN': '原生name属性'
           },
           mode: ['pc'],
           pcDemo: ''
@@ -303,8 +279,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '单选框文本内容',
-            'en-US': 'Radio Box Text Content'
+            'zh-CN': '单选框文本内容'
           },
           mode: ['pc'],
           pcDemo: 'radio-text'
@@ -317,8 +292,7 @@ export default {
           name: 'default',
           defaultValue: '',
           desc: {
-            'zh-CN': '默认插槽',
-            'en-US': 'Default slot'
+            'zh-CN': '默认插槽'
           },
           mode: ['pc'],
           pcDemo: 'default-slot'

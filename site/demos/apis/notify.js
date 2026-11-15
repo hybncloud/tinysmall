@@ -10,8 +10,7 @@ export default {
           type: 'Component',
           defaultValue: 'IconClose',
           desc: {
-            'zh-CN': '关闭图标组件对象',
-            'en-US': 'Custom close icon component'
+            'zh-CN': '关闭图标组件对象'
           },
           mode: ['pc'],
           pcDemo: 'closeIcon'
@@ -21,8 +20,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '自定义样式类',
-            'en-US': 'Custom CSS class name'
+            'zh-CN': '自定义样式类'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage'
@@ -32,8 +30,7 @@ export default {
           type: 'number',
           defaultValue: '0',
           desc: {
-            'zh-CN': '启用防抖',
-            'en-US': 'Enable debounce delay'
+            'zh-CN': '启用防抖'
           },
           mode: ['pc'],
           pcDemo: 'debounceDelay'
@@ -44,9 +41,7 @@ export default {
           defaultValue: '',
           desc: {
             'zh-CN':
-              '通知自动关闭时间，单位毫秒数。 默认情况， <code>success  info </code> 延时5秒 <code> warning  error </code> 延时10秒自动关闭 ',
-            'en-US':
-              'Auto close delay in milliseconds. By default, <code>success info</code> closes after 5 seconds, <code>warning error</code> closes after 10 seconds'
+              '通知自动关闭时间，单位毫秒数。 默认情况， <code>success  info </code> 延时5秒 <code> warning  error </code> 延时10秒自动关闭 '
           },
           mode: ['pc'],
           pcDemo: 'duration'
@@ -57,8 +52,7 @@ export default {
           type: 'INotifyMessage',
           defaultValue: '',
           desc: {
-            'zh-CN': '通知消息文本，可用 jsx 定制',
-            'en-US': 'Notification message content. Supports JSX customization'
+            'zh-CN': '通知消息文本，可用 jsx 定制'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage'
@@ -68,8 +62,7 @@ export default {
           type: "'top-right' | 'bottom-right' | 'top-left' | 'bottom-left'",
           defaultValue: "'bottom-right'",
           desc: {
-            'zh-CN': '通知显示位置',
-            'en-US': 'Position where notification appears'
+            'zh-CN': '通知显示位置'
           },
           mode: ['pc'],
           pcDemo: 'position'
@@ -79,8 +72,7 @@ export default {
           type: 'boolean',
           defaultValue: 'true',
           desc: {
-            'zh-CN': '是否显示关闭按钮',
-            'en-US': 'Whether to show close button'
+            'zh-CN': '是否显示关闭按钮'
           },
           mode: ['pc'],
           pcDemo: 'showClose'
@@ -90,8 +82,7 @@ export default {
           type: 'boolean',
           defaultValue: 'true',
           desc: {
-            'zh-CN': '是否显示类型图标',
-            'en-US': 'Whether to show type icon'
+            'zh-CN': '是否显示类型图标'
           },
           mode: ['pc'],
           pcDemo: 'showIcon'
@@ -101,8 +92,7 @@ export default {
           type: 'Component',
           defaultValue: 'IconInfoSolid',
           desc: {
-            'zh-CN': '类型图标组件对象',
-            'en-US': 'Custom status icon component'
+            'zh-CN': '类型图标组件对象'
           },
           mode: ['pc'],
           pcDemo: 'statusIcon'
@@ -113,8 +103,7 @@ export default {
           type: 'INotifyTitle',
           defaultValue: '',
           desc: {
-            'zh-CN': '通知消息标题，可用 jsx 定制',
-            'en-US': 'Notification title Supports JSX customization'
+            'zh-CN': '通知消息标题，可用 jsx 定制'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage'
@@ -124,8 +113,7 @@ export default {
           type: "'info' | 'success' | 'warning' | 'error'",
           defaultValue: "'info'",
           desc: {
-            'zh-CN': '通知消息类型',
-            'en-US': 'Type of notification message'
+            'zh-CN': '通知消息类型'
           },
           mode: ['pc'],
           pcDemo: 'type'
@@ -135,8 +123,7 @@ export default {
           type: 'number | string',
           defaultValue: '16',
           desc: {
-            'zh-CN': '设置垂直方向偏离距离,单位 px',
-            'en-US': ''
+            'zh-CN': '设置垂直方向偏离距离,单位 px'
           },
           mode: ['pc'],
           pcDemo: 'verticalOffset'
@@ -148,8 +135,7 @@ export default {
           type: '() => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '关闭前回调方法，返回 false 可阻止关闭',
-            'en-US': 'Before close callback Returning false prevents closing'
+            'zh-CN': '关闭前回调方法，返回 false 可阻止关闭'
           },
           mode: ['pc'],
           pcDemo: 'notify-events'
@@ -159,8 +145,7 @@ export default {
           type: '() => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '关闭 notify 时触发的事件',
-            'en-US': 'Triggered when notification is closed'
+            'zh-CN': '关闭 notify 时触发的事件'
           },
           mode: ['pc'],
           pcDemo: 'notify-events'

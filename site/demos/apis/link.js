@@ -10,8 +10,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否禁用状态',
-            'en-US': 'Is disabled'
+            'zh-CN': '是否禁用状态'
           },
           mode: ['pc'],
           pcDemo: 'dynamic-disable'
@@ -21,8 +20,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '原生 href 属性',
-            'en-US': 'Native href attribute'
+            'zh-CN': '原生 href 属性'
           },
           mode: ['pc'],
           pcDemo: 'config-href'
@@ -32,8 +30,7 @@ export default {
           type: 'Component',
           defaultValue: '',
           desc: {
-            'zh-CN': '图标组件',
-            'en-US': 'Icon component'
+            'zh-CN': '图标组件'
           },
           mode: ['pc'],
           pcDemo: 'custom-icon'
@@ -43,8 +40,7 @@ export default {
           type: "'primary' | 'success' | 'warning' | 'danger' | 'info'",
           defaultValue: '',
           desc: {
-            'zh-CN': '文本链接类型',
-            'en-US': 'Text link type'
+            'zh-CN': '文本链接类型'
           },
           mode: ['pc'],
           pcDemo: 'link-style'
@@ -54,8 +50,7 @@ export default {
           type: 'boolean',
           defaultValue: 'true',
           desc: {
-            'zh-CN': '是否下划线',
-            'en-US': 'Whether has Underline'
+            'zh-CN': '是否下划线'
           },
           mode: ['pc'],
           pcDemo: 'focus-no-underline'
@@ -65,8 +60,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '显示内容',
-            'en-US': 'Display value'
+            'zh-CN': '显示内容'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage'
@@ -76,8 +70,7 @@ export default {
           type: "'_self' | '_blank' | '_parent' | '_top'",
           defaultValue: '_self',
           desc: {
-            'zh-CN': '链接打开方式',
-            'en-US': 'Link open mode'
+            'zh-CN': '链接打开方式'
           },
           mode: ['pc'],
           pcDemo: 'target'
@@ -89,8 +82,7 @@ export default {
           type: '(ev: MouseEvent) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '点击事件',
-            'en-US': 'click event'
+            'zh-CN': '点击事件'
           },
           mode: ['pc', 'mobile', 'mobile-first'],
           pcDemo: '',
@@ -103,8 +95,7 @@ export default {
           name: 'default',
           defaultValue: '',
           desc: {
-            'zh-CN': '默认插槽',
-            'en-US': 'Default slot'
+            'zh-CN': '默认插槽'
           },
           mode: ['pc'],
           pcDemo: 'custom-icon'
@@ -113,8 +104,7 @@ export default {
           name: 'icon',
           defaultValue: '',
           desc: {
-            'zh-CN': '图标',
-            'en-US': 'Icon'
+            'zh-CN': '图标'
           },
           mode: ['pc'],
           pcDemo: 'custom-icon'

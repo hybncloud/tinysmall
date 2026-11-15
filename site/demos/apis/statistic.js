@@ -10,8 +10,7 @@ export default {
           type: 'number | string',
           defaultValue: '0',
           desc: {
-            'zh-CN': '数字显示内容',
-            'en-US': 'Digital display content'
+            'zh-CN': '数字显示内容'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage',
@@ -22,8 +21,7 @@ export default {
           type: 'number',
           defaultValue: '',
           desc: {
-            'zh-CN': '精度值',
-            'en-US': 'Take precision value'
+            'zh-CN': '精度值'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage',
@@ -35,8 +33,7 @@ export default {
           typeAnchorName: 'ITitleType',
           defaultValue: '',
           desc: {
-            'zh-CN': '设置数字内容标题',
-            'en-US': 'Set digital content titles'
+            'zh-CN': '设置数字内容标题'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage',
@@ -47,8 +44,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '设置数字内容前缀',
-            'en-US': 'Set numerical content prefix'
+            'zh-CN': '设置数字内容前缀'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage',
@@ -59,8 +55,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '设置数字内容后缀',
-            'en-US': 'Set numeric content suffix'
+            'zh-CN': '设置数字内容后缀'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage',
@@ -71,8 +66,7 @@ export default {
           type: 'object | array',
           defaultValue: '',
           desc: {
-            'zh-CN': '设置数字样式',
-            'en-US': 'Set Number Style'
+            'zh-CN': '设置数字样式'
           },
           mode: ['pc'],
           pcDemo: 'prefix-suffix-slot',
@@ -87,8 +81,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '数字内容前置插槽',
-            'en-US': 'Digital content front slot'
+            'zh-CN': '数字内容前置插槽'
           },
           mode: ['pc'],
           pcDemo: 'prefix-suffix-slot',
@@ -99,8 +92,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '数字内容后置插槽',
-            'en-US': 'Digital content rear slot'
+            'zh-CN': '数字内容后置插槽'
           },
           mode: ['pc'],
           pcDemo: 'prefix-suffix-slot',
@@ -111,8 +103,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '数字内容标题插槽',
-            'en-US': 'Digital content title slot'
+            'zh-CN': '数字内容标题插槽'
           },
           mode: ['pc'],
           pcDemo: 'statistic-slot',

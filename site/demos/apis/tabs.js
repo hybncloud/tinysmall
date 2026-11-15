@@ -10,8 +10,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '设置初始选中的页签项',
-            'en-US': 'Set initially selected label items'
+            'zh-CN': '设置初始选中的页签项'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'tab-style-card',
@@ -23,9 +22,7 @@ export default {
           defaultValue: '',
           desc: {
             'zh-CN':
-              '切换页签项之前的钩子，若返回 false 或返回 Promise 且被 reject，则阻止切换； activeName: 即将切换的页签项名称, oldActiveName: 当前页签项名称',
-            'en-US':
-              'The hook before the tag is switched. If false is returned or Promise is returned and rejected, the switch is blocked; ActiveName: The name of the label item that is about to be switched, oldActiveName: The name of the current label item'
+              '切换页签项之前的钩子，若返回 false 或返回 Promise 且被 reject，则阻止切换； activeName: 即将切换的页签项名称, oldActiveName: 当前页签项名称'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'before-leave',
@@ -37,9 +34,7 @@ export default {
           defaultValue: '',
           desc: {
             'zh-CN':
-              '启用页签拖拽功能，配置第三方排序插件，对页签项进行重新排序；需注意：不是通过 v-for 渲染的 tab-item，在拖拽排序后，无法在 tab-drag-end 事件中对其顺序进行保存',
-            'en-US':
-              'Enable tab drag and drop functionality, configure third-party sorting plugins, and reorder tabs; Please note that tab items that are not rendered through v-for cannot be saved in the tab drag end event after dragging and sorting'
+              '启用页签拖拽功能，配置第三方排序插件，对页签项进行重新排序；需注意：不是通过 v-for 渲染的 tab-item，在拖拽排序后，无法在 tab-drag-end 事件中对其顺序进行保存'
           },
           mode: ['pc'],
           pcDemo: 'tabs-draggable'
@@ -49,8 +44,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否同时显示添加和删除按钮，与 edit 事件搭配使用',
-            'en-US': 'Do you want to display both add and delete buttons for use with the edit event'
+            'zh-CN': '是否同时显示添加和删除按钮，与 edit 事件搭配使用'
           },
           mode: ['pc'],
           pcDemo: 'tabs-events-edit'
@@ -60,8 +54,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '绑定选中值，选中项的 name',
-            'en-US': 'Bound selected value, The name of the selected item'
+            'zh-CN': '绑定选中值，选中项的 name'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage'
@@ -71,8 +64,7 @@ export default {
           type: 'boolean',
           defaultValue: '',
           desc: {
-            'zh-CN': '是否开启优化渲染，默认值为true，表示开启优化渲染，此时只会渲染当前标签项',
-            'en-US': ''
+            'zh-CN': '是否开启优化渲染，默认值为true，表示开启优化渲染，此时只会渲染当前标签项'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -82,9 +74,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '为"更多"下拉页签框添加类名，可用于自定义下拉选项的样式',
-            'en-US':
-              'Add a class name to the “More” dropdown label box, which can be used to customize the style of dropdown options'
+            'zh-CN': '为"更多"下拉页签框添加类名，可用于自定义下拉选项的样式'
           },
           mode: ['pc'],
           pcDemo: 'custom-more-icon'
@@ -95,8 +85,7 @@ export default {
           type: 'IPosition',
           defaultValue: "'top'",
           desc: {
-            'zh-CN': '设置页签栏所在位置; 默认为 top',
-            'en-US': 'Set the location of the label bar; Default to top'
+            'zh-CN': '设置页签栏所在位置; 默认为 top'
           },
           mode: ['pc'],
           pcDemo: 'position'
@@ -106,8 +95,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '设置分隔符样式',
-            'en-US': 'Set Separator Style'
+            'zh-CN': '设置分隔符样式'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'tabs-separator',
@@ -119,9 +107,7 @@ export default {
           defaultValue: 'false',
           desc: {
             'zh-CN':
-              '设置当页签栏超过一定宽度时是否显示"更多"按钮，若为 true，则当鼠标悬停到按钮上时，将出现下拉框展示超出宽度的页签项',
-            'en-US':
-              'Set whether to display the "More" button when the label bar exceeds a certain width. If true, a drop-down box will appear when the mouse hovers over the button to display label items that exceed the width'
+              '设置当页签栏超过一定宽度时是否显示"更多"按钮，若为 true，则当鼠标悬停到按钮上时，将出现下拉框展示超出宽度的页签项'
           },
           mode: ['pc'],
           pcDemo: 'custom-more-icon'
@@ -131,8 +117,7 @@ export default {
           type: "'small' | 'large'",
           defaultValue: '',
           desc: {
-            'zh-CN': '设置 tabs 页签尺寸,该属性可选值为 large 或 small',
-            'en-US': 'Sets the tab size. The value can be large or small'
+            'zh-CN': '设置 tabs 页签尺寸,该属性可选值为 large 或 small'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'size',
@@ -143,8 +128,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否开启滑动内容切换标签页',
-            'en-US': 'Do you want to enable the sliding content switching tab function'
+            'zh-CN': '是否开启滑动内容切换标签页'
           },
           mode: ['mobile-first'],
           mfDemo: 'swipeable'
@@ -154,8 +138,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '页签项的宽度是否自动撑开',
-            'en-US': 'Does the width of the label item automatically expand'
+            'zh-CN': '页签项的宽度是否自动撑开'
           },
           mode: ['pc'],
           pcDemo: 'stretch-wh'
@@ -166,8 +149,7 @@ export default {
           type: 'ITabStyle',
           defaultValue: '',
           desc: {
-            'zh-CN': '页签的类型；默认为空字符串',
-            'en-US': 'Tabs style; Default to empty string'
+            'zh-CN': '页签的类型；默认为空字符串'
           },
           mode: ['pc'],
           pcDemo: 'tab-style-card'
@@ -179,9 +161,7 @@ export default {
           defaultValue: '',
           desc: {
             'zh-CN':
-              '设置文字超出提示, object 类型的值参考 tooltip 组件的 <a href="tooltip#API">Props</a> 配置，如果想使用默认的 title 属性，可设置为 string 类型，值为 title，【3.8.0版本新增】',
-            'en-US':
-              'Set the message indicating that the text exceeds the limit. The value of the object type refers to the <a href="tooltip#API">Props</a> configuration of the tooltip component. If you want to use the default title attribute, set it to the string type and set it to title. [Added in 3.8.0]'
+              '设置文字超出提示, object 类型的值参考 tooltip 组件的 <a href="tooltip#API">Props</a> 配置，如果想使用默认的 title 属性，可设置为 string 类型，值为 title，【3.8.0版本新增】'
           },
           mode: ['pc'],
           pcDemo: 'tooltip'
@@ -191,8 +171,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '绑定值，选中选项卡的 name',
-            'en-US': ''
+            'zh-CN': '绑定值，选中选项卡的 name'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -202,8 +181,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否显示添加按钮，用来添加页签项',
-            'en-US': 'Do you want to display the add button to add tab item'
+            'zh-CN': '是否显示添加按钮，用来添加页签项'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'with-add',
@@ -214,8 +192,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否显示页签项的关闭按钮，用来删除页签项',
-            'en-US': 'Do you want to display the close button for label items to delete them'
+            'zh-CN': '是否显示页签项的关闭按钮，用来删除页签项'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'tabs-events-close',
@@ -226,9 +203,7 @@ export default {
           type: '(name: string)=> boolean | Promise<boolean>',
           defaultValue: '',
           desc: {
-            'zh-CN': '关闭页签前的回调函数，入参为页签名。如果函数返回false 或 拒绝的Promise，则不关闭页签',
-            'en-US':
-              'Callback function before closing a tab. The input parameter is the tab name. If the function returns false or a rejected Promise, the tab is not closed.'
+            'zh-CN': '关闭页签前的回调函数，入参为页签名。如果函数返回false 或 拒绝的Promise，则不关闭页签'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'tabs-events-close',
@@ -239,9 +214,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': "'更多'按钮触发的下拉面板是否展示全部页签项，适用于超大数据量的情况",
-            'en-US':
-              'Indicates whether to display all tab items in the drop-down panel triggered by the More button. This parameter applies to the scenario where the data volume is large.'
+            'zh-CN': "'更多'按钮触发的下拉面板是否展示全部页签项，适用于超大数据量的情况"
           },
           mode: ['pc'],
           pcDemo: 'more-show-all'
@@ -251,9 +224,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '页签是否在超过 title-width 省略显示，优先级低于 tooltip-config',
-            'en-US':
-              'Indicates whether to display the tab when the title width is exceeded. The priority is lower than tooltip-config.'
+            'zh-CN': '页签是否在超过 title-width 省略显示，优先级低于 tooltip-config'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'overflow-title',
@@ -264,9 +235,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': `'更多'按钮触发的下拉面板最大高度，超出则显示滚动条，适用于超大数据量的情况`,
-            'en-US':
-              'Maximum height of the drop-down panel triggered by the More button. If the height is exceeded, a scroll bar is displayed. This applies to the scenario where the data volume is large'
+            'zh-CN': `'更多'按钮触发的下拉面板最大高度，超出则显示滚动条，适用于超大数据量的情况`
           },
           mode: ['pc'],
           pcDemo: 'more-show-all'
@@ -276,8 +245,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': `'更多'按钮触发的下拉面板的宽度`,
-            'en-US': 'Width of the drop-down panel triggered by the More button'
+            'zh-CN': `'更多'按钮触发的下拉面板的宽度`
           },
           mode: ['pc'],
           pcDemo: 'more-show-all'
@@ -287,9 +255,7 @@ export default {
           type: 'string',
           defaultValue: '256px',
           desc: {
-            'zh-CN': '当 overflow-title 为 true 时，指定页签标题的最大宽度',
-            'en-US':
-              'Callback function before closing a tab. The input parameter is the tab name. If the function returns false or a rejected Promise, the tab is not closed.'
+            'zh-CN': '当 overflow-title 为 true 时，指定页签标题的最大宽度'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'overflow-title',
@@ -300,8 +266,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '当 header-only 为 true 时，页签内容不再渲染',
-            'en-US': 'When header-only is true, the tab content is no longer rendered'
+            'zh-CN': '当 header-only 为 true 时，页签内容不再渲染'
           },
           mode: ['pc'],
           pcDemo: 'header-only',
@@ -314,8 +279,7 @@ export default {
           type: '() => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '点击"添加"按钮后触发，用于编写增加页签项的逻辑',
-            'en-US': 'Triggered after clicking the "Add" button, used to write logic for adding tab items'
+            'zh-CN': '点击"添加"按钮后触发，用于编写增加页签项的逻辑'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'with-add',
@@ -326,9 +290,7 @@ export default {
           type: '(TabItem: Component, event: Event) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '点击页签项时触发，tab 被选中时触发； TabItem: 点中页签项的vueComponent对象信息',
-            'en-US':
-              'Trigger an event when clicking on a tab item, Triggered when tab is selected; TabItem: Click on the Component object information of the tab item in the middle'
+            'zh-CN': '点击页签项时触发，tab 被选中时触发； TabItem: 点中页签项的vueComponent对象信息'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'tabs-events-click',
@@ -339,9 +301,7 @@ export default {
           type: '(name: string) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '点击页签项关闭按钮后触发，用于编写删除页签项的逻辑； name: 要删除的页签项name值',
-            'en-US':
-              'Triggered after clicking the tab item close button, used to write logic for deleting tab items; name: The name value of the tab item to be deleted'
+            'zh-CN': '点击页签项关闭按钮后触发，用于编写删除页签项的逻辑； name: 要删除的页签项name值'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'tabs-events-close',
@@ -352,9 +312,7 @@ export default {
           type: '(name: string, type: "add" | "remove") => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '点击"添加"或"关闭"按钮触发； name：null或删除的tab名称, type：添加或删除字段',
-            'en-US':
-              'Click the "Add" or "Close" button to trigger; name: null or deleted tab name, type: added or deleted field'
+            'zh-CN': '点击"添加"或"关闭"按钮触发； name：null或删除的tab名称, type：添加或删除字段'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'tabs-events-edit',
@@ -365,8 +323,7 @@ export default {
           type: '(event: DragEvent) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '拖动结束后的事件',
-            'en-US': 'Event after the drag is complete'
+            'zh-CN': '拖动结束后的事件'
           },
           mode: ['pc'],
           pcDemo: 'tabs-draggable'
@@ -376,8 +333,7 @@ export default {
           type: '(event: DragEvent) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '拖动中的事件',
-            'en-US': 'Dragging event'
+            'zh-CN': '拖动中的事件'
           },
           mode: ['pc'],
           pcDemo: 'tabs-draggable'
@@ -387,8 +343,7 @@ export default {
           type: '(event: DragEvent) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '拖动开始时的事件',
-            'en-US': 'Drag start event'
+            'zh-CN': '拖动开始时的事件'
           },
           mode: ['pc'],
           pcDemo: 'tabs-draggable'
@@ -401,8 +356,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '默认插槽',
-            'en-US': 'default slot'
+            'zh-CN': '默认插槽'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -411,8 +365,7 @@ export default {
           name: 'moreIcon',
           defaultValue: '',
           desc: {
-            'zh-CN': '更多按钮插槽',
-            'en-US': 'More Button Slot'
+            'zh-CN': '更多按钮插槽'
           },
           mode: ['pc'],
           pcDemo: 'custom-more-icon'
@@ -421,8 +374,7 @@ export default {
           name: 'title',
           defaultValue: '',
           desc: {
-            'zh-CN': '页签项标题插槽',
-            'en-US': 'Label Item Title Slot'
+            'zh-CN': '页签项标题插槽'
           },
           mode: ['pc'],
           pcDemo: 'custom-tab-title'
@@ -438,8 +390,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '设置页签项禁用，设置为 true 则无法点击',
-            'en-US': 'Set tab items to disable, set to true to prevent clicking'
+            'zh-CN': '设置页签项禁用，设置为 true 则无法点击'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage'
@@ -449,8 +400,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '设置本页签项内容是否为懒加载，默认为否',
-            'en-US': 'Set whether the content of this tab is lazy loading, default to no'
+            'zh-CN': '设置本页签项内容是否为懒加载，默认为否'
           },
           mode: ['pc'],
           pcDemo: 'lazy'
@@ -460,8 +410,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '页签项的值',
-            'en-US': 'Value of tab items'
+            'zh-CN': '页签项的值'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage'
@@ -471,8 +420,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '页签项标题',
-            'en-US': 'Tab Item Title'
+            'zh-CN': '页签项标题'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage'
@@ -482,9 +430,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '页签项是否展示删除按钮，与 Tabs 的 with-close 取或，只要有一个为true，则此项展示删除按钮',
-            'en-US':
-              "Does the tab item display a delete button, which is equal to or greater than the 'with close' option in Tabs? As long as one of these options is true, this option displays the delete button"
+            'zh-CN': '页签项是否展示删除按钮，与 Tabs 的 with-close 取或，只要有一个为true，则此项展示删除按钮'
           },
           mode: ['pc'],
           pcDemo: 'tabs-events-close'
@@ -496,8 +442,7 @@ export default {
           type: '() => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '当页签项的 title 值发生变化时触发',
-            'en-US': 'Triggered when the title value of the tab item changes'
+            'zh-CN': '当页签项的 title 值发生变化时触发'
           },
           mode: ['pc'],
           pcDemo: ''
@@ -509,9 +454,7 @@ export default {
           name: 'default',
           defaultValue: '',
           desc: {
-            'zh-CN': '页签项对应内容部分的默认插槽，用来自定义页签项对应的页面内容',
-            'en-US':
-              'The default slot for the content section corresponding to the tab item, used to customize the page content corresponding to the tab item'
+            'zh-CN': '页签项对应内容部分的默认插槽，用来自定义页签项对应的页面内容'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage'

@@ -10,8 +10,7 @@ export default {
           type: 'string',
           defaultValue: "'hover'",
           desc: {
-            'zh-CN': '切换箭头的显示效果，该属性的可选值为 always / hover / never',
-            'en-US': 'Switch the display effect of arrows,The optional values for this attribute are always/hover/never'
+            'zh-CN': '切换箭头的显示效果，该属性的可选值为 always / hover / never'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'up-down-carousel',
@@ -22,8 +21,7 @@ export default {
           type: 'String',
           defaultValue: '',
           desc: {
-            'zh-CN': '宽高比，默认为16:2。',
-            'en-US': 'Aspect ratio. The default value is 16:2.'
+            'zh-CN': '宽高比，默认为16:2。'
           },
           mode: ['mobile-first'],
           mfDemo: 'aspect-ratio'
@@ -33,8 +31,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否自动切换',
-            'en-US': 'Whether to automatically switch'
+            'zh-CN': '是否自动切换'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'autoplay',
@@ -45,8 +42,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '走马灯的高度',
-            'en-US': 'The height of the lantern'
+            'zh-CN': '走马灯的高度'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'indicator-trigger',
@@ -57,8 +53,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '指示器的位置，该属性的可选值为 outside / none',
-            'en-US': 'The position of the indicator. The optional values for this attribute are outside/none'
+            'zh-CN': '指示器的位置，该属性的可选值为 outside / none'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'indicator-trigger',
@@ -69,8 +64,7 @@ export default {
           type: 'String',
           defaultValue: "'light'",
           desc: {
-            'zh-CN': '指示器的样式，该属性的可选值为 light/dark',
-            'en-US': 'The style of the indicator, The optional values for this attribute are light/mark.'
+            'zh-CN': '指示器的样式，该属性的可选值为 light/dark'
           },
           mode: ['mobile-first'],
           mfDemo: 'indicator-style'
@@ -80,8 +74,7 @@ export default {
           type: 'number',
           defaultValue: '0',
           desc: {
-            'zh-CN': '初始状态激活的幻灯片的索引，从 0 开始',
-            'en-US': 'Index of slides activated in initial state, starting from 0'
+            'zh-CN': '初始状态激活的幻灯片的索引，从 0 开始'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'manual-play',
@@ -92,8 +85,7 @@ export default {
           type: 'number',
           defaultValue: '3000',
           desc: {
-            'zh-CN': '自动切换的时间间隔，单位为毫秒',
-            'en-US': 'The time interval for automatic switching, in milliseconds'
+            'zh-CN': '自动切换的时间间隔，单位为毫秒'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'play-interval',
@@ -104,8 +96,7 @@ export default {
           type: 'boolean',
           defaultValue: 'true',
           desc: {
-            'zh-CN': '是否循环显示',
-            'en-US': 'Whether to display in a loop'
+            'zh-CN': '是否循环显示'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'close-loop',
@@ -116,8 +107,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '控制轮播箭头禁用状态，设置为 true 则禁用',
-            'en-US': 'Control the disabled state of the carousel arrow, set to true to disable'
+            'zh-CN': '控制轮播箭头禁用状态，设置为 true 则禁用'
           },
           meta: {
             stable: '3.19.0'
@@ -131,8 +121,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否显示标题',
-            'en-US': 'Is the title displayed'
+            'zh-CN': '是否显示标题'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'show-title',
@@ -143,8 +132,7 @@ export default {
           type: 'string',
           defaultValue: "'hover'",
           desc: {
-            'zh-CN': '指示器的触发方式，该属性的可选值为 hover / click',
-            'en-US': 'The triggering method of the indicator. The optional value for this attribute is click'
+            'zh-CN': '指示器的触发方式，该属性的可选值为 hover / click'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'indicator-trigger',
@@ -155,8 +143,7 @@ export default {
           type: 'string',
           defaultValue: "'horizontal'",
           desc: {
-            'zh-CN': '走马灯的类型，该属性的可选值为 horizontal / vertical / card',
-            'en-US': 'The type of horse lantern,The optional values for this attribute are horizontal/vertical/card'
+            'zh-CN': '走马灯的类型，该属性的可选值为 horizontal / vertical / card'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'card-mode',
@@ -167,8 +154,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否支持触屏轮播',
-            'en-US': 'Support Touchscreen Carousel'
+            'zh-CN': '是否支持触屏轮播'
           },
           mode: ['mobile-first'],
           pcDemo: '',
@@ -179,9 +165,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否打开精简模式，不显示切换按钮和指示器',
-            'en-US':
-              'Indicates whether to enable the simplified mode. The switch button and indicator are not displayed.'
+            'zh-CN': '是否打开精简模式，不显示切换按钮和指示器'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'swipeable',
@@ -192,9 +176,7 @@ export default {
           type: '(newIndex,oldIndex) => boolean',
           defaultValue: '',
           desc: {
-            'zh-CN': '触摸轮播前，通过返回值控制某个图是否可轮播显示',
-            'en-US':
-              'Controls whether a graph can be displayed in rotation based on the return value before the rotation is touched.'
+            'zh-CN': '触摸轮播前，通过返回值控制某个图是否可轮播显示'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'swipeable',
@@ -207,9 +189,7 @@ export default {
           type: '(curIndex: number, preIndex: number) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '幻灯片切换时触发，第一个参数为当前幻灯片索引，第二个参数为上一张幻灯片索引',
-            'en-US':
-              'Trigger during slide transition, The first parameter is the current slide index, and the second parameter is the index of the previous slide'
+            'zh-CN': '幻灯片切换时触发，第一个参数为当前幻灯片索引，第二个参数为上一张幻灯片索引'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'carousel-events',
@@ -222,8 +202,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '切换至下一张幻灯片',
-            'en-US': 'Switch to the next slide'
+            'zh-CN': '切换至下一张幻灯片'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'manual-play',
@@ -234,8 +213,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '切换至上一张幻灯片',
-            'en-US': 'Switch to the previous slide'
+            'zh-CN': '切换至上一张幻灯片'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'manual-play',
@@ -246,9 +224,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '手动切换幻灯片，参数为需要切换的幻灯片的索引，从 0 开始',
-            'en-US':
-              'Manually switch slides,the parameter is the index of the slides that need to be switched, starting from 0'
+            'zh-CN': '手动切换幻灯片，参数为需要切换的幻灯片的索引，从 0 开始'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'manual-play',
@@ -261,8 +237,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '默认插槽',
-            'en-US': 'Default slot'
+            'zh-CN': '默认插槽'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'manual-play',
@@ -279,8 +254,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '幻灯片名称',
-            'en-US': 'Slide Name'
+            'zh-CN': '幻灯片名称'
           },
           mode: ['pc'],
           pcDemo: 'manual-play'
@@ -290,8 +264,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '幻灯片标题',
-            'en-US': 'Slide Title'
+            'zh-CN': '幻灯片标题'
           },
           mode: ['pc'],
           pcDemo: 'show-title'
@@ -304,8 +277,7 @@ export default {
           name: 'default',
           defaultValue: '',
           desc: {
-            'zh-CN': '默认插槽',
-            'en-US': 'Default slot'
+            'zh-CN': '默认插槽'
           },
           mode: ['pc'],
           pcDemo: 'card-show'

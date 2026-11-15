@@ -10,8 +10,7 @@ export default {
           type: '[string, number, array]',
           defaultValue: "'small'",
           desc: {
-            'zh-CN': '设置间距大小，可为字符串、数字或数组，数组形式为 [横向间距, 纵向间距]',
-            'en-US': 'Set the spacing size. Can be a string, number, or an array like [horizontal, vertical]'
+            'zh-CN': '设置间距大小，可为字符串、数字或数组，数组形式为 [横向间距, 纵向间距]'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'space-size',
@@ -22,8 +21,7 @@ export default {
           type: 'string',
           defaultValue: "'stretch'",
           desc: {
-            'zh-CN': '设置交叉轴上的对齐方式，对应 CSS align-items 属性',
-            'en-US': 'Set the alignment on the cross axis, corresponding to the CSS align-items property'
+            'zh-CN': '设置交叉轴上的对齐方式，对应 CSS align-items 属性'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'space-align',
@@ -34,8 +32,7 @@ export default {
           type: 'string',
           defaultValue: "'start'",
           desc: {
-            'zh-CN': '设置主轴上的对齐方式，对应 CSS justify-content 属性',
-            'en-US': 'Set the alignment on the main axis, corresponding to the CSS justify-content property'
+            'zh-CN': '设置主轴上的对齐方式，对应 CSS justify-content 属性'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'space-justify',
@@ -46,8 +43,7 @@ export default {
           type: 'string',
           defaultValue: "'row'",
           desc: {
-            'zh-CN': '设置排列方向，可选值为 row 或 column',
-            'en-US': 'Set the layout direction, options are row or column'
+            'zh-CN': '设置排列方向，可选值为 row 或 column'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'space-direction',
@@ -58,8 +54,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否自动换行，默认为 false',
-            'en-US': 'Whether to wrap to the next line automatically, default is false'
+            'zh-CN': '是否自动换行，默认为 false'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'space-wrap',
@@ -70,9 +65,7 @@ export default {
           type: 'array',
           defaultValue: '[]',
           desc: {
-            'zh-CN': '用于指定子元素的显示顺序，数组的值对应插槽中子节点的索引',
-            'en-US':
-              'Used to specify the display order of child elements; the array values correspond to the index of slot children'
+            'zh-CN': '用于指定子元素的显示顺序，数组的值对应插槽中子节点的索引'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'space-order',
@@ -86,8 +79,7 @@ export default {
           name: 'default',
           defaultValue: '',
           desc: {
-            'zh-CN': '用于插入需要布局的子元素',
-            'en-US': 'Used to insert child elements to be laid out'
+            'zh-CN': '用于插入需要布局的子元素'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'basic-usage',

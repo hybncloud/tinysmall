@@ -10,8 +10,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否默认勾选',
-            'en-US': 'Currently selected'
+            'zh-CN': '是否默认勾选'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'checked',
@@ -22,8 +21,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否禁用',
-            'en-US': 'Disable'
+            'zh-CN': '是否禁用'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'indeterminate',
@@ -34,8 +32,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '是否开启组件 display-only 只显示模式，默认值为 false',
-            'en-US': ''
+            'zh-CN': '是否开启组件 display-only 只显示模式，默认值为 false'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -45,8 +42,7 @@ export default {
           type: 'string | number',
           defaultValue: '',
           desc: {
-            'zh-CN': '没有选中时的值',
-            'en-US': 'Value when no option is selected'
+            'zh-CN': '没有选中时的值'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'text',
@@ -57,8 +53,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '设置 indeterminate 状态，只负责样式控制',
-            'en-US': 'Sets the indeterminate state and controls only the style.'
+            'zh-CN': '设置 indeterminate 状态，只负责样式控制'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'indeterminate',
@@ -69,9 +64,7 @@ export default {
           type: 'string | number | boolean',
           defaultValue: '',
           desc: {
-            'zh-CN': '选中状态的值（只有在 checkbox-group 中或者绑定对象类型为 array 时有效）',
-            'en-US':
-              'Selected value (This parameter is valid only when checkbox-group or the bound object type is array)'
+            'zh-CN': '选中状态的值（只有在 checkbox-group 中或者绑定对象类型为 array 时有效）'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'checkbox-group',
@@ -82,8 +75,7 @@ export default {
           type: 'string | number | boolean',
           defaultValue: '',
           desc: {
-            'zh-CN': '绑定值',
-            'en-US': 'Bound Value'
+            'zh-CN': '绑定值'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage'
@@ -93,8 +85,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '原生 name 属性',
-            'en-US': 'Native name attribute'
+            'zh-CN': '原生 name 属性'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'basic-usage',
@@ -105,8 +96,7 @@ export default {
           type: "'filter'",
           defaultValue: '',
           desc: {
-            'zh-CN': '过滤器模式',
-            'en-US': 'Filter mode'
+            'zh-CN': '过滤器模式'
           },
           mode: ['pc'],
           pcDemo: 'shape'
@@ -116,8 +106,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '复选框显示的文本',
-            'en-US': 'Text displayed in the check box'
+            'zh-CN': '复选框显示的文本'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'description',
@@ -128,8 +117,7 @@ export default {
           type: 'string | number',
           defaultValue: '',
           desc: {
-            'zh-CN': '选中时的值',
-            'en-US': 'Value when selected'
+            'zh-CN': '选中时的值'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'text',
@@ -140,8 +128,7 @@ export default {
           type: 'String / Number / Boolean',
           defaultValue: '',
           desc: {
-            'zh-CN': '绑定值',
-            'en-US': ''
+            'zh-CN': '绑定值'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -153,8 +140,7 @@ export default {
           type: '(value: string | number | boolean) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '当绑定值变化时触发的事件',
-            'en-US': 'This event is triggered when the binding value changes'
+            'zh-CN': '当绑定值变化时触发的事件'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'checkbox-events',
@@ -168,8 +154,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': 'checkbox的内容',
-            'en-US': 'Checkbox content'
+            'zh-CN': 'checkbox的内容'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'checkbox-slot',
@@ -186,8 +171,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否禁用',
-            'en-US': 'Disable'
+            'zh-CN': '是否禁用'
           },
           mode: ['pc'],
           pcDemo: 'indeterminate'
@@ -197,8 +181,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '按钮形式的 checkbox 激活时的填充色和边框色',
-            'en-US': 'Fill color and border color when the checkbox in button mode is activated'
+            'zh-CN': '按钮形式的 checkbox 激活时的填充色和边框色'
           },
           mode: ['pc'],
           pcDemo: 'custom-color'
@@ -208,8 +191,7 @@ export default {
           type: 'number',
           defaultValue: '',
           desc: {
-            'zh-CN': '可被勾选的 checkbox 的最大数量',
-            'en-US': 'Maximum number of checkboxes that can be selected'
+            'zh-CN': '可被勾选的 checkbox 的最大数量'
           },
           mode: ['pc'],
           pcDemo: 'min-max'
@@ -219,8 +201,7 @@ export default {
           type: 'number',
           defaultValue: '',
           desc: {
-            'zh-CN': '可被勾选的 checkbox 的最小数量',
-            'en-US': 'Minimum number of checkboxes that can be selected'
+            'zh-CN': '可被勾选的 checkbox 的最小数量'
           },
           mode: ['pc'],
           pcDemo: 'min-max'
@@ -230,8 +211,7 @@ export default {
           type: 'string[] | number[]',
           defaultValue: '',
           desc: {
-            'zh-CN': '绑定值',
-            'en-US': 'Bound Value'
+            'zh-CN': '绑定值'
           },
           mode: ['pc'],
           pcDemo: 'checkbox-group'
@@ -242,8 +222,7 @@ export default {
           type: 'ICheckboxGroupOptions[]',
           defaultValue: '',
           desc: {
-            'zh-CN': 'checkbox-group 子项配置列表',
-            'en-US': 'Checkbox component list'
+            'zh-CN': 'checkbox-group 子项配置列表'
           },
           mode: ['pc'],
           pcDemo: 'group-options'
@@ -253,8 +232,7 @@ export default {
           type: "'filter'",
           defaultValue: '',
           desc: {
-            'zh-CN': '过滤器模式',
-            'en-US': 'Filter mode'
+            'zh-CN': '过滤器模式'
           },
           mode: ['pc'],
           pcDemo: 'shape'
@@ -264,9 +242,7 @@ export default {
           type: "'medium' | 'small' | 'mini'",
           defaultValue: '',
           desc: {
-            'zh-CN': '多选框组尺寸，仅对按钮形式的 checkbox 或带有边框的 checkbox 有效',
-            'en-US':
-              'Size of the check box group. This parameter is valid only for the check box with buttons or borders'
+            'zh-CN': '多选框组尺寸，仅对按钮形式的 checkbox 或带有边框的 checkbox 有效'
           },
           mode: ['pc'],
           pcDemo: 'size'
@@ -276,8 +252,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '按钮形式的 checkbox 激活时的文本颜色',
-            'en-US': 'Text color when the checkbox in button mode is activated'
+            'zh-CN': '按钮形式的 checkbox 激活时的文本颜色'
           },
           mode: ['pc'],
           pcDemo: 'custom-color'
@@ -287,8 +262,7 @@ export default {
           type: "'button' | 'checkbox'",
           defaultValue: "'checkbox'",
           desc: {
-            'zh-CN': ' 复选框组子项组件类型，需配合 options 属性使用',
-            'en-US': 'Checkbox component type'
+            'zh-CN': ' 复选框组子项组件类型，需配合 options 属性使用'
           },
           mode: ['pc'],
           pcDemo: 'group-options'
@@ -298,8 +272,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '设置组件排列方式，设置复选框是否垂直排列',
-            'en-US': 'Set the component arrangement mode. Sets whether the check boxes are arranged vertically'
+            'zh-CN': '设置组件排列方式，设置复选框是否垂直排列'
           },
           mode: ['pc'],
           pcDemo: 'vertical-checkbox'
@@ -311,8 +284,7 @@ export default {
           type: '(value: string[] |number[]) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '当绑定值变化时触发的事件',
-            'en-US': 'This event is triggered when the binding value changes.'
+            'zh-CN': '当绑定值变化时触发的事件'
           },
           mode: ['pc'],
           pcDemo: 'checkbox-events'
@@ -324,8 +296,7 @@ export default {
           name: 'default',
           defaultValue: '',
           desc: {
-            'zh-CN': 'checkbox-group 选项组',
-            'en-US': 'Checkbox Option Group'
+            'zh-CN': 'checkbox-group 选项组'
           },
           mode: ['pc'],
           pcDemo: 'checkbox-group'
@@ -341,8 +312,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否默认勾选',
-            'en-US': 'Currently selected'
+            'zh-CN': '是否默认勾选'
           },
           mode: ['pc'],
           pcDemo: 'checked'
@@ -352,8 +322,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否禁用',
-            'en-US': 'Is disabled'
+            'zh-CN': '是否禁用'
           },
           mode: ['pc'],
           pcDemo: 'indeterminate'
@@ -364,8 +333,7 @@ export default {
           type: 'ICheckboxGroupOptions.events',
           defaultValue: '',
           desc: {
-            'zh-CN': '原生事件',
-            'en-US': 'Native event'
+            'zh-CN': '原生事件'
           },
           mode: ['pc'],
           pcDemo: 'group-options'
@@ -375,8 +343,7 @@ export default {
           type: 'string | number',
           defaultValue: '',
           desc: {
-            'zh-CN': '没有选中时的值',
-            'en-US': 'Value when no option is selected'
+            'zh-CN': '没有选中时的值'
           },
           mode: ['pc'],
           pcDemo: 'text'
@@ -386,9 +353,7 @@ export default {
           type: 'string | number | boolean',
           defaultValue: '',
           desc: {
-            'zh-CN': '选中状态的值（只有在 checkbox-group 中或者绑定对象类型为array时有效）',
-            'en-US':
-              'Value in the selected state (This parameter is valid only when checkbox-group or the bound object type is array.) The optional value of this attribute is medium-'
+            'zh-CN': '选中状态的值（只有在 checkbox-group 中或者绑定对象类型为array时有效）'
           },
           mode: ['pc'],
           pcDemo: 'checkbox-group'
@@ -398,8 +363,7 @@ export default {
           type: 'string | number | boolean',
           defaultValue: '',
           desc: {
-            'zh-CN': '绑定值',
-            'en-US': 'Bound Value'
+            'zh-CN': '绑定值'
           },
           mode: ['pc'],
           pcDemo: 'checkbox-button'
@@ -409,8 +373,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '原生 name 属性',
-            'en-US': 'Native name attribute'
+            'zh-CN': '原生 name 属性'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage'
@@ -420,8 +383,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '复选框文本',
-            'en-US': 'Text'
+            'zh-CN': '复选框文本'
           },
           mode: ['pc'],
           pcDemo: 'description'
@@ -431,8 +393,7 @@ export default {
           type: 'string | number',
           defaultValue: '',
           desc: {
-            'zh-CN': '选中时的值',
-            'en-US': 'Value when selected'
+            'zh-CN': '选中时的值'
           },
           mode: ['pc'],
           pcDemo: 'text'
@@ -445,8 +406,7 @@ export default {
           name: 'default',
           defaultValue: '',
           desc: {
-            'zh-CN': 'checkbox-button 的内容',
-            'en-US': 'Checkbox-button content'
+            'zh-CN': 'checkbox-button 的内容'
           },
           mode: ['pc'],
           pcDemo: 'description'

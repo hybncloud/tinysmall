@@ -10,8 +10,7 @@ export default {
           type: 'number',
           defaultValue: '-1',
           desc: {
-            'zh-CN': '当前节点索引，从0开始计数',
-            'en-US': 'Current node index and count from 0'
+            'zh-CN': '当前节点索引，从0开始计数'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage'
@@ -21,8 +20,7 @@ export default {
           type: 'String',
           defaultValue: '',
           desc: {
-            'zh-CN': '显示组件二级标题内容，默认值为 autoColor',
-            'en-US': 'Displays the level-2 title of the component. The default value is autoColor.'
+            'zh-CN': '显示组件二级标题内容，默认值为 autoColor'
           },
           mode: ['pc', 'mobile-first'],
           mfDemo: ''
@@ -33,8 +31,7 @@ export default {
           type: 'ITimelineItem',
           defaultValue: '[]',
           desc: {
-            'zh-CN': '节点数据',
-            'en-US': 'Nodes data'
+            'zh-CN': '节点数据'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'basic-usage',
@@ -45,8 +42,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '禁用折叠',
-            'en-US': 'to disable folding feature'
+            'zh-CN': '禁用折叠'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -56,8 +52,7 @@ export default {
           type: 'boolean',
           defaultValue: 'true',
           desc: {
-            'zh-CN': '是否水平方向',
-            'en-US': 'Whether horizontal constructure'
+            'zh-CN': '是否水平方向'
           },
           mode: ['pc'],
           pcDemo: ''
@@ -67,8 +62,7 @@ export default {
           type: 'number | string',
           defaultValue: '3',
           desc: {
-            'zh-CN': '折叠后展示的节点个数',
-            'en-US': 'number of nodes displayed after folding'
+            'zh-CN': '折叠后展示的节点个数'
           },
           mode: ['mobile-first'],
           mfDemo: 'limited-nodes'
@@ -78,9 +72,7 @@ export default {
           type: 'string | number',
           defaultValue: '',
           desc: {
-            'zh-CN': "连接线长度，仅当 text-position 取值为 'right' 时生效，设置后 space 属性失效",
-            'en-US':
-              "The length of the connection line and it is valid only when text-position is set to 'right'. After setting, the space property is invalid"
+            'zh-CN': "连接线长度，仅当 text-position 取值为 'right' 时生效，设置后 space 属性失效"
           },
           mode: ['pc'],
           pcDemo: ''
@@ -90,8 +82,7 @@ export default {
           type: 'string',
           defaultValue: "'name'",
           desc: {
-            'zh-CN': '节点名称对应的字段名',
-            'en-US': 'Set the field name in the node information.'
+            'zh-CN': '节点名称对应的字段名'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'custom-field',
@@ -102,8 +93,7 @@ export default {
           type: 'number | string',
           defaultValue: '7',
           desc: {
-            'zh-CN': '最大显示节点数',
-            'en-US': 'maximum nodes to display'
+            'zh-CN': '最大显示节点数'
           },
           mode: ['mobile-first'],
           mfDemo: 'node-max'
@@ -113,8 +103,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '节点序号是否只显示数字，适用于横向时间线',
-            'en-US': 'Whether the node sequence number only displays numbers, used for horizontal timeline'
+            'zh-CN': '节点序号是否只显示数字，适用于横向时间线'
           },
           mode: ['pc'],
           pcDemo: ''
@@ -124,8 +113,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否逆序排列节点，仅用于竖式时间线',
-            'en-US': 'Whether the node in reverse order and only for vertical timeline'
+            'zh-CN': '是否逆序排列节点，仅用于竖式时间线'
           },
           mode: ['pc'],
           pcDemo: 'vertical-timeline'
@@ -135,8 +123,7 @@ export default {
           type: 'string',
           defaultValue: "'circle'",
           desc: {
-            'zh-CN': "圆点外形: 空心圆形或实心圆点，取值分别对应 'circle' | 'dot'",
-            'en-US': "Set the appearance of point, optional values include 'circle' and 'dot'"
+            'zh-CN': "圆点外形: 空心圆形或实心圆点，取值分别对应 'circle' | 'dot'"
           },
           mode: ['pc'],
           pcDemo: 'shape'
@@ -146,9 +133,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否显示底部指标三角，适用于横向时间线',
-            'en-US':
-              'Indicates whether to display the bottom indicator triangle, which is applicable to the horizontal timeline.'
+            'zh-CN': '是否显示底部指标三角，适用于横向时间线'
           },
           mode: ['pc'],
           pcDemo: 'show-divider'
@@ -158,8 +143,7 @@ export default {
           type: 'boolean',
           defaultValue: 'true',
           desc: {
-            'zh-CN': '未完成状态的节点是否显示序号',
-            'en-US': 'Whether to display sequence numbers for unfinished states'
+            'zh-CN': '未完成状态的节点是否显示序号'
           },
           mode: ['pc'],
           pcDemo: ''
@@ -169,9 +153,7 @@ export default {
           type: 'string | number',
           defaultValue: '',
           desc: {
-            'zh-CN': '节点宽度， 取值为数字、带长度单位的数值字符串和百分比字符串，数字会默认以px为长度单位',
-            'en-US':
-              'Set the width of the timeline.The value can be a number, a numeric string with length units, or a percentage string. For numbers, the default length unit is px'
+            'zh-CN': '节点宽度， 取值为数字、带长度单位的数值字符串和百分比字符串，数字会默认以px为长度单位'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'set-node-width',
@@ -182,8 +164,7 @@ export default {
           type: 'number',
           defaultValue: '1',
           desc: {
-            'zh-CN': '节点序号起始值',
-            'en-US': 'The start step sequence number.'
+            'zh-CN': '节点序号起始值'
           },
           mode: ['pc'],
           pcDemo: 'set-start-value'
@@ -193,8 +174,7 @@ export default {
           type: 'Boolean',
           defaultValue: '',
           desc: {
-            'zh-CN': '设置时间线两侧展示',
-            'en-US': 'Set the display on both sides of the timeline.'
+            'zh-CN': '设置时间线两侧展示'
           },
           mode: ['mobile-first'],
           mfDemo: 'sub-field'
@@ -204,8 +184,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': `节点文案位置。默认名称和时间分别展示在图标上下方；可选值：'right'，只有名称展示名称在右方`,
-            'en-US': `Node copy position. The default name and time are displayed above and below the icon, respectively; optional value: 'right', where only the name is displayed on the right side. `
+            'zh-CN': `节点文案位置。默认名称和时间分别展示在图标上下方；可选值：'right'，只有名称展示名称在右方`
           },
           mode: ['pc'],
           pcDemo: 'text-position'
@@ -215,8 +194,7 @@ export default {
           type: 'string',
           defaultValue: "'time'",
           desc: {
-            'zh-CN': '节点时间信息对应的字段名',
-            'en-US': 'The name of the field corresponding to the node time information'
+            'zh-CN': '节点时间信息对应的字段名'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'custom-field',
@@ -227,8 +205,7 @@ export default {
           type: 'String',
           defaultValue: '',
           desc: {
-            'zh-CN': '显示组件二级标题内容,默认值为 tips',
-            'en-US': 'Displays the level-2 title of the component. The default value is tips.'
+            'zh-CN': '显示组件二级标题内容,默认值为 tips'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -238,8 +215,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否竖直方向',
-            'en-US': 'Vertical direction'
+            'zh-CN': '是否竖直方向'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'vertical-timeline',
@@ -250,8 +226,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '时间线描述',
-            'en-US': 'Timeline description'
+            'zh-CN': '时间线描述'
           },
           mode: ['pc', 'mobile-first'],
           mfDemo: '',
@@ -265,8 +240,7 @@ export default {
           name: 'click',
           type: '(index: number, node: <a href="#ITimelineItem">ITimelineItem</a>) => void',
           desc: {
-            'zh-CN': '节点的点击事件，参数：<br />index：点击节点的下标<br /> node： 点击节点数据}',
-            'en-US': 'Click event of a node. arguments:<br />index: click the subscript of a node<br />node: node data'
+            'zh-CN': '节点的点击事件，参数：<br />index：点击节点的下标<br /> node： 点击节点数据}'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage'
@@ -277,8 +251,7 @@ export default {
         {
           name: 'default',
           desc: {
-            'zh-CN': '组件默认插槽。组件显示为插槽内容',
-            'en-US': 'Component default slot. The component displays as the slot content. '
+            'zh-CN': '组件默认插槽。组件显示为插槽内容'
           },
           mode: ['pc'],
           pcDemo: 'slot-default'
@@ -286,8 +259,7 @@ export default {
         {
           name: 'bottom',
           desc: {
-            'zh-CN': '自定义节点底部内容',
-            'en-US': 'Customize bottom content for timeline item'
+            'zh-CN': '自定义节点底部内容'
           },
           mode: ['pc'],
           pcDemo: 'custom-horizontal-timeline'
@@ -295,8 +267,7 @@ export default {
         {
           name: 'description',
           desc: {
-            'zh-CN': '节点描述信息插槽，适用于横向时间线',
-            'en-US': 'Node description information slot, used for horizontal timeline'
+            'zh-CN': '节点描述信息插槽，适用于横向时间线'
           },
           mode: ['pc'],
           pcDemo: 'slot-description'
@@ -306,8 +277,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '自定义节点左侧内容',
-            'en-US': 'Customize left content for timeline item'
+            'zh-CN': '自定义节点左侧内容'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'custom-vertical-timeline',
@@ -316,8 +286,7 @@ export default {
         {
           name: 'right',
           desc: {
-            'zh-CN': '自定义节点右侧内容',
-            'en-US': 'Customize right content for timeline item'
+            'zh-CN': '自定义节点右侧内容'
           },
           mode: ['pc'],
           pcDemo: 'custom-vertical-timeline'
@@ -325,8 +294,7 @@ export default {
         {
           name: 'top',
           desc: {
-            'zh-CN': '自定义节点顶部内容',
-            'en-US': 'Customize bottom content for timeline item'
+            'zh-CN': '自定义节点顶部内容'
           },
           mode: ['pc'],
           pcDemo: 'custom-horizontal-timeline'
@@ -342,9 +310,7 @@ export default {
           type: 'string | number',
           defaultValue: '',
           desc: {
-            'zh-CN': '连接线长度，仅当 timeline 组件 text-position 属性取值为 true 时生效，设置后 space 属性失效',
-            'en-US':
-              'The length of the connection line and it is valid only when text-position is set to true. After setting, the space property is invalid'
+            'zh-CN': '连接线长度，仅当 timeline 组件 text-position 属性取值为 true 时生效，设置后 space 属性失效'
           },
           mode: ['pc'],
           pcDemo: ''
@@ -355,8 +321,7 @@ export default {
           type: 'ITimelineItem',
           defaultValue: '',
           desc: {
-            'zh-CN': '节点数据',
-            'en-US': 'Node data'
+            'zh-CN': '节点数据'
           },
           mode: ['pc'],
           pcDemo: 'timeline-item'
@@ -366,9 +331,7 @@ export default {
           type: 'string | number',
           defaultValue: '',
           desc: {
-            'zh-CN': '节点宽度， 取值为数字、带长度单位的数值字符串和百分比字符串，数字会默认以px为长度单位',
-            'en-US':
-              'Set the width of the timeline.The value can be a number, a numeric string with length units, or a percentage string. For numbers, the default length unit is px'
+            'zh-CN': '节点宽度， 取值为数字、带长度单位的数值字符串和百分比字符串，数字会默认以px为长度单位'
           },
           mode: ['pc'],
           pcDemo: ''

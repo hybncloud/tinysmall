@@ -10,8 +10,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '文字是否居中',
-            'en-US': 'Whether text content is center aligned'
+            'zh-CN': '文字是否居中'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'center',
@@ -22,8 +21,7 @@ export default {
           type: 'boolean',
           defaultValue: 'true',
           desc: {
-            'zh-CN': '警告是否可以关闭',
-            'en-US': 'Whether the alert can be closed'
+            'zh-CN': '警告是否可以关闭'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'custom-close',
@@ -34,8 +32,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '关闭按钮自定义文本',
-            'en-US': 'Custom text for the close button'
+            'zh-CN': '关闭按钮自定义文本'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'custom-close',
@@ -46,8 +43,7 @@ export default {
           type: 'string',
           defaultValue: "'customClass'",
           desc: {
-            'zh-CN': '自定义类名',
-            'en-US': 'Custom CSS class name'
+            'zh-CN': '自定义类名'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'custom-class',
@@ -58,8 +54,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '警告的提示内容',
-            'en-US': 'Description text for the alert message'
+            'zh-CN': '警告的提示内容'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'basic-usage',
@@ -70,8 +65,7 @@ export default {
           type: 'Component',
           defaultValue: '',
           desc: {
-            'zh-CN': '传入图标组件自定义警告的图标，默认会根据 type 值自动使用对应图标',
-            'en-US': 'Custom icon component. By default, corresponding icon is automatically used based on type value'
+            'zh-CN': '传入图标组件自定义警告的图标，默认会根据 type 值自动使用对应图标'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'icon',
@@ -82,8 +76,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '是否开启描述文字在鼠标 hover 时滚动显示的动画。',
-            'en-US': 'Whether to enable scrolling animation for description text on mouse hover'
+            'zh-CN': '是否开启描述文字在鼠标 hover 时滚动显示的动画。'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -93,8 +86,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '展示带标题可折叠样式。',
-            'en-US': 'Show collapsible style with title'
+            'zh-CN': '展示带标题可折叠样式。'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -104,8 +96,7 @@ export default {
           type: 'boolean',
           defaultValue: 'true',
           desc: {
-            'zh-CN': '是否显示图标',
-            'en-US': 'Whether to show icon'
+            'zh-CN': '是否显示图标'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'show-icon',
@@ -116,8 +107,7 @@ export default {
           type: 'boolean',
           defaultValue: 'true',
           desc: {
-            'zh-CN': '是否显示标题，在 size 为 large 时有效',
-            'en-US': 'Whether to show title Only valid when size is large'
+            'zh-CN': '是否显示标题，在 size 为 large 时有效'
           },
           mode: ['pc'],
           pcDemo: 'title',
@@ -130,8 +120,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '描述内容是否一行显示，超出显示...，默认值为 false。',
-            'en-US': 'Whether description content displays in single line with ellipsis. Default is false'
+            'zh-CN': '描述内容是否一行显示，超出显示...，默认值为 false。'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -142,8 +131,7 @@ export default {
           type: 'ISize',
           defaultValue: "'normal'",
           desc: {
-            'zh-CN': '警告的尺寸大小',
-            'en-US': 'Size of the alert component'
+            'zh-CN': '警告的尺寸大小'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'size',
@@ -154,8 +142,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '警告的标题，在 size 为 large 时有效，默认会根据 type 自动设置',
-            'en-US': 'Alert title. Only valid when size is large. Automatically set based on type by default'
+            'zh-CN': '警告的标题，在 size 为 large 时有效，默认会根据 type 自动设置'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'title',
@@ -167,8 +154,7 @@ export default {
           type: 'IType',
           defaultValue: "'info'",
           desc: {
-            'zh-CN': '警告的类型',
-            'en-US': 'Type of the alert'
+            'zh-CN': '警告的类型'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'basic-usage',
@@ -181,8 +167,7 @@ export default {
           type: '() => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '关闭 alert 时触发的事件',
-            'en-US': 'Triggered when alert is closed'
+            'zh-CN': '关闭 alert 时触发的事件'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'custom-close',
@@ -193,8 +178,7 @@ export default {
           type: 'Function()',
           defaultValue: '',
           desc: {
-            'zh-CN': '标题点击事件，设置 show-foldable 为 true 时有效。',
-            'en-US': 'Title click event Only valid when show-foldable is true'
+            'zh-CN': '标题点击事件，设置 show-foldable 为 true 时有效。'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -206,8 +190,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '隐藏组件',
-            'en-US': ''
+            'zh-CN': '隐藏组件'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -217,8 +200,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '标题点击事件，设置 show-foldable 为 true 时有效',
-            'en-US': ''
+            'zh-CN': '标题点击事件，设置 show-foldable 为 true 时有效'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -229,8 +211,7 @@ export default {
           name: 'close',
           defaultValue: '',
           desc: {
-            'zh-CN': '自定义关闭内容，当 closable 属性为 false 时有效',
-            'en-US': ''
+            'zh-CN': '自定义关闭内容，当 closable 属性为 false 时有效'
           },
           mode: ['pc'],
           pcDemo: 'custom-close'
@@ -240,8 +221,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '组件默认插槽，当 size 设置为 large 时有效，显示在 <code>description</code>下方 ',
-            'en-US': 'Default slot for component content Only valid when size is large'
+            'zh-CN': '组件默认插槽，当 size 设置为 large 时有效，显示在 <code>description</code>下方 '
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'slot-default',
@@ -252,8 +232,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '提示内容插槽',
-            'en-US': 'Description content slot'
+            'zh-CN': '提示内容插槽'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'basic-usage',
@@ -264,8 +243,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '标题的内容，当 size 设置为 large 后有效',
-            'en-US': 'Title content slot Only valid when size is large'
+            'zh-CN': '标题的内容，当 size 设置为 large 后有效'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'title',

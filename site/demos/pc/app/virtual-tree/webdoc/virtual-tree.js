@@ -10,8 +10,7 @@ export default {
     {
       demoId: 'basic-usage',
       name: {
-        'zh-CN': '基本用法',
-        'en-US': 'Basic Usage'
+        'zh-CN': '基本用法'
       },
       desc: {
         'zh-CN': `
@@ -31,9 +30,7 @@ export default {
             <li>6. 组件没有监控其它属性的改变，可以在改变后手动调用 <code>refresh</code> 刷新。同样可以在改变前调用 <code>keepExpandStatus</code> 或 <code>keepScrollTop</code> 保持上次的展开状态和滚动位置。</li>
           </ul>
         </div>
-        `,
-        'en-US':
-          '<p>Note that the UserLink component requests mock data, which cannot be queried by other users. Use real services during development. </p>\n'
+        `
       },
       codeFiles: ['basic-usage.vue']
     }

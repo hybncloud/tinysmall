@@ -10,9 +10,7 @@ export default {
           type: 'Function',
           defaultValue: '',
           desc: {
-            'zh-CN': '设置关闭前的回调函数（仅点击关闭按钮或遮罩区域时被调用），如果回调函数返回 false 则阻止窗口关闭',
-            'en-US':
-              'Set the callback function before closing (only called when clicking the close button or mask area). If the callback function returns false, the modal will not be closed'
+            'zh-CN': '设置关闭前的回调函数（仅点击关闭按钮或遮罩区域时被调用），如果回调函数返回 false 则阻止窗口关闭'
           },
           mode: ['pc', 'mobile-first'],
           mfDemo: '',
@@ -27,9 +25,7 @@ export default {
           type: 'Button.props',
           defaultValue: '{}',
           desc: {
-            'zh-CN': '自定义取消按钮的 props ，可选值与 Button 组件一致',
-            'en-US':
-              'Customize the props of the cancel button. The optional values ​​are consistent with the Button component'
+            'zh-CN': '自定义取消按钮的 props ，可选值与 Button 组件一致'
           },
           mode: ['pc'],
           pcDemo: 'modal-footer'
@@ -39,8 +35,7 @@ export default {
           type: 'string',
           defaultValue: "'取消'",
           desc: {
-            'zh-CN': '自定义取消按钮内容',
-            'en-US': 'Customize cancel button content'
+            'zh-CN': '自定义取消按钮内容'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'modal-footer',
@@ -52,9 +47,7 @@ export default {
           type: 'Button.props',
           defaultValue: '{}',
           desc: {
-            'zh-CN': '自定义确认按钮 props，可选值与 Button 组件一致',
-            'en-US':
-              'Customize the confirmation button props, the optional values are consistent with the Button component'
+            'zh-CN': '自定义确认按钮 props，可选值与 Button 组件一致'
           },
           mode: ['pc'],
           pcDemo: 'modal-footer'
@@ -64,8 +57,7 @@ export default {
           type: 'string',
           defaultValue: "'确认'",
           desc: {
-            'zh-CN': '自定义确认按钮内容',
-            'en-US': 'Customize confirmation button content'
+            'zh-CN': '自定义确认按钮内容'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'modal-footer',
@@ -76,8 +68,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '组件自定义 class 样式',
-            'en-US': 'Custom class style for the component'
+            'zh-CN': '组件自定义 class 样式'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -87,8 +78,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '组件详情信息',
-            'en-US': 'Component detail information'
+            'zh-CN': '组件详情信息'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -98,9 +88,7 @@ export default {
           type: 'number | string',
           defaultValue: '3000',
           desc: {
-            'zh-CN': "自动关闭的延时，仅当 type 为 'message' 有效，如果设置为0则窗口不会自动关闭",
-            'en-US':
-              "Delay for automatic closing, only valid when type is 'message'. If set to 0, the modal will not close automatically"
+            'zh-CN': "自动关闭的延时，仅当 type 为 'message' 有效，如果设置为0则窗口不会自动关闭"
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'message-close',
@@ -111,8 +99,7 @@ export default {
           type: 'boolean',
           defaultValue: 'true',
           desc: {
-            'zh-CN': '是否允许按 Esc 键关闭窗口',
-            'en-US': 'Whether to allow pressing the Esc key to close the modal'
+            'zh-CN': '是否允许按 Esc 键关闭窗口'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'modal-other',
@@ -123,8 +110,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '控制底部可拖拽',
-            'en-US': 'Control draggable footer'
+            'zh-CN': '控制底部可拖拽'
           },
           mode: ['pc'],
           pcDemo: 'modal-footer'
@@ -134,8 +120,7 @@ export default {
           type: 'boolean',
           defaultValue: 'true',
           desc: {
-            'zh-CN': '控制标题可拖拽',
-            'en-US': 'Control draggable header'
+            'zh-CN': '控制标题可拖拽'
           },
           mode: ['pc'],
           pcDemo: 'modal-header',
@@ -148,8 +133,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否最大化显示',
-            'en-US': 'Whether to maximize the display'
+            'zh-CN': '是否最大化显示'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'modal-size',
@@ -160,8 +144,7 @@ export default {
           type: 'number | string',
           defaultValue: '',
           desc: {
-            'zh-CN': '窗口的高度',
-            'en-US': 'Height of the modal window'
+            'zh-CN': '窗口的高度'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'modal-size',
@@ -172,9 +155,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': "如果不想窗口重复点击，可以设置唯一的 id 防止重复提示，仅当 type 为 'message' 有效",
-            'en-US':
-              "If you don't want the window to be clicked repeatedly, you can set a unique id to prevent repeated prompts. This is only valid when type is 'message'"
+            'zh-CN': "如果不想窗口重复点击，可以设置唯一的 id 防止重复提示，仅当 type 为 'message' 有效"
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'message-id',
@@ -185,8 +166,7 @@ export default {
           type: 'boolean',
           defaultValue: 'true',
           desc: {
-            'zh-CN': '关闭弹窗时，是否重置表单数据',
-            'en-US': 'Whether to reset the form data when closing the modal'
+            'zh-CN': '关闭弹窗时，是否重置表单数据'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'modal-other',
@@ -197,8 +177,7 @@ export default {
           type: 'boolean',
           defaultValue: 'true',
           desc: {
-            'zh-CN': '是否锁住滚动条，不允许页面滚动',
-            'en-US': 'Whether to lock the scrollbar and prevent page scrolling'
+            'zh-CN': '是否锁住滚动条，不允许页面滚动'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'modal-lock',
@@ -209,8 +188,7 @@ export default {
           type: 'boolean',
           defaultValue: 'true',
           desc: {
-            'zh-CN': '是否锁住页面，不允许窗口之外的任何操作',
-            'en-US': 'Whether to lock the page and prevent any operations outside the modal'
+            'zh-CN': '是否锁住页面，不允许窗口之外的任何操作'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'modal-lock',
@@ -221,8 +199,7 @@ export default {
           type: 'boolean',
           defaultValue: 'true',
           desc: {
-            'zh-CN': '是否显示遮罩层',
-            'en-US': 'Whether to display the mask layer'
+            'zh-CN': '是否显示遮罩层'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'modal-mask',
@@ -233,8 +210,7 @@ export default {
           type: 'boolean',
           defaultValue: '',
           desc: {
-            'zh-CN': '是否允许点击遮罩层关闭窗口',
-            'en-US': 'Whether to allow clicking on the mask layer to close the modal'
+            'zh-CN': '是否允许点击遮罩层关闭窗口'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'modal-mask',
@@ -245,8 +221,7 @@ export default {
           type: 'string | VNode | () => string | VNode',
           defaultValue: '',
           desc: {
-            'zh-CN': '窗口的内容',
-            'en-US': 'Content of the modal window'
+            'zh-CN': '窗口的内容'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'basic-usage',
@@ -257,8 +232,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': "'message' 类型弹窗是否显示关闭按钮",
-            'en-US': "Whether the 'message' type modal window displays a close button"
+            'zh-CN': "'message' 类型弹窗是否显示关闭按钮"
           },
           mode: ['pc'],
           pcDemo: 'message-close'
@@ -268,8 +242,7 @@ export default {
           type: 'number | string',
           defaultValue: '',
           desc: {
-            'zh-CN': '窗口的最小高度',
-            'en-US': 'Minimum height of the modal window'
+            'zh-CN': '窗口的最小高度'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'modal-resize',
@@ -280,8 +253,7 @@ export default {
           type: 'number | string',
           defaultValue: '',
           desc: {
-            'zh-CN': '窗口的最小宽度',
-            'en-US': 'Minimum width of the modal window'
+            'zh-CN': '窗口的最小宽度'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'modal-resize',
@@ -292,8 +264,7 @@ export default {
           type: 'boolean',
           defaultValue: 'true',
           desc: {
-            'zh-CN': '是否显示',
-            'en-US': 'Whether to display'
+            'zh-CN': '是否显示'
           },
           mode: ['pc'],
           pcDemo: 'basic-usage'
@@ -303,8 +274,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': "多选选项，格式为 [{ value: 'value1', name: '选项1' }, ...]",
-            'en-US': 'Multi-select options, format: [{ value: "value1", name: "Option 1" }, ...]'
+            'zh-CN': "多选选项，格式为 [{ value: 'value1', name: '选项1' }, ...]"
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -314,9 +284,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': "弹出框位置，默认居中显示，设置值为 'bottom-right' 时弹出框显示在右下角",
-            'en-US':
-              "Position of the modal, centered by default. When set to 'bottom-right', the modal is displayed in the bottom right corner"
+            'zh-CN': "弹出框位置，默认居中显示，设置值为 'bottom-right' 时弹出框显示在右下角"
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -326,8 +294,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否允许拖动调整窗口大小',
-            'en-US': 'Whether to allow dragging to resize the modal'
+            'zh-CN': '是否允许拖动调整窗口大小'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'modal-resize',
@@ -338,8 +305,7 @@ export default {
           type: 'boolean',
           defaultValue: 'true',
           desc: {
-            'zh-CN': '是否显示关闭按钮，默认值为 true',
-            'en-US': 'Whether to display the close button, default value is true'
+            'zh-CN': '是否显示关闭按钮，默认值为 true'
           },
           meta: {
             stable: '3.22.0'
@@ -353,8 +319,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否显示底部',
-            'en-US': 'Whether to display the footer'
+            'zh-CN': '是否显示底部'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'modal-footer',
@@ -365,8 +330,7 @@ export default {
           type: 'boolean',
           defaultValue: 'true',
           desc: {
-            'zh-CN': '是否显示头部',
-            'en-US': 'Whether to display the header'
+            'zh-CN': '是否显示头部'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'modal-header',
@@ -378,8 +342,7 @@ export default {
           type: 'IStatus',
           defaultValue: "'info'",
           desc: {
-            'zh-CN': "消息状态，当 type 为 'alert'、'message'、'confirm' 时有效",
-            'en-US': "Message status, valid when type is 'alert', 'message', 'confirm'"
+            'zh-CN': "消息状态，当 type 为 'alert'、'message'、'confirm' 时有效"
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'status',
@@ -390,8 +353,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '窗口的标题',
-            'en-US': 'Title of the modal window'
+            'zh-CN': '窗口的标题'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'modal-header',
@@ -402,8 +364,7 @@ export default {
           type: 'number | string',
           defaultValue: '80',
           desc: {
-            'zh-CN': "消息距离顶部的位置，仅当 type 为 'message' 时有效",
-            'en-US': "The position of the message from the top, only valid when type is 'message'"
+            'zh-CN': "消息距离顶部的位置，仅当 type 为 'message' 时有效"
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'message-top',
@@ -414,8 +375,7 @@ export default {
           type: "'alert' | 'confirm' | 'message'",
           defaultValue: "'alert'",
           desc: {
-            'zh-CN': '窗口类型',
-            'en-US': 'Type of the modal window'
+            'zh-CN': '窗口类型'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'basic-usage',
@@ -426,8 +386,7 @@ export default {
           type: 'boolean',
           defaultValue: '',
           desc: {
-            'zh-CN': '绑定值',
-            'en-US': 'Bound value'
+            'zh-CN': '绑定值'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -437,9 +396,7 @@ export default {
           type: 'number | string',
           defaultValue: '',
           desc: {
-            'zh-CN': '窗口的宽度（设置宽度像素或者百分比，浏览器窗口大小改变可居中显示)',
-            'en-US':
-              'Width of the modal window (set width in pixels or percentages, browser window size changes will center the display)'
+            'zh-CN': '窗口的宽度（设置宽度像素或者百分比，浏览器窗口大小改变可居中显示)'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'modal-size',
@@ -450,8 +407,7 @@ export default {
           type: 'number',
           defaultValue: '',
           desc: {
-            'zh-CN': '自定义堆叠顺序（对于某些特殊场景，比如被遮挡时可能会用到）',
-            'en-US': 'Customize the stacking order (may be used in some special scenarios, such as when it is blocked)'
+            'zh-CN': '自定义堆叠顺序（对于某些特殊场景，比如被遮挡时可能会用到）'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'modal-other',
@@ -465,8 +421,7 @@ export default {
           type: '(params: IModalEventParam, event: Event) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '点击取消按钮时会触发该事件',
-            'en-US': 'This event is triggered when the Cancel button is clicked'
+            'zh-CN': '点击取消按钮时会触发该事件'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'modal-event',
@@ -478,8 +433,7 @@ export default {
           type: '(params: IModalEventParam, event: Event) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '点击关闭按钮时会触发该事件',
-            'en-US': 'This event is triggered when the close button is clicked'
+            'zh-CN': '点击关闭按钮时会触发该事件'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'modal-event',
@@ -491,8 +445,7 @@ export default {
           type: '(params: IModalEventParam, event: Event) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '点击确定按钮时会触发该事件',
-            'en-US': 'This event is triggered when the OK button is clicked'
+            'zh-CN': '点击确定按钮时会触发该事件'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'modal-event',
@@ -504,8 +457,7 @@ export default {
           type: '(params: IModalEventParam) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '在窗口关闭时会触发该事件',
-            'en-US': 'This event is triggered when the modal is closed'
+            'zh-CN': '在窗口关闭时会触发该事件'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'modal-event',
@@ -517,8 +469,7 @@ export default {
           type: '(params: IModalEventParam) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '在窗口显示时会触发该事件',
-            'en-US': 'This event is triggered when the modal is displayed'
+            'zh-CN': '在窗口显示时会触发该事件'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'modal-event',
@@ -530,8 +481,7 @@ export default {
           type: '(params: IModalEventParam, event: Event) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '窗口缩放时会触发该事件',
-            'en-US': 'This event is triggered when the modal is zoomed in or out'
+            'zh-CN': '窗口缩放时会触发该事件'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'modal-event',
@@ -545,8 +495,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '默认插槽',
-            'en-US': 'Default slot'
+            'zh-CN': '默认插槽'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'modal-fn-slots',
@@ -557,8 +506,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '窗口底部的模板',
-            'en-US': 'Template at the bottom of the modal'
+            'zh-CN': '窗口底部的模板'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'modal-fn-slots',

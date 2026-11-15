@@ -10,8 +10,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '自定义标记的类名',
-            'en-US': 'Class name for custom tags'
+            'zh-CN': '自定义标记的类名'
           },
           mode: ['pc'],
           pcDemo: 'badge-class'
@@ -21,8 +20,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '文本内容',
-            'en-US': 'Set Text Content'
+            'zh-CN': '文本内容'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'basic-usage',
@@ -33,8 +31,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否隐藏标记',
-            'en-US': 'Whether to hide badge'
+            'zh-CN': '是否隐藏标记'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'dynamic-hidden',
@@ -45,8 +42,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '指定跳转的目标页面地址',
-            'en-US': 'Specify the URL of the target page.'
+            'zh-CN': '指定跳转的目标页面地址'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'link',
@@ -57,8 +53,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '是否以小圆点的形式来显示标记',
-            'en-US': 'Set whether to display the badge in the form of small dots'
+            'zh-CN': '是否以小圆点的形式来显示标记'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'is-dot',
@@ -70,9 +65,7 @@ export default {
           defaultValue: '',
           desc: {
             'zh-CN':
-              "指定徽章显示的最大值，如果实际获取的徽章值超过该最大值，则以最大值后接一个 '+' 的形式显示徽章数，要求 value 是 number 类型",
-            'en-US':
-              'Specifies the maximum number of badges to be displayed. If the actual badge value exceeds the maximum value, the number of badges is displayed in the format of "+". The value must be of the number type.'
+              "指定徽章显示的最大值，如果实际获取的徽章值超过该最大值，则以最大值后接一个 '+' 的形式显示徽章数，要求 value 是 number 类型"
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'max',
@@ -83,8 +76,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '设置标记位置的偏移量',
-            'en-US': 'Set the offset of the marker position, see demo for details'
+            'zh-CN': '设置标记位置的偏移量'
           },
           mode: ['pc'],
           pcDemo: 'offset'
@@ -94,8 +86,7 @@ export default {
           type: 'boolean',
           defaultValue: '',
           desc: {
-            'zh-CN': '设置是否向左展示，仅对圆点生效。',
-            'en-US': 'Indicates whether to display the dots to the left. This parameter is valid only for dots.'
+            'zh-CN': '设置是否向左展示，仅对圆点生效。'
           },
           mode: ['mobile-first'],
           mfDemo: 'type-left'
@@ -105,9 +96,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '点击标记时链接到目标页面的跳转方式，仅在 href 属性存在时使用',
-            'en-US':
-              'Set the jump method for linking to the target page when clicking on the tag, only used when the href attribute exists'
+            'zh-CN': '点击标记时链接到目标页面的跳转方式，仅在 href 属性存在时使用'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'link',
@@ -119,8 +108,7 @@ export default {
           type: 'IPtype',
           defaultValue: "'danger'",
           desc: {
-            'zh-CN': '标记的类型',
-            'en-US': 'Set the type of badge'
+            'zh-CN': '标记的类型'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'type',
@@ -131,8 +119,7 @@ export default {
           type: 'String / Number',
           defaultValue: '',
           desc: {
-            'zh-CN': '绑定值',
-            'en-US': ''
+            'zh-CN': '绑定值'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -142,8 +129,7 @@ export default {
           type: 'number | string',
           defaultValue: '',
           desc: {
-            'zh-CN': '相关数据条目数',
-            'en-US': 'Set the number of related data entries'
+            'zh-CN': '相关数据条目数'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'basic-usage',
@@ -158,8 +144,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '消息提示内容',
-            'en-US': 'Message Content'
+            'zh-CN': '消息提示内容'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'slot-content',
@@ -170,8 +155,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '默认插槽，有data属性时，默认插槽不生效',
-            'en-US': 'Default slot. When there is a data attribute, the default slot is not valid'
+            'zh-CN': '默认插槽，有data属性时，默认插槽不生效'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'slot-default',

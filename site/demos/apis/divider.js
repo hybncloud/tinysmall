@@ -10,9 +10,7 @@ export default {
           type: 'string',
           defaultValue: "'solid'",
           desc: {
-            'zh-CN': '设置分隔线的样式，该属性的可选值为 solid / dashed / dotted',
-            'en-US':
-              'Set the style of the separator line, with optional values of solid/dashed/dotted for this property'
+            'zh-CN': '设置分隔线的样式，该属性的可选值为 solid / dashed / dotted'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'custom-style',
@@ -23,8 +21,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '设置分隔线的颜色',
-            'en-US': 'Set the color of the divider.'
+            'zh-CN': '设置分隔线的颜色'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'custom-style',
@@ -35,8 +32,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '设置分割线文案的背景颜色',
-            'en-US': 'Set the background color of the divider content'
+            'zh-CN': '设置分割线文案的背景颜色'
           },
           mode: ['pc'],
           pcDemo: 'custom-style'
@@ -46,8 +42,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '设置分隔线文案的颜色',
-            'en-US': 'Set the color of the divider content'
+            'zh-CN': '设置分隔线文案的颜色'
           },
           mode: ['pc'],
           pcDemo: 'custom-style'
@@ -57,9 +52,7 @@ export default {
           type: 'string',
           defaultValue: "'center'",
           desc: {
-            'zh-CN': '设置分隔线文案的位置，该属性的可选值为 left / center / right',
-            'en-US':
-              'Set the position of the separator text, with optional values of left/center/right for this attribute'
+            'zh-CN': '设置分隔线文案的位置，该属性的可选值为 left / center / right'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'content-position',
@@ -70,9 +63,7 @@ export default {
           type: 'string',
           defaultValue: "'horizontal'",
           desc: {
-            'zh-CN': '设置分隔线的方向，该属性的可选值为 horizontal / vertical',
-            'en-US':
-              'Set the direction of the divider; the possible values for this property are "horizontal" or "vertical"'
+            'zh-CN': '设置分隔线的方向，该属性的可选值为 horizontal / vertical'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'direction',
@@ -83,8 +74,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '设置分割线上下左右的边距',
-            'en-US': 'Sets the margins of the split line'
+            'zh-CN': '设置分割线上下左右的边距'
           },
           meta: {
             stable: '3.21.0'
@@ -98,9 +88,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '设置文本位置偏移量，需同时配合`text-position`属性使用，以确定偏移的方向',
-            'en-US':
-              'Sets the text position offset. This parameter must be used together with the `text-position` attribute to determine the offset direction'
+            'zh-CN': '设置文本位置偏移量，需同时配合`text-position`属性使用，以确定偏移的方向'
           },
           meta: {
             stable: '3.21.0'
@@ -114,8 +102,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '设置整体的高度',
-            'en-US': 'Sets the overall height'
+            'zh-CN': '设置整体的高度'
           },
           meta: {
             stable: '3.21.0'
@@ -128,8 +115,7 @@ export default {
           type: 'string',
           defaultValue: '14px',
           desc: {
-            'zh-CN': '文本字体大小',
-            'en-US': 'Text font size'
+            'zh-CN': '文本字体大小'
           },
           meta: {
             stable: '3.21.0'
@@ -142,8 +128,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '分割线状态',
-            'en-US': 'Splitting Line Status'
+            'zh-CN': '分割线状态'
           },
           meta: {
             stable: '3.21.0'
@@ -160,8 +145,7 @@ export default {
           name: 'default',
           defaultValue: '',
           desc: {
-            'zh-CN': '默认插槽',
-            'en-US': 'Default slot'
+            'zh-CN': '默认插槽'
           },
           mode: ['pc'],
           pcDemo: 'content-position'

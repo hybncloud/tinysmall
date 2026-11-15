@@ -10,8 +10,7 @@ export default {
           type: 'boolean',
           defaultValue: 'true',
           desc: {
-            'zh-CN': '是否展示取消按钮',
-            'en-US': 'Is show the cancel button'
+            'zh-CN': '是否展示取消按钮'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'cancel-button',
@@ -22,8 +21,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '为气泡提示框自定义类名',
-            'en-US': 'Set the pop confirm popper class name'
+            'zh-CN': '为气泡提示框自定义类名'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'custom-class',
@@ -34,8 +32,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '气泡提示框的内容',
-            'en-US': 'Set the pop confirm content'
+            'zh-CN': '气泡提示框的内容'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'basic-usage',
@@ -47,8 +44,7 @@ export default {
           type: 'IPopperPlacement',
           defaultValue: "'top'",
           desc: {
-            'zh-CN': '气泡提示框显示位置',
-            'en-US': 'Set the pop confirm placement'
+            'zh-CN': '气泡提示框显示位置'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'placement',
@@ -59,8 +55,7 @@ export default {
           type: 'String',
           defaultValue: '',
           desc: {
-            'zh-CN': '触发弹出层显示的 HTML 元素',
-            'en-US': ''
+            'zh-CN': '触发弹出层显示的 HTML 元素'
           },
           mode: ['mobile-first'],
           mfDemo: ''
@@ -70,8 +65,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '设置气泡提示框的标题',
-            'en-US': 'Set the pop confirm title'
+            'zh-CN': '设置气泡提示框的标题'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'basic-usage',
@@ -82,8 +76,7 @@ export default {
           type: "'click' | 'hover'",
           defaultValue: "'hover'",
           desc: {
-            'zh-CN': '气泡提示框显示触发方式',
-            'en-US': 'How to show the pop confirm'
+            'zh-CN': '气泡提示框显示触发方式'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'trigger',
@@ -95,8 +88,7 @@ export default {
           type: 'IPopconfirmtype',
           defaultValue: '',
           desc: {
-            'zh-CN': '提示图标类型，可以传入自定义图标',
-            'en-US': 'Prompt icon type, custom icons can be passed in'
+            'zh-CN': '提示图标类型，可以传入自定义图标'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'type',
@@ -107,8 +99,7 @@ export default {
           type: 'string | number',
           defaultValue: '350',
           desc: {
-            'zh-CN': '气泡提示框宽度',
-            'en-US': 'Set the pop confirm box with'
+            'zh-CN': '气泡提示框宽度'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'width',
@@ -122,8 +113,7 @@ export default {
           type: '(state: IPopconfirmState) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '点击确认按钮时触发',
-            'en-US': 'Triggered when confirm button is clicked'
+            'zh-CN': '点击确认按钮时触发'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'event',
@@ -135,8 +125,7 @@ export default {
           type: '(state: IPopconfirmState) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '气泡确认框关闭时触发',
-            'en-US': 'Triggered when pop confirm hide'
+            'zh-CN': '气泡确认框关闭时触发'
           },
           mode: ['pc'],
           pcDemo: 'event'
@@ -147,8 +136,7 @@ export default {
           type: '(state: IPopconfirmState) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '气泡确认框显示时触发',
-            'en-US': 'Triggered when pop confirm show'
+            'zh-CN': '气泡确认框显示时触发'
           },
           mode: ['pc'],
           pcDemo: 'event'
@@ -161,8 +149,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '底部插槽',
-            'en-US': 'footer slot'
+            'zh-CN': '底部插槽'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'slot-footer',
@@ -176,8 +163,7 @@ export default {
             stable: '3.22.2'
           },
           desc: {
-            'zh-CN': '信息插槽',
-            'en-US': 'message slot'
+            'zh-CN': '信息插槽'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'slot-message',
@@ -188,8 +174,7 @@ export default {
           type: '',
           defaultValue: '',
           desc: {
-            'zh-CN': '触发气泡提示框显示的 HTML 元素',
-            'en-US': 'reference slot'
+            'zh-CN': '触发气泡提示框显示的 HTML 元素'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'basic-usage',

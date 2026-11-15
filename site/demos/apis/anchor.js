@@ -11,9 +11,7 @@ export default {
           defaultValue: '',
           desc: {
             'zh-CN':
-              '用于单页面 hash 路由模式时指定滚动容器的 id 值，id 为空时则滚动容器默认为 HTML 文档的根节点 body 元素',
-            'en-US':
-              'When used in single page hash routing mode, specify the id value of the scrolling container. If the id is empty, the scrolling container defaults to the body element of the root node of the HTML document'
+              '用于单页面 hash 路由模式时指定滚动容器的 id 值，id 为空时则滚动容器默认为 HTML 文档的根节点 body 元素'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'set-container',
@@ -24,8 +22,7 @@ export default {
           type: 'boolean',
           defaultValue: 'false',
           desc: {
-            'zh-CN': '固定模式',
-            'en-US': 'Fixed mode'
+            'zh-CN': '固定模式'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'is-affix',
@@ -37,8 +34,7 @@ export default {
           type: 'ILink[]',
           defaultValue: '',
           desc: {
-            'zh-CN': '导航数据配置项，可通过 children 嵌套',
-            'en-US': 'Navigation data configuration items can be nested through children'
+            'zh-CN': '导航数据配置项，可通过 children 嵌套'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'basic-usage',
@@ -49,8 +45,7 @@ export default {
           type: 'string',
           defaultValue: '',
           desc: {
-            'zh-CN': '自定义滚动的目标元素类名',
-            'en-US': 'Class name of the customized scrolling target element'
+            'zh-CN': '自定义滚动的目标元素类名'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'set-container',
@@ -62,8 +57,7 @@ export default {
           type: 'number',
           defaultValue: '0',
           desc: {
-            'zh-CN': '锚点距离顶部的偏移量，用于调整滚动定位的位置',
-            'en-US': 'Offset from the top of the anchor, used to adjust the scroll position'
+            'zh-CN': '锚点距离顶部的偏移量，用于调整滚动定位的位置'
           },
           meta: {
             stable: '3.19.0'
@@ -76,8 +70,7 @@ export default {
           type: "'line' | 'dot'",
           defaultValue: "'line'",
           desc: {
-            'zh-CN': '锚点类型',
-            'en-US': 'Anchor type'
+            'zh-CN': '锚点类型'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'basic-usage',
@@ -90,8 +83,7 @@ export default {
           type: '(hash: string) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '锚点链接改变事件',
-            'en-US': 'Anchor link change event'
+            'zh-CN': '锚点链接改变事件'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'change',
@@ -102,8 +94,7 @@ export default {
           type: '(event: Event, currentLink: { link: string, title: string } ) => void',
           defaultValue: '',
           desc: {
-            'zh-CN': '锚点点击事件',
-            'en-US': 'Anchor click event'
+            'zh-CN': '锚点点击事件'
           },
           mode: ['pc', 'mobile-first'],
           pcDemo: 'set-container',

@@ -7,95 +7,74 @@ export default {
     {
       demoId: 'basic-usage',
       name: {
-        'zh-CN': '基本用法',
-        'en-US': 'Basic Usage'
+        'zh-CN': '基本用法'
       },
       desc: {
         'zh-CN': `
           通过 <code>value</code> 或者默认插槽设置链接显示内容。<br>
           绑定 <code>click</code> 事件监听点击。当禁用或配置 <code>href</code> 属性时，不会触发<code>click</code>事件！
-        `,
-        'en-US': `
-          Set the link to display content via <code>value</code> or the default slot. 
-          Bind the click event to listen for clicks.The click event is not triggered when the href attribute is disabled or configured!
-          `
+        `
       },
       codeFiles: ['basic-usage.vue']
     },
     {
       demoId: 'link-style',
       name: {
-        'zh-CN': '主题样式',
-        'en-US': 'Theme Style'
+        'zh-CN': '主题样式'
       },
       desc: {
-        'zh-CN': '<p>通过 <code>type</code> 设置链接的主题类型。</p>',
-        'en-US': '<p>Set the topic type of the link through the <code>type</code> attribute. </p>'
+        'zh-CN': '<p>通过 <code>type</code> 设置链接的主题类型。</p>'
       },
       codeFiles: ['link-style.vue']
     },
     {
       demoId: 'dynamic-disable',
       name: {
-        'zh-CN': '禁用链接',
-        'en-US': 'Disable links'
+        'zh-CN': '禁用链接'
       },
       desc: {
-        'zh-CN': '<p>通过 <code>disabled</code> 设置是否禁用链接。</p>',
-        'en-US': '<p>You can use the <code>disabled</code> attribute to specify whether to disable links. </p>'
+        'zh-CN': '<p>通过 <code>disabled</code> 设置是否禁用链接。</p>'
       },
       codeFiles: ['dynamic-disable.vue']
     },
     {
       demoId: 'focus-no-underline',
       name: {
-        'zh-CN': '聚焦时不显示下划线',
-        'en-US': 'Do not display underscores when focusing.'
+        'zh-CN': '聚焦时不显示下划线'
       },
       desc: {
-        'zh-CN': '<p>通过 <code>underline</code> 设置鼠标悬浮是否显示下划线。</p>',
-        'en-US':
-          '<p>When you hover the cursor over a link, the underline is displayed by default. If <code>underline</code> is set to false, the underline is not displayed when you focus. </p>'
+        'zh-CN': '<p>通过 <code>underline</code> 设置鼠标悬浮是否显示下划线。</p>'
       },
       codeFiles: ['focus-no-underline.vue']
     },
     {
       demoId: 'custom-icon',
       name: {
-        'zh-CN': '自定义图标',
-        'en-US': 'Custom Icon'
+        'zh-CN': '自定义图标'
       },
       desc: {
-        'zh-CN': '<p>通过属性 <code>icon</code>、默认插槽、<code>icon</code> 插槽都可以自定义图标。</p>',
-        'en-US':
-          '<p>Icon can be customized by attribute <code>icon</code>, default slot, and <code>icon</code> slot. </p>'
+        'zh-CN': '<p>通过属性 <code>icon</code>、默认插槽、<code>icon</code> 插槽都可以自定义图标。</p>'
       },
       codeFiles: ['custom-icon.vue']
     },
     {
       demoId: 'config-href',
       name: {
-        'zh-CN': '链接地址',
-        'en-US': 'Link'
+        'zh-CN': '链接地址'
       },
       desc: {
-        'zh-CN': '<p>通过 <code>href</code> 设置跳转连接，可配合原生属性 <code>target</code> 一起使用。</p>',
-        'en-US':
-          '<p>Use the <code>href</code> attribute to specify the URL to be redirected to. This attribute can be used together with the native attribute <code>target</code>. </p>'
+        'zh-CN': '<p>通过 <code>href</code> 设置跳转连接，可配合原生属性 <code>target</code> 一起使用。</p>'
       },
       codeFiles: ['config-href.vue']
     },
     {
       demoId: 'target',
       name: {
-        'zh-CN': '打开方式',
-        'en-US': 'Open mode'
+        'zh-CN': '打开方式'
       },
       desc: {
         'zh-CN':
-          '<p>通过 <code>target</code> 配置链接打开方式，可选值有 <code>_self</code>、<code>_blank</code>、<code>_parent</code>、<code>_top</code>。</p>',
-        'en-US':
-          '<p>Use the <code>target</code> attribute to configure the link opening mode. The optional values are <code>_self</code>, <code>_blank</code>, <code>_parent</code>, <code>_top</code>. </p>'
+          '<p>通过 <code>target</code> 配置链接打开方式，可选值有 <code>_self</code>、<code>_blank</code>、<code>_parent</code>、<code>_top</code>。</p>'
       },
       codeFiles: ['target.vue']
     }
@@ -103,12 +82,10 @@ export default {
   hiddenDemo: {
     demoId: 'size',
     name: {
-      'zh-CN': '尺寸',
-      'en-US': 'Size'
+      'zh-CN': '尺寸'
     },
     desc: {
-      'zh-CN': '<p>通过 <code>size</code> 属性设置尺寸，仅支持 <code>medium</code> 尺寸</p>',
-      'en-US': '<p></p>'
+      'zh-CN': '<p>通过 <code>size</code> 属性设置尺寸，仅支持 <code>medium</code> 尺寸</p>'
     },
     codeFiles: ['size.vue']
   },
