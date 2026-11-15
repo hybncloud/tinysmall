@@ -32,7 +32,7 @@ export const api = [
 export const renderless = (
   props: ICollapseItemProps,
   { computed, reactive }: ISharedRenderlessParamHooks,
-  { parent, constants, dispatch, designConfig }: ICollapseItemRenderlessParamUtils
+  { parent, constants, dispatch }: ICollapseItemRenderlessParamUtils
 ) => {
   const _constants = parent.collapse._constants
   const componentName = _constants.COMPONENT_NAME.Collapse
@@ -46,7 +46,7 @@ export const renderless = (
     contentWrapStyle: { height: 'auto', display: 'block' },
     size: parent.collapse.size,
     isActive: computed(() => parent.collapse.state.activeNames.includes(props.name)),
-    arrowIcon: props.expandIcon || designConfig?.icons?.arrowIcon || 'IconChevronRight'
+    arrowIcon: props.expandIcon || 'IconChevronRight'
   })
 
   const api: ICollapseItemApi = {

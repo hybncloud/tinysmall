@@ -29,7 +29,6 @@
         v-highlight-query="highlightQuery ? state.filterText : ''"
         :action="state.action"
         :show-radio="showRadio"
-        :theme="theme"
         :show-number="showNumber"
         :is-show-focus-bg="isShowFocusBg"
         :collapsible="collapsible"
@@ -155,7 +154,7 @@
 
 <script lang="tsx">
 import { renderless, api } from '@tinysmall/renderless/tree/vue'
-import { props, setup, defineComponent, directive, isVue2 } from '@tinysmall/common'
+import { props, setup, defineComponent, directive } from '@tinysmall/common'
 import { iconWarning, iconMarkOn } from '@tinysmall/icon'
 import Switch from '@tinysmall/switch'
 import Popover from '@tinysmall/popover'
@@ -271,7 +270,7 @@ export default defineComponent({
     }
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api, extendOptions: { isVue2 } })
+    return setup({ props, context, renderless, api })
   }
 })
 </script>

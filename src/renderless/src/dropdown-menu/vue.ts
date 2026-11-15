@@ -47,7 +47,7 @@ export const renderless = (
 ): IDropdownMenuApi => {
   const api = {} as IDropdownMenuApi
   const { reactive, provide, onMounted, inject } = hooks
-  const { nextTick, mode, vm, parent, dispatch, emit, designConfig } = instance
+  const { nextTick, vm, parent, dispatch, emit } = instance
 
   provide('dropdownMenuVm', vm)
   provide('multiStage', props.multiStage)
@@ -67,13 +67,7 @@ export const renderless = (
     canvasHeight: inject('change-size', null)
   })
 
-  if (mode === 'mobile') {
-    nextTick(() => {
-      state.scroller = getScroller(vm.$refs.menu as HTMLElement)
-    })
-  } else {
-    useVuePopper({ api, hooks, props, instance, state, dropdownVm, designConfig })
-  }
+  useVuePopper({ api, hooks, props, instance, state, dropdownVm })
 
   Object.assign(api, {
     state,

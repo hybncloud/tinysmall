@@ -73,7 +73,7 @@ export const api = [
 export const renderless = (
   props: IPagerProps,
   { reactive, computed, watch }: ISharedRenderlessParamHooks,
-  { emit, vm, nextTick, t, designConfig }: IPagerRenderlessParamUtils
+  { emit, vm, nextTick, t }: IPagerRenderlessParamUtils
 ): IPagerApi => {
   const api = {} as IPagerApi
 
@@ -93,12 +93,10 @@ export const renderless = (
     totalText: computed(() => api.computedTotalText()),
     internalPageSizes: computed(() => props.pageSizes || [10, 20, 30, 40, 50, 100]),
     internalPageCount: computed(() => api.computedInternalPageCount()),
-    showJumperSuffix: designConfig?.state?.showJumperSuffix ?? true,
-    align: computed(() => props.align || designConfig?.state?.align || 'right'),
-    totalI18n: designConfig?.state?.totalI18n || 'totals',
-    totalFixedLeft: computed(
-      () => props.totalFixedLeft ?? designConfig?.state?.totalFixedLeft ?? props.mode !== 'simplest' ?? true
-    ),
+    showJumperSuffix: true,
+    align: computed(() => props.align || 'right'),
+    totalI18n: 'totals',
+    totalFixedLeft: computed(() => props.totalFixedLeft ?? props.mode !== 'simplest' ?? true),
     pageSizeText: computed(() => api.computedPageSizeText())
   })
 
@@ -110,7 +108,7 @@ export const renderless = (
     computedInternalPageCount: computedInternalPageCount({ props, state }),
     computedSimplestPagerOption: computedSimplestPagerOption({ props, state }),
     computedSimplestPagerWidth: computedSimplestPagerWidth({ state }),
-    computedPageSizeText: computedPageSizeText({ props, designConfig }),
+    computedPageSizeText: computedPageSizeText({ props }),
     getValidCurrentPage: getValidCurrentPage({ state }),
     handleJumperFocus: handleJumperFocus({ state }),
     handleSizeChange: handleSizeChange({ props, state, api, emit, vm }),

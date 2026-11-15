@@ -99,7 +99,7 @@ const initState = ({ reactive, computed, api }) => {
   return state
 }
 
-const initApi = ({ vm, api, state, props, emit, mode }) => {
+const initApi = ({ vm, api, state, props, emit }) => {
   Object.assign(api, {
     state,
     computedHasLabel,
@@ -128,8 +128,8 @@ const initApi = ({ vm, api, state, props, emit, mode }) => {
     handleButtonEnter: handleButtonEnter({ api, state }),
     computedStyle: computedStyle({ props }),
     simulateTouch: simulateTouch({ props, vm }),
-    computedHasButtons: computedHasButtons({ props, state, mode }),
-    computedHasIndicators: computedHasIndicators({ props, state, mode }),
+    computedHasButtons: computedHasButtons({ props, state }),
+    computedHasIndicators: computedHasIndicators({ props, state }),
     canActive: canActive(props)
   })
 }
@@ -146,12 +146,12 @@ const initWatch = ({ watch, props, api, state }) => {
 export const renderless = (
   props,
   { computed, onMounted, onBeforeUnmount, reactive, watch, provide },
-  { vm, parent, emit, mode }
+  { vm, parent, emit }
 ) => {
   const api = {}
   const state = initState({ reactive, computed, api })
 
-  initApi({ vm, api, state, props, emit, mode })
+  initApi({ vm, api, state, props, emit })
 
   const { updateItems } = useItems({ api, vm, onMounted, state, watch })
 

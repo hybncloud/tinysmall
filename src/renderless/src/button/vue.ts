@@ -18,7 +18,7 @@ export const api = ['state', 'handleClick']
 export const renderless = (
   props: IButtonProps,
   { computed, onBeforeUnmount, reactive, watch, inject }: ISharedRenderlessParamHooks,
-  { emit, parent, designConfig }: IButtonRenderlessParamUtils
+  { emit, parent }: IButtonRenderlessParamUtils
 ) => {
   parent.tinyForm = parent.tinyForm || inject('form', null)
 
@@ -26,7 +26,7 @@ export const renderless = (
     timer: 0,
     disabled: props.disabled,
     plain: computed(() => props.plain || (parent.buttonGroup || {}).plain),
-    round: computed(() => props.round ?? designConfig?.props?.round ?? false),
+    round: computed(() => props.round ?? false),
     formDisabled: computed(() => (parent.tinyForm || {}).disabled),
     buttonDisabled: computed(
       () => props.disabled || state.disabled || (parent.buttonGroup || {}).disabled || state.formDisabled
@@ -44,7 +44,7 @@ export const renderless = (
   const api: IButtonApi = {
     state,
     clearTimer: clearTimer(state),
-    handleClick: handleClick({ emit, props, state, designConfig })
+    handleClick: handleClick({ emit, props, state })
   }
 
   onBeforeUnmount(api.clearTimer)

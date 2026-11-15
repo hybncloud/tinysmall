@@ -26,7 +26,6 @@ interface LoadingConfig {
   target?: HTMLElement | string
   size?: string
   loadingImg?: string
-  tiny_mode?: string
 }
 
 interface LoadingInstance {
@@ -124,8 +123,7 @@ export default (configs: LoadingConfig = {}) => {
     propsData: {
       _constants: constants,
       size: configs.size,
-      loadingImg: configs.loadingImg,
-      tiny_mode: configs.tiny_mode || appProperties().tiny_mode?.value
+      loadingImg: configs.loadingImg
     },
     el: document.createElement('div')
   }) as LoadingInstance

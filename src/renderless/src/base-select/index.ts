@@ -189,10 +189,8 @@ export const handleMenuEnter =
   }
 
 export const emitChange =
-  ({ emit, props, state, constants, isMobileFirstMode }) =>
+  ({ emit, props, state, constants }) =>
   (value, changed) => {
-    if (isMobileFirstMode && state.device === 'mb' && props.multiple && !changed) return
-
     if (!isEqual(props.modelValue, state.compareValue)) {
       emit('change', value)
     }
@@ -476,7 +474,7 @@ export const blur =
   }
 
 export const handleBlur =
-  ({ constants, dispatch, emit, state, designConfig }) =>
+  ({ constants, dispatch, emit, state }) =>
   (event) => {
     state.willFocusRun = false
     clearTimeout(state.timer)
@@ -486,14 +484,9 @@ export const handleBlur =
       } else {
         emit('blur', event)
       }
-      if (designConfig?.state?.delayBlur) {
-        dispatch(constants.COMPONENT_NAME.FormItem, constants.EVENT_NAME.formBlur, event.target.value)
-      }
     }, 200)
     // tiny 新增： 表单校验不能异步，否则弹窗中嵌套表单会出现弹窗关闭后再出现校验提示的bug
-    if (!designConfig?.state?.delayBlur) {
-      dispatch(constants.COMPONENT_NAME.FormItem, constants.EVENT_NAME.formBlur, event.target.value)
-    }
+    dispatch(constants.COMPONENT_NAME.FormItem, constants.EVENT_NAME.formBlur, event.target.value)
 
     state.softFocus = false
   }
@@ -579,7 +572,7 @@ export const resetInputState =
   }
 
 export const resetInputHeight =
-  ({ constants, nextTick, props, vm, state, api, designConfig }) =>
+  ({ constants, nextTick, props, vm, state, api }) =>
   () => {
     if (state.collapseTags && !(props.filterable || props.searchable)) {
       return
@@ -603,7 +596,7 @@ export const resetInputHeight =
       }
       const noSelected = state.selected.length === 0
       // tiny 新增的spacing (design中配置：aui为4，smb为0，tiny 默认为0)
-      const spacingHeight = designConfig?.state?.spacingHeight ?? constants.SPACING_HEIGHT
+      const spacingHeight = constants.SPACING_HEIGHT
 
       if (!state.isDisplayOnly) {
         if (!noSelected && tags) {
@@ -780,7 +773,7 @@ export const getValueIndex =
   }
 
 export const toggleMenu =
-  ({ vm, state, props, api, designConfig }) =>
+  ({ vm, state, props, api }) =>
   (e) => {
     if (props.keepFocus && state.visible && (props.filterable || props.searchable)) {
       return
@@ -796,7 +789,7 @@ export const toggleMenu =
     const nodeName = event.target && event.target.nodeName
     const toggleVisible = props.ignoreEnter ? event.keyCode !== enterCode && nodeName === 'INPUT' : true
 
-    const isStop = props.stopPropagation ?? designConfig?.props?.stopPropagation ?? false
+    const isStop = props.stopPropagation ?? false
     if (!props.displayOnly && isStop) {
       event.stopPropagation()
     }
@@ -1083,7 +1076,7 @@ export const emptyFlag =
 export const recycleScrollerHeight =
   ({ state, props, recycle }) =>
   () => {
-    const { ITEM_HEIGHT, SAFE_MARGIN, SAAS_HEIGHT, AURORA_HEIGHT } = recycle
+    const { ITEM_HEIGHT, AURORA_HEIGHT } = recycle
     let length = state.datas.length
     if (state.showNewOption) {
       length += 1
@@ -1092,14 +1085,14 @@ export const recycleScrollerHeight =
     if (length === 0 || props.loading) {
       return 0
     } else if (length < 6) {
-      return length * ITEM_HEIGHT + (state.isSaaSTheme ? SAFE_MARGIN * 2 : 0)
+      return length * ITEM_HEIGHT + 0
     } else {
-      return state.isSaaSTheme ? SAAS_HEIGHT : AURORA_HEIGHT
+      return AURORA_HEIGHT
     }
   }
 
 export const emptyText =
-  ({ I18N, props, state, t, isMobileFirstMode }) =>
+  ({ I18N, props, state, t }) =>
   () => {
     if (props.loading) {
       return props.loadingText || t(I18N.loading)
@@ -1110,7 +1103,7 @@ export const emptyText =
     }
 
     if (props.remote && state.query === '' && state.emptyFlag && !state.triggerSearch) {
-      return props.shape === 'filter' || isMobileFirstMode ? '' : false
+      return props.shape === 'filter' ? '' : false
     }
 
     if (
@@ -1321,7 +1314,7 @@ export const toHide =
   }
 
 export const watchVisible =
-  ({ api, constants, emit, state, vm, props, isMobileFirstMode }) =>
+  ({ api, constants, emit, state, vm, props }) =>
   (value) => {
     if ((props.filterable || props.searchable || props.remote) && !value) {
       vm.$refs.reference?.blur()
@@ -1329,10 +1322,6 @@ export const watchVisible =
 
     if (api.onCopying()) {
       return
-    }
-
-    if (value && props.multiple && isMobileFirstMode && state.device === 'mb') {
-      state.selectedCopy = state.selected.slice()
     }
 
     setTimeout(() => {
@@ -1429,10 +1418,10 @@ export const getOptionIndexArr =
   }
 
 export const queryVisibleOptions =
-  ({ props, vm, isMobileFirstMode }) =>
+  ({ props, vm }) =>
   () => {
     if (props.optimization) {
-      return optmzApis.queryVisibleOptions(vm, isMobileFirstMode)
+      return optmzApis.queryVisibleOptions(vm)
     } else {
       return vm.$refs.scrollbar
         ? Array.from(vm.$refs.scrollbar.$el.querySelectorAll('[data-index]:not([style*="display: none"])'))
@@ -1706,16 +1695,16 @@ export const initQuery =
   }
 
 export const computedCurrentSizeMap =
-  ({ state, designConfig }) =>
+  ({ state }) =>
   () => {
     const defaultSizeMap = { default: 32, mini: 24, small: 28, medium: 40 }
-    const sizeMap = designConfig?.state?.sizeMap || defaultSizeMap
+    const sizeMap = defaultSizeMap
 
     return sizeMap[state.selectSize || 'default']
   }
 
 export const mounted =
-  ({ api, parent, state, props, vm, designConfig, nextTick }) =>
+  ({ api, parent, state, props, vm, nextTick }) =>
   () => {
     const parentEl = parent.$el
     const inputEl = parentEl.querySelector('input[data-tag="tiny-input-inner"]')
@@ -1793,8 +1782,8 @@ const optmzApis = {
 
     return start
   },
-  queryVisibleOptions: (vm, isMobileFirstMode) => {
-    const querySelectKey = isMobileFirstMode ? '.cursor-not-allowed' : '.is-disabled'
+  queryVisibleOptions: (vm) => {
+    const querySelectKey = '.is-disabled'
     return Array.from(
       vm.$refs.scrollbar.$el.querySelectorAll(
         '.tiny-recycle-scroller__slot, .tiny-recycle-scroller__item-view:not([style*="transform: translateY(-9999px) translateX(0px)"])'
@@ -1819,11 +1808,11 @@ const optmzApis = {
 }
 
 export const computeOptimizeOpts =
-  ({ props, designConfig }) =>
+  ({ props }) =>
   () => {
     const { optimization } = props
     // tiny 新增：  aui 的默认值为 { optionHeight: 34, limit: 20 }
-    const baseOpts = designConfig?.baseOpts ? designConfig.baseOpts : { gt: 20, rSize: 10, optionHeight: 30, limit: 20 }
+    const baseOpts = { gt: 20, rSize: 10, optionHeight: 30, limit: 20 }
 
     let optOpts
 
@@ -1861,15 +1850,10 @@ export const computeMultipleLimit =
   }
 
 export const updateModelValue =
-  ({ props, emit, state, isMobileFirstMode }) =>
+  ({ props, emit, state }) =>
   (value, needUpdate) => {
     state.isClickChoose = true
-
-    if (isMobileFirstMode && state.device === 'mb' && props.multiple && !needUpdate) {
-      state.modelValue = value
-    } else {
-      emit('update:modelValue', value)
-    }
+    emit('update:modelValue', value)
   }
 
 export const getLabelSlotValue =
@@ -1918,13 +1902,12 @@ export const computedTagsStyle =
   }
 
 export const computedReadonly =
-  ({ props, state, isMobileFirstMode }) =>
+  ({ props, state }) =>
   () => {
     if (state.isIOS && props.filterable) {
       return false
     } else {
       return (
-        (isMobileFirstMode && state.device === 'mb') ||
         props.readonly ||
         !(props.filterable || props.searchable) ||
         props.multiple ||
@@ -1947,9 +1930,9 @@ export const computedShowClose =
 export const computedCollapseTagSize = (state) => () => state.selectSize
 
 export const computedShowNewOption =
-  ({ props, state, isMobileFirstMode }) =>
+  ({ props, state }) =>
   () => {
-    const query = isMobileFirstMode && state.device === 'mb' ? state.queryValue : state.query
+    const query = state.query
     return (
       (props.filterable || props.searchable) &&
       props.allowCreate &&
@@ -2040,22 +2023,19 @@ export const computedShowTagText =
 export const isTagClosable = () => (item) => !item.required
 
 export const computedGetIcon =
-  ({ designConfig, props }) =>
+  ({ props }) =>
   () => {
     return props.dropdownIcon
       ? { icon: props.dropdownIcon }
       : {
-          icon: designConfig?.icons.dropdownIcon || 'icon-down-ward',
+          icon: 'icon-down-ward',
           isDefault: true
         }
   }
 
 export const computedGetTagType =
-  ({ designConfig, props }) =>
+  ({ props }) =>
   () => {
-    if (designConfig?.props?.tagType && !props.tagType) {
-      return designConfig.props.tagType
-    }
     return props.tagType
   }
 export const clearSearchText =

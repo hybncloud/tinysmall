@@ -26,7 +26,7 @@ export const renderless = (
   { emit, parent }: ISharedRenderlessParamUtils<never>
 ): ITagApi => {
   const state: ITagState = reactive({
-    type: computed(() => props.theme || props.type),
+    type: computed(() => props.type),
     show: true,
     selected: false,
     mini: props.mini,

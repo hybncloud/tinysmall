@@ -48,13 +48,13 @@ const initState = ({ api, computed, constants, reactive }): IAlertState => {
   })
 }
 
-const initApi = ({ api, state, constants, props, designConfig, t, emit, vm, parent, nextTick, mode }): void => {
+const initApi = ({ api, state, constants, props, t, emit, vm, parent, nextTick }): void => {
   Object.assign(api, {
     state,
-    computedGetIcon: computedGetIcon({ constants, props, designConfig }),
+    computedGetIcon: computedGetIcon({ constants, props }),
     computedGetTitle: computedGetTitle({ constants, props, t }),
-    computedClass: computedClass({ props, mode }),
-    computedStyle: computedStyle({ props, mode }),
+    computedClass: computedClass({ props }),
+    computedStyle: computedStyle({ props }),
     handleClose: handleClose({ emit, state }),
     handleHeaderClick: handleHeaderClick({ state, props, vm }),
     watchAutoHide: watchAutoHide({ api, props }),
@@ -70,11 +70,11 @@ const initWatcher = ({ watch, props, api }) => {
 export const renderless = (
   props: IAlertProps,
   { computed, reactive, watch }: ISharedRenderlessParamHooks,
-  { t, emit, constants, vm, designConfig, parent, nextTick, mode }: IAlertRenderlessParamUtils
+  { t, emit, constants, vm, parent, nextTick }: IAlertRenderlessParamUtils
 ): IAlertApi => {
   const api = {} as IAlertApi
   const state: IAlertState = initState({ api, computed, constants, reactive })
-  initApi({ api, state, constants, props, designConfig, t, emit, vm, parent, nextTick, mode })
+  initApi({ api, state, constants, props, t, emit, vm, parent, nextTick })
   initWatcher({ watch, props, api })
 
   return api

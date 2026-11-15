@@ -81,11 +81,11 @@ export const api = [
 export const renderless = (
   props: IModalProps,
   { computed, onMounted, onBeforeUnmount, reactive, watch }: ISharedRenderlessParamHooks,
-  { vm, emit, emitter, nextTick, broadcast, vm: parent, constants, mode }: IModalRenderlessParamUtils,
-  { isMobileFirstMode }
+  { vm, emit, emitter, nextTick, broadcast, vm: parent, constants }: IModalRenderlessParamUtils,
+  {}
 ) => {
   const api = {} as IModalApi
-  const lockScrollClass = constants.SCROLL_LOCK_CLASS(mode)
+  const lockScrollClass = constants.SCROLL_LOCK_CLASS('pc')
   const state = reactive({
     titleId: 'tiny-modal-title-' + nanoid.api.nanoid(8),
     contentId: 'tiny-modal-content-' + nanoid.api.nanoid(8),
@@ -99,7 +99,6 @@ export const renderless = (
     isMsg: computed(() => api.computedIsMsg(props)),
     prevEvent: null,
     options: [],
-    theme: props.tiny_theme,
     boxStyle: computed(() => api.computedBoxStyle()),
     timer: 0,
     // 新增状态标记
@@ -116,8 +115,8 @@ export const renderless = (
     getBox: getBox({ vm }),
     watchValue: watchValue(api),
     created: created({ api, props, state }),
-    mounted: mounted({ api, parent, props, isMobileFirstMode, state }),
-    beforeUnmouted: beforeUnmouted({ api, parent, isMobileFirstMode }),
+    mounted: mounted({ api, parent, props, state }),
+    beforeUnmouted: beforeUnmouted({ api, parent }),
     selfClickEvent: selfClickEvent({ api, parent, props }),
     mouseEnterEvent: mouseEnterEvent(state),
     mouseLeaveEvent: mouseLeaveEvent({ api, props, state }),
@@ -126,26 +125,26 @@ export const renderless = (
     closeEvent: closeEvent(api),
     confirmEvent: confirmEvent({ api, state }),
     cancelEvent: cancelEvent(api),
-    open: open({ api, emit, nextTick, parent, props, state, isMobileFirstMode }),
+    open: open({ api, emit, nextTick, parent, props, state }),
     addMsgQueue: addMsgQueue({ api, parent }),
     removeMsgQueue: removeMsgQueue({ api, parent }),
     close: close({ api, state }),
     handleGlobalKeydownEvent: handleGlobalKeydownEvent(api),
     handleHashChange: handleHashChange(api),
-    maximize: maximize({ api, nextTick, props, state, isMobileFirstMode }),
-    revert: revert({ api, nextTick, state, isMobileFirstMode }),
-    toggleZoomEvent: toggleZoomEvent({ api, emit, parent, state, isMobileFirstMode }),
-    mousedownEvent: mousedownEvent({ api, nextTick, props, state, emit, isMobileFirstMode }),
+    maximize: maximize({ api, nextTick, props, state }),
+    revert: revert({ api, nextTick, state }),
+    toggleZoomEvent: toggleZoomEvent({ api, emit, parent, state }),
+    mousedownEvent: mousedownEvent({ api, nextTick, props, state, emit }),
     dragEvent: dragEvent({ api, emit, parent, props, state }),
     mfDragEvent: mfDragEvent({ api, emit, parent, props }),
     resetDragStyle: resetDragStyle(api),
     resetModalViewPosition: resetModalViewPosition(api),
-    computedBoxStyle: computedBoxStyle({ props, isMobileFirstMode }),
+    computedBoxStyle: computedBoxStyle({ props }),
     watchVisible: watchVisible({ api, props }),
     hideScrollbar: hideScrollbar(lockScrollClass),
     showScrollbar: showScrollbar(lockScrollClass),
     doClose: doClose({ emit, parent, props, state }),
-    doEmitAndClose: doEmitAndClose({ api, emit, parent, props, state, isMobileFirstMode }),
+    doEmitAndClose: doEmitAndClose({ api, emit, parent, props, state }),
     runBeforeClose: runBeforeClose({ api, props, state })
   })
 

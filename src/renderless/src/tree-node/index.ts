@@ -359,7 +359,7 @@ export const addNode =
 
 // tiny 新增
 export const computedExpandIcon =
-  ({ designConfig }) =>
+  ({}) =>
   (treeRoot, state) => {
     if (state.tree.icon) {
       return state.tree.icon
@@ -367,8 +367,8 @@ export const computedExpandIcon =
 
     // tiny 新增的判断。 显示线时强制切换图标，仅smb定制了
     if (treeRoot.showLine) {
-      const expandIcon = designConfig?.icons?.expanded || 'icon-expand'
-      const collapseIcon = designConfig?.icons?.collapse || 'icon-put-away'
+      const expandIcon = 'icon-expand'
+      const collapseIcon = 'icon-put-away'
       return state.expanded ? expandIcon : collapseIcon
     }
 

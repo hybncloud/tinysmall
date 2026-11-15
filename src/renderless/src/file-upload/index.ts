@@ -500,9 +500,8 @@ export const addFileToList =
     constants,
     emit,
     props,
-    state,
-    mode
-  }: Pick<IFileUploadRenderlessParams, 'api' | 'constants' | 'emit' | 'props' | 'state' | 'mode'>) =>
+    state
+  }: Pick<IFileUploadRenderlessParams, 'api' | 'constants' | 'emit' | 'props' | 'state'>) =>
   (rawFile: IFileUploadFile, updateId: string, reUpload: boolean) => {
     !reUpload && (rawFile.uid = Date.now() + state.tempIndex++)
 
@@ -522,8 +521,6 @@ export const addFileToList =
     }
 
     state.cacheDocuments[file.uid] = file
-
-    mode === 'mobile' && calcFileForMobile(rawFile, file)
 
     if (
       [

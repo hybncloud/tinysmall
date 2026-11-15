@@ -16,11 +16,7 @@ import type { IBadgeState, IBadgeProps, IBadgeApi, IBadgeRenderlessParams } from
 
 export const api = ['state']
 
-export const renderless = (
-  props: IBadgeProps,
-  { computed, reactive }: IBadgeRenderlessParams,
-  { designConfig }
-): IBadgeApi => {
+export const renderless = (props: IBadgeProps, { computed, reactive }: IBadgeRenderlessParams, {}): IBadgeApi => {
   const state: IBadgeState = reactive({
     isOverstep: false,
     valueRef: computed(() => api.computedValueRef()),
@@ -33,7 +29,7 @@ export const renderless = (
     state,
     computedValueRef: computedValueRef({ props }),
     computedContent: computedContent({ props, state }),
-    computedTransform: computedTransform({ props, designConfig })
+    computedTransform: computedTransform({ props })
   }
 
   return api

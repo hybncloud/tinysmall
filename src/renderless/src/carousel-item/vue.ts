@@ -40,11 +40,7 @@ export const api = [
   'setDelta'
 ]
 
-export const renderless = (
-  props,
-  { computed, onMounted, onUnmounted, reactive, inject },
-  { parent, dispatch, mode, vm }
-) => {
+export const renderless = (props, { computed, onMounted, onUnmounted, reactive, inject }, { parent, dispatch, vm }) => {
   const api = {}
   const CARD_SCALE = parent.$constants.CARD_SCALE
   const TYPE_VERTICAL = parent.$constants.TYPE_VERTICAL
@@ -73,7 +69,7 @@ export const renderless = (
     state,
     processIndex,
     handleItemClick: handleItemClick({ state, parent, carouselParent }),
-    computedTransform: computedTransform({ carouselParent, TYPE_VERTICAL, mode, state }),
+    computedTransform: computedTransform({ carouselParent, TYPE_VERTICAL, state }),
     calculateTranslate: calculateTranslate({ CARD_SCALE, state }),
     translateItem: translateItem({ api, CARD_SCALE, parent, state, carouselParent }),
     setDelta: setDelta({ state }),

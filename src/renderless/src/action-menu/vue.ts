@@ -32,7 +32,7 @@ export const api = ['state', 'handleMoreClick', 'handleItemClick', 'visibleChang
 export const renderless = (
   props: IActionMenuProps,
   { computed, reactive }: ISharedRenderlessParamHooks,
-  { emit, t, designConfig }: IActionMenuRenderlessParamUtils
+  { emit, t }: IActionMenuRenderlessParamUtils
 ): IActionMenuApi => {
   const api = {} as IActionMenuApi
 
@@ -52,7 +52,7 @@ export const renderless = (
     handleItemClick: handleItemClick(emit),
     visibleChange: visibleChange(emit),
     computedMaxShowNum: computedMaxShowNum({ props, state }),
-    computedSpacing: computedSpacing({ props, state, designConfig }),
+    computedSpacing: computedSpacing({ props, state }),
     computedMoreText: computedMoreText({ props, state, t }),
     computedSuffixIcon: computedSuffixIcon({ props, state })
   })

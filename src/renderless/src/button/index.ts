@@ -13,7 +13,7 @@ import type { IButtonRenderlessParams, IButtonState } from '../../types'
 import { xss } from '@tinysmall/utils'
 
 export const handleClick =
-  ({ emit, props, state, designConfig }: Pick<IButtonRenderlessParams, 'emit' | 'props' | 'state' | 'designConfig'>) =>
+  ({ emit, props, state }: Pick<IButtonRenderlessParams, 'emit' | 'props' | 'state'>) =>
   (event: MouseEvent): void => {
     const urlHref = xss.filterUrl(props.href)
     const DEFAULT_RESETTIME = 1000
@@ -23,7 +23,7 @@ export const handleClick =
     if (props.resetTime !== DEFAULT_RESETTIME) {
       resetTime = props.resetTime
     } else {
-      resetTime = designConfig?.props?.resetTime ?? props.resetTime
+      resetTime = props.resetTime
     }
 
     if (urlHref) {

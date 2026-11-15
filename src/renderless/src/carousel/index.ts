@@ -344,25 +344,21 @@ export const simulateTouch =
   }
 
 export const computedHasButtons =
-  ({ props, state, mode }) =>
+  ({ props }) =>
   () => {
     if (props.lite) {
       return false
-    } else if (mode === 'mobile-first') {
-      return props.arrow !== 'never' && state.items.length > 1
-    } else if (mode === 'pc') {
+    } else {
       return props.arrow !== 'never'
     }
   }
 
 export const computedHasIndicators =
-  ({ props, state, mode }) =>
+  ({ props }) =>
   () => {
     if (props.lite) {
       return false
-    } else if (mode === 'mobile-first') {
-      return props.indicatorPosition !== 'none' && state.items.length > 1
-    } else if (mode === 'pc') {
+    } else {
       return props.indicatorPosition !== 'none'
     }
   }

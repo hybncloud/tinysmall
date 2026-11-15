@@ -32,11 +32,8 @@ export const computedValueRef =
   }
 
 export const computedTransform =
-  ({ designConfig, props }: Pick<IBadgeRenderlessParams, 'designConfig' | 'props'>) =>
+  ({ props }: Pick<IBadgeRenderlessParams, 'props'>) =>
   (): StyleValue => {
-    if (designConfig?.transform === 'unset') {
-      return null
-    }
     return {
       transform: `translate(
         ${props.offset[0]}${typeof props.offset[0] === 'number' ? 'px' : ''},

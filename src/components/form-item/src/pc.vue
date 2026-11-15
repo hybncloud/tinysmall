@@ -17,7 +17,6 @@ import {
   parseVnode,
   h,
   defineComponent,
-  isVue2,
   hooks,
   stringifyCssClass,
   deduplicateCssClass
@@ -121,8 +120,7 @@ export default defineComponent({
     } = this as unknown as IFormItemInstance
 
     const { validateIcon, isErrorInline, isErrorBlock, tooltipType } = state
-    const isMobile = state.mode === 'mobile'
-    const classPrefix = isMobile ? 'tiny-mobile-' : 'tiny-'
+    const classPrefix = 'tiny-'
     const defaultSlots = slots.default ? slots.default() : null
 
     if (noStyle) {
@@ -168,8 +166,6 @@ export default defineComponent({
 
     const ItemContent = defaultSlots
       ? defaultSlots.map((vnode) => {
-          if (isVue2 && !vnode.componentOptions && !validateTag) return vnode
-
           let item = parseVnode(vnode)
           item.props = item.props || {}
           const { type } = item
@@ -218,41 +214,22 @@ export default defineComponent({
               return item
             }
           }
-          if (isMobile) {
-            return h(
-              'div',
-              {
-                class: `${classPrefix}form-item__value`,
-                style: state.valueStyle
-              },
-              [item]
-            )
-          }
 
-          if (!isVue2) {
-            if (item.type === hooks.Fragment) {
-              // 在Vue3默认使用div包裹片段元素，也可以配置为其它标签
-              if (wrapFragment) {
-                item = h(wrapFragment, [item])
-              }
-            } else if (item.type === hooks.Text) {
-              item = h('span', [item])
+          if (item.type === hooks.Fragment) {
+            // 在Vue3默认使用div包裹片段元素，也可以配置为其它标签
+            if (wrapFragment) {
+              item = h(wrapFragment, [item])
             }
+          } else if (item.type === hooks.Text) {
+            item = h('span', [item])
           }
 
           // 兼容重构前逻辑，给item子项添加类名
           let data
-          if (isVue2) {
-            if (!item.data) {
-              item.data = {}
-            }
-            data = item.data
-          } else {
-            if (!item.props) {
-              item.props = {}
-            }
-            data = item.props
+          if (!item.props) {
+            item.props = {}
           }
+          data = item.props
           const mergeClass = `tiny-tooltip ${stringifyCssClass(data.class)}`
           data.class = deduplicateCssClass(mergeClass)
           return item
@@ -262,18 +239,6 @@ export default defineComponent({
     state.isMultiple = ItemContent?.length > 1
 
     const getFormItemContnet = () => {
-      if (isMobile) {
-        const validatePosition = this.validatePosition || state.formInstance.validatePosition || 'right'
-        validateMessage = state.validateMessage ? (
-          validatePosition === 'right' ? (
-            <div class="tiny-mobile-input-form__error align-right">{state.validateMessage}</div>
-          ) : (
-            <div class="tiny-mobile-input-form__error align-left">{state.validateMessage}</div>
-          )
-        ) : null
-        return ItemContent
-      }
-
       return ItemContent
     }
 
@@ -308,8 +273,7 @@ export default defineComponent({
       {
         props: {
           isAutoWidth: state.labelStyle && state.labelStyle.width === 'auto',
-          updateAll: state.form.labelWidth === 'auto',
-          isMobile: state.mode === 'mobile'
+          updateAll: state.form.labelWidth === 'auto'
         }
       },
       [
@@ -319,7 +283,6 @@ export default defineComponent({
               {
                 class: {
                   [`${classPrefix}form-item__label`]: true,
-                  'is-ellipsis': isMobile && ellipsis,
                   'is-disabled': state.disabled
                 },
                 style: state.labelStyle,
@@ -365,9 +328,8 @@ export default defineComponent({
         }
       },
       [
-        !isMobile ? LabelContent : null,
+        LabelContent,
         this.showMessage &&
-          !isMobile &&
           h('tooltip', {
             props: {
               popperClass: `${classPrefix}form__valid`,
@@ -408,16 +370,13 @@ export default defineComponent({
           'div',
           {
             class: {
-              [`${classPrefix}form-item__content`]: true,
-              'is-vertical': isMobile && vertical
+              [`${classPrefix}form-item__content`]: true
             },
-            style: !isMobile && state.contentStyle,
+            style: state.contentStyle,
             ref: 'content'
           },
           [
-            isMobile ? LabelContent : null,
             FormItemContnet,
-            isMobile ? validateMessage : null,
             h(
               'transition',
               {
@@ -427,7 +386,7 @@ export default defineComponent({
               },
               [ErrorContent]
             ),
-            isMobile ? null : ExtraTip
+            ExtraTip
           ]
         )
       ]

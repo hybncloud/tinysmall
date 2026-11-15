@@ -116,7 +116,6 @@ const initApi = ({
   usePopups,
   nextTick,
   broadcast,
-  designConfig,
   vm
 }: IDialogBoxInitApiParam): void => {
   const { open, close } = usePopups
@@ -143,7 +142,7 @@ const initApi = ({
       vm,
       state
     }),
-    computedStyle: computedStyle({ state, props, designConfig }),
+    computedStyle: computedStyle({ state, props }),
     mounted: mounted({ api, parent, props }),
     unMounted: unMounted({ api, parent, props }),
     computedAnimationName: computedAnimationName({ constants, props }),
@@ -171,21 +170,10 @@ const initWatch = ({ watch, state, api, props }: IDialogBoxInitWatchParam) => {
 export const renderless = (
   props: IDialogBoxProps,
   { computed, onBeforeUnmount, onMounted, toRefs, reactive, watch }: ISharedRenderlessParamHooks,
-  {
-    vm,
-    emitter,
-    parent,
-    emit,
-    constants,
-    nextTick,
-    mode,
-    broadcast,
-    designConfig,
-    useBreakpoint
-  }: IDialogBoxRenderlessParamUtils
+  { vm, emitter, parent, emit, constants, nextTick, broadcast, useBreakpoint }: IDialogBoxRenderlessParamUtils
 ): IDialogBoxApi => {
   const api = {} as IDialogBoxApi
-  const lockScrollClass = constants.SCROLL_LOCK_CLASS(mode)
+  const lockScrollClass = constants.SCROLL_LOCK_CLASS('pc')
   let state = initState({ reactive, computed, api, emitter, props, useBreakpoint })
   const usePopups = usePopup({
     api,
@@ -210,8 +198,7 @@ export const renderless = (
     lockScrollClass,
     nextTick,
     vm,
-    broadcast,
-    designConfig
+    broadcast
   })
 
   state = mergeState({ reactive, state, toRefs, usePopups })

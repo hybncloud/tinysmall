@@ -12,7 +12,7 @@ import { parseVnode, isEmptyVnode, renderComponent, tools, useRouter, isVnode } 
 import { t } from '@tinysmall/locale'
 import { stringifyCssClass, stringifyCssClassObject, stringifyCssClassArray, deduplicateCssClass } from './csscls'
 import '@tinysmall/theme/base/index.less'
-import { defineComponent, isVue2, isVue3 } from './adapter'
+import { defineComponent } from './adapter'
 import { useBreakpoint } from './breakpoint'
 import { useDefer } from './usedefer'
 import { GRADIENT_ICONS_LIST, generateIcon } from './generateIcon'
@@ -21,31 +21,23 @@ import { useInstanceSlots as createUseInstanceSlots } from '@tinysmall/hooks'
 import { useRelation as createUseRelation } from '@tinysmall/hooks'
 import { type Component } from 'vue'
 
-export const useInstanceSlots = createUseInstanceSlots({ ...hooks, isVue2 })
-export const useRelation = createUseRelation({ ...hooks, isVue2 })
+export const useInstanceSlots = createUseInstanceSlots({ ...hooks })
+export const useRelation = createUseRelation({ ...hooks })
 
 export { stringifyCssClass, stringifyCssClassObject, stringifyCssClassArray, deduplicateCssClass }
 export { useBreakpoint, useDefer }
 
 export { version } from 'package.json'
 
-export { defineComponent, isVue2, isVue3, appProperties }
+export { defineComponent, appProperties }
 
 export const $prefix = 'Tiny'
 
 export const $props = {
-  'tiny_mode': String,
-  'tiny_mode_root': Boolean,
-  'tiny_theme': String,
   '_constants': Object
 }
 
-export const props: Array<'tiny_mode' | 'tiny_mode_root' | '_constants' | 'tiny_theme'> = [
-  'tiny_mode',
-  'tiny_mode_root',
-  '_constants',
-  'tiny_theme'
-]
+export const props: Array<'_constants'> = ['_constants']
 
 const createComponent = createComponentFn()
 
@@ -59,12 +51,9 @@ export const setup = ({ props, context, renderless, api, extendOptions = {}, mon
     $prefix,
     t,
     ...tools(context, 'pc'),
-    designConfig: null,
-    globalDesignConfig: null,
     useBreakpoint
   }
 
-  utils.vm.theme = 'tiny'
   const sdk = renderless(props, hooks, utils, extendOptions)
 
   const attrs = {

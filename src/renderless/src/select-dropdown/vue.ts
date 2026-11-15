@@ -148,7 +148,7 @@ const initWatch = ({ watch, selectVm, state, nextTick, props }) => {
 export const renderless = (
   props,
   { computed, onBeforeUnmount, onDeactivated, onMounted, reactive, toRefs, watch, inject },
-  { vm, slots, parent, emit, nextTick, isMobileFirstMode }
+  { vm, slots, parent, emit, nextTick }
 ) => {
   const api = {}
   const constants = parent.select._constants
@@ -170,7 +170,7 @@ export const renderless = (
 
   const state = initState({ reactive, computed, popper, selectVm })
 
-  initApi({ api, popper, state, selectEmitter, constants, selectVm, parent, nextTick, props, isMobileFirstMode })
+  initApi({ api, popper, state, selectEmitter, constants, selectVm, parent, nextTick, props })
   initWatch({ watch, selectVm, state, nextTick, props })
 
   onBeforeUnmount(() => {

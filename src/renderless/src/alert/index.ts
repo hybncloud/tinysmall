@@ -26,31 +26,14 @@ export const watchAutoHide =
   }
 
 export const computedClass =
-  ({ props, mode }) =>
+  ({}) =>
   (): string[] => {
-    const { type, size, center } = props
-    if (mode === 'mobile') {
-      const alertClass = ['tiny-mobile-alert', 'tiny-mobile-alert--' + type, 'tiny-mobile-alert--' + size]
-      if (center) {
-        alertClass.push('is-center')
-      }
-
-      return alertClass
-    }
-
     return []
   }
 
 export const computedStyle =
-  ({ props, mode }) =>
+  ({}) =>
   (): CSSProperties | null => {
-    if (mode === 'mobile') {
-      const style = {
-        top: isNaN(props.offset) ? props.offset : `${props.offset}px`
-      }
-      return style
-    }
-
     return null
   }
 
@@ -62,11 +45,9 @@ export const handleClose =
   }
 
 export const computedGetIcon =
-  ({ constants, props, designConfig }: Pick<IAlertRenderlessParams, 'constants' | 'props' | 'designConfig'>) =>
+  ({ constants, props }: Pick<IAlertRenderlessParams, 'constants' | 'props'>) =>
   () => {
-    const designIcon = designConfig?.icons?.[props.type]
-
-    return props.icon || designIcon || constants.ICON_MAP[props.type]
+    return props.icon || constants.ICON_MAP[props.type]
   }
 
 export const computedGetTitle =

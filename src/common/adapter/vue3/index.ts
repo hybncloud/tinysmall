@@ -291,7 +291,6 @@ const createVm = (vm, instance, context = null) => {
     $emit: { get: () => emit },
     $el: { get: () => instance.vnode.el },
     $listeners: { get: () => $listeners },
-    $mode: { get: () => instance._tiny_mode },
     $nextTick: { get: () => hooks.nextTick },
     $off: { get: () => $emitter.off },
     $on: { get: () => $emitter.on },
@@ -371,9 +370,6 @@ export const tools = (context, mode) => {
     nextTick: hooks.nextTick,
     constants: instance?.props._constants,
     mode,
-    isPCMode: mode === 'pc',
-    isMobileMode: mode === 'mobile',
-    isMobileFirstMode: mode === 'mobile-first',
     service: root?.$getService ? root?.$getService(vm) : root?.$service,
     getService: () => root?.$getService(vm),
     setParentAttribute,
@@ -494,10 +490,6 @@ export const createComponentFn = () => {
 export const defineComponent = hooks.defineComponent
 
 export default hooks
-
-export const isVue2 = false
-
-export const isVue3 = true
 
 export const isVnode = hooks.isVNode
 

@@ -43,7 +43,7 @@ export const hide =
   }
 
 export const deviceSupportInstall =
-  ({ state, api, mode }) =>
+  ({ state, api }) =>
   () => {
     on(window, 'resize', api.initPage)
 
@@ -125,14 +125,14 @@ export const deviceSupportInstall =
     })
 
     on(document, 'keydown', state._keyDownHandler)
-    mode !== 'mobile-first' && on(document, mousewheelEventName, state._mouseWheelHandler)
+    on(document, mousewheelEventName, state._mouseWheelHandler)
   }
 
 export const deviceSupportUninstall =
-  ({ state, mode }) =>
+  ({ state }) =>
   () => {
     off(document, 'keydown', state._keyDownHandler)
-    mode !== 'mobile-first' && off(document, mousewheelEventName, state._mouseWheelHandler)
+    off(document, mousewheelEventName, state._mouseWheelHandler)
 
     state._keyDownHandler = null
     state._mouseWheelHandler = null
@@ -463,52 +463,17 @@ export const handleVisible =
   }
 
 export const getImageWidth =
-  ({ state, parent, props, vm, mode }) =>
+  ({ state, parent, props, vm }) =>
   () => {
     let imageW = 0
     const len = state.urlList.length
 
-    if (mode === 'mobile-first') {
-      if (state.isThumbnail && state.isImagePreview) {
-        imageW = vm.$refs.thumbnailCanvasBox.offsetWidth
-      } else {
-        imageW = vm.$refs.canvasBox && vm.$refs.canvasBox.offsetWidth
-      }
+    imageW = parent.$el.querySelector('.tiny-image-viewer__canvas').offsetWidth
 
-      state.imageList = vm.$refs.viewerItem
-    } else if (mode === 'mobile') {
-      imageW = parent.$el.querySelector('.tiny-mobile-image-viewer__canvas').offsetWidth
-
-      state.imageList = parent.$el.querySelectorAll('.tiny-mobile-image-viewer__item')
-    } else {
-      imageW = parent.$el.querySelector('.tiny-image-viewer__canvas').offsetWidth
-
-      state.imageList = parent.$el.querySelectorAll('.tiny-image-viewer__img')
-    }
+    state.imageList = parent.$el.querySelectorAll('.tiny-image-viewer__img')
 
     state.imageItemWidth = imageW
     state.imageAllWidth = state.urlList.length * imageW
-
-    if (mode === 'mobile') {
-      if (props.startPosition > 0) {
-        state.index = props.startPosition
-        state.imageTransition = 0
-
-        const transformX = state.index * state.imageItemWidth
-
-        state.imageTransform = transformX
-        state.imageTransformSize = -transformX
-      }
-
-      if (state.index === 0 && props.deleteButton && state.delete) {
-        state.imageTransition = 0
-
-        const transformX = state.index * state.imageItemWidth
-
-        state.imageTransform = transformX
-        state.imageTransformSize = -transformX
-      }
-    }
 
     setTimeout(() => {
       state.imageTransition = 300
@@ -636,19 +601,9 @@ export const langClick = (state) => () => {
 }
 
 export const touchstart =
-  ({ state, mode, api }) =>
+  ({ state, api }) =>
   (e) => {
     state.firstX = e.targetTouches[0].clientX
-
-    if (mode === 'mobile-first') {
-      state.time = setTimeout(() => {
-        if (!state.isImagePreview) {
-          api.langClick()
-        } else {
-          state.boxVisibility = true
-        }
-      }, 1000)
-    }
 
     const touches = e.touches
     const events = touches[0]

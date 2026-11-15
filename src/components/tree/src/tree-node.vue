@@ -87,8 +87,7 @@
                     'tiny-tree-node__expand-icon',
                     {
                       'is-leaf': node.isLeaf,
-                      expanded: !node.isLeaf && state.expanded,
-                      'is-saas-theme': state.isSaaSTheme
+                      expanded: !node.isLeaf && state.expanded
                     }
                   ]"
                 />
@@ -188,7 +187,6 @@
               v-for="child in state.renderedChildNodes"
               :action="action"
               :show-radio="showRadio"
-              :theme="theme"
               :is-show-focus-bg="isShowFocusBg"
               :current-radio="currentRadio"
               :render-content="renderContent"
@@ -238,7 +236,7 @@
 </template>
 
 <script lang="ts">
-import { setup, directive, h, isVue2, defineComponent } from '@tinysmall/common'
+import { setup, directive, h, defineComponent } from '@tinysmall/common'
 import { renderless, api } from '@tinysmall/renderless/tree-node/vue'
 import CollapseTransition from '@tinysmall/collapse-transition'
 import {
@@ -315,7 +313,6 @@ export default defineComponent({
     },
     action: Object,
     nodeKey: String,
-    theme: String,
     showCheckedMark: Boolean,
     showLine: Boolean,
     // tiny 新增，是否显示树节点聚焦时的背景颜色
@@ -378,7 +375,7 @@ export default defineComponent({
     }
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api, mono: true, extendOptions: { isVue2 } })
+    return setup({ props, context, renderless, api, mono: true })
   }
 })
 </script>

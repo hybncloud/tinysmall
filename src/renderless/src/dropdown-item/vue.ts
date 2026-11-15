@@ -87,7 +87,7 @@ const initState = ({ reactive, computed, api, props, parent, dropdownMenuVm, dro
   return state
 }
 
-const initApi = ({ api, state, emit, props, parent, dispatch, vm, constants, designConfig }) => {
+const initApi = ({ api, state, emit, props, parent, dispatch, vm, constants }) => {
   Object.assign(api, {
     state,
     open: open(emit),
@@ -107,7 +107,7 @@ const initApi = ({ api, state, emit, props, parent, dispatch, vm, constants, des
     bindScroll: bindScroll({ api, parent }),
     confirm: confirm({ emit, props, state }),
     handleClick: handleClick({ state, props, dispatch, vm, emit }),
-    computedGetIcon: computedGetIcon({ constants, designConfig }),
+    computedGetIcon: computedGetIcon({ constants }),
     computedTip: computedTip({ props, vm })
   })
 }
@@ -115,14 +115,14 @@ const initApi = ({ api, state, emit, props, parent, dispatch, vm, constants, des
 export const renderless = (
   props: IDropdownItemProps,
   { computed, onMounted, reactive, watch, inject }: ISharedRenderlessParamHooks,
-  { parent, emit, vm, dispatch, constants, designConfig }: IDropdownItemRenderlessParamUtils
+  { parent, emit, vm, dispatch, constants }: IDropdownItemRenderlessParamUtils
 ): IDropdownItemApi => {
   const api = {} as IDropdownItemApi
   const dropdownMenuVm = inject('dropdownMenuVm', null) as IDropdownMenuVm
   const dropdownVm = inject('dropdownVm', null)
   const state: IDropdownItemState = initState({ reactive, computed, api, props, parent, dropdownMenuVm, dropdownVm })
 
-  initApi({ api, state, emit, props, parent, dispatch, vm, constants, designConfig })
+  initApi({ api, state, emit, props, parent, dispatch, vm, constants })
 
   watch(() => state.showPopup, api.bindScroll)
 

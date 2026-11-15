@@ -46,7 +46,7 @@ export const api = [
   'handlePageChange'
 ]
 
-const initState = ({ reactive, props, parent, computed, api, slots, designConfig }) => {
+const initState = ({ reactive, props, parent, computed, api, slots }) => {
   const state = reactive({
     query: '',
     checked: [],
@@ -70,8 +70,8 @@ const initState = ({ reactive, props, parent, computed, api, slots, designConfig
     hasFooter: computed(() => (!!parent.slots['left-footer'] || !!parent.slots['right-footer']) && !!slots.default),
     renderType: computed(() => props.render && props.render.plugin.name),
     expanded: [],
-    inputBoxType: designConfig?.inputBoxType || 'underline',
-    showInputSearch: designConfig?.showInputSearch ?? true
+    inputBoxType: 'underline',
+    showInputSearch: true
   })
 
   return state
@@ -133,15 +133,11 @@ const initWatcher = ({ watch, state, api, props, Table }) => {
   )
 }
 
-export const renderless = (
-  props,
-  { computed, reactive, watch, toRaw },
-  { $prefix, emit, parent, vm, slots, designConfig }
-) => {
+export const renderless = (props, { computed, reactive, watch, toRaw }, { $prefix, emit, parent, vm, slots }) => {
   const api = {}
   const Table = $prefix + 'Table'
   const Tree = $prefix + 'Tree'
-  const state = initState({ reactive, props, parent, computed, api, slots, designConfig })
+  const state = initState({ reactive, props, parent, computed, api, slots })
 
   Object.assign(api, {
     state,

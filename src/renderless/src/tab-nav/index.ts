@@ -17,17 +17,8 @@ import { on, off } from '@tinysmall/utils'
 
 export const computedNavStyle = (state: ITabNavRenderlessParams['state']): { transform: string; width?: string } => {
   const dir = ~[POSITION.Top, POSITION.Bottom].indexOf(state.rootTabs.position) ? 'X' : 'Y'
-
-  if (state.mode === 'mobile') {
-    const { offset, width } = state.lineStyle
-    return {
-      width: `${width}px`,
-      transform: `translate${dir}(${offset}px) translate${dir}(-50%)`
-    }
-  } else {
-    return {
-      transform: `translate${dir}(-${state.navOffset}px)`
-    }
+  return {
+    transform: `translate${dir}(-${state.navOffset}px)`
   }
 }
 
@@ -47,13 +38,6 @@ export const scrollIntoView =
 
     const to = activeTab.offsetLeft - (nav.offsetWidth - activeTab.offsetWidth) / 2
     const from = nav.scrollLeft
-
-    if (state.mode === 'mobile') {
-      nav.scrollLeft += to - from
-      const nameHtml = activeTab.querySelector('.tiny-mobile-tabs__name') as HTMLElement
-      state.lineStyle.width = nameHtml.offsetWidth
-      state.lineStyle.offset = activeTab.offsetLeft + activeTab.offsetWidth / 2
-    }
   }
 
 export const computedSizeName = (state: ITabNavRenderlessParams['state']): 'width' | 'height' =>
@@ -68,22 +52,6 @@ export const updated =
     }
 
     let navSize = vm.$refs.nav[`offset${capitalize(state.sizeName)}`] // taList 列表容器
-
-    if (state.mode === 'mobile') {
-      Array.prototype.forEach.call(vm.$refs.nav.children, (item) => {
-        if (item.classList && item.classList.contains('tiny-mobile-tabs__item')) {
-          navSize += item.offsetWidth
-        }
-
-        if (item.classList && item.classList.contains('is-active')) {
-          const nameHtml = item.querySelector('.tiny-mobile-tabs__name') as HTMLElement
-
-          state.isActive = true
-          state.lineStyle.width = nameHtml.offsetWidth
-          state.lineStyle.offset = item.offsetLeft + item.offsetWidth / 2
-        }
-      })
-    }
 
     const containerSize = vm.$refs.navScroll[`offset${capitalize(state.sizeName)}`] // 父容器宽度
     const currentOffset = state.navOffset
@@ -192,14 +160,6 @@ export const scrollToActiveTab =
     const activeTabBounding = activeTab.getBoundingClientRect()
     const navScrollBounding = navScroll.getBoundingClientRect()
     let maxOffset = nav.offsetWidth - navScrollBounding.width
-
-    if (state.mode === 'mobile') {
-      if (activeTabBounding.left > navScrollBounding.width) {
-        maxOffset = activeTabBounding.left - navScrollBounding.width + activeTabBounding.width
-      } else {
-        maxOffset = activeTabBounding.width
-      }
-    }
 
     const currentOffset = state.navOffset
     let newOffset = currentOffset

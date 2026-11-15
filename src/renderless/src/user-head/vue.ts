@@ -32,7 +32,7 @@ export const api = ['state', 'handleClick', 'mouseEnter']
 export const renderless = (
   props: IUserHeadProps,
   { reactive, computed, inject }: ISharedRenderlessParamHooks,
-  { mode, emit }: IUserHeadRenderlessParamUtils
+  { emit }: IUserHeadRenderlessParamUtils
 ): IUserHeadApi => {
   const groupSize = inject('groupSize', null)
 
@@ -52,7 +52,7 @@ export const renderless = (
     computedLabel: computedLabel({ state, props }),
     computedStyle: computedStyle({ state, props }),
     computedMessage: computedMessage({ props }),
-    computedFontSize: computedFontSize({ props, state, mode }),
+    computedFontSize: computedFontSize({ props, state }),
     getInternalValue: getInternalValue({ props }),
     handleClick: handleClick(emit),
     mouseEnter: mouseEnter(emit)

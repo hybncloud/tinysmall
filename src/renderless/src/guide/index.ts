@@ -1,9 +1,9 @@
 import { xss } from '@tinysmall/utils'
 
 export const createShepherd =
-  ({ state, props, Shepherd, offset, designConfig }) =>
+  ({ state, props, Shepherd, offset }) =>
   () => {
-    const tour = newTour(state, Shepherd, offset, designConfig, props)
+    const tour = newTour(state, Shepherd, offset, props)
 
     state.tour = tour
 
@@ -83,9 +83,9 @@ const getItemCopy = (props, tour, result) => {
   return result
 }
 
-const newTour = (state, Shepherd, offset, designConfig, props) => {
+const newTour = (state, Shepherd, offset, props) => {
   const tour = new Shepherd.Tour({
-    useModalOverlay: props.mask ?? designConfig?.state?.isUseModalOverlay,
+    useModalOverlay: props.mask,
     defaultStepOptions: {
       modalOverlayOpeningPadding: state.modalOverlayOpeningPadding,
       modalOverlayOpeningRadius: state.modalOverlayOpeningRadius,

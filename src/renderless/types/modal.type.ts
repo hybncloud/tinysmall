@@ -21,7 +21,6 @@ export interface IModalState {
   isMsg: boolean
   prevEvent: null | Event
   options: any[]
-  theme: string | undefined
   titleId: string
   contentId: string
 }

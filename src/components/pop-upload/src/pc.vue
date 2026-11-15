@@ -139,13 +139,7 @@
             </div>
           </div>
         </div>
-        <div class="tiny-popupload__dialog-footer" v-if="state.theme === 'saas'">
-          <tiny-button @click="closeDialog">{{ state.cancelButtonText }}</tiny-button>
-          <tiny-button type="primary" :disabled="state.uploadList.length === 0" @click="uploadSubmit">{{
-            state.submitButtonText
-          }}</tiny-button>
-        </div>
-        <div class="tiny-popupload__dialog-footer" v-else>
+        <div class="tiny-popupload__dialog-footer">
           <tiny-button type="primary" :disabled="state.uploadList.length === 0" @click="uploadSubmit">{{
             state.submitButtonText
           }}</tiny-button>

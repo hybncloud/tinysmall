@@ -50,7 +50,7 @@ export const api = [
 export const renderless = (
   props: IFormProps,
   { computed, inject, provide, reactive, watch, onBeforeUnmount }: IFormRenderlessParams,
-  { vm, parent, designConfig }: IFormRenderlessParamUtils
+  { vm, parent }: IFormRenderlessParamUtils
 ): IFormApi => {
   const api = {} as IFormApi
   const dialog = inject('dialog', null)
@@ -81,18 +81,18 @@ export const renderless = (
         return false
       }
     }),
-    labelWidth: computed(() => props.labelWidth || designConfig?.state?.labelWidth || '84px'),
-    tooltipType: computed(() => designConfig?.state?.tooltipType || 'normal')
+    labelWidth: computed(() => props.labelWidth || '84px'),
+    tooltipType: computed(() => 'normal')
   })
 
   Object.assign(api, {
     state,
     updateTip: updateTip({ props, state }),
     computedAutoLabelWidth: computedAutoLabelWidth({ state }),
-    computedHideRequiredAsterisk: computedHideRequiredAsterisk({ props, designConfig }),
-    computedValidateIcon: computedValidateIcon({ props, designConfig }),
-    computedIsErrorInline: computedIsErrorInline({ props, designConfig }),
-    computedIsErrorBlock: computedIsErrorBlock({ props, designConfig }),
+    computedHideRequiredAsterisk: computedHideRequiredAsterisk({ props }),
+    computedValidateIcon: computedValidateIcon({ props }),
+    computedIsErrorInline: computedIsErrorInline({ props }),
+    computedIsErrorBlock: computedIsErrorBlock({ props }),
     created: created({ parent, state }),
     resetFields: resetFields({ props, state }),
     clearValidate: clearValidate(state),

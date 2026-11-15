@@ -77,11 +77,10 @@ export const bindMouseDown =
   ({
     api,
     constants,
-    mode,
     emit,
     state,
     props
-  }: Pick<ISliderRenderlessParams, 'api' | 'state' | 'constants' | 'mode' | 'emit' | 'props'>) =>
+  }: Pick<ISliderRenderlessParams, 'api' | 'state' | 'constants' | 'emit' | 'props'>) =>
   (event) => {
     if (event.button !== 0 && event.detail !== 0) {
       state.activeIndex = -1
@@ -98,20 +97,12 @@ export const bindMouseDown =
     let isClickBtn: boolean | undefined = false
     let isClickLabel: boolean | undefined = false
 
-    if (mode === 'mobile-first') {
-      const role = Array.from(handleEl.attributes).find((attr) => attr.name === 'role')
-      const name = role && role.value
-
-      isClickBar = name === constants.PC_SLIDER_CLS || name === constants.PC_RANGE_CLS
-      isClickBtn = name === constants.PC_BUTTON_CLS
-    } else {
-      isClickBar = hasClass(handleEl, constants.sliderCls(mode)) || hasClass(handleEl, constants.rangeCls(mode))
-      isClickBtn =
-        hasClass(handleEl, constants.buttonCls(mode)) ||
-        hasClass(handleEl, constants.leftSvgCls(mode)) ||
-        hasClass(handleEl, constants.rightSvgCls(mode))
-      isClickLabel = hasClass(handleEl, constants.PC_LABEL_CLS)
-    }
+    isClickBar = hasClass(handleEl, constants.sliderCls('pc')) || hasClass(handleEl, constants.rangeCls('pc'))
+    isClickBtn =
+      hasClass(handleEl, constants.buttonCls('pc')) ||
+      hasClass(handleEl, constants.leftSvgCls('pc')) ||
+      hasClass(handleEl, constants.rightSvgCls('pc'))
+    isClickLabel = hasClass(handleEl, constants.PC_LABEL_CLS)
     if (state.disabled || (!isClickBtn && !isClickBar && !isClickLabel)) {
       state.activeIndex = -1
       return
@@ -208,13 +199,7 @@ export const hideTip = (state: ISliderState) => () => {
 }
 
 export const setTipStyle =
-  ({
-    constants,
-    mode,
-    vm,
-    props,
-    state
-  }: Pick<ISliderRenderlessParams, 'vm' | 'props' | 'state' | 'constants' | 'mode'>) =>
+  ({ constants, vm, props, state }: Pick<ISliderRenderlessParams, 'vm' | 'props' | 'state' | 'constants'>) =>
   () => {
     if (!props.showTip) {
       return
@@ -233,44 +218,31 @@ export const setTipStyle =
       tipStyle.left = moveSize - tipEl.getBoundingClientRect().width / 2
     }
 
-    if (mode === 'mobile-first') {
-      state.tipStyle = {
-        left: tipStyle.left + 'px'
-      }
-    } else {
-      state.tipStyle = {
-        top: tipStyle.top + 'px',
-        left: tipStyle.left + 'px'
-      }
+    state.tipStyle = {
+      top: tipStyle.top + 'px',
+      left: tipStyle.left + 'px'
     }
   }
 
 const getActiveButtonIndexFlag = ({
   state,
   event,
-  constants,
-  mode
-}: Pick<ISliderRenderlessParams, 'event' | 'constants' | 'state' | 'mode'>) => {
-  const cls = constants.buttonCls(mode)
+  constants
+}: Pick<ISliderRenderlessParams, 'event' | 'constants' | 'state'>) => {
+  const cls = constants.buttonCls('pc')
   const { previousElementSibling } = event.target as HTMLElement
 
-  if (mode === 'mobile-first') {
-    const role = Array.from(previousElementSibling.attributes).find((attr) => attr.name === 'role')
-    const name = role && role.value
-    return state.isDouble && name === constants.PC_BUTTON_CLS
-  } else {
-    return (
-      state.isDouble &&
-      (hasClass(previousElementSibling, cls) ||
-        (event.target as SVGAElement).className.baseVal === 'tiny-slider-right-svg')
-    )
-  }
+  return (
+    state.isDouble &&
+    (hasClass(previousElementSibling, cls) ||
+      (event.target as SVGAElement).className.baseVal === 'tiny-slider-right-svg')
+  )
 }
 
 export const getActiveButtonIndex =
-  ({ constants, mode, state }: Pick<ISliderRenderlessParams, 'constants' | 'mode' | 'state'>) =>
+  ({ constants, state }: Pick<ISliderRenderlessParams, 'constants' | 'state'>) =>
   (event) => {
-    const flag = getActiveButtonIndexFlag({ state, event, constants, mode })
+    const flag = getActiveButtonIndexFlag({ state, event, constants })
     return flag ? 1 : 0
   }
 

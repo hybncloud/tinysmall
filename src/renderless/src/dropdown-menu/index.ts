@@ -95,20 +95,12 @@ export const getScroller = (el: HTMLElement, root?: HTMLElement): HTMLElement | 
   return root || null
 }
 
-export const useVuePopper = ({
-  api,
-  props,
-  hooks,
-  instance,
-  state,
-  dropdownVm,
-  designConfig
-}: IDropdownMenuPopperParams): void => {
+export const useVuePopper = ({ api, props, hooks, instance, state, dropdownVm }: IDropdownMenuPopperParams): void => {
   const { nextTick, onBeforeUnmount, onDeactivated, onMounted, reactive, toRefs, watch } = hooks
   const { emit, slots, vm, parent } = instance
   const designProps = {
-    placement: props.placement || designConfig?.props?.placement || 'bottom-end',
-    visibleArrow: props.visibleArrow || designConfig?.props?.visibleArrow || false
+    placement: props.placement || 'bottom-end',
+    visibleArrow: props.visibleArrow || false
   }
 
   const popper = userPopper({

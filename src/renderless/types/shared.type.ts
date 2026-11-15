@@ -18,29 +18,10 @@ export interface ISharedRenderlessParamUtils<CT = never> {
   /** 组件前缀，默认为 Tiny  */
   $prefix: string
 
-  /** 所有规范的配置 */
-  globalDesignConfig: {
-    components?: IComponentDesignConfig
-    name?: string
-    version?: string
-  }
-  /** 当前组件的规范配置 */
-  designConfig: IComponentDesignConfig
-
   /** app的root上的i18n对象，renderless基本没有使用它 */
   i18n: any
   /** 组件内国际化，常用函数 */
   t: (path: string, options?: any) => string
-
-  /** 组件模式。
-   * @mark 等同于 vm.$mode, 取值为：pc  mobile  mobile-first */
-  mode: 'pc' | 'mobile' | 'mobile-first'
-  /** 是否为 mobile */
-  isMobileMode: boolean
-  /** 是否为 pc */
-  isPCMode: boolean
-  /** 是否为mobile-first */
-  isMobileFirstMode: boolean
 
   /** vue组件实例的context.attrs */
   attrs: any
@@ -119,18 +100,6 @@ export type ISharedRenderlessFunctionParams<CT = null> = {
 } & ISharedRenderlessParamHooks &
   ISharedRenderlessParamUtils<CT>
 
-/** 单个组件的规范的配置 */
-interface IComponentDesignConfig {
-  icons?: Record<string, any>
-  renderless?: (
-    props: any,
-    hooks: ISharedRenderlessParamHooks,
-    utils: ISharedRenderlessParamUtils<any>,
-    sdk: any
-  ) => any
-  [otherKey: string]: any
-}
-
 /** Tiny-Vue的Adapter 内部为组件创建的Vm */
 export interface ITinyVm<CT = never> {
   /** 从instance.attrs上， 过滤出所有的非函数的attrs */
@@ -143,8 +112,6 @@ export interface ITinyVm<CT = never> {
   $constants: CT
   /** 返回 instance.vnode.el */
   $el: HTMLElement
-  /** 返回 instance._tiny_mode */
-  $mode: 'pc' | 'mobile' | 'mobile-first'
   /** 即 hooks.nextTick */
   $nextTick: typeof hooks.nextTick
   /** 自动触发 instance.emit 和 instance.$emitter 两处地方 */

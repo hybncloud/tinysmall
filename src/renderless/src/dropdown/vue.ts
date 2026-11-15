@@ -45,7 +45,7 @@ export const api = ['state', 'handleMainButtonClick', 'hide', 'show', 'initDomOp
 export const renderless = (
   props: IDropdownProps,
   { reactive, watch, provide, onMounted, computed, onBeforeUnmount }: ISharedRenderlessParamHooks,
-  { emit, parent, broadcast, vm, nextTick, mode, designConfig, useBreakpoint }: IDropdownRenderlessParamUtils
+  { emit, parent, broadcast, vm, nextTick, useBreakpoint }: IDropdownRenderlessParamUtils
 ): IDropdownApi => {
   const api = {} as IDropdownApi
   const { current } = useBreakpoint()
@@ -61,9 +61,8 @@ export const renderless = (
     listId: `dropdown-menu-${guid()}`,
     showIcon: props.showIcon,
     showSelfIcon: props.showSelfIcon,
-    designConfig,
     trigger: computed(() => {
-      return props.trigger || designConfig?.props?.trigger || 'hover'
+      return props.trigger || 'hover'
     }),
     visibleIsBoolean: computed(() => typeof props.visible === 'boolean')
   })
@@ -83,7 +82,7 @@ export const renderless = (
     resetTabindex: resetTabindex(api),
     removeTabindex: removeTabindex(state),
     initAria: initAria({ state, props }),
-    initEvent: initEvent({ api, props, state, vm, mode }),
+    initEvent: initEvent({ api, props, state, vm }),
     handleMenuItemClick: handleMenuItemClick({ props, state, emit }),
     handleMainButtonClick: handleMainButtonClick({ api, emit }),
     triggerElmFocus: triggerElmFocus(state),

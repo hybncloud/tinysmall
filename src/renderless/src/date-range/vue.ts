@@ -83,7 +83,7 @@ export const api = [
   'watchModelValue'
 ]
 
-const initState = ({ reactive, computed, api, constants, designConfig, props }) => {
+const initState = ({ reactive, computed, api, constants, props }) => {
   const state = reactive({
     popperElm: null,
     popperClass: props.popperClass || '',
@@ -133,8 +133,7 @@ const initState = ({ reactive, computed, api, constants, designConfig, props }) 
     // tiny 新增
     confirmButtonProps: {
       plain: false,
-      type: 'default',
-      ...designConfig?.state?.confirmButtonProps
+      type: 'default'
     }
   })
 
@@ -227,14 +226,10 @@ const initApi = ({ api, state, t, vm, nextTick, emit, constants, props }) => {
   })
 }
 
-export const renderless = (
-  props,
-  { computed, reactive, watch, nextTick },
-  { t, emit: $emit, vm, constants, designConfig }
-) => {
+export const renderless = (props, { computed, reactive, watch, nextTick }, { t, emit: $emit, vm, constants }) => {
   const api = {}
   const emit = props.emitter ? props.emitter.emit : $emit
-  const state = initState({ reactive, computed, api, constants, designConfig, props })
+  const state = initState({ reactive, computed, api, constants, props })
 
   initApi({ api, state, t, vm, nextTick, emit, constants, props })
   initWatch({ watch, state, api, props })

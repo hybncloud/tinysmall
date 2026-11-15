@@ -23,13 +23,13 @@ export const computedAnimationName =
 export const computedAddUnit = (value: string): string => (isNaN(Number(value)) ? value : value + 'px')
 
 export const computedStyle =
-  ({ props, state, designConfig }: Pick<IDialogBoxRenderlessParams, 'props' | 'state' | 'designConfig'>) =>
+  ({ props, state }: Pick<IDialogBoxRenderlessParams, 'props' | 'state'>) =>
   (): IDialogBoxStyle => {
     let style = {} as IDialogBoxStyle
     let { width, top, rightSlide, maxHeight } = props
 
     if (top === undefined) {
-      top = rightSlide ? '0' : designConfig?.state?.top ? '' : '15vh'
+      top = rightSlide ? '0' : '15vh'
     }
 
     width = computedAddUnit(width)

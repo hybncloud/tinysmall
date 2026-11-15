@@ -95,13 +95,7 @@ export function Modal(options: ModalOptions): ModalPromise {
 
       $modal = createComponent({
         el: document.createElement('div'),
-        propsData: Object.assign(
-          {
-            'tiny_mode': TinyModalComponent.tiny_mode,
-            'tiny_theme': TinyModalComponent.tiny_theme
-          },
-          options
-        ),
+        propsData: options,
         component: options.componentType === 'popconfirm' ? Popconfirm : TinyModalComponent
       })
 
@@ -177,13 +171,6 @@ TinyModalComponent.installed = false
 ;(setupComponent as SetupComponent).TinyModal = {
   install(Vue: any) {
     if (TinyModalComponent.installed) return
-    // vue3 或 vue2
-    const isVue2 = !!Vue.component
-    const tinyMode = isVue2 ? Vue.prototype.tiny_mode : Vue.config.globalProperties.tiny_mode
-    const tinyTheme = isVue2 ? Vue.prototype.tiny_theme : Vue.config.globalProperties.tiny_theme
-    const specifyPc = typeof process === 'object' ? process.env?.TINY_MODE : null
-    TinyModalComponent.tiny_mode = specifyPc || (tinyMode && tinyMode.value)
-    TinyModalComponent.tiny_theme = tinyTheme && tinyTheme.value
     TinyModalComponent.installed = true
   },
   init(root: any) {

@@ -111,10 +111,6 @@ export const numericProps = {
     type: String,
     default: '1'
   },
-  theme: {
-    type: String,
-    default: ''
-  },
   unit: String,
   unitCenter: {
     type: Boolean,

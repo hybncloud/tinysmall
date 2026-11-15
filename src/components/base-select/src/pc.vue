@@ -262,7 +262,6 @@
           />
         </div>
         <tiny-input
-          tiny_mode="pc"
           v-if="!shape"
           ref="reference"
           v-model="state.selectedLabel"
@@ -379,7 +378,7 @@
           </div>
           <div v-if="topCreate" class="tiny-select__top-create">
             <div @click="$emit('top-create-click', $event)">
-              <component :is="state.designConfig?.icons?.addIcon || 'icon-add-circle'"></component>
+              <component :is="'icon-add-circle'"></component>
               <span>{{ topCreateText }}</span>
             </div>
           </div>
@@ -542,14 +541,7 @@
                 <span v-if="showEmptyImage" class="tiny-select-dropdown__empty-images"></span>
                 <span v-else class="tiny-select-dropdown__empty"> {{ state.emptyText }}</span>
               </template>
-              <component
-                v-else
-                class="circular"
-                :is="
-                  (state.designConfig && state.designConfig.icons && state.designConfig.icons.loadingIcon) ||
-                  'icon-loading-shadow'
-                "
-              ></component>
+              <component v-else class="circular" :is="'icon-loading-shadow'"></component>
             </div>
           </template>
           <!-- tiny 新增 footer插槽 -->

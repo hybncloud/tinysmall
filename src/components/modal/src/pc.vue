@@ -68,7 +68,6 @@ export default defineComponent({
     'cancelBtnProps',
     'headerDragable',
     'footerDragable',
-    'tiny_theme',
     'slots',
     'showClose'
   ],
@@ -178,7 +177,7 @@ export default defineComponent({
               ? h(
                   'div',
                   {
-                    class: ['tiny-modal__header', status && state.theme === 'saas' ? 'tiny-modal__header-icon' : ''],
+                    class: ['tiny-modal__header'],
                     on: {
                       mousedown: this.headerDragable ? this.mousedownEvent : () => {}
                     }

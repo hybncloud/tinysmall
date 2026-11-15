@@ -41,7 +41,7 @@ export const computedMessage =
   }
 
 export const computedFontSize =
-  ({ props, state, mode }: Pick<IUserHeadRenderlessParams, 'props' | 'state' | 'mode'>) =>
+  ({ props, state }: Pick<IUserHeadRenderlessParams, 'props' | 'state'>) =>
   () => {
     let fontSize = ''
 
@@ -56,20 +56,7 @@ export const computedFontSize =
         6: '16px'
       }
 
-      const mfsizeMap = {
-        1: `${state.size / 2}px`,
-        2: `${state.size / 3}px`,
-        3: `${state.size / 4.5}px`,
-        4: `${state.size / 6}px`,
-        5: `${state.size / 7.5}px`,
-        6: `${state.size / 9}px`
-      }
-
-      if (mode === 'mobile-first') {
-        fontSize = mfsizeMap[length]
-      } else {
-        fontSize = sizeMap[length]
-      }
+      fontSize = sizeMap[length]
     }
 
     return { fontSize }

@@ -61,7 +61,7 @@ export const api = [
 export const renderless = (
   props: IUploadListProps,
   { reactive, onMounted, onUnmounted, watch, inject, computed }: ISharedRenderlessParamHooks,
-  { t, parent, mode, emit, service, vm, nextTick, designConfig, useBreakpoint }: IUploadListRenderlessParamUtils,
+  { t, parent, emit, service, vm, nextTick, useBreakpoint }: IUploadListRenderlessParamUtils,
   { Modal }: IFileUploadModalVm
 ): IUploadListApi => {
   const api = { getApi } as IUploadListApi
@@ -74,23 +74,17 @@ export const renderless = (
     focusing: false,
     shows: false,
     currentBreakpoint: current,
-    progressType: designConfig?.state?.progressType || 'line',
-    progressWidth:
-      designConfig?.state && Object.hasOwnProperty.call(designConfig.state, 'progressWidth')
-        ? designConfig.state.progressWidth
-        : 68,
-    progressStrokeWidth: designConfig?.state?.progressStrokeWidth || 4,
-    tooltipDisabled: designConfig?.state?.tooltipDisabled ?? false,
-    closeComponent: designConfig?.icons?.closeComponent || 'icon-del',
-    preViewComponent:
-      designConfig?.icons && Object.hasOwnProperty.call(designConfig.icons, 'preViewComponent')
-        ? designConfig.icons.preViewComponent
-        : 'icon-fullscreen-left',
+    progressType: 'line',
+    progressWidth: 68,
+    progressStrokeWidth: 4,
+    tooltipDisabled: false,
+    closeComponent: 'icon-del',
+    preViewComponent: 'icon-fullscreen-left',
     failUploadFileCount: computed(() =>
       props.files.reduce((total, item) => (total += item.status === 'fail' ? 1 : 0), 0)
     ),
     startPostion: 0,
-    screenType: mode === 'mobile',
+    screenType: true,
     showPanel: false,
     showTriggerPanel: false,
     triggerClickType: '',

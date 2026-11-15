@@ -250,11 +250,11 @@ const initApi = ({ api, state, props, constants, vm, $service, t, Modal, emit })
   })
 }
 
-const mergeApi = ({ api, props, $service, state, constants, emit, mode, Modal, t, vm, Streamsaver }) => {
+const mergeApi = ({ api, props, $service, state, constants, emit, Modal, t, vm, Streamsaver }) => {
   Object.assign(api, {
     segmentUploadInit: segmentUploadInit({ api, props, service: $service, state, constants }),
     segmentUpload: segmentUpload({ api, props, service: $service, state, emit, constants }),
-    addFileToList: addFileToList({ api, constants, emit, props, state, mode }),
+    addFileToList: addFileToList({ api, constants, emit, props, state }),
     downloadFile: downloadFile({ api, state }),
     downloadFileSingleInner: downloadFileSingleInner({ props, state, api, constants }),
     previewImage: previewImage({ api, props, service: $service }),
@@ -335,7 +335,7 @@ export let getApi = () => ({}) as { downloadFile: Function }
 export const renderless = (
   props: IFileUploadProps,
   { computed, inject, onBeforeUnmount, provide, reactive, ref, watch, onMounted }: ISharedRenderlessParamHooks,
-  { t, vm, parent, emit, service, mode, constants, useBreakpoint }: IFileUploadRenderlessParamUtils,
+  { t, vm, parent, emit, service, constants, useBreakpoint }: IFileUploadRenderlessParamUtils,
   { Modal, Streamsaver }: IFileUploadModalVm & { Streamsaver: IFileUploadStreamsaver }
 ): IFileUploadApi => {
   let api = {} as IFileUploadApi
@@ -355,7 +355,7 @@ export const renderless = (
   })
 
   initApi({ api, state, props, constants, vm, $service, t, Modal, emit })
-  mergeApi({ api, props, $service, state, constants, emit, mode, Modal, t, vm, Streamsaver })
+  mergeApi({ api, props, $service, state, constants, emit, Modal, t, vm, Streamsaver })
   getApi = () => api
 
   provide('uploader', parent)

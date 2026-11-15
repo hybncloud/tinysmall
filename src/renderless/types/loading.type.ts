@@ -16,7 +16,6 @@ export interface ILoadingState {
   body?: boolean
   lock?: boolean
   target?: HTMLElement | string
-  tiny_mode?: string
   type?: string
 }
 

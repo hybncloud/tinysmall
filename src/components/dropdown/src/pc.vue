@@ -137,9 +137,9 @@ export default defineComponent({
     const visibleClass = addVisibleClass ? 'tiny-dropdown--visible tiny-dropdown-visible' : ''
 
     // 优先级：suffix-icon 插槽 > suffixIcon 属性 > 其他主题图标 > 默认主题图标
-    const IconDown = suffixIcon || state.designConfig?.icons?.dropdownIcon || iconDownWard()
+    const IconDown = suffixIcon || iconDownWard()
     const IconPre = prefixIcon
-    const ButtonIconDown = state.designConfig?.icons?.dropdownIcon || iconDownWard()
+    const ButtonIconDown = iconDownWard()
     const defaultSlot = slots.default && slots.default(params)
 
     if (splitButton) {

@@ -53,7 +53,7 @@ export const api = [
 export const renderless = (
   props: IProgressProps,
   { computed, reactive }: ISharedRenderlessParamHooks,
-  { constants, mode }: IProgressRenderlessParamUtils
+  { constants }: IProgressRenderlessParamUtils
 ): IProgressApi => {
   const api = {} as IProgressApi
   const state: IProgressState = reactive({
@@ -72,10 +72,8 @@ export const renderless = (
     circlePathStyle: computed(() => api.computedCirclePathStyle()),
     progressTextSize: computed(() => api.computedProgressTextSize()),
     strokeDashoffset: computed(() => api.computedStrokeDashoffset()),
-    strokeWidth: computed(() =>
-      mode === 'mobile-first' ? props.strokeWidth : props.strokeWidth || constants.DEFAULT_STROKE_WIDTH
-    ),
-    width: computed(() => (mode === 'mobile-first' ? props.width : props.width || constants.DEFAULT_WIDTH)),
+    strokeWidth: computed(() => props.strokeWidth || constants.DEFAULT_STROKE_WIDTH),
+    width: computed(() => props.width || constants.DEFAULT_WIDTH),
     relativeStrokeWidth: computed(() => api.computedRelativeStrokeWidth())
   })
 
@@ -88,14 +86,14 @@ export const renderless = (
     computedPerimeter: computedPerimeter({ state }),
     computedRadius: computedRadius({ constants, props, state }),
     computedTrackPath: computedTrackPath({ constants, props, state }),
-    computedIconClass: computedIconClass({ constants, props, mode }),
+    computedIconClass: computedIconClass({ constants, props }),
     computedIconStyle: computedIconStyle({ constants, props, state }),
     computedCircleStyle: computedCircleStyle({ state }),
     computedCirclePathStyle: computedCirclePathStyle({ props, state }),
     computedStrokeDashoffset: computedStrokeDashoffset({ state }),
     computedTrailPathStyle: computedTrailPathStyle({ state }),
     computedRelativeStrokeWidth: computedRelativeStrokeWidth({ state, constants }),
-    computedProgressTextSize: computedProgressTextSize({ state, constants, props, mode }),
+    computedProgressTextSize: computedProgressTextSize({ state, constants, props }),
     customAfterAppearHook: customAfterAppearHook({ state, props }),
     customBeforeAppearHook: customBeforeAppearHook({ props, state }),
     getLevelColor: getLevelColor({ api }),

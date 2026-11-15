@@ -11,7 +11,7 @@
  -->
 <script lang="tsx">
 import { renderless, api } from '@tinysmall/renderless/file-upload/vue'
-import { props, setup, h, defineComponent, isVue3 } from '@tinysmall/common'
+import { props, setup, h, defineComponent } from '@tinysmall/common'
 import UploadList from '@tinysmall/upload-list'
 import Upload from '@tinysmall/upload'
 import Progress from '@tinysmall/progress'
@@ -155,7 +155,6 @@ export default defineComponent({
       promptTip
     } = this
     const isPictureCard = listType === 'picture-card'
-    const isSaasType = listType === 'saas'
     const { showDel, showDownload, showTooltip, showUpdate, icon } = this.thumbOption
     const execDownload = this.thumbOption.downloadFile || downloadFile
     const isFolder = edm.upload ? edm.upload.isFolder : false
@@ -184,16 +183,7 @@ export default defineComponent({
 
     // 操作区域插槽
     const getOperateContent = (downloadAll: any, uploadFiles: Array<any>, t: any) => {
-      return downloadAll && isSaasType ? (
-        <div class="operate-content">
-          <tiny-button onClick={() => downloadAll(uploadFiles)}>
-            <div class="button-wrap">
-              <TinyIconDownload />
-              <span>{t('ui.fileUpload.downloadAll')}</span>
-            </div>
-          </tiny-button>
-        </div>
-      ) : null
+      return null
     }
 
     // 提示信息插槽
@@ -430,7 +420,7 @@ export default defineComponent({
       limit: this.limit
     })
 
-    const tip = !displayOnly && isSaasType ? getDefaultTip(tipMsg) : null
+    const tip = null
 
     tip && tip.data && (tip.data.slot = 'tip')
 
@@ -443,10 +433,8 @@ export default defineComponent({
 
     // 获取children
     const getChildren = () => {
-      const triggerDom = !trigger && isSaasType && !displayOnly ? getTriggerContent(t, this.disabled) : trigger
-      const childNodes = isVue3
-        ? { default: () => triggerDom, tip: () => tip, operate: () => operate }
-        : [triggerDom, tip, operate]
+      const triggerDom = trigger
+      const childNodes = { default: () => triggerDom, tip: () => tip, operate: () => operate }
 
       return childNodes
     }
@@ -533,11 +521,10 @@ export default defineComponent({
 
     return (
       <div class="tiny-file-upload" role="group" aria-label={title} {...attrs}>
-        {isSaasType ? getDefaultTitle(title, this.showTitle) : ''}
         {notice}
         {isPictureCard ? uploadList : ''}
         {slots.trigger ? [uploadComponent, defaultSlot] : uploadComponent}
-        {!isSaasType && slots.tip && slots.tip()}
+        {slots.tip && slots.tip()}
         {isPictureCard ? '' : uploadList}
         {previewComponent}
         {encryptDialogComponent}

@@ -62,15 +62,11 @@ const initState = ({ reactive, props, computed, api }) => {
   return state
 }
 
-export const renderless = (
-  props,
-  { computed, onMounted, reactive, watch, nextTick },
-  { t, emit: $emit, vm, designConfig }
-) => {
+export const renderless = (props, { computed, onMounted, reactive, watch, nextTick }, { t, emit: $emit, vm }) => {
   const api = {}
   const emit = props.emitter ? props.emitter.emit : $emit
   const state = initState({ reactive, props, computed, api })
-  state.showTimePickerButton = designConfig?.showTimePickerButton ?? true
+  state.showTimePickerButton = true
 
   Object.assign(api, {
     t,

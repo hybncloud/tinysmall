@@ -19,7 +19,7 @@ export const api = ['state', 'handleAfterLeave', 'setText', 'close']
 export const renderless = (
   props: ILoadingProps,
   { reactive, computed }: ISharedRenderlessParamHooks,
-  { constants, vm, emit, designConfig }: ILoadingRenderlessParamUtils
+  { constants, vm, emit }: ILoadingRenderlessParamUtils
 ): ILoadingApi => {
   const state: ILoadingState = reactive({
     text: null,
@@ -32,7 +32,7 @@ export const renderless = (
     size: '',
     iconSize: '',
     loadingImg: computed(() => {
-      return props.loadingImg || designConfig?.props?.loadingImg
+      return props.loadingImg
     }),
     iconStyle: computed(() => (state.iconSize ? { width: state.iconSize + 'px', height: state.iconSize + 'px' } : {}))
   })

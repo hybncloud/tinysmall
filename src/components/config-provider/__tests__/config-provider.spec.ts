@@ -3,7 +3,6 @@ import { describe, test, expect } from 'vitest'
 import ConfigProvider, { configProviderContextKey } from '@tinysmall/config-provider'
 import { defineComponent, h, inject } from 'vue'
 import type { ConfigProviderProps } from '../src/props'
-import { isVue2 } from '@tinysmall/common'
 
 describe('PC Mode', () => {
   const mount = mountPcMode
@@ -53,40 +52,31 @@ describe('PC Mode', () => {
           default: ['<button>btn1</button>', '<button>btn2</button>']
         }
       })
-      if (isVue2) {
-        expect(wrapper.html()).contain('div')
-        expect(wrapper.classes().length).toBe(0)
-      } else {
-        expect(wrapper.html()).not.contain('div')
-      }
+      expect(wrapper.html()).not.contain('div')
     })
   })
-  if (!isVue2) {
-    describe('inject', () => {
-      test('one layer', () => {
-        let component
-        if (!isVue2) {
-          component = defineComponent({
-            name: 'CustomComponent',
-            setup() {
-              const config = inject<ConfigProviderProps>(configProviderContextKey)
-              expect(config).not.toBeNull()
-              expect(config).not.toStrictEqual({})
-              expect(config?.direction).not.toBe('ltr')
-              // just fix Component is missing template or render function.
-              return () => h('div')
-            }
-          })
+  describe('inject', () => {
+    test('one layer', () => {
+      let component
+      component = defineComponent({
+        name: 'CustomComponent',
+        setup() {
+          const config = inject<ConfigProviderProps>(configProviderContextKey)
+          expect(config).not.toBeNull()
+          expect(config).not.toStrictEqual({})
+          expect(config?.direction).not.toBe('ltr')
+          // just fix Component is missing template or render function.
+          return () => h('div')
         }
-        mount(ConfigProvider, {
-          slots: {
-            default: [component]
-          },
-          props: {
-            direction: 'rtl'
-          }
-        })
+      })
+      mount(ConfigProvider, {
+        slots: {
+          default: [component]
+        },
+        props: {
+          direction: 'rtl'
+        }
       })
     })
-  }
+  })
 })

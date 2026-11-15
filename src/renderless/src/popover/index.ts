@@ -53,9 +53,8 @@ export const mounted =
     state,
     constants,
     props,
-    nextTick,
-    mode
-  }: Pick<IPopoverRenderlessParams, 'api' | 'state' | 'props' | 'nextTick' | 'mode'> & {
+    nextTick
+  }: Pick<IPopoverRenderlessParams, 'api' | 'state' | 'props' | 'nextTick'> & {
     constants: { IDPREFIX: string }
   }) =>
   () => {
@@ -64,9 +63,7 @@ export const mounted =
     const { referenceElm, popperElm, tooltipId } = state
 
     if (referenceElm) {
-      if (mode !== 'mobile-first') {
-        addClass(referenceElm, `${constants.IDPREFIX}__reference`)
-      }
+      addClass(referenceElm, `${constants.IDPREFIX}__reference`)
 
       referenceElm.setAttribute('aria-describedby', tooltipId)
       referenceElm.setAttribute('tabindex', props.tabindex.toString())

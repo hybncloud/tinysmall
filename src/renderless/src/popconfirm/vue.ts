@@ -12,16 +12,13 @@ export const api = ['state', 'show', 'hide', 'confirm', 'handleEmit']
 export const renderless = (
   props: IPopconfirmProps,
   { computed, reactive, onMounted, onBeforeUnmount }: ISharedRenderlessParamHooks,
-  { emit, constants, designConfig, vm }: IPopconfirmRenderlessParamUtils
+  { emit, constants, vm }: IPopconfirmRenderlessParamUtils
 ): IPopconfirmApi => {
   const api = {} as IPopconfirmApi
-  const designIcon = designConfig?.icons?.[props.type as string]
   const state = reactive({
     isLock: false,
     showPopover: false,
-    getIcon: computed(() =>
-      typeof props.type === 'object' ? props.type : designIcon || constants.ICON_MAP[props.type as string]
-    )
+    getIcon: computed(() => (typeof props.type === 'object' ? props.type : constants.ICON_MAP[props.type as string]))
   })
 
   Object.assign(api, {

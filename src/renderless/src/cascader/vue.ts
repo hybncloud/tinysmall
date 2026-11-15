@@ -86,8 +86,7 @@ const initState = ({
   t,
   constants,
   vm,
-  inject,
-  designConfig
+  inject
 }: {
   reactive: ISharedRenderlessFunctionParams<null>['reactive']
   props: ICascaderProps
@@ -98,7 +97,6 @@ const initState = ({
   constants: ICascaderConstants
   vm: ICascadeRenderlessParamUtils['vm']
   inject: ISharedRenderlessFunctionParams<null>['inject']
-  designConfig: ISharedRenderlessFunctionParams<null>['designConfig']
 }) => {
   const state = reactive({
     showAutoWidth: inject('showAutoWidth', null),
@@ -133,7 +131,7 @@ const initState = ({
     isHidden: false,
     tooltipVisible: false,
     tooltipContent: '',
-    tagTypeWhenMultiple: designConfig?.tagTypeWhenMultiple || '',
+    tagTypeWhenMultiple: '',
     userChangeValue: false
   })
 
@@ -274,7 +272,7 @@ export const renderless = (
     watch,
     inject
   }: ISharedRenderlessFunctionParams<null>,
-  { t, emit, nextTick, constants, parent, slots, dispatch, vm, designConfig }: ICascadeRenderlessParamUtils
+  { t, emit, nextTick, constants, parent, slots, dispatch, vm }: ICascadeRenderlessParamUtils
 ) => {
   parent.tinyForm = parent.tinyForm || inject('form', null)
 
@@ -309,8 +307,7 @@ export const renderless = (
     t,
     constants,
     vm,
-    inject,
-    designConfig
+    inject
   })
 
   initApi({ api: api as ICascaderApi, state, constants, dispatch, emit, vm, props, updatePopper, nextTick, parent, t })

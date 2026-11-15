@@ -82,17 +82,15 @@ const initState = ({
   reactive,
   computed,
   api,
-  mode,
   inject,
   props
-}: Pick<IFormItemRenderlessParams, 'reactive' | 'computed' | 'api' | 'mode' | 'inject' | 'props'>) => {
+}: Pick<IFormItemRenderlessParams, 'reactive' | 'computed' | 'api' | 'inject' | 'props'>) => {
   // 使用 nanoid 生成唯一的 ID（8位字符），用于无障碍属性关联
   const uniqueId = nanoid.api.nanoid(8)
   const errorId = `tiny-form-item-error-${uniqueId}`
   const labelId = `tiny-form-item-label-${uniqueId}`
 
   const state: IFormItemState = reactive({
-    mode,
     validateState: '',
     validateMessage: '',
     validateDisabled: false,
@@ -226,10 +224,10 @@ const initWatch = ({ watch, api, props, state, nextTick }) => {
 export const renderless = (
   props: IFormItemProps,
   { computed, inject, onMounted, onUnmounted, provide, reactive, watch }: IFormItemRenderlessParams,
-  { vm, constants, t, nextTick, broadcast, dispatch, mode, slots }: IFormItemRenderlessParamUtils
+  { vm, constants, t, nextTick, broadcast, dispatch, slots }: IFormItemRenderlessParamUtils
 ): IFormItemApi => {
   const api = {} as IFormItemApi
-  const state = initState({ reactive, computed, api, mode, inject, props })
+  const state = initState({ reactive, computed, api, inject, props })
 
   provide('formItem', vm)
 

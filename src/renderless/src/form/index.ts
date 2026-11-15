@@ -45,19 +45,19 @@ export const computedAutoLabelWidth =
   }
 
 export const computedHideRequiredAsterisk =
-  ({ props, designConfig }: Pick<IFormRenderlessParams, 'props' | 'designConfig'>) =>
+  ({ props }: Pick<IFormRenderlessParams, 'props'>) =>
   (): boolean => {
-    return props.hideRequiredAsterisk ?? designConfig?.props?.hideRequiredAsterisk ?? false
+    return props.hideRequiredAsterisk ?? false
   }
 
 export const computedValidateIcon =
-  ({ props, designConfig }: Pick<IFormRenderlessParams, 'props' | 'designConfig'>) =>
+  ({ props }: Pick<IFormRenderlessParams, 'props'>) =>
   (): object | null => {
-    return props.validateIcon ?? designConfig?.icons?.validateIcon ?? 'icon-error'
+    return props.validateIcon ?? 'icon-error'
   }
 
 export const computedIsErrorInline =
-  ({ props, designConfig }: Pick<IFormRenderlessParams, 'props' | 'designConfig'>) =>
+  ({ props }: Pick<IFormRenderlessParams, 'props'>) =>
   (): boolean => {
     if (props.messageType) {
       return props.messageType === 'inline'
@@ -65,17 +65,14 @@ export const computedIsErrorInline =
     if (typeof props.inlineMessage === 'boolean') {
       return props.inlineMessage
     }
-    return designConfig?.messageType === 'inline'
+    return false
   }
 
 export const computedIsErrorBlock =
-  ({ props, designConfig }: Pick<IFormRenderlessParams, 'props' | 'designConfig'>) =>
+  ({ props }: Pick<IFormRenderlessParams, 'props'>) =>
   (): boolean => {
     if (props.messageType) {
       return props.messageType === 'block'
-    }
-    if (designConfig && Object.hasOwnProperty.call(designConfig, 'messageType')) {
-      return designConfig.messageType === 'block'
     }
     return true
   }

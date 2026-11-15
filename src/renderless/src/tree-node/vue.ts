@@ -78,7 +78,6 @@ const initState = ({ reactive, treeRoot, props, emitter, $parentEmitter, vm, api
     shrinkIconColor: props.shrinkIconColor,
     emitter: emitter(),
     parentEmitter: $parentEmitter,
-    isSaaSTheme: (props.theme || vm.theme) === 'saas',
     props: treeRoot.props,
     renderedChildNodes: computed(() => {
       return props.node.childNodes.filter((childNode) => (TreeAdapter ? TreeAdapter.shouldRender(childNode) : true))
@@ -90,7 +89,7 @@ const initState = ({ reactive, treeRoot, props, emitter, $parentEmitter, vm, api
   return state
 }
 
-const initApi = ({ api, state, dispatch, broadcast, vm, props, treeRoot, nextTick, emit, designConfig }) => {
+const initApi = ({ api, state, dispatch, broadcast, vm, props, treeRoot, nextTick, emit }) => {
   Object.assign(api, {
     state,
     dispatch,
@@ -119,7 +118,7 @@ const initApi = ({ api, state, dispatch, broadcast, vm, props, treeRoot, nextTic
     deleteNode: deleteNode({ state }),
     handleChildNodeExpand: handleChildNodeExpand(state),
     handleExpandIconClick: handleExpandIconClick({ api, state }),
-    computedExpandIcon: computedExpandIcon({ designConfig }),
+    computedExpandIcon: computedExpandIcon({}),
     computedIndent: computedIndent()
   })
 }
@@ -137,8 +136,8 @@ const initWatcher = ({ watch, state, api, props }) => {
 export const renderless = (
   props,
   { reactive, watch, inject, provide, computed },
-  { vm, nextTick, emit, broadcast, dispatch, emitter, designConfig },
-  { isVue2 }
+  { vm, nextTick, emit, broadcast, dispatch, emitter },
+  {}
 ) => {
   const api = {}
   const treeRoot = inject('TreeRoot')
@@ -152,7 +151,7 @@ export const renderless = (
 
   provide('parentEmitter', state.emitter)
 
-  initApi({ api, state, dispatch, broadcast, vm, props, treeRoot, nextTick, emit, designConfig })
+  initApi({ api, state, dispatch, broadcast, vm, props, treeRoot, nextTick, emit })
   initWatcher({ watch, state, api, props })
 
   api.created((childrenKey) => {
@@ -163,10 +162,8 @@ export const renderless = (
       }
     )
 
-    if (!isVue2) {
-      props.node.updateMethod = (node, field) => {
-        field === 'expanded' && api.watchExpanded(node[field])
-      }
+    props.node.updateMethod = (node, field) => {
+      field === 'expanded' && api.watchExpanded(node[field])
     }
   })
 

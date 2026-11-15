@@ -70,10 +70,10 @@ const initState = ({
   return state
 }
 
-const initApi = ({ api, props, state, emit, doDestroy, constants, nextTick, vm, mode }) => {
+const initApi = ({ api, props, state, emit, doDestroy, constants, nextTick, vm }) => {
   Object.assign(api, {
     state,
-    mounted: mounted({ api, state, constants, props, nextTick, mode }),
+    mounted: mounted({ api, state, constants, props, nextTick }),
     cleanup: cleanup({ state, props }),
     destroyed: destroyed({ state, api }),
     doDestroy,
@@ -103,12 +103,8 @@ const initWatch = ({
   emit,
   api,
   nextTick,
-  updatePopper,
-  mode
-}: Pick<
-  IPopoverRenderlessParams,
-  'watch' | 'props' | 'state' | 'emit' | 'api' | 'nextTick' | 'updatePopper' | 'mode'
->) => {
+  updatePopper
+}: Pick<IPopoverRenderlessParams, 'watch' | 'props' | 'state' | 'emit' | 'api' | 'nextTick' | 'updatePopper'>) => {
   watch(
     () => state.showPopper,
     (val) => {
@@ -161,7 +157,7 @@ export const renderless = (
     onActivated,
     onDeactivated
   }: ISharedRenderlessParamHooks,
-  { $prefix, emit, vm, slots, nextTick, mode }: ISharedRenderlessParamUtils<never>
+  { $prefix, emit, vm, slots, nextTick }: ISharedRenderlessParamUtils<never>
 ) => {
   const api = {} as IPopoverApi
   const constants = { IDPREFIX: `${$prefix.toLowerCase()}-popover` }
@@ -169,7 +165,7 @@ export const renderless = (
   const { showPopper, popperElm, referenceElm, doDestroy, updatePopper } = userPopper(options as any)
   const state: IPopoverState = initState({ reactive, computed, api, popperElm, showPopper, referenceElm })
 
-  initApi({ api, constants, props, state, emit, doDestroy, nextTick, vm, mode })
+  initApi({ api, constants, props, state, emit, doDestroy, nextTick, vm })
 
   onDeactivated(() => {
     api.destroyed()
@@ -195,7 +191,7 @@ export const renderless = (
 
   onBeforeUnmount(api.cleanup)
 
-  initWatch({ watch, props, state, emit, api, nextTick, updatePopper, mode })
+  initWatch({ watch, props, state, emit, api, nextTick, updatePopper })
 
   return api
 }

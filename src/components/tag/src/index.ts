@@ -17,7 +17,6 @@ export const tagProps = {
   hit: Boolean,
   text: String,
   type: String,
-  theme: String,
   size: String,
   round: Boolean,
   color: {

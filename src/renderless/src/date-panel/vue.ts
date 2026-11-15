@@ -87,7 +87,7 @@ export const api = [
   'getNowTime'
 ]
 
-const initState = ({ reactive, computed, api, i18n, designConfig, props }) => {
+const initState = ({ reactive, computed, api, i18n, props }) => {
   const state = reactive({
     popperClass: props.popperClass || '',
     date: new Date(),
@@ -132,8 +132,8 @@ const initState = ({ reactive, computed, api, i18n, designConfig, props }) => {
     lang: computed(() => (i18n ? i18n.locale.replace(/_/g, '-') : 'zh-CN')),
     isShowTz: computed(() => state.showTimezone && state.showTime),
     isShowFooter: computed(() => state.footerVisible && [DATEPICKER.Date, DATEPICKER.Year].includes(state.currentView)),
-    buttonType: designConfig?.state?.buttonType || 'default',
-    buttonSize: designConfig?.state?.buttonSize || ''
+    buttonType: 'default',
+    buttonSize: ''
   })
 
   state.needChangeTimezoneData = true // 控制重新渲染时区列表
@@ -287,14 +287,10 @@ const initApi = ({ api, state, t, emit, nextTick, vm, watch, props }) => {
   })
 }
 
-export const renderless = (
-  props,
-  { computed, reactive, watch, nextTick },
-  { t, emit: $emit, vm, i18n, designConfig }
-) => {
+export const renderless = (props, { computed, reactive, watch, nextTick }, { t, emit: $emit, vm, i18n }) => {
   const api = {}
   const emit = props.emitter ? props.emitter.emit : $emit
-  const state = initState({ reactive, computed, api, i18n, designConfig, props })
+  const state = initState({ reactive, computed, api, i18n, props })
 
   initApi({ api, state, t, emit, nextTick, vm, watch, props })
   initWatch({ watch, state, api, nextTick, props, t })

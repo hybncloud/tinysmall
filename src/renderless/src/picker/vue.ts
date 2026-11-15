@@ -185,7 +185,7 @@ const initState = ({ api, reactive, vm, computed, props, utils, parent, breakpoi
   return state
 }
 
-const initApi = ({ api, props, hooks, state, vnode, others, utils, parent, isPCMode }) => {
+const initApi = ({ api, props, hooks, state, vnode, others, utils, parent }) => {
   const { t, emit, dispatch, nextTick, vm } = vnode
   const { TimePanel, TimeRangePanel } = others
   const { destroyPopper, popperElm, updatePopper } = initPopper({ props, hooks, vnode })
@@ -199,7 +199,7 @@ const initApi = ({ api, props, hooks, state, vnode, others, utils, parent, isPCM
     hidePicker: hidePicker({ destroyPopper, state }),
     handleSelectChange: ({ tz, date }) => !state.ranged && emit('select-change', { tz, date }),
     getPanel: getPanel(others),
-    handleFocus: handleFocus({ emit, vm, state, api, props, isPCMode }),
+    handleFocus: handleFocus({ emit, vm, state, api, props }),
     getTimezone: getTimezone({ props, utils }),
     emitChange: emitChange({ api, dispatch, emit, props, state }),
     parsedValue: parsedValue({ api, props, state, t }),
@@ -222,7 +222,7 @@ const initApi = ({ api, props, hooks, state, vnode, others, utils, parent, isPCM
     handleClose: handleClose({ api, props, state }),
     displayValue: displayValue({ api, props, state }),
     handlePick: handlePick({ api, state }),
-    watchPickerVisible: watchPickerVisible({ api, vm, dispatch, emit, props, state, nextTick, isPCMode }),
+    watchPickerVisible: watchPickerVisible({ api, vm, dispatch, emit, props, state, nextTick }),
     watchMobileVisible: watchMobileVisible({ api, props, state, nextTick }),
     formatToString: formatToString({ api, state }),
     watchIsRange: watchIsRange({ api, state, TimePanel, TimeRangePanel }),
@@ -351,14 +351,14 @@ export const renderless = (
 ): IPickerApi => {
   const api = {} as IPickerApi
   const { reactive, computed, watch, onBeforeUnmount, inject, markRaw, onMounted } = hooks
-  const { vm, service, parent, useBreakpoint, isPCMode } = vnode
+  const { vm, service, parent, useBreakpoint } = vnode
   const { utils = {} } = service || {}
   const breakpoint = useBreakpoint()
   const state = initState({ api, reactive, vm, computed, props, utils, parent, inject, breakpoint })
 
   parent.tinyForm = parent.tinyForm || inject('form', null)
 
-  initApi({ api, props, hooks, state, vnode, others, utils, parent, isPCMode })
+  initApi({ api, props, hooks, state, vnode, others, utils, parent })
   initWatch({ api, state, props, watch, markRaw })
 
   api.initGlobalTimezone()

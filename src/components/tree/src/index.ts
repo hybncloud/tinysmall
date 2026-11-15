@@ -124,7 +124,6 @@ export default defineComponent({
     deleteDisabledKeys: Array,
     editDisabledKeys: Array,
     addDisabledKeys: Array,
-    theme: String,
     viewType: {
       type: String,
       default: 'tree',

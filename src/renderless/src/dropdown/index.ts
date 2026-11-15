@@ -196,7 +196,7 @@ export const toggleFocus =
   }
 
 export const initEvent =
-  ({ api, props, state, vm, mode }: Pick<IDropdownRenderlessParams, 'api' | 'props' | 'state' | 'vm' | 'mode'>) =>
+  ({ api, props, state, vm }: Pick<IDropdownRenderlessParams, 'api' | 'props' | 'state' | 'vm'>) =>
   () => {
     let buttonValue = props.splitButton || props.singleButton
 
@@ -230,12 +230,6 @@ export const initEvent =
       on(state.dropdownElm, 'mouseleave', api.hide)
     } else if (state.trigger === 'click') {
       on(state.triggerElm, 'click', api.handleClick)
-    }
-
-    if (mode === 'mobile-first') {
-      if (props.splitButton || props.singleButton) {
-        on(state.triggerElm, 'click', api.handleClick)
-      }
     }
   }
 

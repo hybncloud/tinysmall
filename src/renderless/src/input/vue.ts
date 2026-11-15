@@ -100,19 +100,13 @@ export const api = [
 const initState = ({
   reactive,
   computed,
-  mode,
   props,
   parent,
   constants,
   api,
-  vm,
-  designConfig
-}: Pick<
-  IInputRenderlessParams,
-  'reactive' | 'computed' | 'mode' | 'props' | 'parent' | 'constants' | 'api' | 'vm'
->) => {
+  vm
+}: Pick<IInputRenderlessParams, 'reactive' | 'computed' | 'props' | 'parent' | 'constants' | 'api' | 'vm'>) => {
   const state = reactive({
-    mode,
     maskSymbol: constants.MASKSYMBOL,
     focused: false,
     hovering: false,
@@ -132,9 +126,9 @@ const initState = ({
         !state.inputDisabled &&
         !props.readonly &&
         state.nativeInputValue &&
-        (!designConfig?.options?.isCloseIconHide || state.focused || state.hovering)
+        (state.focused || state.hovering)
     ),
-    textareaHeight: vm.theme === 'saas' ? '28px' : '30px',
+    textareaHeight: '30px',
     upperLimit: computed(() => parent.$attrs.maxlength),
     textLength: computed(() => textLength(props.modelValue)),
     inputExceed: computed(() => state.isWordLimitVisible && state.textLength > state.upperLimit),
@@ -237,12 +231,8 @@ const mergeApi = ({
   parent,
   state,
   vm,
-  mode,
   constants
-}: Pick<
-  IInputRenderlessParams,
-  'api' | 'emit' | 'props' | 'state' | 'nextTick' | 'parent' | 'vm' | 'mode' | 'constants'
-> & {
+}: Pick<IInputRenderlessParams, 'api' | 'emit' | 'props' | 'state' | 'nextTick' | 'parent' | 'vm' | 'constants'> & {
   storages: ReturnType<typeof useStorageBox>
   componentName: string
   eventName: IInputEventNameConstants
@@ -276,7 +266,6 @@ const mergeApi = ({
       hiddenTextarea: null,
       props,
       state,
-      mode,
       constants
     }),
     setNativeInputValue: setNativeInputValue({ api, state }),
@@ -305,11 +294,6 @@ const initWatch = ({
   watch(
     () => props.modelValue,
     (value) => {
-      if (state.mode === 'mobile') {
-        state.sheetvalue = value
-        emit('update:modelValue', value)
-      }
-
       nextTick(api.resizeTextarea)
 
       if (props.validateEvent) {
@@ -379,12 +363,12 @@ const initWatch = ({
 export const renderless = (
   props: IInputProps,
   { computed, onMounted, onBeforeUnmount, onUpdated, reactive, toRefs, watch, inject }: ISharedRenderlessParamHooks,
-  { vm, refs, parent, emit, constants, nextTick, broadcast, dispatch, mode, designConfig }: IInputRenderlessParamUtils
+  { vm, refs, parent, emit, constants, nextTick, broadcast, dispatch }: IInputRenderlessParamUtils
 ): IInputApi => {
   const api = {} as IInputApi
   const componentName = constants.COMPONENT_NAME.FormItem
   const eventName: IInputEventNameConstants = { change: 'form.change', blur: 'form.blur' }
-  const state = initState({ reactive, computed, mode, props, parent, constants, api, vm, designConfig })
+  const state = initState({ reactive, computed, props, parent, constants, api, vm })
 
   initApi({ api, state, dispatch, broadcast, emit, refs, props, parent, vm, nextTick })
 
@@ -392,7 +376,7 @@ export const renderless = (
 
   parent.tinyForm = parent.tinyForm || inject('form', null)
 
-  mergeApi({ api, storages, componentName, emit, eventName, props, state, nextTick, parent, vm, mode, constants })
+  mergeApi({ api, storages, componentName, emit, eventName, props, state, nextTick, parent, vm, constants })
 
   initWatch({ watch, state, api, props, nextTick, emit, componentName, eventName })
 

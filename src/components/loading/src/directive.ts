@@ -132,8 +132,7 @@ const vLoading = {
     const mask = createComponent({
       component: Loading,
       propsData: {
-        _constants: constants,
-        tiny_mode: vm?.tiny_mode?.value || appProperties().tiny_mode?.value
+        _constants: constants
       },
       el: document.createElement('div')
     })

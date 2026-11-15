@@ -24,9 +24,9 @@ export const api = ['toggle', 'state']
 export const renderless = (
   props: ISwitchProps,
   { computed, watch, reactive, inject }: ISharedRenderlessParamHooks,
-  { parent, constants, mode, emit, designConfig }: ISwitchRenderlessParamUtils
+  { parent, constants, emit }: ISwitchRenderlessParamUtils
 ): ISwitchApi => {
-  const prefixCls = constants.prefixcls(mode)
+  const prefixCls = constants.prefixcls('pc')
 
   parent.tinyForm = parent.tinyForm || inject('form', null)
 
@@ -41,7 +41,7 @@ export const renderless = (
     showText: computed(() => {
       // 用户没传showText属性时，aurora默认是展示文本
       if (props.showText === undefined) {
-        return designConfig?.showText || false
+        return false
       } else {
         return props.showText
       }

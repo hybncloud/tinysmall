@@ -64,9 +64,9 @@ export const watchMobileVisible =
   }
 
 export const watchPickerVisible =
-  ({ api, vm, dispatch, emit, props, state, nextTick, isPCMode }) =>
+  ({ api, vm, dispatch, emit, props, state, nextTick }) =>
   (value) => {
-    if (props.readonly || state.pickerDisabled || (state.isMobileScreen && !isPCMode)) return
+    if (props.readonly || state.pickerDisabled || state.isMobileScreen) return
 
     if (value) {
       api.showPicker()
@@ -962,7 +962,7 @@ export const handleClose =
   }
 
 export const handleFocus =
-  ({ emit, vm, state, api, props, isPCMode }) =>
+  ({ emit, vm, state, api, props }) =>
   () => {
     const type = state.type
     if (props.readonly || state.pickerDisabled) {
@@ -972,18 +972,8 @@ export const handleFocus =
     // 判断当前日期选择器类型是否在触发类型列表中
     if (DATEPICKER.TriggerTypes.includes(type)) {
       // 如果不是移动端屏幕或者强制使用PC端模式
-      if (!state.isMobileScreen || isPCMode) {
-        // 显示PC端的日期选择弹窗
-        state.pickerVisible = true
-      } else if (state.isDateMobileComponent) {
-        // 如果是移动端日期相关组件(日期、日期时间、日期范围等)
-        // 调用移动端日期选择器的显示方法
-        api.dateMobileToggle(true)
-      } else if (state.isTimeMobileComponent) {
-        // 如果是移动端时间相关组件(时间、时间范围等)
-        // 调用移动端时间选择器的显示方法
-        api.timeMobileToggle(true)
-      }
+      // 显示PC端的日期选择弹窗
+      state.pickerVisible = true
     }
 
     emit('focus', vm.$refs.reference)

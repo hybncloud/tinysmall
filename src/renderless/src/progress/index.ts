@@ -95,14 +95,14 @@ export const computedStroke =
     constants.STATUS_DEFAULT_COLOR
 
 export const computedIconClass =
-  ({ constants, props, mode }: Pick<IProgressRenderlessParams, 'constants' | 'props' | 'mode'>) =>
+  ({ constants, props }: Pick<IProgressRenderlessParams, 'constants' | 'props'>) =>
   (): string => {
     if (props.status === constants.PROGRESS_STATUS.SUCCESS) {
       const iconClasses =
         props.type === constants.PROGRESS_TYPE.LINE
           ? [constants.ICON_SUCCESS, constants.ICON_CIRCLE_SUCCESS]
           : [constants.ICON_CIRCLE_SUCCESS, constants.ICON_SUCCESS]
-      return mode === 'mobile-first' ? iconClasses[1] : iconClasses[0]
+      return iconClasses[0]
     } else if (props.status === constants.PROGRESS_STATUS.WARNING) {
       return props.type === constants.PROGRESS_TYPE.LINE ? constants.ICON_WARNING : constants.ICON_CIRCLE_WARNING
     } else if (props.status === constants.PROGRESS_STATUS.EXCEPTION) {
@@ -110,7 +110,7 @@ export const computedIconClass =
         props.type === constants.PROGRESS_TYPE.LINE
           ? [constants.ICON_EXCEPTION, constants.ICON_CIRCLE_EXCEPTION]
           : [constants.ICON_CIRCLE_EXCEPTION, constants.ICON_EXCEPTION]
-      return mode === 'mobile-first' ? iconClasses[1] : iconClasses[0]
+      return iconClasses[0]
     } else {
       return ''
     }
@@ -134,33 +134,11 @@ export const computedIconStyle =
   }
 
 export const computedProgressTextSize =
-  ({ constants, props, state, mode }: Pick<IProgressRenderlessParams, 'constants' | 'props' | 'state' | 'mode'>) =>
+  ({ constants, props, state }: Pick<IProgressRenderlessParams, 'constants' | 'props' | 'state'>) =>
   (): number => {
-    if (mode === 'mobile-first') {
-      let fontSize = constants.TEXT_XS
-      const sizeWidthMap = {
-        small: constants.PROGRESS_SIZE_WIDTH.SMALL,
-        medium: constants.PROGRESS_SIZE_WIDTH.MEDIUM,
-        large: constants.PROGRESS_SIZE_WIDTH.LARGE
-      }
-
-      if (props.type === constants.PROGRESS_TYPE.LINE) {
-        fontSize = state.strokeWidth
-          ? constants.TEXT_XS + state.strokeWidth * constants.STROKE_WIDTH_RATE
-          : props.size === constants.PROGRESS_SIZE.SMALL
-            ? constants.TEXT_XS
-            : constants.TEXT_SM
-      } else {
-        const width = state.width ? state.width : sizeWidthMap[props.size]
-        fontSize = width / constants.WIDTH_RATE_THREE
-        state.percentTextSize = width / constants.WIDTH_RATE_SIX
-      }
-      return fontSize
-    } else {
-      return props.type === constants.PROGRESS_TYPE.LINE
-        ? constants.TEXT_XS + state.strokeWidth * constants.STROKE_WIDTH_RATE
-        : state.width * 0.111111 + 2
-    }
+    return props.type === constants.PROGRESS_TYPE.LINE
+      ? constants.TEXT_XS + state.strokeWidth * constants.STROKE_WIDTH_RATE
+      : state.width * 0.111111 + 2
   }
 
 export const computedContent =

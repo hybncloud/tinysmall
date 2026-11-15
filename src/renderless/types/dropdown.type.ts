@@ -27,7 +27,6 @@ export interface IDropdownState {
   listId: string
   showIcon: boolean
   showSelfIcon: boolean
-  designConfig: IDropdownRenderlessParamUtils['designConfig']
   trigger: 'click' | 'hover'
   visibleIsBoolean: boolean
 }

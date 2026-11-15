@@ -80,13 +80,13 @@ export const handleItemClick =
   }
 
 export const computedTransform =
-  ({ carouselParent, TYPE_VERTICAL, mode, state }) =>
+  ({ carouselParent, TYPE_VERTICAL, state }) =>
   () => {
     const TRANSLATE =
       carouselParent.type === TYPE_VERTICAL
         ? `translateY(${state.translate + state.delta}px) scale(${state.scale})`
         : `translateX(${state.translate + state.delta}px) scale(${state.scale})`
-    const style = mode === 'mobile-first' ? { width: '100%', height: '100%' } : {}
+    const style = {}
 
     moveItemBack(carouselParent, state, TYPE_VERTICAL)
 

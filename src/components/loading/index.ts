@@ -27,7 +27,6 @@ export interface LoadingConfig {
   target?: HTMLElement | string
   size?: string
   loadingImg?: string
-  tiny_mode?: string
 }
 
 // 定义LoadingInstance接口

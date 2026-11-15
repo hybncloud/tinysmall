@@ -232,14 +232,14 @@ const initApi = ({ state, dispatch, broadcast, props, vm, constants, t, emit, ap
   setCheckedByNodeKey: setCheckedByNodeKey({ props, state })
 })
 
-const initWatcher = ({ watch, props, api, state, isVue2 }) => {
+const initWatcher = ({ watch, props, api, state }) => {
   watch(() => props.defaultCheckedKeys, api.watchDefaultCheckedKeys)
 
   watch(() => props.defaultExpandedKeys, api.watchDefaultExpandedKeys)
 
   watch(() => props.defaultExpandedKeysHighlight, api.initIsCurrent)
 
-  watch(() => props.data, api.watchData, { deep: !isVue2 })
+  watch(() => props.data, api.watchData, { deep: true })
 
   watch(() => props.checkboxItems, api.watchCheckboxItems)
 
@@ -268,7 +268,7 @@ export const renderless = (
   props,
   { computed, onMounted, onUpdated, reactive, watch, provide, onBeforeUnmount, inject },
   { vm, t, emit, constants, broadcast, dispatch, service, emitter, nextTick },
-  { isVue2 }
+  {}
 ) => {
   const api = {}
   const TreeAdapter = inject('TreeAdapter', null)
@@ -308,7 +308,7 @@ export const renderless = (
 
   api.created()
 
-  initWatcher({ watch, props, api, state, isVue2 })
+  initWatcher({ watch, props, api, state })
 
   onMounted(api.wrapMounted)
 
