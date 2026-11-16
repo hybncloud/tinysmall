@@ -153,8 +153,6 @@ export { emitEvent, getActualTarget, correctTarget } from './event'
 
 export { noop, callInterceptor } from './function'
 
-export { fastdom, fastdomAsync, fastdomSandbox } from './fastdom'
-
 export { NODE_KEY, getNodeKey, markNodeData, getChildState, Node, TreeStore } from './tree-model'
 
 export { debounce, debounceBoth } from './debounce'

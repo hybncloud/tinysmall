@@ -11,7 +11,6 @@ import { isEmptyObject } from '@tinysmall/utils'
 import { addResizeListener, removeResizeListener } from '@tinysmall/utils'
 import { extend } from '@tinysmall/utils'
 import { isNull } from '@tinysmall/utils'
-import { fastdom } from '@tinysmall/utils'
 import { deepClone } from '../picker-column'
 import { escapeRegexpString } from '../option'
 
@@ -598,13 +597,9 @@ export const resetInputHeight =
 
       if (!state.isDisplayOnly) {
         if (!noSelected && tags) {
-          fastdom.measure(() => {
-            const tagsClientHeight = tags.clientHeight
-
-            fastdom.mutate(() => {
-              input.style.height = Math.max(tagsClientHeight + spacingHeight, state.currentSizeMap) + 'px'
-            })
-          })
+          // 先读后写，避免布局抖动；单任务无需 rAF 批处理
+          const tagsClientHeight = tags.clientHeight
+          input.style.height = Math.max(tagsClientHeight + spacingHeight, state.currentSizeMap) + 'px'
         } else {
           input.style.height = noSelected ? state.currentSizeMap + 'px' : Math.max(0, state.currentSizeMap) + 'px'
         }
