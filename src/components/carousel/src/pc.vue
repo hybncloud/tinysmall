@@ -106,7 +106,6 @@ export default defineComponent({
     'showTitle',
     'loop',
     'disabled',
-    'swipeable',
     'lite',
     'beforeSwipe',
     'aspectRatio'

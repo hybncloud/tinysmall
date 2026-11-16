@@ -68,7 +68,6 @@ export default defineComponent({
       type: String,
       default: '16:2'
     },
-    swipeable: Boolean,
     lite: Boolean,
     beforeSwipe: Function
   },

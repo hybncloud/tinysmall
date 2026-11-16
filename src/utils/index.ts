@@ -195,10 +195,7 @@ export { calcScrollWidth } from './scroll-width'
 
 export { scrollIntoView } from './scroll-into-view'
 
-// 待改造成hooks
 export { getDirection, touchStart, touchMove, resetTouchStatus } from './touch'
-
-export { emulate } from './touch-emulator'
 
 export { uploadAjax } from './upload-ajax'
 

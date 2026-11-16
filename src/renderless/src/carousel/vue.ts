@@ -20,11 +20,7 @@ import {
   throttledArrowClick,
   throttledIndicatorHover,
   computedHasLabel,
-  touchstart,
-  touchmove,
-  touchend,
   computedStyle,
-  simulateTouch,
   computedHasButtons,
   computedHasIndicators,
   canActive
@@ -56,40 +52,16 @@ export const api = [
   'handleIndicatorHover',
   'throttledArrowClick',
   'throttledIndicatorHover',
-  'touchstart',
-  'touchmove',
-  'touchend'
 ]
 
 const initState = ({ reactive, computed, api }) => {
   const state = reactive({
-    itemsTranslate: [],
     items: [],
     timer: null,
     hover: false,
     activeIndex: -1,
     completed: false,
-    delta: 0,
     containerWidth: 0,
-    deltaPos: {
-      X: 0,
-      Y: 0
-    },
-    startPos: {
-      X: 0,
-      Y: 0
-    },
-    offsetPos: {
-      X: 0,
-      Y: 0
-    },
-    touchTime: 0,
-    size: 0,
-    direction: '',
-    moving: false,
-    isCorrectDirection: false,
-    moveDisable: false,
-    noTouchNode: ['svg', 'BUTTON', 'path', 'g'],
     style: computed(() => api.computedStyle()),
     hasLabel: computed(() => api.computedHasLabel(state.items)),
     hasButtons: computed(() => api.computedHasButtons()),
@@ -103,9 +75,6 @@ const initApi = ({ vm, api, state, props, emit }) => {
   Object.assign(api, {
     state,
     computedHasLabel,
-    touchend: touchend({ props, state, api }),
-    touchstart: touchstart({ props, state, api }),
-    touchmove: touchmove({ props, state, vm }),
     playSlides: playSlides({ api, props, state }),
     onComplete: onComplete({ api, count: 0, emit, props, state }),
     pauseTimer: pauseTimer(state),
@@ -127,7 +96,6 @@ const initApi = ({ vm, api, state, props, emit }) => {
     throttledIndicatorHover: throttledIndicatorHover(api),
     handleButtonEnter: handleButtonEnter({ api, state }),
     computedStyle: computedStyle({ props }),
-    simulateTouch: simulateTouch({ props, vm }),
     computedHasButtons: computedHasButtons({ props, state }),
     computedHasIndicators: computedHasIndicators({ props, state }),
     canActive: canActive(props)
@@ -166,7 +134,6 @@ export const renderless = (
   onMounted(() => {
     api.startTimer()
     api.onComplete(state.items.length)
-    api.simulateTouch()
   })
 
   // 监听子组件 CarouselItem 提交的 complete 事件
