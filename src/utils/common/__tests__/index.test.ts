@@ -3,11 +3,8 @@ import {
   KEY_CODE,
   POSITION,
   SORT,
-  REFRESH_INTERVAL,
-  IPTHRESHOLD,
   DATE,
   DATEPICKER,
-  BROWSER_NAME,
   MOUSEDELTA,
   VALIDATE_STATE,
   CASCADER
@@ -41,20 +38,6 @@ describe('通用常量工具测试', () => {
     })
   })
 
-  describe('REFRESH_INTERVAL', () => {
-    it('应该是正确的刷新间隔值', () => {
-      expect(REFRESH_INTERVAL).toBe(100)
-    })
-  })
-
-  describe('IPTHRESHOLD', () => {
-    it('应该包含正确的IP地址阈值常量', () => {
-      expect(IPTHRESHOLD.Min).toBe(0)
-      expect(IPTHRESHOLD.Max).toBe(255)
-      expect(IPTHRESHOLD.NonNumeric).toBe(25)
-    })
-  })
-
   describe('DATE', () => {
     it('应该包含正确的日期格式常量', () => {
       expect(DATE.Date).toBe('yyyy-MM-dd')
@@ -84,15 +67,6 @@ describe('通用常量工具测试', () => {
       expect(DATEPICKER.Weeks[0]).toBe('sun')
       expect(DATEPICKER.MonhtList).toHaveLength(12)
       expect(DATEPICKER.MonhtList[0]).toBe('jan')
-    })
-  })
-
-  describe('BROWSER_NAME', () => {
-    it('应该包含正确的浏览器名称常量', () => {
-      expect(BROWSER_NAME.Chrome).toBe('chrome')
-      expect(BROWSER_NAME.Firefox).toBe('firefox')
-      expect(BROWSER_NAME.Edge).toBe('edge')
-      expect(BROWSER_NAME.IE).toBe('ie')
     })
   })
 

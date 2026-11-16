@@ -124,18 +124,6 @@ export const POSITION: Record<string, string> = { Left: 'left', Right: 'right', 
 export const SORT: Record<string, string> = { Asc: 'asc', Desc: 'desc' }
 
 /**
- * 刷新间隔时间（毫秒）
- * @type {number}
- */
-export const REFRESH_INTERVAL = 100
-
-/**
- * IP地址输入阈值常量
- * @type {Record<string, number>}
- */
-export const IPTHRESHOLD: Record<string, number> = { Min: 0, Max: 255, NonNumeric: 25 }
-
-/**
  * 日期格式常量
  * @type {Record<string, string>}
  */
@@ -250,17 +238,6 @@ export const DATEPICKER: Record<string, any> = {
   MappingKeyCode: { 40: 1, 38: -1 },
   DatePicker: 'DatePicker',
   TimePicker: 'TimePicker'
-}
-
-/**
- * 浏览器名称常量
- * @type {Record<string, string>}
- */
-export const BROWSER_NAME: Record<string, string> = {
-  IE: 'ie',
-  Edge: 'edge',
-  Chrome: 'chrome',
-  Firefox: 'firefox'
 }
 
 /**
