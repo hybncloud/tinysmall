@@ -33,27 +33,6 @@ export default {
       empty: 'Nulo',
       nonEmpty: 'Não é nulo'
     },
-    queryBuilder: {
-      addItem: 'Adicionar regra',
-      addGroup: 'Adicionar grupo de regras',
-      removeGroup: 'Grupo de regras Del'
-    },
-    wizard: {
-      previousStep: 'Anterior',
-      nextStep: 'Próximo',
-      save: 'Salvar',
-      submit: 'Enviar'
-    },
-    linkMenu: {
-      title: 'Mensagens',
-      placeholder: 'Insira uma palavra-chave.',
-      sure: 'OK',
-      cancel: 'Cancelar'
-    },
-    todoList: {
-      add: 'Adicionar',
-      placeholder: 'Digite o conteúdo...'
-    },
     alert: {
       error: 'Erro',
       info: 'Informações',
@@ -82,45 +61,11 @@ export default {
     buttonGroup: {
       noData: 'Nenhum dado'
     },
-    buttonMessage: {
-      cancel: 'Cancelar',
-      confirm: 'Confirmar'
-    },
-    cell: {
-      placeholder: '--Selecionar--'
-    },
     cascader: {
       noMatch: 'Nenhuma correspondência',
       loading: 'Carregando',
       placeholder: '--Selecionar--',
       noData: 'Não há dados disponíveis.'
-    },
-    chart: {
-      auxiliary: 'Auxiliar',
-      emptyText: 'Sem dados',
-      kName: 'Linha K diária',
-      other: 'Outros',
-      summation: 'Somatório',
-      total: 'Total',
-      value: 'Valor'
-    },
-    colorSelectPanel: {
-      confirm: 'Selecionar',
-      cancel: 'Cancelar',
-      predefine: 'Cores padrão',
-      history: 'Cores recentes',
-      empty: 'Nenhum'
-    },
-    crop: {
-      choose: 'Selecionar imagem',
-      zoomOut: 'Redução de 10%',
-      zoomIn: 'Aumentar o zoom em 10%',
-      rotate_45: 'girar -45°',
-      rotate45: 'girar 45°',
-      closeCropArea: 'ocultar seleção',
-      reset: 'redefinir',
-      closeCrop: 'Sair do corte',
-      cropImage: 'Seleção de uma região'
     },
     datepicker: {
       clear: 'Limpar',
@@ -184,39 +129,6 @@ export default {
       to: '-',
       yearMonth: '{month} {year}',
       yearMonthDay: '{day}/{month}/{year}'
-    },
-    richTextEditor: {
-      bold: 'Negrito',
-      italic: 'Itálico',
-      link: 'Vincular',
-      unlink: 'Desvincular',
-      highlight: 'Destacar',
-      underline: 'Sublinhado',
-      strike: 'Tachado',
-      subscript: 'Subscrito',
-      superscript: 'Sobrescrito',
-      code: 'Codificação',
-      unorderedlist: 'Listas com marcadores',
-      orderedlist: 'Listas numeradas',
-      taskList: 'Listas de vários níveis',
-      quote: 'Referência',
-      codeBlock: 'Bloco de código',
-      formatClear: 'Limpar formatação',
-      nodeDelete: 'Excluir nó',
-      undo: 'Desfazer',
-      redo: 'Refazer',
-      left: 'Alinhado à esquerda',
-      center: 'Centralizado',
-      right: 'Alinhado à direita',
-      fontSize: 'Tamanho da fonte',
-      lineHeight: 'Espaçamento entre linhas',
-      hBox: 'Cabeçalhos',
-      img: 'Imagem',
-      color: 'Cor do texto',
-      table: 'Tabela',
-      backgroundColor: 'Cor de fundo',
-      localResources: 'Carregar arquivo local',
-      resourceLink: 'Link anterior'
     },
     calendar: {
       showType: {
@@ -322,14 +234,6 @@ export default {
       hide: 'Ocultar barra lateral',
       show: 'Mostrar barra lateral'
     },
-    navMenu: {
-      moreText: 'Mais',
-      navigation: 'Navegação',
-      mainMenu: 'Menu principal',
-      subMenu: 'Submenu',
-      expand: 'Expandir menu',
-      collapse: 'Recolher menu'
-    },
     page: {
       goto: 'Ir para',
       item: 'itens',
@@ -397,25 +301,11 @@ export default {
     search: {
       placeholder: 'Pesquisar'
     },
-    signature: {
-      confirm: 'Concluído',
-      rewrite: 'Assinar novamente',
-      cancel: 'Cancelar',
-      tips: 'Assinatura manuscrita necessária.',
-      resign: 'Assinar novamente',
-      placeholder: 'Assine aqui (obrigatório).'
-    },
     tabs: {
       moreItem: 'Mais'
     },
     tag: {
       add: 'Adicionar'
-    },
-    toggleMenu: {
-      placeholder: 'Insira uma palavra-chave.'
-    },
-    treeMenu: {
-      placeholder: 'Insira uma palavra-chave.'
     },
     transfer: {
       filterPlaceholder: 'Insira uma palavra-chave.',
@@ -437,111 +327,13 @@ export default {
       deleteTip2: 'Este nó possui nós dependentes. Manter os nós dependentes?',
       deleteTip3: 'Manter nós dependentes'
     },
-    usercard: {
-      address: 'Endereço',
-      collapse: 'Mostrar menos',
-      email: 'E-mail',
-      empno: 'ID de funcionário',
-      expand: 'Mostrar mais',
-      fax: 'Fax',
-      internal: 'Extensão',
-      manager: 'Supervisor',
-      mobile: 'Celular',
-      other: 'Informações adicionais',
-      phone: 'Telefone fixo',
-      timezone: 'Fuso horário',
-      travelcode: 'Mensagem de ausência para viagem de negócios',
-      viop: 'VIOP'
-    },
-    richText: {
-      bold: 'Negrito',
-      italic: 'Inclinar',
-      underline: 'Sublinhado',
-      header: 'Formato de parágrafo',
-      strike: 'Excluir linha',
-      blockquote: 'Referência de bloco',
-      codeBlock: 'Inserir segmento de código',
-      size: 'Tamanho da fonte',
-      listOrdered: 'Não. Lista',
-      listBullet: 'Lista de projetos',
-      listCheck: 'Lista de verificação',
-      header1: 'H1',
-      header2: 'H2',
-      align: 'Modo de alinhamento',
-      color: 'Cor da fonte',
-      background: 'Cor de fundo',
-      image: 'Imagem',
-      video: 'Vídeo',
-      link: 'Adicionar link',
-      formula: 'Inserir função',
-      clean: 'Limpar formato',
-      indent1: 'Recuo para a esquerda',
-      indent2: 'Recuo para a direita',
-      pickerLabel: 'Tamanho do título',
-      headerPicker1: 'Título 1',
-      headerPicker2: 'Título 2',
-      headerPicker3: 'Título 3',
-      headerPicker4: 'Título 4',
-      headerPicker5: 'Título 5',
-      headerPicker6: 'Título 6',
-      normal: 'Normal',
-      sizeSmall: 'Pequeno',
-      sizeLarge: 'Grande',
-      sizeHuge: 'Tamanho supergrande',
-      alignPicker1: 'Alinhe-se à esquerda',
-      alignPicker2: 'Alinhar no centro',
-      alignPicker3: 'Alinhar-se à direita',
-      alignPicker4: 'Alinhar as duas extremidades',
-      subScript: 'Subscrito',
-      superScript: 'Sobrescrito',
-      directionRTL: 'Da direita para a esquerda',
-      font: 'Fonte',
-      file: 'Arquivo',
-      betterTable: 'Tabela',
-      fullscreen: 'Tela cheia',
-      insertColumnRight: 'Inserir coluna à direita',
-      insertColumnLeft: 'Inserir coluna à esquerda',
-      insertRowUp: 'Inserir Linha para Cima',
-      insertRowDown: 'Inserir linha para baixo',
-      mergeCells: 'Mesclar células',
-      unmergeCells: 'Dividir células',
-      deleteColumn: 'Excluir coluna atual',
-      deleteRow: 'Excluir linha atual',
-      deleteTable: 'Excluir tabela',
-      colorPicker: 'Cor de fundo',
-      placeholder: 'Inserir texto aqui...',
-      maxLength: 'O comprimento do texto excede o limite, o comprimento máximo config é ',
-      visitUrl: 'Visitar URL',
-      edit: 'Editar',
-      remove: 'Remover',
-      save: 'Salvar',
-      enterLink: 'Digite o endereço do link',
-      enterFormula: 'Digite a fórmula',
-      enterVideo: 'Digite o endereço do vídeo'
-    },
     steps: {
       done: 'Completo',
       doing: 'Em andamento',
       wait: 'Pendente'
     },
-    actionSheet: {
-      cancel: 'Cancelar'
-    },
     image: {
       loadFail: 'Falha no carregamento.'
-    },
-    miniPicker: {
-      cancel: 'Cancelar',
-      confirm: 'OK'
-    },
-    pullRefresh: {
-      pullingDown: 'Puxe para baixo para atualizar.',
-      pullingUp: 'Puxe para cima para atualizar.',
-      pulling: 'Puxe para baixo para atualizar.',
-      loosing: 'Suelte para actualizar.',
-      success: 'Atualizado.',
-      failed: 'Falha na atualização.',
-      noMore: 'Nenhum outro dado.'
     },
     calendarBar: {
       week: {
@@ -611,24 +403,6 @@ export default {
       dateFormat: 'yyyy-MM-dd',
       monthFormat: 'yyyy-MM'
     },
-    selectedBox: {
-      select: 'Selecionado (%s)',
-      allSelect: 'Todos selecionados (%s)',
-      clear: 'Limpar',
-      noData: 'Nenhum dado'
-    },
-    record: {
-      record: 'Gravando',
-      cancel: 'Cancelar',
-      confirm: 'OK',
-      clickToStartRecording: 'Clique para gravar.',
-      clickToResumeRecording: 'Clique para continuar a gravação.'
-    },
-    loadList: {
-      errorText: 'Algo deu errado.',
-      loadingText: 'Carregando...',
-      finishedText: 'Não há mais'
-    }
   },
   validation: {
     array: {

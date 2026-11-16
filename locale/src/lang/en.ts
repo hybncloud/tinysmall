@@ -33,27 +33,6 @@ export default {
       empty: 'Null',
       nonEmpty: 'Not null'
     },
-    queryBuilder: {
-      addItem: 'Add Rule',
-      addGroup: 'Add Rule Group',
-      removeGroup: 'Del Rule Group'
-    },
-    wizard: {
-      previousStep: 'Previous',
-      nextStep: 'Next',
-      save: 'Save',
-      submit: 'Submit'
-    },
-    linkMenu: {
-      title: 'Messages',
-      placeholder: 'Enter a keyword.',
-      sure: 'OK',
-      cancel: 'Cancel'
-    },
-    todoList: {
-      add: 'Add',
-      placeholder: 'Please enter content...'
-    },
     alert: {
       error: 'Error',
       info: 'Information',
@@ -82,45 +61,11 @@ export default {
     buttonGroup: {
       noData: 'No data'
     },
-    buttonMessage: {
-      cancel: 'Cancel',
-      confirm: 'Confirm'
-    },
-    cell: {
-      placeholder: '--Select--'
-    },
     cascader: {
       noMatch: 'No matches.',
       loading: 'Loading',
       placeholder: '--Select--',
       noData: 'No data available.'
-    },
-    chart: {
-      auxiliary: 'Auxiliary',
-      emptyText: 'No Data',
-      kName: 'Daily K-line',
-      other: 'Other',
-      summation: 'Summation',
-      total: 'Total',
-      value: 'Value'
-    },
-    colorSelectPanel: {
-      confirm: 'Select',
-      cancel: 'Cancel',
-      predefine: 'Default Colors',
-      history: 'Recent Colors',
-      empty: 'None'
-    },
-    crop: {
-      choose: 'Select Picture',
-      zoomOut: 'Reduced by 10%',
-      zoomIn: 'Zoom in by 10%',
-      rotate_45: 'rotate -45°',
-      rotate45: 'rotate 45°',
-      closeCropArea: 'hide selection',
-      reset: 'reset',
-      closeCrop: 'Exit cropping',
-      cropImage: 'Selecting a Region'
     },
     datepicker: {
       clear: 'Clear',
@@ -184,39 +129,6 @@ export default {
       to: '-',
       yearMonth: '{month} {year}',
       yearMonthDay: '{month} {day}, {year}'
-    },
-    richTextEditor: {
-      bold: 'bold',
-      italic: 'Italic',
-      link: 'Link',
-      unlink: 'Unlink',
-      highlight: 'Highlight',
-      underline: 'Underline',
-      strike: 'Strikethrough',
-      subscript: 'Subscript',
-      superscript: 'Superscript',
-      code: 'Coding',
-      unorderedlist: 'Bullet Lists',
-      orderedlist: 'Numbered Lists',
-      taskList: 'Multi-level Lists',
-      quote: 'Reference',
-      codeBlock: 'Code Block',
-      formatClear: 'Clear Formatting',
-      nodeDelete: 'Delete Node',
-      undo: 'Undo',
-      redo: 'Redo',
-      left: 'Left-Aligned',
-      center: 'Centered',
-      right: 'Right-Aligned',
-      fontSize: 'Font Size',
-      lineHeight: 'Line Spacing',
-      hBox: 'Headings',
-      img: 'Picture',
-      color: 'Text Color',
-      table: 'Table',
-      backgroundColor: 'Background Color',
-      localResources: 'Upload Local File',
-      resourceLink: 'Past Link'
     },
     calendar: {
       showType: {
@@ -321,14 +233,6 @@ export default {
       hide: 'Hide Sidebar',
       show: 'Show Sidebar'
     },
-    navMenu: {
-      moreText: 'More',
-      navigation: 'Navigation',
-      mainMenu: 'Main menu',
-      subMenu: 'Sub menu',
-      expand: 'Expand menu',
-      collapse: 'Collapse menu'
-    },
     page: {
       goto: 'Go to',
       item: 'items',
@@ -396,25 +300,11 @@ export default {
     search: {
       placeholder: 'Search'
     },
-    signature: {
-      confirm: 'Done',
-      rewrite: 'Re-sign',
-      cancel: 'Cancel',
-      tips: 'Handwritten signature required.',
-      resign: 'Re-sign',
-      placeholder: 'Please sign here (mandatory).'
-    },
     tabs: {
       moreItem: 'More'
     },
     tag: {
       add: 'Add'
-    },
-    toggleMenu: {
-      placeholder: 'Enter a keyword.'
-    },
-    treeMenu: {
-      placeholder: 'Enter a keyword.'
     },
     transfer: {
       filterPlaceholder: 'Enter a keyword.',
@@ -436,111 +326,13 @@ export default {
       deleteTip2: 'This node has child nodes. Retain them?',
       deleteTip3: 'Retain child nodes'
     },
-    usercard: {
-      address: 'Address',
-      collapse: 'Show less',
-      email: 'Email',
-      empno: 'Employee ID',
-      expand: 'Show more',
-      fax: 'Fax',
-      internal: 'Extension',
-      manager: 'Supervisor',
-      mobile: 'Mobile',
-      other: 'Additional Info',
-      phone: 'Landline',
-      timezone: 'Time Zone',
-      travelcode: 'Out-of-Office Message for a Business Trip',
-      viop: 'VIOP'
-    },
-    richText: {
-      bold: 'Bold',
-      italic: 'Tilt',
-      underline: 'Underline',
-      header: 'Paragraph Format',
-      strike: 'Delete Line',
-      blockquote: 'Block Reference',
-      codeBlock: 'Insert Code Segment',
-      size: 'Font Size',
-      listOrdered: 'No. List',
-      listBullet: 'Project List',
-      listCheck: 'Checklist',
-      header1: 'H1',
-      header2: 'H2',
-      align: 'Alignment Mode',
-      color: 'Font Color',
-      background: 'Background Color',
-      image: 'Image',
-      video: 'Video',
-      link: 'Add Link',
-      formula: 'Insert Function',
-      clean: 'Clear Format',
-      indent1: 'Indent To The Left',
-      indent2: 'Indent To The Right',
-      pickerLabel: 'Title Size',
-      headerPicker1: 'Title 1',
-      headerPicker2: 'Title 2',
-      headerPicker3: 'Title 3',
-      headerPicker4: 'Title 4',
-      headerPicker5: 'Title 5',
-      headerPicker6: 'Title 6',
-      normal: 'Normal',
-      sizeSmall: 'Small',
-      sizeLarge: 'Large',
-      sizeHuge: 'Super Large Size',
-      alignPicker1: 'Align To The Left',
-      alignPicker2: 'Align In The Center',
-      alignPicker3: 'Align To The Right',
-      alignPicker4: 'Align The Two Ends',
-      subScript: 'Subscript',
-      superScript: 'Superscript',
-      directionRTL: 'Right To Left',
-      font: 'Font',
-      file: 'File',
-      betterTable: 'Table',
-      fullscreen: 'Fullscreen',
-      insertColumnRight: 'Insert Column Right',
-      insertColumnLeft: 'Insert Column Left',
-      insertRowUp: 'Insert Row Up',
-      insertRowDown: 'Insert Row Down',
-      mergeCells: 'Merge Cells',
-      unmergeCells: 'Split Cells',
-      deleteColumn: 'Delete Current Column',
-      deleteRow: 'Delete Current Row',
-      deleteTable: 'Delete Table',
-      colorPicker: 'Background Color',
-      placeholder: 'Insert text here...',
-      maxLength: 'Text Length exceeds the Limit, max Length config is ',
-      visitUrl: 'Visit URL',
-      edit: 'Edit',
-      remove: 'Remove',
-      save: 'Save',
-      enterLink: 'Enter link',
-      enterFormula: 'Enter formula',
-      enterVideo: 'Enter video'
-    },
     steps: {
       done: 'Completed',
       doing: 'In Progress',
       wait: 'Pending'
     },
-    actionSheet: {
-      cancel: 'Cancel'
-    },
     image: {
       loadFail: 'Loading failed.'
-    },
-    miniPicker: {
-      cancel: 'Cancel',
-      confirm: 'OK'
-    },
-    pullRefresh: {
-      pullingDown: 'Pull down to refresh.',
-      pullingUp: 'Pull up to refresh.',
-      pulling: 'Pull down to refresh.',
-      loosing: 'Release to refresh.',
-      success: 'Refreshed.',
-      failed: 'Refresh failed.',
-      noMore: 'No more data.'
     },
     calendarBar: {
       week: {
@@ -610,24 +402,6 @@ export default {
       dateFormat: 'yyyy-MM-dd',
       monthFormat: 'yyyy-MM'
     },
-    selectedBox: {
-      select: 'Selected (%s)',
-      allSelect: 'All Selected (%s)',
-      clear: 'Clear',
-      noData: 'No data'
-    },
-    record: {
-      record: 'Recording',
-      cancel: 'Cancel',
-      confirm: 'OK',
-      clickToStartRecording: 'Click to record.',
-      clickToResumeRecording: 'Click to continue recording.'
-    },
-    loadList: {
-      errorText: 'Something went wrong.',
-      loadingText: 'Loading...',
-      finishedText: "There's no more."
-    }
   },
   validation: {
     array: {

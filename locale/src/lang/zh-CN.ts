@@ -33,27 +33,6 @@ export default {
       empty: '为空',
       nonEmpty: '不为空'
     },
-    queryBuilder: {
-      addItem: '新增条件',
-      addGroup: '新增子条件组',
-      removeGroup: '移除条件组'
-    },
-    wizard: {
-      previousStep: '上一步',
-      nextStep: '下一步',
-      save: '保存',
-      submit: '提交'
-    },
-    linkMenu: {
-      title: '消息',
-      placeholder: '请输入关键字过滤...',
-      sure: '确定',
-      cancel: '取消'
-    },
-    todoList: {
-      add: '提交',
-      placeholder: '请输入内容...'
-    },
     alert: {
       error: '错误',
       info: '消息',
@@ -82,45 +61,11 @@ export default {
     buttonGroup: {
       noData: '暂无数据'
     },
-    buttonMessage: {
-      cancel: '取消',
-      confirm: '确定'
-    },
-    cell: {
-      placeholder: '请选择'
-    },
     cascader: {
       noMatch: '无匹配数据',
       loading: '加载中',
       placeholder: '请选择',
       noData: '暂无数据'
-    },
-    chart: {
-      auxiliary: '辅助',
-      emptyText: '暂无数据',
-      kName: '日K',
-      other: '其他',
-      summation: '总量',
-      total: '总计',
-      value: '数值'
-    },
-    colorSelectPanel: {
-      confirm: '确定',
-      cancel: '取消',
-      predefine: '预定义颜色',
-      history: '历史记录',
-      empty: '暂无'
-    },
-    crop: {
-      choose: '选择图片',
-      zoomOut: '缩小10%',
-      zoomIn: '放大10%',
-      rotate_45: '逆时针旋转45°',
-      rotate45: '顺时针旋转45°',
-      closeCropArea: '隐藏选区',
-      reset: '重置视图',
-      closeCrop: '退出裁剪',
-      cropImage: '选择区域'
     },
     datepicker: {
       clear: '清空',
@@ -184,39 +129,6 @@ export default {
       to: '至',
       yearMonth: '{year}年{month}月',
       yearMonthDay: '{year}年{month}月{day}日'
-    },
-    richTextEditor: {
-      bold: '加粗',
-      italic: '斜体',
-      link: '链接',
-      unlink: '移除链接',
-      highlight: '高亮',
-      underline: '下划线',
-      strike: '中划线',
-      subscript: '下标',
-      superscript: '上标',
-      code: '代码',
-      unorderedlist: '无序列表',
-      orderedlist: '有序列表',
-      taskList: '任务列表',
-      quote: '引用',
-      codeBlock: '代码块',
-      formatClear: '清除标记',
-      nodeDelete: '删除节点',
-      undo: '回退',
-      redo: '前进',
-      left: '左对齐',
-      center: '居中',
-      right: '右对齐',
-      fontSize: '字号',
-      lineHeight: '行高',
-      hBox: '段落标题',
-      img: '图片',
-      color: '颜色',
-      table: '表格',
-      backgroundColor: '文字背景色',
-      localResources: '本地资源',
-      resourceLink: '资源链接'
     },
     calendar: {
       showType: {
@@ -320,14 +232,6 @@ export default {
       hide: '隐藏侧边栏',
       show: '显示侧边栏'
     },
-    navMenu: {
-      moreText: '更多',
-      navigation: '导航',
-      mainMenu: '主菜单',
-      subMenu: '子菜单',
-      expand: '展开菜单',
-      collapse: '收起菜单'
-    },
     page: {
       goto: '前往',
       item: '条',
@@ -395,25 +299,11 @@ export default {
     search: {
       placeholder: '搜索'
     },
-    signature: {
-      confirm: '确认',
-      rewrite: '重写',
-      cancel: '取消',
-      tips: '请手写签名',
-      resign: '重新签名',
-      placeholder: '请在此签名（必填）'
-    },
     tabs: {
       moreItem: '更多'
     },
     tag: {
       add: '添加'
-    },
-    toggleMenu: {
-      placeholder: '请输入内容进行筛选'
-    },
-    treeMenu: {
-      placeholder: '输入关键字搜索'
     },
     transfer: {
       filterPlaceholder: '请输入搜索内容',
@@ -435,111 +325,13 @@ export default {
       deleteTip2: '该节点存在下级节点，是否保留下级节点数据？',
       deleteTip3: '保留下级节点数据'
     },
-    usercard: {
-      address: '地址',
-      collapse: '收起',
-      email: '邮箱',
-      empno: '工号',
-      expand: '展开',
-      fax: '传真',
-      internal: '内线',
-      manager: '主管',
-      mobile: '手机',
-      other: '其他',
-      phone: '固定电话',
-      timezone: '时区',
-      travelcode: '出差联系信息',
-      viop: 'VIOP'
-    },
-    richText: {
-      bold: '加粗',
-      italic: '倾斜',
-      underline: '下划线',
-      header: '段落格式',
-      strike: '删除线',
-      blockquote: '块引用',
-      codeBlock: '插入代码段',
-      size: '字体大小',
-      listOrdered: '编号列表',
-      listBullet: '项目列表',
-      listCheck: '可勾选',
-      header1: 'h1',
-      header2: 'h2',
-      align: '对齐方式',
-      color: '字体颜色',
-      background: '背景颜色',
-      image: '图像',
-      video: '视频',
-      link: '添加链接',
-      formula: '插入公式',
-      clean: '清除格式',
-      indent1: '向左缩进',
-      indent2: '向右缩进',
-      pickerLabel: '标题大小',
-      headerPicker1: '标题一',
-      headerPicker2: '标题二',
-      headerPicker3: '标题三',
-      headerPicker4: '标题四',
-      headerPicker5: '标题五',
-      headerPicker6: '标题六',
-      normal: '标准',
-      sizeSmall: '小号',
-      sizeLarge: '大号',
-      sizeHuge: '超大号',
-      alignPicker1: '居左对齐',
-      alignPicker2: '居中对齐',
-      alignPicker3: '居右对齐',
-      alignPicker4: '两端对齐',
-      subScript: '下标',
-      superScript: '上标',
-      directionRTL: '从右到左',
-      font: '字体',
-      file: '文件',
-      betterTable: '表格',
-      fullscreen: '全屏',
-      insertColumnRight: '右插入列',
-      insertColumnLeft: '左插入列',
-      insertRowUp: '上插入行',
-      insertRowDown: '下插入行',
-      mergeCells: '合并单元格',
-      unmergeCells: '拆分单元格',
-      deleteColumn: '删除当前列',
-      deleteRow: '删除当前行',
-      deleteTable: '删除表格',
-      colorPicker: '背景颜色',
-      placeholder: '在此处插入文本...',
-      maxLength: '文本长度超过限制，支持的最大长度是 ',
-      visitUrl: '访问链接',
-      edit: '编辑',
-      remove: '移除',
-      save: '保存',
-      enterLink: '输入链接地址',
-      enterFormula: '输入公式',
-      enterVideo: '输入视频地址'
-    },
     steps: {
       done: '已完成',
       doing: '进行中',
       wait: '等待中'
     },
-    actionSheet: {
-      cancel: '取消'
-    },
     image: {
       loadFail: '加载失败'
-    },
-    miniPicker: {
-      cancel: '取消',
-      confirm: '确定'
-    },
-    pullRefresh: {
-      pullingDown: '下拉即可刷新',
-      pullingUp: '上拉即可刷新',
-      pulling: '下拉即可刷新',
-      loosing: '释放即可刷新',
-      success: '刷新成功',
-      failed: '刷新失败',
-      noMore: '没有更多了'
     },
     calendarBar: {
       week: { 0: '日', 1: '一', 2: '二', 3: '三', 4: '四', 5: '五', 6: '六' },
@@ -585,24 +377,6 @@ export default {
       dateFormat: 'yyyy 年 MM 月 dd 日',
       monthFormat: 'yyyy 年 MM 月'
     },
-    selectedBox: {
-      select: '已选（%s）',
-      allSelect: '已全选（%s）',
-      clear: '清空',
-      noData: '暂无数据'
-    },
-    record: {
-      record: '录音',
-      cancel: '取消',
-      confirm: '确定',
-      clickToStartRecording: '点击开始录音',
-      clickToResumeRecording: '点击继续录音'
-    },
-    loadList: {
-      errorText: '出错了',
-      loadingText: '加载中...',
-      finishedText: '没有更多了'
-    }
   },
   validation: {
     array: {
