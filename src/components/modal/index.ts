@@ -10,7 +10,7 @@
  *
  */
 
-import { createComponent, setupComponent } from '@tinysmall/common'
+import { createComponent } from '@tinysmall/common'
 import { MsgQueue } from '@tinysmall/renderless/modal'
 import TinyModal from './src/index'
 import Popconfirm from '@tinysmall/popconfirm'
@@ -50,14 +50,6 @@ export interface TinyModalInstance {
   message: (message: string | ModalOptions, title?: string, options?: ModalOptions) => ModalPromise
   popconfirm: (message: string | ModalOptions, title?: string, options?: ModalOptions) => ModalPromise
   install: (Vue: any) => void
-}
-
-// 定义setupComponent接口
-interface SetupComponent {
-  TinyModal: {
-    install: (Vue: any) => void
-    init: (root: any) => void
-  }
 }
 
 // 扩展TinyModal类型
@@ -166,22 +158,6 @@ export const alert = (Modal as any).alert
 export const message = (Modal as any).message
 export const confirm = (Modal as any).confirm
 export const popconfirm = (Modal as any).popconfirm
-
-TinyModalComponent.installed = false
-;(setupComponent as SetupComponent).TinyModal = {
-  install(Vue: any) {
-    if (TinyModalComponent.installed) return
-    TinyModalComponent.installed = true
-  },
-  init(root: any) {
-    let prefix = root.$TinyModalApiPrefix || root.$apiPrefix || '$'
-
-    root[`${prefix}alert`] = (Modal as any).alert
-    root[`${prefix}message`] = (Modal as any).message
-    root[`${prefix}confirm`] = (Modal as any).confirm
-    root[`${prefix}popconfirm`] = (Modal as any).popconfirm
-  }
-}
 
 TinyModalComponent.install = function (Vue: any) {
   Vue.component(TinyModalComponent.name, TinyModalComponent)

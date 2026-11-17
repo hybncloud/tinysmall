@@ -12,13 +12,11 @@
 import * as hooks from 'vue'
 
 import { camelize, capitalize, hyphenate } from '@tinysmall/utils'
-import { bindFilter, emitter, getElementCssClass, getElementStatusClass } from '../utils'
+import { emitter } from '../utils'
 
 const Teleport = hooks.Teleport
 
-export { emitter, bindFilter, getElementCssClass, getElementStatusClass, Teleport }
-
-export const defineAsyncComponent = hooks.defineAsyncComponent
+export { Teleport }
 
 export const markRaw = hooks.markRaw
 
@@ -30,28 +28,6 @@ export const renderComponent = ({
   extend = {}
 }) => {
   return () => hooks.h(hooks.unref(view) || component, { ref: 'modeTemplate', ...props, ...attrs, ...extend }, slots)
-}
-
-export const rootConfig = (context) => {
-  const instance = hooks.getCurrentInstance()
-  context && setInstanceEmitter(instance)
-  return instance?.appContext.config.globalProperties
-}
-
-export const getCustomProps = () => {
-  const instance = hooks.getCurrentInstance()
-  return instance?.vnode?.props || {}
-}
-
-export const getComponentName = () => {
-  // 此处组件最多为两层组件，所以对多获取到父级组件即可
-  const instance = hooks.getCurrentInstance()
-  let componentName = instance?.type?.name
-  if (!componentName) {
-    componentName = instance?.parent?.type?.name
-  }
-
-  return componentName || ''
 }
 
 export const appContext = () =>
@@ -66,7 +42,7 @@ export const appProperties = () => {
   return instance?.appContext.config.globalProperties || {}
 }
 
-export const useRouter = (instance = hooks.getCurrentInstance()) => {
+const useRouter = (instance = hooks.getCurrentInstance()) => {
   const router = instance?.appContext.config.globalProperties.$router
   const route = router && router.currentRoute.value
 
@@ -490,17 +466,9 @@ export const defineComponent = hooks.defineComponent
 
 export default hooks
 
-export const isVnode = hooks.isVNode
-
-export const KeepAlive = hooks.KeepAlive
-
 export type {
   PropType,
-  ExtractPropTypes,
-  DefineComponent,
   ComponentPublicInstance,
-  SetupContext,
-  ComputedRef,
   App,
   VNode
 } from 'vue'

@@ -143,7 +143,6 @@ export const inputProps = {
 
 export default defineComponent({
   name: $prefix + 'Input',
-  inheritAttrs: false,
   props: inputProps,
   setup(props, context) {
     return $setup({ props, context, template })

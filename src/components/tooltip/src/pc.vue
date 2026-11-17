@@ -22,10 +22,9 @@ import {
   defineComponent,
   $props,
   isEmptyVnode,
-  hooks,
-  stringifyCssClass,
-  deduplicateCssClass
+  hooks
 } from '@tinysmall/common'
+import { normalizeClass } from 'vue'
 import type { ITinyVm } from '@tinysmall/renderless/types/shared.type'
 import '@tinysmall/theme/tooltip/index.less'
 import type { ITooltipApi } from '@tinysmall/renderless/types/tooltip.type'
@@ -250,7 +249,7 @@ export default defineComponent({
 
     const data = firstElement.data || firstElement.props || (firstElement.props = {})
 
-    data.class = deduplicateCssClass('tiny-tooltip ' + stringifyCssClass(data.class))
+    data.class = normalizeClass(['tiny-tooltip', data.class])
 
     return firstElement
   }

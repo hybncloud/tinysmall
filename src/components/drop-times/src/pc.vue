@@ -18,7 +18,6 @@
     @change="change"
     :popper-class="'tiny-drop-times' + (popperClass ? ' ' + popperClass : '')"
     :popper-append-to-body="popperAppendToBody"
-    v-bind="a($attrs, ['^on[A-Z]'])"
     @clear="$emit('clear')"
     @visible-change="$emit('visible-change', $event)"
   >

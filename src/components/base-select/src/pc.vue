@@ -37,7 +37,6 @@
     @mouseenter.self="onMouseenterSelf"
     @click="toggleMenu"
     v-clickoutside="handleClose"
-    v-bind="a($attrs, ['class', 'style'], true)"
   >
     <!-- tiny新增：title 简化处理 -->
     <div
@@ -599,7 +598,6 @@ const getReference = (el, binding, vnode) => {
 }
 
 export default defineComponent({
-  inheritAttrs: false,
   emits: [
     'update:modelValue',
     'change',

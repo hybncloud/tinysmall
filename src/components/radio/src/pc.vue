@@ -28,7 +28,6 @@
     :aria-label="text || label ? null : text || label"
     tabindex="-1"
     @keydown.space.stop.prevent="state.model = state.isDisabled ? state.model : label"
-    v-bind="a($attrs, ['class', 'style'], true)"
   >
     <span
       class="tiny-radio__input"

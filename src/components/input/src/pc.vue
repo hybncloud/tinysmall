@@ -11,7 +11,6 @@
  -->
 <template>
   <div
-    v-bind="a($attrs, ['class', 'role', 'aria-haspopup', 'aria-autocomplete', 'aria-owns', 'aria-controls'])"
     :class="[
       $attrs.class,
       type === 'textarea' ? 'tiny-textarea' : 'tiny-input',
@@ -74,7 +73,7 @@
           ref="input"
           :name="name"
           data-tag="tiny-input-inner"
-          v-bind="a($attrs, ['type', 'class', 'style', '^on[A-Z]', 'id', 'aria-required', 'aria-invalid'])"
+          v-bind="filterAttrs($attrs, ['type', 'class', 'style', '^on[A-Z]', 'id', 'aria-required', 'aria-invalid'])"
           :class="['tiny-input__inner', mask && state.inputDisabled && !state.maskValueVisible && 'tiny-input__mask']"
           :tabindex="tabindex"
           :type="showPassword ? (state.passwordVisible ? 'text' : 'password') : type"
@@ -220,7 +219,7 @@
       </tiny-dialog-box>
       <textarea
         ref="textarea"
-        v-bind="a($attrs, ['type', 'class', 'style', 'id', 'aria-required', 'aria-invalid'])"
+        v-bind="filterAttrs($attrs, ['type', 'class', 'style', 'id', 'aria-required', 'aria-invalid'])"
         :tabindex="tabindex"
         class="tiny-textarea__inner"
         :class="hoverExpand && !state.enteredTextarea && 'tiny-textarea__fix-height'"
@@ -281,7 +280,6 @@ import '@tinysmall/theme/input/index.less'
 import '@tinysmall/theme/textarea/index.less'
 
 export default defineComponent({
-  inheritAttrs: false, // 勿删，兼容灵雀特殊场景,MR#1861
   emits: [
     'update:modelValue',
     'change',
@@ -344,7 +342,17 @@ export default defineComponent({
     'inputBoxType'
   ],
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    const filterAttrs = (attrs, filters, include = false) => {
+      const result = {}
+      for (const name in attrs) {
+        const find = filters.some((filter) => new RegExp(filter).test(name))
+        if ((include && find) || (!include && !find)) {
+          result[name] = attrs[name]
+        }
+      }
+      return result
+    }
+    return { ...setup({ props, context, renderless, api }), filterAttrs }
   }
 })
 </script>

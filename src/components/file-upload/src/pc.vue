@@ -47,7 +47,6 @@ const TinyIconPlus = iconPlus()
 const TinyIconHelpCircle = iconHelpCircle()
 
 export default defineComponent({
-  inheritAttrs: false,
   props: [
     ...props,
     'edm',
@@ -517,10 +516,8 @@ export default defineComponent({
       })
     }
 
-    const attrs = a($attrs, ['^on[A-Z]'])
-
     return (
-      <div class="tiny-file-upload" role="group" aria-label={title} {...attrs}>
+      <div class="tiny-file-upload" role="group" aria-label={title}>
         {notice}
         {isPictureCard ? uploadList : ''}
         {slots.trigger ? [uploadComponent, defaultSlot] : uploadComponent}

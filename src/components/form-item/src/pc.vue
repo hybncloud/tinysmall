@@ -17,10 +17,9 @@ import {
   parseVnode,
   h,
   defineComponent,
-  hooks,
-  stringifyCssClass,
-  deduplicateCssClass
+  hooks
 } from '@tinysmall/common'
+import { normalizeClass } from 'vue'
 import { renderless, api } from '@tinysmall/renderless/form-item/vue'
 import LabelWrap from './label-wrap'
 import Tooltip from '@tinysmall/tooltip'
@@ -230,8 +229,7 @@ export default defineComponent({
             item.props = {}
           }
           data = item.props
-          const mergeClass = `tiny-tooltip ${stringifyCssClass(data.class)}`
-          data.class = deduplicateCssClass(mergeClass)
+          data.class = normalizeClass(['tiny-tooltip', data.class])
           return item
         })
       : null

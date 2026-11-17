@@ -22,7 +22,7 @@
       :tabindex="tabindex"
       :display-only="displayOnly"
       ref="input"
-      v-bind="f($props, $attrs)"
+      v-bind="{ ...$props, ...$attrs }"
       front-clear-icon
       v-clickoutside="handleBlur"
       @update:modelValue="handleChange"

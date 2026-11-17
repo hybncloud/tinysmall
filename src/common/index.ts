@@ -1,28 +1,19 @@
 import hooks from './adapter/index.ts'
 import {
-  appContext,
   appProperties,
-  bindFilter,
-  createComponentFn,
-  getElementCssClass,
-  getElementStatusClass
+  createComponentFn
 } from './adapter/index.ts'
-import { defineAsyncComponent, directive, emitter, h, markRaw, Teleport, KeepAlive } from './adapter/index.ts'
-import { parseVnode, isEmptyVnode, renderComponent, tools, useRouter, isVnode } from './adapter/index.ts'
+import { directive, h, markRaw, Teleport } from './adapter/index.ts'
+import { parseVnode, isEmptyVnode, renderComponent, tools } from './adapter/index.ts'
 import { t } from '@tinysmall/locale'
-import { stringifyCssClass, stringifyCssClassObject, stringifyCssClassArray, deduplicateCssClass } from './csscls'
 import '@tinysmall/theme/base/index.less'
 import { defineComponent } from './adapter/index.ts'
 import { useBreakpoint } from './breakpoint'
-import { useDefer } from './usedefer'
 import { GRADIENT_ICONS_LIST, generateIcon } from './generateIcon'
 
 import { type Component } from 'vue'
 
-export { stringifyCssClass, stringifyCssClassObject, stringifyCssClassArray, deduplicateCssClass }
-export { useBreakpoint, useDefer }
-
-export { version } from 'package.json'
+export { useBreakpoint }
 
 export { defineComponent, appProperties }
 
@@ -41,7 +32,7 @@ export const $setup = ({ props: propData, context, template, extend = {} }) => {
   return renderComponent({ view, props: propData, context, extend })
 }
 
-export const setup = ({ props, context, renderless, api, extendOptions = {}, mono = false, classes = {} }) => {
+export const setup = ({ props, context, renderless, api, extendOptions = {}, mono = false }) => {
   const utils = {
     $prefix,
     t,
@@ -54,11 +45,8 @@ export const setup = ({ props, context, renderless, api, extendOptions = {}, mon
   const attrs = {
     t,
     vm: utils.vm,
-    f: bindFilter,
-    a: filterAttrs,
     d: utils.defineInstanceProperties,
-    dp: utils.defineParentInstanceProperties,
-    gcls: (key: any) => getElementCssClass(classes, key)
+    dp: utils.defineParentInstanceProperties
   }
 
   /**
@@ -75,8 +63,6 @@ export const setup = ({ props, context, renderless, api, extendOptions = {}, mon
     slots: { get: () => utils.parent.$slots, configurable: true },
     scopedSlots: { get: () => utils.parent.$scopedSlots, configurable: true }
   })
-
-  initComponent()
 
   if (Array.isArray(api)) {
     api.forEach((name) => {
@@ -185,68 +171,9 @@ export function svg({ name = 'Icon', component, filledComponent = null, deprecat
       })
     )
 }
-/**
- * 将用户传入的 $attrs中的属性， 与 filters 中传入的属性做对比。
- * 如果include ,  且属性在filters中， 则返回。
- * 如果 !include, 且属性不匹配filters， 则返回。
- * 在模板中，都是通过 v-bind="a($attrs,[])" 来使用该函数 。
- * @mark 由于现在组件都移除了 inheritAttrs。 加在外层的 v-bind="a()"" 都可以去掉了， 否则会出现双份效果。
- *
- * @param attrs : Object
- * @param filters : string[]
- * @param include : boolean
- *
- * @example Button-pc中： v-bind="a($attrs, ['class', 'style', 'title', 'id'], true)"
- * @exampleResult 把用户使用<tiny-button ...id\class> 等属性，会传递给该位置的dom。
- *
- * @example Area-pc中： v-bind="a($attrs, ['^on[A-Z]'])"
- * @exampleResult 把用户使用<tiny-area ...on> 等事件, 不会传递给内部的select上， 但是class,style等，会传递给select上。
- */
-export const filterAttrs = (attrs, filters, include) => {
-  const props = {}
-
-  for (let name in attrs) {
-    const find = filters.some((r) => new RegExp(r).test(name))
-
-    if ((include && find) || (!include && !find)) {
-      props[name] = attrs[name]
-    }
-  }
-  return props
-}
-
-// eslint-disable-next-line import/no-mutable-exports
-export let setupComponent = {}
-
-export const initComponent = () => {
-  for (let name in setupComponent) {
-    const component = setupComponent[name]
-
-    if (typeof component.install === 'function') {
-      component.install(appContext())
-    }
-
-    if (typeof component.init === 'function') {
-      component.init(appProperties())
-    }
-  }
-
-  setupComponent = {}
-}
-
-export const $install = (component) => {
-  component.install = function (Vue) {
-    Vue.component(component.name, component)
-  }
-}
-
 export type {
   PropType,
-  ExtractPropTypes,
-  DefineComponent,
   ComponentPublicInstance,
-  SetupContext,
-  ComputedRef,
   App,
   VNode
 } from './adapter'
@@ -257,36 +184,6 @@ export {
   directive,
   parseVnode,
   isEmptyVnode,
-  useRouter,
-  emitter,
   createComponent,
-  defineAsyncComponent,
-  getElementStatusClass,
-  Teleport,
-  KeepAlive,
-  isVnode
-}
-
-export default {
-  h,
-  directive,
-  parseVnode,
-  isEmptyVnode,
-  useRouter,
-  emitter,
-  createComponent,
-  defineAsyncComponent,
-  filterAttrs,
-  initComponent,
-  setupComponent,
-  svg,
-  $prefix,
-  $props,
-  props,
-  $setup,
-  setup,
-  hooks,
-  getElementStatusClass,
-  $install,
-  isVnode
+  Teleport
 }

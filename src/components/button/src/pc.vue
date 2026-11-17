@@ -34,7 +34,6 @@
     ]"
     :style="customStyle"
     :tabindex="tabindex"
-    v-bind="a($attrs, ['class', 'style', 'title', 'id'], true)"
   >
     <icon-loading v-if="loading" class="tiny-icon-loading tiny-svg-size" aria-hidden="true" />
     <component v-if="icon && !loading" :is="icon" :class="{ 'is-text': text || slots.default }" />

@@ -51,7 +51,7 @@
         :aria-label="placeholder || 'search'"
         :aria-expanded="state.show"
         :aria-controls="state.show ? `tiny-search__selector-${state.instanceId}` : undefined"
-        v-bind="a($attrs, ['type', 'class', 'style', '^on[A-Z]', 'id', 'clearable'])"
+        v-bind="$attrs"
         v-model="state.currentValue"
         :disabled="disabled"
         :style="

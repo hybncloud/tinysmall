@@ -19,7 +19,6 @@
       underline && !state.disabled && 'is-underline'
     ]"
     :href="state.disabled ? null : state.href"
-    v-bind="a($attrs, ['^on[A-Z]'])"
     rel="noopener noreferrer"
     @click="handleClick"
     :aria-disabled="state.disabled"
