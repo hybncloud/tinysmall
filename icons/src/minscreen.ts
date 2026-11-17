@@ -1,4 +1,4 @@
-import { svg } from '@tinysmall/common'
+﻿import { svg } from './svg'
 import Minscreen from '../svgs/minscreen.svg?component'
 
-export default () => svg({ name: 'IconMinscreen', component: Minscreen, filledComponent: Minscreen })()
+export default () => svg({ name: 'IconMinscreen', component: Minscreen })()

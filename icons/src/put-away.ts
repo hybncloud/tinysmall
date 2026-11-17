@@ -1,4 +1,4 @@
-import { svg } from '@tinysmall/common'
+﻿import { svg } from './svg'
 import PutAway from '../svgs/put-away.svg?component'
 
-export default () => svg({ name: 'IconPutAway', component: PutAway, filledComponent: PutAway })()
+export default () => svg({ name: 'IconPutAway', component: PutAway })()

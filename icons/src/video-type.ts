@@ -1,4 +1,4 @@
-import { svg } from '@tinysmall/common'
+﻿import { svg } from './svg'
 import VideoType from '../svgs/video-type.svg?component'
 
-export default () => svg({ name: 'IconVideoType', component: VideoType, filledComponent: VideoType })()
+export default () => svg({ name: 'IconVideoType', component: VideoType })()

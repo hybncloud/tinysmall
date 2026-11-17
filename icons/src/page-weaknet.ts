@@ -1,4 +1,4 @@
-import { svg } from '@tinysmall/common'
+﻿import { svg } from './svg'
 import PageWeaknet from '../svgs/page-weaknet.svg?component'
 
-export default () => svg({ name: 'IconPageWeaknet', component: PageWeaknet, filledComponent: PageWeaknet })()
+export default () => svg({ name: 'IconPageWeaknet', component: PageWeaknet })()

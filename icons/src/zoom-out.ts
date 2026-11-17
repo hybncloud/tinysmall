@@ -1,4 +1,4 @@
-import { svg } from '@tinysmall/common'
+﻿import { svg } from './svg'
 import ZoomOut from '../svgs/zoom-out.svg?component'
 
-export default () => svg({ name: 'IconZoomOut', component: ZoomOut, filledComponent: ZoomOut })()
+export default () => svg({ name: 'IconZoomOut', component: ZoomOut })()

@@ -1,4 +1,4 @@
-import { svg } from '@tinysmall/common'
+﻿import { svg } from './svg'
 import NoPerm from '../svgs/no-perm.svg?component'
 
-export default () => svg({ name: 'IconNoPerm', component: NoPerm, filledComponent: NoPerm })()
+export default () => svg({ name: 'IconNoPerm', component: NoPerm })()

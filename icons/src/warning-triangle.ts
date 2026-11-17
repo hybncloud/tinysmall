@@ -1,5 +1,5 @@
-import { svg } from '@tinysmall/common'
+﻿import { svg } from './svg'
 import WarningTriangle from '../svgs/warning-triangle.svg?component'
 
 export default () =>
-  svg({ name: 'IconWarningTriangle', component: WarningTriangle, filledComponent: WarningTriangle })()
+  svg({ name: 'IconWarningTriangle', component: WarningTriangle })()

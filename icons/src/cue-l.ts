@@ -1,4 +1,4 @@
-import { svg } from '@tinysmall/common'
+﻿import { svg } from './svg'
 import CueL from '../svgs/cue-l.svg?component'
 
-export default () => svg({ name: 'IconCueL', component: CueL, filledComponent: CueL })()
+export default () => svg({ name: 'IconCueL', component: CueL })()

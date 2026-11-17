@@ -1,4 +1,4 @@
-import { svg } from '@tinysmall/common'
+﻿import { svg } from './svg'
 import Ellipsis from '../svgs/ellipsis.svg?component'
 
-export default () => svg({ name: 'IconEllipsis', component: Ellipsis, filledComponent: Ellipsis })()
+export default () => svg({ name: 'IconEllipsis', component: Ellipsis })()

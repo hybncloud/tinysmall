@@ -1,4 +1,4 @@
-import { svg } from '@tinysmall/common'
+﻿import { svg } from './svg'
 import PptType from '../svgs/ppt-type.svg?component'
 
-export default () => svg({ name: 'IconPptType', component: PptType, filledComponent: PptType })()
+export default () => svg({ name: 'IconPptType', component: PptType })()

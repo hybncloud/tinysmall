@@ -1,5 +1,5 @@
-import { svg } from '@tinysmall/common'
+﻿import { svg } from './svg'
 import FullscreenRight from '../svgs/fullscreen-right.svg?component'
 
 export default () =>
-  svg({ name: 'IconFullscreenRight', component: FullscreenRight, filledComponent: FullscreenRight })()
+  svg({ name: 'IconFullscreenRight', component: FullscreenRight })()

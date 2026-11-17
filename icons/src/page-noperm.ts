@@ -1,4 +1,4 @@
-import { svg } from '@tinysmall/common'
+﻿import { svg } from './svg'
 import PageNoperm from '../svgs/page-noperm.svg?component'
 
-export default () => svg({ name: 'IconPageNoperm', component: PageNoperm, filledComponent: PageNoperm })()
+export default () => svg({ name: 'IconPageNoperm', component: PageNoperm })()
