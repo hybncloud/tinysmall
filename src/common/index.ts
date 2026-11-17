@@ -17,12 +17,7 @@ import { useBreakpoint } from './breakpoint'
 import { useDefer } from './usedefer'
 import { GRADIENT_ICONS_LIST, generateIcon } from './generateIcon'
 
-import { useInstanceSlots as createUseInstanceSlots } from '@tinysmall/hooks'
-import { useRelation as createUseRelation } from '@tinysmall/hooks'
 import { type Component } from 'vue'
-
-export const useInstanceSlots = createUseInstanceSlots({ ...hooks })
-export const useRelation = createUseRelation({ ...hooks })
 
 export { stringifyCssClass, stringifyCssClassObject, stringifyCssClassArray, deduplicateCssClass }
 export { useBreakpoint, useDefer }
