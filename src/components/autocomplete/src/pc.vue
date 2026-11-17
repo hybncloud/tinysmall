@@ -22,7 +22,6 @@
       :tabindex="tabindex"
       :display-only="displayOnly"
       ref="input"
-      v-bind="{ ...$props, ...$attrs }"
       front-clear-icon
       v-clickoutside="handleBlur"
       @update:modelValue="handleChange"
@@ -33,6 +32,7 @@
       @keydown.down.prevent="highlight(state.highlightedIndex + 1)"
       @keydown.enter="handleKeyEnter"
       @keydown.tab="close"
+      v-bind="{ ...$props, ...$attrs, _constants: undefined }"
     >
       <template #prepend v-if="slots.prepend">
         <slot name="prepend"></slot>
