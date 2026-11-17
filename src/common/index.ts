@@ -1,21 +1,15 @@
 import hooks from './adapter/index.ts'
-import {
-  appProperties,
-  createComponentFn
-} from './adapter/index.ts'
+import { createComponentFn } from './adapter/index.ts'
 import { directive, h, markRaw, Teleport } from './adapter/index.ts'
 import { parseVnode, isEmptyVnode, renderComponent, tools } from './adapter/index.ts'
 import { t } from '@tinysmall/locale'
 import '@tinysmall/theme/base/index.less'
 import { defineComponent } from './adapter/index.ts'
-import { useBreakpoint } from './breakpoint'
 import { GRADIENT_ICONS_LIST, generateIcon } from './generateIcon'
 
 import { type Component } from 'vue'
 
-export { useBreakpoint }
-
-export { defineComponent, appProperties }
+export { defineComponent }
 
 export const $prefix = 'Tiny'
 
@@ -36,8 +30,7 @@ export const setup = ({ props, context, renderless, api, extendOptions = {}, mon
   const utils = {
     $prefix,
     t,
-    ...tools(context, 'pc'),
-    useBreakpoint
+    ...tools(context)
   }
 
   const sdk = renderless(props, hooks, utils, extendOptions)
@@ -171,19 +164,6 @@ export function svg({ name = 'Icon', component, filledComponent = null, deprecat
       })
     )
 }
-export type {
-  PropType,
-  ComponentPublicInstance,
-  App,
-  VNode
-} from './adapter'
+export type { PropType, ComponentPublicInstance, App, VNode } from './adapter'
 
-export {
-  h,
-  hooks,
-  directive,
-  parseVnode,
-  isEmptyVnode,
-  createComponent,
-  Teleport
-}
+export { h, hooks, directive, parseVnode, isEmptyVnode, createComponent, Teleport }

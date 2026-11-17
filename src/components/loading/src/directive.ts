@@ -13,7 +13,7 @@ import { afterLeave } from '@tinysmall/renderless/loading/after-leave'
 import { PopupManager } from '@tinysmall/utils'
 import { addClass, getStyle, removeClass } from '@tinysmall/utils'
 import Loading from './index'
-import { hooks, directive, createComponent, appProperties } from '@tinysmall/common'
+import { hooks, directive, createComponent } from '@tinysmall/common'
 import { constants, defaults } from './service'
 
 const insertDom = (parent, el, binding) => {

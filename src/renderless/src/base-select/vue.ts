@@ -165,7 +165,7 @@ export const api = [
   'computedShowTagText',
   'isTagClosable'
 ]
-const initState = ({ reactive, computed, props, api, emitter, parent, constants, useBreakpoint, vm }) => {
+const initState = ({ reactive, computed, props, api, emitter, parent, constants, vm }) => {
   const stateAdd = initStateAdd({ computed, props, api, parent })
   const state = reactive({
     ...stateAdd,
@@ -200,7 +200,6 @@ const initState = ({ reactive, computed, props, api, emitter, parent, constants,
     collapseTagsLength: 0,
     initValue: [],
     key: 0,
-    device: '',
     timer: null,
     modelValue: [],
     queryValue: '',
@@ -244,7 +243,6 @@ const initState = ({ reactive, computed, props, api, emitter, parent, constants,
         }
       }
     }),
-    breakpoint: useBreakpoint ? useBreakpoint().current : '',
     disabledOptionHover: false,
     hasClearSelection: false,
     // tiny 新增
@@ -493,27 +491,6 @@ const initWatch = ({ watch, props, api, state, nextTick }) => {
     { deep: true }
   )
 
-  watch(
-    () => state.breakpoint,
-    (val) => {
-      if (val === 'default') {
-        state.device = 'mb'
-      } else {
-        state.device = 'pc'
-      }
-    },
-    { immediate: true, deep: true }
-  )
-
-  watch(
-    () => state.device,
-    (newVal, oldVal) => {
-      if (oldVal !== '' && state.visible) {
-        api.updateModelValue(state.modelValue, true)
-      }
-    }
-  )
-
   watch(() => state.visible, api.watchVisible)
 
   watch(() => state.initValue, api.watchInitValue, { deep: true })
@@ -547,7 +524,7 @@ const addWatch = ({ watch, props, api, state, nextTick }) => {
 export const renderless = (
   props,
   { computed, onBeforeUnmount, onMounted, reactive, watch, provide, inject },
-  { vm, parent, emit, constants, nextTick, dispatch, t, emitter, useBreakpoint }
+  { vm, parent, emit, constants, nextTick, dispatch, t, emitter }
 ) => {
   const api: any = {}
   const state = initState({
@@ -558,7 +535,6 @@ export const renderless = (
     emitter,
     parent,
     constants,
-    useBreakpoint,
     vm
   })
   const dialog = inject('dialog', null)

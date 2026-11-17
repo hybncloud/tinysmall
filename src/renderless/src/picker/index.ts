@@ -66,7 +66,7 @@ export const watchMobileVisible =
 export const watchPickerVisible =
   ({ api, vm, dispatch, emit, props, state, nextTick }) =>
   (value) => {
-    if (props.readonly || state.pickerDisabled || state.isMobileScreen) return
+    if (props.readonly || state.pickerDisabled) return
 
     if (value) {
       api.showPicker()

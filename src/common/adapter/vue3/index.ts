@@ -37,18 +37,6 @@ export const appContext = () =>
     }
   }
 
-export const appProperties = () => {
-  const instance = hooks.getCurrentInstance()
-  return instance?.appContext.config.globalProperties || {}
-}
-
-const useRouter = (instance = hooks.getCurrentInstance()) => {
-  const router = instance?.appContext.config.globalProperties.$router
-  const route = router && router.currentRoute.value
-
-  return { route, router }
-}
-
 const setInstanceEmitter = (instance) => {
   const $emitter = emitter()
 
@@ -292,10 +280,9 @@ const onBeforeMount = (instance, refs) => {
   }
 }
 
-export const tools = (context, mode) => {
+export const tools = (context) => {
   const instance = hooks.getCurrentInstance() as any
   const root = instance?.appContext.config.globalProperties
-  const { route, router } = useRouter(instance)
   const i18n = instance?.proxy?.$root?.$i18n
   const { dispatch, broadcast } = emitEvent(instance)
   const parentHandler = parent(instance)
@@ -330,8 +317,6 @@ export const tools = (context, mode) => {
     vm,
     emit,
     emitter,
-    route,
-    router,
     dispatch,
     broadcast,
     parentHandler,
@@ -344,7 +329,6 @@ export const tools = (context, mode) => {
     parent: parentVm,
     nextTick: hooks.nextTick,
     constants: instance?.props._constants,
-    mode,
     service: root?.$getService ? root?.$getService(vm) : root?.$service,
     getService: () => root?.$getService(vm),
     setParentAttribute,
@@ -466,9 +450,4 @@ export const defineComponent = hooks.defineComponent
 
 export default hooks
 
-export type {
-  PropType,
-  ComponentPublicInstance,
-  App,
-  VNode
-} from 'vue'
+export type { PropType, ComponentPublicInstance, App, VNode } from 'vue'

@@ -65,10 +65,8 @@ const initState = ({
   computed,
   api,
   emitter,
-  props,
-  useBreakpoint
+  props
 }: Pick<IDialogBoxRenderlessParams, 'reactive' | 'computed' | 'api' | 'emitter' | 'props'>): IDialogBoxState => {
-  const { current } = useBreakpoint()
   const state: IDialogBoxState = reactive({
     emitter: emitter(),
     key: 0,
@@ -83,7 +81,6 @@ const initState = ({
     isFull: props.fullscreen,
     style: computed(() => api.computedStyle()),
     animationName: computed(() => api.computedAnimationName()),
-    current,
     dragStyle: null,
     titleId: `tiny-dialog-box-title-${nanoid.api.nanoid(8)}`,
     contentId: `tiny-dialog-box-content-${nanoid.api.nanoid(8)}`
@@ -170,11 +167,11 @@ const initWatch = ({ watch, state, api, props }: IDialogBoxInitWatchParam) => {
 export const renderless = (
   props: IDialogBoxProps,
   { computed, onBeforeUnmount, onMounted, toRefs, reactive, watch }: ISharedRenderlessParamHooks,
-  { vm, emitter, parent, emit, constants, nextTick, broadcast, useBreakpoint }: IDialogBoxRenderlessParamUtils
+  { vm, emitter, parent, emit, constants, nextTick, broadcast }: IDialogBoxRenderlessParamUtils
 ): IDialogBoxApi => {
   const api = {} as IDialogBoxApi
   const lockScrollClass = constants.SCROLL_LOCK_CLASS('pc')
-  let state = initState({ reactive, computed, api, emitter, props, useBreakpoint })
+  let state = initState({ reactive, computed, api, emitter, props })
   const usePopups = usePopup({
     api,
     nextTick,

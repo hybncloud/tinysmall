@@ -114,11 +114,6 @@ export const watchVisible =
       if (props.destroyOnClose) {
         nextTick(() => state.key++)
       }
-
-      if (props.rightSlide && state.current !== 'default') {
-        const selector = `[data-tag=${constants.DIALOG_BOX_DATA_TAG}]`
-        props.rightSlide && (el.querySelector(selector).style.left = '')
-      }
     }
   }
 

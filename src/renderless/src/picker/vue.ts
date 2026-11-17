@@ -106,7 +106,7 @@ export const api = [
   'dateMobileToggle'
 ]
 
-const initState = ({ api, reactive, vm, computed, props, utils, parent, breakpoint }) => {
+const initState = ({ api, reactive, vm, computed, props, utils, parent }) => {
   const state = reactive({
     historyValue: [],
     historyInput: [],
@@ -143,7 +143,6 @@ const initState = ({ api, reactive, vm, computed, props, utils, parent, breakpoi
     labelTooltip: '',
     displayOnlyTooltip: '',
     isDisplayOnly: computed(() => props.displayOnly || (parent.tinyForm || {}).displayOnly),
-    isMobileScreen: computed(() => breakpoint.current.value === 'default'),
     dateMobileOption: {
       visible: false,
       type: props.type,
@@ -351,10 +350,9 @@ export const renderless = (
 ): IPickerApi => {
   const api = {} as IPickerApi
   const { reactive, computed, watch, onBeforeUnmount, inject, markRaw, onMounted } = hooks
-  const { vm, service, parent, useBreakpoint } = vnode
+  const { vm, service, parent } = vnode
   const { utils = {} } = service || {}
-  const breakpoint = useBreakpoint()
-  const state = initState({ api, reactive, vm, computed, props, utils, parent, inject, breakpoint })
+  const state = initState({ api, reactive, vm, computed, props, utils, parent, inject })
 
   parent.tinyForm = parent.tinyForm || inject('form', null)
 

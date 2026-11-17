@@ -141,8 +141,6 @@ export default defineComponent({
       slots,
       edm = {},
       t,
-      $attrs,
-      a,
       encryptConfig,
       encryptDialogConfirm,
       handleTriggerClick,

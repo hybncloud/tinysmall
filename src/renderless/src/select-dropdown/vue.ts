@@ -63,7 +63,6 @@ const initState = ({ reactive, computed, popper, selectVm }) => {
         ? selectVm.state.selected.filter((item) => !item.children)
         : selectVm.state.selected
     ),
-    device: computed(() => selectVm.state.device),
     visible: false,
     windowScrollTop: 0,
     zIndex: 2000,

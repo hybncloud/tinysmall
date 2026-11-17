@@ -45,12 +45,10 @@ export const api = ['state', 'handleMainButtonClick', 'hide', 'show', 'initDomOp
 export const renderless = (
   props: IDropdownProps,
   { reactive, watch, provide, onMounted, computed, onBeforeUnmount }: ISharedRenderlessParamHooks,
-  { emit, parent, broadcast, vm, nextTick, useBreakpoint }: IDropdownRenderlessParamUtils
+  { emit, parent, broadcast, vm, nextTick }: IDropdownRenderlessParamUtils
 ): IDropdownApi => {
   const api = {} as IDropdownApi
-  const { current } = useBreakpoint()
   const state: IDropdownState = reactive({
-    current,
     visible: false,
     timeout: null,
     focusing: false,

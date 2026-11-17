@@ -61,19 +61,17 @@ export const api = [
 export const renderless = (
   props: IUploadListProps,
   { reactive, onMounted, onUnmounted, watch, inject, computed }: ISharedRenderlessParamHooks,
-  { t, parent, emit, service, vm, nextTick, useBreakpoint }: IUploadListRenderlessParamUtils,
+  { t, parent, emit, service, vm, nextTick }: IUploadListRenderlessParamUtils,
   { Modal }: IFileUploadModalVm
 ): IUploadListApi => {
   const api = { getApi } as IUploadListApi
   parent = inject('uploader').$children[0]
   const constants = !isServer ? (parent.$constants as IFileUploadConstants) : null
   const $service = initService({ props, service })
-  const { current } = useBreakpoint()
 
   const state = reactive({
     focusing: false,
     shows: false,
-    currentBreakpoint: current,
     progressType: 'line',
     progressWidth: 68,
     progressStrokeWidth: 4,

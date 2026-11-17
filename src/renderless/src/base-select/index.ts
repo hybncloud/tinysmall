@@ -196,8 +196,6 @@ export const emitChange =
 export const directEmitChange =
   ({ emit, props, state }) =>
   (value, key) => {
-    if (state.device === 'mb' && props.multiple) return
-
     emit('change', value, key)
   }
 

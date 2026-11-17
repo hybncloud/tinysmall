@@ -141,10 +141,8 @@ const initState = ({
   vm,
   props,
   httpRequest,
-  service,
-  useBreakpoint
+  service
 }): IFileUploadState => {
-  const { current } = useBreakpoint()
   const state = reactive({
     url: '',
     updateId: '',
@@ -203,8 +201,7 @@ const initState = ({
     encryptDialogConfig: {
       show: false,
       selectFileMethod: null
-    },
-    current
+    }
   })
 
   return state
@@ -335,7 +332,7 @@ export let getApi = () => ({}) as { downloadFile: Function }
 export const renderless = (
   props: IFileUploadProps,
   { computed, inject, onBeforeUnmount, provide, reactive, ref, watch, onMounted }: ISharedRenderlessParamHooks,
-  { t, vm, parent, emit, service, constants, useBreakpoint }: IFileUploadRenderlessParamUtils,
+  { t, vm, parent, emit, service, constants }: IFileUploadRenderlessParamUtils,
   { Modal, Streamsaver }: IFileUploadModalVm & { Streamsaver: IFileUploadStreamsaver }
 ): IFileUploadApi => {
   let api = {} as IFileUploadApi
@@ -350,8 +347,7 @@ export const renderless = (
     vm,
     props,
     httpRequest,
-    service,
-    useBreakpoint
+    service
   })
 
   initApi({ api, state, props, constants, vm, $service, t, Modal, emit })
