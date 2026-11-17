@@ -169,9 +169,6 @@ importers:
       '@floating-ui/dom':
         specifier: ^1.6.9
         version: 1.8.0
-      gradient-parser:
-        specifier: ^1.1.0
-        version: 1.2.0
       qrcode:
         specifier: 1.5.1
         version: 1.5.1
