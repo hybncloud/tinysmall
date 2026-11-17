@@ -179,7 +179,7 @@ export const getRows =
         cell.customClass = typeof cellClassName === 'function' && cellClassName(cellDate)
 
         // 更新日期表格的行数据，执行了这行代码，rows 中才会有数据
-        vm.$set(row, props.showWeekNumber ? j + 1 : j, cell)
+        row[props.showWeekNumber ? j + 1 : j] = cell
 
         arr[i].push(cellDate)
       }

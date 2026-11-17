@@ -244,8 +244,6 @@ const createVm = (vm, instance, context = null) => {
     $emitter.emit.apply(vm, args)
   }
 
-  const $set = (target, propertyName, value) => (target[propertyName] = value)
-
   context || defineInstanceVm(vm, instance)
 
   Object.defineProperties(vm, {
@@ -265,7 +263,6 @@ const createVm = (vm, instance, context = null) => {
     },
     $refs: { get: () => instance.refs },
     $scopedSlots: { get: () => instance.slots },
-    $set: { get: () => $set },
     $slots: { get: () => instance.slots }
   })
 

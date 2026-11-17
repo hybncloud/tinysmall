@@ -133,13 +133,6 @@ export interface ITinyVm<CT = never> {
   /** 返回 instance.slots */
   $scopedSlots: Record<string, Function>
 
-  /** 给target赋值。 vue2是调用instance.$set
-   * @mark vue3是响应数据，直接转为 target[propertyName] = value。
-   * @mark vue2 可能有数据修改不触发响应，就要调用$set去修改值。
-   * @whenUse ⭐ Vue2组件中修改数据不触发响应时，要使用该$set. instance.$set
-   */
-  $set: (target, propertyName, value) => void
-
   /** 适配器或组件内，可能会赋值很多其它属性 */
   [otherProps: string]: any
 }

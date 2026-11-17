@@ -33,7 +33,7 @@ export const getMonthTimestamp = (time) => {
 }
 
 export const getRows =
-  ({ props, state, vm }) =>
+  ({ props, state }) =>
   () => {
     const tableRows = state.tableRows
     const disabledDate = state.disabledDate
@@ -80,7 +80,7 @@ export const getRows =
         cell.disabled = typeof disabledDate === 'function' && disabledDate(cellDate)
         cell.selected = arrayFind(selectedDate, (selectDate) => selectDate.getTime() === cellDate.getTime())
 
-        vm.$set(row, j, cell)
+        row[j] = cell
       }
     }
 

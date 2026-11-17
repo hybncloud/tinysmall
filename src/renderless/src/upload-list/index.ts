@@ -105,7 +105,7 @@ export const play =
       file.el = videoOrAudioEle
       removePlayEventListener({ type: 'ended', el: videoOrAudioEle }, file.playEvent)
       addPlayEventListener({ type: 'ended', el: videoOrAudioEle }, file.playEvent)
-      vm.$set(file, 'isPlay', true)
+      file.isPlay = true
       videoOrAudioEle.play()
     }
   }
@@ -125,10 +125,10 @@ export const pause =
   }
 
 export const handleLoadedmetadata =
-  ({ vm }: Pick<IUploadListRenderlessParams, 'vm'>) =>
+  () =>
   ({ e, file }: { e: Event; file: IFileUploadFile }) => {
-    vm.$set(file, 'totalSecond', parseInt(e.target?.duration))
-    vm.$set(file, 'currentSecond', parseInt(e.target?.currentTime))
+    file.totalSecond = parseInt(e.target?.duration)
+    file.currentSecond = parseInt(e.target?.currentTime)
   }
 
 export const handleTimeupdate =

@@ -58,7 +58,7 @@ export const getMonthTimestamp = (time) => {
 }
 
 export const getRows =
-  ({ props, state, vm }) =>
+  ({ props, state }) =>
   () => {
     const { tableRows } = state
     const { minDate, maxDate, disabledDate, startYear, selectionMode } = props
@@ -103,7 +103,7 @@ export const getRows =
           )
         }
 
-        vm.$set(row, j, cell)
+        row[j] = cell
       }
     }
 
