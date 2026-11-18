@@ -16,8 +16,7 @@
       "@tinysmall/renderless/*": ["./src/renderless/src/*"],
       "@tinysmall/theme/*": ["./theme/src/*"],
       "@tinysmall/*": ["./src/components/*"],
-      "package.json": ["./package.json"],
-      "@tinysmall-internal/vue-test-utils": ["./internals/vue-test-utils/src"]
+      "package.json": ["./package.json"]
     },
     "types": [
       "node",

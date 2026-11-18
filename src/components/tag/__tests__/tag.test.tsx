@@ -1,4 +1,4 @@
-import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import { mount } from '@vue/test-utils'
 import Tag from '@tinysmall/tag'
 import { describe, expect, test, vi } from 'vitest'
 import { iconTime } from '@opentiny/vue-icon'
@@ -7,7 +7,6 @@ import { nextTick } from 'vue'
 const IconTime = iconTime()
 
 describe('PC Mode', () => {
-  const mount = mountPcMode
   // props
   test('hit 是否有边框描边', async () => {
     const wrapper = mount(() => <Tag hit={true}>标签</Tag>)

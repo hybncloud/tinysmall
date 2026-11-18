@@ -1,4 +1,4 @@
-import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import { mount } from '@vue/test-utils'
 import { describe, expect, test, vi } from 'vitest'
 import TimeSelect from '@tinysmall/time-select'
 import { nextTick, ref } from 'vue'
@@ -7,8 +7,6 @@ import { iconBoat } from '@opentiny/vue-icon'
 let value = '18:00'
 
 describe('PC Mode', () => {
-  const mount = mountPcMode
-
   /**
    * attrs
    */

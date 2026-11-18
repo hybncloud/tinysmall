@@ -1,4 +1,4 @@
-import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import { mount } from '@vue/test-utils'
 import { describe, expect, test, vi } from 'vitest'
 import Input from '@tinysmall/input'
 import { nextTick } from 'vue'
@@ -31,8 +31,6 @@ const originalTypes = [
 const sizes = ['medium', 'small', 'mini']
 
 describe('PC Mode', () => {
-  const mount = mountPcMode
-
   test('maxlength', async () => {
     const wrapper = mount(() => <Input v-model={value} maxlength={5}></Input>)
     expect(wrapper.find('input').attributes().maxlength).toBe('5')

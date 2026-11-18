@@ -1,11 +1,9 @@
 import { ref } from 'vue'
 import Transfer from '@tinysmall/transfer'
 import { describe, expect, test } from 'vitest'
-import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import { mount } from '@vue/test-utils'
 
 describe('PC Mode', () => {
-  const mount = mountPcMode
-
   const transferMockData = () => {
     const data: any[] = []
     for (let i = 0; i < 10; i++) {

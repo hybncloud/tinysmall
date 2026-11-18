@@ -1,11 +1,9 @@
-import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import { mount } from '@vue/test-utils'
 import { describe, test, expect } from 'vitest'
 import Collapse from '@tinysmall/collapse'
 import CollapseItem from '@tinysmall/collapse-item'
 
 describe('PC Mode', () => {
-  const mount = mountPcMode
-
   const wrapper = mount(() => (
     <Collapse modelValue="1">
       <CollapseItem title="标题" name="1">

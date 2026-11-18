@@ -1,9 +1,8 @@
-import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import { mount } from '@vue/test-utils'
 import { describe, test, expect, vi } from 'vitest'
 import ActionMenu from '@tinysmall/action-menu'
 
 describe('PC Mode', () => {
-  const mount = mountPcMode
   const options = [
     {
       label: '远程登录'

@@ -1,13 +1,12 @@
 import Link from '@tinysmall/link'
 import { describe, expect, test } from 'vitest'
 import { iconEdit } from '@opentiny/vue-icon'
-import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import { mount } from '@vue/test-utils'
 
 const iconTest = 'IconDel()'
 const IconEdit = iconEdit()
 
 describe('PC Mode', () => {
-  const mount = mountPcMode
   const createLink = (type) => {
     return mount(() => <Link underline={false} type={type}></Link>)
   }

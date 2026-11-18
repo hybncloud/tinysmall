@@ -1,10 +1,8 @@
-import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import { mount } from '@vue/test-utils'
 import { describe, test, expect } from 'vitest'
 import Divider from '@tinysmall/divider'
 
 describe('PC Mode', () => {
-  const mount = mountPcMode
-
   test('base 基本用法', async () => {
     const wrapper = mount(() => <Divider></Divider>)
 

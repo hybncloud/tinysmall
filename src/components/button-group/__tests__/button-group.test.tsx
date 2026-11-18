@@ -1,4 +1,4 @@
-import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import { mount } from '@vue/test-utils'
 import { describe, expect, test, vi } from 'vitest'
 import ButtonGroup from '@tinysmall/button-group'
 import Button from '@tinysmall/button'
@@ -10,8 +10,6 @@ const groupData = [
 ]
 
 describe('PC Mode', () => {
-  const mount = mountPcMode
-
   test('type & icon', async () => {
     const wrapper = mount(() => <ButtonGroup disabled data={groupData}></ButtonGroup>)
     expect(wrapper.find('button').classes()).toContain('disabled')

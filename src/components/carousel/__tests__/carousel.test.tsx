@@ -1,11 +1,9 @@
 import Carousel from '@tinysmall/carousel'
 import CarouselItem from '@tinysmall/carousel-item'
 import { describe, expect, test, vi } from 'vitest'
-import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import { mount } from '@vue/test-utils'
 
 describe('PC Mode', () => {
-  const mount = mountPcMode
-
   const createCarouselItems = (count = 5, hasLabel = false) => {
     const list = Array.from({ length: count }, (_, index) => index + 1)
     return list.map((index) =>

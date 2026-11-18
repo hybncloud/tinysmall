@@ -1,11 +1,9 @@
-import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import { mount } from '@vue/test-utils'
 import { describe, expect, test, vi } from 'vitest'
 import DialogBox from '@tinysmall/dialog-box'
 import { nextTick } from 'vue'
 
 describe('PC Mode', () => {
-  const mount = mountPcMode
-
   /**
    * attrs
    */

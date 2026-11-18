@@ -1,4 +1,4 @@
-import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import { mount } from '@vue/test-utils'
 import { describe, expect, test, vi } from 'vitest'
 import Form from '@tinysmall/form'
 import FormItem from '@tinysmall/form-item'
@@ -10,8 +10,6 @@ const createData = {
 }
 
 describe('PC Mode', () => {
-  const mount = mountPcMode
-
   test('label-width', async () => {
     const wrapper = mount(() => (
       <Form label-width="100px">

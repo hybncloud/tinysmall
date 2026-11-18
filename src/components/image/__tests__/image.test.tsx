@@ -1,10 +1,9 @@
-import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import { mount } from '@vue/test-utils'
 import { describe, expect, test, vi } from 'vitest'
 import Image from '@tinysmall/image'
 import { nextTick, ref } from 'vue'
 
 describe('PC Mode', () => {
-  const mount = mountPcMode
   const url = ref('/static/images/mountain.png')
   /**
    * attrs

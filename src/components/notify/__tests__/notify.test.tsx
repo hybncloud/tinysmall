@@ -1,10 +1,8 @@
-import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
 import Notify from '@tinysmall/notify'
 
 describe('PC Mode', () => {
-  const mount = mountPcMode
-
   test('base', () => {
     Notify({
       type: 'info',

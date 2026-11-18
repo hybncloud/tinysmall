@@ -1,4 +1,4 @@
-import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import { mount } from '@vue/test-utils'
 import { describe, test } from 'vitest'
 import { reactive } from 'vue'
 
@@ -38,7 +38,6 @@ const links = reactive([
 ])
 
 describe('PC Mode', () => {
-  const mount = mountPcMode
   // props
   test.todo('links 数据配置项，可通过children嵌套')
 

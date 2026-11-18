@@ -1,11 +1,9 @@
-import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import { mount } from '@vue/test-utils'
 import { describe, expect, test, vi } from 'vitest'
 import Search from '@tinysmall/search'
 import { nextTick } from 'vue'
 
 describe('PC Mode', () => {
-  const mount = mountPcMode
-
   test('searchTypes', async () => {
     const searchTypes = [
       {

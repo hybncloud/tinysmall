@@ -1,4 +1,4 @@
-import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import { mount } from '@vue/test-utils'
 import { describe, expect, test, vi } from 'vitest'
 import Cascader from '@tinysmall/cascader'
 import { nextTick } from 'vue'
@@ -79,8 +79,6 @@ const options = [
 let value = ['zhinan', 'anzhuang']
 
 describe('PC Mode', () => {
-  const mount = mountPcMode
-
   test('size', async () => {
     const separators = '+'
     const medium = 'medium'

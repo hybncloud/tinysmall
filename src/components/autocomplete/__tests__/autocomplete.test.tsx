@@ -1,4 +1,4 @@
-import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import { mount } from '@vue/test-utils'
 import { describe, expect, test, vi } from 'vitest'
 import Autocomplete from '@tinysmall/autocomplete'
 import { nextTick } from 'vue'
@@ -28,8 +28,6 @@ const createFilter = (queryString) => (restaurant) =>
   restaurant.value.toLowerCase().indexOf(queryString.toLowerCase()) === 0
 
 describe('PC Mode', () => {
-  const mount = mountPcMode
-
   test('size', async () => {
     const value = 'GFD科技'
     const text = '请输入内容'

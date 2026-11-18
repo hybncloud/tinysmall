@@ -1,12 +1,10 @@
-import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import { mount } from '@vue/test-utils'
 import { describe, expect, test, vi } from 'vitest'
 import Checkbox from '@tinysmall/checkbox'
 
 let checked = ''
 
 describe('PC Mode', () => {
-  const mount = mountPcMode
-
   test('base', () => {
     const wrapper = mount(() => <Checkbox v-model={checked}>复选框</Checkbox>)
     expect(wrapper.find('.tiny-checkbox').exists()).toBe(true)

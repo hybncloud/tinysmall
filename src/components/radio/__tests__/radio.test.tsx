@@ -1,12 +1,10 @@
-import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import { mount } from '@vue/test-utils'
 import { describe, expect, test, vi } from 'vitest'
 import Radio from '@tinysmall/radio'
 
 let value = ''
 
 describe('PC Mode', () => {
-  const mount = mountPcMode
-
   test('base 基本用法', () => {
     const wrapper = mount(() => (
       <Radio v-model={value} label={'1'}>

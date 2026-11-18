@@ -17,7 +17,6 @@
       "@tinysmall/renderless/types/*": ["../src/renderless/types/*"],
       "@tinysmall/renderless/*": ["../src/renderless/src/*"],
       "package.json": ["../package.json"],
-      "@tinysmall-internal/vue-test-utils": ["../internals/vue-test-utils/src"],
       "@demos/*": ["./demos/pc/*"]
     },
     "types": [

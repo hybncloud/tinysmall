@@ -1,4 +1,4 @@
-import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import { mount } from '@vue/test-utils'
 import { nextTick } from 'vue'
 import { describe, expect, test, vi } from 'vitest'
 import Tree from '@tinysmall/tree'
@@ -41,8 +41,6 @@ const data = [
 ]
 
 describe('PC Mode', () => {
-  const mount = mountPcMode
-
   /**
    * attrs
    */

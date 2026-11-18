@@ -1,11 +1,9 @@
-import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import { mount } from '@vue/test-utils'
 import { describe, test, expect, vi } from 'vitest'
 import Breadcrumb from '@tinysmall/breadcrumb'
 import BreadcrumbItem from '@tinysmall/breadcrumb-item'
 
 describe('PC Mode', () => {
-  const mount = mountPcMode
-
   // attrs
   test('render test & label', async () => {
     const wrapper = mount(() => (

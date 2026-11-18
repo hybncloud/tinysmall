@@ -1,10 +1,8 @@
-import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import { mount } from '@vue/test-utils'
 import { describe, test, expect } from 'vitest'
 import Space from '@tinysmall/space'
 
 describe('PC Mode', () => {
-  const mount = mountPcMode
-
   test('props direction', async () => {
     const wrapper = mount(() => (
       <Space direction="column">

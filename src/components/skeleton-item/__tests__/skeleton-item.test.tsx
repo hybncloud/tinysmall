@@ -1,11 +1,9 @@
-import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import { mount } from '@vue/test-utils'
 import { test, describe, expect } from 'vitest'
 import SkeletonItem from '@tinysmall/skeleton-item'
 import { nextTick } from 'vue'
 
 describe('PC Mode', () => {
-  const mount = mountPcMode
-
   test('variant', async () => {
     const wrapper = mount(() => <SkeletonItem variant="circle"></SkeletonItem>)
     await nextTick()

@@ -1,11 +1,10 @@
-import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import { mount } from '@vue/test-utils'
 import { describe, test, expect } from 'vitest'
 import ConfigProvider, { configProviderContextKey } from '@tinysmall/config-provider'
 import { defineComponent, h, inject } from 'vue'
 import type { ConfigProviderProps } from '../src/props'
 
 describe('PC Mode', () => {
-  const mount = mountPcMode
   test('rtl', () => {
     const wrapper = mount(ConfigProvider, {
       props: {

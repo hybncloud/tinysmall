@@ -1,10 +1,8 @@
-import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import { mount } from '@vue/test-utils'
 import { describe, test, expect, vi } from 'vitest'
 import Rate from '@tinysmall/rate'
 
 describe('PC Mode', () => {
-  const mount = mountPcMode
-
   // attrs
   test('render test & v-model', async () => {
     const value = 3

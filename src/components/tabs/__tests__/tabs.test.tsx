@@ -1,4 +1,4 @@
-import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import { mount } from '@vue/test-utils'
 import Tabs from '@tinysmall/tabs'
 import TabItem from '@tinysmall/tab-item'
 import { describe, expect, test, vi } from 'vitest'
@@ -36,7 +36,6 @@ const data = reactive([
 const createTabList = () => data.map((item) => <TabItem key={item.name} title={item.title} name={item.name}></TabItem>)
 
 describe('PC Mode', () => {
-  const mount = mountPcMode
   // props
   test('tab-style 标签页样式', async () => {
     const wrapper = mount(() => (

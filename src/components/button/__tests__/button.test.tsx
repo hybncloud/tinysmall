@@ -1,4 +1,4 @@
-import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import { mount } from '@vue/test-utils'
 import { describe, expect, test, vi } from 'vitest'
 import Button from '@tinysmall/button'
 import { iconBoat } from '@opentiny/vue-icon'
@@ -7,8 +7,6 @@ import { nextTick, ref } from 'vue'
 const AXIOM = 'Hello OpenTiny'
 
 describe('PC Mode', () => {
-  const mount = mountPcMode
-
   test('type & icon', async () => {
     const TEXT = '危险按钮'
     const wrapper = mount(() => (

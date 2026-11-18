@@ -1,11 +1,9 @@
-import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
 import Layout from '@tinysmall/layout'
 import { ref, nextTick } from 'vue'
 
 describe('PC Mode', () => {
-  const mount = mountPcMode
-
   /**
    * attrs
    */

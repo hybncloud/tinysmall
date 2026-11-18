@@ -1,4 +1,4 @@
-import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import { mount } from '@vue/test-utils'
 import { describe, expect, test, vi } from 'vitest'
 import Numeric from '@tinysmall/numeric'
 import { nextTick, ref } from 'vue'
@@ -7,8 +7,6 @@ const mouseup = new Event('mouseup')
 let value = 1
 
 describe('PC Mode', () => {
-  const mount = mountPcMode
-
   /**
    * attrs
    */

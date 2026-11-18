@@ -1,4 +1,4 @@
-import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import { mount } from '@vue/test-utils'
 import { describe, expect, test, vi } from 'vitest'
 import TimePicker from '@tinysmall/time-picker'
 import { nextTick } from 'vue'
@@ -7,8 +7,6 @@ import { iconBoat } from '@opentiny/vue-icon'
 let value = new Date(2016, 9, 10, 18, 40)
 
 describe('PC Mode', () => {
-  const mount = mountPcMode
-
   test('readonly', async () => {
     const wrapper = mount(() => <TimePicker v-model={value} editable={false}></TimePicker>)
     expect(wrapper.find('input').attributes()).toHaveProperty('readonly')

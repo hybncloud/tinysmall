@@ -1,11 +1,9 @@
-import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import { mount } from '@vue/test-utils'
 import { describe, expect, test, vi } from 'vitest'
 import Alert from '@tinysmall/alert'
 import { iconBoat } from '@opentiny/vue-icon'
 
 describe('PC Mode', () => {
-  const mount = mountPcMode
-
   // attrs
   test('render test & type & size', async () => {
     const text = 'Winter is coming'

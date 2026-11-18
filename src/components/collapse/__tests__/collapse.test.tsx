@@ -1,12 +1,10 @@
-import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import { mount } from '@vue/test-utils'
 import { describe, test, expect, vi } from 'vitest'
 import Collapse from '@tinysmall/collapse'
 import CollapseItem from '@tinysmall/collapse-item'
 import { ref } from 'vue'
 
 describe('PC Mode', () => {
-  const mount = mountPcMode
-
   const handleChange = vi.fn()
   const activeNames = ref(['1'])
   const wrapper = mount(() => (

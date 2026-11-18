@@ -1,10 +1,8 @@
-import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
 import Loading from '@tinysmall/loading'
 
 describe('PC Mode', () => {
-  const mount = mountPcMode
-
   test('base', () => {
     const div = document.createElement('div')
     div.id = 'tiny-loading1'

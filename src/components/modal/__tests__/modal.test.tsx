@@ -1,4 +1,4 @@
-import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import { mount } from '@vue/test-utils'
 import { describe, expect, test, vi } from 'vitest'
 import Modal from '@tinysmall/modal'
 import Form from '@tinysmall/form'
@@ -25,8 +25,6 @@ const mockDocumentSize = () => {
 }
 
 describe('PC Mode', () => {
-  const mount = mountPcMode
-
   mockDocumentSize()
 
   /**

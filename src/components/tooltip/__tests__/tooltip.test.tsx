@@ -1,4 +1,4 @@
-import { mountPcMode as mount } from '@tinysmall-internal/vue-test-utils'
+import { mount } from '@vue/test-utils'
 import { describe, test, expect } from 'vitest'
 import Tooltip from '@tinysmall/tooltip'
 

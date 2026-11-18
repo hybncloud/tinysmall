@@ -1,4 +1,4 @@
-import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import { mount } from '@vue/test-utils'
 import { describe, expect, test, vi } from 'vitest'
 import Switch from '@tinysmall/switch'
 import { IconArrowLeft, IconArrowRight } from '@opentiny/vue-icon'
@@ -9,8 +9,6 @@ const TinyIconArrowLeft = IconArrowLeft()
 const TinyIconArrowRight = IconArrowRight()
 
 describe('PC Mode', () => {
-  const mount = mountPcMode
-
   test('size', async () => {
     const wrapper = mount(() => <Switch mini={true}></Switch>)
     expect(wrapper.find('.mini').exists()).toBe(true)

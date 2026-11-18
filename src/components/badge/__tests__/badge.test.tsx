@@ -1,10 +1,8 @@
-import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import { mount } from '@vue/test-utils'
 import Badge from '@tinysmall/badge'
 import { describe, expect, test } from 'vitest'
 
 describe('PC Mode', () => {
-  const mount = mountPcMode
-
   test('base', () => {
     const num = 5
     const text = '我的代办'

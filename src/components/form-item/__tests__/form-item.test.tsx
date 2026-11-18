@@ -1,4 +1,4 @@
-import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
 import Form from '@tinysmall/form'
 import FormItem from '@tinysmall/form-item'
@@ -8,7 +8,7 @@ describe('PC Mode', () => {
   test('should remove built-in layout while preserving validation when no-style is true', async () => {
     const model = { name: '' }
     const rules = { name: [{ required: true, message: 'Name is required' }] }
-    const wrapper = mountPcMode({
+    const wrapper = mount({
       components: { TinyForm: Form, TinyFormItem: FormItem, TinyInput: Input },
       data: () => ({ model, rules }),
       template: `

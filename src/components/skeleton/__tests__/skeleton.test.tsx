@@ -1,11 +1,9 @@
-import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import { mount } from '@vue/test-utils'
 import { test, describe, expect } from 'vitest'
 import Skeleton from '@tinysmall/skeleton'
 import { nextTick } from 'vue'
 
 describe('PC Mode', () => {
-  const mount = mountPcMode
-
   test('base usage', () => {
     const wrapper = mount(() => <Skeleton></Skeleton>)
     expect(wrapper.exists()).toBe(true)

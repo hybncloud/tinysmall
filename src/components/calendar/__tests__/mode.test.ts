@@ -1,17 +1,17 @@
-import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import { mount as mountComponent } from '@vue/test-utils'
 import { afterEach, describe, expect, test } from 'vitest'
 import Calendar from '@tinysmall/calendar'
 
 const flush = () => new Promise((resolve) => setTimeout(resolve, 0))
 
 describe('Calendar reactive mode', () => {
-  const wrappers: ReturnType<typeof mountPcMode>[] = []
+  const wrappers: ReturnType<typeof mountComponent>[] = []
   const containers: HTMLElement[] = []
   const mount = (mode = 'month') => {
     const container = document.createElement('div')
     document.body.appendChild(container)
     containers.push(container)
-    const wrapper = mountPcMode(Calendar, {
+    const wrapper = mountComponent(Calendar, {
       props: { mode, year: 2024, month: 2, events: [] },
       attachTo: container
     })

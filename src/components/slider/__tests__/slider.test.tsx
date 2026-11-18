@@ -1,4 +1,4 @@
-import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import { mount } from '@vue/test-utils'
 import { describe, expect, test, vi } from 'vitest'
 import Slider from '@tinysmall/slider'
 import { nextTick, ref } from 'vue'
@@ -6,8 +6,6 @@ import { nextTick, ref } from 'vue'
 let value = 40
 
 describe('PC Mode', () => {
-  const mount = mountPcMode
-
   /**
    * attrs
    */

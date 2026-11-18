@@ -1,11 +1,9 @@
-import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import { mount } from '@vue/test-utils'
 import { describe, expect, test } from 'vitest'
 import DatePanel from '@tinysmall/date-panel'
 import { nextTick } from 'vue'
 
 describe('PC Mode', () => {
-  const mount = mountPcMode
-
   test('value & format', async () => {
     let value = '2025-01-14'
     let format = 'yyyy-MM-dd'

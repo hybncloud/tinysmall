@@ -1,11 +1,9 @@
-import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import { mount } from '@vue/test-utils'
 import { describe, expect, test, vi } from 'vitest'
 import DropTimes from '@tinysmall/drop-times'
 import { nextTick } from 'vue'
 
 describe('PC Mode', () => {
-  const mount = mountPcMode
-
   test('size', async () => {
     let value = ''
     const wrapper = mount(() => <DropTimes v-model={value} size="medium"></DropTimes>)

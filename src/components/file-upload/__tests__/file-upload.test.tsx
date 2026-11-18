@@ -1,10 +1,8 @@
-import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import { mount } from '@vue/test-utils'
 import { describe, expect, test, vi } from 'vitest'
 import FileUpload from '@tinysmall/file-upload'
 
 describe('PC Mode', () => {
-  const mount = mountPcMode
-
   test('drag', async () => {
     const action = 'http://localhost:3000/api/upload'
     const wrapper = mount(() => <FileUpload drag={true} action={action} auto-upload={false}></FileUpload>)

@@ -1,12 +1,10 @@
-import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import { mount } from '@vue/test-utils'
 import { describe, test, expect, vi } from 'vitest'
 import Dropdown from '@tinysmall/dropdown'
 import DropdownMenu from '@tinysmall/dropdown-menu'
 import DropdownItem from '@tinysmall/dropdown-item'
 
 describe('PC Mode', () => {
-  const mount = mountPcMode
-
   test('base 基本用法', async () => {
     const wrapper = mount(() => (
       <Dropdown

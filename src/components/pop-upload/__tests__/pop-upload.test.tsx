@@ -1,10 +1,8 @@
-import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import { mount } from '@vue/test-utils'
 import { describe, expect, test, vi } from 'vitest'
 import PopUpload from '@tinysmall/pop-upload'
 
 describe('PC Mode', () => {
-  const mount = mountPcMode
-
   // attrs
   test('size', async () => {
     const wrapper = mount(() => <PopUpload action="''" size="medium"></PopUpload>)

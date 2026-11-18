@@ -1,11 +1,9 @@
-import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import { mount } from '@vue/test-utils'
 import { describe, expect, test, vi } from 'vitest'
 import Pager from '@tinysmall/pager'
 import { ref, nextTick } from 'vue'
 
 describe('PC Mode', () => {
-  const mount = mountPcMode
-
   test('base 基本用法', () => {
     const wrapper = mount(() => <Pager layout="prev, pager, next"></Pager>)
     expect(wrapper.find('.tiny-pager__btn-prev').exists()).toBe(true)

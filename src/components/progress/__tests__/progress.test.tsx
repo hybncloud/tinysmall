@@ -1,9 +1,8 @@
-import { mountPcMode } from '@tinysmall-internal/vue-test-utils'
+import { mount } from '@vue/test-utils'
 import Progress from '@tinysmall/progress'
 import { describe, expect, test } from 'vitest'
 
 describe('PC Mode', () => {
-  const mount = mountPcMode
   // props
   test('percentage 百分比', async () => {
     const wrapper = mount(() => <Progress class="progress" percentage={50}></Progress>)
