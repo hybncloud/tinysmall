@@ -24,7 +24,7 @@ export const api = ['state', 'handleKeydown']
 export const renderless = (
   props: IRadioGroupProps,
   { computed, onMounted, reactive, watch, provide }: ISharedRenderlessParamHooks,
-  { parent, dispatch }: IRadioGroupRenderlessParamUtils
+  { vm, dispatch }: IRadioGroupRenderlessParamUtils
 ): IRadioGroupApi => {
   const state: IRadioGroupState = reactive({
     radioGroupSize: computed(() => props.size),
@@ -32,15 +32,15 @@ export const renderless = (
     activeStyle: props.fill
   })
 
-  parent.$on('handleChange', (value) => {
-    parent.$emit('change', value)
+  vm.$on('handleChange', (value) => {
+    vm.$emit('change', value)
   })
 
   const api: IRadioGroupApi = {
     state,
     dispatch,
-    onMounted: mounted(parent),
-    handleKeydown: handleKeydown(parent)
+    onMounted: mounted(vm),
+    handleKeydown: handleKeydown(vm)
   }
 
   watch(

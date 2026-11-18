@@ -78,7 +78,7 @@
 
 <script lang="tsx">
 import { renderless, api } from '@tinysmall/renderless/image-viewer/vue'
-import { $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
 import {
   iconClose,
   iconChevronLeft,
@@ -173,6 +173,7 @@ export const imageViewerProps = {
   }
 
 export default defineComponent({
+  name: $prefix + 'ImageViewer',
   emits: ['close', 'update:preview-visible', 'delete', 'change', 'newImageList'],
   props: imageViewerProps,
   components: {
@@ -187,7 +188,7 @@ export default defineComponent({
     IconRefres: iconRefres()
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless, api, mono: true })
   }
 })
 </script>

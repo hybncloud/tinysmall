@@ -9,17 +9,6 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
-import template from 'virtual-template?pc'
-import { $constants, alertProps } from './pc.vue'
-
-export { alertProps }
-export { $constants }
-
-export default defineComponent({
-  name: $prefix + 'Alert',
-  props: alertProps,
-  setup(props, context) {
-    return $setup({ props, context, template })
-  }
-})
+export { default } from './pc.vue'
+export { alertProps } from './pc.vue'
+export { $constants } from './pc.vue'

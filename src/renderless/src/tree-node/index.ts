@@ -191,7 +191,7 @@ export const handleExpandClick =
   ({ emit, vm, props, state }) =>
   (nodeClickFlag) => {
     if (nodeClickFlag) {
-      state.tree.$parent.$emit('node-click', props.node.data, props.node, vm)
+      state.tree.$emit('node-click', props.node.data, props.node, vm)
     }
 
     if (props.node.isLeaf) {

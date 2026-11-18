@@ -18,12 +18,7 @@ export const props: Array<'_constants'> = ['_constants']
 
 const createComponent = createComponentFn()
 
-export const $setup = ({ props: propData, context, template, extend = {} }) => {
-  const view = template('pc', propData)
-  return renderComponent({ view, props: propData, context, extend })
-}
-
-export const setup = ({ props, context, renderless, api, extendOptions = {}, mono = false }) => {
+export const setup = ({ props, context, renderless, api, extendOptions = {} }) => {
   const utils = {
     $prefix,
     t,
@@ -59,11 +54,6 @@ export const setup = ({ props, context, renderless, api, extendOptions = {}, mon
       const value = sdk[name]
       if (typeof value !== 'undefined') {
         attrs[name] = value
-        // 只有单层组件，才需要给setup传递： mono:true
-        // 双层组件，需要把内层的api复制到外层，这样用户应用的ref才能拿到组件的api
-        if (!mono) {
-          utils.setParentAttribute({ name, value })
-        }
       }
     })
   }

@@ -66,7 +66,7 @@ export const handlePaste =
 export const getFormData =
   ({ constants, state, props }: Pick<IUploadRenderlessParams, 'constants' | 'state' | 'props'>) =>
   ({ formData, file, type }: { formData: IUploadFormData; file: IFileUploadFile; type: string }) => {
-    const uploaderInner = state.uploader.$refs[constants.FILE_UPLOAD_INNER_TEMPLATE]
+    const uploaderInner = state.uploader
     if (uploaderInner.edm.upload) {
       const params = uploaderInner.edm.upload.params
 
@@ -115,7 +115,7 @@ export const uploadFiles =
   (files: FileList | IFileUploadFile[]) => {
     if (state.updateId === '') {
       if (props.limit && props.fileList.length + files.length > props.limit) {
-        const fileUploadTem = state.uploader.$refs[constants.FILE_UPLOAD_INNER_TEMPLATE]
+        const fileUploadTem = state.uploader
         if (fileUploadTem && !fileUploadTem.state.listeners.exceed) {
           Modal.message({
             message: t(constants.EDM.NumberExceed, { number: props.limit }),
@@ -371,7 +371,7 @@ export const post =
   }: Pick<IUploadRenderlessParams, 'api' | 'constants' | 'props' | 'state' | 'service'>) =>
   (rawFile: IFileUploadFile) => {
     const { uid } = rawFile
-    const uploaderInner = state.uploader.$refs[constants.FILE_UPLOAD_INNER_TEMPLATE]
+    const uploaderInner = state.uploader
 
     let options
     if (uploaderInner.state.isHwh5) {

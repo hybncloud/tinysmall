@@ -9,17 +9,5 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
-import type { IPopoverApi } from '@tinysmall/renderless/types/popover.type'
-import template from 'virtual-template?pc'
-import { popoverProps } from './pc.vue'
-
-export { popoverProps }
-export default defineComponent({
-  inheritAttrs: true,
-  name: $prefix + 'Popover',
-  props: popoverProps,
-  setup(props, context) {
-    return $setup({ props, context, template }) as unknown as IPopoverApi
-  }
-})
+export { default } from './pc.vue'
+export { popoverProps } from './pc.vue'

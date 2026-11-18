@@ -30,7 +30,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/scroll-text/vue'
-import { $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
 
 export const $constants = {
   ANIMATION_DURATION: 'animation-duration'
@@ -70,9 +70,10 @@ export const scrollTextProps = {
   }
 
 export default defineComponent({
+  name: $prefix + 'ScrollText',
   props: scrollTextProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless, api, mono: true })
   }
 })
 </script>

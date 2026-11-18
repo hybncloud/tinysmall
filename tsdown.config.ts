@@ -1,7 +1,6 @@
 import { defineConfig } from 'tsdown'
 import vue from 'unplugin-vue/rolldown'
 import vueJsx from 'unplugin-vue-jsx/rolldown'
-import virtualTemplate from './internals/unplugin-virtual-template/rolldown.ts'
 import svgLoader from './internals/vite-svg-loader/rolldown.ts'
 
 export default defineConfig({
@@ -20,9 +19,6 @@ export default defineConfig({
   plugins: [
     vue(),
     vueJsx(),
-    virtualTemplate({
-      include: ['./src/components/*/src/index.ts', './src/components/*/src/index.vue']
-    }),
     svgLoader({
       svgoConfig: {
         plugins: ['preset-default', 'prefixIds']

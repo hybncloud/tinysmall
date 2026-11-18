@@ -126,7 +126,7 @@ export default defineComponent({
   emits: ['more-click', 'item-click', 'visible-change'],
   props: actionMenuProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api }) as unknown as IActionMenuApi
+    return setup({ props, context, renderless, api, mono: true }) as unknown as IActionMenuApi
   }
 })
 </script>

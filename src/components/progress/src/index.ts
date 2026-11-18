@@ -9,17 +9,6 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
-import template from 'virtual-template?pc'
-import { $constants, progressProps } from './pc.vue'
-
-export { progressProps }
-export { $constants }
-
-export default defineComponent({
-  name: $prefix + 'Progress',
-  props: progressProps,
-  setup(props, context) {
-    return $setup({ props, context, template })
-  }
-})
+export { default } from './pc.vue'
+export { progressProps } from './pc.vue'
+export { $constants } from './pc.vue'

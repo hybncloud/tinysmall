@@ -9,16 +9,5 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-import { $prefix, $props, $setup, defineComponent } from '@tinysmall/common'
-import template from 'virtual-template?pc'
-import { panelProps } from './pc.vue'
-
-export { panelProps }
-
-export default defineComponent({
-  name: $prefix + 'Panel',
-  props: panelProps,
-  setup(props, context) {
-    return $setup({ props, context, template })
-  }
-})
+export { default } from './pc.vue'
+export { panelProps } from './pc.vue'

@@ -120,20 +120,20 @@ export const renderless = (
     handleTabRemove: handleTabRemove({ emit, props }),
     changeDirection: changeDirection({ props, state }),
     changeCurrentName: changeCurrentName({ emit, state }),
-    calcMorePanes: calcMorePanes({ parent, props, state, refs }),
-    calcExpandPanes: calcExpandPanes({ parent, props, state }),
-    calcPaneInstances: calcPaneInstances({ constants, parent, state, childrenHandler }),
+    calcMorePanes: calcMorePanes({ parent: vm, props, state, refs }),
+    calcExpandPanes: calcExpandPanes({ parent: vm, props, state }),
+    calcPaneInstances: calcPaneInstances({ constants, parent: vm, state, childrenHandler }),
     handleTabDragStart: handleTabDragStart({ emit }),
     handleTabDragOver: handleTabDragOver({ emit }),
     handleTabDragEnd: handleTabDragEnd({ state, emit }),
     handleTabClick: handleTabClick({ api, emit, props, refs }),
     setCurrentName: setCurrentName({ api, props, refs, state }),
-    created: created({ api, parent, state })
+    created: created({ api, parent: vm, state })
   })
 
   api.created()
 
-  provide('rootTabs', parent)
+  provide('rootTabs', vm)
 
   provide('separator', state.separator)
 

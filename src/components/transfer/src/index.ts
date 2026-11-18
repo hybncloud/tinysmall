@@ -9,17 +9,6 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
-import template from 'virtual-template?pc'
-import { $constants, transferProps } from './pc.vue'
-
-export { transferProps }
-export { $constants }
-
-export default defineComponent({
-  name: $prefix + 'Transfer',
-  props: transferProps,
-  setup(props, context) {
-    return $setup({ props, context, template })
-  }
-})
+export { default } from './pc.vue'
+export { transferProps } from './pc.vue'
+export { $constants } from './pc.vue'

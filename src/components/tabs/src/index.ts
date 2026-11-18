@@ -9,17 +9,6 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
-import template from 'virtual-template?pc'
-import { tabsProps, $constants } from './pc.vue'
-
-export { tabsProps }
-export { $constants }
-
-export default defineComponent({
-  name: $prefix + 'Tabs',
-  props: tabsProps,
-  setup(props, context) {
-    return $setup({ props, context, template })
-  }
-})
+export { default } from './pc.vue'
+export { tabsProps } from './pc.vue'
+export { $constants } from './pc.vue'

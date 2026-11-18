@@ -42,9 +42,9 @@ import {
 
 export const api = ['state', 'handleChange', 'computedStore']
 
-const initState = ({ reactive, computed, parent, api, inject, props }) => {
+const initState = ({ reactive, computed, form, api, inject, props }) => {
   const state: ICheckboxState = reactive({
-    size: computed(() => props.size || inject('size', null) || (parent.tinyForm || {}).size),
+    size: computed(() => props.size || inject('size', null) || (form || {}).size),
     vertical: inject('vertical', null),
     iconPosition: props.iconPosition || inject('iconPosition', 'center'),
     focus: false,
@@ -58,8 +58,8 @@ const initState = ({ reactive, computed, parent, api, inject, props }) => {
     isDisabled: computed(() => api.computedIsDisabled()),
     checkboxSize: computed(() => api.computedCheckboxSize()),
     isLimitDisabled: computed(() => api.computedIsLimitDisabled()),
-    formDisabled: computed(() => (parent.tinyForm || {}).disabled),
-    formDisplayOnly: computed(() => (parent.tinyForm || {}).displayOnly),
+    formDisabled: computed(() => (form || {}).disabled),
+    formDisplayOnly: computed(() => (form || {}).displayOnly),
     isDisplayOnly: computed(() => api.computedIsDisplayOnly()),
     isGroupDisplayOnly: computed(() => api.computedIsGroupDisplayOnly()),
     displayLabel: computed(() => api.computedDisplayLabel()),
@@ -107,7 +107,7 @@ const initApi = ({
     computedIsGroup: computedIsGroup({ state, parent, constants }),
     computedCheckboxSize: computedCheckboxSize({ state, props, formItemSize }),
     computedGetModelSet: computedGetModelSet({ state, dispatch, emit, constants }),
-    mounted: mounted({ emit, props, api, parent }),
+    mounted: mounted({ emit, props, api, parent: vm }),
     handleChange: handleChange({ state, props, emit, nextTick, dispatch, constants }),
     computedDisplayLabel: computedDisplayLabel({ state, props, t }),
     computedIsShowText: computedIsShowText({ props }),
@@ -122,9 +122,8 @@ export const renderless = (
 ): ICheckboxApi => {
   const api = { dispatch } as ICheckboxApi
   const formItemSize = computed(() => api.computedFormItemSize())
-  const state: ICheckboxState = initState({ reactive, computed, parent, api, inject, props })
-
-  parent.tinyForm = parent.tinyForm || inject('form', null)
+  const form = inject('form', null)
+  const state: ICheckboxState = initState({ reactive, computed, form, api, inject, props })
 
   initApi({ api, state, dispatch, props, parent, constants, formItemSize, emit, nextTick, t, vm })
 
@@ -141,12 +140,12 @@ export const renderless = (
   )
 
   onBeforeUnmount(() => {
-    toggleEvent({ parent, props, type: 'remove' })
+    toggleEvent({ parent: vm, props, type: 'remove' })
   })
 
   onMounted(() => {
     dispatch('Tooltip', 'tooltip-update')
-    toggleEvent({ parent, props, type: 'add' })
+    toggleEvent({ parent: vm, props, type: 'add' })
     api.mounted()
   })
 

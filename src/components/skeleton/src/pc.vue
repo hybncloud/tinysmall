@@ -25,7 +25,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/skeleton/vue'
-import { $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
 import type { PropType } from '@tinysmall/common'
 import SkeletonItem from '@tinysmall/skeleton-item'
 
@@ -61,13 +61,14 @@ export const skeletonProps = {
 }
 
 export default defineComponent({
+  name: $prefix + 'Skeleton',
   emits: ['update:modelValue'],
   props: skeletonProps,
   components: {
     TinySkeletonItem: SkeletonItem
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless, api, mono: true })
   }
 })
 </script>

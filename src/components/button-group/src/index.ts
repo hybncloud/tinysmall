@@ -9,23 +9,5 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
-import template from 'virtual-template?pc'
-import { buttonGroupProps } from './pc.vue'
-import type { PropType } from '@tinysmall/common'
-import type { IButtonGroupNode } from '@tinysmall/renderless/types/button-group.type'
-
-export { buttonGroupProps }
-
-export default defineComponent({
-  name: $prefix + 'ButtonGroup',
-  provide() {
-    return {
-      buttonGroup: this
-    }
-  },
-  props: buttonGroupProps,
-  setup(props, context) {
-    return $setup({ props, context, template })
-  }
-})
+export { default } from './pc.vue'
+export { buttonGroupProps } from './pc.vue'

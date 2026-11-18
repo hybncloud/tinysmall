@@ -9,17 +9,6 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-import { $prefix, $props, $setup, defineComponent } from '@tinysmall/common'
-import template from 'virtual-template?pc'
-import { $constants, timelineItemProps } from './pc.vue'
-
-export { timelineItemProps }
-export { $constants }
-
-export default defineComponent({
-  name: $prefix + 'TimelineItem',
-  props: timelineItemProps,
-  setup(props, context) {
-    return $setup({ props, context, template })
-  }
-})
+export { default } from './pc.vue'
+export { timelineItemProps } from './pc.vue'
+export { $constants } from './pc.vue'

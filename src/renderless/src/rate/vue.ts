@@ -57,7 +57,6 @@ export const useChangeValue = ({
   parent,
   inject
 }) => {
-  parent.tinyForm = parent.tinyForm || inject('form', null)
   const state = reactive({
     hoverIndex: -1,
     currentValue: props.modelValue
@@ -108,7 +107,7 @@ export const useChangeValue = ({
 export const renderless = (
   props: IRateProps,
   { computed, reactive, toRefs, watch, onMounted, onUnmounted, inject }: ISharedRenderlessParamHooks,
-  { constants, emit, parent }: IRateRenderlessParamUtils
+  { constants, emit, vm }: IRateRenderlessParamUtils
 ) => {
   const api = {} as IRateApi
   const changeValue = useChangeValue({
@@ -120,7 +119,7 @@ export const renderless = (
     watch,
     onMounted,
     onUnmounted,
-    parent,
+    parent: vm,
     inject
   })
   const state = reactive<IRateState>({

@@ -50,7 +50,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/recycle-scroller/vue'
-import { $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
 import { ObserveVisibility } from '@tinysmall/directive'
 import '@tinysmall/theme/recycle-scroller/index.less'
 
@@ -83,11 +83,12 @@ export const recycleScrollerProps = {
   }
 
 export default defineComponent({
+  name: $prefix + 'RecycleScroller',
   emits: ['resize', 'visible', 'hidden', 'update', 'scroll-start', 'scroll-end'],
   props: recycleScrollerProps,
   directives: { ObserveVisibility },
   setup(props, context): any {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless, api, mono: true })
   }
 })
 </script>

@@ -9,31 +9,5 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-
-import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
-import template from 'virtual-template?pc'
-import { baseSelectProps } from './pc.vue'
-
-export { baseSelectProps }
-
-export default defineComponent({
-  name: $prefix + 'BaseSelect',
-  componentName: 'BaseSelect',
-  inject: {
-    form: {
-      default: ''
-    },
-    formItem: {
-      default: ''
-    }
-  },
-  provide() {
-    return {
-      select: this
-    }
-  },
-  props: baseSelectProps,
-  setup(props, context) {
-    return $setup({ props, context, template })
-  }
-})
+export { default } from './pc.vue'
+export { baseSelectProps } from './pc.vue'

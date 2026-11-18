@@ -224,6 +224,11 @@ export const dialogBoxProps = {
 }
 
 export default defineComponent({
+  name: $prefix + 'DialogBox',
+  model: {
+    prop: 'visible',
+    event: 'update:visible'
+  },
   components: {
     IconClose: iconClose(),
     IconFullscreen: iconFullscreen(),
@@ -254,7 +259,7 @@ export default defineComponent({
     return { dialog: this }
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api }) as unknown as IDialogBoxApi
+    return setup({ props, context, renderless, api, mono: true }) as unknown as IDialogBoxApi
   }
 })
 </script>

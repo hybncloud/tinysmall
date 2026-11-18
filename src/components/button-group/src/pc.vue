@@ -117,7 +117,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/button-group/vue'
-import { $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
 import type { PropType } from '@tinysmall/common'
 import Popover from '@tinysmall/popover'
 import Button from '@tinysmall/button'
@@ -164,6 +164,12 @@ export const buttonGroupProps = {
 }
 
 export default defineComponent({
+  name: $prefix + 'ButtonGroup',
+  provide() {
+    return {
+      buttonGroup: this
+    }
+  },
   emits: ['change', 'edit', 'update:modelValue'],
   directives: { AutoTip },
   props: buttonGroupProps,
@@ -174,7 +180,7 @@ export default defineComponent({
     IconEditor: iconEditor() // 新规范图标
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api }) as unknown as IButtonGroupApi
+    return setup({ props, context, renderless, api, mono: true }) as unknown as IButtonGroupApi
   }
 })
 </script>

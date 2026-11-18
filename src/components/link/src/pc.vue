@@ -47,7 +47,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/link/vue'
-import { $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
 import type { ILinkApi } from '@tinysmall/renderless/types/link.type'
 
 export const linkProps = {
@@ -73,10 +73,11 @@ export const linkProps = {
 }
 
 export default defineComponent({
+  name: $prefix + 'Link',
   props: linkProps,
   emits: ['click'],
   setup(props, context) {
-    return setup({ props, context, renderless, api }) as unknown as ILinkApi
+    return setup({ props, context, renderless, api, mono: true }) as unknown as ILinkApi
   }
 })
 </script>

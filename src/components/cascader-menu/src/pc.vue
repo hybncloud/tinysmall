@@ -50,6 +50,7 @@ export const cascaderMenuProps = {
 
 const CascaderMenu = defineComponent({
   name: $prefix + 'CascaderMenu',
+  componentName: 'CascaderMenu',
   components: {
     TinyScrollbar: Scrollbar,
     CascaderNode

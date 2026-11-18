@@ -122,7 +122,7 @@
 
 <script lang="tsx">
 import { renderless, api } from '@tinysmall/renderless/search/vue'
-import { $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
 import { iconChevronDown, iconSearch, iconClose } from '@tinysmall/icon'
 import '@tinysmall/theme/search/index.less'
 import type { ISearchApi } from '@tinysmall/renderless/types/search.type'
@@ -191,6 +191,7 @@ export const searchProps = {
 }
 
 export default defineComponent({
+  name: $prefix + 'Search',
   props: searchProps,
   emits: ['change', 'search', 'update:modelValue', 'clear', 'select', 'input', 'expand', 'collapse'],
   components: {
@@ -199,7 +200,7 @@ export default defineComponent({
     IconClose: iconClose()
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api }) as unknown as ISearchApi
+    return setup({ props, context, renderless, api, mono: true }) as unknown as ISearchApi
   }
 })
 </script>

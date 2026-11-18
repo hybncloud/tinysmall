@@ -9,16 +9,6 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
-import template from 'virtual-template?pc'
-import { $constants, autoCompleteProps } from './pc.vue'
-
-export { autoCompleteProps }
-
-export default defineComponent({
-  name: $prefix + 'Autocomplete',
-  props: autoCompleteProps,
-  setup(props, context) {
-    return $setup({ props, context, template })
-  }
-})
+export { default } from './pc.vue'
+export { autoCompleteProps } from './pc.vue'
+export { $constants } from './pc.vue'

@@ -127,6 +127,7 @@ export default defineComponent({
       renderless,
       api,
       h,
+      mono: true,
       extendOptions: { Modal }
     }) as unknown as IUploadApi
   },

@@ -9,16 +9,5 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-import { $prefix, $props, $setup, defineComponent } from '@tinysmall/common'
-import template from 'virtual-template?pc'
-import { searchProps } from './pc.vue'
-
-export { searchProps }
-
-export default defineComponent({
-  name: $prefix + 'Search',
-  props: searchProps,
-  setup(props, context) {
-    return $setup({ props, context, template })
-  }
-})
+export { default } from './pc.vue'
+export { searchProps } from './pc.vue'

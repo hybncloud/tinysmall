@@ -114,7 +114,7 @@ const initWatch = ({ watch, props, api, state }) => {
 export const renderless = (
   props,
   { computed, onMounted, onBeforeUnmount, reactive, watch, provide },
-  { vm, parent, emit }
+  { vm, emit }
 ) => {
   const api = {}
   const state = initState({ reactive, computed, api })
@@ -125,8 +125,8 @@ export const renderless = (
 
   api.updateItems = updateItems
 
-  useActiveIndex({ api, parent, props, state, watch })
-  useResizeListener({ api, onBeforeUnmount, onMounted, parent })
+  useActiveIndex({ api, parent: vm, props, state, watch })
+  useResizeListener({ api, onBeforeUnmount, onMounted, parent: vm })
 
   provide('CarouselVm', vm)
   initWatch({ watch, props, api, state })
@@ -137,9 +137,9 @@ export const renderless = (
   })
 
   // 监听子组件 CarouselItem 提交的 complete 事件
-  parent.$on('updateItems', api.updateItems)
+  vm.$on('updateItems', api.updateItems)
 
-  parent.$on('complete', () => {
+  vm.$on('complete', () => {
     api.onComplete(state.items.length)
   })
 

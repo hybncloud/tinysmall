@@ -1,7 +1,7 @@
 <template>
   <div class="demo-form">
     <div class="mb-12">表单尺寸： <tiny-button-group :data="sizeList" v-model="sizeValue"></tiny-button-group></div>
-    <tiny-form ref="createData" label-width="100px" :size="sizeValue" label-position="right">
+    <tiny-form label-width="100px" :size="sizeValue" label-position="right">
       <tiny-form-item label="单选">
         <tiny-radio v-model="createData.sex" label="1"> 男 </tiny-radio>
         <tiny-radio v-model="createData.sex" label="2" text="女"></tiny-radio>

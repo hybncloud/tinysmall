@@ -9,17 +9,5 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
-import template from 'virtual-template?pc'
-import { formProps } from './pc.vue'
-
-export { formProps }
-
-export default defineComponent({
-  name: $prefix + 'Form',
-  componentName: 'Form',
-  props: formProps,
-  setup(props, context) {
-    return $setup({ props, context, template })
-  }
-})
+export { default } from './pc.vue'
+export { formProps } from './pc.vue'

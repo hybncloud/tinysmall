@@ -9,17 +9,6 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
-import template from 'virtual-template?pc'
-import { rateProps, $constants } from './pc.vue'
-
-export { rateProps }
-export { $constants }
-
-export default defineComponent({
-  name: $prefix + 'Rate',
-  props: rateProps,
-  setup(props, context) {
-    return $setup({ props, context, template })
-  }
-})
+export { default } from './pc.vue'
+export { rateProps } from './pc.vue'
+export { $constants } from './pc.vue'

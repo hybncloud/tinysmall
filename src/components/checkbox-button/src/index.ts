@@ -9,16 +9,5 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
-import template from 'virtual-template?pc'
-import { $constants, checkboxButtonProps } from './pc.vue'
-
-export { checkboxButtonProps }
-
-export default defineComponent({
-  props: checkboxButtonProps,
-  name: $prefix + 'CheckboxButton',
-  setup(props, context) {
-    return $setup({ props, context, template })
-  }
-})
+export { default } from './pc.vue'
+export { checkboxButtonProps } from './pc.vue'

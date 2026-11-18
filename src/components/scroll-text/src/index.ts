@@ -9,16 +9,5 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
-import template from 'virtual-template?pc'
-import { $constants, scrollTextProps } from './pc.vue'
-
-export { scrollTextProps }
-
-export default defineComponent({
-  props: scrollTextProps,
-  name: $prefix + 'ScrollText',
-  setup(props, context) {
-    return $setup({ props, context, template })
-  }
-})
+export { default } from './pc.vue'
+export { scrollTextProps } from './pc.vue'

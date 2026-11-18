@@ -9,20 +9,7 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
-import type { PropType } from '@tinysmall/common'
-import template from 'virtual-template?pc'
-import { $constants, checkboxProps } from './pc.vue'
-
-export { checkboxProps }
-export { $constants }
-
+export { default } from './pc.vue'
+export { checkboxProps } from './pc.vue'
+export { $constants } from './pc.vue'
 export type IconPosition = 'center' | 'top'
-
-export default defineComponent({
-  name: $prefix + 'Checkbox',
-  props: checkboxProps,
-  setup(props, context) {
-    return $setup({ props, context, template })
-  }
-})

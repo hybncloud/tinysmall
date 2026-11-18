@@ -189,7 +189,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/cascader/vue'
-import { $props, setup, defineComponent, directive } from '@tinysmall/common'
+import { $prefix, $props, setup, defineComponent, directive } from '@tinysmall/common'
 import { t } from '@tinysmall/locale'
 
 import { Clickoutside } from '@tinysmall/directive'
@@ -318,6 +318,8 @@ export const cascaderProps = {
 }
 
 export default defineComponent({
+  name: $prefix + 'Cascader',
+  componentName: 'Cascader',
   props: cascaderProps,
   emits: [
     'update:modelValue',
@@ -349,7 +351,7 @@ export default defineComponent({
     TinyTooltip: Tooltip
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless, api, mono: true })
   }
 })
 </script>

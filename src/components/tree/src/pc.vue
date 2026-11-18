@@ -154,7 +154,7 @@
 
 <script lang="tsx">
 import { renderless, api } from '@tinysmall/renderless/tree/vue'
-import { $props, props, setup, defineComponent, directive } from '@tinysmall/common'
+import { $prefix, $props, props, setup, defineComponent, directive } from '@tinysmall/common'
 import { iconWarning, iconMarkOn } from '@tinysmall/icon'
 import Switch from '@tinysmall/switch'
 import Popover from '@tinysmall/popover'
@@ -324,6 +324,7 @@ export const treeProps = {
   }
 
 export default defineComponent({
+  name: $prefix + 'Tree',
   directives: { ...directive({ Clickoutside }), HighlightQuery },
   props: treeProps,
   components: {
@@ -366,7 +367,7 @@ export default defineComponent({
     }
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless, api, mono: true })
   }
 })
 </script>

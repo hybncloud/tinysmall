@@ -9,17 +9,5 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
-import template from 'virtual-template?pc'
-import { cascaderProps } from './pc.vue'
-
-export { cascaderProps }
-
-export default defineComponent({
-  name: $prefix + 'Cascader',
-  componentName: 'Cascader',
-  props: cascaderProps,
-  setup(props, context) {
-    return $setup({ props, context, template })
-  }
-})
+export { default } from './pc.vue'
+export { cascaderProps } from './pc.vue'

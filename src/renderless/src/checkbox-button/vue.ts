@@ -79,7 +79,7 @@ const initApi = ({ api, state, props, formItemSize, parent, constants, emit, nex
 export const renderless = (
   props,
   { computed, onMounted, onBeforeUnmount, reactive, inject },
-  { parent, emit, dispatch, constants, nextTick }
+  { parent, emit, dispatch, constants, nextTick, vm }
 ) => {
   const api = {}
   const form = inject('form', null)
@@ -89,11 +89,11 @@ export const renderless = (
   initApi({ api, state, props, formItemSize, parent, constants, emit, nextTick, dispatch, form })
 
   onBeforeUnmount(() => {
-    toggleEvent({ parent, props, type: 'remove' })
+    toggleEvent({ parent: vm, props, type: 'remove' })
   })
 
   onMounted(() => {
-    toggleEvent({ parent, props, type: 'add' })
+    toggleEvent({ parent: vm, props, type: 'add' })
 
     props.checked && api.addToStore()
   })

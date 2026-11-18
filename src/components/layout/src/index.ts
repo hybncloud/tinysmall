@@ -9,21 +9,5 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
-import template from 'virtual-template?pc'
-import { layoutProps } from './pc.vue'
-
-export { layoutProps }
-
-export default defineComponent({
-  name: $prefix + 'Layout',
-  provide() {
-    return {
-      layout: this
-    }
-  },
-  props: layoutProps,
-  setup(props, context) {
-    return $setup({ props, context, template })
-  }
-})
+export { default } from './pc.vue'
+export { layoutProps } from './pc.vue'

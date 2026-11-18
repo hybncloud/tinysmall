@@ -47,7 +47,7 @@ export const renderless = (
 ): IDropdownMenuApi => {
   const api = {} as IDropdownMenuApi
   const { reactive, provide, onMounted, inject } = hooks
-  const { nextTick, vm, parent, dispatch, emit } = instance
+  const { nextTick, vm, dispatch, emit } = instance
 
   provide('dropdownMenuVm', vm)
   provide('multiStage', props.multiStage)
@@ -74,7 +74,7 @@ export const renderless = (
     toggleItem: toggleItem(state),
     clickOutside: clickOutside({ props, state }),
     updateOffset: updateOffset({ props, state, vm }),
-    mounted: mounted({ api, parent, state }),
+    mounted: mounted({ api, vm, state }),
     handleMouseenter: handleMouseenter(emit),
     handleMouseleave: handleMouseleave(emit),
     handleMenuItemClick: handleMenuItemClick({ dispatch, state })

@@ -105,7 +105,7 @@
 
 <script>
 import { renderless, api } from '@tinysmall/renderless/year-range/vue'
-import { setup, directive, $props, defineComponent } from '@tinysmall/common'
+import { $prefix, setup, directive, $props, defineComponent } from '@tinysmall/common'
 import { Clickoutside } from '@tinysmall/directive'
 import YearTable from '@tinysmall/year-table'
 import { IconDoubleRight, IconDoubleLeft } from '@tinysmall/icon'
@@ -142,6 +142,7 @@ export const yearRangeProps = {
 }
 
 export default defineComponent({
+  name: $prefix + 'YearRange',
   directives: directive({ Clickoutside }),
   components: {
     YearTable,
@@ -151,7 +152,7 @@ export default defineComponent({
   props: yearRangeProps,
   emits: ['dodestroy', 'pick', 'select-change', 'update:modelValue'],
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless, api, mono: true })
   }
 })
 </script>

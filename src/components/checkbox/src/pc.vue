@@ -158,6 +158,7 @@ export const checkboxProps = {
 }
 
 export default defineComponent({
+  name: $prefix + 'Checkbox',
   // tiny 新增。 renderless中，没有emit('click')的地方。 此处勿声明，否则会造成丢失click事件。
   emits: ['update:modelValue', 'change', 'complete'],
   directives: { AutoTip },
@@ -168,7 +169,7 @@ export default defineComponent({
     IconCheck: iconCheck()
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api }) as unknown as ICheckboxApi
+    return setup({ props, context, renderless, api, mono: true }) as unknown as ICheckboxApi
   }
 })
 </script>

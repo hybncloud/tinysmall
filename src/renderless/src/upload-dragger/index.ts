@@ -85,7 +85,7 @@ export const onDrop =
 export const watchDragover =
   ({ state, constants }: Pick<IUploadDraggerRenderlessParams, 'state' | 'constants'>) =>
   () => {
-    state.uploader.$refs[constants.FILE_UPLOAD_INNER_TEMPLATE].$emit('drag-over', state.dragover)
+    state.uploader.$emit('drag-over', state.dragover)
   }
 
 async function readFiles(directory, state) {

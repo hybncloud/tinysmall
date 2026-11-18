@@ -524,7 +524,7 @@ const addWatch = ({ watch, props, api, state, nextTick }) => {
 export const renderless = (
   props,
   { computed, onBeforeUnmount, onMounted, reactive, watch, provide, inject },
-  { vm, parent, emit, constants, nextTick, dispatch, t, emitter }
+  { vm, emit, constants, nextTick, dispatch, t, emitter }
 ) => {
   const api: any = {}
   const state = initState({
@@ -533,7 +533,7 @@ export const renderless = (
     props,
     api,
     emitter,
-    parent,
+    parent: vm,
     constants,
     vm
   })
@@ -551,14 +551,14 @@ export const renderless = (
     emit,
     maskState,
     constants,
-    parent,
+    parent: vm,
     nextTick,
     dispatch,
     t,
     vm
   })
 
-  parent.$on('handle-clear', (event) => {
+  vm.$on('handle-clear', (event) => {
     api.handleClearClick(event)
   })
 

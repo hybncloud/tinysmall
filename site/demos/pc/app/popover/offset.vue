@@ -41,8 +41,8 @@ import { ref } from 'vue'
 import { TinyPopover, TinyButton, TinySlider } from '@hybncloud/tinysmall'
 
 const show = ref(true)
-const arrowOffset = ref(true)
-const offset = ref(true)
+const arrowOffset = ref(0)
+const offset = ref(0)
 </script>
 
 <style scoped>

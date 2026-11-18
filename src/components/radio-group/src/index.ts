@@ -9,18 +9,5 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-import type { PropType } from '@tinysmall/common'
-import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
-import template from 'virtual-template?pc'
-import { radioGroupProps } from './pc.vue'
-
-export { radioGroupProps }
-
-export default defineComponent({
-  name: $prefix + 'RadioGroup',
-  componentName: 'RadioGroup',
-  props: radioGroupProps,
-  setup(props, context) {
-    return $setup({ props, context, template })
-  }
-})
+export { default } from './pc.vue'
+export { radioGroupProps } from './pc.vue'

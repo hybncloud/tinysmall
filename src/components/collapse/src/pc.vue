@@ -17,7 +17,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/collapse/vue'
-import { $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
 
 export const $constants = {
   COMPONENT_NAME: {
@@ -47,9 +47,16 @@ export const collapseProps = {
 }
 
 export default defineComponent({
+  name: $prefix + 'Collapse',
+  componentName: 'Collapse',
   props: collapseProps,
+  provide() {
+    return {
+      collapse: this
+    }
+  },
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless, api, mono: true })
   }
 })
 </script>

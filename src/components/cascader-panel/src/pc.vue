@@ -48,7 +48,7 @@ export const cascaderPanelProps = {
 
 export default defineComponent({
   name: $prefix + 'CascaderPanel',
-  componentName: $prefix + 'CascaderPanel',
+  componentName: 'CascaderPanel',
   components: {
     CascaderMenu
   },
@@ -60,7 +60,7 @@ export default defineComponent({
   },
   emits: ['update:modelValue', 'change', 'close', 'expand-change', 'active-item-change', 'load-data'],
   setup(props, context) {
-    return setup({ props, context, renderless, api }) as unknown as ICascaderPanelApi
+    return setup({ props, context, renderless, api, mono: true }) as unknown as ICascaderPanelApi
   }
 })
 </script>

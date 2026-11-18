@@ -9,16 +9,6 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
-import template from 'virtual-template?pc'
-import { $constants, treeProps } from './pc.vue'
-
-export { treeProps }
-
-export default defineComponent({
-  props: treeProps,
-  name: $prefix + 'Tree',
-  setup(props, context) {
-    return $setup({ props, context, template })
-  }
-})
+export { default } from './pc.vue'
+export { treeProps } from './pc.vue'
+export { $constants } from './pc.vue'

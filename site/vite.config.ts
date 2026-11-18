@@ -1,6 +1,5 @@
 import { defineConfig } from 'vite'
 import vueJsx from '@vitejs/plugin-vue-jsx'
-import virtualTemplate from '../internals/unplugin-virtual-template/vite.ts'
 import svgLoader from '../internals/vite-svg-loader/vite.ts'
 import path from 'node:path'
 
@@ -17,9 +16,6 @@ export default defineConfig({
   },
   plugins: [
     vueJsx(),
-    virtualTemplate({
-      include: ['../src/components/*/src/index.ts', '../src/components/*/src/index.vue']
-    }),
     svgLoader({
       svgoConfig: {
         plugins: ['preset-default', 'prefixIds']

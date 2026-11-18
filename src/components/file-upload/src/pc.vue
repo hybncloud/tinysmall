@@ -11,7 +11,7 @@
  -->
 <script lang="tsx">
 import { renderless, api } from '@tinysmall/renderless/file-upload/vue'
-import { $props, props, setup, h, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, props, setup, h, defineComponent } from '@tinysmall/common'
 import UploadList from '@tinysmall/upload-list'
 import Upload from '@tinysmall/upload'
 import Progress from '@tinysmall/progress'
@@ -301,6 +301,7 @@ export const fileUploadProps = {
 }
 
 export default defineComponent({
+  name: $prefix + 'FileUpload',
   props: fileUploadProps,
   emits: ['change', 'hash-progress', 'progress', 'success', 'error', 'remove', 'download'],
   setup(props, context): any {
@@ -309,6 +310,7 @@ export default defineComponent({
       context,
       renderless,
       api,
+      mono: true,
       extendOptions: { Modal, Streamsaver }
     }) as unknown as IFileUploadApi
   },

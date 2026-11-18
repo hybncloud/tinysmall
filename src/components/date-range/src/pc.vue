@@ -248,7 +248,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/date-range/vue'
-import { $props, props, setup, directive, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, props, setup, directive, defineComponent } from '@tinysmall/common'
 import { Clickoutside } from '@tinysmall/directive'
 import TimePicker from '@tinysmall/time'
 import DateTable from '@tinysmall/date-table'
@@ -318,6 +318,8 @@ export const dateRangeProps = {
   }
 
 export default defineComponent({
+  name: $prefix + 'DateRange',
+  componentName: 'DateRange',
   directives: directive({ Clickoutside }),
   components: {
     TimePicker,
@@ -332,7 +334,7 @@ export default defineComponent({
   props: dateRangeProps,
   emits: ['dodestroy', 'pick', 'select-change', 'update:modelValue'],
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless, api, mono: true })
   }
 })
 </script>

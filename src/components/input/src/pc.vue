@@ -269,7 +269,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/input/vue'
-import { $props, props, setup, defineComponent, directive } from '@tinysmall/common'
+import { $prefix, $props, props, setup, defineComponent, directive } from '@tinysmall/common'
 import type { PropType } from '@tinysmall/common'
 import { Clickoutside } from '@tinysmall/directive'
 import TinyTallStorage from './tall-storage.vue'
@@ -409,6 +409,7 @@ export const inputProps = {
 }
 
 export default defineComponent({
+  name: $prefix + 'Input',
   emits: [
     'update:modelValue',
     'change',
@@ -449,7 +450,7 @@ export default defineComponent({
       }
       return result
     }
-    return { ...setup({ props, context, renderless, api }), filterAttrs }
+    return { ...setup({ props, context, renderless, api, mono: true }), filterAttrs }
   }
 })
 </script>

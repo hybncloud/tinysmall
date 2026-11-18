@@ -9,16 +9,5 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
-import template from 'virtual-template?pc'
-import { $constants, imageViewerProps } from './pc.vue'
-
-export { imageViewerProps }
-
-export default defineComponent({
-  props: imageViewerProps,
-  name: $prefix + 'ImageViewer',
-  setup(props, context) {
-    return $setup({ props, context, template })
-  }
-})
+export { default } from './pc.vue'
+export { imageViewerProps } from './pc.vue'

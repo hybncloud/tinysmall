@@ -103,7 +103,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/numeric/vue'
-import { $props, setup, directive, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, setup, directive, defineComponent } from '@tinysmall/common'
 import { RepeatClick } from '@tinysmall/directive'
 import { iconChevronDown, iconChevronUp, iconMinus, iconPlus } from '@tinysmall/icon'
 import '@tinysmall/theme/numeric/index.less'
@@ -262,6 +262,7 @@ export const numericProps = {
 }
 
 export default defineComponent({
+  name: $prefix + 'Numeric',
   directives: directive({ repeatClick: RepeatClick }),
   components: {
     IconChevronDown: iconChevronDown(),
@@ -275,7 +276,7 @@ export default defineComponent({
   props: numericProps,
   emits: ['update:modelValue', 'change', 'blur', 'focus', 'paste-error', 'filter-change', 'clear'],
   setup(props, context) {
-    return setup({ props, context, renderless, api }) as unknown as INumericApi
+    return setup({ props, context, renderless, api, mono: true }) as unknown as INumericApi
   }
 })
 </script>

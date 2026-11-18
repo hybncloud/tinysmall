@@ -239,7 +239,7 @@
 
 <script>
 import { renderless, api } from '@tinysmall/renderless/calendar-view/vue'
-import { $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
 import Button from '@tinysmall/button'
 import DatePicker from '@tinysmall/date-picker'
 import RadioButton from '@tinysmall/radio-button'
@@ -344,6 +344,7 @@ export const calendarViewProps = {
 }
 
 export default defineComponent({
+  name: $prefix + 'CalendarView',
   emits: [
     'update:modelValue',
     'new-schedule',
@@ -374,6 +375,7 @@ export default defineComponent({
       context,
       renderless,
       api,
+      mono: true,
       extendOptions: {
         modesIcon: {
           timeline: iconDayView(),

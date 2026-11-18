@@ -1,5 +1,5 @@
 <script lang="ts">
-import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
+import { $props, $prefix, defineComponent, renderComponent } from '@tinysmall/common'
 import PcStandardTemplate from './pc/pc-standard.vue'
 import PcAdvancedTemplate from './pc/pc-advanced.vue'
 import PcLineTemplate from './pc/pc-line.vue'
@@ -73,7 +73,7 @@ export default defineComponent({
   name: $prefix + 'Steps',
   props: stepsProps,
   setup(props, context) {
-    return $setup({ props, context, template })
+    return renderComponent({ view: template('pc', props), props, context })
   }
 })
 </script>

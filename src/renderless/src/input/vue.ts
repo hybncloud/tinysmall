@@ -101,11 +101,13 @@ const initState = ({
   reactive,
   computed,
   props,
-  parent,
+  attrs,
+  form,
+  formItem,
   constants,
   api,
   vm
-}: Pick<IInputRenderlessParams, 'reactive' | 'computed' | 'props' | 'parent' | 'constants' | 'api' | 'vm'>) => {
+}: Pick<IInputRenderlessParams, 'reactive' | 'computed' | 'props' | 'constants' | 'api' | 'vm'>) => {
   const state = reactive({
     maskSymbol: constants.MASKSYMBOL,
     focused: false,
@@ -118,8 +120,8 @@ const initState = ({
     checkedLabel: '',
     enteredTextarea: false,
     sheetvalue: props.modelValue,
-    inputSize: computed(() => props.size || state.formItemSize || (parent.tinyForm || {}).size),
-    inputSizeMf: computed(() => props.size || state.formItemSize || (parent.tinyForm || {}).size),
+    inputSize: computed(() => props.size || state.formItemSize || (form || {}).size),
+    inputSizeMf: computed(() => props.size || state.formItemSize || (form || {}).size),
     showClear: computed(
       () =>
         props.clearable &&
@@ -129,43 +131,42 @@ const initState = ({
         (state.focused || state.hovering)
     ),
     textareaHeight: '30px',
-    upperLimit: computed(() => parent.$attrs.maxlength),
+    upperLimit: computed(() => attrs.maxlength),
     textLength: computed(() => textLength(props.modelValue)),
     inputExceed: computed(() => state.isWordLimitVisible && state.textLength > state.upperLimit),
-    formItemSize: computed(() => (parent.formItem || {}).formItemSize),
+    formItemSize: computed(() => (formItem || {}).formItemSize),
     validateIcon: computed(() => constants.VALIDATE_ICON[state.validateState]),
-    showWordLimit: computed(() => props.showWordLimit && parent.$attrs.maxlength),
+    showWordLimit: computed(() => props.showWordLimit && attrs.maxlength),
     inputDisabled: computed(
-      () =>
-        props.disabled || (parent.tinyForm || {}).disabled || state.isDisplayOnly || (parent.tinyForm || {}).displayOnly
+      () => props.disabled || (form || {}).disabled || state.isDisplayOnly || (form || {}).displayOnly
     ),
-    validateState: computed(() => (parent.formItem ? parent.formItem.validateState : '')),
+    validateState: computed(() => (formItem ? formItem.validateState : '')),
     inputStyle: computed(() => api.inputStyle()),
     textareaStyle: computed(() => ({
       ...state.textareaCalcStyle,
       resize: props.resize,
       textAlign: props.textAlign
     })),
-    needStatusIcon: computed(() => (parent.tinyForm ? parent.tinyForm.statusIcon : false)),
+    needStatusIcon: computed(() => (form ? form.statusIcon : false)),
     showPwdVisible: computed(
       () => props.showPassword && !state.inputDisabled && !props.readonly && (!!state.nativeInputValue || state.focused)
     ),
     nativeInputValue: computed(() =>
       props.modelValue === null || props.modelValue === undefined ? '' : String(props.modelValue)
     ),
-    tooltipConfig: computed(() => (parent.tinyForm ? parent.tinyForm.tooltipConfig : {})),
+    tooltipConfig: computed(() => (form ? form.tooltipConfig : {})),
 
     isWordLimitVisible: computed(
       () =>
-        ((props.showWordLimit && parent.$attrs.maxlength) || props.counter) &&
-        (parent.type === 'text' || parent.type === 'textarea') &&
+        ((props.showWordLimit && attrs.maxlength) || props.counter) &&
+        (props.type === 'text' || props.type === 'textarea') &&
         !state.inputDisabled &&
         !props.readonly &&
         !props.showPassword
     ),
     isDisplayOnly: computed(
       () =>
-        (props.displayOnly || (parent.tinyForm || {}).displayOnly) &&
+        (props.displayOnly || (form || {}).displayOnly) &&
         ['text', 'textarea', 'password', 'number'].includes(props.type)
     ),
     displayOnlyTooltip: '',
@@ -190,10 +191,12 @@ const initApi = ({
   vm,
   props,
   parent,
-  nextTick
+  nextTick,
+  slots,
+  form
 }: Pick<
   IInputRenderlessParams,
-  'api' | 'state' | 'dispatch' | 'broadcast' | 'emit' | 'refs' | 'props' | 'parent' | 'vm' | 'nextTick'
+  'api' | 'state' | 'dispatch' | 'broadcast' | 'emit' | 'refs' | 'props' | 'parent' | 'vm' | 'nextTick' | 'slots' | 'form'
 >) => {
   Object.assign(api, {
     state,
@@ -205,13 +208,13 @@ const initApi = ({
     setShowMoreBtn: setShowMoreBtn({ state, vm }),
     handleChange: handleChange(emit),
     watchFormSelect: watchFormSelect({ emit, props, state }),
-    calcIconOffset: calcIconOffset({ vm, parent }),
-    getSuffixVisible: getSuffixVisible({ parent, props, state }),
+    calcIconOffset: calcIconOffset({ vm, slots }),
+    getSuffixVisible: getSuffixVisible({ slots, props, state }),
     calculateNodeStyling: calculateNodeStyling(),
     handleCompositionStart: handleCompositionStart(state),
     handleCompositionUpdate: handleCompositionUpdate(state),
     setInputDomValue: setInputDomValue({ state, props, nextTick, vm }),
-    getDisplayOnlyText: getDisplayOnlyText({ parent, props, state }),
+    getDisplayOnlyText: getDisplayOnlyText({ form, props, state }),
     handleEnterTextarea: handleEnterTextarea({ api, state, props, nextTick }),
     handleLeaveTextarea: handleLeaveTextarea({ api, state, props, nextTick, vm }),
     inputStyle: inputStyle({ props }),
@@ -363,18 +366,18 @@ const initWatch = ({
 export const renderless = (
   props: IInputProps,
   { computed, onMounted, onBeforeUnmount, onUpdated, reactive, toRefs, watch, inject }: ISharedRenderlessParamHooks,
-  { vm, refs, parent, emit, constants, nextTick, broadcast, dispatch }: IInputRenderlessParamUtils
+  { vm, refs, parent, attrs, slots, emit, constants, nextTick, broadcast, dispatch }: IInputRenderlessParamUtils
 ): IInputApi => {
   const api = {} as IInputApi
   const componentName = constants.COMPONENT_NAME.FormItem
   const eventName: IInputEventNameConstants = { change: 'form.change', blur: 'form.blur' }
-  const state = initState({ reactive, computed, props, parent, constants, api, vm })
+  const form = inject('form', null)
+  const formItem = inject('formItem', null)
+  const state = initState({ reactive, computed, props, attrs, form, formItem, constants, api, vm })
 
-  initApi({ api, state, dispatch, broadcast, emit, refs, props, parent, vm, nextTick })
+  initApi({ api, state, dispatch, broadcast, emit, refs, props, slots, form, parent, vm, nextTick })
 
   const storages = useStorageBox({ api, props, reactive, toRefs })
-
-  parent.tinyForm = parent.tinyForm || inject('form', null)
 
   mergeApi({ api, storages, componentName, emit, eventName, props, state, nextTick, parent, vm, constants })
 

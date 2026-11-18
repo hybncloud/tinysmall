@@ -141,6 +141,7 @@ const initState = ({
   vm,
   props,
   httpRequest,
+  markRaw,
   service
 }): IFileUploadState => {
   const state = reactive({
@@ -151,7 +152,7 @@ const initState = ({
     draging: false,
     uploadFiles: [],
     dragOver: false,
-    httpRequest,
+    httpRequest: markRaw(httpRequest),
     form: inject('form', ref({ default: '' })),
     listeners: vm.$listeners,
     docSize: 0, // unit(B)
@@ -331,8 +332,8 @@ export let getApi = () => ({}) as { downloadFile: Function }
 
 export const renderless = (
   props: IFileUploadProps,
-  { computed, inject, onBeforeUnmount, provide, reactive, ref, watch, onMounted }: ISharedRenderlessParamHooks,
-  { t, vm, parent, emit, service, constants }: IFileUploadRenderlessParamUtils,
+  { computed, inject, onBeforeUnmount, provide, reactive, ref, watch, onMounted, markRaw }: ISharedRenderlessParamHooks,
+  { t, vm, emit, service, constants }: IFileUploadRenderlessParamUtils,
   { Modal, Streamsaver }: IFileUploadModalVm & { Streamsaver: IFileUploadStreamsaver }
 ): IFileUploadApi => {
   let api = {} as IFileUploadApi
@@ -347,6 +348,7 @@ export const renderless = (
     vm,
     props,
     httpRequest,
+    markRaw,
     service
   })
 
@@ -354,7 +356,7 @@ export const renderless = (
   mergeApi({ api, props, $service, state, constants, emit, Modal, t, vm, Streamsaver })
   getApi = () => api
 
-  provide('uploader', parent)
+  provide('uploader', vm)
 
   onMounted(api.mounted)
 

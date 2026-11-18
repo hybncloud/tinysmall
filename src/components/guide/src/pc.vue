@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/guide/vue'
-import { $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
 import '@tinysmall/theme/guide/index.less'
 import Shepherd from 'shepherd.js'
 import { offset } from '@floating-ui/dom'
@@ -69,6 +69,7 @@ export const guideProps = {
   }
 
 export default defineComponent({
+  name: $prefix + 'Guide',
   props: guideProps,
   setup(props, context) {
     return setup({
@@ -76,6 +77,7 @@ export default defineComponent({
       context,
       renderless,
       api,
+      mono: true,
       extendOptions: {
         Shepherd,
         offset

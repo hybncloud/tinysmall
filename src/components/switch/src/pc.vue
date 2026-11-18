@@ -49,7 +49,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/switch/vue'
-import { $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
 import '@tinysmall/theme/switch/index.less'
 import type { ISwitchApi } from '@tinysmall/renderless/types/switch.type'
 import { IconLoadingShadow } from '@tinysmall/icon'
@@ -116,11 +116,12 @@ export const switchProps = {
 }
 
 export default defineComponent({
+  name: $prefix + 'Switch',
   emits: ['change', 'update:modelValue'],
   props: switchProps,
   components: { IconLoading: IconLoadingShadow() },
   setup(props, context) {
-    return setup({ props, context, renderless, api }) as unknown as ISwitchApi
+    return setup({ props, context, renderless, api, mono: true }) as unknown as ISwitchApi
   }
 })
 </script>

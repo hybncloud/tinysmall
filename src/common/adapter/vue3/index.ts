@@ -290,14 +290,6 @@ export const tools = (context) => {
   const grandParent = getRealParent(instance)
   const parentVm = grandParent ? createVm({}, grandParent) : instance.parent ? createVm({}, instance.parent) : null
 
-  const setParentAttribute = ({ name, value }) => {
-    const ctx = grandParent ? grandParent.ctx : instance?.parent?.ctx
-    ctx[name] = value
-
-    // 当前的parentVm也保存一下。
-    parentVm[name] = value
-  }
-
   const defineInstanceProperties = (props) => {
     Object.defineProperties(vm, props)
     Object.defineProperties(instance?.ctx, props)
@@ -328,7 +320,6 @@ export const tools = (context) => {
     constants: instance?.props._constants,
     service: root?.$getService ? root?.$getService(vm) : root?.$service,
     getService: () => root?.$getService(vm),
-    setParentAttribute,
     defineInstanceProperties,
     defineParentInstanceProperties
   }

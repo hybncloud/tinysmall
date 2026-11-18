@@ -45,8 +45,9 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/button/vue'
-import { $props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
 import type { PropType } from '@tinysmall/common'
+import type { SlotsType } from 'vue'
 import { iconLoadingShadow } from '@tinysmall/icon'
 import type { IButtonApi } from '@tinysmall/renderless/types/button.type'
 import '@tinysmall/theme/button/index.less'
@@ -117,11 +118,21 @@ export const buttonProps = {
 }
 
 export default defineComponent({
+  name: $prefix + 'Button',
+  inject: {
+    buttonGroup: {
+      default: ''
+    }
+  },
+  slots: Object as SlotsType<{
+    /** 默认插槽 */
+    default: {}
+  }>,
   emits: ['click'],
   props: buttonProps,
   components: { IconLoading: iconLoadingShadow() },
   setup(props, context) {
-    return setup({ props, context, renderless, api }) as unknown as IButtonApi
+    return setup({ props, context, renderless, api, mono: true }) as unknown as IButtonApi
   }
 })
 </script>

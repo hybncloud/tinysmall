@@ -17,7 +17,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/col/vue'
-import { $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
 
 export const colProps = {
     ...$props,
@@ -101,9 +101,10 @@ export const colProps = {
   }
 
 export default defineComponent({
+  name: $prefix + 'Col',
   props: colProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless, api, mono: true })
   }
 })
 </script>

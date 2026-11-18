@@ -43,7 +43,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/time-panel/vue'
-import { $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
 import Scrollbar from '@tinysmall/scrollbar'
 
 export const timePanelProps = {
@@ -52,13 +52,15 @@ export const timePanelProps = {
   }
 
 export default defineComponent({
+  name: $prefix + 'TimePanel',
+  componentName: 'TimePanel',
   emits: ['dodestroy', 'pick'],
   components: {
     TinyScrollbar: Scrollbar
   },
   props: timePanelProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless, api, mono: true })
   }
 })
 </script>

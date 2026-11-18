@@ -29,7 +29,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/breadcrumb/vue'
-import { $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
 import BreadcrumbItem from '@tinysmall/breadcrumb-item'
 
 export const $constants = {
@@ -67,6 +67,7 @@ export const breadcrumbProps = {
 }
 
 export default defineComponent({
+  name: $prefix + 'Breadcrumb',
   components: {
     TinyBreadcrumbItem: BreadcrumbItem
   },
@@ -78,7 +79,7 @@ export default defineComponent({
   },
   emits: ['select'],
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless, api, mono: true })
   }
 })
 </script>

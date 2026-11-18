@@ -269,7 +269,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/calendar/vue'
-import { $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
 import Tooltip from '@tinysmall/tooltip'
 import Popover from '@tinysmall/popover'
 import Button from '@tinysmall/button'
@@ -323,6 +323,7 @@ export const calendarProps = {
   }
 
 export default defineComponent({
+  name: $prefix + 'Calendar',
   components: {
     Tooltip,
     Popover,
@@ -332,7 +333,7 @@ export default defineComponent({
   },
   props: calendarProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless, api, mono: true })
   }
 })
 </script>

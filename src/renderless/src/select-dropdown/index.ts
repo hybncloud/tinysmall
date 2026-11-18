@@ -11,7 +11,7 @@
  */
 
 export const mounted =
-  ({ selectEmitter, constants, state, selectVm, updatePopper, destroyPopper, parent }) =>
+  ({ selectEmitter, constants, state, selectVm, updatePopper, destroyPopper, parent, select }) =>
   () => {
     selectEmitter.on(constants.EVENT_NAME.updatePopper, (keepZIndex) => {
       let hideDrop = false
@@ -22,7 +22,7 @@ export const mounted =
         selectVm.popperElm = selectVm.state.popperElm = state.popperElm = parent.$el
       }
 
-      if (parent.select.state.visible && !hideDrop) {
+      if (select.state.visible && !hideDrop) {
         updatePopper(keepZIndex)
         hideDrop = true
       }

@@ -9,20 +9,7 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-import { $prefix, $props, $setup, defineComponent } from '@tinysmall/common'
-import type { PropType } from '@tinysmall/common'
-import template from 'virtual-template?pc'
-import { $constants, timelineProps } from './pc.vue'
-
-export { timelineProps }
-export { $constants }
-
+export { default } from './pc.vue'
+export { timelineProps } from './pc.vue'
+export { $constants } from './pc.vue'
 export type ShapeType = 'circle' | 'dot'
-
-export default defineComponent({
-  name: $prefix + 'TimeLine',
-  props: timelineProps,
-  setup(props, context) {
-    return $setup({ props, context, template })
-  }
-})

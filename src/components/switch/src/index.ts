@@ -9,17 +9,6 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
-import template from 'virtual-template?pc'
-import { $constants, switchProps } from './pc.vue'
-
-export { switchProps }
-export { $constants }
-
-export default defineComponent({
-  name: $prefix + 'Switch',
-  props: switchProps,
-  setup(props, context) {
-    return $setup({ props, context, template })
-  }
-})
+export { default } from './pc.vue'
+export { switchProps } from './pc.vue'
+export { $constants } from './pc.vue'

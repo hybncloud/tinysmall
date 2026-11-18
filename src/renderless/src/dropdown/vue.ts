@@ -70,7 +70,7 @@ export const renderless = (
   Object.assign(api, {
     state,
     watchVisible: watchVisible({ broadcast, emit, nextTick }),
-    watchFocusing: watchFocusing(parent),
+    watchFocusing: watchFocusing(vm),
     show: show({ props, state, emit }),
     hide: hide({ api, props, state, emit }),
     mounted: mounted({ api, vm, state, broadcast, props }),

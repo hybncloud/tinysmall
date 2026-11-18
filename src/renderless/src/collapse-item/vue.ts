@@ -31,10 +31,11 @@ export const api = [
 
 export const renderless = (
   props: ICollapseItemProps,
-  { computed, reactive }: ISharedRenderlessParamHooks,
-  { parent, constants, dispatch }: ICollapseItemRenderlessParamUtils
+  { computed, inject, reactive }: ISharedRenderlessParamHooks,
+  { vm, constants, dispatch }: ICollapseItemRenderlessParamUtils
 ) => {
-  const _constants = parent.collapse._constants
+  const collapse = inject('collapse')
+  const _constants = collapse._constants
   const componentName = _constants.COMPONENT_NAME.Collapse
   const eventName = _constants.EVENT_NAME.CollapseItemClick
 
@@ -44,16 +45,16 @@ export const renderless = (
     focusing: false,
     contentHeight: 0,
     contentWrapStyle: { height: 'auto', display: 'block' },
-    size: parent.collapse.size,
-    isActive: computed(() => parent.collapse.state.activeNames.includes(props.name)),
+    size: collapse.size,
+    isActive: computed(() => collapse.state.activeNames.includes(props.name)),
     arrowIcon: props.expandIcon || 'IconChevronRight'
   })
 
   const api: ICollapseItemApi = {
     state,
     handleFocus: handleFocus({ state, interval: constants.INTERVAL }),
-    handleEnterClick: handleEnterClick({ componentName, dispatch, eventName, parent }),
-    handleHeaderClick: handleHeaderClick({ componentName, dispatch, eventName, props, parent, state })
+    handleEnterClick: handleEnterClick({ componentName, dispatch, eventName, parent: vm }),
+    handleHeaderClick: handleHeaderClick({ componentName, dispatch, eventName, props, parent: vm, state })
   }
 
   Object.assign(api, {

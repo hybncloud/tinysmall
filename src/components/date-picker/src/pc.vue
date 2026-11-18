@@ -11,7 +11,7 @@
  -->
 <script lang="ts">
 import Picker from '@tinysmall/picker'
-import { $props } from '@tinysmall/common'
+import { $prefix, $props } from '@tinysmall/common'
 import { extend } from '@tinysmall/utils'
 import { iconClose } from '@tinysmall/icon'
 import type { PropType } from 'vue'
@@ -235,7 +235,11 @@ const DatePicker = extend(
       }
     }
   },
-  Picker
+  Picker,
+  {
+    name: $prefix + 'DatePicker',
+    props: datePickerProps
+  }
 )
 
 export default DatePicker

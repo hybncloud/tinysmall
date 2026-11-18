@@ -82,6 +82,7 @@ const initState = ({
   props,
   computed,
   parent,
+  form,
   api,
   t,
   constants,
@@ -92,6 +93,7 @@ const initState = ({
   props: ICascaderProps
   computed: ISharedRenderlessFunctionParams<null>['computed']
   parent: ICascadeRenderlessParamUtils['parent']
+  form: ReturnType<ISharedRenderlessFunctionParams<null>['inject']>
   api: ICascaderApi
   t: ICascadeRenderlessParamUtils['t']
   constants: ICascaderConstants
@@ -113,12 +115,12 @@ const initState = ({
     inputInitialHeight: 0,
     pressDeleteCount: 0,
     realSize: computed(() => props.size),
-    formDisabled: computed(() => (parent.tinyForm || {}).disabled),
+    formDisabled: computed(() => (form || {}).disabled),
     displayOnly: computed(() => props.displayOnly),
     disabled: computed(() => props.disabled || state.isDisplayOnly || state.formDisabled),
     tagSize: computed(() => (~['small', 'mini'].indexOf(state.realSize) ? 'mini' : 'small')),
     isDisabled: computed(() => state.disabled),
-    isDisplayOnly: computed(() => state.displayOnly || (parent.tinyForm || {}).displayOnly),
+    isDisplayOnly: computed(() => state.displayOnly || (form || {}).displayOnly),
     config: computed(() => api.getConfig()),
     multiple: computed(() => state.config.multiple),
     leafOnly: computed(() => !state.config.checkStrictly),
@@ -272,9 +274,9 @@ export const renderless = (
     watch,
     inject
   }: ISharedRenderlessFunctionParams<null>,
-  { t, emit, nextTick, constants, parent, slots, dispatch, vm }: ICascadeRenderlessParamUtils
+  { t, emit, nextTick, constants, slots, dispatch, vm }: ICascadeRenderlessParamUtils
 ) => {
-  parent.tinyForm = parent.tinyForm || inject('form', null)
+  const form = inject('form', null)
 
   const { updatePopper } = userPopper({
     reactive,
@@ -302,7 +304,8 @@ export const renderless = (
     reactive,
     props,
     computed,
-    parent,
+    parent: vm,
+    form,
     api: api as ICascaderApi,
     t,
     constants,
@@ -310,7 +313,7 @@ export const renderless = (
     inject
   })
 
-  initApi({ api: api as ICascaderApi, state, constants, dispatch, emit, vm, props, updatePopper, nextTick, parent, t })
+  initApi({ api: api as ICascaderApi, state, constants, dispatch, emit, vm, props, updatePopper, nextTick, parent: vm, t })
 
   initWatch({ watch, state, api: api as ICascaderApi, props, nextTick, updatePopper })
 
@@ -318,11 +321,11 @@ export const renderless = (
   onUpdated((api as ICascaderApi).updateStyle)
   onMounted((api as ICascaderApi).selfMounted)
 
-  parent.$on('handle-clear', (event: ICascaderState) => {
+  vm.$on('handle-clear', (event: ICascaderState) => {
     ;(api as ICascaderApi).handleClear(event)
   })
 
-  onBeforeUnmount(() => removeResizeListener(parent.$el, api.updateStyle))
+  onBeforeUnmount(() => removeResizeListener(vm.$el, api.updateStyle))
 
   return api
 }

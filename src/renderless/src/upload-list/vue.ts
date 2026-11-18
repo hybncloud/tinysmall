@@ -65,7 +65,7 @@ export const renderless = (
   { Modal }: IFileUploadModalVm
 ): IUploadListApi => {
   const api = { getApi } as IUploadListApi
-  parent = inject('uploader').$children[0]
+  parent = inject('uploader')
   const constants = !isServer ? (parent.$constants as IFileUploadConstants) : null
   const $service = initService({ props, service })
 

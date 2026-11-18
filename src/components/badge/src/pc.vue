@@ -38,7 +38,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/badge/vue'
-import { $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
 import type { IBadgeApi } from '@tinysmall/renderless/types/badge.type'
 import '@tinysmall/theme/badge/index.less'
 
@@ -71,9 +71,10 @@ export const badgeProps = {
 }
 
 export default defineComponent({
+  name: $prefix + 'Badge',
   props: badgeProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api }) as unknown as IBadgeApi
+    return setup({ props, context, renderless, api, mono: true }) as unknown as IBadgeApi
   }
 })
 </script>

@@ -66,7 +66,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/rate/vue'
-import { $props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
 import { t } from '@tinysmall/locale'
 import { iconStarActive, iconStarDisable, iconSmile, iconFrown, iconMeh } from '@tinysmall/icon'
 
@@ -180,6 +180,7 @@ export const rateProps = {
 }
 
 export default defineComponent({
+  name: $prefix + 'Rate',
   props: rateProps,
   components: {
     IconStarActive: iconStarActive(),
@@ -189,7 +190,7 @@ export default defineComponent({
     IconMeh: iconMeh()
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless, api, mono: true })
   }
 })
 </script>

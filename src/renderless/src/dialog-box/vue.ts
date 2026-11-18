@@ -187,7 +187,7 @@ export const renderless = (
   initApi({
     api,
     state,
-    parent,
+    parent: vm,
     props,
     emit,
     constants,

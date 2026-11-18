@@ -18,18 +18,19 @@ export const api = ['state', 'handleClick']
 export const renderless = (
   props: IButtonProps,
   { computed, onBeforeUnmount, reactive, watch, inject }: ISharedRenderlessParamHooks,
-  { emit, parent }: IButtonRenderlessParamUtils
+  { emit }: IButtonRenderlessParamUtils
 ) => {
-  parent.tinyForm = parent.tinyForm || inject('form', null)
+  const form = inject('form', null)
+  const buttonGroup = inject('buttonGroup', null)
 
   const state = reactive({
     timer: 0,
     disabled: props.disabled,
-    plain: computed(() => props.plain || (parent.buttonGroup || {}).plain),
+    plain: computed(() => props.plain || (buttonGroup || {}).plain),
     round: computed(() => props.round ?? false),
-    formDisabled: computed(() => (parent.tinyForm || {}).disabled),
+    formDisabled: computed(() => (form || {}).disabled),
     buttonDisabled: computed(
-      () => props.disabled || state.disabled || (parent.buttonGroup || {}).disabled || state.formDisabled
+      () => props.disabled || state.disabled || (buttonGroup || {}).disabled || state.formDisabled
     )
   })
 

@@ -63,7 +63,7 @@ export const renderless = (
     reqs: {},
     uploader,
     accecpt: '',
-    uploadInner: computed(() => state.uploader.$refs[constants.FILE_UPLOAD_INNER_TEMPLATE]),
+    uploadInner: computed(() => state.uploader),
     isEdm: computed(() => state.uploadInner.state.isEdm),
     openEdmDownload: computed(() => state.uploadInner.edm.download),
 

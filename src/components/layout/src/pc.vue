@@ -17,7 +17,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/layout/vue'
-import { $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
 
 export const layoutProps = {
     ...$props,
@@ -33,9 +33,15 @@ export const layoutProps = {
   }
 
 export default defineComponent({
+  name: $prefix + 'Layout',
+  provide() {
+    return {
+      layout: this
+    }
+  },
   props: layoutProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless, api, mono: true })
   }
 })
 </script>

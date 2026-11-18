@@ -9,16 +9,5 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
-import template from 'virtual-template?pc'
-import { badgeProps } from './pc.vue'
-
-export { badgeProps }
-
-export default defineComponent({
-  name: $prefix + 'Badge',
-  props: badgeProps,
-  setup(props, context) {
-    return $setup({ props, context, template })
-  }
-})
+export { default } from './pc.vue'
+export { badgeProps } from './pc.vue'

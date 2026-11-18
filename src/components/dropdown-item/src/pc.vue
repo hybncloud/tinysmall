@@ -174,7 +174,7 @@ export default defineComponent({
   },
   setup(props, context) {
     // 修复 <双层组件 + 自调用组件> 复合场景导致的数据混乱问题
-    return setup({ props, context, renderless, api, mono: props.isMono }) as unknown as IDropdownItemApi
+    return setup({ props, context, renderless, api, mono: true }) as unknown as IDropdownItemApi
   }
 })
 </script>

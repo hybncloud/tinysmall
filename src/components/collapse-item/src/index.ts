@@ -9,19 +9,6 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
-import template from 'virtual-template?pc'
-import { $constants, collapseItemProps } from './pc.vue'
-
-export { collapseItemProps }
-export { $constants }
-
-export default defineComponent({
-  name: $prefix + 'CollapseItem',
-  componentName: 'CollapseItem',
-  inject: ['collapse'],
-  props: collapseItemProps,
-  setup(props, context) {
-    return $setup({ props, context, template })
-  }
-})
+export { default } from './pc.vue'
+export { collapseItemProps } from './pc.vue'
+export { $constants } from './pc.vue'

@@ -46,7 +46,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/radio-button/vue'
-import { $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
 import type { IRadioButtonApi } from '@tinysmall/renderless/types/radio-button.type'
 
 export const $constants = {
@@ -71,10 +71,11 @@ export const radioButtonProps = {
 }
 
 export default defineComponent({
+  name: $prefix + 'RadioButton',
   emits: ['change'],
   props: radioButtonProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api }) as unknown as IRadioButtonApi
+    return setup({ props, context, renderless, api, mono: true }) as unknown as IRadioButtonApi
   }
 })
 </script>

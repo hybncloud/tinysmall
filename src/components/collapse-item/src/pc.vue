@@ -67,7 +67,7 @@
 
 <script lang="tsx">
 import { renderless, api } from '@tinysmall/renderless/collapse-item/vue'
-import { $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
 import CollapseTransition from '@tinysmall/collapse-transition'
 import { iconChevronRight } from '@tinysmall/icon'
 import type { ICollapseItemApi } from '@tinysmall/renderless/types/collapse-item.type'
@@ -97,13 +97,16 @@ export const collapseItemProps = {
 }
 
 export default defineComponent({
+  name: $prefix + 'CollapseItem',
+  componentName: 'CollapseItem',
+  inject: ['collapse'],
   props: collapseItemProps,
   components: {
     CollapseTransition,
     IconChevronRight: iconChevronRight()
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api }) as unknown as ICollapseItemApi
+    return setup({ props, context, renderless, api, mono: true }) as unknown as ICollapseItemApi
   }
 })
 </script>

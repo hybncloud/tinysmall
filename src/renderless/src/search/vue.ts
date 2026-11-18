@@ -109,7 +109,7 @@ export const renderless = (
     handleChange: handleChange({ emit, state }),
     showSelector: showSelector({ vm, state }),
     searchClick: searchClick({ emit, props, state }),
-    clickOutside: clickOutside({ parent, props, state, emit }),
+    clickOutside: clickOutside({ parent: vm, props, state, emit }),
     emitInput: emitInput({ emit }),
     ...formatSearchTypes.api
   } as ISearchApi

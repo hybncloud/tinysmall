@@ -9,27 +9,5 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-import { $prefix, $setup, defineComponent } from '@tinysmall/common'
-import type { SlotsType } from 'vue'
-import template from 'virtual-template?pc'
-import { buttonProps } from './pc.vue'
-
-export { buttonProps }
-
-export default defineComponent({
-  name: $prefix + 'Button',
-  inject: {
-    buttonGroup: {
-      default: ''
-    }
-  },
-
-  props: buttonProps,
-  slots: Object as SlotsType<{
-    /** 默认插槽 */
-    default: {}
-  }>,
-  setup(props, context) {
-    return $setup({ props, context, template })
-  }
-})
+export { default } from './pc.vue'
+export { buttonProps } from './pc.vue'

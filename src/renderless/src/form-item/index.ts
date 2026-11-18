@@ -149,7 +149,7 @@ export const computedForm =
   ({ constants, vm, state }: Pick<IFormItemRenderlessParams, 'constants' | 'vm' | 'state'>) =>
   (): IFormInstance | null => {
     const { FORM_NAME, FORM_ITEM_NAME } = constants
-    let parent = vm.$parent?.$parent as IFormInstance | null
+    let parent = vm.$parent as IFormInstance | null
     let parentName = parent?.$options?.componentName
 
     while (parent && parentName !== FORM_NAME) {

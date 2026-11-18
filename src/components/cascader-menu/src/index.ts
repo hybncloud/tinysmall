@@ -9,17 +9,5 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
-import template from 'virtual-template?pc'
-import { cascaderMenuProps } from './pc.vue'
-
-export { cascaderMenuProps }
-
-export default defineComponent({
-  name: $prefix + 'CascaderMenu',
-  componentName: 'CascaderMenu',
-  props: cascaderMenuProps,
-  setup(props, context) {
-    return $setup({ props, context, template })
-  }
-})
+export { default } from './pc.vue'
+export { cascaderMenuProps } from './pc.vue'

@@ -112,7 +112,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/transfer/vue'
-import { $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
 import Button from '@tinysmall/button'
 import TransferPanel from '@tinysmall/transfer-panel'
 import { iconDoubleLeft, iconChevronLeft, iconChevronRight, iconDoubleRight } from '@tinysmall/icon'
@@ -208,6 +208,7 @@ export const transferProps = {
 }
 
 export default defineComponent({
+  name: $prefix + 'Transfer',
   components: {
     TinyButton: Button,
     TinyTransferPanel: TransferPanel,
@@ -218,7 +219,7 @@ export default defineComponent({
   },
   props: transferProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api }) as unknown as ITransferApi
+    return setup({ props, context, renderless, api, mono: true }) as unknown as ITransferApi
   }
 })
 </script>

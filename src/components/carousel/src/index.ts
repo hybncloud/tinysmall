@@ -9,21 +9,5 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-import { $props, $setup, $prefix, defineComponent } from '@tinysmall/common'
-import template from 'virtual-template?pc'
-import { $constants, carouselProps } from './pc.vue'
-
-export { carouselProps }
-
-export default defineComponent({
-  props: carouselProps,
-  name: $prefix + 'Carousel',
-  componentName: 'Carousel',
-  setup(props, context) {
-    return $setup({
-      props,
-      context,
-      template
-    })
-  }
-})
+export { default } from './pc.vue'
+export { carouselProps } from './pc.vue'

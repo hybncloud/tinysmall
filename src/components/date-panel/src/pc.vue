@@ -324,6 +324,7 @@ export const datePanelProps = {
 
 export default defineComponent({
   name: $prefix + 'DatePanel',
+  componentName: 'DatePanel',
   directives: directive({ Clickoutside }),
   components: {
     TimePicker,
@@ -348,6 +349,7 @@ export default defineComponent({
       context,
       renderless,
       api,
+      mono: true,
       extendOptions: { language }
     })
   }

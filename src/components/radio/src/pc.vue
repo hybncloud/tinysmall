@@ -59,7 +59,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/radio/vue'
-import { $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
 import type { PropType } from '@tinysmall/common'
 import type { IRadioApi } from '@tinysmall/renderless/types/radio.type'
 import { AutoTip } from '@tinysmall/directive'
@@ -100,11 +100,12 @@ export const radioProps = {
 }
 
 export default defineComponent({
+  name: $prefix + 'Radio',
   emits: ['change', 'update:modelValue'],
   directives: { AutoTip },
   props: radioProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api }) as unknown as IRadioApi
+    return setup({ props, context, renderless, api, mono: true }) as unknown as IRadioApi
   }
 })
 </script>

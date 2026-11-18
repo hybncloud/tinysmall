@@ -37,7 +37,7 @@ import {
   TinyModal,
   TinyRadioGroup
 } from '@hybncloud/tinysmall'
-// import { AutoTip as VAutoTip } from '@opentiny/vue-directive'
+import { AutoTip as vAutoTip } from '@tinysmall/directive'
 
 function handleClick() {
   TinyModal.message({ message: 'click', status: 'info' })

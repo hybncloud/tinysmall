@@ -31,7 +31,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/radio-group/vue'
-import { $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
 import type { PropType } from '@tinysmall/common'
 import Radio from '@tinysmall/radio'
 import RadioButton from '@tinysmall/radio-button'
@@ -67,6 +67,8 @@ export const radioGroupProps = {
 }
 
 export default defineComponent({
+  name: $prefix + 'RadioGroup',
+  componentName: 'RadioGroup',
   components: {
     Radio,
     RadioButton
@@ -74,7 +76,7 @@ export default defineComponent({
   emits: ['change', 'update:modelValue'],
   props: radioGroupProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api }) as unknown as IRadioGroupApi
+    return setup({ props, context, renderless, api, mono: true }) as unknown as IRadioGroupApi
   }
 })
 </script>

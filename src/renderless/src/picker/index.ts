@@ -1287,11 +1287,11 @@ export const watchIsRange =
   }
 
 export const getType =
-  ({ parent, props }) =>
+  ({ props }) =>
   () => {
-    if (parent.componentName === DATEPICKER.DatePicker) {
+    if (props.componentName === DATEPICKER.DatePicker) {
       return props.type
-    } else if (parent.componentName === DATEPICKER.TimePicker) {
+    } else if (props.componentName === DATEPICKER.TimePicker) {
       return props.isRange ? DATEPICKER.TimeRange : DATEPICKER.Time
     }
 

@@ -9,17 +9,5 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
-import template from 'virtual-template?pc'
-import { loadingProps } from './pc.vue'
-
-export { loadingProps }
-
-export default defineComponent({
-  name: $prefix + 'Loading',
-  emits: [],
-  props: loadingProps,
-  setup(props, context) {
-    return $setup({ props, context, template })
-  }
-})
+export { default } from './pc.vue'
+export { loadingProps } from './pc.vue'

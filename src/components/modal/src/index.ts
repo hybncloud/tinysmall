@@ -9,18 +9,6 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
-import template from 'virtual-template?pc'
-import { $constants, modalProps } from './pc.vue'
-
-export { modalProps }
-export { $constants }
-
-export default defineComponent({
-  name: $prefix + 'Modal',
-  componentName: 'Modal',
-  props: modalProps,
-  setup(props, context) {
-    return $setup({ props, context, template })
-  }
-})
+export { default } from './pc.vue'
+export { modalProps } from './pc.vue'
+export { $constants } from './pc.vue'

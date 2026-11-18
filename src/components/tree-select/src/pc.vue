@@ -150,13 +150,14 @@ export const treeSelectProps = {
 
 export default defineComponent({
   name: $prefix + 'TreeSelect',
+  componentName: 'TreeSelect',
   components: {
     TinyTree: Tree,
     TinyBaseSelect: BaseSelect
   },
   props: treeSelectProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless, api, mono: true })
   }
 })
 </script>

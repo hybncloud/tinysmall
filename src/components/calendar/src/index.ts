@@ -9,16 +9,5 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
-import template from 'virtual-template?pc'
-import { calendarProps } from './pc.vue'
-
-export { calendarProps }
-
-export default defineComponent({
-  name: $prefix + 'Calendar',
-  props: calendarProps,
-  setup(props, context) {
-    return $setup({ props, context, template })
-  }
-})
+export { default } from './pc.vue'
+export { calendarProps } from './pc.vue'

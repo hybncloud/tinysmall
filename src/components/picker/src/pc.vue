@@ -181,7 +181,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/picker/vue'
-import { setup, directive, defineComponent } from '@tinysmall/common'
+import { $prefix, setup, directive, defineComponent } from '@tinysmall/common'
 import Input from '@tinysmall/input'
 import { Clickoutside } from '@tinysmall/directive'
 import DatePanel from '@tinysmall/date-panel'
@@ -201,6 +201,8 @@ export { pickerProps }
 import '@tinysmall/theme/picker/index.less'
 
 export default defineComponent({
+  name: $prefix + 'Picker',
+  componentName: 'Picker',
   components: {
     TinyInput: Input,
     TinyFilterBox: FilterBox,
@@ -217,6 +219,7 @@ export default defineComponent({
       context,
       renderless,
       api,
+      mono: true,
       extendOptions: {
         DatePanel,
         DateRangePanel,

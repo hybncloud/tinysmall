@@ -158,7 +158,7 @@ import FileUpload from '@tinysmall/file-upload'
 import Progress from '@tinysmall/progress'
 import Popconfirm from '@tinysmall/popconfirm'
 import { renderless, api } from '@tinysmall/renderless/pop-upload/vue'
-import { $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
 
 export const $constants = {
   KB: 'KB',
@@ -241,6 +241,7 @@ export const popUploadProps = {
   }
 
 export default defineComponent({
+  name: $prefix + 'PopUpload',
   components: {
     TinyButton: Button,
     TinyModal: Modal,
@@ -252,7 +253,7 @@ export default defineComponent({
   props: popUploadProps,
   emits: ['remove', 'progress', 'error', 'exceed', 'success'],
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless, api, mono: true })
   }
 })
 </script>

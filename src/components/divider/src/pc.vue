@@ -28,7 +28,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/divider/vue'
-import { $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
 import type { PropType } from '@tinysmall/common'
 
 type DirectionType = 'horizontal' | 'vertical'
@@ -82,9 +82,10 @@ export const dividerProps = {
 }
 
 export default defineComponent({
+  name: $prefix + 'Divider',
   props: dividerProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless, api, mono: true })
   }
 })
 </script>

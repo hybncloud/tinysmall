@@ -556,7 +556,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/base-select/vue'
-import { $props, setup, directive, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, setup, directive, defineComponent } from '@tinysmall/common'
 import { t } from '@tinysmall/locale'
 import TinyTag from '@tinysmall/tag'
 import TinyInput from '@tinysmall/input'
@@ -948,6 +948,21 @@ export const baseSelectProps = {
 }
 
 export default defineComponent({
+  name: $prefix + 'BaseSelect',
+  componentName: 'BaseSelect',
+  inject: {
+    form: {
+      default: ''
+    },
+    formItem: {
+      default: ''
+    }
+  },
+  provide() {
+    return {
+      select: this
+    }
+  },
   emits: [
     'update:modelValue',
     'change',
@@ -997,7 +1012,7 @@ export default defineComponent({
   },
   props: baseSelectProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless, api, mono: true })
   }
 })
 </script>

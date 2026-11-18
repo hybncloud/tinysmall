@@ -67,7 +67,7 @@ export default defineComponent({
     TinyIconLoadingShadow: iconLoadingShadow()
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api }) as unknown as ILoadingApi
+    return setup({ props, context, renderless, api, mono: true }) as unknown as ILoadingApi
   }
 })
 </script>

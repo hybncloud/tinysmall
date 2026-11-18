@@ -143,7 +143,7 @@ const initApi = ({ api, state, props, parent, nextTick, emit, t, constants, vm }
     reset: reset(state),
     prev: prev({ state, api, vm }),
     next: next({ state, api, vm }),
-    getImageWidth: getImageWidth({ state, parent, props, nextTick, vm }),
+    getImageWidth: getImageWidth({ state, parent: vm, props, nextTick, vm }),
     handleVisible: handleVisible({ state, emit, props }),
     handleActions: handleActions(state, props, emit),
     handleImgLoad: handleImgLoad(state),

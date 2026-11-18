@@ -43,7 +43,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/dropdown-menu/vue'
-import { $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
 import DropdownItem from '@tinysmall/dropdown-item'
 import '@tinysmall/theme/dropdown-menu/index.less'
 import type { IDropdownMenuApi } from '@tinysmall/renderless/types/dropdown-menu.type'
@@ -103,13 +103,27 @@ export const dropdownMenuProps = {
 }
 
 export default defineComponent({
+  name: $prefix + 'DropdownMenu',
+  componentName: $prefix + 'DropdownMenu',
   components: {
     TinyDropdownItem: DropdownItem
   },
-  emits: ['mouseenter', 'mouseleave', 'click', 'update:modelValue', 'created'],
+  emits: [
+    'mouseenter',
+    'mouseleave',
+    'click',
+    'update:modelValue',
+    'created',
+    'visible',
+    'updatePopper',
+    'menu-selected-index',
+    'menu-item-click',
+    'mouseenter-tips',
+    'mouseleave-tips'
+  ],
   props: dropdownMenuProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api }) as unknown as IDropdownMenuApi
+    return setup({ props, context, renderless, api, mono: true }) as unknown as IDropdownMenuApi
   }
 })
 </script>

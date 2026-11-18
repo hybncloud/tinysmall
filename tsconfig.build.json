@@ -4,7 +4,6 @@
     "types": [
       "node",
       "tsdown/client",
-      "./internals/unplugin-virtual-template/client",
       "./internals/vite-svg-loader/client",
       "./env"
     ],

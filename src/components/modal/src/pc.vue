@@ -11,7 +11,7 @@
  -->
 <script lang="tsx">
 import Button from '@tinysmall/button'
-import { $props, props, setup, h, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, props, setup, h, defineComponent } from '@tinysmall/common'
 import { renderless, api } from '@tinysmall/renderless/modal/vue'
 import '@tinysmall/theme/modal/index.less'
 
@@ -112,6 +112,8 @@ export const modalProps = {
 }
 
 export default defineComponent({
+  name: $prefix + 'Modal',
+  componentName: 'Modal',
   props: modalProps,
   emits: [
     'update:modelValue',
@@ -128,7 +130,7 @@ export default defineComponent({
     return { dialog: this }
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api }) as unknown as IModalApi
+    return setup({ props, context, renderless, api, mono: true }) as unknown as IModalApi
   },
   render() {
     let {

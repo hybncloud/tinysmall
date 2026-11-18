@@ -2,7 +2,6 @@ import path from 'node:path'
 import { defineConfig } from 'vitest/config'
 import vue from 'unplugin-vue/rolldown'
 import vueJsx from 'unplugin-vue-jsx/rolldown'
-import virtualTemplate from './internals/unplugin-virtual-template/rolldown.ts'
 import svgLoader from './internals/vite-svg-loader/rolldown.ts'
 
 const abs = (...paths: string[]): string => path.join(import.meta.dirname, ...paths)
@@ -19,9 +18,6 @@ export default defineConfig({
   plugins: [
     vue(),
     vueJsx(),
-    virtualTemplate({
-      include: ['./src/components/*/src/index.ts', './src/components/*/src/index.vue']
-    }),
     svgLoader({
       svgoConfig: {
         plugins: ['preset-default', 'prefixIds']

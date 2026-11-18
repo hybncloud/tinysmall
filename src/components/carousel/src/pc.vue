@@ -149,10 +149,12 @@ export const carouselProps = {
   }
 
 export default defineComponent({
-  emits: ['change', 'complete'],
+  name: $prefix + 'Carousel',
+  componentName: 'Carousel',
+  emits: ['change', 'complete', 'updateItems'],
   props: carouselProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless, api, mono: true })
   },
   components: {
     IconChevronLeft: iconChevronLeft(),

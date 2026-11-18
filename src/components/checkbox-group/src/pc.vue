@@ -24,7 +24,7 @@
 
 <script lang="tsx">
 import { renderless, api } from '@tinysmall/renderless/checkbox-group/vue'
-import { $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
 import type { PropType } from '@tinysmall/common'
 import Checkbox from '@tinysmall/checkbox'
 import CheckboxButton from '@tinysmall/checkbox-button'
@@ -69,13 +69,16 @@ export const checkboxGroupProps = {
   }
 
 export default defineComponent({
+  name: $prefix + 'CheckboxGroup',
+  componentName: 'CheckboxGroup',
+  emits: ['change', 'update:modelValue'],
   components: {
     Checkbox,
     CheckboxButton
   },
   props: checkboxGroupProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless, api, mono: true })
   }
 })
 </script>

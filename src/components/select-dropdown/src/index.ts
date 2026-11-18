@@ -9,19 +9,5 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-
-import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
-import template from 'virtual-template?pc'
-import { selectDropdownProps } from './pc.vue'
-
-export { selectDropdownProps }
-
-export default defineComponent({
-  name: $prefix + 'SelectDropdown',
-  componentName: 'SelectDropdown',
-  inject: ['select'],
-  props: selectDropdownProps,
-  setup(props, context) {
-    return $setup({ props, context, template })
-  }
-})
+export { default } from './pc.vue'
+export { selectDropdownProps } from './pc.vue'

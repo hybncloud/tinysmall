@@ -38,7 +38,7 @@ export default defineComponent({
   emits: ['file'],
   props: UploadDraggerProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api }) as unknown as IUploadDraggerApi
+    return setup({ props, context, renderless, api, mono: true }) as unknown as IUploadDraggerApi
   }
 })
 </script>

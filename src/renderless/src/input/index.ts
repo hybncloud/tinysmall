@@ -330,7 +330,7 @@ export const handleCompositionEnd =
   }
 
 export const calcIconOffset =
-  ({ vm, parent }: Pick<IInputRenderlessParams, 'parent' | 'vm'>) =>
+  ({ vm, slots }: Pick<IInputRenderlessParams, 'slots' | 'vm'>) =>
   (place: 'prefix' | 'suffix'): void => {
     const elList = vm.$refs[place] ? [vm.$refs[place]] : []
 
@@ -341,7 +341,7 @@ export const calcIconOffset =
     let el: HTMLElement | null = null
 
     for (let i = 0, len = elList.length; i < len; i++) {
-      if (elList[i].parentNode === parent.$el) {
+      if (elList[i].parentNode === vm.$el) {
         el = elList[i]
         break
       }
@@ -354,7 +354,7 @@ export const calcIconOffset =
     const pendantMap = { suffix: 'append', prefix: 'prepend' }
     const pendant = pendantMap[place]
 
-    if (parent.$slots[pendant]) {
+    if (slots[pendant]) {
       const dom = vm.$refs[pendant]
       let transform
 
@@ -389,9 +389,9 @@ export const handlePasswordVisible =
   }
 
 export const getSuffixVisible =
-  ({ parent, props, state }: Pick<IInputRenderlessParams, 'parent' | 'props' | 'state'>) =>
+  ({ slots, props, state }: Pick<IInputRenderlessParams, 'slots' | 'props' | 'state'>) =>
   (): boolean =>
-    parent.$slots.suffix ||
+    slots.suffix ||
     props.suffixIcon ||
     state.showClear ||
     props.showPassword ||
@@ -531,11 +531,10 @@ export const handleLeaveTextarea =
   }
 
 export const getDisplayOnlyText =
-  ({ parent, state, props }) =>
+  ({ form, state, props }) =>
   () => {
     const text = props.displayOnlyContent || state.nativeInputValue
-    const showEmptyValue =
-      typeof props.showEmptyValue === 'boolean' ? props.showEmptyValue : (parent.tinyForm || {}).showEmptyValue
+    const showEmptyValue = typeof props.showEmptyValue === 'boolean' ? props.showEmptyValue : (form || {}).showEmptyValue
 
     return showEmptyValue ? text : text || '-'
   }

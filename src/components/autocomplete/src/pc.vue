@@ -105,7 +105,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/autocomplete/vue'
-import { $props, props, setup, directive, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, props, setup, directive, defineComponent } from '@tinysmall/common'
 import TinyScrollbar from '@tinysmall/scrollbar'
 import TinyInput from '@tinysmall/input'
 import { Clickoutside } from '@tinysmall/directive'
@@ -183,6 +183,7 @@ export const autoCompleteProps = {
 }
 
 export default defineComponent({
+  name: $prefix + 'Autocomplete',
   components: {
     TinyInput,
     TinyScrollbar,
@@ -192,7 +193,7 @@ export default defineComponent({
   props: autoCompleteProps,
   emits: ['update:modelValue', 'focus', 'blur', 'clear', 'select', 'created'],
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless, api, mono: true })
   }
 })
 </script>

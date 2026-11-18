@@ -71,8 +71,8 @@ const initState = ({
   api,
   $service,
   constants,
-  parent
-}: INumericInitStateParams): INumericState => {
+  form
+}: INumericInitStateParams & { form: any }): INumericState => {
   const state = reactive({
     currentValue: props.modelValue,
     userInput: props.modelValue,
@@ -81,8 +81,8 @@ const initState = ({
     decimal: null,
     strictInput: computed(() => props.strictInput),
     inputSize: computed(() => props.size || state.formSize),
-    formSize: computed(() => (parent.tinyForm || {}).size),
-    formDisabled: computed(() => (parent.tinyForm || {}).disabled),
+    formSize: computed(() => (form || {}).size),
+    formDisabled: computed(() => (form || {}).disabled),
     inputDisabled: computed(() => props.disabled || state.formDisabled),
     displayValue: computed(() => api.displayValue()),
     numPrecision: computed(() => api.getNumPecision()),
@@ -100,7 +100,7 @@ const initState = ({
 
     handleClear: computed(() => api.handleClear()),
     handleChange: computed(() => api.handleClear()),
-    isDisplayOnly: computed(() => props.displayOnly || (parent.tinyForm || {}).displayOnly),
+    isDisplayOnly: computed(() => props.displayOnly || (form || {}).displayOnly),
     displayOnlyText: computed(() => api.getDisplayOnlyText()),
     controls: props.controls
   })
@@ -116,11 +116,12 @@ const initApi = ({
   emit,
   dispatch,
   constants,
-  nextTick
+  nextTick,
+  form
 }: Pick<
   INumericRenderlessParams,
   'api' | 'props' | 'state' | 'parent' | 'vm' | 'emit' | 'dispatch' | 'constants' | 'nextTick'
->): void => {
+> & { form: any }): void => {
   Object.assign(api, {
     state,
     focus: focus(vm),
@@ -144,7 +145,7 @@ const initApi = ({
     handleBlur: handleBlur({ constants, dispatch, emit, props, state, api }),
     watchValue: watchValue({ api, props, state }),
     setCurrentValue: setCurrentValue({ api, constants, dispatch, emit, props, state }),
-    getDisplayOnlyText: getDisplayOnlyText({ parent, props, state }),
+    getDisplayOnlyText: getDisplayOnlyText({ parent: { tinyForm: form }, props, state }),
     filterValue: filterValue({ state }),
     handleClear: handleClear({ state, emit }),
     handleChange: handleChange({ state, emit })
@@ -174,15 +175,14 @@ const initWatch = ({
 export const renderless = (
   props: INumericProps,
   { computed, onMounted, onUpdated, onUnmounted, reactive, watch, inject }: ISharedRenderlessParamHooks,
-  { parent, emit, vm, constants, dispatch, service, nextTick }: INumericRenderlessParamUtils
+  { emit, vm, constants, dispatch, service, nextTick }: INumericRenderlessParamUtils
 ): INumericApi => {
   const api = {} as INumericApi
   const $service = initService(service)
-  const state = initState({ reactive, computed, props, api, constants, $service, parent })
+  const form = inject('form', null)
+  const state = initState({ reactive, computed, props, api, constants, $service, form })
 
-  parent.tinyForm = parent.tinyForm || inject('form', null)
-
-  initApi({ api, props, state, parent, vm, emit, dispatch, constants, nextTick })
+  initApi({ api, props, state, parent: vm, vm, emit, dispatch, constants, nextTick, form })
   initWatch({ watch, props, api })
 
   onMounted(api.mounted)

@@ -9,21 +9,6 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-import { $prefix, $props, $setup, defineComponent, type PropType } from '@tinysmall/common'
-import template from 'virtual-template?pc'
-import { $constants, dialogBoxProps } from './pc.vue'
-
-export { dialogBoxProps }
-export { $constants }
-
-export default defineComponent({
-  name: $prefix + 'DialogBox',
-  model: {
-    prop: 'visible',
-    event: 'update:visible'
-  },
-  props: dialogBoxProps,
-  setup(props, context) {
-    return $setup({ props, context, template })
-  }
-})
+export { default } from './pc.vue'
+export { dialogBoxProps } from './pc.vue'
+export { $constants } from './pc.vue'

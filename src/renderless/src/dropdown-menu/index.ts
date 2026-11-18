@@ -97,7 +97,7 @@ export const getScroller = (el: HTMLElement, root?: HTMLElement): HTMLElement | 
 
 export const useVuePopper = ({ api, props, hooks, instance, state, dropdownVm }: IDropdownMenuPopperParams): void => {
   const { nextTick, onBeforeUnmount, onDeactivated, onMounted, reactive, toRefs, watch } = hooks
-  const { emit, slots, vm, parent } = instance
+  const { emit, slots, vm } = instance
   const designProps = {
     placement: props.placement || 'bottom-end',
     visibleArrow: props.visibleArrow || false
@@ -151,13 +151,13 @@ export const useVuePopper = ({ api, props, hooks, instance, state, dropdownVm }:
   state.size = dropdownVm?.size || ''
   state.showPopper = popper.showPopper.value
 
-  parent.$on('updatePopper', () => {
+  vm.$on('updatePopper', () => {
     if (state.showPopper) {
       popper.updatePopper()
     }
   })
 
-  parent.$on('visible', (value) => {
+  vm.$on('visible', (value) => {
     state.showPopper = value
     popper.showPopper.value = value
 
@@ -175,17 +175,17 @@ export const useVuePopper = ({ api, props, hooks, instance, state, dropdownVm }:
 }
 
 export const mounted =
-  ({ api, parent, state }: Pick<IDropdownMenuRenderlessParams, 'api' | 'parent' | 'state'>) =>
+  ({ api, vm, state }: Pick<IDropdownMenuRenderlessParams, 'api' | 'vm' | 'state'>) =>
   (): void => {
-    parent.$on('menu-selected-index', (selectedIndex) => {
+    vm.$on('menu-selected-index', (selectedIndex) => {
       state.selectedIndex = selectedIndex
     })
-    parent.$on('menu-item-click', api.handleMenuItemClick)
-    parent.$on('mouseenter-tips', (showContent, label) => {
+    vm.$on('menu-item-click', api.handleMenuItemClick)
+    vm.$on('mouseenter-tips', (showContent, label) => {
       state.label = label
       state.showContent = showContent
     })
-    parent.$on('mouseleave-tips', (showContent, label) => {
+    vm.$on('mouseleave-tips', (showContent, label) => {
       state.label = label
       state.showContent = showContent
     })

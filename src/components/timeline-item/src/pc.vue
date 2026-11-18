@@ -166,7 +166,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/timeline-item/vue'
-import { $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
 import { iconWarn, iconClose, iconYes } from '@tinysmall/icon'
 import '@tinysmall/theme/steps/index.less'
 import type { ITimelineItemApi } from '@tinysmall/renderless/types/timeline-item.type'
@@ -212,6 +212,7 @@ export const timelineItemProps = {
 }
 
 export default defineComponent({
+  name: $prefix + 'TimelineItem',
   emits: ['click'],
   props: timelineItemProps,
   components: {
@@ -224,7 +225,8 @@ export default defineComponent({
       props,
       context,
       renderless,
-      api
+      api,
+      mono: true
     }) as unknown as ITimelineItemApi
   }
 })

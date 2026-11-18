@@ -68,8 +68,6 @@ export interface ISharedRenderlessParamUtils<CT = never> {
    */
   parentHandler: (handler?: () => boolean) => void | any
 
-  /** 给 instance.parent 的ctx 赋值,同时给parentVm 赋值。 适配器的内部方法⭐要避免使用 */
-  setParentAttribute: ({ name, value }) => void
   /** 给 vm 和 instance.ctx 同时添加属性。
    * @param props Object.defineProperties的第2参, 格式：{ property1: {value: 42,writable: true},property2: {...} }
    */

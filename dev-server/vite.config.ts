@@ -1,7 +1,6 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
-import virtualTemplate from '../internals/unplugin-virtual-template/vite.ts'
 import svgLoader from '../internals/vite-svg-loader/vite.ts'
 import markdown from 'unplugin-vue-markdown/vite'
 import unocss from 'unocss/vite'
@@ -27,9 +26,6 @@ export default defineConfig({
   plugins: [
     vue({ include: [/\.vue$/, /\.md$/] }),
     vueJsx(),
-    virtualTemplate({
-      include: ['./src/components/*/src/index.ts', './src/components/*/src/index.vue']
-    }),
     svgLoader({
       svgoConfig: {
         plugins: ['preset-default', 'prefixIds']

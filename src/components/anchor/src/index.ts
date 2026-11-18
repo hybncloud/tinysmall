@@ -9,16 +9,5 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-import { $prefix, $setup, defineComponent } from '@tinysmall/common'
-import template from 'virtual-template?pc'
-import { anchorProps } from './pc.vue'
-
-export { anchorProps }
-
-export default defineComponent({
-  name: $prefix + 'Anchor',
-  props: anchorProps,
-  setup(props, context) {
-    return $setup({ props, context, template })
-  }
-})
+export { default } from './pc.vue'
+export { anchorProps } from './pc.vue'

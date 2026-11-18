@@ -117,7 +117,7 @@ export default defineComponent({
   componentName: 'Tooltip',
   props: tooltipProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api }) as unknown as ITooltipApi
+    return setup({ props, context, renderless, api, mono: true }) as unknown as ITooltipApi
   },
   render() {
     const getContent = (vm: ITinyVm<never>) => {

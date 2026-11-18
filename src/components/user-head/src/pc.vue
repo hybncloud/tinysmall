@@ -29,7 +29,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/user-head/vue'
-import { $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
 import { iconUser } from '@tinysmall/icon'
 import '@tinysmall/theme/user-head/index.less'
 
@@ -124,12 +124,13 @@ export const userHeadProps = {
 }
 
 export default defineComponent({
+  name: $prefix + 'UserHead',
   components: {
     IconUser: iconUser()
   },
   props: userHeadProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless, api, mono: true })
   }
 })
 </script>

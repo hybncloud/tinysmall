@@ -1,5 +1,6 @@
 <script lang="ts">
-import { defineComponent, $props, setup, h } from '@tinysmall/common'
+import { $prefix, defineComponent, $props, setup, h } from '@tinysmall/common'
+import type { SlotsType } from 'vue'
 import type { PropType } from 'vue'
 import { renderless, api } from '@tinysmall/renderless/space/vue'
 import type { ISpaceApi } from '@tinysmall/renderless/types/space.type'
@@ -50,10 +51,14 @@ export const spaceProps = {
 }
 
 export default defineComponent({
+  name: $prefix + 'Space',
+  slots: Object as SlotsType<{
+    default: {} // 默认插槽
+  }>,
   name: 'TinySpace',
   props: spaceProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api }) as unknown as ISpaceApi
+    return setup({ props, context, renderless, api, mono: true }) as unknown as ISpaceApi
   },
   render() {
     // 如果 renderless 层有 orderedChildren，就用它，否则 fallback 到默认 slot

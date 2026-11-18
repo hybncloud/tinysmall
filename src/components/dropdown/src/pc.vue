@@ -127,7 +127,7 @@ export default defineComponent({
     'update:visible'
   ],
   setup(props, context) {
-    return setup({ props, context, renderless, api, h })
+    return setup({ props, context, renderless, api, h, mono: true })
   },
   render() {
     const { splitButton, type, disabled, handleMainButtonClick, menuOptions, title, suffixIcon, prefixIcon } = this

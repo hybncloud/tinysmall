@@ -127,7 +127,7 @@ export default defineComponent({
   props: popConfirmProps,
   emits: ['hide', 'show', 'confirm'],
   setup(props, context): any {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless, api, mono: true })
   }
 })
 </script>

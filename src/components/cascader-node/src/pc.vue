@@ -32,6 +32,7 @@ export const cascaderNodeProps = {
 
 export default defineComponent({
   name: $prefix + 'CascaderNode',
+  componentName: 'CascaderNode',
   directives: { AutoTip },
   components: {
     TinyCheckbox: Checkbox,
@@ -45,7 +46,7 @@ export default defineComponent({
   inject: ['panel'],
   props: cascaderNodeProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api }) as unknown as ICascaderNodeApi &
+    return setup({ props, context, renderless, api, mono: true }) as unknown as ICascaderNodeApi &
       Pick<ICascaderNodeRenderlessParams, 'panel'>
   },
   render() {

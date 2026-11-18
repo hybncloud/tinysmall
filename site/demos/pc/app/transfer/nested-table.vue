@@ -2,7 +2,6 @@
   <tiny-transfer
     ref="transferRef"
     v-model="value"
-    :render="render"
     :data="data"
     filter-placeholder="请输入城市拼音"
     filterable
@@ -41,9 +40,6 @@ const getGridData = () => {
   return data
 }
 
-const render = ref({
-  plugin: null
-})
 const value = ref(['5', '6', '14', '10', '9', '11', '12'])
 const data = ref(getGridData())
 const columns = ref([
