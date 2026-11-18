@@ -11,28 +11,13 @@
  */
 import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
 import template from 'virtual-template?pc'
+import { $constants, carouselItemProps } from './pc.vue'
 
-const $constants = {
-  TYPE_CARD: 'card',
-  TYPE_VERTICAL: 'vertical',
-  CARD_SCALE: 0.83
-}
+export { carouselItemProps }
 
 export default defineComponent({
+  props: carouselItemProps,
   name: $prefix + 'CarouselItem',
-  props: {
-    ...$props,
-    _constants: {
-      type: Object,
-      default: () => $constants
-    },
-    name: String,
-    title: String,
-    label: {
-      type: [String, Number],
-      default: ''
-    }
-  },
   setup(props, context) {
     return $setup({ props, context, template })
   }

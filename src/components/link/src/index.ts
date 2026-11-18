@@ -11,28 +11,9 @@
  */
 import { $prefix, $props, $setup, defineComponent } from '@tinysmall/common'
 import template from 'virtual-template?pc'
+import { linkProps } from './pc.vue'
 
-export const linkProps = {
-  ...$props,
-  /** 文本链接类型：'primary' | 'success' | 'warning' | 'danger' | 'info' */
-  type: {
-    type: String,
-    default: 'default'
-  },
-  /** 显示内容 */
-  value: String,
-  /** 是否下划线 */
-  underline: {
-    type: Boolean,
-    default: true
-  },
-  /** 原生 href 属性 */
-  href: String,
-  /** 自定义图标 */
-  icon: [Object, String],
-  /** 是否禁用状态 */
-  disabled: Boolean
-}
+export { linkProps }
 
 export default defineComponent({
   name: $prefix + 'Link',

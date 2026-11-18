@@ -17,10 +17,44 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/row/vue'
-import { props, setup, defineComponent } from '@tinysmall/common'
+import { $props, props, setup, defineComponent } from '@tinysmall/common'
+
+export const rowProps = {
+    ...$props,
+    flex: Boolean,
+    gutter: {
+      type: Number,
+      default: 0,
+      validator(value: number) {
+        return value >= 0
+      }
+    },
+    justify: {
+      type: String,
+      default: 'start',
+      validator: (value: string) => Boolean(~['start', 'center', 'end', 'space-between', 'space-around'].indexOf(value))
+    },
+    align: {
+      type: String,
+      default: 'top',
+      validator: (value: string) => Boolean(~['top', 'middle', 'bottom'].indexOf(value))
+    },
+    order: {
+      type: String,
+      validator: (value: string) => Boolean(~['asc', 'des'].indexOf(value))
+    },
+    tag: {
+      type: String,
+      default: 'div'
+    },
+    noSpace: {
+      type: Boolean,
+      default: false
+    }
+  }
 
 export default defineComponent({
-  props: [...props, 'flex', 'gutter', 'justify', 'align', 'order', 'tag', 'noSpace'],
+  props: rowProps,
   setup(props, context) {
     return setup({ props, context, renderless, api })
   }

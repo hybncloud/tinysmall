@@ -46,12 +46,33 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/radio-button/vue'
-import { props, setup, defineComponent } from '@tinysmall/common'
+import { $props, props, setup, defineComponent } from '@tinysmall/common'
 import type { IRadioButtonApi } from '@tinysmall/renderless/types/radio-button.type'
+
+export const $constants = {
+  RADIO_GROUP: 'RadioGroup'
+}
+
+export const radioButtonProps = {
+  ...$props,
+  _constants: {
+    type: Object,
+    default: () => $constants
+  },
+  name: String,
+  text: String,
+  events: {
+    type: Object,
+    default: () => ({})
+  },
+  label: {},
+  disabled: Boolean,
+  tipContent: String
+}
 
 export default defineComponent({
   emits: ['change'],
-  props: [...props, 'label', 'events', 'text', 'disabled', 'name'],
+  props: radioButtonProps,
   setup(props, context) {
     return setup({ props, context, renderless, api }) as unknown as IRadioButtonApi
   }

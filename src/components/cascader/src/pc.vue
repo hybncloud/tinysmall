@@ -189,7 +189,8 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/cascader/vue'
-import { props, setup, defineComponent, directive } from '@tinysmall/common'
+import { $props, setup, defineComponent, directive } from '@tinysmall/common'
+import { t } from '@tinysmall/locale'
 
 import { Clickoutside } from '@tinysmall/directive'
 import { HighlightQuery } from '@tinysmall/directive'
@@ -204,40 +205,120 @@ import Tooltip from '@tinysmall/tooltip'
 import { iconClose, IconChevronDown, IconUpWard, iconYes } from '@tinysmall/icon'
 import '@tinysmall/theme/cascader/index.less'
 
+const $constants = {
+  placeholder: 'ui.cascader.placeholder',
+  COMPONENT_NAME: { FormItem: 'FormItem' },
+  EVENT_NAME: { FormBlur: 'form.blur', FormChange: 'form.change' },
+  defaultNodeConfig: {
+    lazy: false,
+    load: null,
+    isLeaf: 'leaf',
+    afterLoad: null,
+    currentNodeKey: null,
+    checkStrictly: false,
+    checkDescendants: null,
+    defaultCheckedKeys: null,
+    defaultExpandedKeys: null,
+    autoExpandParent: null,
+    defaultExpandAll: null,
+    filterNodeMethod: null
+  }
+}
+
+export const cascaderProps = {
+  ...$props,
+  _constants: {
+    type: Object,
+    default: () => $constants
+  },
+  autoSize: Boolean,
+  beforeFilter: {
+    type: Function,
+    default: () => () => {
+      // do nothing
+    }
+  },
+  clearable: Boolean,
+  collapseTags: Boolean,
+  debounce: {
+    type: Number,
+    default: 300
+  },
+  disabled: Boolean,
+  filterMethod: Function,
+  filterable: Boolean,
+  modelValue: {},
+  options: Array,
+  placeholder: {
+    type: String,
+    default: t('ui.select.placeholder')
+  },
+  /** 弹出位置，取自原 pc.vue props 数组 */
+  placement: {
+    default: () => 'bottom-start'
+  },
+  /** 弹层配置，取自原 pc.vue props 数组 */
+  popperOptions: {
+    default: () => ({ gpuAcceleration: false })
+  },
+  /** 是否显示箭头，取自原 pc.vue props 数组 */
+  visibleArrow: {
+    default: () => false
+  },
+  /** 弹层偏移，取自原 pc.vue props 数组 */
+  offset: {
+    default: () => 0
+  },
+  /** 弹层内边距，取自原 pc.vue props 数组 */
+  boundariesPadding: {
+    default: () => 0
+  },
+  /** 箭头偏移，取自原 pc.vue props 数组 */
+  arrowOffset: {
+    type: Number,
+    default: () => 35
+  },
+  popperAppendToBody: {
+    type: Boolean,
+    default: true
+  },
+  popperClass: String,
+  props: {
+    type: Object,
+    default: () => ({})
+  },
+  separator: {
+    type: String,
+    default: ' /'
+  },
+  showAllLevels: {
+    type: Boolean,
+    default: true
+  },
+  size: String,
+  shape: String,
+  label: String,
+  tip: String,
+  displayOnly: {
+    type: Boolean,
+    default: false
+  },
+  hoverExpand: {
+    type: Boolean,
+    default: false
+  },
+  blank: {
+    type: Boolean,
+    default: false
+  },
+  changeCompat: {
+    type: Boolean,
+    default: false
+  }
+}
+
 export default defineComponent({
-  props: [
-    ...props,
-    'modelValue',
-    'options',
-    'props',
-    'size',
-    'placeholder',
-    'disabled',
-    'clearable',
-    'filterable',
-    'filterMethod',
-    'separator',
-    'showAllLevels',
-    'collapseTags',
-    'debounce',
-    'beforeFilter',
-    'popperClass',
-    'placement',
-    'popperOptions',
-    'visibleArrow',
-    'offset',
-    'boundariesPadding',
-    'arrowOffset',
-    'popperAppendToBody',
-    'autoSize',
-    'displayOnly',
-    'shape',
-    'label',
-    'tip',
-    'hoverExpand',
-    'blank',
-    'changeCompat'
-  ],
+  props: cascaderProps,
   emits: [
     'update:modelValue',
     'change',

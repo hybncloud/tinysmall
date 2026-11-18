@@ -41,24 +41,37 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/year-table/vue'
-import { setup, props, defineComponent } from '@tinysmall/common'
+import { $props, setup, defineComponent } from '@tinysmall/common'
+import { isDate1 } from '@tinysmall/utils'
 import '@tinysmall/theme/year-table/index.less'
+
+export const yearTableProps = {
+  ...$props,
+  disabledDate: {},
+  value: {},
+  defaultValue: {
+    validator(val) {
+      // null or valid Date Object
+      return val === null || (val instanceof Date && isDate1(val))
+    }
+  },
+  date: [Date, Array],
+  selectionMode: String,
+  startYear: Number,
+  maxDate: {},
+  minDate: {},
+  rangeState: {
+    default: () => ({ endDate: null, selecting: false })
+  },
+  readonly: {
+    type: Boolean,
+    default: false
+  }
+}
 
 export default defineComponent({
   emits: ['pick', 'changerange'],
-  props: [
-    ...props,
-    'disabledDate',
-    'value',
-    'defaultValue',
-    'date',
-    'selectionMode',
-    'startYear',
-    'maxDate',
-    'minDate',
-    'rangeState',
-    'readonly'
-  ],
+  props: yearTableProps,
   setup(props, context): any {
     return setup({ props, context, renderless, api })
   }

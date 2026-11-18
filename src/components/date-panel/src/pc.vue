@@ -266,27 +266,14 @@ import {
 } from '@tinysmall/icon'
 import Popup from '@tinysmall/popup'
 
-export default defineComponent({
-  name: $prefix + 'DatePanel',
-  directives: directive({ Clickoutside }),
-  components: {
-    TimePicker,
-    YearTable,
-    MonthTable,
-    DateTable,
-    TinyInput: Input,
-    TinyButton: Button,
-    TinyPopup: Popup,
-    IconDoubleRight: iconDoubleRight(),
-    IconDoubleLeft: iconDoubleLeft(),
-    IconChevronLeft: iconChevronLeft(),
-    IconChevronRight: iconChevronRight(),
-    IconChevronDown: iconChevronDown(),
-    IconChevronUp: iconChevronUp()
-  },
-  props: {
+export const datePanelProps = {
     ...$props,
     emitter: Object,
+    /** 时间选择器是否可编辑，取自原 pc.vue 本地 props（模板 :readonly 引用） */
+    timeEditable: {
+      type: Boolean,
+      default: true
+    },
     step: {
       type: Object,
       default() {
@@ -305,10 +292,6 @@ export default defineComponent({
     firstDayOfWeek: {
       type: Number,
       default: 7
-    },
-    timeEditable: {
-      type: Boolean,
-      default: true
     },
     nowClick: {
       type: Function
@@ -337,7 +320,27 @@ export default defineComponent({
       type: String,
       default: ''
     }
+  }
+
+export default defineComponent({
+  name: $prefix + 'DatePanel',
+  directives: directive({ Clickoutside }),
+  components: {
+    TimePicker,
+    YearTable,
+    MonthTable,
+    DateTable,
+    TinyInput: Input,
+    TinyButton: Button,
+    TinyPopup: Popup,
+    IconDoubleRight: iconDoubleRight(),
+    IconDoubleLeft: iconDoubleLeft(),
+    IconChevronLeft: iconChevronLeft(),
+    IconChevronRight: iconChevronRight(),
+    IconChevronDown: iconChevronDown(),
+    IconChevronUp: iconChevronUp()
   },
+  props: datePanelProps,
   emits: ['pick', 'select-change', 'update:modelValue', 'dodestroy'],
   setup(props, context) {
     return setup({

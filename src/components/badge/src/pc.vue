@@ -38,25 +38,40 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/badge/vue'
-import { props, setup, defineComponent } from '@tinysmall/common'
+import { $props, props, setup, defineComponent } from '@tinysmall/common'
 import type { IBadgeApi } from '@tinysmall/renderless/types/badge.type'
 import '@tinysmall/theme/badge/index.less'
 
+export const badgeProps = {
+  ...$props,
+  isDot: {
+    type: Boolean,
+    default: false
+  },
+  max: Number,
+  value: [String, Number],
+  modelValue: [String, Number],
+  href: String,
+  target: String,
+  hidden: {
+    type: Boolean,
+    default: false
+  },
+  type: {
+    type: String,
+    validator: (value: string) =>
+      Boolean(~['primary', 'success', 'warning', 'info', 'danger', 'icon', 'label'].indexOf(value))
+  },
+  badgeClass: String,
+  offset: {
+    type: Array,
+    default: () => [0, 0]
+  },
+  data: [String, Number]
+}
+
 export default defineComponent({
-  props: [
-    ...props,
-    'isDot',
-    'hidden',
-    'type',
-    'max',
-    'value',
-    'modelValue',
-    'href',
-    'target',
-    'badgeClass',
-    'offset',
-    'data'
-  ],
+  props: badgeProps,
   setup(props, context) {
     return setup({ props, context, renderless, api }) as unknown as IBadgeApi
   }

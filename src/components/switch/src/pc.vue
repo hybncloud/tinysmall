@@ -49,27 +49,75 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/switch/vue'
-import { props, setup, defineComponent } from '@tinysmall/common'
+import { $props, props, setup, defineComponent } from '@tinysmall/common'
 import '@tinysmall/theme/switch/index.less'
 import type { ISwitchApi } from '@tinysmall/renderless/types/switch.type'
 import { IconLoadingShadow } from '@tinysmall/icon'
 
+export const $constants = {
+  PC_PREFIXCLS: 'tiny-switch',
+  MOBILE_PREFIXCLS: 'tiny-mobile-switch',
+  Mode: 'pc',
+  prefixcls(mode) {
+    return mode === this.Mode ? this.PC_PREFIXCLS : this.MOBILE_PREFIXCLS
+  }
+}
+
+export const switchProps = {
+  ...$props,
+  _constants: {
+    type: Object,
+    default: () => $constants
+  },
+  disabled: {
+    type: Boolean,
+    default: false
+  },
+  showText: {
+    type: Boolean || undefined,
+    default: false
+  },
+  types: {
+    type: String
+  },
+  falseColor: String,
+  falseValue: {
+    type: [String, Number, Boolean],
+    default: false
+  },
+  mini: {
+    type: Boolean,
+    default: false
+  },
+  modelValue: {
+    type: [String, Number, Boolean],
+    default: false
+  },
+  size: [Number, String],
+  tabindex: {
+    type: String,
+    default: '1'
+  },
+  trueColor: String,
+  trueValue: {
+    type: [String, Number, Boolean],
+    default: true
+  },
+  beforeChange: Function,
+  displayOnly: {
+    type: Boolean,
+    default: false
+  },
+  loading: {
+    type: Boolean,
+    default: false
+  },
+  width: [Number, String]
+}
+
 export default defineComponent({
   emits: ['change', 'update:modelValue'],
-  props: [
-    ...props,
-    'modelValue',
-    'trueValue',
-    'falseValue',
-    'disabled',
-    'mini',
-    'tabindex',
-    'showText',
-    'beforeChange',
-    'displayOnly',
-    'loading',
-    'width'
-  ],
+  props: switchProps,
   components: { IconLoading: IconLoadingShadow() },
   setup(props, context) {
     return setup({ props, context, renderless, api }) as unknown as ISwitchApi

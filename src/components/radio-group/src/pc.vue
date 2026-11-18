@@ -31,10 +31,40 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/radio-group/vue'
-import { props, setup, defineComponent } from '@tinysmall/common'
+import { $props, props, setup, defineComponent } from '@tinysmall/common'
+import type { PropType } from '@tinysmall/common'
 import Radio from '@tinysmall/radio'
 import RadioButton from '@tinysmall/radio-button'
 import type { IRadioGroupApi } from '@tinysmall/renderless/types/radio-group.type'
+
+export const radioGroupProps = {
+  ...$props,
+  modelValue: {},
+  size: {
+    type: String as PropType<'mini' | 'small' | 'medium'>,
+    default: ''
+  },
+  fill: String,
+  textColor: String,
+  disabled: Boolean,
+  vertical: Boolean,
+  options: {
+    type: Array,
+    default: () => []
+  },
+  type: {
+    type: String,
+    default: 'radio'
+  },
+  showTips: {
+    type: Boolean,
+    default: false
+  },
+  displayOnly: {
+    type: Boolean,
+    default: false
+  }
+}
 
 export default defineComponent({
   components: {
@@ -42,19 +72,7 @@ export default defineComponent({
     RadioButton
   },
   emits: ['change', 'update:modelValue'],
-  props: [
-    ...props,
-    'options',
-    'modelValue',
-    'type',
-    'size',
-    'fill',
-    'textColor',
-    'disabled',
-    'vertical',
-    'displayOnly',
-    'showTips'
-  ],
+  props: radioGroupProps,
   setup(props, context) {
     return setup({ props, context, renderless, api }) as unknown as IRadioGroupApi
   }

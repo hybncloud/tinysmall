@@ -26,9 +26,71 @@ import Tooltip from '@tinysmall/tooltip'
 import { iconError } from '@tinysmall/icon'
 import type { IFormItemApi, IFormItemInstance } from '@tinysmall/renderless/types/form-item.type'
 
-const $constants = {
+export const $constants = {
   FORM_NAME: 'Form',
   FORM_ITEM_NAME: 'FormItem'
+}
+
+export const formItemProps = {
+  ...$props,
+  _constants: {
+    type: Object,
+    default: () => $constants
+  },
+  appendToBody: {
+    type: Boolean,
+    default: undefined
+  },
+  /** 是否禁用，取自原 pc.vue 本地 props（renderless 中被引用） */
+  disabled: {
+    type: Boolean,
+    default: false
+  },
+  error: {
+    type: String,
+    default: ''
+  },
+  for: String,
+  inlineMessage: {
+    type: Boolean,
+    default: undefined
+  },
+  messageType: String,
+  label: String,
+  labelWidth: String,
+  manual: Boolean,
+  noStyle: Boolean,
+  popperOptions: {
+    type: Object,
+    default: () => ({})
+  },
+  prop: String,
+  required: {
+    type: Boolean,
+    default: undefined
+  },
+  rules: [Object, Array],
+  showMessage: {
+    type: Boolean,
+    default: true
+  },
+  size: String,
+  tipContent: String,
+  validateDisabled: Boolean,
+  validateDebounce: Boolean,
+  validatePosition: String,
+  validateStatus: String,
+  validateType: String,
+  validateIcon: Object,
+  ellipsis: {
+    type: Boolean,
+    default: false
+  },
+  vertical: {
+    type: Boolean,
+    default: false
+  },
+  extra: String
 }
 
 export default defineComponent({
@@ -39,65 +101,7 @@ export default defineComponent({
     Tooltip,
     IconError: iconError()
   },
-  props: {
-    ...$props,
-    _constants: {
-      type: Object,
-      default: () => $constants
-    },
-    appendToBody: {
-      type: Boolean,
-      default: undefined
-    },
-    disabled: {
-      type: Boolean,
-      default: false
-    },
-    error: String,
-    for: String,
-    inlineMessage: {
-      type: Boolean,
-      default: undefined
-    },
-    messageType: String,
-    label: String,
-    labelWidth: String,
-    manual: Boolean,
-    noStyle: Boolean,
-    popperOptions: {
-      type: Object,
-      default: () => ({})
-    },
-    prop: String,
-    required: {
-      type: Boolean,
-      default: undefined
-    },
-    rules: [Object, Array],
-    showMessage: {
-      type: Boolean,
-      default: true
-    },
-    size: String,
-    validateDisabled: Boolean,
-    validateDebounce: Boolean,
-    validatePosition: String,
-    validateStatus: String,
-    validateType: String,
-    validateIcon: {
-      type: Object,
-      default: null
-    },
-    ellipsis: {
-      type: Boolean,
-      default: false
-    },
-    vertical: {
-      type: Boolean,
-      default: false
-    },
-    extra: String
-  },
+  props: formItemProps,
   setup(props, context) {
     return setup({ props, context, renderless, api }) as unknown as IFormItemApi
   },

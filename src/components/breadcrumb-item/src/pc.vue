@@ -28,10 +28,30 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/breadcrumb-item/vue'
-import { props, setup, defineComponent } from '@tinysmall/common'
+import { $props, setup, defineComponent } from '@tinysmall/common'
+
+export const breadcrumbItemProps = {
+  ...$props,
+  to: Object,
+  /** 面包屑项显示文本（默认插槽兜底内容），取自原 pc.vue props 数组 */
+  label: String,
+  replace: {
+    type: Boolean,
+    default: false
+  },
+  size: {
+    type: String,
+    default: '',
+    validator: (val: string) => [/* 'large', */ 'medium', /* 'small', 'mini',  */ ''].includes(val)
+  },
+  option: {
+    type: Object,
+    default: () => ({})
+  }
+}
 
 export default defineComponent({
-  props: [...props, 'to', 'replace', 'label', 'option', 'size'],
+  props: breadcrumbItemProps,
   inject: ['breadcrumb'],
   emits: ['select'],
   setup(props, context) {

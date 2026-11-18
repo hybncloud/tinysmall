@@ -1,37 +1,10 @@
 import { $props, $setup, $prefix, defineComponent } from '@tinysmall/common'
 import type { PropType } from '@tinysmall/common'
 import template from 'virtual-template?pc'
+import { $constants, skeletonProps } from './pc.vue'
 
-export const $constants = {}
-
-export const skeletonProps = {
-  ...$props,
-  _constants: {
-    type: Object,
-    default: () => $constants
-  },
-  modelValue: String,
-  loading: {
-    type: Boolean,
-    default: true
-  },
-  rows: {
-    type: Number,
-    default: 3
-  },
-  avatar: {
-    type: Boolean,
-    default: false
-  },
-  rowsWidth: {
-    type: Array as PropType<(string | number)[]>,
-    default: () => []
-  },
-  animated: {
-    type: Boolean,
-    default: true
-  }
-}
+export { skeletonProps }
+export { $constants }
 
 export default defineComponent({
   name: $prefix + 'Skeleton',

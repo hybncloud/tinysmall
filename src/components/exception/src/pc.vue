@@ -66,6 +66,30 @@ const $constants = {
   }
 }
 
+export const exceptionProps = {
+    ...$props,
+    _constants: {
+      type: Object,
+      default: () => $constants
+    },
+    type: {
+      type: String,
+      default: 'nodata'
+    },
+    message: String,
+    subMessage: String,
+    exceptionClass: String,
+    imageUrl: String,
+    pageEmpty: {
+      type: Boolean,
+      default: false
+    },
+    componentPage: {
+      type: Boolean,
+      default: false
+    }
+  }
+
 export default defineComponent({
   components: {
     TinyButton: Button,
@@ -80,27 +104,7 @@ export default defineComponent({
     IconPageWeaknet: iconPageWeaknet()
   },
   emits: ['click'],
-  props: {
-    ...$props,
-    _constants: {
-      type: Object,
-      default: () => $constants
-    },
-    type: {
-      type: String,
-      default: 'nodata'
-    },
-    subMessage: String,
-    exceptionClass: String,
-    pageEmpty: {
-      type: Boolean,
-      default: false
-    },
-    componentPage: {
-      type: Boolean,
-      default: false
-    }
-  },
+  props: exceptionProps,
   setup(props, context): any {
     return setup({
       props,

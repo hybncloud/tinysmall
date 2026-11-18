@@ -1,55 +1,13 @@
 import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
 import template from 'virtual-template?pc'
+import { $constants, timeSpinnerProps } from './pc.vue'
 
-const $constants = {
-  ANIMATIONNAME: 'tiny-transition-timepicker'
-}
+export { timeSpinnerProps }
 
 export default defineComponent({
+  props: timeSpinnerProps,
   name: $prefix + 'TimeSpinner',
   componentName: 'TimeSpinner',
-  props: {
-    ...$props,
-    _constants: {
-      type: Object,
-      default: () => $constants
-    },
-    date: {},
-    defaultValue: {},
-    showSeconds: {
-      type: Boolean,
-      default: true
-    },
-    arrowControl: Boolean,
-    amPmMode: {
-      type: String,
-      default: '' // 'a': am/pm; 'A': AM/PM
-    },
-    step: {
-      type: Object,
-      default() {
-        return { hour: 1, minute: 1, second: 1 }
-      },
-      validator: ({ hour, minute, second }) => {
-        const validateArray = [
-          { value: hour, range: 24 },
-          { value: minute, range: 60 },
-          { value: second, range: 60 }
-        ]
-        return validateArray.every(({ value, range }) =>
-          value || value === 0 ? Math.floor(value) === value && value > 0 && value <= range : true
-        )
-      }
-    },
-    startDate: {
-      type: [Object, Date, String, Number],
-      default: () => ''
-    },
-    endDate: {
-      type: [Object, Date, String, Number],
-      default: () => ''
-    }
-  },
   setup(props, context) {
     return $setup({ props, context, template })
   }

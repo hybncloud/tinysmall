@@ -11,67 +11,10 @@
  */
 import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
 import template from 'virtual-template?pc'
+import { $constants, switchProps } from './pc.vue'
 
-export const $constants = {
-  PC_PREFIXCLS: 'tiny-switch',
-  MOBILE_PREFIXCLS: 'tiny-mobile-switch',
-  Mode: 'pc',
-  prefixcls(mode) {
-    return mode === this.Mode ? this.PC_PREFIXCLS : this.MOBILE_PREFIXCLS
-  }
-}
-
-export const switchProps = {
-  ...$props,
-  _constants: {
-    type: Object,
-    default: () => $constants
-  },
-  disabled: {
-    type: Boolean,
-    default: false
-  },
-  showText: {
-    type: Boolean || undefined,
-    default: false
-  },
-  types: {
-    type: String
-  },
-  falseColor: String,
-  falseValue: {
-    type: [String, Number, Boolean],
-    default: false
-  },
-  mini: {
-    type: Boolean,
-    default: false
-  },
-  modelValue: {
-    type: [String, Number, Boolean],
-    default: false
-  },
-  size: [Number, String],
-  tabindex: {
-    type: String,
-    default: '1'
-  },
-  trueColor: String,
-  trueValue: {
-    type: [String, Number, Boolean],
-    default: true
-  },
-  beforeChange: Function,
-  displayOnly: {
-    type: Boolean,
-    default: false
-  },
-  loading: {
-    type: Boolean,
-    default: false
-  },
-  width: [Number, String]
-}
+export { switchProps }
+export { $constants }
 
 export default defineComponent({
   name: $prefix + 'Switch',

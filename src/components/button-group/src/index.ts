@@ -11,46 +11,11 @@
  */
 import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
 import template from 'virtual-template?pc'
+import { buttonGroupProps } from './pc.vue'
 import type { PropType } from '@tinysmall/common'
 import type { IButtonGroupNode } from '@tinysmall/renderless/types/button-group.type'
 
-export const buttonGroupProps = {
-  ...$props,
-  size: {
-    type: String,
-    default: '',
-    validator: (val: string) => ['medium', 'small', 'mini', ''].includes(val)
-  },
-  data: {
-    type: Array as PropType<IButtonGroupNode[]>,
-    default: () => []
-  },
-  plain: Boolean,
-  modelValue: [String, Number],
-  disabled: Boolean,
-  valueField: {
-    type: String,
-    default: 'value'
-  },
-  textField: {
-    type: String,
-    default: 'text'
-  },
-  showMore: Number,
-  showEdit: {
-    type: Boolean,
-    default: false
-  },
-  border: {
-    type: Boolean,
-    default: true
-  },
-  displayMode: {
-    type: String as PropType<'default' | 'merged'>,
-    default: 'default',
-    validator: (val: string) => ['default', 'merged'].includes(val)
-  }
-}
+export { buttonGroupProps }
 
 export default defineComponent({
   name: $prefix + 'ButtonGroup',

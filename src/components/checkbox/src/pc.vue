@@ -86,36 +86,82 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/checkbox/vue'
-import { props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
+import type { PropType } from '@tinysmall/common'
 import '@tinysmall/theme/checkbox/index.less'
 import { iconHalfselect, iconCheckedSur, iconCheck } from '@tinysmall/icon'
 import type { ICheckboxApi } from '@tinysmall/renderless/types/checkbox.type'
 import { AutoTip } from '@tinysmall/directive'
+export const $constants = {
+  FORM_ITEM: 'FormItem',
+  FORM_CHANGE: 'form.change',
+  CHECKBOX: $prefix + 'Checkbox',
+  CHECKBOX_GROUP: 'CheckboxGroup'
+}
+
+export const checkboxProps = {
+  ...$props,
+  _constants: {
+    type: Object,
+    default: () => $constants
+  },
+  modelValue: {
+    type: [String, Number, Boolean],
+    // Tiny新增，因为类型有Boolean类型，所以默认值需要显示设置成 undefined 才可以保持逻辑正确
+    default: undefined
+  },
+  label: {
+    type: [String, Number, Boolean],
+    default: ''
+  },
+  indeterminate: Boolean,
+  disabled: Boolean,
+  checked: Boolean,
+  name: String,
+  trueLabel: [String, Number],
+  falseLabel: [String, Number],
+
+  /*
+   * 当indeterminate为真时，为controls提供相关连的checkbox的id，表明元素间的控制关系
+   */
+  id: String,
+
+  /*
+   * 当indeterminate为真时，为controls提供相关连的checkbox的id，表明元素间的控制关系
+   */
+  controls: { type: String, default: '' },
+  border: Boolean,
+  size: String,
+  text: String,
+  customClass: [String, Object, Array],
+  validateEvent: {
+    type: Boolean,
+    default: true
+  },
+  events: {
+    type: Object,
+    default: () => ({})
+  },
+  displayOnly: {
+    type: Boolean,
+    default: false
+  },
+  iconPosition: String as PropType<IconPosition>,
+  shape: {
+    type: String,
+    default: ''
+  },
+  tabindex: {
+    type: String,
+    default: '0'
+  }
+}
+
 export default defineComponent({
   // tiny 新增。 renderless中，没有emit('click')的地方。 此处勿声明，否则会造成丢失click事件。
   emits: ['update:modelValue', 'change', 'complete'],
   directives: { AutoTip },
-  props: [
-    ...props,
-    'modelValue',
-    'text',
-    'events',
-    'label',
-    'indeterminate',
-    'disabled',
-    'checked',
-    'name',
-    'trueLabel',
-    'falseLabel',
-    'id',
-    'controls',
-    'size',
-    'border',
-    'validateEvent',
-    'displayOnly',
-    'shape',
-    'tabindex'
-  ],
+  props: checkboxProps,
   components: {
     IconHalfselect: iconHalfselect(),
     IconCheckedSur: iconCheckedSur(),

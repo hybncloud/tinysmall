@@ -11,33 +11,9 @@
  */
 import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
 import template from 'virtual-template?pc'
+import { tagProps } from './pc.vue'
 
-export const tagProps = {
-  ...$props,
-  hit: Boolean,
-  text: String,
-  type: String,
-  size: String,
-  round: Boolean,
-  color: {
-    type: [String, Array],
-    default: ''
-  },
-  closable: Boolean,
-  disabled: Boolean,
-  onlyIcon: Boolean, // 仅图标模式
-  effect: {
-    type: String,
-    default: 'light',
-    validator: (value: string) => Boolean(~['dark', 'light', 'plain'].indexOf(value))
-  },
-  beforeDelete: Function,
-  value: [Number, String],
-  maxWidth: {
-    type: [String, Number],
-    default: null
-  }
-}
+export { tagProps }
 
 export default defineComponent({
   name: $prefix + 'Tag',

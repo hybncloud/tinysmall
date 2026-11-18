@@ -1,14 +1,13 @@
-import { $prefix, $props, $setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $setup, defineComponent } from '@tinysmall/common'
 import template from 'virtual-template?pc'
-import { pickerProps } from './type'
+import { pickerProps } from './pc.vue'
+
+export { pickerProps }
 
 export default defineComponent({
   name: $prefix + 'Picker',
   componentName: 'Picker',
-  props: {
-    ...$props,
-    ...pickerProps
-  },
+  props: pickerProps,
   setup(props, context) {
     return $setup({ props, context, template })
   }

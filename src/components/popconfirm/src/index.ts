@@ -11,58 +11,10 @@
  */
 import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
 import template from 'virtual-template?pc'
+import { $constants, popConfirmProps } from './pc.vue'
 
-export const $constants = {
-  PC_PREFIXCLS: 'tiny-popconfim',
-  MOBILE_PREFIXCLS: 'tiny-mobile-popconfim',
-  Mode: 'pc',
-  prefixcls(mode) {
-    return mode === this.Mode ? this.PC_PREFIXCLS : this.MOBILE_PREFIXCLS
-  },
-  ICON_MAP: {
-    success: 'icon-success',
-    error: 'icon-error',
-    info: 'icon-help',
-    warning: 'icon-warning-triangle'
-  }
-}
-
-export const popConfirmProps = {
-  ...$props,
-  _constants: {
-    type: Object,
-    default: () => $constants
-  },
-  message: String,
-  customClass: String,
-  popperOptions: Object,
-  trigger: {
-    type: String,
-    default: 'hover',
-    validator: (value: string) => ['click', 'hover'].includes(value)
-  },
-  cancelButton: {
-    type: Boolean,
-    default: true
-  },
-  closeOnClickOutside: {
-    type: Boolean,
-    default: true
-  },
-  title: String,
-  placement: {
-    type: String,
-    default: 'top'
-  },
-  width: [String, Number],
-  type: [String, Object],
-  reference: {},
-  events: Object,
-  popperAppendToBody: {
-    type: Boolean,
-    default: true
-  }
-}
+export { popConfirmProps }
+export { $constants }
 
 export default defineComponent({
   name: $prefix + 'Popconfim',

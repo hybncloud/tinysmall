@@ -38,21 +38,23 @@ const renderNodeListFunc = (_vm: InstanceType<typeof CascaderMenu>) => () => {
   return [...nodes, isHoverMenu ? <svg ref="hoverZone" class="tiny-cascader-menu__hover-zone"></svg> : null]
 }
 
+export const cascaderMenuProps = {
+  ...$props,
+  nodes: {
+    type: Array,
+    required: true
+  },
+  index: Number,
+  onlyUsePanel: Boolean
+}
+
 const CascaderMenu = defineComponent({
   name: $prefix + 'CascaderMenu',
   components: {
     TinyScrollbar: Scrollbar,
     CascaderNode
   },
-  props: {
-    ...$props,
-    nodes: {
-      type: Array<ICascaderPanelNode>,
-      required: true
-    },
-    index: Number,
-    onlyUsePanel: Boolean
-  },
+  props: cascaderMenuProps,
   inject: {
     panel: {
       value: 'panel',

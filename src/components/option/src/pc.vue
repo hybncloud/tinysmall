@@ -37,10 +37,38 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/option/vue'
-import { $prefix, props, setup, defineComponent } from '@tinysmall/common'
+import { $props, $prefix, props, setup, defineComponent } from '@tinysmall/common'
 import { AutoTip } from '@tinysmall/directive'
 import '@tinysmall/theme/option/index.less'
 import { IconCheck, IconCheckedSur, IconFinish } from '@tinysmall/icon'
+
+export const optionsProps = {
+  ...$props,
+  value: {
+    required: true
+  },
+  label: [String, Number],
+  created: Boolean,
+  disabled: {
+    type: Boolean,
+    default: false
+  },
+  events: {
+    type: Object,
+    default: () => ({})
+  },
+  visible: {
+    type: Boolean,
+    default: true
+  },
+  highlightClass: String,
+  required: {
+    type: Boolean,
+    default: false
+  },
+  // tiny 新增
+  icon: Object
+}
 
 export default defineComponent({
   name: $prefix + 'Option',
@@ -51,7 +79,7 @@ export default defineComponent({
     IconCheckedSur: IconCheckedSur(),
     IconFinish: IconFinish()
   },
-  props: [...props, 'value', 'label', 'created', 'disabled', 'events', 'visible', 'highlightClass', 'required', 'icon'],
+  props: optionsProps,
   setup(props, context) {
     return setup({ props, context, renderless, api })
   }

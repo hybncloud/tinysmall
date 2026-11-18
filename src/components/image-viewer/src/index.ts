@@ -11,88 +11,13 @@
  */
 import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
 import template from 'virtual-template?pc'
+import { $constants, imageViewerProps } from './pc.vue'
 
-const $constants = {
-  MODE: {
-    CONTAIN: {
-      name: 'contain',
-      icon: 'icon-fullscreen'
-    },
-    ORIGINAL: {
-      name: 'original',
-      icon: 'icon-minscreen'
-    }
-  },
-  DEFAULT_POPPER_ZINDEX: Number.POSITIVE_INFINITY,
-  THUMBNAILTOP: 8,
-  MENUTOP: 10
-}
+export { imageViewerProps }
 
 export default defineComponent({
+  props: imageViewerProps,
   name: $prefix + 'ImageViewer',
-  props: {
-    ...$props,
-    _constants: {
-      type: Object,
-      default: () => $constants
-    },
-    urlList: {
-      type: Array,
-      default: () => []
-    },
-    zIndex: {
-      type: Number,
-      default: $constants.DEFAULT_POPPER_ZINDEX
-    },
-    previewVisible: {
-      type: Boolean,
-      default: false
-    },
-    showIndex: {
-      type: Boolean,
-      default: false
-    },
-    imageFullCurrent: {
-      type: Boolean,
-      default: false
-    },
-    startPosition: {
-      type: Number,
-      default: 0
-    },
-    asyncClose: {
-      type: Boolean,
-      default: false
-    },
-    deleteButton: {
-      type: Boolean,
-      default: false
-    },
-    onSwitch: {
-      type: Function,
-      default: () => {
-        // do nothing
-      }
-    },
-    onClose: {
-      type: Function,
-      default: () => {
-        // do nothing
-      }
-    },
-    isThumbnail: {
-      type: Boolean,
-      default: false
-    },
-    isMenuView: {
-      type: Boolean,
-      default: false
-    },
-    keepStyle: {
-      type: Boolean,
-      default: false
-    }
-  },
   setup(props, context) {
     return $setup({ props, context, template })
   }

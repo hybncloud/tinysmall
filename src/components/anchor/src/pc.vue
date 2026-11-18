@@ -4,10 +4,37 @@ import { renderless, api } from '@tinysmall/renderless/anchor/vue'
 import { AutoTip } from '@tinysmall/directive'
 import type { IAnchorApi } from '@tinysmall/renderless/types/anchor.type'
 
+export const anchorProps = {
+  isAffix: {
+    type: Boolean,
+    default: false
+  },
+  links: {
+    type: Array,
+    default: () => []
+  },
+  containerId: {
+    type: String,
+    default: ''
+  },
+  markClass: {
+    type: String,
+    default: ''
+  },
+  type: {
+    type: String,
+    default: 'line'
+  },
+  offsetTop: {
+    type: Number,
+    default: 0
+  }
+}
+
 export default defineComponent({
   name: $prefix + 'Anchor',
   directives: { AutoTip },
-  props: [...props, 'isAffix', 'links', 'containerId', 'markClass', 'type', 'offsetTop'],
+  props: anchorProps,
   emits: ['linkClick', 'onChange', 'change'], // deprecated v3.12.0废弃，v3.17.0移除onChange 事件
   setup(props, context) {
     return setup({ props, context, renderless, api }) as unknown as IAnchorApi

@@ -11,91 +11,11 @@
  */
 import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
 import template from 'virtual-template?pc'
+import { $constants, transferProps } from './pc.vue'
 
-export const $constants = {
-  ISCHECKED: 'is-checked',
-  DROPPANEL: '.tiny-transfer-panel__list',
-  TRANSFERPANEL: '.tiny-transfer-panel__item'
-}
+export { transferProps }
+export { $constants }
 
-export const transferProps = {
-  ...$props,
-  _constants: {
-    type: Object,
-    default: () => $constants
-  },
-  buttonTexts: {
-    type: Array,
-    default: () => []
-  },
-  columns: Array,
-  leftColumns: Array,
-  rightColumns: Array,
-  data: {
-    type: Array,
-    default: () => []
-  },
-  dropConfig: Object,
-  filterMethod: Function,
-  filterPlaceholder: {
-    type: String,
-    default: ''
-  },
-  filterable: Boolean,
-  format: {
-    type: Object,
-    default: () => ({})
-  },
-  leftDefaultChecked: {
-    type: Array,
-    default: () => []
-  },
-  modelValue: {
-    type: Array,
-    default: () => []
-  },
-  pagerOp: {
-    type: Object,
-    default: () => ({ mode: 'fixed', pageVO: { currentPage: 1, pageSize: 10 } })
-  },
-  props: {
-    type: Object,
-    default: () => ({ label: 'label', key: 'key', disabled: 'disabled' })
-  },
-  render: Object,
-  renderContent: Function,
-  renderType: String,
-  rightDefaultChecked: {
-    type: Array,
-    default: () => []
-  },
-  showAllBtn: Boolean,
-  showPager: {
-    type: Boolean,
-    default: false
-  },
-  targetOrder: {
-    type: String,
-    default: 'original'
-  },
-  titles: {
-    type: Array,
-    default: () => []
-  },
-  toLeftDisable: {
-    type: Boolean,
-    default: true
-  },
-  toRightDisable: {
-    type: Boolean,
-    default: true
-  },
-  treeOp: Object,
-  beforeTransfer: Function,
-  panelStyle: Object,
-  panelBodyStyle: Object,
-  panelTableHeight: String
-}
 export default defineComponent({
   name: $prefix + 'Transfer',
   props: transferProps,

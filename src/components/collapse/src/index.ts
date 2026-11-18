@@ -11,33 +11,10 @@
  */
 import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
 import template from 'virtual-template?pc'
+import { $constants, collapseProps } from './pc.vue'
 
-export const $constants = {
-  COMPONENT_NAME: {
-    Collapse: 'Collapse'
-  },
-  EVENT_NAME: {
-    CollapseItemClick: 'collapse-item.click'
-  }
-}
-
-export const collapseProps = {
-  ...$props,
-  _constants: {
-    type: Object,
-    default: () => $constants
-  },
-  accordion: Boolean,
-  beforeClose: Function,
-  modelValue: {
-    type: [Array, String, Number],
-    default: () => []
-  },
-  size: {
-    type: String,
-    default: ''
-  }
-}
+export { collapseProps }
+export { $constants }
 
 export default defineComponent({
   name: $prefix + 'Collapse',

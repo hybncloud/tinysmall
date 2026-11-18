@@ -14,13 +14,22 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/option-group/vue'
-import { setup, $prefix, props, defineComponent } from '@tinysmall/common'
+import { $props, setup, $prefix, props, defineComponent } from '@tinysmall/common'
 import '@tinysmall/theme/option-group/index.less'
+
+export const optionGroupProps = {
+    ...$props,
+    label: String,
+    disabled: {
+      type: Boolean,
+      default: false
+    }
+  }
 
 export default defineComponent({
   name: $prefix + 'OptionGroup',
   componentName: 'OptionGroup',
-  props: [...props, 'label', 'disabled'],
+  props: optionGroupProps,
   setup(props, context) {
     return setup({ props, context, renderless, api })
   }

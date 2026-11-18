@@ -23,14 +23,46 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/skeleton/vue'
-import { props, setup, defineComponent } from '@tinysmall/common'
+import { $props, props, setup, defineComponent } from '@tinysmall/common'
+import type { PropType } from '@tinysmall/common'
 import SkeletonItem from '@tinysmall/skeleton-item'
+
+export const $constants = {}
+
+export const skeletonProps = {
+  ...$props,
+  _constants: {
+    type: Object,
+    default: () => $constants
+  },
+  modelValue: String,
+  loading: {
+    type: Boolean,
+    default: true
+  },
+  rows: {
+    type: Number,
+    default: 3
+  },
+  avatar: {
+    type: Boolean,
+    default: false
+  },
+  rowsWidth: {
+    type: Array as PropType<(string | number)[]>,
+    default: () => []
+  },
+  animated: {
+    type: Boolean,
+    default: true
+  }
+}
 
 export default defineComponent({
   emits: ['update:modelValue'],
-  props: [...props, 'modelValue', 'loading', 'rows', 'avatar', 'rowsWidth', 'animated'],
+  props: skeletonProps,
   components: {
     TinySkeletonItem: SkeletonItem
   },

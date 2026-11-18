@@ -12,98 +12,12 @@
 import { $prefix, $props, $setup, defineComponent } from '@tinysmall/common'
 import type { PropType } from '@tinysmall/common'
 import template from 'virtual-template?pc'
+import { $constants, timelineProps } from './pc.vue'
 
-export const $constants = {
-  PROCESS_DONE_CLS: 'process-done',
-  PROCESS_CUR_CLS: 'process-current',
-  PROCESS_WAIT_CLS: 'process-wait',
-  PROCESS_DISABLED_CLS: 'process-disabled',
-  PROCESS_ERROR_CLS: 'process-error',
-  STACK_NODES_MAX: 7,
-  LIMITED_STACK_NODES: 3
-}
+export { timelineProps }
+export { $constants }
 
 export type ShapeType = 'circle' | 'dot'
-
-export const timelineProps = {
-  ...$props,
-  _constants: {
-    type: Object,
-    default: () => $constants
-  },
-  vertical: {
-    type: Boolean,
-    default: false
-  },
-  horizontal: {
-    type: Boolean,
-    default: true
-  },
-  showNumber: {
-    type: Boolean,
-    default: true
-  },
-  nameField: {
-    type: String,
-    default: 'name'
-  },
-  timeField: {
-    type: String,
-    default: 'time'
-  },
-  autoColorField: {
-    type: String,
-    default: 'autoColor'
-  },
-  start: {
-    type: Number,
-    default: 1
-  },
-  data: {
-    type: Array,
-    default: () => []
-  },
-  space: {
-    type: [String, Number],
-    default: ''
-  },
-  active: {
-    type: Number,
-    default: -1
-  },
-  reverse: {
-    type: Boolean,
-    default: false
-  },
-  showStatus: {
-    type: Boolean,
-    default: false
-  },
-  foldDisabled: {
-    type: Boolean,
-    default: false
-  },
-  nodeMax: {
-    type: [Number, String],
-    default: $constants.STACK_NODES_MAX
-  },
-  limitedNodes: {
-    type: [Number, String],
-    default: $constants.LIMITED_STACK_NODES
-  },
-  onlyNumber: {
-    type: Boolean,
-    default: false
-  },
-  lineWidth: {
-    type: [String, Number],
-    default: ''
-  },
-  shape: {
-    type: String as PropType<ShapeType>,
-    default: 'circle'
-  }
-}
 
 export default defineComponent({
   name: $prefix + 'TimeLine',

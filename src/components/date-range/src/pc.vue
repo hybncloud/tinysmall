@@ -248,13 +248,74 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/date-range/vue'
-import { props, setup, directive, defineComponent } from '@tinysmall/common'
+import { $props, props, setup, directive, defineComponent } from '@tinysmall/common'
 import { Clickoutside } from '@tinysmall/directive'
 import TimePicker from '@tinysmall/time'
 import DateTable from '@tinysmall/date-table'
 import Input from '@tinysmall/input'
 import Button from '@tinysmall/button'
 import { iconDoubleRight, iconDoubleLeft, iconChevronLeft, iconChevronRight } from '@tinysmall/icon'
+
+export const $constants = {
+  startDate: new Date('1970-01-01'),
+  endDate: new Date('2099-12-31')
+}
+
+export const dateRangeProps = {
+    ...$props,
+    _constants: {
+      type: Object,
+      default: () => $constants
+    },
+    emitter: Object,
+    step: {
+      type: Object,
+      default() {
+        return { hour: 1, minute: 1, second: 1 }
+      }
+    },
+    showWeekNumber: {
+      type: Boolean,
+      default: false
+    },
+    formatWeeks: Function,
+    timeEditable: {
+      type: Boolean,
+      default: true
+    },
+    type: {
+      type: String,
+      default: 'daterange'
+    },
+    modelValue: {
+      type: Array,
+      default: () => []
+    },
+    format: {
+      type: String,
+      default: ''
+    },
+    readonly: {
+      type: Boolean,
+      default: false
+    },
+    shortcuts: {
+      type: Array,
+      default: () => []
+    },
+    disabledDate: {
+      type: Function,
+      default: null
+    },
+    popperClass: {
+      type: String,
+      default: ''
+    },
+    unlinkPanels: {
+      type: Boolean,
+      default: false
+    }
+  }
 
 export default defineComponent({
   directives: directive({ Clickoutside }),
@@ -268,22 +329,7 @@ export default defineComponent({
     IconChevronLeft: iconChevronLeft(),
     IconChevronRight: iconChevronRight()
   },
-  props: [
-    ...props,
-    'emitter',
-    'step',
-    'showWeekNumber',
-    'formatWeeks',
-    'timeEditable',
-    'type',
-    'modelValue',
-    'format',
-    'readonly',
-    'shortcuts',
-    'disabledDate',
-    'popperClass',
-    'unlinkPanels'
-  ],
+  props: dateRangeProps,
   emits: ['dodestroy', 'pick', 'select-change', 'update:modelValue'],
   setup(props, context) {
     return setup({ props, context, renderless, api })

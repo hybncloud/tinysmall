@@ -28,27 +28,47 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/drop-times/vue'
-import { props, setup, defineComponent } from '@tinysmall/common'
+import { $props, props, setup, defineComponent } from '@tinysmall/common'
 import Select from '@tinysmall/base-select'
 import Option from '@tinysmall/option'
+
+export const dropTimesProps = {
+    ...$props,
+    modelValue: {},
+    placeholder: {
+      type: String,
+      default: ''
+    },
+    tabindex: {
+      type: String,
+      default: '1'
+    },
+    size: String,
+    popperClass: String,
+    popperAppendToBody: {
+      type: Boolean,
+      default: true
+    },
+    start: {
+      type: Number,
+      default: 0
+    },
+    end: {
+      type: Number,
+      default: 24 * 60
+    },
+    step: {
+      type: Number,
+      default: 15
+    }
+  }
 
 export default defineComponent({
   components: {
     TinySelect: Select,
     TinyOption: Option
   },
-  props: [
-    ...props,
-    'size',
-    'tabindex',
-    'modelValue',
-    'placeholder',
-    'start',
-    'end',
-    'step',
-    'popperClass',
-    'popperAppendToBody'
-  ],
+  props: dropTimesProps,
   emits: ['change', 'update:modelValue', 'clear', 'visible-change'],
   setup(props, context) {
     return setup({ props, context, renderless, api })

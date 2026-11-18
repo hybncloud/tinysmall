@@ -196,6 +196,8 @@ import TinyTooltip from '@tinysmall/tooltip'
 import FilterBox from '@tinysmall/filter-box'
 import { iconCalendar, iconTime } from '@tinysmall/icon'
 import { pickerProps } from './type'
+
+export { pickerProps }
 import '@tinysmall/theme/picker/index.less'
 
 export default defineComponent({

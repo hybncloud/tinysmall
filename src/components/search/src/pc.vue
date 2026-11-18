@@ -122,26 +122,76 @@
 
 <script lang="tsx">
 import { renderless, api } from '@tinysmall/renderless/search/vue'
-import { props, setup, defineComponent } from '@tinysmall/common'
+import { $props, props, setup, defineComponent } from '@tinysmall/common'
 import { iconChevronDown, iconSearch, iconClose } from '@tinysmall/icon'
 import '@tinysmall/theme/search/index.less'
 import type { ISearchApi } from '@tinysmall/renderless/types/search.type'
 
+export const searchProps = {
+  ...$props,
+  mini: {
+    type: Boolean,
+    default: false
+  },
+
+  /**
+   * 设置为透明模式，配置为true时，边框变为透明且收缩后半透明显示，一般用在带有背景的场景
+   */
+  transparent: {
+    type: Boolean,
+    default: false
+  },
+
+  /**
+   * 搜索的类型选项，格式为[{text:'文档',value:1},...]，不配置时类型选择固定显示为All
+   */
+  searchTypes: {
+    type: Array,
+    default: () => []
+  },
+
+  /**
+   * 设置搜索输入框内的提示占位文本
+   */
+  placeholder: {
+    type: String,
+    default: ''
+  },
+  modelValue: {
+    type: String,
+    default: ''
+  },
+  clearable: {
+    type: Boolean,
+    default: false
+  },
+  tabindex: {
+    type: String,
+    default: '1'
+  },
+
+  /**
+   * 配置搜索输入框enter键,enter按下触发搜索
+   */
+  isEnterSearch: {
+    type: Boolean,
+    default: true
+  },
+  size: {
+    type: String,
+    default: 'small'
+  },
+  typeValue: Object,
+  suffixIcon: [Object, String],
+  // tiny新增
+  disabled: {
+    type: Boolean,
+    default: false
+  }
+}
+
 export default defineComponent({
-  props: [
-    ...props,
-    'mini',
-    'transparent',
-    'searchTypes',
-    'placeholder',
-    'modelValue',
-    'tabindex',
-    'clearable',
-    'isEnterSearch',
-    'typeValue',
-    'size',
-    'disabled'
-  ],
+  props: searchProps,
   emits: ['change', 'search', 'update:modelValue', 'clear', 'select', 'input', 'expand', 'collapse'],
   components: {
     IconChevronDown: iconChevronDown(),

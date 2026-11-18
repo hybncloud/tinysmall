@@ -12,35 +12,9 @@
 import type { PropType } from '@tinysmall/common'
 import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
 import template from 'virtual-template?pc'
+import { radioGroupProps } from './pc.vue'
 
-export const radioGroupProps = {
-  ...$props,
-  modelValue: {},
-  size: {
-    type: String as PropType<'mini' | 'small' | 'medium'>,
-    default: ''
-  },
-  fill: String,
-  textColor: String,
-  disabled: Boolean,
-  vertical: Boolean,
-  options: {
-    type: Array,
-    default: () => []
-  },
-  type: {
-    type: String,
-    default: 'radio'
-  },
-  showTips: {
-    type: Boolean,
-    default: false
-  },
-  displayOnly: {
-    type: Boolean,
-    default: false
-  }
-}
+export { radioGroupProps }
 
 export default defineComponent({
   name: $prefix + 'RadioGroup',

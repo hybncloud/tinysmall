@@ -11,7 +11,8 @@
  -->
 
 <script lang="tsx">
-import { $prefix, setup, h, defineComponent, props } from '@tinysmall/common'
+import { $props, $prefix, setup, h, defineComponent } from '@tinysmall/common'
+import { uploadAjax } from '@tinysmall/utils'
 
 // 此处引入 h 是为了防止打包后 h 被重命名导致组件报错的问题
 import { renderless, api } from '@tinysmall/renderless/upload/vue'
@@ -19,40 +20,106 @@ import UploadDragger from '@tinysmall/upload-dragger'
 import Modal from '@tinysmall/modal'
 import type { IUploadApi } from '@tinysmall/renderless/types/upload.type'
 
+export const uploadProps = {
+  ...$props,
+  accept: String,
+  action: {
+    type: String,
+    default: ''
+  },
+  autoUpload: Boolean,
+  beforeUpload: Function,
+  pasteUpload: Boolean,
+  data: Object,
+  disabled: Boolean,
+  drag: Boolean,
+  edmToken: {
+    type: Object,
+    default: () => ({})
+  },
+  fileList: {
+    type: Array,
+    default: () => []
+  },
+  headers: Object,
+  httpRequest: {
+    type: Function,
+    default: uploadAjax
+  },
+  isFolder: {
+    type: Boolean,
+    default: false
+  },
+  limit: Number,
+  listType: String,
+  multiple: Boolean,
+  name: {
+    type: String,
+    default: 'file'
+  },
+  onError: Function,
+  onExceed: Function,
+  onPreview: {
+    type: Function,
+    default: () => {}
+  },
+  onProgress: Function,
+  onRemove: {
+    type: Function,
+    default: () => {}
+  },
+  onStart: Function,
+  onSuccess: Function,
+  type: String,
+  withCredentials: Boolean,
+  isHidden: {
+    type: Boolean,
+    default: false
+  },
+  scale: {
+    type: [Number, String],
+    default: 1
+  },
+  sourceType: {
+    type: String,
+    default: 'picture',
+    validator(val: string) {
+      return val.split('/').every((type) => ['picture', 'video', 'audio'].includes(type))
+    }
+  },
+  displayOnly: {
+    type: Boolean,
+    default: false
+  },
+  customClass: [String, Object, Array],
+  handleTriggerClick: {
+    type: Function,
+    default: () => {}
+  },
+  mode: String,
+  showTitle: Boolean,
+  isHwh5: {
+    type: Boolean,
+    default: false
+  },
+  tipMessage: {
+    type: String,
+    default: ''
+  },
+  promptTip: {
+    type: Boolean,
+    default: false
+  },
+  showFileList: {
+    type: Boolean,
+    default: true
+  }
+}
+
 export default defineComponent({
   inheritAttrs: false,
   name: $prefix + 'Upload',
-  props: [
-    ...props,
-    'accept',
-    'action',
-    'autoUpload',
-    'beforeUpload',
-    'pasteUpload',
-    'data',
-    'disabled',
-    'drag',
-    'edmToken',
-    'fileList',
-    'headers',
-    'httpRequest',
-    'isFolder',
-    'limit',
-    'listType',
-    'multiple',
-    'name',
-    'onError',
-    'onExceed',
-    'onPreview',
-    'onProgress',
-    'onRemove',
-    'onStart',
-    'onSuccess',
-    'type',
-    'withCredentials',
-    'isHidden',
-    'handleTriggerClick'
-  ],
+  props: uploadProps,
   setup(props, context) {
     return setup({
       props,

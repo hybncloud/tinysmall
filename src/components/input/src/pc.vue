@@ -267,9 +267,10 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/input/vue'
-import { props, setup, defineComponent, directive } from '@tinysmall/common'
+import { $props, props, setup, defineComponent, directive } from '@tinysmall/common'
+import type { PropType } from '@tinysmall/common'
 import { Clickoutside } from '@tinysmall/directive'
 import TinyTallStorage from './tall-storage.vue'
 import { IconClose, IconEyeopen, IconEyeclose } from '@tinysmall/icon'
@@ -278,6 +279,134 @@ import TinyButton from '@tinysmall/button'
 import TinyDialogBox from '@tinysmall/dialog-box'
 import '@tinysmall/theme/input/index.less'
 import '@tinysmall/theme/textarea/index.less'
+
+export const $constants = {
+  INPUT_PC: 'tiny-input__',
+  INPUTGROUP_PC: 'tiny-input-group__',
+  INPUT_MOBILE: 'tiny-mobile-input__',
+  INPUTGROUP_MOBILE: 'tiny-mobile-input-group__',
+  Mode: 'pc',
+  inputMode(mode) {
+    return mode === this.Mode ? this.INPUT_PC : this.INPUT_MOBILE
+  },
+  inputGroupMode(mode) {
+    return mode === this.Mode ? this.INPUTGROUP_PC : this.INPUTGROUP_MOBILE
+  },
+  VALIDATE_ICON: {
+    Validating: 'tiny-icon-loading',
+    Success: 'tiny-icon-circle-check',
+    Error: 'tiny-icon-circle-close'
+  },
+  COMPONENT_NAME: {
+    FormItem: 'FormItem'
+  },
+  MASKSYMBOL: '******',
+  TEXTAREA_HEIGHT_MOBILE: 108
+}
+
+export const inputProps = {
+  ...$props,
+  _constants: {
+    type: Object,
+    default: () => $constants
+  },
+  name: String,
+  size: String,
+  form: String,
+  label: String,
+  height: Number,
+  resize: String,
+  tabindex: { type: String, default: '1' },
+  disabled: Boolean,
+  readonly: Boolean,
+  hoverExpand: Boolean,
+  mask: Boolean,
+  suffixIcon: [Object, String],
+  prefixIcon: [Object, String],
+  modelValue: [String, Number] as PropType<string | number | null>,
+  type: {
+    type: String,
+    default: 'text'
+  },
+  memorySpace: {
+    type: Number,
+    default: 5
+  },
+  selectMenu: {
+    type: Array<{ id: string; label: string }>,
+    default: () => []
+  },
+  isSelect: {
+    type: Boolean,
+    default: false
+  },
+  tips: String,
+  counter: {
+    type: Boolean,
+    default: false
+  },
+  autosize: {
+    type: [Boolean, Object],
+    default: false
+  },
+  clearable: {
+    type: Boolean,
+    default: false
+  },
+  autocomplete: {
+    type: String,
+    default: 'off'
+  },
+  showPassword: {
+    type: Boolean,
+    default: false
+  },
+  showWordLimit: {
+    type: Boolean,
+    default: false
+  },
+  validateEvent: {
+    type: Boolean,
+    default: true
+  },
+  popupMore: {
+    type: Boolean,
+    default: false
+  },
+  displayOnly: {
+    type: Boolean,
+    default: false
+  },
+  displayOnlyContent: {
+    type: String,
+    default: ''
+  },
+  frontClearIcon: {
+    type: Boolean,
+    default: false
+  },
+  showEmptyValue: {
+    type: Boolean,
+    default: undefined
+  },
+  textAlign: {
+    type: String,
+    default: 'left'
+  },
+  width: {
+    type: [String, Number] as PropType<string | number | null>
+  },
+  showTooltip: {
+    type: Boolean,
+    default: true
+  },
+  /** 输入框的边框模式，当值为underline时，只显示一条底部直线 */
+  inputBoxType: {
+    type: String,
+    default: 'normal',
+    validator: (value: string) => ['normal', 'underline'].includes(value)
+  }
+}
 
 export default defineComponent({
   emits: [
@@ -308,39 +437,7 @@ export default defineComponent({
     TinyDialogBox
   },
 
-  props: [
-    ...props,
-    'name',
-    'size',
-    'form',
-    'type',
-    'mask',
-    'label',
-    'modelValue',
-    'height',
-    'resize',
-    'counter',
-    'autosize',
-    'disabled',
-    'readonly',
-    'tabindex',
-    'clearable',
-    'suffixIcon',
-    'prefixIcon',
-    'autocomplete',
-    'showPassword',
-    'memorySpace',
-    'validateEvent',
-    'showWordLimit',
-    'displayOnly',
-    'displayOnlyContent',
-    'frontClearIcon',
-    'showEmptyValue',
-    'hoverExpand',
-    'popupMore',
-    'showTooltip',
-    'inputBoxType'
-  ],
+  props: inputProps,
   setup(props, context) {
     const filterAttrs = (attrs, filters, include = false) => {
       const result = {}

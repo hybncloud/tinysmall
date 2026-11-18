@@ -63,9 +63,23 @@
 
 <script lang="tsx">
 import { renderless, api } from '@tinysmall/renderless/time/vue'
-import { props, setup, defineComponent } from '@tinysmall/common'
+import { $props, props, setup, defineComponent } from '@tinysmall/common'
 import TimeSpinner from '@tinysmall/time-spinner'
 import Button from '@tinysmall/button'
+
+export const timeProps = {
+    ...$props,
+    show: Boolean,
+    timeArrowControl: Boolean,
+    emitter: Object,
+    value: Date,
+    step: {
+      type: Object,
+      default() {
+        return { hour: 1, minute: 1, second: 1 }
+      }
+    }
+  }
 
 export default defineComponent({
   emits: ['dodestroy', 'pick', 'select-range'],
@@ -73,7 +87,7 @@ export default defineComponent({
     TimeSpinner,
     TinyButton: Button
   },
-  props: [...props, 'show', 'timeArrowControl', 'emitter', 'value', 'step'],
+  props: timeProps,
   setup(props, context) {
     return setup({ props, context, renderless, api })
   }

@@ -73,6 +73,48 @@ import Dropdown from '@tinysmall/dropdown'
 import DropdownMenu from '@tinysmall/dropdown-menu'
 import DropdownItem from '@tinysmall/dropdown-item'
 
+export const actionMenuProps = {
+  ...$props,
+  options: {
+    type: Array,
+    default: () => []
+  },
+  maxShowNum: Number,
+  moreText: String,
+  spacing: {
+    type: [String, Number]
+  },
+  textField: {
+    type: String,
+    default: 'label'
+  },
+  placement: {
+    type: String,
+    default: 'bottom-end'
+  },
+  popperClass: {
+    type: String,
+    default: ''
+  },
+  popperAppendToBody: {
+    type: Boolean,
+    default: false
+  },
+  trigger: {
+    type: String,
+    default: 'hover'
+  },
+  suffixIcon: Object,
+  showIcon: {
+    type: Boolean,
+    default: true
+  },
+  mode: {
+    type: String,
+    default: 'default'
+  }
+}
+
 export default defineComponent({
   name: $prefix + 'ActionMenu',
   components: {
@@ -82,49 +124,7 @@ export default defineComponent({
     TinyIconEllipsis: iconEllipsis()
   },
   emits: ['more-click', 'item-click', 'visible-change'],
-  props: {
-    ...$props,
-    options: {
-      type: Array,
-      default: () => []
-    },
-    maxShowNum: Number,
-    moreText: {
-      type: String
-    },
-    spacing: {
-      type: [String, Number]
-    },
-    textField: {
-      type: String,
-      default: 'label'
-    },
-    placement: {
-      type: String,
-      default: 'bottom-end'
-    },
-    popperClass: {
-      type: String,
-      default: ''
-    },
-    popperAppendToBody: {
-      type: Boolean,
-      default: false
-    },
-    trigger: {
-      type: String,
-      default: 'hover'
-    },
-    suffixIcon: Object,
-    showIcon: {
-      type: Boolean,
-      default: true
-    },
-    mode: {
-      type: String,
-      default: 'default'
-    }
-  },
+  props: actionMenuProps,
   setup(props, context) {
     return setup({ props, context, renderless, api }) as unknown as IActionMenuApi
   }

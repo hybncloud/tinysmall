@@ -105,10 +105,41 @@
 
 <script>
 import { renderless, api } from '@tinysmall/renderless/year-range/vue'
-import { setup, directive, props, defineComponent } from '@tinysmall/common'
+import { setup, directive, $props, defineComponent } from '@tinysmall/common'
 import { Clickoutside } from '@tinysmall/directive'
 import YearTable from '@tinysmall/year-table'
 import { IconDoubleRight, IconDoubleLeft } from '@tinysmall/icon'
+
+export const yearRangeProps = {
+  ...$props,
+  emitter: Object,
+  modelValue: {
+    type: Array,
+    default: () => []
+  },
+  format: {
+    type: String
+  },
+  readonly: {
+    type: Boolean,
+    default: false
+  },
+  shortcuts: {
+    type: Array,
+    default: () => []
+  },
+  disabledDate: {
+    type: Function,
+    default: null
+  },
+  popperClass: {
+    type: String
+  },
+  unlinkPanels: {
+    type: Boolean,
+    default: false
+  }
+}
 
 export default defineComponent({
   directives: directive({ Clickoutside }),
@@ -117,17 +148,7 @@ export default defineComponent({
     IconDoubleRight: IconDoubleRight(),
     IconDoubleLeft: IconDoubleLeft()
   },
-  props: [
-    ...props,
-    'emitter',
-    'modelValue',
-    'format',
-    'readonly',
-    'shortcuts',
-    'disabledDate',
-    'popperClass',
-    'unlinkPanels'
-  ],
+  props: yearRangeProps,
   emits: ['dodestroy', 'pick', 'select-change', 'update:modelValue'],
   setup(props, context) {
     return setup({ props, context, renderless, api })

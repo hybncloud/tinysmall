@@ -269,11 +269,58 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/calendar/vue'
-import { props, setup, defineComponent } from '@tinysmall/common'
+import { $props, props, setup, defineComponent } from '@tinysmall/common'
 import Tooltip from '@tinysmall/tooltip'
 import Popover from '@tinysmall/popover'
 import Button from '@tinysmall/button'
 import { iconChevronUp, iconChevronDown } from '@tinysmall/icon'
+
+export const calendarProps = {
+    ...$props,
+
+    /**
+     * @property {String} [mode='month'] - 显示模式，month|year 可选
+     */
+    mode: {
+      type: String,
+      default: 'month',
+      validator: (value: string) => Boolean(~['month', 'year'].indexOf(value))
+    },
+
+    /**
+     * @property {Number} [year=getFullYear()] - 指定年份，默认今年
+     */
+    year: {
+      type: Number,
+      default() {
+        return new Date().getFullYear()
+      }
+    },
+
+    /**
+     * @property {Number} [month=getMonth()] - 指定月份，默认当月
+     */
+    month: {
+      type: Number,
+      default() {
+        return new Date().getMonth() + 1
+      }
+    },
+
+    /**
+     * @property {Array} events - 事件列表
+     * @example
+     * [{ time: 1534297845236, title: '消息', content: '这是一条消息', type: 'primary' },
+     * { time: 1534297845236, title: '消息', content: '还有', type: 'info' }]
+     * type 类型： warning、error、info、success
+     */
+    events: Array,
+
+    /**
+     * @property {Boolean} [showSelected=false] - 显示选中的日期
+     */
+    showSelected: Boolean
+  }
 
 export default defineComponent({
   components: {
@@ -283,7 +330,7 @@ export default defineComponent({
     IconChevronUp: iconChevronUp(),
     IconChevronDown: iconChevronDown()
   },
-  props: [...props, 'mode', 'year', 'month', 'events', 'showSelected'],
+  props: calendarProps,
   setup(props, context) {
     return setup({ props, context, renderless, api })
   }

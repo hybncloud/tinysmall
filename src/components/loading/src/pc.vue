@@ -28,17 +28,41 @@
 </template>
 
 <script lang="ts">
-import { $prefix, setup, props, defineComponent } from '@tinysmall/common'
+import { $props, $prefix, setup, defineComponent } from '@tinysmall/common'
 import { renderless, api } from '@tinysmall/renderless/loading/vue'
+import { constants } from './service'
 import '@tinysmall/theme/loading/index.less'
 import { iconLoadingShadow } from '@tinysmall/icon'
 import type { ILoadingApi } from '@tinysmall/renderless/types/loading.type'
+
+export const loadingProps = {
+  ...$props,
+  type: {
+    type: String,
+    validator: (value: string) => Boolean(~['primary', 'simple'].indexOf(value))
+  },
+  loadtext: {
+    type: String,
+    default: () => constants.LOAD_ICON_TEXT
+  },
+  _constants: {
+    type: Object,
+    default: () => constants
+  },
+  loadingImg: {
+    type: String
+  },
+  size: {
+    type: String,
+    default: 'small'
+  }
+}
 
 export default defineComponent({
   inheritAttrs: false,
   name: $prefix + 'Loading',
   emits: ['after-leave'],
-  props: [...props, '_constants', 'loadingImg', 'size'],
+  props: loadingProps,
   components: {
     TinyIconLoadingShadow: iconLoadingShadow()
   },

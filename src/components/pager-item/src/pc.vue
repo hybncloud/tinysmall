@@ -45,9 +45,34 @@
 </template>
 
 <script lang="ts">
-import { setup, $prefix, defineComponent } from '@tinysmall/common'
+import { $props, setup, $prefix, defineComponent } from '@tinysmall/common'
 import { renderless, api } from '@tinysmall/renderless/pager-item/vue'
 import { iconPopup, iconDoubleLeft, iconDoubleRight } from '@tinysmall/icon'
+import { IconPopup, IconDoubleLeft, IconDoubleRight } from '@tinysmall/icon'
+
+export const pagerItemProps = {
+  ...$props,
+  disabled: {
+    type: Boolean,
+    default: false
+  },
+  currentPage: Number,
+  pageCount: Number,
+  pagerCount: Number,
+  popupIcon: {
+    type: Object,
+    default: IconPopup
+  },
+  doubleLeftIcon: {
+    type: Object,
+    default: IconDoubleLeft
+  },
+  doubleRightIcon: {
+    type: Object,
+    default: IconDoubleRight
+  },
+  isBeforePageChange: Boolean
+}
 
 export default defineComponent({
   name: $prefix + 'PagerItem',
@@ -57,28 +82,7 @@ export default defineComponent({
     IconDoubleLeft: iconDoubleLeft(),
     IconDoubleRight: iconDoubleRight()
   },
-  props: {
-    disabled: {
-      type: Boolean,
-      default: false
-    },
-    currentPage: Number,
-    pageCount: Number,
-    pagerCount: Number,
-    popupIcon: {
-      type: Object,
-      default: () => iconPopup()
-    },
-    doubleLeftIcon: {
-      type: Object,
-      default: () => iconDoubleLeft()
-    },
-    doubleRightIcon: {
-      type: Object,
-      default: () => iconDoubleRight()
-    },
-    isBeforePageChange: Boolean
-  },
+  props: pagerItemProps,
   setup(props, context) {
     return setup({ props, context, renderless, api })
   }

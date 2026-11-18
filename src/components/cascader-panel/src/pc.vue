@@ -28,13 +28,7 @@ import CascaderMenu from '@tinysmall/cascader-menu'
 import type { ICascaderPanelApi } from '@tinysmall/renderless/types/cascader-panel.type'
 import '@tinysmall/theme/cascader-panel/index.less'
 
-export default defineComponent({
-  name: $prefix + 'CascaderPanel',
-  componentName: $prefix + 'CascaderPanel',
-  components: {
-    CascaderMenu
-  },
-  props: {
+export const cascaderPanelProps = {
     ...$props,
     modelValue: {},
     options: Array,
@@ -44,8 +38,21 @@ export default defineComponent({
       default: true
     },
     renderLabel: Function,
-    onlyUsePanel: Boolean
+    // 面板是直接使用，还是在级联组件中被使用， 先仅影响pc模板
+    // 私有属性，无需体现在api 文档
+    onlyUsePanel: {
+      type: Boolean,
+      default: true
+    }
+  }
+
+export default defineComponent({
+  name: $prefix + 'CascaderPanel',
+  componentName: $prefix + 'CascaderPanel',
+  components: {
+    CascaderMenu
   },
+  props: cascaderPanelProps,
   provide() {
     return {
       panel: this

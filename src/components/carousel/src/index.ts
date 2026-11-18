@@ -11,66 +11,14 @@
  */
 import { $props, $setup, $prefix, defineComponent } from '@tinysmall/common'
 import template from 'virtual-template?pc'
+import { $constants, carouselProps } from './pc.vue'
 
-const $constants = {
-  CHILD_NAME: $prefix + 'CarouselItem'
-}
+export { carouselProps }
 
 export default defineComponent({
+  props: carouselProps,
   name: $prefix + 'Carousel',
   componentName: 'Carousel',
-  props: {
-    ...$props,
-    _constants: {
-      type: Object,
-      default: () => $constants
-    },
-    initialIndex: {
-      type: Number,
-      default: 0
-    },
-    height: String,
-    trigger: {
-      type: String,
-      default: 'hover'
-    },
-    autoplay: {
-      type: Boolean,
-      default: false
-    },
-    interval: {
-      type: Number,
-      default: 3000
-    },
-    loop: {
-      type: Boolean,
-      default: true
-    },
-    disabled: {
-      type: Boolean,
-      default: false
-    },
-    indicatorPosition: String,
-    arrow: {
-      type: String,
-      default: 'hover'
-    },
-    type: {
-      type: String,
-      default: 'horizontal',
-      validator: (value: string) => Boolean(!value || ~['card', 'vertical', 'horizontal'].indexOf(value))
-    },
-    showTitle: {
-      type: Boolean,
-      default: false
-    },
-    aspectRatio: {
-      type: String,
-      default: '16:2'
-    },
-    lite: Boolean,
-    beforeSwipe: Function
-  },
   setup(props, context) {
     return $setup({
       props,

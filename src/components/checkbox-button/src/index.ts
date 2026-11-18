@@ -11,36 +11,13 @@
  */
 import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
 import template from 'virtual-template?pc'
+import { $constants, checkboxButtonProps } from './pc.vue'
 
-const $constants = {
-  CHECKBOX_GROUP: 'CheckboxGroup'
-}
+export { checkboxButtonProps }
 
 export default defineComponent({
+  props: checkboxButtonProps,
   name: $prefix + 'CheckboxButton',
-  props: {
-    ...$props,
-    _constants: {
-      type: Object,
-      default: () => $constants
-    },
-    modelValue: {},
-    label: {},
-    disabled: Boolean,
-    checked: Boolean,
-    name: String,
-    trueLabel: [String, Number],
-    falseLabel: [String, Number],
-    text: String,
-    events: {
-      type: Object,
-      default: () => ({})
-    },
-    tabindex: {
-      type: String,
-      default: '0'
-    }
-  },
   setup(props, context) {
     return $setup({ props, context, template })
   }

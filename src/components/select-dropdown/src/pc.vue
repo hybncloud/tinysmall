@@ -25,25 +25,55 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/select-dropdown/vue'
-import { props, setup, defineComponent } from '@tinysmall/common'
+import { $props, props, setup, defineComponent } from '@tinysmall/common'
 import '@tinysmall/theme/select-dropdown/index.less'
 
+export const selectDropdownProps = {
+    ...$props,
+    appendToBody: {
+      type: Boolean,
+      default: () => true
+    },
+    arrowOffset: {
+      type: Number,
+      default: () => 35
+    },
+    boundariesPadding: {
+      default: () => 0
+    },
+    isDropInheritWidth: Boolean,
+    modelValue: Boolean,
+    offset: {
+      default: () => 0
+    },
+    placement: {
+      default: () => 'bottom-start'
+    },
+    popper: {},
+    popperOptions: {
+      default: () => ({ gpuAcceleration: false })
+    },
+    reference: {},
+    transformOrigin: {
+      type: [Boolean, String],
+      default: () => true
+    },
+    visibleArrow: {
+      default: () => false
+    },
+    closeByMask: {
+      type: Boolean,
+      default: true
+    },
+    searchPlaceholder: {
+      type: String,
+      default: ''
+    },
+    title: String
+  }
+
 export default defineComponent({
-  props: [
-    ...props,
-    'placement',
-    'boundariesPadding',
-    'popperOptions',
-    'visibleArrow',
-    'appendToBody',
-    'transformOrigin',
-    'reference',
-    'popper',
-    'offset',
-    'modelValue',
-    'arrowOffset',
-    'isDropInheritWidth'
-  ],
+  props: selectDropdownProps,
   setup(props, context) {
     return setup({ props, context, renderless, api })
   }

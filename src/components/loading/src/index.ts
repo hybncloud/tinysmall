@@ -10,31 +10,10 @@
  *
  */
 import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
-import { constants } from './service'
 import template from 'virtual-template?pc'
+import { loadingProps } from './pc.vue'
 
-export const loadingProps = {
-  ...$props,
-  type: {
-    type: String,
-    validator: (value: string) => Boolean(~['primary', 'simple'].indexOf(value))
-  },
-  loadtext: {
-    type: String,
-    default: () => constants.LOAD_ICON_TEXT
-  },
-  _constants: {
-    type: Object,
-    default: () => constants
-  },
-  loadingImg: {
-    type: String
-  },
-  size: {
-    type: String,
-    default: 'small'
-  }
-}
+export { loadingProps }
 
 export default defineComponent({
   name: $prefix + 'Loading',

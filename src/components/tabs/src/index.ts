@@ -11,56 +11,10 @@
  */
 import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
 import template from 'virtual-template?pc'
+import { tabsProps, $constants } from './pc.vue'
 
-export const $constants = {
-  TAB_ITEM: 'TabItem'
-}
-
-export const tabsProps = {
-  ...$props,
-  _constants: {
-    type: Object,
-    default: () => $constants
-  },
-  tabStyle: String,
-  activeName: String,
-  withClose: Boolean,
-  withAdd: Boolean,
-  size: String,
-  modelValue: {},
-  editable: Boolean,
-  position: {
-    type: String,
-    default: 'top'
-  },
-  beforeLeave: Function,
-  stretch: Boolean,
-  showMoreTabs: Boolean,
-  popperClass: String,
-  popperAppendToBody: {
-    type: Boolean,
-    default: true
-  },
-  dropConfig: {
-    type: Object,
-    default: () => null
-  },
-  separator: Boolean,
-  // tiny 新增
-  showExpandTabs: Boolean,
-  expandTabsTitle: String,
-  expandTabsMode: String,
-  tooltipConfig: [String, Object],
-  beforeClose: Function,
-  overflowTitle: Boolean,
-  titleWidth: String,
-  // tiny 新增
-  moreShowAll: Boolean,
-  panelMaxHeight: String,
-  panelWidth: String,
-  // 只渲染头部
-  headerOnly: Boolean
-}
+export { tabsProps }
+export { $constants }
 
 export default defineComponent({
   name: $prefix + 'Tabs',

@@ -24,31 +24,56 @@
 
 <script lang="tsx">
 import { renderless, api } from '@tinysmall/renderless/checkbox-group/vue'
-import { props, setup, defineComponent } from '@tinysmall/common'
+import { $props, props, setup, defineComponent } from '@tinysmall/common'
+import type { PropType } from '@tinysmall/common'
 import Checkbox from '@tinysmall/checkbox'
 import CheckboxButton from '@tinysmall/checkbox-button'
 import '@tinysmall/theme/checkbox-group/index.less'
+
+export const $constants = {
+  FORM_ITEM: 'FormItem',
+  FORM_CHANGE: 'form.change'
+}
+
+export const checkboxGroupProps = {
+    ...$props,
+    _constants: {
+      type: Object,
+      default: () => $constants
+    },
+    modelValue: {},
+    disabled: Boolean,
+    min: Number,
+    max: Number,
+    size: String,
+    fill: String,
+    textColor: String,
+    vertical: Boolean,
+    options: {
+      type: Array,
+      default: () => []
+    },
+    type: {
+      type: String,
+      default: 'checkbox'
+    },
+    displayOnly: {
+      type: Boolean,
+      default: false
+    },
+    iconPosition: String as PropType<IconPosition>,
+    shape: {
+      type: String,
+      default: ''
+    }
+  }
 
 export default defineComponent({
   components: {
     Checkbox,
     CheckboxButton
   },
-  props: [
-    ...props,
-    'modelValue',
-    'type',
-    'options',
-    'disabled',
-    'min',
-    'max',
-    'size',
-    'fill',
-    'textColor',
-    'vertical',
-    'displayOnly',
-    'shape'
-  ],
+  props: checkboxGroupProps,
   setup(props, context) {
     return setup({ props, context, renderless, api })
   }

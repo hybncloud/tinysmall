@@ -59,27 +59,50 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/radio/vue'
-import { props, setup, defineComponent } from '@tinysmall/common'
+import { $props, props, setup, defineComponent } from '@tinysmall/common'
+import type { PropType } from '@tinysmall/common'
 import type { IRadioApi } from '@tinysmall/renderless/types/radio.type'
 import { AutoTip } from '@tinysmall/directive'
 import '@tinysmall/theme/radio/index.less'
 
+export const $constants = {
+  RADIO_GROUP: 'RadioGroup'
+}
+
+export const radioProps = {
+  ...$props,
+  _constants: {
+    type: Object,
+    default: () => $constants
+  },
+  modelValue: {},
+  label: {},
+  disabled: Boolean,
+  name: String,
+  border: Boolean,
+  size: {
+    type: String as PropType<'mini' | 'small' | 'medium'>,
+    default: ''
+  },
+  text: String,
+  events: {
+    type: Object,
+    default: () => ({})
+  },
+  tabindex: {
+    type: String,
+    default: '1'
+  },
+  displayOnly: {
+    type: Boolean,
+    default: false
+  }
+}
+
 export default defineComponent({
   emits: ['change', 'update:modelValue'],
   directives: { AutoTip },
-  props: [
-    ...props,
-    'modelValue',
-    'events',
-    'label',
-    'text',
-    'disabled',
-    'name',
-    'border',
-    'size',
-    'tabindex',
-    'displayOnly'
-  ],
+  props: radioProps,
   setup(props, context) {
     return setup({ props, context, renderless, api }) as unknown as IRadioApi
   }

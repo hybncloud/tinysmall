@@ -52,37 +52,111 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/time-line/vue'
-import { props, setup, defineComponent } from '@tinysmall/common'
+import { $props, props, setup, defineComponent } from '@tinysmall/common'
+import type { PropType } from '@tinysmall/common'
 import '@tinysmall/theme/steps/index.less'
 import TimelineItem from '@tinysmall/timeline-item'
 import type { ITimelineApi } from '@tinysmall/renderless/types/time-line.type'
 
+export const $constants = {
+  PROCESS_DONE_CLS: 'process-done',
+  PROCESS_CUR_CLS: 'process-current',
+  PROCESS_WAIT_CLS: 'process-wait',
+  PROCESS_DISABLED_CLS: 'process-disabled',
+  PROCESS_ERROR_CLS: 'process-error',
+  STACK_NODES_MAX: 7,
+  LIMITED_STACK_NODES: 3
+}
+
+export const timelineProps = {
+  ...$props,
+  _constants: {
+    type: Object,
+    default: () => $constants
+  },
+  /** 尺寸，取自原 pc.vue props 数组 */
+  size: { type: String, default: '' },
+  /** 文本位置，取自原 pc.vue props 数组 */
+  textPosition: { type: String, default: 'left' },
+  /** 是否显示分割线，取自原 pc.vue props 数组 */
+  showDivider: { type: Boolean, default: false },
+  vertical: {
+    type: Boolean,
+    default: false
+  },
+  horizontal: {
+    type: Boolean,
+    default: true
+  },
+  showNumber: {
+    type: Boolean,
+    default: true
+  },
+  nameField: {
+    type: String,
+    default: 'name'
+  },
+  timeField: {
+    type: String,
+    default: 'time'
+  },
+  autoColorField: {
+    type: String,
+    default: 'autoColor'
+  },
+  start: {
+    type: Number,
+    default: 1
+  },
+  data: {
+    type: Array,
+    default: () => []
+  },
+  space: {
+    type: [String, Number],
+    default: ''
+  },
+  active: {
+    type: Number,
+    default: -1
+  },
+  reverse: {
+    type: Boolean,
+    default: false
+  },
+  showStatus: {
+    type: Boolean,
+    default: false
+  },
+  foldDisabled: {
+    type: Boolean,
+    default: false
+  },
+  nodeMax: {
+    type: [Number, String],
+    default: $constants.STACK_NODES_MAX
+  },
+  limitedNodes: {
+    type: [Number, String],
+    default: $constants.LIMITED_STACK_NODES
+  },
+  onlyNumber: {
+    type: Boolean,
+    default: false
+  },
+  lineWidth: {
+    type: [String, Number],
+    default: ''
+  },
+  shape: {
+    type: String as PropType<ShapeType>,
+    default: 'circle'
+  }
+}
+
 export default defineComponent({
   emits: ['click'],
-  props: [
-    ...props,
-    'vertical',
-    'horizontal',
-    'showNumber',
-    'nameField',
-    'timeField',
-    'start',
-    'data',
-    'space',
-    'active',
-    'reverse',
-    'showStatus',
-    'size',
-    'textPosition',
-    'showDivider',
-    'onlyNumber',
-    'lineWidth',
-    'shape',
-    'autoColorField',
-    'limitedNodes',
-    'foldDisabled',
-    'nodeMax'
-  ],
+  props: timelineProps,
   components: {
     TinyTimelineItem: TimelineItem
   },

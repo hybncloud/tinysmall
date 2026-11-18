@@ -12,73 +12,12 @@
 import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
 import type { PropType } from '@tinysmall/common'
 import template from 'virtual-template?pc'
+import { $constants, checkboxProps } from './pc.vue'
+
+export { checkboxProps }
+export { $constants }
 
 export type IconPosition = 'center' | 'top'
-
-export const $constants = {
-  FORM_ITEM: 'FormItem',
-  FORM_CHANGE: 'form.change',
-  CHECKBOX: $prefix + 'Checkbox',
-  CHECKBOX_GROUP: 'CheckboxGroup'
-}
-
-export const checkboxProps = {
-  ...$props,
-  _constants: {
-    type: Object,
-    default: () => $constants
-  },
-  modelValue: {
-    type: [String, Number, Boolean],
-    // Tiny新增，因为类型有Boolean类型，所以默认值需要显示设置成 undefined 才可以保持逻辑正确
-    default: undefined
-  },
-  label: {
-    type: [String, Number, Boolean],
-    default: ''
-  },
-  indeterminate: Boolean,
-  disabled: Boolean,
-  checked: Boolean,
-  name: String,
-  trueLabel: [String, Number],
-  falseLabel: [String, Number],
-
-  /*
-   * 当indeterminate为真时，为controls提供相关连的checkbox的id，表明元素间的控制关系
-   */
-  id: String,
-
-  /*
-   * 当indeterminate为真时，为controls提供相关连的checkbox的id，表明元素间的控制关系
-   */
-  controls: { type: String, default: '' },
-  border: Boolean,
-  size: String,
-  text: String,
-  customClass: [String, Object, Array],
-  validateEvent: {
-    type: Boolean,
-    default: true
-  },
-  events: {
-    type: Object,
-    default: () => ({})
-  },
-  displayOnly: {
-    type: Boolean,
-    default: false
-  },
-  iconPosition: String as PropType<IconPosition>,
-  shape: {
-    type: String,
-    default: ''
-  },
-  tabindex: {
-    type: String,
-    default: '0'
-  }
-}
 
 export default defineComponent({
   name: $prefix + 'Checkbox',

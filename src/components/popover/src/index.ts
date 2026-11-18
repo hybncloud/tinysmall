@@ -12,78 +12,9 @@
 import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
 import type { IPopoverApi } from '@tinysmall/renderless/types/popover.type'
 import template from 'virtual-template?pc'
+import { popoverProps } from './pc.vue'
 
-export const popoverProps = {
-  ...$props,
-  appendToBody: {
-    type: Boolean,
-    default: true
-  },
-  arrowOffset: {
-    type: Number,
-    default: 0
-  },
-  boundariesPadding: {
-    type: Number,
-    default: 5
-  },
-  closeDelay: {
-    type: Number,
-    default: 200
-  },
-  content: String,
-  disabled: Boolean,
-  modelValue: Boolean,
-  offset: {
-    default: 0
-  },
-  openDelay: {
-    type: Number,
-    default: 0
-  },
-  placement: {
-    type: String,
-    default: 'bottom'
-  },
-  popper: {},
-  popperClass: String,
-  popperOptions: {
-    type: Object,
-    default: () => ({ gpuAcceleration: false })
-  },
-  reference: {},
-  tabindex: {
-    type: Number,
-    default: 0
-  },
-  title: String,
-  transition: {
-    type: String,
-    default: 'fade-in-linear'
-  },
-  trigger: {
-    type: String,
-    default: 'click',
-    validator: (value: string) => Boolean(~['click', 'focus', 'hover', 'manual'].indexOf(value))
-  },
-  visibleArrow: {
-    default: true
-  },
-  width: {
-    type: [String, Number]
-  },
-  height: {
-    type: [String, Number]
-  },
-  maxHeight: {
-    type: [String, Number]
-  },
-  listData: [Object, Array],
-  genArrowByHtml: {
-    type: Boolean,
-    default: () => true
-  }
-}
+export { popoverProps }
 export default defineComponent({
   inheritAttrs: true,
   name: $prefix + 'Popover',

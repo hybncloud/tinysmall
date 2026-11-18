@@ -33,37 +33,86 @@
 </template>
 
 <script lang="ts">
-import { setup, props, defineComponent } from '@tinysmall/common'
+import { $props, setup, props, defineComponent } from '@tinysmall/common'
 import { renderless, api } from '@tinysmall/renderless/popover/vue'
 import '@tinysmall/theme/popover/index.less'
 import type { IPopoverApi } from '@tinysmall/renderless/types/popover.type'
 
+export const popoverProps = {
+  ...$props,
+  appendToBody: {
+    type: Boolean,
+    default: true
+  },
+  arrowOffset: {
+    type: Number,
+    default: 0
+  },
+  boundariesPadding: {
+    type: Number,
+    default: 5
+  },
+  closeDelay: {
+    type: Number,
+    default: 200
+  },
+  content: String,
+  disabled: Boolean,
+  modelValue: Boolean,
+  offset: {
+    default: 0
+  },
+  openDelay: {
+    type: Number,
+    default: 0
+  },
+  placement: {
+    type: String,
+    default: 'bottom'
+  },
+  popper: {},
+  popperClass: String,
+  popperOptions: {
+    type: Object,
+    default: () => ({ gpuAcceleration: false })
+  },
+  reference: {},
+  tabindex: {
+    type: Number,
+    default: 0
+  },
+  title: String,
+  transition: {
+    type: String,
+    default: 'fade-in-linear'
+  },
+  trigger: {
+    type: String,
+    default: 'click',
+    validator: (value: string) => Boolean(~['click', 'focus', 'hover', 'manual'].indexOf(value))
+  },
+  visibleArrow: {
+    default: true
+  },
+  width: {
+    type: [String, Number]
+  },
+  height: {
+    type: [String, Number]
+  },
+  maxHeight: {
+    type: [String, Number]
+  },
+  listData: [Object, Array],
+  genArrowByHtml: {
+    type: Boolean,
+    default: () => true
+  }
+}
+
 export default defineComponent({
   emits: ['update:modelValue', 'hide', 'show', 'after-enter', 'after-leave', 'created'],
-  props: [
-    ...props,
-    'appendToBody',
-    'arrowOffset',
-    'boundariesPadding',
-    'closeDelay',
-    'content',
-    'disabled',
-    'modelValue',
-    'offset',
-    'openDelay',
-    'placement',
-    'popper',
-    'popperClass',
-    'popperOptions',
-    'reference',
-    'tabindex',
-    'title',
-    'transition',
-    'trigger',
-    'visibleArrow',
-    'width',
-    'height'
-  ],
+  props: popoverProps,
   setup(props, context) {
     return setup({ props, context, renderless, api }) as unknown as IPopoverApi
   }

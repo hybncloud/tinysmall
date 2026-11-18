@@ -1,28 +1,13 @@
 import { $setup, $prefix, $props, defineComponent } from '@tinysmall/common'
 import template from 'virtual-template?pc'
+import { exceptionProps } from './pc.vue'
+
+export { exceptionProps }
 
 export default defineComponent({
   name: $prefix + 'Exception',
 
-  props: {
-    ...$props,
-    type: {
-      type: String,
-      default: 'nodata'
-    },
-    message: String,
-    subMessage: String,
-    exceptionClass: String,
-    imageUrl: String,
-    pageEmpty: {
-      type: Boolean,
-      default: false
-    },
-    componentPage: {
-      type: Boolean,
-      default: false
-    }
-  },
+  props: exceptionProps,
   setup(props, context) {
     return $setup({ props, context, template })
   }

@@ -1,33 +1,8 @@
 import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
 import template from 'virtual-template?pc'
+import { optionsProps } from './pc.vue'
 
-export const optionsProps = {
-  ...$props,
-  value: {
-    required: true
-  },
-  label: [String, Number],
-  created: Boolean,
-  disabled: {
-    type: Boolean,
-    default: false
-  },
-  events: {
-    type: Object,
-    default: () => ({})
-  },
-  visible: {
-    type: Boolean,
-    default: true
-  },
-  highlightClass: String,
-  required: {
-    type: Boolean,
-    default: false
-  },
-  // tiny 新增
-  icon: Object
-}
+export { optionsProps }
 
 export default defineComponent({
   name: $prefix + 'Option',

@@ -1,45 +1,9 @@
 import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
 import template from 'virtual-template?pc'
+import { $constants, statisticProps } from './pc.vue'
 
-export const $constants = {
-  PREFIX: 'tiny-statistic'
-}
-
-export const statisticProps = {
-  ...$props,
-  _constants: {
-    type: Object,
-    default: () => $constants
-  },
-  precision: Number,
-  formatter: Function,
-  value: {
-    type: [Number, String],
-    default: 0
-  },
-  prefix: String,
-  suffix: String,
-  title: [String, Object],
-  valueStyle: {
-    type: [Object, Array]
-  },
-  groupSeparator: {
-    type: String,
-    default: ','
-  },
-  duration: {
-    type: Number,
-    default: 2000
-  },
-  startValue: {
-    type: Number,
-    default: 0
-  },
-  useAnimation: {
-    type: Boolean,
-    default: false
-  }
-}
+export { statisticProps }
+export { $constants }
 
 export default defineComponent({
   name: $prefix + 'Statistic',

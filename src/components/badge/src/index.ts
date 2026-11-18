@@ -11,34 +11,9 @@
  */
 import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
 import template from 'virtual-template?pc'
+import { badgeProps } from './pc.vue'
 
-export const badgeProps = {
-  ...$props,
-  isDot: {
-    type: Boolean,
-    default: false
-  },
-  max: Number,
-  value: [String, Number],
-  modelValue: [String, Number],
-  href: String,
-  target: String,
-  hidden: {
-    type: Boolean,
-    default: false
-  },
-  type: {
-    type: String,
-    validator: (value: string) =>
-      Boolean(~['primary', 'success', 'warning', 'info', 'danger', 'icon', 'label'].indexOf(value))
-  },
-  badgeClass: String,
-  offset: {
-    type: Array,
-    default: () => [0, 0]
-  },
-  data: [String, Number]
-}
+export { badgeProps }
 
 export default defineComponent({
   name: $prefix + 'Badge',

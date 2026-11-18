@@ -11,86 +11,13 @@
  */
 import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
 import template from 'virtual-template?pc'
+import { $constants, popUploadProps } from './pc.vue'
 
-const $constants = {
-  KB: 'KB',
-  FILE_NAME: 'ui.popupload.fileName',
-  FILE_SIZE: 'ui.popupload.fileSize',
-  FILE_STATUS: 'ui.popupload.fileStatus',
-  DIALOG_TITLE: 'ui.popupload.dialogTitle',
-  UPLOAD_ERROR: 'ui.popupload.uploadError',
-  ERROR_NUM_TIPS: 'ui.popupload.errorNumTips',
-  UPLOAD_SUCCESS: 'ui.popupload.uploadSuccess',
-  TIPS_TITLE_TEXT: 'ui.popupload.tipsFileText',
-  ERROR_TYPE_TIPS: 'ui.popupload.errorTypeTips',
-  ERROR_SIZE_TIPS: 'ui.popupload.errorSizeTips',
-  SAVE_BUTTON_TEXT: 'ui.popupload.saveButtonText',
-  UPLOAD_BUTTON_TEXT: 'ui.popupload.uploadButtonText',
-  CANCEL_BUTTTON_TEXT: 'ui.popupload.cancelButtonText',
-  UPLOADS_BUTTON_TEXT: 'ui.popupload.uploadsButtonText',
-  LIMIT_UPLOAD_FILE_TYPE: 'ui.popupload.limitUploadFileType',
-  LIMIT_UPLOAD_FILE_SIZE: 'ui.popupload.limitUploadFileSize',
-  LIMIT_UPLOAD_FILE_NUMBER: 'ui.popupload.limitUploadFileNumber'
-}
+export { popUploadProps }
 
 export default defineComponent({
+  props: popUploadProps,
   name: $prefix + 'PopUpload',
-  props: {
-    ...$props,
-    _constants: {
-      type: Object,
-      default: () => $constants
-    },
-    size: {
-      type: String,
-      default: '',
-      validator(val: string) {
-        return ['large', 'medium', 'small', 'mini', ''].includes(val)
-      }
-    },
-    data: Object,
-    uploadName: String,
-    dialogTitle: {
-      type: String,
-      default: ''
-    },
-    action: {
-      type: String,
-      default: ''
-    },
-    uploadButtonText: {
-      type: String,
-      default: ''
-    },
-    headers: {
-      type: Object,
-      default: () => ({})
-    },
-    withCredentials: {
-      type: Boolean,
-      default: false
-    },
-    limit: Number,
-    multiple: Boolean,
-    disabled: {
-      type: Boolean,
-      default: false
-    },
-    accept: String,
-    submitButtonText: {
-      typee: String,
-      default: ''
-    },
-    cancelButtonText: {
-      typee: String,
-      default: ''
-    },
-    uploadFileType: Array,
-    beforeUpload: Function,
-    beforeRemove: Function,
-    maxUploadFileSize: Number,
-    httpRequest: Function
-  },
   setup(props, context) {
     return $setup({ props, context, template })
   }

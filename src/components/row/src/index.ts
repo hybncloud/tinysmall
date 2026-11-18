@@ -11,43 +11,14 @@
  */
 import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
 import template from 'virtual-template?pc'
+import { rowProps } from './pc.vue'
+
+export { rowProps }
 
 export default defineComponent({
   name: $prefix + 'Row',
   componentName: 'Row',
-  props: {
-    ...$props,
-    flex: Boolean,
-    gutter: {
-      type: Number,
-      default: 0,
-      validator(value: number) {
-        return value >= 0
-      }
-    },
-    justify: {
-      type: String,
-      default: 'start',
-      validator: (value: string) => Boolean(~['start', 'center', 'end', 'space-between', 'space-around'].indexOf(value))
-    },
-    align: {
-      type: String,
-      default: 'top',
-      validator: (value: string) => Boolean(~['top', 'middle', 'bottom'].indexOf(value))
-    },
-    order: {
-      type: String,
-      validator: (value: string) => Boolean(~['asc', 'des'].indexOf(value))
-    },
-    tag: {
-      type: String,
-      default: 'div'
-    },
-    noSpace: {
-      type: Boolean,
-      default: false
-    }
-  },
+  props: rowProps,
   setup(props, context) {
     return $setup({ props, context, template })
   }

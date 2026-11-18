@@ -117,30 +117,56 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/button-group/vue'
-import { props, setup, defineComponent } from '@tinysmall/common'
+import { $props, props, setup, defineComponent } from '@tinysmall/common'
+import type { PropType } from '@tinysmall/common'
 import Popover from '@tinysmall/popover'
 import Button from '@tinysmall/button'
 import { iconPopup, iconEditor } from '@tinysmall/icon'
 import { AutoTip } from '@tinysmall/directive'
 import type { IButtonGroupApi } from '@tinysmall/renderless/types/button-group.type'
 
+export const buttonGroupProps = {
+  ...$props,
+  size: {
+    type: String,
+    default: '',
+    validator: (val: string) => ['medium', 'small', 'mini', ''].includes(val)
+  },
+  data: {
+    type: Array as PropType<IButtonGroupNode[]>,
+    default: () => []
+  },
+  plain: Boolean,
+  modelValue: [String, Number],
+  disabled: Boolean,
+  valueField: {
+    type: String,
+    default: 'value'
+  },
+  textField: {
+    type: String,
+    default: 'text'
+  },
+  showMore: Number,
+  showEdit: {
+    type: Boolean,
+    default: false
+  },
+  border: {
+    type: Boolean,
+    default: true
+  },
+  displayMode: {
+    type: String as PropType<'default' | 'merged'>,
+    default: 'default',
+    validator: (val: string) => ['default', 'merged'].includes(val)
+  }
+}
+
 export default defineComponent({
   emits: ['change', 'edit', 'update:modelValue'],
   directives: { AutoTip },
-  props: [
-    ...props,
-    'size',
-    'data',
-    'plain',
-    'modelValue',
-    'disabled',
-    'valueField',
-    'textField',
-    'showMore',
-    'showEdit',
-    'border',
-    'displayMode'
-  ],
+  props: buttonGroupProps,
   components: {
     TinyPopover: Popover,
     TinyButton: Button,

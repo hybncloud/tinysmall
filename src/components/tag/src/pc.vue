@@ -11,31 +11,43 @@
  -->
 <script lang="tsx">
 import { renderless, api } from '@tinysmall/renderless/tag/vue'
-import { props, setup, h, defineComponent } from '@tinysmall/common'
+import { $props, props, setup, h, defineComponent } from '@tinysmall/common'
 import { iconClose } from '@tinysmall/icon'
 import type { ITagApi } from '@tinysmall/renderless/types/tag.type'
+
+export const tagProps = {
+  ...$props,
+  hit: Boolean,
+  text: String,
+  type: String,
+  size: String,
+  round: Boolean,
+  color: {
+    type: [String, Array],
+    default: ''
+  },
+  closable: Boolean,
+  disabled: Boolean,
+  onlyIcon: Boolean, // 仅图标模式
+  effect: {
+    type: String,
+    default: 'light',
+    validator: (value: string) => Boolean(~['dark', 'light', 'plain'].indexOf(value))
+  },
+  beforeDelete: Function,
+  value: [Number, String],
+  maxWidth: {
+    type: [String, Number],
+    default: null
+  }
+}
 
 export default defineComponent({
   components: {
     IconClose: iconClose()
   },
   emits: ['click', 'close'],
-  props: [
-    ...props,
-    'text',
-    'closable',
-    'type',
-    'hit', //  hit 只保留类名供aui使用， tinyvue 这边的border是随着规范走，取决于css var中的border色值
-    'disabled',
-    'color',
-    'size',
-    'effect',
-    'value',
-    'beforeDelete',
-    'onlyIcon',
-    'maxWidth',
-    'round'
-  ],
+  props: tagProps,
   setup(props, context) {
     return setup({ props, context, renderless, api, h }) as unknown as ITagApi
   },

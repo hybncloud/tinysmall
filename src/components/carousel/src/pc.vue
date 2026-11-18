@@ -87,29 +87,70 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/carousel/vue'
-import { props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
 import { iconChevronLeft, iconChevronRight, iconChevronUp, iconChevronDown } from '@tinysmall/icon'
 import '@tinysmall/theme/carousel/index.less'
 
+export const $constants = {
+  CHILD_NAME: $prefix + 'CarouselItem'
+}
+
+export const carouselProps = {
+    ...$props,
+    _constants: {
+      type: Object,
+      default: () => $constants
+    },
+    initialIndex: {
+      type: Number,
+      default: 0
+    },
+    height: String,
+    trigger: {
+      type: String,
+      default: 'hover'
+    },
+    autoplay: {
+      type: Boolean,
+      default: false
+    },
+    interval: {
+      type: Number,
+      default: 3000
+    },
+    loop: {
+      type: Boolean,
+      default: true
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    indicatorPosition: String,
+    arrow: {
+      type: String,
+      default: 'hover'
+    },
+    type: {
+      type: String,
+      default: 'horizontal',
+      validator: (value: string) => Boolean(!value || ~['card', 'vertical', 'horizontal'].indexOf(value))
+    },
+    showTitle: {
+      type: Boolean,
+      default: false
+    },
+    aspectRatio: {
+      type: String,
+      default: '16:2'
+    },
+    lite: Boolean,
+    beforeSwipe: Function
+  }
+
 export default defineComponent({
   emits: ['change', 'complete'],
-  props: [
-    ...props,
-    'initialIndex',
-    'height',
-    'trigger',
-    'autoplay',
-    'interval',
-    'indicatorPosition',
-    'arrow',
-    'type',
-    'showTitle',
-    'loop',
-    'disabled',
-    'lite',
-    'beforeSwipe',
-    'aspectRatio'
-  ],
+  props: carouselProps,
   setup(props, context) {
     return setup({ props, context, renderless, api })
   },

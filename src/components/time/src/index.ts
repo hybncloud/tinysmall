@@ -1,22 +1,13 @@
 import { $prefix, $props, $setup, defineComponent } from '@tinysmall/common'
 import template from 'virtual-template?pc'
+import { timeProps } from './pc.vue'
+
+export { timeProps }
 
 export default defineComponent({
   name: $prefix + 'Time',
   componentName: 'Time',
-  props: {
-    ...$props,
-    show: Boolean,
-    timeArrowControl: Boolean,
-    emitter: Object,
-    value: Date,
-    step: {
-      type: Object,
-      default() {
-        return { hour: 1, minute: 1, second: 1 }
-      }
-    }
-  },
+  props: timeProps,
   setup(props, context) {
     return $setup({ props, context, template })
   }

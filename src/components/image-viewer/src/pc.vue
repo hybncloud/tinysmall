@@ -78,7 +78,7 @@
 
 <script lang="tsx">
 import { renderless, api } from '@tinysmall/renderless/image-viewer/vue'
-import { props, setup, defineComponent } from '@tinysmall/common'
+import { $props, props, setup, defineComponent } from '@tinysmall/common'
 import {
   iconClose,
   iconChevronLeft,
@@ -92,24 +92,89 @@ import {
 } from '@tinysmall/icon'
 import '@tinysmall/theme/image-viewer/index.less'
 
+export const $constants = {
+  MODE: {
+    CONTAIN: {
+      name: 'contain',
+      icon: 'icon-fullscreen'
+    },
+    ORIGINAL: {
+      name: 'original',
+      icon: 'icon-minscreen'
+    }
+  },
+  DEFAULT_POPPER_ZINDEX: Number.POSITIVE_INFINITY,
+  THUMBNAILTOP: 8,
+  MENUTOP: 10
+}
+
+export const imageViewerProps = {
+    ...$props,
+    _constants: {
+      type: Object,
+      default: () => $constants
+    },
+    urlList: {
+      type: Array,
+      default: () => []
+    },
+    zIndex: {
+      type: Number,
+      default: $constants.DEFAULT_POPPER_ZINDEX
+    },
+    previewVisible: {
+      type: Boolean,
+      default: false
+    },
+    showIndex: {
+      type: Boolean,
+      default: false
+    },
+    imageFullCurrent: {
+      type: Boolean,
+      default: false
+    },
+    startPosition: {
+      type: Number,
+      default: 0
+    },
+    asyncClose: {
+      type: Boolean,
+      default: false
+    },
+    deleteButton: {
+      type: Boolean,
+      default: false
+    },
+    onSwitch: {
+      type: Function,
+      default: () => {
+        // do nothing
+      }
+    },
+    onClose: {
+      type: Function,
+      default: () => {
+        // do nothing
+      }
+    },
+    isThumbnail: {
+      type: Boolean,
+      default: false
+    },
+    isMenuView: {
+      type: Boolean,
+      default: false
+    },
+    keepStyle: {
+      type: Boolean,
+      default: false
+    }
+  }
+
 export default defineComponent({
   emits: ['close', 'update:preview-visible', 'delete', 'change', 'newImageList'],
-  props: [
-    ...props,
-    'urlList',
-    'zIndex',
-    'onSwitch',
-    'onClose',
-    'keepStyle',
-    'showIndex',
-    'previewVisible',
-    'imageFullCurrent',
-    'startPosition',
-    'asyncClose',
-    'deleteButton',
-    'isThumbnail',
-    'isMenuView'
-  ],
+  props: imageViewerProps,
   components: {
     IconClose: iconClose(),
     IconChevronLeft: iconChevronLeft(),

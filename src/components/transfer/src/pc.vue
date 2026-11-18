@@ -112,13 +112,100 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/transfer/vue'
-import { props, setup, defineComponent } from '@tinysmall/common'
+import { $props, props, setup, defineComponent } from '@tinysmall/common'
 import Button from '@tinysmall/button'
 import TransferPanel from '@tinysmall/transfer-panel'
 import { iconDoubleLeft, iconChevronLeft, iconChevronRight, iconDoubleRight } from '@tinysmall/icon'
 import '@tinysmall/theme/transfer/index.less'
 
 import type { ITransferApi } from '@tinysmall/renderless/types/transfer.type'
+
+export const $constants = {
+  ISCHECKED: 'is-checked',
+  DROPPANEL: '.tiny-transfer-panel__list',
+  TRANSFERPANEL: '.tiny-transfer-panel__item'
+}
+
+export const transferProps = {
+  ...$props,
+  _constants: {
+    type: Object,
+    default: () => $constants
+  },
+  /** 分页配置，取自原 pc.vue props 数组 */
+  pageVO: { type: Object },
+  buttonTexts: {
+    type: Array,
+    default: () => []
+  },
+  columns: Array,
+  leftColumns: Array,
+  rightColumns: Array,
+  data: {
+    type: Array,
+    default: () => []
+  },
+  dropConfig: Object,
+  filterMethod: Function,
+  filterPlaceholder: {
+    type: String,
+    default: ''
+  },
+  filterable: Boolean,
+  format: {
+    type: Object,
+    default: () => ({})
+  },
+  leftDefaultChecked: {
+    type: Array,
+    default: () => []
+  },
+  modelValue: {
+    type: Array,
+    default: () => []
+  },
+  pagerOp: {
+    type: Object,
+    default: () => ({ mode: 'fixed', pageVO: { currentPage: 1, pageSize: 10 } })
+  },
+  props: {
+    type: Object,
+    default: () => ({ label: 'label', key: 'key', disabled: 'disabled' })
+  },
+  render: Object,
+  renderContent: Function,
+  renderType: String,
+  rightDefaultChecked: {
+    type: Array,
+    default: () => []
+  },
+  showAllBtn: Boolean,
+  showPager: {
+    type: Boolean,
+    default: false
+  },
+  targetOrder: {
+    type: String,
+    default: 'original'
+  },
+  titles: {
+    type: Array,
+    default: () => []
+  },
+  toLeftDisable: {
+    type: Boolean,
+    default: true
+  },
+  toRightDisable: {
+    type: Boolean,
+    default: true
+  },
+  treeOp: Object,
+  beforeTransfer: Function,
+  panelStyle: Object,
+  panelBodyStyle: Object,
+  panelTableHeight: String
+}
 
 export default defineComponent({
   components: {
@@ -129,39 +216,7 @@ export default defineComponent({
     IconChevronRight: iconChevronRight(),
     IconDoubleRight: iconDoubleRight()
   },
-  props: [
-    ...props,
-    'data',
-    'titles',
-    'buttonTexts',
-    'filterPlaceholder',
-    'filterMethod',
-    'leftDefaultChecked',
-    'rightDefaultChecked',
-    'renderContent',
-    'modelValue',
-    'format',
-    'filterable',
-    'props',
-    'targetOrder',
-    'dropConfig',
-    'showAllBtn',
-    'toLeftDisable',
-    'toRightDisable',
-    'renderType',
-    'leftColumns',
-    'rightColumns',
-    'columns',
-    'pageVO',
-    'pagerOp',
-    'showPager',
-    'render',
-    'treeOp',
-    'beforeTransfer',
-    'panelStyle',
-    'panelBodyStyle',
-    'panelTableHeight'
-  ],
+  props: transferProps,
   setup(props, context) {
     return setup({ props, context, renderless, api }) as unknown as ITransferApi
   }

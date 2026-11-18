@@ -55,12 +55,64 @@
 </template>
 
 <script lang="ts">
-import { setup, $prefix, defineComponent } from '@tinysmall/common'
+import { props, $props, setup, $prefix, defineComponent } from '@tinysmall/common'
 import { renderless, api } from '@tinysmall/renderless/popconfirm/vue'
 import Popover from '@tinysmall/popover'
 import Button from '@tinysmall/button'
 import { iconError, iconHelp, iconWarningTriangle, iconSuccess } from '@tinysmall/icon'
 import '@tinysmall/theme/popconfirm/index.less'
+
+export const $constants = {
+  PC_PREFIXCLS: 'tiny-popconfim',
+  MOBILE_PREFIXCLS: 'tiny-mobile-popconfim',
+  Mode: 'pc',
+  prefixcls(mode) {
+    return mode === this.Mode ? this.PC_PREFIXCLS : this.MOBILE_PREFIXCLS
+  },
+  ICON_MAP: {
+    success: 'icon-success',
+    error: 'icon-error',
+    info: 'icon-help',
+    warning: 'icon-warning-triangle'
+  }
+}
+
+export const popConfirmProps = {
+  ...$props,
+  _constants: {
+    type: Object,
+    default: () => $constants
+  },
+  message: String,
+  customClass: String,
+  popperOptions: Object,
+  trigger: {
+    type: String,
+    default: 'hover',
+    validator: (value: string) => ['click', 'hover'].includes(value)
+  },
+  cancelButton: {
+    type: Boolean,
+    default: true
+  },
+  closeOnClickOutside: {
+    type: Boolean,
+    default: true
+  },
+  title: String,
+  placement: {
+    type: String,
+    default: 'top'
+  },
+  width: [String, Number],
+  type: [String, Object],
+  reference: {},
+  events: Object,
+  popperAppendToBody: {
+    type: Boolean,
+    default: true
+  }
+}
 
 export default defineComponent({
   name: $prefix + 'Popconfirm',
@@ -72,44 +124,7 @@ export default defineComponent({
     IconWarningTriangle: iconWarningTriangle(),
     IconError: iconError()
   },
-  props: {
-    _constants: {
-      type: Object,
-      default: () => ({})
-    },
-    popperOptions: Object,
-    message: String,
-    customClass: String,
-    trigger: {
-      type: String,
-      default: 'hover',
-      validator: (value: string) => ['click', 'hover'].includes(value)
-    },
-    cancelButton: {
-      type: Boolean,
-      default: true
-    },
-    closeOnClickOutside: {
-      type: Boolean,
-      default: true
-    },
-    title: String,
-    placement: {
-      type: String,
-      default: 'top'
-    },
-    width: {
-      type: [String, Number],
-      default: ''
-    },
-    type: [String, Object],
-    reference: {},
-    events: Object,
-    popperAppendToBody: {
-      type: Boolean,
-      default: true
-    }
-  },
+  props: popConfirmProps,
   emits: ['hide', 'show', 'confirm'],
   setup(props, context): any {
     return setup({ props, context, renderless, api })

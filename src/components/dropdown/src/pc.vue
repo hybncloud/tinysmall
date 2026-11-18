@@ -19,6 +19,88 @@ import { Clickoutside } from '@tinysmall/directive'
 import DropdownMenu from '@tinysmall/dropdown-menu'
 import { iconDownWard } from '@tinysmall/icon'
 
+export const dropdownProps = {
+  ...$props,
+  modelValue: [String, Number],
+  // tiny新增
+  visible: {
+    type: [Boolean, undefined],
+    default: undefined
+  },
+  type: String,
+  trigger: String, // 默认主题为 'hover'
+  size: {
+    type: String,
+    default: ''
+  },
+  disabled: {
+    type: Boolean,
+    default: false
+  },
+  splitButton: Boolean,
+  singleButton: {
+    type: Boolean,
+    default: false
+  },
+  showTimeout: {
+    type: Number,
+    default: 250
+  },
+  hideTimeout: {
+    type: Number,
+    default: 150
+  },
+  hideOnClick: {
+    type: Boolean,
+    default: true
+  },
+  tabindex: {
+    type: Number,
+    default: 0
+  },
+  border: {
+    type: Boolean,
+    default: false
+  },
+  round: {
+    type: Boolean,
+    default: false
+  },
+  showIcon: {
+    type: Boolean,
+    default: true
+  },
+  showSelfIcon: {
+    type: Boolean,
+    default: false
+  },
+  // tiny新增
+  menuOptions: {
+    type: Object,
+    default: () => ({
+      options: [],
+      textField: 'label',
+      popperClass: '',
+      placement: 'bottom-end'
+    })
+  },
+  title: {
+    type: String,
+    default: '下拉菜单'
+  },
+  inheritWidth: {
+    type: Boolean,
+    default: false
+  },
+  suffixIcon: Object,
+  /** 前缀图标，取自原 pc.vue 本地 props（render 中被引用） */
+  prefixIcon: Object,
+  lazyShowPopper: {
+    type: Boolean,
+    default: false
+  }
+}
+
 export default defineComponent({
   name: $prefix + 'Dropdown',
   componentName: 'TinyDropdown',
@@ -33,84 +115,7 @@ export default defineComponent({
     IconDownWard: iconDownWard()
   },
   directives: directive({ Clickoutside }),
-  props: {
-    ...$props,
-    type: String,
-    trigger: String,
-    // tiny新增
-    visible: {
-      type: [Boolean, undefined],
-      default: undefined
-    },
-    size: {
-      type: String,
-      default: ''
-    },
-    disabled: {
-      type: Boolean,
-      default: false
-    },
-    splitButton: Boolean,
-    showTimeout: {
-      type: Number,
-      default: 250
-    },
-    hideTimeout: {
-      type: Number,
-      default: 150
-    },
-    hideOnClick: {
-      type: Boolean,
-      default: true
-    },
-    tabindex: {
-      type: Number,
-      default: 0
-    },
-    border: {
-      type: Boolean,
-      default: false
-    },
-    round: {
-      type: Boolean,
-      default: false
-    },
-    showIcon: {
-      type: Boolean,
-      default: true
-    },
-    menuOptions: {
-      type: Object,
-      default: () => ({
-        options: [],
-        textField: 'label',
-        popperClass: '',
-        placement: 'bottom-end'
-      })
-    },
-    title: {
-      type: String,
-      default: '下拉菜单' // TINY-TODO: 国际化
-    },
-    singleButton: {
-      type: Boolean,
-      default: false
-    },
-    showSelfIcon: {
-      type: Boolean,
-      default: false
-    },
-    inheritWidth: {
-      type: Boolean,
-      default: false
-    },
-    suffixIcon: Object,
-    prefixIcon: Object,
-    lazyShowPopper: {
-      type: Boolean,
-      default: false
-    }
-  },
+  props: dropdownProps,
   emits: [
     'visible-change',
     'item-click',

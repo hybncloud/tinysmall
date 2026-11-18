@@ -103,7 +103,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/numeric/vue'
-import { props, setup, directive, defineComponent } from '@tinysmall/common'
+import { $props, setup, directive, defineComponent } from '@tinysmall/common'
 import { RepeatClick } from '@tinysmall/directive'
 import { iconChevronDown, iconChevronUp, iconMinus, iconPlus } from '@tinysmall/icon'
 import '@tinysmall/theme/numeric/index.less'
@@ -111,6 +111,155 @@ import type { INumericApi } from '@tinysmall/renderless/types/numeric.type'
 import Radio from '@tinysmall/radio'
 import RadioGroup from '@tinysmall/radio-group'
 import Tag from '@tinysmall/tag'
+
+export const $constants = {
+  MAX: 'aria-valuemax',
+  MIN: 'aria-valuemin',
+  VALUENOW: 'aria-valuenow',
+  DISABLED: 'aria-disabled',
+  KEY: 'role',
+  VALUE: 'spinbutton',
+  EVENT_NAME: {
+    blur: 'form.blur',
+    change: 'form.change'
+  },
+  COMPONENT_NAME: 'FormItem',
+  FILTER_OPTION: [
+    'ui.numeric.equalTo',
+    'ui.numeric.notEqualTo',
+    'ui.numeric.moreThan',
+    'ui.numeric.moreThanOrEqualTo',
+    'ui.numeric.lessThan',
+    'ui.numeric.lessThanOrEqualTo',
+    'ui.numeric.empty',
+    'ui.numeric.nonEmpty'
+  ]
+}
+
+export const numericProps = {
+  ...$props,
+  _constants: {
+    type: Object,
+    default: () => $constants
+  },
+  allowEmpty: {
+    type: Boolean,
+    default: false
+  },
+  emptyValue: {
+    default: undefined
+  },
+  circulate: Boolean,
+  controls: {
+    type: Boolean,
+    default: true
+  },
+  controlsPosition: {
+    type: String,
+    default: '',
+    validator: (value: string) => ['', 'right'].includes(value)
+  },
+  disabled: Boolean,
+  format: [Object, String],
+  hideUnit: {
+    type: Boolean,
+    default: false
+  },
+  holdZero: {
+    type: Boolean,
+    default: true
+  },
+  label: String,
+  max: {
+    type: [Number, String],
+    default: Infinity
+  },
+  min: {
+    type: [Number, String],
+    default: -Infinity
+  },
+  modelTruncation: {
+    type: Boolean,
+    default: true
+  },
+  modelValue: [Number, String],
+  mouseWheel: Boolean,
+  name: String,
+  placeholder: String,
+  plugin: Function,
+  precision: {
+    type: Number,
+    validator(val) {
+      return val >= 0 && val === parseInt(val, 10)
+    }
+  },
+  size: String,
+  step: {
+    type: [Number, String, Object],
+    default: 1
+  },
+  stepStrictly: {
+    type: Boolean,
+    default: false
+  },
+  strictInput: {
+    type: Boolean,
+    default: false
+  },
+  stringMode: Boolean,
+  tabindex: {
+    type: String,
+    default: '1'
+  },
+  unit: String,
+  unitCenter: {
+    type: Boolean,
+    default: false
+  },
+  validateEvent: {
+    type: Boolean,
+    default: true
+  },
+  displayOnly: {
+    type: Boolean,
+    default: false
+  },
+  showLeft: {
+    type: Boolean,
+    default: false
+  },
+  showEmptyValue: {
+    type: Boolean,
+    default: false
+  },
+  title: {
+    type: String,
+    default: ''
+  },
+  tip: String,
+  shape: String,
+  clearable: {
+    type: Boolean,
+    default: true
+  },
+  filter: {
+    type: Boolean,
+    default: true
+  },
+  blank: {
+    type: Boolean,
+    default: true
+  },
+  changeCompat: {
+    type: Boolean,
+    default: false
+  },
+  parseInput: {
+    type: Function
+  },
+  /** 样式主题，取自原 pc.vue props 数组 */
+  theme: String
+}
 
 export default defineComponent({
   directives: directive({
@@ -125,49 +274,7 @@ export default defineComponent({
     TinyRadioGroup: RadioGroup,
     TinyTag: Tag
   },
-  props: [
-    ...props,
-    'step',
-    'tabindex',
-    'stepStrictly',
-    'max',
-    'min',
-    'modelValue',
-    'disabled',
-    'size',
-    'controls',
-    'controlsPosition',
-    'name',
-    'label',
-    'placeholder',
-    'precision',
-    'circulate',
-    'mouseWheel',
-    'validateEvent',
-    'allowEmpty',
-    'emptyValue',
-    'format',
-    'unit',
-    'stringMode',
-    'holdZero',
-    'plugin',
-    'modelTruncation',
-    'strictInput',
-    'hideUnit',
-    'unitCenter',
-    'displayOnly',
-    'showLeft',
-    'showEmptyValue',
-    'title',
-    'shape',
-    'tip',
-    'clearable',
-    'filter',
-    'blank',
-    'changeCompat',
-    'parseInput',
-    'theme'
-  ],
+  props: numericProps,
   emits: ['update:modelValue', 'change', 'blur', 'focus', 'paste-error', 'filter-change', 'clear'],
   setup(props, context) {
     return setup({ props, context, renderless, api }) as unknown as INumericApi

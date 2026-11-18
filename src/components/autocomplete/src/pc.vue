@@ -105,11 +105,82 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/autocomplete/vue'
-import { props, setup, directive, defineComponent } from '@tinysmall/common'
+import { $props, props, setup, directive, defineComponent } from '@tinysmall/common'
 import TinyScrollbar from '@tinysmall/scrollbar'
 import TinyInput from '@tinysmall/input'
 import { Clickoutside } from '@tinysmall/directive'
 import { IconLoadingShadow } from '@tinysmall/icon'
+
+export const $constants = {
+  WARP_CLS: '.tiny-autocomplete-suggestion__wrap',
+  ITEM_CLS: '.tiny-autocomplete-suggestion__list li'
+}
+
+export const autoCompleteProps = {
+  ...$props,
+  _constants: {
+    type: Object,
+    default: () => $constants
+  },
+  /** 原生 tabindex 属性，取自原 pc.vue props 数组 */
+  tabindex: { type: [String, Number], default: '0' },
+  autofocus: Boolean,
+  clearable: {
+    type: Boolean,
+    default: () => false
+  },
+  customItem: String,
+  debounce: {
+    type: Number,
+    default: () => 300
+  },
+  disabled: Boolean,
+  fetchSuggestions: Function,
+  hideLoading: Boolean,
+  highlightFirstItem: {
+    type: Boolean,
+    default: () => false
+  },
+  label: String,
+  maxlength: Number,
+  minlength: Number,
+  modelValue: String,
+  name: String,
+  placeholder: String,
+  placement: {
+    type: String,
+    default: () => 'bottom-start'
+  },
+  popperAppendToBody: {
+    type: Boolean,
+    default: () => true
+  },
+  popperClass: String,
+  popperOptions: Object,
+  prefixIcon: [String, Object],
+  selectWhenUnmatched: {
+    type: Boolean,
+    default: () => false
+  },
+  size: String,
+  suffixIcon: [String, Object],
+  triggerOnFocus: {
+    type: Boolean,
+    default: () => true
+  },
+  valueKey: {
+    type: String,
+    default: () => 'value'
+  },
+  displayOnly: {
+    type: Boolean,
+    default: false
+  },
+  validateEvent: {
+    type: Boolean,
+    default: undefined
+  }
+}
 
 export default defineComponent({
   components: {
@@ -118,36 +189,7 @@ export default defineComponent({
     IconLoadingShadow: IconLoadingShadow()
   },
   directives: directive({ Clickoutside }),
-  props: [
-    ...props,
-    'valueKey',
-    'popperClass',
-    'tabindex',
-    'popperOptions',
-    'placeholder',
-    'clearable',
-    'disabled',
-    'name',
-    'size',
-    'modelValue',
-    'maxlength',
-    'minlength',
-    'autofocus',
-    'fetchSuggestions',
-    'triggerOnFocus',
-    'customItem',
-    'selectWhenUnmatched',
-    'prefixIcon',
-    'suffixIcon',
-    'label',
-    'debounce',
-    'placement',
-    'hideLoading',
-    'popperAppendToBody',
-    'highlightFirstItem',
-    'displayOnly',
-    'validateEvent'
-  ],
+  props: autoCompleteProps,
   emits: ['update:modelValue', 'focus', 'blur', 'clear', 'select', 'created'],
   setup(props, context) {
     return setup({ props, context, renderless, api })

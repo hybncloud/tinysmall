@@ -13,48 +13,15 @@ import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
 import type { PropType } from '@tinysmall/common'
 import type { IconPosition } from '@tinysmall/checkbox/src'
 import template from 'virtual-template?pc'
+import { $constants, checkboxGroupProps } from './pc.vue'
 
-const $constants = {
-  FORM_ITEM: 'FormItem',
-  FORM_CHANGE: 'form.change'
-}
+export { checkboxGroupProps }
 
 export default defineComponent({
+  props: checkboxGroupProps,
   name: $prefix + 'CheckboxGroup',
   componentName: 'CheckboxGroup',
   emits: ['change', 'update:modelValue'],
-  props: {
-    ...$props,
-    _constants: {
-      type: Object,
-      default: () => $constants
-    },
-    modelValue: {},
-    disabled: Boolean,
-    min: Number,
-    max: Number,
-    size: String,
-    fill: String,
-    textColor: String,
-    vertical: Boolean,
-    options: {
-      type: Array,
-      default: () => []
-    },
-    type: {
-      type: String,
-      default: 'checkbox'
-    },
-    displayOnly: {
-      type: Boolean,
-      default: false
-    },
-    iconPosition: String as PropType<IconPosition>,
-    shape: {
-      type: String,
-      default: ''
-    }
-  },
   setup(props, context) {
     return $setup({ props, context, template })
   }

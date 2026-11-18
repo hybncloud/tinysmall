@@ -11,24 +11,9 @@
  */
 import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
 import template from 'virtual-template?pc'
+import { breadcrumbItemProps } from './pc.vue'
 
-export const breadcrumbItemProps = {
-  ...$props,
-  to: Object,
-  replace: {
-    type: Boolean,
-    default: false
-  },
-  size: {
-    type: String,
-    default: '',
-    validator: (val: string) => [/* 'large', */ 'medium', /* 'small', 'mini',  */ ''].includes(val)
-  },
-  option: {
-    type: Object,
-    default: () => ({})
-  }
-}
+export { breadcrumbItemProps }
 
 export default defineComponent({
   name: $prefix + 'BreadcrumbItem',

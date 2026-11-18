@@ -11,19 +11,14 @@
  */
 import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
 import template from 'virtual-template?pc'
+import { cascaderMenuProps } from './pc.vue'
+
+export { cascaderMenuProps }
 
 export default defineComponent({
   name: $prefix + 'CascaderMenu',
   componentName: 'CascaderMenu',
-  props: {
-    ...$props,
-    nodes: {
-      type: Array,
-      required: true
-    },
-    index: Number,
-    onlyUsePanel: Boolean
-  },
+  props: cascaderMenuProps,
   setup(props, context) {
     return $setup({ props, context, template })
   }

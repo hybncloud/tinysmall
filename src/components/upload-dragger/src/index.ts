@@ -1,11 +1,8 @@
 import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
 import template from 'virtual-template?pc'
+import { UploadDraggerProps } from './pc.vue'
 
-export const UploadDraggerProps = {
-  ...$props,
-  disabled: Boolean,
-  customClass: [String, Object, Array]
-}
+export { UploadDraggerProps }
 
 export default defineComponent({
   name: $prefix + 'UploadDragger',

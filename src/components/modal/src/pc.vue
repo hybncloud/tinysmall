@@ -11,7 +11,7 @@
  -->
 <script lang="tsx">
 import Button from '@tinysmall/button'
-import { props, setup, h, defineComponent } from '@tinysmall/common'
+import { $props, props, setup, h, defineComponent } from '@tinysmall/common'
 import { renderless, api } from '@tinysmall/renderless/modal/vue'
 import '@tinysmall/theme/modal/index.less'
 
@@ -29,48 +29,90 @@ import {
 import '@tinysmall/theme/modal/index.less'
 import type { IModalApi } from '@tinysmall/renderless/types/modal.type'
 
+export const $constants = {
+  MODAL_STATUS: {
+    INFO: 'info',
+    SUCCESS: 'success',
+    WARNING: 'warning',
+    ERROR: 'error',
+    LOADING: 'loading'
+  },
+  NODAL_TYPE: {
+    ALERT: 'alert',
+    CONFIRM: 'confirm',
+    MESSAGE: 'message'
+  },
+  STATUS_MAPPING_CLASSS: {
+    INFO: 'tiny-modal-svg__info',
+    SUCCESS: 'tiny-modal-svg__success',
+    WARNING: 'tiny-modal-svg__warning',
+    ERROR: 'tiny-modal-svg__error',
+    LOADING: 'tiny-modal-svg__refresh roll'
+  },
+  PC_SCROLL_LOCK_CLASS: 'dialog-box__scroll-lock',
+  MOBILE_FIRST_SCROLL_LOCK_CLASS: 'tiny-modal-lockscroll',
+  Mode: 'pc',
+  SCROLL_LOCK_CLASS(mode) {
+    return mode === this.Mode ? this.PC_SCROLL_LOCK_CLASS : this.MOBILE_FIRST_SCROLL_LOCK_CLASS
+  }
+}
+
+export const modalProps = {
+  ...$props,
+  _constants: {
+    type: Object,
+    default: () => $constants
+  },
+  animat: { type: Boolean, default: () => true },
+  beforeClose: Function,
+  duration: { type: [Number, String], default: () => 3000 },
+  messageClosable: Boolean,
+  escClosable: Boolean,
+  events: Object,
+  fullscreen: Boolean,
+  height: [Number, String],
+  id: String,
+  isFormReset: {
+    type: Boolean,
+    default: true
+  },
+  lockScroll: Boolean,
+  lockView: { type: Boolean, default: () => true },
+  marginSize: { type: [Number, String], default: 10 },
+  mask: { type: Boolean, default: () => true },
+  maskClosable: Boolean,
+  message: [String, Function, Object],
+  minHeight: { type: [Number, String], default: () => 200 },
+  minWidth: { type: [Number, String], default: () => 340 },
+  modelValue: Boolean,
+  resize: Boolean,
+  showFooter: Boolean,
+  showHeader: { type: Boolean, default: true },
+  status: {
+    type: [String, Object],
+    default: ''
+  },
+  title: String,
+  top: { type: [Number, String], default: 80 },
+  type: { type: String, default: 'alert' },
+  vSize: String,
+  width: [Number, String],
+  zIndex: [Number, String],
+  description: String, // mf 属性
+  options: Array, // mf 属性
+  showClose: { type: Boolean, default: true }, // mf 属性
+  confirmContent: String,
+  cancelContent: String,
+  customClass: String, // mf 属性
+  confirmBtnProps: { type: Object, default: () => ({}) },
+  cancelBtnProps: { type: Object, default: () => ({}) },
+  headerDragable: { type: Boolean, default: true },
+  footerDragable: Boolean,
+  slots: Object
+}
+
 export default defineComponent({
-  props: [
-    ...props,
-    '_constants',
-    'animat',
-    'beforeClose',
-    'duration',
-    'escClosable',
-    'events',
-    'fullscreen',
-    'height',
-    'id',
-    'isFormReset',
-    'lockScroll',
-    'lockView',
-    'marginSize',
-    'mask',
-    'maskClosable',
-    'message',
-    'minHeight',
-    'minWidth',
-    'modelValue',
-    'resize',
-    'showFooter',
-    'showHeader',
-    'status',
-    'title',
-    'top',
-    'type',
-    'vSize',
-    'width',
-    'zIndex',
-    'messageClosable',
-    'confirmContent',
-    'cancelContent',
-    'confirmBtnProps',
-    'cancelBtnProps',
-    'headerDragable',
-    'footerDragable',
-    'slots',
-    'showClose'
-  ],
+  props: modalProps,
   emits: [
     'update:modelValue',
     'show',

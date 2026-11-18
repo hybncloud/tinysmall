@@ -11,40 +11,10 @@
  */
 import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
 import template from 'virtual-template?pc'
+import { $constants, breadcrumbProps } from './pc.vue'
 
-export const $constants = {
-  EVENT_NAME: {
-    breadcrumbItemSelect: 'breadcrumbItemSelect'
-  }
-}
-
-export const breadcrumbProps = {
-  ...$props,
-  _constants: {
-    type: Object,
-    default: () => $constants
-  },
-  separator: {
-    type: String,
-    default: ''
-  },
-  separatorIcon: {
-    type: Object
-  },
-  textField: {
-    type: String,
-    default: 'label'
-  },
-  size: {
-    type: String,
-    default: '',
-    validator: (val: string) => [/* 'large', */ 'medium', /* 'small', 'mini',  */ ''].includes(val)
-  },
-  options: {
-    type: Array,
-    default: () => []
-  }
-}
+export { breadcrumbProps }
+export { $constants }
 
 export default defineComponent({
   name: $prefix + 'Breadcrumb',

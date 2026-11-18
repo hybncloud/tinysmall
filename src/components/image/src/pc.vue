@@ -53,10 +53,59 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/image/vue'
-import { props, setup, defineComponent, Teleport } from '@tinysmall/common'
+import { $props, setup, defineComponent, Teleport } from '@tinysmall/common'
+import { isServer } from '@tinysmall/utils'
 import ImageViewer from '@tinysmall/image-viewer'
 import { iconImageError } from '@tinysmall/icon'
 import type { IImageApi } from '@tinysmall/renderless/types/image.type'
+
+export const $constants = {
+  NONE: 'none',
+  CONTAIN: 'contain',
+  COVER: 'cover',
+  FILL: 'fill',
+  SCALE_DOWN: 'scale-down',
+  DEFAULT_POPPER_ZINDEX: Number.POSITIVE_INFINITY
+}
+
+export const imageProps = {
+  ...$props,
+  _constants: {
+    type: Object,
+    default: () => $constants
+  },
+  fit: String,
+  lazy: Boolean,
+  previewSrcList: {
+    type: Array,
+    default: () => []
+  },
+  scrollContainer: {
+    type: !isServer ? [String, HTMLElement] : null,
+    default: null
+  },
+  src: String,
+  zIndex: {
+    type: Number,
+    default: $constants.DEFAULT_POPPER_ZINDEX
+  },
+  showIndex: {
+    type: Boolean,
+    default: false
+  },
+  previewVisible: {
+    type: Boolean,
+    default: false
+  },
+  keepStyle: {
+    type: Boolean,
+    default: false
+  },
+  appendToBody: {
+    type: Boolean,
+    default: true
+  }
+}
 
 export default defineComponent({
   components: {
@@ -65,19 +114,7 @@ export default defineComponent({
     TinyIconImageError: iconImageError()
   },
   emits: ['load', 'error', 'delete', 'change-index'],
-  props: [
-    ...props,
-    'src',
-    'fit',
-    'lazy',
-    'scrollContainer',
-    'previewSrcList',
-    'zIndex',
-    'keepStyle',
-    'showIndex',
-    'appendToBody',
-    'previewVisible'
-  ],
+  props: imageProps,
   setup(props, context) {
     return setup({ props, context, renderless, api }) as unknown as IImageApi
   }

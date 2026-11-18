@@ -30,10 +30,47 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/scroll-text/vue'
-import { props, setup, defineComponent } from '@tinysmall/common'
+import { $props, props, setup, defineComponent } from '@tinysmall/common'
+
+export const $constants = {
+  ANIMATION_DURATION: 'animation-duration'
+}
+
+export const scrollTextProps = {
+    ...$props,
+    _constants: {
+      type: Object,
+      default: () => $constants
+    },
+    text: {
+      type: String,
+      default: 'ScrollText'
+    },
+    time: {
+      type: Number,
+      default: 5
+    },
+    styles: {
+      type: String,
+      default: ''
+    },
+    direction: {
+      type: String,
+      default: 'left',
+      validator: (value: string) => Boolean(~['up', 'left', 'down', 'right'].indexOf(value))
+    },
+    hoverStop: {
+      type: Boolean,
+      default: true
+    },
+    widthAdapt: {
+      type: Boolean,
+      default: false
+    }
+  }
 
 export default defineComponent({
-  props: [...props, 'text', 'time', 'styles', 'direction', 'hoverStop', 'widthAdapt'],
+  props: scrollTextProps,
   setup(props, context) {
     return setup({ props, context, renderless, api })
   }

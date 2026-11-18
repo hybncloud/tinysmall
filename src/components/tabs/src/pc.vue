@@ -11,11 +11,61 @@
  -->
 <script lang="tsx">
 import { renderless, api } from '@tinysmall/renderless/tabs/vue'
-import { props, setup, h, defineComponent } from '@tinysmall/common'
+import { $props, setup, h, defineComponent } from '@tinysmall/common'
 import TabNav from './tab-nav/pc.vue'
 import { iconPlus } from '@tinysmall/icon'
 import '@tinysmall/theme/tabs/index.less'
 import type { ITabsApi } from '@tinysmall/renderless/types/tabs.type'
+
+export const $constants = {
+  TAB_ITEM: 'TabItem'
+}
+
+export const tabsProps = {
+  ...$props,
+  _constants: {
+    type: Object,
+    default: () => $constants
+  },
+  tabStyle: String,
+  activeName: String,
+  withClose: Boolean,
+  withAdd: Boolean,
+  size: String,
+  modelValue: {},
+  editable: Boolean,
+  position: {
+    type: String,
+    default: 'top'
+  },
+  beforeLeave: Function,
+  stretch: Boolean,
+  showMoreTabs: Boolean,
+  popperClass: String,
+  popperAppendToBody: {
+    type: Boolean,
+    default: true
+  },
+  dropConfig: {
+    type: Object,
+    default: () => null
+  },
+  separator: Boolean,
+  // tiny 新增
+  showExpandTabs: Boolean,
+  expandTabsTitle: String,
+  expandTabsMode: String,
+  tooltipConfig: [String, Object],
+  beforeClose: Function,
+  overflowTitle: Boolean,
+  titleWidth: String,
+  // tiny 新增
+  moreShowAll: Boolean,
+  panelMaxHeight: String,
+  panelWidth: String,
+  // 只渲染头部
+  headerOnly: Boolean
+}
 
 export default defineComponent({
   emits: [
@@ -29,33 +79,7 @@ export default defineComponent({
     'tab-drag-over',
     'tab-drag-end'
   ],
-  props: [
-    ...props,
-    'tabStyle',
-    'activeName',
-    'withClose',
-    'withAdd',
-    'size',
-    'modelValue',
-    'editable',
-    'position',
-    'beforeLeave',
-    'stretch',
-    'showMoreTabs',
-    'popperClass',
-    'popperAppendToBody',
-    'dropConfig',
-    'tooltipConfig',
-    'separator',
-    'beforeClose',
-    'overflowTitle',
-    'titleWidth',
-    'moreShowAll',
-    'panelMaxHeight',
-    'panelWidth',
-    'showExpandTabs',
-    'headerOnly'
-  ],
+  props: tabsProps,
   components: {
     TabNav,
     IconPlus: iconPlus()

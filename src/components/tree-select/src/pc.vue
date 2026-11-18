@@ -49,18 +49,13 @@
 </template>
 
 <script lang="ts">
-import { $prefix, defineComponent, setup } from '@tinysmall/common'
+import { $props, $prefix, defineComponent, setup } from '@tinysmall/common'
 import { renderless, api } from '@tinysmall/renderless/tree-select/vue'
 import Tree from '@tinysmall/tree'
 import BaseSelect from '@tinysmall/base-select'
 
-export default defineComponent({
-  name: $prefix + 'TreeSelect',
-  components: {
-    TinyTree: Tree,
-    TinyBaseSelect: BaseSelect
-  },
-  props: {
+export const treeSelectProps = {
+    ...$props,
     clearable: Boolean,
     filterable: Boolean,
     filterMethod: Function,
@@ -77,6 +72,45 @@ export default defineComponent({
     valueField: {
       type: String,
       default: 'value'
+    },
+    // 基础 props
+    size: String,
+    disabled: Boolean,
+    placeholder: String,
+    readonly: Boolean,
+    // 弹框相关
+    popperClass: String,
+    popperAppendToBody: {
+      type: Boolean,
+      default: true
+    },
+    placement: {
+      type: String,
+      default: 'bottom-start'
+    },
+    dropStyle: {
+      type: Object,
+      default: () => ({})
+    },
+    // 标签相关
+    collapseTags: Boolean,
+    copyable: Boolean,
+    textSplit: {
+      type: String,
+      default: ','
+    },
+    hoverExpand: Boolean,
+    clickExpand: Boolean,
+    showTips: {
+      type: Boolean,
+      default: true
+    },
+    // 搜索和过滤
+    searchable: Boolean,
+    // 多选相关
+    multipleLimit: {
+      type: Number,
+      default: 0
     },
     // 下拉图标
     dropdownIcon: {
@@ -105,10 +139,6 @@ export default defineComponent({
       type: String,
       default: 'off'
     },
-    // 标签相关
-    hoverExpand: Boolean,
-    clickExpand: Boolean,
-    collapseTags: Boolean,
     // 懒加载相关
     lazy: {
       type: Boolean,
@@ -116,7 +146,15 @@ export default defineComponent({
     },
     load: Function,
     afterLoad: Function
+  }
+
+export default defineComponent({
+  name: $prefix + 'TreeSelect',
+  components: {
+    TinyTree: Tree,
+    TinyBaseSelect: BaseSelect
   },
+  props: treeSelectProps,
   setup(props, context) {
     return setup({ props, context, renderless, api })
   }

@@ -47,11 +47,33 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/link/vue'
-import { props, setup, defineComponent } from '@tinysmall/common'
+import { $props, props, setup, defineComponent } from '@tinysmall/common'
 import type { ILinkApi } from '@tinysmall/renderless/types/link.type'
 
+export const linkProps = {
+  ...$props,
+  /** 文本链接类型：'primary' | 'success' | 'warning' | 'danger' | 'info' */
+  type: {
+    type: String,
+    default: 'default'
+  },
+  /** 显示内容 */
+  value: String,
+  /** 是否下划线 */
+  underline: {
+    type: Boolean,
+    default: true
+  },
+  /** 原生 href 属性 */
+  href: String,
+  /** 自定义图标 */
+  icon: [Object, String],
+  /** 是否禁用状态 */
+  disabled: Boolean
+}
+
 export default defineComponent({
-  props: [...props, 'disabled', 'href', 'icon', 'type', 'underline', 'value'],
+  props: linkProps,
   emits: ['click'],
   setup(props, context) {
     return setup({ props, context, renderless, api }) as unknown as ILinkApi

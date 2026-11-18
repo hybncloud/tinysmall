@@ -1,23 +1,13 @@
 import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
 
 import template from 'virtual-template?pc'
+import { virtualTreeProps } from './pc.vue'
+
+export { virtualTreeProps }
 
 export default defineComponent({
   name: $prefix + 'VirtualTree',
-  props: {
-    ...$props,
-    width: [Number, String],
-    height: [Number, String],
-    rowHeight: {
-      type: Number,
-      default: 36
-    },
-    scrollbarSize: {
-      type: Number,
-      default: 6
-    },
-    treeOp: null
-  },
+  props: virtualTreeProps,
   setup(props, context) {
     return $setup({ props, context, template })
   }

@@ -93,10 +93,135 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/dialog-box/vue'
-import { props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
+import type { PropType } from '@tinysmall/common'
 import { iconClose, iconFullscreen, iconMinscreen } from '@tinysmall/icon'
 import '@tinysmall/theme/dialog-box/index.less'
 import type { IDialogBoxApi } from '@tinysmall/renderless/types/dialog-box.type'
+
+export const $constants = {
+  DIALOG_SLIDER_RIGHT: 'dialog-slideRight',
+  DIALOG_FADE: 'dialog-fade',
+  SELECT_DROPDOWN: $prefix + 'SelectDropdown',
+  DROPDOWN_MENU: $prefix + 'DropdownMenu',
+  DIALOG_BOX_CLASS: 'div.tiny-dialog-box',
+  PC_SCROLL_LOCK_CLASS: 'dialog-box__scroll-lock',
+  MOBILE_SCROLL_LOCK_CLASS: 'mobile-dialog-box__scroll-lock',
+  DIALOG_BOX_DATA_TAG: 'tiny-dialog-box',
+  Mode: 'pc',
+  SCROLL_LOCK_CLASS(mode) {
+    return mode === this.Mode ? this.PC_SCROLL_LOCK_CLASS : this.MOBILE_SCROLL_LOCK_CLASS
+  }
+}
+
+export const dialogBoxProps = {
+  ...$props,
+  _constants: {
+    type: Object,
+    default: () => $constants
+  },
+  appendToBody: {
+    type: Boolean,
+    default: () => false
+  },
+  beforeClose: Function,
+  center: {
+    type: Boolean,
+    default: () => false
+  },
+  closeOnClickModal: {
+    type: Boolean,
+    default: () => true
+  },
+  closeOnPressEscape: {
+    type: Boolean,
+    default: () => true
+  },
+  destroyOnClose: {
+    type: Boolean,
+    default: () => false
+  },
+  dialogClass: {
+    type: String,
+    default: () => ''
+  },
+  draggable: {
+    type: Boolean,
+    default: () => false
+  },
+  dragOutsideWindow: {
+    type: Boolean,
+    default: () => false
+  },
+  fullscreen: {
+    type: Boolean,
+    default: () => false
+  },
+  isFormReset: {
+    type: Boolean,
+    default: () => true
+  },
+  lockScroll: {
+    type: Boolean,
+    default: () => true
+  },
+  modal: {
+    type: Boolean,
+    default: () => true
+  },
+  modalAppendToBody: {
+    type: Boolean,
+    default: () => true
+  },
+  resize: {
+    type: Boolean,
+    default: () => false
+  },
+  rightSlide: {
+    type: Boolean,
+    default: () => false
+  },
+  showClose: {
+    type: Boolean,
+    default: () => true
+  },
+  showHeader: {
+    type: Boolean,
+    default: () => true
+  },
+  title: {
+    type: String,
+    default: () => ''
+  },
+  top: String,
+  visible: {
+    type: Boolean,
+    default: () => false
+  },
+  width: {
+    type: String,
+    default: () => '500px'
+  },
+  maxHeight: {
+    type: String,
+    default: () => ''
+  },
+  dialogTransition: {
+    type: String,
+    default: ''
+  },
+  noAnimation: {
+    type: Boolean,
+    default: false
+  },
+  customStyle: {
+    type: Object,
+    default: () => ({})
+  },
+  onClose: {
+    type: Function as PropType<() => void>
+  }
+}
 
 export default defineComponent({
   components: {
@@ -120,35 +245,7 @@ export default defineComponent({
     // tiny 新增
     'resize'
   ],
-  props: [
-    ...props,
-    'resize',
-    'isFormReset',
-    'visible',
-    'title',
-    'modal',
-    'modalAppendToBody',
-    'appendToBody',
-    'lockScroll',
-    'closeOnClickModal',
-    'closeOnPressEscape',
-    'showClose',
-    'width',
-    'fullscreen',
-    'top',
-    'center',
-    'draggable',
-    'dragOutsideWindow',
-    'showHeader',
-    'rightSlide',
-    'destroyOnClose',
-    'dialogClass',
-    'beforeClose',
-    'maxHeight',
-    'dialogTransition',
-    'customStyle',
-    'noAnimation'
-  ],
+  props: dialogBoxProps,
   model: {
     prop: 'visible',
     event: 'update:visible'

@@ -11,38 +11,13 @@
  */
 import { $prefix, $props, $setup, defineComponent } from '@tinysmall/common'
 import template from 'virtual-template?pc'
+import { panelProps } from './pc.vue'
+
+export { panelProps }
 
 export default defineComponent({
   name: $prefix + 'Panel',
-  props: {
-    ...$props,
-    expand: {
-      type: Boolean,
-      default: true
-    },
-    foot: {
-      type: String
-    },
-    head: {
-      type: String
-    },
-    iconOpen: {
-      type: String,
-      default: 'icon-chevron-down'
-    },
-    iconClose: {
-      type: String,
-      default: 'icon-chevron-right'
-    },
-    isToggle: {
-      type: Boolean,
-      default: false
-    },
-    transition: {
-      type: String,
-      default: 'panel'
-    }
-  },
+  props: panelProps,
   setup(props, context) {
     return $setup({ props, context, template })
   }

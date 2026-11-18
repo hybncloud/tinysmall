@@ -12,48 +12,9 @@
 
 import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
 import template from 'virtual-template?pc'
+import { actionMenuProps } from './pc.vue'
 
-export const actionMenuProps = {
-  ...$props,
-  options: {
-    type: Array,
-    default: () => []
-  },
-  maxShowNum: Number,
-  moreText: String,
-  spacing: {
-    type: [String, Number]
-  },
-  textField: {
-    type: String,
-    default: 'label'
-  },
-  placement: {
-    type: String,
-    default: 'bottom-end'
-  },
-  popperClass: {
-    type: String,
-    default: ''
-  },
-  popperAppendToBody: {
-    type: Boolean,
-    default: false
-  },
-  trigger: {
-    type: String,
-    default: 'hover'
-  },
-  suffixIcon: Object,
-  showIcon: {
-    type: Boolean,
-    default: true
-  },
-  mode: {
-    type: String,
-    default: 'default'
-  }
-}
+export { actionMenuProps }
 
 export default defineComponent({
   name: $prefix + 'ActionMenu',

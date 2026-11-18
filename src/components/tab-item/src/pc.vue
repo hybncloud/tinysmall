@@ -24,21 +24,33 @@
 </template>
 
 <script lang="ts">
-import { $prefix, setup, defineComponent } from '@tinysmall/common'
+import { props, $props, $prefix, setup, defineComponent } from '@tinysmall/common'
 import { renderless, api } from '@tinysmall/renderless/tab-item/vue'
 import type { ITabItemApi } from '@tinysmall/renderless/types/tab-item.type'
+
+export const $constants = {}
+
+export const tabItemProps = {
+  ...$props,
+  _constants: {
+    type: Object,
+    default: () => $constants
+  },
+  title: String,
+  name: String,
+  withClose: Boolean,
+  disabled: Boolean,
+  lazy: Boolean,
+  selected: Boolean,
+  renderTitle: Function,
+  renderSetting: Function
+}
 
 export default defineComponent({
   name: $prefix + 'TabItem',
   componentName: 'TabItem',
   emits: ['tab-nav-update'],
-  props: {
-    title: String,
-    name: String,
-    withClose: Boolean,
-    disabled: Boolean,
-    lazy: Boolean
-  },
+  props: tabItemProps,
   setup(props, context) {
     return setup({ props, context, renderless, api }) as unknown as ITabItemApi
   }

@@ -17,10 +17,23 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/layout/vue'
-import { props, setup, defineComponent } from '@tinysmall/common'
+import { $props, props, setup, defineComponent } from '@tinysmall/common'
+
+export const layoutProps = {
+    ...$props,
+    tag: {
+      type: String,
+      default: 'div'
+    },
+    cols: {
+      type: Number,
+      default: 12,
+      validator: (value: string) => Boolean(~[12, 24].indexOf(value))
+    }
+  }
 
 export default defineComponent({
-  props: [...props, 'tag'],
+  props: layoutProps,
   setup(props, context) {
     return setup({ props, context, renderless, api })
   }

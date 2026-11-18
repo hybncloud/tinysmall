@@ -219,7 +219,7 @@
 </template>
 
 <script lang="tsx">
-import { $prefix, setup, props, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
 import { renderless, api } from '@tinysmall/renderless/upload-list/vue'
 import Progress from '@tinysmall/progress'
 import Tooltip from '@tinysmall/tooltip'
@@ -258,6 +258,105 @@ import {
 import Modal from '@tinysmall/modal'
 import type { IUploadListApi } from '@tinysmall/renderless/types/upload-list.type'
 
+export const uploadListProps = {
+  ...$props,
+  disabled: {
+    type: Boolean,
+    default: () => false
+  },
+  display: {
+    type: Boolean,
+    default: () => true
+  },
+  files: {
+    type: Array,
+    default: () => []
+  },
+  filesIcon: {
+    type: Array,
+    default: () => []
+  },
+  handlePreview: Function,
+  isEdm: {
+    type: Boolean,
+    default: () => false
+  },
+  isFolder: {
+    type: Boolean,
+    default: () => false
+  },
+  listType: String,
+  openDownloadFile: {
+    type: Boolean,
+    default: () => false
+  },
+  srcList: {
+    type: Array,
+    default: () => []
+  },
+  isFolderTitle: {
+    type: Boolean,
+    default: false
+  },
+  listOption: {
+    type: Object,
+    default: () => ({
+      showUpdate: true,
+      showDel: true
+    })
+  },
+  maxNameLength: {
+    type: Number,
+    default: 0
+  },
+  scale: {
+    type: [Number, String],
+    default: 1
+  },
+  showName: {
+    type: Boolean,
+    default: false
+  },
+  types: Array,
+  displayOnly: {
+    type: Boolean,
+    default: false
+  },
+  handleDownloadFile: Function,
+  handleReUpload: Function,
+  isDragover: Boolean,
+  selected: Object,
+  triggerClick: {
+    type: Function,
+    default: () => {}
+  },
+  isHwh5: {
+    type: Boolean,
+    default: false
+  },
+  triggerPlay: {
+    type: Function,
+    default: () => {}
+  },
+  mode: String,
+  /** 是否展示失败重传入口，取自原 pc.vue props 数组 */
+  reUploadable: {
+    type: Boolean,
+    default: false
+  },
+  /** 重传提示文案函数，取自原 pc.vue props 数组 */
+  reUploadTip: Function,
+  lockScroll: {
+    type: Boolean,
+    default: true
+  },
+  compact: {
+    type: Boolean,
+    default: false
+  },
+  imageBgColor: String
+}
+
 export default defineComponent({
   name: $prefix + 'UploadList',
   components: {
@@ -295,30 +394,7 @@ export default defineComponent({
     IconFileuploadPro: iconFileuploadPro()
   },
   emits: ['click-file-list', 'remove', 'start', 'update:visible', 'update', 'reUpload', 'ReUploadTotal'],
-  props: [
-    ...props,
-    'disabled',
-    'display',
-    'files',
-    'filesIcon',
-    'handlePreview',
-    'isEdm',
-    'isFolder',
-    'listType',
-    'openDownloadFile',
-    'srcList',
-    'isFolderTitle',
-    'listOption',
-    'maxNameLength',
-    'mode',
-    'reUploadable',
-    'reUploadTip',
-    'selected',
-    'displayOnly',
-    'handleDownloadFile',
-    'handleReUpload',
-    'compact'
-  ],
+  props: uploadListProps,
   setup(props, context) {
     return setup({ props, context, renderless, api, extendOptions: { Modal } }) as unknown as IUploadListApi
   }

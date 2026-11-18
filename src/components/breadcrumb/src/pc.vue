@@ -29,14 +29,48 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/breadcrumb/vue'
-import { props, setup, defineComponent } from '@tinysmall/common'
+import { $props, props, setup, defineComponent } from '@tinysmall/common'
 import BreadcrumbItem from '@tinysmall/breadcrumb-item'
+
+export const $constants = {
+  EVENT_NAME: {
+    breadcrumbItemSelect: 'breadcrumbItemSelect'
+  }
+}
+
+export const breadcrumbProps = {
+  ...$props,
+  _constants: {
+    type: Object,
+    default: () => $constants
+  },
+  separator: {
+    type: String,
+    default: ''
+  },
+  separatorIcon: {
+    type: Object
+  },
+  textField: {
+    type: String,
+    default: 'label'
+  },
+  size: {
+    type: String,
+    default: '',
+    validator: (val: string) => [/* 'large', */ 'medium', /* 'small', 'mini',  */ ''].includes(val)
+  },
+  options: {
+    type: Array,
+    default: () => []
+  }
+}
 
 export default defineComponent({
   components: {
     TinyBreadcrumbItem: BreadcrumbItem
   },
-  props: [...props, 'separator', 'separatorIcon', 'textField', 'options', 'size'],
+  props: breadcrumbProps,
   provide() {
     return {
       breadcrumb: this

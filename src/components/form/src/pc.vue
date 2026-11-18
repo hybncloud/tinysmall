@@ -40,49 +40,123 @@
 
 <script lang="tsx">
 import { renderless, api } from '@tinysmall/renderless/form/vue'
-import { props, setup, defineComponent } from '@tinysmall/common'
+import { $props, props, setup, defineComponent } from '@tinysmall/common'
 import type { IFormApi } from '@tinysmall/renderless/types/form.type'
 import Tooltip from '@tinysmall/tooltip'
 import '@tinysmall/theme/form/index.less'
 import '@tinysmall/theme/form-item/index.less'
 
+export const formProps = {
+  ...$props,
+  model: Object,
+  rules: Object,
+  inlineMessage: {
+    type: Boolean,
+    default: undefined
+  },
+  messageType: String,
+  statusIcon: Boolean,
+  showMessage: {
+    type: Boolean,
+    default: true
+  },
+  validatePosition: {
+    type: String,
+    default: 'right'
+  },
+  size: String,
+  disabled: Boolean,
+  validateOnRuleChange: {
+    type: [Boolean, String],
+    validator: (value: string | boolean) => typeof value === 'boolean' || ['deep'].includes(value),
+    default: true
+  },
+  hideRequiredAsterisk: {
+    type: Boolean,
+    default: undefined
+  },
+  labelPosition: {
+    type: String,
+    default: 'right',
+    validator: (value: string) => ['left', 'top', 'right'].includes(value)
+  },
+  labelWidth: {
+    type: String,
+    // 默认值挪到design中
+    default: ''
+  },
+  labelAlign: {
+    type: Boolean,
+    default: false
+  },
+  contentOffset: Number,
+  labelSuffix: {
+    type: String,
+    default: ''
+  },
+  inline: {
+    type: Boolean,
+    default: false
+  },
+  responsiveLayout: {
+    type: Boolean,
+    default: false
+  },
+  validateType: {
+    type: String,
+    default: 'tip',
+    validator(value: string) {
+      return Boolean(~['tip', 'text'].indexOf(value))
+    }
+  },
+  validateIcon: Object,
+  manual: {
+    type: Boolean,
+    default: false
+  },
+  appendToBody: {
+    type: Boolean,
+    default: undefined
+  },
+  popperOptions: {
+    type: Object,
+    default: () => ({})
+  },
+  displayOnly: {
+    type: Boolean,
+    default: false
+  },
+  showAutoWidth: {
+    type: Boolean,
+    default: false
+  },
+  showEmptyValue: {
+    type: Boolean,
+    default: true
+  },
+  validateTag: {
+    type: Boolean,
+    default: false
+  },
+  overflowTitle: {
+    type: Boolean,
+    default: false
+  },
+  wrapFragment: {
+    type: String,
+    default: 'div'
+  },
+  tooltipConfig: {
+    type: Object,
+    default: () => ({})
+  }
+}
+
 export default defineComponent({
   components: {
     TinyTooltip: Tooltip
   },
-  props: [
-    ...props,
-    'validateOnRuleChange',
-    'hideRequiredAsterisk',
-    'model',
-    'rules',
-    'inlineMessage',
-    'messageType',
-    'statusIcon',
-    'labelPosition',
-    'labelAlign',
-    'showMessage',
-    'size',
-    'disabled',
-    'labelWidth',
-    'contentOffset',
-    'labelSuffix',
-    'inline',
-    'responsiveLayout',
-    'validateType',
-    'validateIcon',
-    'manual',
-    'appendToBody',
-    'popperOptions',
-    'displayOnly',
-    'showAutoWidth',
-    'showEmptyValue',
-    'validateTag',
-    'validatePosition',
-    'wrapFragment',
-    'overflowTitle',
-    'tooltipConfig'
-  ],
+  props: formProps,
   setup(props, context) {
     return setup({ props, context, renderless, api }) as unknown as IFormApi
   }

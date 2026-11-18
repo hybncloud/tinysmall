@@ -11,29 +11,11 @@
  */
 import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
 import template from 'virtual-template?pc'
+import { $constants, collapseItemProps } from './pc.vue'
 
-export const $constants = {
-  INTERVAL: 50
-}
-export const collapseItemProps = {
-  ...$props,
-  _constants: {
-    type: Object,
-    default: () => $constants
-  },
-  title: String,
-  titleRight: String,
-  name: {
-    type: [String, Number],
-    default() {
-      return this._uid
-    }
-  },
-  expandIcon: {
-    type: [Object, String]
-  },
-  disabled: Boolean
-}
+export { collapseItemProps }
+export { $constants }
+
 export default defineComponent({
   name: $prefix + 'CollapseItem',
   componentName: 'CollapseItem',

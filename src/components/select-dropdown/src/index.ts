@@ -12,54 +12,15 @@
 
 import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
 import template from 'virtual-template?pc'
+import { selectDropdownProps } from './pc.vue'
+
+export { selectDropdownProps }
 
 export default defineComponent({
   name: $prefix + 'SelectDropdown',
   componentName: 'SelectDropdown',
   inject: ['select'],
-  props: {
-    ...$props,
-    appendToBody: {
-      type: Boolean,
-      default: () => true
-    },
-    arrowOffset: {
-      type: Number,
-      default: () => 35
-    },
-    boundariesPadding: {
-      default: () => 0
-    },
-    isDropInheritWidth: Boolean,
-    modelValue: Boolean,
-    offset: {
-      default: () => 0
-    },
-    placement: {
-      default: () => 'bottom-start'
-    },
-    popper: {},
-    popperOptions: {
-      default: () => ({ gpuAcceleration: false })
-    },
-    reference: {},
-    transformOrigin: {
-      type: [Boolean, String],
-      default: () => true
-    },
-    visibleArrow: {
-      default: () => false
-    },
-    closeByMask: {
-      type: Boolean,
-      default: true
-    },
-    searchPlaceholder: {
-      type: String,
-      default: ''
-    },
-    title: String
-  },
+  props: selectDropdownProps,
   setup(props, context) {
     return $setup({ props, context, template })
   }

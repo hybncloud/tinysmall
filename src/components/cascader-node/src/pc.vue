@@ -22,6 +22,14 @@ import type { ICascaderNodeApi, ICascaderNodeRenderlessParams } from '@tinysmall
 import type { ICascaderPanelNode } from '@tinysmall/renderless/types/cascader-panel.type'
 import '@tinysmall/theme/cascader-node/index.less'
 
+export const cascaderNodeProps = {
+    ...$props,
+    node: {
+      required: true
+    },
+    nodeId: String
+  }
+
 export default defineComponent({
   name: $prefix + 'CascaderNode',
   directives: { AutoTip },
@@ -35,14 +43,7 @@ export default defineComponent({
   inheritAttrs: false,
   emits: ['expand', 'update:modelValue', 'expand-change', 'active-item-change', 'change'],
   inject: ['panel'],
-  props: {
-    ...$props,
-    node: {
-      type: Object as PropType<ICascaderPanelNode>,
-      required: true
-    },
-    nodeId: String
-  },
+  props: cascaderNodeProps,
   setup(props, context) {
     return setup({ props, context, renderless, api }) as unknown as ICascaderNodeApi &
       Pick<ICascaderNodeRenderlessParams, 'panel'>

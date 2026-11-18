@@ -76,41 +76,99 @@
 </template>
 
 <script lang="ts">
-import { props, setup, $prefix, defineComponent } from '@tinysmall/common'
+import { $props, props, setup, $prefix, defineComponent } from '@tinysmall/common'
 import { renderless, api } from '@tinysmall/renderless/dropdown-item/vue'
 import { iconLeftWardArrow } from '@tinysmall/icon'
 import '@tinysmall/theme/dropdown-item/index.less'
 import { AutoTip } from '@tinysmall/directive'
 import type { IDropdownItemApi } from '@tinysmall/renderless/types/dropdown-item.type'
 
+export const $constants = {
+  ICON_MAP: {
+    leftWardArrow: 'icon-left-ward-arrow'
+  }
+}
+
+export const dropdownItemProps = {
+  ...$props,
+  _constants: {
+    type: Object,
+    default: () => $constants
+  },
+  /** 是否等宽展示，取自原 pc.vue props 数组 */
+  isMono: { type: Boolean, default: false },
+  icon: [String, Object],
+  disabled: Boolean,
+  divided: Boolean,
+  itemData: {
+    type: [String, Object],
+    default: ''
+  },
+  title: String,
+  label: String,
+  level: String,
+  titleClass: String,
+  options: {
+    type: Array,
+    default: () => []
+  },
+  // mobile 属性，可选值 selection | filter | sort
+  type: {
+    type: String,
+    default: 'selection'
+  },
+  // 是否选中，勾选状态功能
+  selected: {
+    type: Boolean,
+    default: false
+  },
+  // 暂没找到使用的地方
+  selectedField: {
+    type: String,
+    default: 'selected'
+  },
+  // 暂没找到使用的地方
+  multiStage: {
+    type: Boolean,
+    default: false
+  },
+  currentIndex: {
+    type: Number,
+    default: () => -1
+  },
+  tooltipContent: {
+    type: String,
+    default: ''
+  },
+  // 以下为 tiny 新增
+  appendToBody: {
+    type: Boolean,
+    default: true
+  },
+  textField: {
+    type: String,
+    default: 'label'
+  },
+  tip: {
+    type: [String, Function],
+    default: ''
+  },
+  tipPosition: {
+    type: String,
+    default: 'right'
+  },
+  tipEffect: {
+    type: String,
+    default: 'light'
+  }
+}
+
 export default defineComponent({
   name: $prefix + 'DropdownItem',
   componentName: $prefix + 'DropdownItem',
   directives: { AutoTip },
   emits: ['item-click', 'update:modelValue', 'change', 'closed', 'open', 'opened', 'close', 'confirm', 'reset'],
-  props: [
-    ...props,
-    'disabled',
-    'divided',
-    'icon',
-    'itemData',
-    'selected',
-    'currentIndex',
-    'title',
-    'titleClass',
-    'options',
-    'type',
-    'label',
-    'selectedField',
-    'multiStage',
-    // tiny新增
-    'appendToBody',
-    'textField',
-    'tip',
-    'tipPosition',
-    'tipEffect',
-    'isMono'
-  ],
+  props: dropdownItemProps,
   components: {
     IconLeftWardArrow: iconLeftWardArrow()
   },

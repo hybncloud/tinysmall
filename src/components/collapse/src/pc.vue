@@ -17,10 +17,37 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/collapse/vue'
-import { props, setup, defineComponent } from '@tinysmall/common'
+import { $props, props, setup, defineComponent } from '@tinysmall/common'
+
+export const $constants = {
+  COMPONENT_NAME: {
+    Collapse: 'Collapse'
+  },
+  EVENT_NAME: {
+    CollapseItemClick: 'collapse-item.click'
+  }
+}
+
+export const collapseProps = {
+  ...$props,
+  _constants: {
+    type: Object,
+    default: () => $constants
+  },
+  accordion: Boolean,
+  beforeClose: Function,
+  modelValue: {
+    type: [Array, String, Number],
+    default: () => []
+  },
+  size: {
+    type: String,
+    default: ''
+  }
+}
 
 export default defineComponent({
-  props: [...props, 'accordion', 'modelValue', 'beforeClose', 'size'],
+  props: collapseProps,
   setup(props, context) {
     return setup({ props, context, renderless, api })
   }

@@ -11,6 +11,9 @@
  */
 import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
 import template from 'virtual-template?pc'
+import { layoutProps } from './pc.vue'
+
+export { layoutProps }
 
 export default defineComponent({
   name: $prefix + 'Layout',
@@ -19,18 +22,7 @@ export default defineComponent({
       layout: this
     }
   },
-  props: {
-    ...$props,
-    tag: {
-      type: String,
-      default: 'div'
-    },
-    cols: {
-      type: Number,
-      default: 12,
-      validator: (value: string) => Boolean(~[12, 24].indexOf(value))
-    }
-  },
+  props: layoutProps,
   setup(props, context) {
     return $setup({ props, context, template })
   }

@@ -45,31 +45,80 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/button/vue'
-import { props, setup, defineComponent } from '@tinysmall/common'
+import { $props, setup, defineComponent } from '@tinysmall/common'
+import type { PropType } from '@tinysmall/common'
 import { iconLoadingShadow } from '@tinysmall/icon'
 import type { IButtonApi } from '@tinysmall/renderless/types/button.type'
 import '@tinysmall/theme/button/index.less'
 
+export const buttonProps = {
+  ...$props,
+  /** 展示按钮不同的状态，设置为text则展示为文本按钮。可取值为：'default' | 'primary' | 'success' | 'warning' | 'danger' | 'info' | 'text'  */
+  type: {
+    type: String,
+    default: 'default'
+  },
+  /** 设置原生的tabindex属性 */
+  tabindex: { type: String, default: '0' },
+  /** 按钮左侧展示的图标，接收为Icon组件  */
+  icon: {
+    type: [Object, String],
+    default: ''
+  },
+  /** 按钮显示的文本 */
+  text: {
+    type: String,
+    default: ''
+  },
+  /** 设置按钮禁用时间，防止重复提交，单位毫秒 */
+  resetTime: {
+    type: Number,
+    default: 1000
+  },
+  /** 对应按钮原生 type 属性  */
+  nativeType: {
+    type: String,
+    default: 'button'
+  },
+  /** 定义按钮尺寸 */
+  size: {
+    type: String,
+    default: '',
+    validator(val: string) {
+      return ['large', 'medium', 'small', 'mini', ''].includes(val)
+    }
+  },
+  /** 是否圆角按钮 */
+  round: {
+    type: Boolean,
+    default: undefined
+  },
+  /** 是否朴素按钮  */
+  plain: Boolean,
+  /** 是否圆形按钮  */
+  circle: Boolean,
+  /** 是否加载中状态 */
+  loading: Boolean,
+  /** 是否被禁用按钮 */
+  disabled: Boolean,
+  /** 是否默认聚焦 */
+  autofocus: Boolean,
+  /** 自定义样式 */
+  customStyle: {
+    type: Object,
+    default: () => ({})
+  },
+  /** 是否幽灵按钮 */
+  ghost: Boolean,
+  /** 点击事件 */
+  onClick: {
+    type: Function as PropType<(ev: MouseEvent) => void>
+  }
+}
+
 export default defineComponent({
   emits: ['click'],
-  props: [
-    ...props,
-    'type',
-    'text',
-    'size',
-    'icon',
-    'resetTime',
-    'nativeType',
-    'loading',
-    'disabled',
-    'plain',
-    'autofocus',
-    'round',
-    'circle',
-    'tabindex',
-    'ghost',
-    'customStyle'
-  ],
+  props: buttonProps,
   components: { IconLoading: iconLoadingShadow() },
   setup(props, context) {
     return setup({ props, context, renderless, api }) as unknown as IButtonApi

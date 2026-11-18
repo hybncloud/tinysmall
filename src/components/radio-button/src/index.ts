@@ -11,27 +11,10 @@
  */
 import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
 import template from 'virtual-template?pc'
+import { $constants, radioButtonProps } from './pc.vue'
 
-export const $constants = {
-  RADIO_GROUP: 'RadioGroup'
-}
-
-export const radioButtonProps = {
-  ...$props,
-  _constants: {
-    type: Object,
-    default: () => $constants
-  },
-  name: String,
-  text: String,
-  events: {
-    type: Object,
-    default: () => ({})
-  },
-  label: {},
-  disabled: Boolean,
-  tipContent: String
-}
+export { radioButtonProps }
+export { $constants }
 
 export default defineComponent({
   name: $prefix + 'RadioButton',

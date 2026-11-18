@@ -11,45 +11,13 @@
  */
 import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
 import template from 'virtual-template?pc'
+import { $constants, scrollTextProps } from './pc.vue'
 
-const $constants = {
-  ANIMATION_DURATION: 'animation-duration'
-}
+export { scrollTextProps }
 
 export default defineComponent({
+  props: scrollTextProps,
   name: $prefix + 'ScrollText',
-  props: {
-    ...$props,
-    _constants: {
-      type: Object,
-      default: () => $constants
-    },
-    text: {
-      type: String,
-      default: 'ScrollText'
-    },
-    time: {
-      type: Number,
-      default: 5
-    },
-    styles: {
-      type: String,
-      default: ''
-    },
-    direction: {
-      type: String,
-      default: 'left',
-      validator: (value: string) => Boolean(~['up', 'left', 'down', 'right'].indexOf(value))
-    },
-    hoverStop: {
-      type: Boolean,
-      default: true
-    },
-    widthAdapt: {
-      type: Boolean,
-      default: false
-    }
-  },
   setup(props, context) {
     return $setup({ props, context, template })
   }

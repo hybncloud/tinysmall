@@ -26,25 +26,63 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/divider/vue'
-import { props, setup, defineComponent } from '@tinysmall/common'
+import { $props, props, setup, defineComponent } from '@tinysmall/common'
+import type { PropType } from '@tinysmall/common'
+
+type DirectionType = 'horizontal' | 'vertical'
+type BorderStyleType = 'dashed' | 'solid' | 'dotted'
+type ContentPositionType = 'left' | 'right' | 'center'
+
+export const $constants = {}
+
+export const dividerProps = {
+  ...$props,
+  _constants: {
+    type: Object,
+    default: () => $constants
+  },
+  direction: {
+    type: String as PropType<DirectionType>,
+    default: 'horizontal'
+  },
+  color: {
+    type: String,
+    default: ''
+  },
+  borderStyle: {
+    type: String as PropType<BorderStyleType>,
+    default: 'solid'
+  },
+  contentPosition: {
+    type: String as PropType<ContentPositionType>,
+    default: 'center'
+  },
+  contentColor: {
+    type: String,
+    default: ''
+  },
+  contentBackgroundColor: {
+    type: String,
+    default: ''
+  },
+  fontSize: {
+    type: String,
+    default: () => '14px'
+  },
+  margin: String,
+  offset: String,
+  height: String,
+  status: {
+    type: String,
+    values: ['default', 'success', 'warning', 'error', 'info'],
+    default: () => 'default'
+  }
+}
 
 export default defineComponent({
-  props: [
-    ...props,
-    'direction',
-    'color',
-    'borderStyle',
-    'contentPosition',
-    'contentColor',
-    'contentBackgroundColor',
-    'status',
-    'margin',
-    'offset',
-    'fontSize',
-    'height'
-  ],
+  props: dividerProps,
   setup(props, context) {
     return setup({ props, context, renderless, api })
   }

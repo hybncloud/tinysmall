@@ -154,7 +154,7 @@
 
 <script lang="tsx">
 import { renderless, api } from '@tinysmall/renderless/tree/vue'
-import { props, setup, defineComponent, directive } from '@tinysmall/common'
+import { $props, props, setup, defineComponent, directive } from '@tinysmall/common'
 import { iconWarning, iconMarkOn } from '@tinysmall/icon'
 import Switch from '@tinysmall/switch'
 import Popover from '@tinysmall/popover'
@@ -165,71 +165,167 @@ import TreeNode from './tree-node.vue'
 import Radio from '@tinysmall/radio'
 import { HighlightQuery } from '@tinysmall/directive'
 
+export const $constants = {
+  EMPTY_TEXT_LOCAL: 'ui.tree.emptyText'
+}
+
+export const treeProps = {
+    ...$props,
+    _constants: {
+      type: Object,
+      default: () => $constants
+    },
+    /** 树主题样式，取自原 pc.vue props 数组 */
+    theme: String,
+    accordion: Boolean,
+    allowDrag: Function,
+    allowDrop: Function,
+    autoExpandParent: {
+      type: Boolean,
+      default: true
+    },
+    checkDescendants: {
+      type: Boolean,
+      default: false
+    },
+    checkOnClickNode: Boolean,
+    checkStrictly: Boolean,
+    currentNodeKey: [String, Number],
+    data: {
+      type: Array
+    },
+    dataset: Object,
+    defaultCheckedKeys: Array,
+    defaultExpandAll: Boolean,
+    defaultExpandedKeys: Array,
+    defaultExpandedKeysHighlight: [Number, String],
+    draggable: {
+      type: Boolean,
+      default: false
+    },
+    emptyText: String,
+    expandIcon: Object,
+    expandOnClickNode: {
+      type: Boolean,
+      default: true
+    },
+    filterNodeMethod: Function,
+    highlightCurrent: Boolean,
+    icon: Object,
+    iconTriggerClickNode: {
+      type: Boolean,
+      default: true
+    },
+    indent: {
+      type: Number,
+      default: 16
+    },
+    lazy: {
+      type: Boolean,
+      default: false
+    },
+    load: Function,
+    nodeKey: String,
+    parentKey: String,
+    props: {
+      default() {
+        return {
+          children: 'children',
+          label: 'label',
+          disabled: 'disabled',
+          isLeaf: 'isLeaf'
+        }
+      }
+    },
+    renderAfterExpand: {
+      type: Boolean,
+      default: true
+    },
+    renderContent: Function,
+    showCheckbox: {
+      type: Boolean,
+      default: false
+    },
+    showContextmenu: {
+      type: Boolean,
+      default: false
+    },
+    showRadio: {
+      type: Boolean,
+      default: false
+    },
+    showNumber: {
+      type: Boolean,
+      default: false
+    },
+    collapsible: {
+      type: Boolean,
+      default: true
+    },
+    showCheckEasily: {
+      type: Boolean,
+      default: false
+    },
+    nodeHeight: Number,
+    shrinkIcon: Object,
+    expandIconColor: String,
+    shrinkIconColor: String,
+    size: {
+      type: String,
+      default: 'medium'
+    },
+    deleteDisabledKeys: Array,
+    editDisabledKeys: Array,
+    addDisabledKeys: Array,
+    viewType: {
+      type: String,
+      default: 'tree',
+      validator: (value) => ~['tree', 'plain'].indexOf(value)
+    },
+    // 平铺视图时，是否显示下面的辅助信息
+    showAuxi: {
+      type: Boolean,
+      default: true
+    },
+    pathSplit: {
+      type: String,
+      default: '/'
+    },
+    filterPlainMethod: Function,
+    afterLoad: Function,
+    lazyCurrent: Boolean,
+    baseIndent: {
+      type: Number,
+      default: 0
+    },
+    deleteNodeMethod: Function,
+    showCheckedMark: Boolean,
+    willChangeView: {
+      type: Boolean,
+      default: true
+    },
+    onlyCheckChildren: Boolean,
+    editConfig: {
+      type: Object,
+      default: () => ({})
+    },
+    // tiny 新增
+    showLine: Boolean,
+    // tiny 新增，是否显示树节点聚焦时的背景颜色
+    isShowFocusBg: {
+      type: Boolean,
+      default: true
+    },
+    // 是否在匹配的节点中，高亮搜索文字
+    highlightQuery: {
+      type: Boolean,
+      default: false
+    }
+  }
+
 export default defineComponent({
   directives: { ...directive({ Clickoutside }), HighlightQuery },
-  props: [
-    ...props,
-    'data',
-    'dataset',
-    'parentKey',
-    'expandIcon',
-    'shrinkIcon',
-    'expandIconColor',
-    'shrinkIconColor',
-    'emptyText',
-    'renderAfterExpand',
-    'nodeKey',
-    'checkStrictly',
-    'defaultExpandAll',
-    'expandOnClickNode',
-    'checkOnClickNode',
-    'checkDescendants',
-    'autoExpandParent',
-    'defaultCheckedKeys',
-    'defaultExpandedKeys',
-    'defaultExpandedKeysHighlight',
-    'currentNodeKey',
-    'renderContent',
-    'showCheckbox',
-    'draggable',
-    'allowDrag',
-    'allowDrop',
-    'props',
-    'lazy',
-    'highlightCurrent',
-    'load',
-    'filterNodeMethod',
-    'accordion',
-    'indent',
-    'icon',
-    'iconTriggerClickNode',
-    'showRadio',
-    'showContextmenu',
-    'showNumber',
-    'collapsible',
-    'nodeHeight',
-    'showCheckEasily',
-    'size',
-    'deleteDisabledKeys',
-    'editDisabledKeys',
-    'addDisabledKeys',
-    'theme',
-    'viewType',
-    'showAuxi',
-    'pathSplit',
-    'filterPlainMethod',
-    'afterLoad',
-    'lazyCurrent',
-    'baseIndent',
-    'showLine',
-    'onlyCheckChildren',
-    'deleteNodeMethod',
-    'showCheckedMark',
-    'willChangeView',
-    'editConfig',
-    'isShowFocusBg',
-    'highlightQuery'
-  ],
+  props: treeProps,
   components: {
     TreeNode,
     IconWarning: iconWarning(),

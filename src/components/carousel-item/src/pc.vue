@@ -35,10 +35,30 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/carousel-item/vue'
-import { props, setup, defineComponent } from '@tinysmall/common'
+import { $props, props, setup, defineComponent } from '@tinysmall/common'
+
+export const $constants = {
+  TYPE_CARD: 'card',
+  TYPE_VERTICAL: 'vertical',
+  CARD_SCALE: 0.83
+}
+
+export const carouselItemProps = {
+    ...$props,
+    _constants: {
+      type: Object,
+      default: () => $constants
+    },
+    name: String,
+    title: String,
+    label: {
+      type: [String, Number],
+      default: ''
+    }
+  }
 
 export default defineComponent({
-  props: [...props, 'name', 'title', 'label'],
+  props: carouselItemProps,
   setup(props, context) {
     return setup({ props, context, renderless, api })
   }

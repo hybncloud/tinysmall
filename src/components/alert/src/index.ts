@@ -11,66 +11,10 @@
  */
 import { $props, $prefix, $setup, defineComponent } from '@tinysmall/common'
 import template from 'virtual-template?pc'
+import { $constants, alertProps } from './pc.vue'
 
-export const $constants = {
-  ICON_MAP: {
-    success: 'icon-success',
-    error: 'icon-error',
-    info: 'icon-help',
-    warning: 'icon-warning-triangle',
-    simple: 'icon-help'
-  },
-  TITLE_MAP: {
-    success: 'ui.alert.success',
-    error: 'ui.alert.error',
-    info: 'ui.alert.info',
-    warning: 'ui.alert.warning'
-  },
-  CONTENT_MAXHEUGHT: 252
-}
-
-export const alertProps = {
-  ...$props,
-  _constants: {
-    type: Object,
-    default: () => $constants
-  },
-  icon: [String, Object],
-  type: {
-    type: String,
-    default: 'info'
-  },
-  size: {
-    type: String,
-    default: 'normal',
-    validator: (val: string) => ['small', 'medium', 'normal', 'large'].includes(val)
-  },
-  description: {
-    type: String,
-    default: ''
-  },
-  title: {
-    type: String
-  },
-  center: Boolean,
-  showIcon: {
-    type: Boolean,
-    default: true
-  },
-  closable: {
-    type: Boolean,
-    default: true
-  },
-  closeText: {
-    type: String,
-    default: ''
-  },
-  customClass: [String, Object, Array],
-  showTitle: {
-    type: Boolean,
-    default: true
-  }
-}
+export { alertProps }
+export { $constants }
 
 export default defineComponent({
   name: $prefix + 'Alert',

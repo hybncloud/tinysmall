@@ -11,33 +11,9 @@
  */
 import { $prefix, $setup, defineComponent } from '@tinysmall/common'
 import template from 'virtual-template?pc'
+import { anchorProps } from './pc.vue'
 
-export const anchorProps = {
-  isAffix: {
-    type: Boolean,
-    default: false
-  },
-  links: {
-    type: Array,
-    default: () => []
-  },
-  containerId: {
-    type: String,
-    default: ''
-  },
-  markClass: {
-    type: String,
-    default: ''
-  },
-  type: {
-    type: String,
-    default: 'line'
-  },
-  offsetTop: {
-    type: Number,
-    default: 0
-  }
-}
+export { anchorProps }
 
 export default defineComponent({
   name: $prefix + 'Anchor',
