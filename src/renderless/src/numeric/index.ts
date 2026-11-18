@@ -399,6 +399,8 @@ export const mounted =
 
     const innerInput = parent.$el.querySelector('input')
 
+    if (!innerInput) return
+
     innerInput.setAttribute(constants.KEY, constants.VALUE)
     innerInput.setAttribute(constants.MAX, props.max)
     innerInput.setAttribute(constants.MIN, props.min)
@@ -418,7 +420,7 @@ export const unmounted =
   (): void => {
     const innerInput = parent.$el.querySelector('input')
 
-    off(innerInput, 'paste', state.onPase)
+    innerInput && off(innerInput, 'paste', state.onPase)
   }
 
 export const updated =

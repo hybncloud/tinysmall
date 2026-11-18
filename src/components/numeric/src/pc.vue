@@ -262,9 +262,7 @@ export const numericProps = {
 }
 
 export default defineComponent({
-  directives: directive({
-    repeatClick: { bind: RepeatClick }
-  }),
+  directives: directive({ repeatClick: RepeatClick }),
   components: {
     IconChevronDown: iconChevronDown(),
     IconChevronUp: iconChevronUp(),

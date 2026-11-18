@@ -212,9 +212,7 @@ export default defineComponent({
     IconChevronDown: iconChevronDown(),
     IconChevronUp: iconChevronUp()
   },
-  directives: directive({
-    repeatClick: { bind: RepeatClick }
-  }),
+  directives: directive({ repeatClick: RepeatClick }),
   props: timeSpinnerProps,
 
   setup(props, context) {
