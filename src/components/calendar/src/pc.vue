@@ -118,150 +118,156 @@
     <div :class="['tiny-calendar__main', state.displayMode]">
       <!-- 月模式 -->
       <table v-show="state.displayMode === 'month'" style="table-layout: fixed">
-        <tr>
-          <th>{{ t('ui.datepicker.weeks.sun') }}</th>
-          <th>{{ t('ui.datepicker.weeks.mon') }}</th>
-          <th>{{ t('ui.datepicker.weeks.tue') }}</th>
-          <th>{{ t('ui.datepicker.weeks.wed') }}</th>
-          <th>{{ t('ui.datepicker.weeks.thu') }}</th>
-          <th>{{ t('ui.datepicker.weeks.fri') }}</th>
-          <th>{{ t('ui.datepicker.weeks.sat') }}</th>
-        </tr>
-        <tr v-for="(item, index) of state.calendar" :key="index">
-          <td v-for="(day, i) of item" :key="i" @click="selectDay(day)" width="14.2857%">
-            <div
-              :class="[
-                'tiny-calendar__day',
-                {
-                  selected: !(day.isLast || day.isNext) && state.selectedDate === getTime(day.value),
-                  disable: day.isLast || day.isNext,
-                  today: isToday(day)
-                }
-              ]"
-            >
-              <div class="label">{{ day.value }}</div>
-              <ul class="tiny-calendar__events tiny-min-scrollbar" v-if="!(day.isLast || day.isNext)">
-                <li
-                  v-for="(
-                    { type, title, content, parseTime: { year, month, day, hours, minutes } }, j
-                  ) of getEventByDay(day.value)"
-                  :key="j"
-                >
-                  <slot
-                    name="day"
-                    :slot-scope="{
-                      type,
-                      title,
-                      content,
-                      year,
-                      month,
-                      day,
-                      hours,
-                      minutes
-                    }"
+        <thead>
+          <tr>
+            <th>{{ t('ui.datepicker.weeks.sun') }}</th>
+            <th>{{ t('ui.datepicker.weeks.mon') }}</th>
+            <th>{{ t('ui.datepicker.weeks.tue') }}</th>
+            <th>{{ t('ui.datepicker.weeks.wed') }}</th>
+            <th>{{ t('ui.datepicker.weeks.thu') }}</th>
+            <th>{{ t('ui.datepicker.weeks.fri') }}</th>
+            <th>{{ t('ui.datepicker.weeks.sat') }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(item, index) of state.calendar" :key="index">
+            <td v-for="(day, i) of item" :key="i" @click="selectDay(day)" width="14.2857%">
+              <div
+                :class="[
+                  'tiny-calendar__day',
+                  {
+                    selected: !(day.isLast || day.isNext) && state.selectedDate === getTime(day.value),
+                    disable: day.isLast || day.isNext,
+                    today: isToday(day)
+                  }
+                ]"
+              >
+                <div class="label">{{ day.value }}</div>
+                <ul class="tiny-calendar__events tiny-min-scrollbar" v-if="!(day.isLast || day.isNext)">
+                  <li
+                    v-for="(
+                      { type, title, content, parseTime: { year, month, day, hours, minutes } }, j
+                    ) of getEventByDay(day.value)"
+                    :key="j"
                   >
-                    <tooltip
-                      :type="type"
-                      placement="right"
-                      class="tiny-calendar__tip"
-                      popper-class="tiny-calendar__tip"
-                      mode="hover"
+                    <slot
+                      name="day"
+                      :slot-scope="{
+                        type,
+                        title,
+                        content,
+                        year,
+                        month,
+                        day,
+                        hours,
+                        minutes
+                      }"
                     >
-                      <template #content>
-                        <div>
-                          <div class="tiny-calendar__tip-header">
-                            <div class="tiny-calendar__tip-year">
-                              {{ `${year}-${month}-${day}` }}
+                      <tooltip
+                        :type="type"
+                        placement="right"
+                        class="tiny-calendar__tip"
+                        popper-class="tiny-calendar__tip"
+                        mode="hover"
+                      >
+                        <template #content>
+                          <div>
+                            <div class="tiny-calendar__tip-header">
+                              <div class="tiny-calendar__tip-year">
+                                {{ `${year}-${month}-${day}` }}
+                              </div>
+                              <div class="tiny-calendar__tip-hours">
+                                {{ `${hours}:${minutes}` }}
+                              </div>
                             </div>
-                            <div class="tiny-calendar__tip-hours">
-                              {{ `${hours}:${minutes}` }}
+                            <div :class="['tiny-calendar__tip-title', type || 'info']">
+                              {{ title }}
+                            </div>
+                            <div class="tiny-calendar__tip-content">
+                              {{ content }}
                             </div>
                           </div>
-                          <div :class="['tiny-calendar__tip-title', type || 'info']">
-                            {{ title }}
-                          </div>
-                          <div class="tiny-calendar__tip-content">
-                            {{ content }}
-                          </div>
-                        </div>
-                      </template>
-                      <div :class="['event', type || 'info']">{{ title }}</div>
-                    </tooltip>
-                  </slot>
-                </li>
-              </ul>
-            </div>
-          </td>
-        </tr>
+                        </template>
+                        <div :class="['event', type || 'info']">{{ title }}</div>
+                      </tooltip>
+                    </slot>
+                  </li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+        </tbody>
       </table>
 
       <!-- 年模式 -->
       <table v-show="state.displayMode === 'year'" style="table-layout: fixed">
-        <tr v-for="(item, i) of genMonths()" :key="i">
-          <td v-for="(mth, j) of item" :key="j" @click="selectMonth(mth)" width="25%">
-            <div
-              :class="[
-                'tiny-calendar__day',
-                {
-                  selected: state.activeMonth === mth,
-                  'this-month': isThisMonth(mth)
-                }
-              ]"
-            >
-              <div class="label">{{ t('ui.datepicker.month' + mth) }}</div>
-              <ul class="tiny-calendar__events tiny-min-scrollbar">
-                <li
-                  v-for="(
-                    { type, title, content, parseTime: { year, month, day, hours, minutes } }, k
-                  ) of getEventByMonth(mth)"
-                  :key="k"
-                >
-                  <slot
-                    name="month"
-                    :slot-scope="{
-                      type,
-                      title,
-                      content,
-                      year,
-                      month,
-                      day,
-                      hours,
-                      minutes
-                    }"
+        <tbody>
+          <tr v-for="(item, i) of genMonths()" :key="i">
+            <td v-for="(mth, j) of item" :key="j" @click="selectMonth(mth)" width="25%">
+              <div
+                :class="[
+                  'tiny-calendar__day',
+                  {
+                    selected: state.activeMonth === mth,
+                    'this-month': isThisMonth(mth)
+                  }
+                ]"
+              >
+                <div class="label">{{ t('ui.datepicker.month' + mth) }}</div>
+                <ul class="tiny-calendar__events tiny-min-scrollbar">
+                  <li
+                    v-for="(
+                      { type, title, content, parseTime: { year, month, day, hours, minutes } }, k
+                    ) of getEventByMonth(mth)"
+                    :key="k"
                   >
-                    <tooltip
-                      :type="type"
-                      class="tiny-calendar__tip"
-                      placement="right"
-                      popper-class="tiny-calendar__tip"
-                      mode="hover"
+                    <slot
+                      name="month"
+                      :slot-scope="{
+                        type,
+                        title,
+                        content,
+                        year,
+                        month,
+                        day,
+                        hours,
+                        minutes
+                      }"
                     >
-                      <template #content>
-                        <div>
-                          <div class="tiny-calendar__tip-header">
-                            <div class="tiny-calendar__tip-year">
-                              {{ `${year}-${month}-${day}` }}
+                      <tooltip
+                        :type="type"
+                        class="tiny-calendar__tip"
+                        placement="right"
+                        popper-class="tiny-calendar__tip"
+                        mode="hover"
+                      >
+                        <template #content>
+                          <div>
+                            <div class="tiny-calendar__tip-header">
+                              <div class="tiny-calendar__tip-year">
+                                {{ `${year}-${month}-${day}` }}
+                              </div>
+                              <div class="tiny-calendar__tip-hours">
+                                {{ `${hours}:${minutes}` }}
+                              </div>
                             </div>
-                            <div class="tiny-calendar__tip-hours">
-                              {{ `${hours}:${minutes}` }}
+                            <div :class="['tiny-calendar__tip-title', type || 'info']">
+                              {{ title }}
+                            </div>
+                            <div class="tiny-calendar__tip-content">
+                              {{ content }}
                             </div>
                           </div>
-                          <div :class="['tiny-calendar__tip-title', type || 'info']">
-                            {{ title }}
-                          </div>
-                          <div class="tiny-calendar__tip-content">
-                            {{ content }}
-                          </div>
-                        </div>
-                      </template>
-                      <div :class="['event', type || 'info']">{{ title }}</div>
-                    </tooltip>
-                  </slot>
-                </li>
-              </ul>
-            </div>
-          </td>
-        </tr>
+                        </template>
+                        <div :class="['event', type || 'info']">{{ title }}</div>
+                      </tooltip>
+                    </slot>
+                  </li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+        </tbody>
       </table>
     </div>
   </div>

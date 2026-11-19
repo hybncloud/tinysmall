@@ -16,6 +16,9 @@ export default defineConfig({
   },
   platform: 'browser',
   dts: true,
+  checks: {
+    bundlerTimings: false
+  },
   plugins: [
     vue(),
     vueJsx(),

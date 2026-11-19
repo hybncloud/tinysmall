@@ -170,23 +170,21 @@
     table {
       width: 100%;
 
-      > tr {
-        > th {
-          line-height: 18px;
-          padding: 0 10px 5px 10px;
-          font-size: var(--tv-Calendar-content-heard-font-size);
-          text-align: right;
-          width: 100% / 7;
-        }
+      > thead > tr > th {
+        line-height: 18px;
+        padding: 0 10px 5px 10px;
+        font-size: var(--tv-Calendar-content-heard-font-size);
+        text-align: right;
+        width: 100% / 7;
+      }
 
-        > td {
-          text-align: right;
-          padding: 0 5px 0 0;
-        }
+      > tbody > tr > td {
+        text-align: right;
+        padding: 0 5px 0 0;
       }
     }
 
-    &.year table > tr > td {
+    &.year table > tbody > tr > td {
       width: 100% / 3;
     }
   }
