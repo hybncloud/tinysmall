@@ -167,8 +167,7 @@ v-auto-tip="enabled? {always:true, content:'123', effect:'dark'} : false "
 3、自定义content  
 v-auto-tip="{content:h('span','1234' )}" // 单个vnode  
 v-auto-tip="{content:[h('span','1234' ), h('span','5678' ) ]}" // 多vnode  
-v-auto-tip="{content:h('span',{innerHTML:'1234<a>5678</a>'})}" // vue3写法：支持动态 html  
-v-auto-tip="{content:h('span',{domProps:{ innerHTML:'12345678'}})}" // 如果使用common里的h：支持动态 html  
+v-auto-tip="{content:h('span',{innerHTML:'1234<a>5678</a>'})}" // 支持动态 html
 
 ** content 支持一个有效的字符串或vnode|vnode[]  
  */

@@ -30,7 +30,7 @@ import type {
   IFileUploadLargeDocumentDownload
 } from '../../types'
 
-import { extend } from '@tinysmall/utils'
+import { extend, camelize, capitalize } from '@tinysmall/utils'
 import { xss, logger, sha256 } from '@tinysmall/utils'
 import { uploadAjax } from '@tinysmall/utils'
 import { isObject } from '@tinysmall/utils'
@@ -2619,16 +2619,12 @@ export const getDialogConfigObj =
     const dialogConfigDefault = {
       class: 'single-download-modal single-download-modal1',
       style: '',
-      props: {
-        lockScroll: true,
-        visible: state.showPreview,
-        dragable: true,
-        title: t(constants.EDM.DOC_PREVIEW),
-        width: '60%'
-      },
-      on: {
-        'update:visible': (value) => (state.showPreview = value)
-      }
+      lockScroll: true,
+      visible: state.showPreview,
+      dragable: true,
+      title: t(constants.EDM.DOC_PREVIEW),
+      width: '60%',
+      'onUpdate:visible': (value) => (state.showPreview = value)
     }
     let dialogConfig = {}
 
@@ -2646,11 +2642,16 @@ export const getDialogConfigObj =
     delete dialogConfigCopy.class
     delete dialogConfigCopy.style
 
+    // 用户配置的事件名（如 update:visible / confirm）转为 Vue3 的 onXxx 形式
+    const eventHandlers = Object.fromEntries(
+      Object.entries(events).map(([name, handler]) => [`on${capitalize(camelize(name))}`, handler])
+    )
+
     return extend(true, {}, dialogConfigDefault, {
       class: `${dialogConfigDefault.class} ${clazz}`,
       style: `${style}`,
-      props: { ...dialogConfigCopy },
-      on: { ...events }
+      ...dialogConfigCopy,
+      ...eventHandlers
     })
   }
 

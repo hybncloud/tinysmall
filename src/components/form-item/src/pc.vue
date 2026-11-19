@@ -11,7 +11,7 @@
  -->
 <script lang="tsx">
 import { $props, $prefix, setup, parseVnode, h, defineComponent, hooks } from '@tinysmall/common'
-import { normalizeClass } from 'vue'
+import { normalizeClass, Transition } from 'vue'
 import { renderless, api } from '@tinysmall/renderless/form-item/vue'
 import LabelWrap from './label-wrap'
 import Tooltip from '@tinysmall/tooltip'
@@ -248,29 +248,26 @@ export default defineComponent({
                 [`${classPrefix}form-item__error--inline`]: isErrorInline,
                 [`${classPrefix}form-item__error--block`]: isErrorBlock
               },
-              attrs: {
-                id: state.errorId, // 为错误信息添加唯一 ID，用于 aria-describedby 关联
-                role: 'alert', // 使用 alert 角色，屏幕阅读器会立即读出错误
-                'aria-live': 'assertive', // 确保错误信息能被立即通知
-                'aria-atomic': 'true', // 确保完整读出错误信息
-                title: [state.validateMessage]
-              }
+              // 为错误信息添加唯一 ID，用于 aria-describedby 关联
+              id: state.errorId,
+              role: 'alert', // 使用 alert 角色，屏幕阅读器会立即读出错误
+              'aria-live': 'assertive', // 确保错误信息能被立即通知
+              'aria-atomic': 'true', // 确保完整读出错误信息
+              title: [state.validateMessage]
             },
             [
-              validateIcon ? h(validateIcon, { class: 'validate-icon', attrs: { 'aria-hidden': 'true' } }) : null,
+              validateIcon ? h(validateIcon, { class: 'validate-icon', 'aria-hidden': 'true' }) : null,
               <span class={`${classPrefix}form-item__validate-message`}>{state.validateMessage}</span>
             ]
           )
         : null
     const LabelContent = h(
-      'label-wrap',
+      LabelWrap,
       {
-        props: {
-          isAutoWidth: state.labelStyle && state.labelStyle.width === 'auto',
-          updateAll: state.form.labelWidth === 'auto'
-        }
+        isAutoWidth: state.labelStyle && state.labelStyle.width === 'auto',
+        updateAll: state.form.labelWidth === 'auto'
       },
-      [
+      () => [
         labelSlot || label
           ? h(
               'label',
@@ -280,20 +277,15 @@ export default defineComponent({
                   'is-disabled': state.disabled
                 },
                 style: state.labelStyle,
-                attrs: {
-                  for: state.labelFor
-                },
-                on: {
-                  mouseenter: handleLabelMouseenter,
-                  mouseleave: handleMouseleave
-                }
+                for: state.labelFor,
+                onMouseenter: handleLabelMouseenter,
+                onMouseleave: handleMouseleave
               },
               labelSlot || label + state.form.labelSuffix
             )
           : null
       ]
     )
-
     const ExtraTip = this.extra
       ? h(
           'div',
@@ -324,39 +316,35 @@ export default defineComponent({
       [
         LabelContent,
         this.showMessage &&
-          h('tooltip', {
-            props: {
-              popperClass: `${classPrefix}form__valid`,
-              arrowOffset: 0,
-              adjustArrow: true,
-              type: tooltipType,
-              disabled: state.getValidateType !== 'tip',
-              placement: validatePosition,
-              manual: true,
-              appendToBody,
-              popperOptions,
-              modelValue: isShowError ? state.canShowTip : false,
-              zIndex: 'relative',
-              renderContent() {
-                let tooltipContent
-                if (errorSlot) {
-                  tooltipContent = [errorSlot]
-                } else {
-                  tooltipContent = [
-                    validateIconNode,
-                    <span class={`${classPrefix}form-item__validate-message`} id={state.errorId}>
-                      {state.validateMessage}
-                    </span>
-                  ]
-                }
+          h(Tooltip, {
+            popperClass: `${classPrefix}form__valid`,
+            arrowOffset: 0,
+            adjustArrow: true,
+            type: tooltipType,
+            disabled: state.getValidateType !== 'tip',
+            placement: validatePosition,
+            manual: true,
+            appendToBody,
+            popperOptions,
+            modelValue: isShowError ? state.canShowTip : false,
+            zIndex: 'relative',
+            renderContent() {
+              let tooltipContent
+              if (errorSlot) {
+                tooltipContent = [errorSlot]
+              } else {
+                tooltipContent = [
+                  validateIconNode,
+                  <span class={`${classPrefix}form-item__validate-message`} id={state.errorId}>
+                    {state.validateMessage}
+                  </span>
+                ]
+              }
 
-                return tooltipContent
-              }
+              return tooltipContent
             },
-            on: {
-              'update:modelValue': (value) => {
-                state.canShowTip = value
-              }
+            'onUpdate:modelValue': (value) => {
+              state.canShowTip = value
             },
             ref: 'tooltip'
           }),
@@ -372,13 +360,11 @@ export default defineComponent({
           [
             FormItemContnet,
             h(
-              'transition',
+              Transition,
               {
-                attrs: {
-                  name: `${classPrefix}zoom-in-top`
-                }
+                name: `${classPrefix}zoom-in-top`
               },
-              [ErrorContent]
+              () => [ErrorContent]
             ),
             ExtraTip
           ]

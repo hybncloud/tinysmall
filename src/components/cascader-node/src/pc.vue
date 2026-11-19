@@ -136,35 +136,31 @@ export default defineComponent({
     const { state } = this
     const { checkStrictly, expandTrigger, multiple } = state.config
     const disabled = !checkStrictly && state.isDisabled
-    const events: { [key: string]: any; on?: { [key: string]: (...args: any[]) => any } } = {}
-
-    events.on = {}
+    const events: { [key: string]: any } = {}
 
     if (expandTrigger === 'click') {
-      events.on.click = this.handleExpand
+      events.onClick = this.handleExpand
     } else {
       const handler = (e) => {
         this.handleExpand()
         this.$emit('expand', e)
       }
 
-      events.on.mouseenter = handler
-      events.on.focus = handler
+      events.onMouseenter = handler
+      events.onFocus = handler
     }
 
     if (state.isLeaf && !(state.isDisabled || checkStrictly || multiple)) {
-      events.on.click = this.handleCheckChange
+      events.onClick = this.handleCheckChange
     }
 
     return h(
       'li',
       {
-        attrs: {
-          role: 'menuitem',
-          id: this.nodeId,
-          tabindex: disabled ? null : -1,
-          'aria-expanded': state.inActivePath
-        },
+        role: 'menuitem',
+        id: this.nodeId,
+        tabindex: disabled ? null : -1,
+        'aria-expanded': state.inActivePath,
         class: {
           'tiny-cascader-node': true,
           'is-selectable': checkStrictly,

@@ -495,13 +495,14 @@ export default defineComponent({
           uploadFiles.length === 0
             ? ''
             : h('div', { class: 'tiny-upload--thumb__wrap' }, [
-                h('Popover', {
-                  props: {
+                h(
+                  Popover,
+                  {
                     trigger: 'hover',
                     popperClass: this.thumbOption.popperClass,
                     width: this.thumbOption.width
                   },
-                  scopedSlots: {
+                  {
                     reference: () =>
                       h('div', { class: 'tiny-upload--thumb__head' }, [
                         h(icon || TinyIconAttachment, {
@@ -513,13 +514,14 @@ export default defineComponent({
                       h('div', { class: 'tiny-upload--thumb__body' }, [
                         h('div', { class: 'tiny-upload--thumb__list' }, [
                           uploadFiles.map((item) =>
-                            h('Popover', {
-                              props: {
+                            h(
+                              Popover,
+                              {
                                 content: item.name,
                                 trigger: showTooltip ? 'hover' : 'manual',
                                 placement: 'top'
                               },
-                              scopedSlots: {
+                              {
                                 reference: () =>
                                   h(
                                     'div',
@@ -529,99 +531,93 @@ export default defineComponent({
                                     [getThumbList(item)]
                                   )
                               }
-                            })
+                            )
                           )
                         ])
                       ])
                   }
-                })
+                )
               ])
       } else {
         const uploadListDate = {
-          props: {
-            disabled: uploadDisabled,
-            reUploadable: this.reUploadable,
-            reUploadTip: this.reUploadTip,
-            isFolder,
-            isEdm,
-            edm,
-            displayOnly,
-            listType,
-            files: uploadFiles,
-            isFolderTitle: this.isFolderTitle,
-            listOption: this.listOption,
-            maxNameLength: this.maxNameLength,
-            handlePreview: preview,
-            handleDownloadFile,
-            handleReUpload: reUpload,
-            openDownloadFile: this.openDownloadFile,
-            compact
-          },
-          scopedSlots: {
-            default: (props: any) => {
-              if (slots.file) {
-                return slots.file({
-                  file: props.file
-                })
-              }
-            },
-            tip: () => tip,
-            'assist-content': (props: any) => {
-              if (slots['assist-content']) {
-                return slots['assist-content']({ file: props.file })
-              }
-            },
-            operate: (props: any) => {
-              if (slots.operate) {
-                return slots.operate({ file: props.file })
-              }
+          disabled: uploadDisabled,
+          reUploadable: this.reUploadable,
+          reUploadTip: this.reUploadTip,
+          isFolder,
+          isEdm,
+          edm,
+          displayOnly,
+          listType,
+          files: uploadFiles,
+          isFolderTitle: this.isFolderTitle,
+          listOption: this.listOption,
+          maxNameLength: this.maxNameLength,
+          handlePreview: preview,
+          handleDownloadFile,
+          handleReUpload: reUpload,
+          openDownloadFile: this.openDownloadFile,
+          compact,
+          ref: 'upload-list-inner',
+          onRemove: handleRemove,
+          onReUpload: handleReUpload,
+          onReUploadTotal: handleReUploadTotal,
+          onUpdate: updateFile,
+          onStart: this.handleStart,
+          onClickFileList: handleClickFileList,
+          'onUpdate:visible': (visible: Boolean) => (this.state.visible = visible)
+        }
+        const uploadListSlots = {
+          default: (props: any) => {
+            if (slots.file) {
+              return slots.file({
+                file: props.file
+              })
             }
           },
-          on: {
-            remove: handleRemove,
-            reUpload: handleReUpload,
-            reUploadTotal: handleReUploadTotal,
-            update: updateFile,
-            start: this.handleStart,
-            'click-file-list': handleClickFileList,
-            'update:visible': (visible: Boolean) => (this.state.visible = visible)
+          tip: () => tip,
+          'assist-content': (props: any) => {
+            if (slots['assist-content']) {
+              return slots['assist-content']({ file: props.file })
+            }
           },
-          ref: 'upload-list-inner'
+          operate: (props: any) => {
+            if (slots.operate) {
+              return slots.operate({ file: props.file })
+            }
+          }
         }
-        uploadList = h(UploadList, uploadListDate)
+        uploadList = h(UploadList, uploadListDate, uploadListSlots)
       }
     }
 
     const uploadData = {
-      props: {
-        type: this.type,
-        drag: this.drag,
-        action: url,
-        multiple: this.multiple,
-        withCredentials: this.withCredentials,
-        headers: this.headers,
-        name: this.name,
-        data: this.data,
-        edm: this.edm,
-        accept: isEdm ? accept : this.accept,
-        fileList: uploadFiles,
-        autoUpload: this.autoUpload,
-        listType,
-        disabled: uploadDisabled,
-        displayOnly,
-        limit: this.limit,
-        onExceed: exceed,
-        onStart: this.handleStart,
-        onProgress: this.handleProgress,
-        onSuccess: this.handleSuccess,
-        onError: this.handleError,
-        onPreview: preview,
-        httpRequest,
-        isFolder,
-        edmToken,
-        pasteUpload: this.pasteUpload,
-        isHidden: this.isHidden
-      },
+      type: this.type,
+      drag: this.drag,
+      action: url,
+      multiple: this.multiple,
+      withCredentials: this.withCredentials,
+      headers: this.headers,
+      name: this.name,
+      data: this.data,
+      edm: this.edm,
+      accept: isEdm ? accept : this.accept,
+      fileList: uploadFiles,
+      autoUpload: this.autoUpload,
+      listType,
+      disabled: uploadDisabled,
+      displayOnly,
+      limit: this.limit,
+      onExceed: exceed,
+      onStart: this.handleStart,
+      onProgress: this.handleProgress,
+      onSuccess: this.handleSuccess,
+      onError: this.handleError,
+      onPreview: preview,
+      httpRequest,
+      isFolder,
+      edmToken,
+      pasteUpload: this.pasteUpload,
+      isHidden: this.isHidden,
       ref: 'upload-inner'
     }
 
@@ -655,16 +651,19 @@ export default defineComponent({
     let encryptDialogComponent = null
 
     if (isEdm && isSuccess) {
-      uploadData.props.accept = accept
-      uploadData.props.edmToken = edmToken
+      uploadData.accept = accept
+      uploadData.edmToken = edmToken
     }
 
     if (this.edm.preview) {
-      previewComponent = h('tiny-dialog-box', {
-        minHeight: '600px',
-        width: '60%',
-        ...dialogConfigObj,
-        scopedSlots: {
+      previewComponent = h(
+        DialogBox,
+        {
+          minHeight: '600px',
+          width: '60%',
+          ...dialogConfigObj
+        },
+        {
           default: () => (
             <iframe
               id="_iframe"
@@ -680,25 +679,24 @@ export default defineComponent({
             ></iframe>
           )
         }
-      })
+      )
     }
 
     if (encryptConfig.enabled) {
-      encryptDialogComponent = h('tiny-dialog-box', {
-        class: 'encrypt-config-dialog',
-        style: '',
-        props: {
+      encryptDialogComponent = h(
+        DialogBox,
+        {
+          class: 'encrypt-config-dialog',
+          style: '',
           lockScroll: true,
           visible: this.state.encryptDialogConfig.show,
           dragable: true,
           title: this.t('ui.fileUpload.encryptDialogTitle'),
           width: '380px',
-          height: 'auto'
+          height: 'auto',
+          'onUpdate:visible': (value) => (this.state.encryptDialogConfig.show = value)
         },
-        on: {
-          'update:visible': (value) => (this.state.encryptDialogConfig.show = value)
-        },
-        scopedSlots: {
+        {
           default: () => {
             return (
               <div class="encrypt-config-dialog-body">
@@ -725,7 +723,7 @@ export default defineComponent({
             ]
           }
         }
-      })
+      )
     }
 
     return (

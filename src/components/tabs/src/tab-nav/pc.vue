@@ -130,40 +130,36 @@ export default defineComponent({
                 TabDropdownItem,
                 {
                   class: 'tiny-tabs__more-item',
-                  attrs: {
-                    itemClick(e) {
-                      removeFocus()
-                      onTabClick(pane, tabName, e)
-                    }
+                  itemClick(e) {
+                    removeFocus()
+                    onTabClick(pane, tabName, e)
                   }
                 },
-                [typeof tabLabelContent === 'function' ? tabLabelContent() : tabLabelContent]
+                {
+                  default: () => [typeof tabLabelContent === 'function' ? tabLabelContent() : tabLabelContent]
+                }
               )
             })
           : null
 
       const dropdownSlot = () =>
         isShowDropDown
-          ? h(DropdownMenu, {
-              attrs: {
+          ? h(
+              DropdownMenu,
+              {
                 popperClass: 'tiny-tabs-dropdown tiny-tabs__more-dropdown' + (popperClass ? ' ' + popperClass : ''),
                 placement: 'bottom-start',
                 style: { maxHeight: panelMaxHeight, width: panelWidth }
               },
-              scopedSlots: { default: menuSlot }
-            })
+              { default: menuSlot }
+            )
           : null
 
       // tiny 新增：防止没有内容也显示下拉框。  aui 此处为Popover组件实现
       moreTabs = (
         <div class="tiny-tabs__more-container" ref="more">
           {isShowDropDown
-            ? h(Dropdown, {
-                attrs: {
-                  trigger: 'hover'
-                },
-                scopedSlots: { default: reference, dropdown: dropdownSlot }
-              })
+            ? h(Dropdown, { trigger: 'hover' }, { default: reference, dropdown: dropdownSlot })
             : reference()}
         </div>
       )
@@ -203,13 +199,11 @@ export default defineComponent({
             style: {
               'max-width': titleWidth
             },
-            on: {
-              mouseenter(e) {
-                handleTitleMouseenter(e, title)
-              },
-              mouseleave(e) {
-                handleTitleMouseleave(e)
-              }
+            onMouseenter(e) {
+              handleTitleMouseenter(e, title)
+            },
+            onMouseleave(e) {
+              handleTitleMouseleave(e)
             }
           },
           [title]
@@ -218,15 +212,13 @@ export default defineComponent({
 
       const tipComp = () =>
         tooltipConfig === 'title'
-          ? h('span', { class: 'tiny-tabs__item__title', attrs: { title: pane.title } }, [pane.title])
+          ? h('span', { class: 'tiny-tabs__item__title', title: pane.title }, [pane.title])
           : h(
               Tooltip,
               {
                 class: 'tiny-tabs__item__title',
-                props: {
-                  content: pane.title,
-                  ...tooltipConfig
-                }
+                content: pane.title,
+                ...tooltipConfig
               },
               [h('span', {}, [pane.title])]
             )
@@ -250,43 +242,38 @@ export default defineComponent({
             'is-disabled': pane.disabled,
             'is-closable': withClose,
             'is-focus': state.isFocus
-          },
-          attrs: {
-            id: `tab-${tabName}`,
-            'aria-controls': `pane-${tabName}`,
-            'aria-disabled': pane.disabled ? 'true' : 'false', // 无障碍：标识禁用状态
-            'data-index': index + 1,
-            role: 'tab',
-            'aria-selected': pane.state.active,
-            tabindex,
-            refInFor: true
-          },
-          on: {
-            focus() {
-              setFocus()
-            },
-            blur() {
-              removeFocus()
-            },
-            click(e) {
-              removeFocus()
-              onTabClick(pane, tabName, e)
-            },
-            keydown(e) {
-              if (withClose && (e.key === 'Delete' || e.key === 'Backspace')) {
-                e.preventDefault()
-                onTabRemove(pane, e)
-              }
-            }
-          }
         },
-        [
-          overflowTitle ? getTabTitle(tabLabelContent) : tabLabelContent,
-          btnClose,
-          (state.separator || tabStyle === 'button-card') && itemsSeparator
-        ]
-      )
-    })
+        id: `tab-${tabName}`,
+        'aria-controls': `pane-${tabName}`,
+        'aria-disabled': pane.disabled ? 'true' : 'false', // 无障碍：标识禁用状态
+        'data-index': index + 1,
+        role: 'tab',
+        'aria-selected': pane.state.active,
+        tabindex,
+        onFocus() {
+          setFocus()
+        },
+        onBlur() {
+          removeFocus()
+        },
+        onClick(e) {
+          removeFocus()
+          onTabClick(pane, tabName, e)
+        },
+        onKeydown(e) {
+          if (withClose && (e.key === 'Delete' || e.key === 'Backspace')) {
+            e.preventDefault()
+            onTabRemove(pane, e)
+          }
+        }
+      },
+      [
+        overflowTitle ? getTabTitle(tabLabelContent) : tabLabelContent,
+        btnClose,
+        (state.separator || tabStyle === 'button-card') && itemsSeparator
+      ]
+    )
+  })
 
     // 根据生成的子元素宽度动态设置tabslist盒子的padding-right
     const paddingRight = this.$refs.more ? `${this.$refs.more.offsetWidth}px` : '0'

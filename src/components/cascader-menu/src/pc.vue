@@ -9,27 +9,22 @@ import type { ICascaderPanelNode } from '@tinysmall/renderless/types/cascader-pa
 import '@tinysmall/theme/cascader-menu/index.less'
 
 const renderNodeListFunc = (_vm: InstanceType<typeof CascaderMenu>) => () => {
-  const events = { on: {} } as { on: { [key: string]: (...args: any[]) => any } }
   const menuId = _vm.state.menuId
   const isHoverMenu = _vm.panel.state.isHoverMenu
-
-  if (isHoverMenu) {
-    events.on.expand = _vm.handleExpand
-  }
 
   const mapHandler = (node: ICascaderPanelNode, index: number) => {
     const uid = node.uid
     const hasChildren = node.hasChildren
 
     return (
-      <cascader-node
+      <CascaderNode
         key={uid}
         node={node}
         node-id={`${menuId}-${index}`}
         data-haspopup={hasChildren}
         data-owns={hasChildren ? menuId : null}
-        {...events}
-      ></cascader-node>
+        onExpand={isHoverMenu ? _vm.handleExpand : undefined}
+      ></CascaderNode>
     )
   }
 
@@ -89,26 +84,22 @@ const CascaderMenu = defineComponent({
       events.nativeOn.mousemove = this.handleMouseMove
     }
 
-    return h(
-      'tiny-scrollbar',
-      {
-        attrs: {
-          role: 'menu',
-          id: state.menuId
-        },
-        ref: 'cascaderMenu',
-        class: 'tiny-cascader-menu',
-        props: {
-          tag: 'ul',
-          'wrap-class': 'tiny-cascader-menu__wrap ' + (this.onlyUsePanel ? 'tiny-cascader-menu__wrap-expand' : ''),
-          'view-class': {
-            'tiny-cascader-menu__list': true,
-            'is-empty': state.isEmpty
-          }
-        },
-        ...events
-      },
-      [state.isEmpty ? renderEmptyText() : renderNodeList()]
+    return (
+      <Scrollbar
+        ref="cascaderMenu"
+        class="tiny-cascader-menu"
+        role="menu"
+        id={state.menuId}
+        tag="ul"
+        wrap-class={'tiny-cascader-menu__wrap ' + (this.onlyUsePanel ? 'tiny-cascader-menu__wrap-expand' : '')}
+        view-class={{
+          'tiny-cascader-menu__list': true,
+          'is-empty': state.isEmpty
+        }}
+        onMousemove={this.panel.state.isHoverMenu ? this.handleMouseMove : undefined}
+      >
+        {state.isEmpty ? renderEmptyText() : renderNodeList()}
+      </Scrollbar>
     )
   }
 })

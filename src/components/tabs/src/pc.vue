@@ -140,32 +140,28 @@ export default defineComponent({
       ) : null
 
     const navData = {
-      props: {
-        currentName: state.currentName,
-        panes: state.panes,
-        onTabClick: handleTabClick,
-        onTabRemove: handleTabRemove,
-        showPanesCount: state.showPanesCount,
-        editable,
-        tabStyle,
-        size,
-        stretch,
-        showMoreTabs,
-        popperClass,
-        popperAppendToBody,
-        dropConfig,
-        tooltipConfig,
-        overflowTitle,
-        titleWidth,
-        separator: state.separator,
-        panelMaxHeight,
-        panelWidth
-      },
-      on: {
-        'tab-drag-start': handleTabDragStart,
-        'tab-drag-over': handleTabDragOver,
-        'tab-drag-end': handleTabDragEnd
-      },
+      currentName: state.currentName,
+      panes: state.panes,
+      onTabClick: handleTabClick,
+      onTabRemove: handleTabRemove,
+      showPanesCount: state.showPanesCount,
+      editable,
+      tabStyle,
+      size,
+      stretch,
+      showMoreTabs,
+      popperClass,
+      popperAppendToBody,
+      dropConfig,
+      tooltipConfig,
+      overflowTitle,
+      titleWidth,
+      separator: state.separator,
+      panelMaxHeight,
+      panelWidth,
+      onTabDragStart: handleTabDragStart,
+      onTabDragOver: handleTabDragOver,
+      onTabDragEnd: handleTabDragEnd,
       ref: 'nav'
     }
 

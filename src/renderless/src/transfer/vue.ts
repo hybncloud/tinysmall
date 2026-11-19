@@ -57,7 +57,7 @@ const initState = ({ reactive, computed, api, props, h, slots, Tree }): ITransfe
         return slots.default({ option })
       }
 
-      return h('span', option[props.props.label] || option[props.props.key])
+      return h('span', null, option[props.props.label] || option[props.props.key])
     }),
     isToLeftBtnDisabled: computed(() => {
       if (props.render?.plugin?.name === Tree) {

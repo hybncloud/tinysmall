@@ -24,7 +24,7 @@ import {
   isEmptyVnode,
   hooks
 } from '@tinysmall/common'
-import { normalizeClass } from 'vue'
+import { normalizeClass, Transition } from 'vue'
 import type { ITinyVm } from '@tinysmall/renderless/types/shared.type'
 import '@tinysmall/theme/tooltip/index.less'
 import type { ITooltipApi } from '@tinysmall/renderless/types/tooltip.type'
@@ -147,7 +147,7 @@ export default defineComponent({
           attrContent = vm.content || null
         }
       } else if (vm.pre) {
-        attrContent = vm.content ? h('pre', vm.content) : null
+        attrContent = vm.content ? h('pre', null, vm.content) : null
       } else {
         attrContent = vm.content
       }
@@ -172,8 +172,8 @@ export default defineComponent({
                     // 当内容为纯文本时，添加一层wrapper，其他情况（插槽、renderContent）原样输出
                     const addWrapper = typeof content === 'string'
                     const propsData = {
-                      attrs: { name: this.transition },
-                      on: { 'after-leave': this.doDestroy }
+                      name: this.transition,
+                      onAfterLeave: this.doDestroy
                     }
                     const typeClass = 'is-' + (this.type || this.effect || 'dark')
                     const mouseenter = () => this.setExpectedState(true)
@@ -190,7 +190,7 @@ export default defineComponent({
                       }
                     })
 
-                    return h('transition', propsData, [
+                    return h(Transition, propsData, () => [
                       <div
                         ref="popper"
                         id={this.state.tooltipId}

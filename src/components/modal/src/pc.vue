@@ -197,9 +197,7 @@ export default defineComponent({
           zIndex: state.modalZindex,
           top: modalTop ? `${modalTop}px` : null
         },
-        on: {
-          click: this.selfClickEvent
-        }
+        onClick: this.selfClickEvent
       },
       [
         h(
@@ -212,20 +210,18 @@ export default defineComponent({
             class: 'tiny-modal__box',
             style: state.boxStyle,
             ref: 'modalBox',
-            on: {
-              ...(type === 'message' ? { mouseenter: this.mouseEnterEvent, mouseleave: this.mouseLeaveEvent } : {})
-            }
+            ...(type === 'message'
+              ? { onMouseenter: this.mouseEnterEvent, onMouseleave: this.mouseLeaveEvent }
+              : {})
           },
           [
             showHeader
               ? h(
                   'div',
-                  {
+                               {
                     class: ['tiny-modal__header'],
-                    on: {
-                      mousedown: this.headerDragable ? this.mousedownEvent : () => {}
-                    }
-                  },
+                    onMousedown: this.headerDragable ? this.mousedownEvent : () => {}
+                    },
                   [
                     status
                       ? h(
@@ -259,18 +255,14 @@ export default defineComponent({
                       ? h(zoomLocat ? iconMinscreenRight() : iconFullscreenRight(), {
                           'aria-label': 'Zoom',
                           class: ['tiny-modal__zoom-btn', 'trigger__btn'],
-                          on: {
-                            click: this.toggleZoomEvent
-                          }
+                          onClick: this.toggleZoomEvent
                         })
                       : null,
                     showClose
                       ? h(iconClose(), {
                           'aria-label': 'Close',
                           class: ['tiny-modal__close-btn', 'trigger__btn'],
-                          on: {
-                            click: this.closeEvent
-                          }
+                          onClick: this.closeEvent
                         })
                       : null
                   ]
@@ -326,9 +318,7 @@ export default defineComponent({
                         h(iconClose(), {
                           'aria-label': 'Close',
                           class: ['tiny-modal__close-btn'],
-                          on: {
-                            click: this.closeEvent
-                          }
+                          onClick: this.closeEvent
                         })
                       ]
                     )
@@ -340,9 +330,7 @@ export default defineComponent({
                   'div',
                   {
                     class: ['tiny-modal__footer', this.footerDragable ? 'tiny-modal__footer-move' : ''],
-                    on: {
-                      mousedown: this.footerDragable ? this.mousedownEvent : () => {}
-                    }
+                    onMousedown: this.footerDragable ? this.mousedownEvent : () => {}
                   },
                   footerSlot
                     ? [footerSlot.call(this, footerSlotParams, h)]
@@ -351,26 +339,20 @@ export default defineComponent({
                           ? h(
                               Button,
                               {
-                                on: {
-                                  click: this.cancelEvent
-                                },
-                                props: { ...cancelButtonProps }
+                                onClick: this.cancelEvent,
+                                ...cancelButtonProps
                               },
-                              cancelButtonText
+                              () => cancelButtonText
                             )
                           : null,
                         h(
                           Button,
                           {
-                            props: {
-                              type: 'primary',
-                              ...confirmButtonProps
-                            },
-                            on: {
-                              click: this.confirmEvent
-                            }
+                            type: 'primary',
+                            ...confirmButtonProps,
+                            onClick: this.confirmEvent
                           },
-                          confirmButtonText
+                          () => confirmButtonText
                         )
                       ]
                 )
@@ -384,8 +366,8 @@ export default defineComponent({
                   ['wl', 'wr', 'swst', 'sest', 'st', 'swlb', 'selb', 'sb'].map((type) =>
                     h('span', {
                       class: `${type}-resize`,
-                      attrs: { 'data-type': type },
-                      on: { mousedown: this.dragEvent }
+                      'data-type': type,
+                      onMousedown: this.dragEvent
                     })
                   )
                 )

@@ -10,11 +10,11 @@
  *
  */
 import * as hooks from 'vue'
+import { Teleport } from 'vue'
+import type { VNode } from 'vue'
 
-import { camelize, capitalize, hyphenate } from '@tinysmall/utils'
+import { hyphenate } from '@tinysmall/utils'
 import { emitter } from '../utils'
-
-const Teleport = hooks.Teleport
 
 export { Teleport }
 
@@ -295,74 +295,10 @@ const { Text, Comment } = hooks
 
 export const isEmptyVnode = (vnode) => !vnode || !vnode.type || [Text, Comment].includes(vnode.type)
 
-const parseProps = (propsData) => {
-  const props = {}
+/** 与 vue 原生 h 等价；签名保持宽松以兼容仓内既有的动态调用方式 */
+type CreateElement = (component: any, propsData?: any, childData?: any) => VNode
 
-  for (const name in propsData) {
-    if (name === 'class' || name === 'style') {
-      props[name] = propsData[name]
-    } else if (name === 'on' || name === 'nativeOn') {
-      const events = propsData[name]
-
-      for (const eventName in events) props[`on${capitalize(camelize(eventName))}`] = events[eventName]
-    } else if (name === 'attrs' || name === 'props' || name === 'domProps') {
-      const attrs = propsData[name]
-
-      for (const key in attrs) props[key] = attrs[key]
-    } else {
-      props[name] = propsData[name]
-    }
-  }
-
-  return props
-}
-
-const customResolveComponent = (component) => {
-  let type = component
-  let customElement = false
-
-  if (typeof component === 'string' && typeof document !== 'undefined') {
-    const el = document.createElement(component)
-    const svgTagNames = ['SVG', 'CIRCLE', 'PATH']
-
-    if ((el instanceof HTMLUnknownElement && !svgTagNames.includes(el.nodeName)) || component.includes('-')) {
-      component = component.toLowerCase()
-      customElement = true
-
-      if (component === 'transition') type = hooks.Transition
-      else if (component === 'transition-group') type = hooks.TransitionGroup
-      else type = hooks.resolveComponent(component)
-    } else {
-      type = component
-    }
-  }
-
-  return { type, component, customElement }
-}
-
-type CreateElement = (component: any, propsData?: any, childData?: any) => ReturnType<typeof hooks.h>
-
-export const h: CreateElement = (component, propsData, childData) => {
-  let props = {}
-  let children = childData
-  const ret = customResolveComponent(component)
-  const customElement = ret.customElement
-  const type = ret.type
-
-  component = ret.component
-
-  if (propsData && typeof propsData === 'object' && !Array.isArray(propsData)) {
-    props = parseProps(propsData)
-    propsData.scopedSlots && (children = propsData.scopedSlots)
-  } else if (typeof propsData === 'string' || Array.isArray(propsData)) {
-    childData = propsData
-  }
-
-  if (typeof childData === 'string' || Array.isArray(childData))
-    children = typeof component !== 'string' || customElement ? () => childData : childData
-
-  return hooks.h(type, props, children)
-}
+export const h: CreateElement = hooks.h
 
 export const createComponentFn = () => {
   return ({ component, propsData, el }) => {
