@@ -25,10 +25,19 @@ export const api = ['state', 'handleMouseMove', 'handleExpand']
 
 export const renderless = (
   props: ICascaderMenuProps,
-  { computed, reactive }: ISharedRenderlessParamHooks,
+  { computed, reactive, inject, onUnmounted }: ISharedRenderlessParamHooks,
   { vm, parent }: ICascaderMenuRenderlessParamUtils
 ): ICascaderMenuApi => {
   const api = {} as ICascaderMenuApi
+
+  // 向所属 cascader-panel 注册自身，替代 panel 侧遍历子树的 childrenHandler
+  const registerMenu = inject('registerMenu') as ((menu: ICascaderMenuApi) => void) | undefined
+  const unregisterMenu = inject('unregisterMenu') as ((menu: ICascaderMenuApi) => void) | undefined
+
+  registerMenu?.(vm)
+
+  onUnmounted(() => unregisterMenu?.(vm))
+
   const state: ICascaderMenuState = reactive({
     activeNode: null,
     hoverTimer: null,

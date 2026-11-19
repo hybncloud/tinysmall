@@ -101,64 +101,6 @@ const getRealParent = (vm) => {
     return vm.parent.type.name === 'AsyncComponentWrapper' && vm.parent.parent ? vm.parent.parent : vm.parent
 }
 
-const parent = (vm) => (handler) => {
-  let parent = getRealParent(vm)
-  let level = 0
-
-  const parentObject = (parent) => {
-    return {
-      level,
-      vm: createVm({}, parent),
-      el: parent.vnode.el,
-      options: parent.type
-    }
-  }
-
-  if (typeof handler !== 'function') return parent ? parentObject(parent) : {}
-
-  level++
-
-  while (parent) {
-    if (handler(parentObject(parent))) break
-    parent = getRealParent(parent)
-    level++
-  }
-}
-
-const children = (vm) => (handler) => {
-  if (typeof handler !== 'function') return generateChildren(vm.subTree)
-
-  let layer = 1
-  const broadcast = (subTree) => {
-    if (subTree) {
-      const children = subTree.children || subTree.dynamicChildren
-      const level = layer++
-
-      if (Array.isArray(children)) {
-        if (
-          children.some((child) => {
-            return (
-              child.component &&
-              handler({
-                level,
-                vm: createVm({}, child.component),
-                el: child.el,
-                options: child.type,
-                isLevel1: true
-              })
-            )
-          })
-        )
-          return
-
-        children.forEach((child) => broadcast(child))
-      }
-    }
-  }
-
-  broadcast(vm.subTree)
-}
-
 const regEventPrefix = /^on[A-Z]/
 
 const generateListeners = (attrs) => {
@@ -282,8 +224,6 @@ export const tools = (context) => {
   const root = instance?.appContext.config.globalProperties
   const i18n = instance?.proxy?.$root?.$i18n
   const { dispatch, broadcast } = emitEvent(instance)
-  const parentHandler = parent(instance)
-  const childrenHandler = children(instance)
   const vm = createVm({}, instance, context)
   const emit = context.emit
   const refs = {}
@@ -308,8 +248,6 @@ export const tools = (context) => {
     emitter,
     dispatch,
     broadcast,
-    parentHandler,
-    childrenHandler,
     i18n,
     refs,
     slots: instance?.slots,

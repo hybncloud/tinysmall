@@ -55,18 +55,6 @@ export interface ISharedRenderlessParamUtils<CT = never> {
   broadcast: (componentName: string, eventName: string, params?: any) => void
   /** 向实例的 parent开始查找componentName， 找到匹配第一个组件， 触发component.emit(eventName, params) */
   dispatch: (componentName: string, eventName: string, params?: any) => void
-  /** 向实例的subTree 遍历。
-   * 1、handler 是函数： handler入参{level,vm,el,options,isLevel1}. 给每个子节点遍历调用函数。
-   * 2、handler 是非函数： 直接通过 instance.subTree 来生成一个同等树状的vm数据。
-   * @mark ⭐全局有4个组件使用到`handler是函数`的用法 ，用于遍历子节点，将符合条件的信息收集到一个数组中。
-   */
-  childrenHandler: (handler?: (node: { level: number; vm: ITinyVm<CT>; el; options; isLevel1 }) => void) => void | any[]
-  /** 向实例的 parent 遍历。
-   * 1、handler 是函数： handler入参{level,vm,el,options}. 遍历父节点。若handler处理某个节点时，返回true，则停止！
-   * 2、handler 是非函数： 直接返回{level,vm,el,options} 的数据体。
-   * @mark ⭐全局未有使用该函数
-   */
-  parentHandler: (handler?: () => boolean) => void | any
 
   /** 给 vm 和 instance.ctx 同时添加属性。
    * @param props Object.defineProperties的第2参, 格式：{ property1: {value: 42,writable: true},property2: {...} }

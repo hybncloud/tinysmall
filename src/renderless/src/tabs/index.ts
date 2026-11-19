@@ -65,11 +65,10 @@ const getOrderedPanes = (parent, panes) => {
 
 export const calcPaneInstances =
   ({
-    constants,
     parent,
     state,
-    childrenHandler
-  }: Pick<ITabsRenderlessParams, 'constants' | 'parent' | 'state' | 'childrenHandler'>) =>
+    panes
+  }: Pick<ITabsRenderlessParams, 'parent' | 'state'> & { panes: ITabsPaneVm[] }) =>
   (isForceUpdate = false) => {
     const tabItemVNodes = parent.$slots.default
 
@@ -90,11 +89,9 @@ export const calcPaneInstances =
       })
       const currentPanes = [] as ITabsPaneVm[]
 
-      childrenHandler(({ vm, isLevel1 }) => {
-        if (isLevel1 && vm.$options.componentName === constants.TAB_ITEM) {
-          const index = orderPanes.findIndex((name) => name === vm.name)
-          index > -1 ? (currentPanes[index] = vm) : currentPanes.push(vm)
-        }
+      panes.forEach((pane) => {
+        const index = orderPanes.findIndex((name) => name === pane.name)
+        index > -1 ? (currentPanes[index] = pane) : currentPanes.push(pane)
       })
       const newPanes = getOrderedPanes(parent, currentPanes) as ITabsPaneVm[]
 

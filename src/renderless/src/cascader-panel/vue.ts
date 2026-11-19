@@ -167,15 +167,19 @@ const initWatch = ({
 
 export const renderless = (
   props: ICascaderPanelProps,
-  { computed, onMounted, reactive, watch }: ISharedRenderlessParamHooks,
-  { nextTick, emit, parent, childrenHandler, slots }: ICascaderPanelRenderlessParamUtils
+  { computed, onMounted, reactive, watch, provide }: ISharedRenderlessParamHooks,
+  { nextTick, emit, parent, slots }: ICascaderPanelRenderlessParamUtils
 ) => {
   const api = {} as ICascaderPanelApi
   const menus: ICascaderPanelRenderlessParams['vm'][] = []
   const state = initState({ reactive, props, computed, parent, slots })
 
-  childrenHandler(({ vm }) => {
-    menus.push(vm)
+  // 子组件注册：cascader-menu 在 setup 时注册自身，替代遍历子树的 childrenHandler
+  provide('registerMenu', (menu: ICascaderPanelRenderlessParams['vm']) => menus.push(menu))
+  provide('unregisterMenu', (menu: ICascaderPanelRenderlessParams['vm']) => {
+    const index = menus.indexOf(menu)
+
+    index > -1 && menus.splice(index, 1)
   })
 
   initApi({ api, state, menus, props, nextTick, parent, emit })
