@@ -150,7 +150,7 @@ export const handleQueryChange =
 
     state.hoverIndex = -1
 
-    if (props.multiple && (props.filterable || props.searchable) && !props.shape && !state.selectDisabled) {
+    if (props.multiple && (props.filterable || props.searchable) && !state.selectDisabled) {
       nextTick(() => {
         const length = vm.$refs.input.value.length * 15 + 20
         state.inputLength = state.collapseTags ? Math.min(50, length) : length
@@ -325,7 +325,7 @@ export const setSelected =
       const option = getOptionOfSetSelected({ api, props })
       state.selected = option
       state.selectedLabel = option.state.currentLabel || option.currentLabel
-      ;(props.filterable || props.searchable) && !props.shape && (state.query = state.selectedLabel)
+      ;(props.filterable || props.searchable) && (state.query = state.selectedLabel)
       // 使用 panel 插槽且有选中值时，不显示 placeholder
       if (vm.$slots.panel && state.selectedLabel && (props.filterable || props.searchable)) {
         state.currentPlaceholder = ''
@@ -432,11 +432,6 @@ export const handleFocus =
       if (!state.willFocusRun) return // 立即触发了blur,则不执行focus了
 
       if (!state.softFocus) {
-        // tiny 新增 shape条件: 防止过滤器模式，且filterable时， 面板无法关闭的bug
-        if (props.shape === 'filter') {
-          return
-        }
-
         if (props.automaticDropdown || props.filterable || props.searchable) {
           state.visible = true
           state.softFocus = true
@@ -790,11 +785,9 @@ export const toggleMenu =
       state.softFocus = false
 
       if (state.visible) {
-        if (!((props.filterable || props.searchable) && props.shape)) {
-          const dom = vm.$refs.input || vm.$refs.reference
-          dom?.focus && dom.focus()
-          api.setOptionHighlight()
-        }
+        const dom = vm.$refs.input || vm.$refs.reference
+        dom?.focus && dom.focus()
+        api.setOptionHighlight()
       }
     }
   }
@@ -1094,7 +1087,7 @@ export const emptyText =
     }
 
     if (props.remote && state.query === '' && state.emptyFlag && !state.triggerSearch) {
-      return props.shape === 'filter' ? '' : false
+      return false
     }
 
     if (
@@ -1277,12 +1270,12 @@ export const toVisible =
 export const toHide =
   ({ constants, state, props, vm, api }) =>
   () => {
-    const { remote, remoteConfig, shape, renderType, multiple, valueField } = props
+    const { remote, remoteConfig, renderType, multiple, valueField } = props
 
     state.selectEmitter.emit(constants.COMPONENT_NAME.SelectDropdown, constants.EVENT_NAME.updatePopper)
 
     if (props.filterable || props.searchable) {
-      state.query = remote || shape ? '' : state.selectedLabel
+      state.query = remote ? '' : state.selectedLabel
       const isChange = remote && remoteConfig.autoSearch && (state.firstAutoSearch || remoteConfig.clearData)
       state.firstAutoSearch = false
       api.handleQueryChange(state.query, isChange)
@@ -1296,7 +1289,7 @@ export const toHide =
           state.selectEmitter.emit(constants.COMPONENT_NAME.OptionGroup, constants.EVENT_NAME.queryChange)
         }
 
-        if (state.selectedLabel && !shape) {
+        if (state.selectedLabel) {
           state.currentPlaceholder = state.selectedLabel
           state.selectedLabel = ''
         }
@@ -1338,10 +1331,6 @@ export const watchVisible =
         }
       }
     }, props.updateDelay)
-
-    if (!value && props.shape === 'filter') {
-      state.softFocus = false
-    }
   }
 
 export const watchOptions =

@@ -16,16 +16,6 @@ export default {
           pcDemo: 'filter-method'
         },
         {
-          name: 'blank',
-          type: 'boolean',
-          defaultValue: 'false',
-          desc: {
-            'zh-CN': "shape='filter' 时生效，设置过滤器模式背景为透明"
-          },
-          mode: ['pc'],
-          pcDemo: 'filter-mode'
-        },
-        {
           name: 'clearable',
           type: 'boolean',
           defaultValue: 'false',
@@ -86,16 +76,6 @@ export default {
           },
           mode: ['pc'],
           pcDemo: 'filterable'
-        },
-        {
-          name: 'label',
-          type: 'string',
-          defaultValue: '',
-          desc: {
-            'zh-CN': "shape='filter' 时生效，可传入 label 显示标题"
-          },
-          mode: ['pc'],
-          pcDemo: 'filter-mode'
         },
         {
           name: 'level-title',
@@ -181,16 +161,6 @@ export default {
           pcDemo: 'clearable1'
         },
         {
-          name: 'shape',
-          type: "'filter'",
-          defaultValue: '',
-          desc: {
-            'zh-CN': "通过 shape='filter' 属性切换至过滤器模式"
-          },
-          mode: ['pc'],
-          pcDemo: 'filter-mode'
-        },
-        {
           name: 'show-all-levels',
           type: 'boolean',
           defaultValue: 'true',
@@ -218,16 +188,6 @@ export default {
           },
           mode: ['pc'],
           pcDemo: 'size'
-        },
-        {
-          name: 'tip',
-          type: 'string',
-          defaultValue: '',
-          desc: {
-            'zh-CN': "shape='filter' 时生效，可传入 tip 显示提示信息"
-          },
-          mode: ['pc'],
-          pcDemo: 'filter-mode'
         },
         {
           name: 'title',

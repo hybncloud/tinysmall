@@ -133,15 +133,6 @@ const initWatch = ({ watch, selectVm, state, nextTick, props }) => {
       }
     }
   )
-
-  watch(
-    () => selectVm.shape,
-    () => {
-      nextTick(() => {
-        state.referenceElm = selectVm.$refs.reference && selectVm.$refs.reference.$el
-      })
-    }
-  )
 }
 
 export const renderless = (

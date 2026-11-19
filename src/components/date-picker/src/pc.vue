@@ -64,8 +64,6 @@ export const datePickerProps = {
   timeFormat: String,
   suffixIcon: Object,
   label: String,
-  shape: String,
-  tip: String,
   changeOnConfirm: {
     type: Boolean,
     default: false
@@ -86,11 +84,6 @@ export const datePickerProps = {
     default: false
   },
   title: String,
-  blank: {
-    type: Boolean,
-    default: false
-  },
-
   type: {
     type: String as PropType<
       | 'date'

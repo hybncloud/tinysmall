@@ -36,7 +36,6 @@ import DropdownItem from './components/dropdown-item'
 import DropdownMenu from './components/dropdown-menu'
 import Exception from './components/exception'
 import FileUpload from './components/file-upload'
-import FilterBox from './components/filter-box'
 import Form from './components/form'
 import FormItem from './components/form-item'
 import Guide from './components/guide'
@@ -147,7 +146,6 @@ export {
   DropdownMenu as TinyDropdownMenu,
   Exception as TinyException,
   FileUpload as TinyFileUpload,
-  FilterBox as TinyFilterBox,
   Form as TinyForm,
   FormItem as TinyFormItem,
   Guide as TinyGuide,

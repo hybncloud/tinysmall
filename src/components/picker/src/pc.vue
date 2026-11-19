@@ -1,23 +1,9 @@
 <template>
   <!-- TODO: 后续去掉 tiny-date-container -->
   <div ref="reference" class="tiny-picker tiny-date-container">
-    <tiny-filter-box
-      v-if="shape === 'filter'"
-      v-clickoutside.mousedown="handleClose"
-      @click="handleFocus"
-      :show-close="clearable"
-      :placeholder="placeholder"
-      :disabled="state.pickerDisabled"
-      :label="label"
-      :tip="tip"
-      :value="state.displayValue.toString()"
-      :drop-down-visible="state.pickerVisible"
-      :blank="blank"
-      :size="state.pickerSize"
-    ></tiny-filter-box>
     <tiny-input
       :tabindex="tabindex"
-      v-else-if="!state.ranged"
+      v-if="!state.ranged"
       class="tiny-date-editor"
       :class="'tiny-date-editor--' + state.type"
       :readonly="!editable || readonly || state.type === 'dates' || state.type === 'week'"
@@ -87,15 +73,6 @@
       v-clickoutside.mousedown="handleClose"
       v-else
     >
-      <tiny-tooltip
-        v-if="label && shape === 'filter'"
-        effect="light"
-        :content="state.labelTooltip"
-        placement="top"
-        @mouseenter.native="handleEnterPickerlabel"
-      >
-        <span class="tiny-input__label" ref="label"> {{ label }} </span>
-      </tiny-tooltip>
       <input
         autocomplete="off"
         :placeholder="startPlaceholder"
@@ -193,7 +170,6 @@ import TimeRangePanel from '@tinysmall/time-range'
 import QuarterPanel from '@tinysmall/quarter-panel'
 import TimeSelect from '@tinysmall/time-panel'
 import TinyTooltip from '@tinysmall/tooltip'
-import FilterBox from '@tinysmall/filter-box'
 import { iconCalendar, iconTime } from '@tinysmall/icon'
 import { pickerProps } from './type'
 
@@ -205,7 +181,6 @@ export default defineComponent({
   componentName: 'Picker',
   components: {
     TinyInput: Input,
-    TinyFilterBox: FilterBox,
     TinyTooltip,
     IconCalendar: iconCalendar(),
     IconTime: iconTime()

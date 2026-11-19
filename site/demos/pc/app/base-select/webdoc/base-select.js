@@ -306,17 +306,6 @@ export default {
       codeFiles: ['hide-drop.vue']
     },
     {
-      demoId: 'filter-mode',
-      name: {
-        'zh-CN': '过滤器模式'
-      },
-      desc: {
-        'zh-CN':
-          '<p>通过 <code>shape</code> 属性设置为 <code>filter</code> 切换至过滤器模式。过滤器模式下可传入 label 显示标题，tip 显示提示信息，clearable 是否显示清除按钮，placeholder 显示占位符。</p>\n<p>通过 <code>blank</code> 属性将过滤器背景设置为透明。</p>'
-      },
-      codeFiles: ['filter-mode.vue']
-    },
-    {
       demoId: 'cache-usage',
       name: {
         'zh-CN': '自动缓存'

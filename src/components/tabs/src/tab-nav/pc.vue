@@ -220,7 +220,7 @@ export default defineComponent({
                 content: pane.title,
                 ...tooltipConfig
               },
-              [h('span', {}, [pane.title])]
+              () => [h('span', {}, [pane.title])]
             )
       const toolTipComp = () =>
         tooltipConfig ? tipComp() : h('span', { class: 'tiny-tabs__item__title' }, [pane.title])

@@ -42,8 +42,6 @@ export const pickerProps = {
   prefixIcon: Object,
   suffixIcon: Object,
   label: String,
-  shape: String,
-  tip: String,
   clearIcon: {
     type: Object,
     default() {
@@ -153,10 +151,6 @@ export const pickerProps = {
     default: false
   },
   title: String,
-  blank: {
-    type: Boolean,
-    default: false
-  },
   changeCompat: {
     type: Boolean,
     default: false

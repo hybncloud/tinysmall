@@ -124,11 +124,10 @@ export default {
           type: 'string',
           defaultValue: "''",
           desc: {
-            'zh-CN':
-              '设置 shape="filter" 属性之后，代表过滤器模式下显示的标题，单独设置 label 属性可以使 label 放置在组件的开始位置'
+            'zh-CN': '单独设置 label 属性可以使 label 放置在组件的开始位置'
           },
           mode: ['pc'],
-          pcDemo: 'filter-mode'
+          pcDemo: 'label-inside'
         },
         {
           name: 'modelValue / v-model',
@@ -226,16 +225,6 @@ export default {
           pcDemo: 'disabled'
         },
         {
-          name: 'shape',
-          type: 'string',
-          defaultValue: '',
-          desc: {
-            'zh-CN': '通过 shape="filter" 属性切换至过滤器模式'
-          },
-          mode: ['pc'],
-          pcDemo: 'filter-mode'
-        },
-        {
           name: 'show-timezone',
           type: 'boolean',
           defaultValue: 'false',
@@ -317,16 +306,6 @@ export default {
           },
           mode: ['pc'],
           pcDemo: 'format'
-        },
-        {
-          name: 'tip',
-          type: 'string',
-          defaultValue: '',
-          desc: {
-            'zh-CN': '过滤器模式下显示的提示信息'
-          },
-          mode: ['pc'],
-          pcDemo: 'filter-mode'
         },
         {
           name: 'type',

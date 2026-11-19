@@ -27,22 +27,8 @@
     @click="() => toggleDropDownVisible(state.readonly ? undefined : true)"
     @keydown="handleKeyDown"
   >
-    <tiny-filter-box
-      v-if="shape === 'filter'"
-      @click.stop="toggleDropDownVisible()"
-      :show-close="clearable"
-      :placeholder="placeholder"
-      :disabled="state.isDisabled"
-      :label="label"
-      :tip="tip"
-      :value="state.multiple ? state.presentTags.map((item) => item.text).join('; ') : state.inputValue"
-      :drop-down-visible="state.dropDownVisible"
-      :blank="blank"
-      :size="state.realSize"
-    ></tiny-filter-box>
     <div class="tiny-cascader-content">
       <tiny-input
-        v-if="shape !== 'filter'"
         ref="input"
         :model-value="state.multiple && filterable ? '' : state.inputValues"
         :size="state.realSize"
@@ -75,7 +61,7 @@
       </tiny-input>
       <div
         ref="tags-content"
-        v-if="state.multiple && !state.isDisplayOnly && !shape"
+        v-if="state.multiple && !state.isDisplayOnly"
         class="tiny-cascader__tags"
         :class="{
           'is-expand-content': hoverExpand && !state.isDisabled && (state.inputHover || state.dropDownVisible)
@@ -200,7 +186,6 @@ import Input from '@tinysmall/input'
 import Tag from '@tinysmall/tag'
 import Scrollbar from '@tinysmall/scrollbar'
 import CascaderPanel from '@tinysmall/cascader-panel'
-import FilterBox from '@tinysmall/filter-box'
 import Tooltip from '@tinysmall/tooltip'
 import { iconClose, IconChevronDown, IconUpWard, iconYes } from '@tinysmall/icon'
 import '@tinysmall/theme/cascader/index.less'
@@ -296,18 +281,11 @@ export const cascaderProps = {
     default: true
   },
   size: String,
-  shape: String,
-  label: String,
-  tip: String,
   displayOnly: {
     type: Boolean,
     default: false
   },
   hoverExpand: {
-    type: Boolean,
-    default: false
-  },
-  blank: {
     type: Boolean,
     default: false
   },
@@ -342,7 +320,6 @@ export default defineComponent({
     TinyInput: Input,
     TinyTag: Tag,
     TinyScrollbar: Scrollbar,
-    TinyFilterBox: FilterBox,
     TinyCascaderPanel: CascaderPanel,
     IconClose: iconClose(),
     IconChevronDown: IconChevronDown(),

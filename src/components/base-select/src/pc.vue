@@ -46,25 +46,6 @@
       :title="state.rootAutoTipConfig.content"
     >
       <slot name="reference">
-        <tiny-filter-box
-          v-if="shape === 'filter'"
-          ref="reference"
-          @click="toggleMenu"
-          :show-close="clearable"
-          :placeholder="placeholder"
-          :disabled="state.selectDisabled"
-          :label="label"
-          :tip="tip"
-          :value="
-            multiple
-              ? state.selected.map((item) => (item.state ? item.state.currentLabel : item.currentLabel)).join('; ')
-              : state.selectedLabel
-          "
-          :drop-down-visible="state.visible"
-          :blank="blank"
-          :size="state.selectSize"
-        >
-        </tiny-filter-box>
         <div
           ref="tags"
           :class="[
@@ -72,7 +53,7 @@
             { 'is-showicon': slots.prefix, 'not-selected': !state.selected.length },
             { 'is-show-tag': !state.isShowTagText }
           ]"
-          v-if="multiple && !state.isDisplayOnly && !shape"
+          v-if="multiple && !state.isDisplayOnly"
           :style="state.tagsStyle"
         >
           <span v-if="!state.isShowTagText">
@@ -261,7 +242,6 @@
           />
         </div>
         <tiny-input
-          v-if="!shape"
           ref="reference"
           v-model="state.selectedLabel"
           type="text"
@@ -361,20 +341,6 @@
           :style="dropStyle"
           :popper-options="popperOptions"
         >
-          <div
-            v-if="shape && filterable"
-            class="tiny-base-select__filter-input"
-            :class="[remote && !state.options.length ? 'tiny-base-select__remote-input' : '']"
-          >
-            <tiny-input
-              ref="input"
-              v-model="state.query"
-              :placeholder="placeholder"
-              @input="debouncedQueryChange"
-              @focus="handleFocus"
-              autofocus
-            ></tiny-input>
-          </div>
           <div v-if="topCreate" class="tiny-select__top-create">
             <div @click="$emit('top-create-click', $event)">
               <component :is="'icon-add-circle'"></component>
@@ -579,7 +545,6 @@ import {
   iconLoadingShadow
 } from '@tinysmall/icon'
 import TinyTooltip from '@tinysmall/tooltip'
-import FilterBox from '@tinysmall/filter-box'
 import RecycleScroller from '@tinysmall/recycle-scroller'
 
 import '@tinysmall/theme/select/index.less'
@@ -675,9 +640,6 @@ export const baseSelectProps = {
     }
   },
   title: String,
-  shape: String,
-  tip: String,
-  label: String,
   loading: Boolean,
   disabled: Boolean,
   options: Array,
@@ -866,10 +828,6 @@ export const baseSelectProps = {
     type: String,
     default: ''
   },
-  blank: {
-    type: Boolean,
-    default: false
-  },
   tooltipConfig: {
     type: Object,
     default() {
@@ -1001,7 +959,6 @@ export default defineComponent({
     IconHalfselect: iconHalfselect(),
     IconCheck: iconCheck(),
     IconCheckedSur: iconCheckedSur(),
-    TinyFilterBox: FilterBox,
     TinyTooltip,
     TinyRecycleScroller: RecycleScroller,
     // tiny 新增，

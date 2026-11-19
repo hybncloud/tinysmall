@@ -112,17 +112,6 @@ export default {
       codeFiles: ['custom-weeks.vue']
     },
     {
-      demoId: 'filter-mode',
-      name: {
-        'zh-CN': '过滤器模式'
-      },
-      desc: {
-        'zh-CN':
-          '<p>通过 <code>shape="filter"</code> 属性切换至过滤器模式。</p><p>过滤器模式下可传入 label 显示标题，tip 显示提示信息，clearable 是否显示清除按钮。</p>'
-      },
-      codeFiles: ['filter-mode.vue']
-    },
-    {
       demoId: 'label-inside',
       name: {
         'zh-CN': 'label 内置'

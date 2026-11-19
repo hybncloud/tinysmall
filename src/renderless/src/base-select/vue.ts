@@ -428,7 +428,7 @@ const addApi = ({ api, props, state, emit, constants, parent, nextTick, dispatch
     handleDebouncedQueryChange: handleDebouncedQueryChange({ state, api }),
     debouncedQueryChange: (event) => {
       // 解决无界下的异常
-      const value = props.shape ? event : event.target.value
+      const value = event.target.value
       api.handleDebouncedQueryChange(value)
     },
     debouncedOnInputChange: debounce(state.debounce, () => {

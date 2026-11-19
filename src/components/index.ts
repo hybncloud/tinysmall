@@ -36,7 +36,6 @@ import DropdownItem from './dropdown-item'
 import DropdownMenu from './dropdown-menu'
 import Exception from './exception'
 import FileUpload from './file-upload'
-import FilterBox from './filter-box'
 import Form from './form'
 import FormItem from './form-item'
 import Guide from './guide'
@@ -149,7 +148,6 @@ const components = [
   DropdownMenu,
   Exception,
   FileUpload,
-  FilterBox,
   Form,
   FormItem,
   Guide,
@@ -268,7 +266,6 @@ export default {
   TinyDropdownMenu: DropdownMenu,
   TinyException: Exception,
   TinyFileUpload: FileUpload,
-  TinyFilterBox: FilterBox,
   TinyForm: Form,
   TinyFormItem: FormItem,
   TinyGuide: Guide,
