@@ -33,35 +33,35 @@ import Select from '@tinysmall/base-select'
 import Option from '@tinysmall/option'
 
 export const dropTimesProps = {
-    ...$props,
-    modelValue: {},
-    placeholder: {
-      type: String,
-      default: ''
-    },
-    tabindex: {
-      type: String,
-      default: '1'
-    },
-    size: String,
-    popperClass: String,
-    popperAppendToBody: {
-      type: Boolean,
-      default: true
-    },
-    start: {
-      type: Number,
-      default: 0
-    },
-    end: {
-      type: Number,
-      default: 24 * 60
-    },
-    step: {
-      type: Number,
-      default: 15
-    }
+  ...$props,
+  modelValue: {},
+  placeholder: {
+    type: String,
+    default: ''
+  },
+  tabindex: {
+    type: String,
+    default: '1'
+  },
+  size: String,
+  popperClass: String,
+  popperAppendToBody: {
+    type: Boolean,
+    default: true
+  },
+  start: {
+    type: Number,
+    default: 0
+  },
+  end: {
+    type: Number,
+    default: 24 * 60
+  },
+  step: {
+    type: Number,
+    default: 15
   }
+}
 
 export default defineComponent({
   name: $prefix + 'DropTimes',
@@ -72,7 +72,7 @@ export default defineComponent({
   props: dropTimesProps,
   emits: ['change', 'update:modelValue', 'clear', 'visible-change'],
   setup(props, context) {
-    return setup({ props, context, renderless, api, mono: true })
+    return setup({ props, context, renderless, api })
   }
 })
 </script>

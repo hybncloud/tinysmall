@@ -273,7 +273,7 @@ export default defineComponent({
     TinyInput: Input
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api, mono: true }) as unknown as ISliderApi
+    return setup({ props, context, renderless, api }) as unknown as ISliderApi
   }
 })
 </script>

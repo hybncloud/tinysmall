@@ -23,12 +23,12 @@ import type { ICascaderPanelNode } from '@tinysmall/renderless/types/cascader-pa
 import '@tinysmall/theme/cascader-node/index.less'
 
 export const cascaderNodeProps = {
-    ...$props,
-    node: {
-      required: true
-    },
-    nodeId: String
-  }
+  ...$props,
+  node: {
+    required: true
+  },
+  nodeId: String
+}
 
 export default defineComponent({
   name: $prefix + 'CascaderNode',
@@ -46,7 +46,7 @@ export default defineComponent({
   inject: ['panel'],
   props: cascaderNodeProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api, mono: true }) as unknown as ICascaderNodeApi &
+    return setup({ props, context, renderless, api }) as unknown as ICascaderNodeApi &
       Pick<ICascaderNodeRenderlessParams, 'panel'>
   },
   render() {

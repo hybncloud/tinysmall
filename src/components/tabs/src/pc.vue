@@ -91,7 +91,7 @@ export default defineComponent({
     }
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api, mono: true }) as unknown as ITabsApi
+    return setup({ props, context, renderless, api }) as unknown as ITabsApi
   },
   render() {
     let {

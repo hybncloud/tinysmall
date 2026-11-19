@@ -200,7 +200,7 @@ export default defineComponent({
     IconClose: iconClose()
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api, mono: true }) as unknown as ISearchApi
+    return setup({ props, context, renderless, api }) as unknown as ISearchApi
   }
 })
 </script>

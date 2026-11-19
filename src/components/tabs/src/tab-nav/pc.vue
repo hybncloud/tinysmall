@@ -37,7 +37,7 @@ export default defineComponent({
   props: tabNavPcProps,
   inject: ['moreIcon'],
   setup(props, context) {
-    return setup({ props, context, renderless, api, mono: true }) as unknown as ITabNavApi
+    return setup({ props, context, renderless, api }) as unknown as ITabNavApi
   },
   render() {
     const {

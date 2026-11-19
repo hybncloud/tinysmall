@@ -219,7 +219,7 @@ export default defineComponent({
       context,
       renderless,
       api,
-      mono: true,
+
       extendOptions: {
         DatePanel,
         DateRangePanel,

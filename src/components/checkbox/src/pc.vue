@@ -169,7 +169,7 @@ export default defineComponent({
     IconCheck: iconCheck()
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api, mono: true }) as unknown as ICheckboxApi
+    return setup({ props, context, renderless, api }) as unknown as ICheckboxApi
   }
 })
 </script>

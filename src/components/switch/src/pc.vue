@@ -121,7 +121,7 @@ export default defineComponent({
   props: switchProps,
   components: { IconLoading: IconLoadingShadow() },
   setup(props, context) {
-    return setup({ props, context, renderless, api, mono: true }) as unknown as ISwitchApi
+    return setup({ props, context, renderless, api }) as unknown as ISwitchApi
   }
 })
 </script>

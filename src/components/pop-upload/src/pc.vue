@@ -182,63 +182,63 @@ export const $constants = {
 }
 
 export const popUploadProps = {
-    ...$props,
-    _constants: {
-      type: Object,
-      default: () => $constants
-    },
-    /** 文件列表，取自原 pc.vue props 数组 */
-    fileList: { type: Array, default: () => [] },
-    size: {
-      type: String,
-      default: '',
-      validator(val: string) {
-        return ['large', 'medium', 'small', 'mini', ''].includes(val)
-      }
-    },
-    data: Object,
-    uploadName: String,
-    dialogTitle: {
-      type: String,
-      default: ''
-    },
-    action: {
-      type: String,
-      default: ''
-    },
-    uploadButtonText: {
-      type: String,
-      default: ''
-    },
-    headers: {
-      type: Object,
-      default: () => ({})
-    },
-    withCredentials: {
-      type: Boolean,
-      default: false
-    },
-    limit: Number,
-    multiple: Boolean,
-    disabled: {
-      type: Boolean,
-      default: false
-    },
-    accept: String,
-    submitButtonText: {
-      typee: String,
-      default: ''
-    },
-    cancelButtonText: {
-      typee: String,
-      default: ''
-    },
-    uploadFileType: Array,
-    beforeUpload: Function,
-    beforeRemove: Function,
-    maxUploadFileSize: Number,
-    httpRequest: Function
-  }
+  ...$props,
+  _constants: {
+    type: Object,
+    default: () => $constants
+  },
+  /** 文件列表，取自原 pc.vue props 数组 */
+  fileList: { type: Array, default: () => [] },
+  size: {
+    type: String,
+    default: '',
+    validator(val: string) {
+      return ['large', 'medium', 'small', 'mini', ''].includes(val)
+    }
+  },
+  data: Object,
+  uploadName: String,
+  dialogTitle: {
+    type: String,
+    default: ''
+  },
+  action: {
+    type: String,
+    default: ''
+  },
+  uploadButtonText: {
+    type: String,
+    default: ''
+  },
+  headers: {
+    type: Object,
+    default: () => ({})
+  },
+  withCredentials: {
+    type: Boolean,
+    default: false
+  },
+  limit: Number,
+  multiple: Boolean,
+  disabled: {
+    type: Boolean,
+    default: false
+  },
+  accept: String,
+  submitButtonText: {
+    typee: String,
+    default: ''
+  },
+  cancelButtonText: {
+    typee: String,
+    default: ''
+  },
+  uploadFileType: Array,
+  beforeUpload: Function,
+  beforeRemove: Function,
+  maxUploadFileSize: Number,
+  httpRequest: Function
+}
 
 export default defineComponent({
   name: $prefix + 'PopUpload',
@@ -253,7 +253,7 @@ export default defineComponent({
   props: popUploadProps,
   emits: ['remove', 'progress', 'error', 'exceed', 'success'],
   setup(props, context) {
-    return setup({ props, context, renderless, api, mono: true })
+    return setup({ props, context, renderless, api })
   }
 })
 </script>

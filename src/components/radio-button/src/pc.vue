@@ -75,7 +75,7 @@ export default defineComponent({
   emits: ['change'],
   props: radioButtonProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api, mono: true }) as unknown as IRadioButtonApi
+    return setup({ props, context, renderless, api }) as unknown as IRadioButtonApi
   }
 })
 </script>

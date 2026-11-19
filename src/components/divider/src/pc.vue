@@ -85,7 +85,7 @@ export default defineComponent({
   name: $prefix + 'Divider',
   props: dividerProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api, mono: true })
+    return setup({ props, context, renderless, api })
   }
 })
 </script>

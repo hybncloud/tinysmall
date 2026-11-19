@@ -46,7 +46,7 @@ export default defineComponent({
     type: String
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api, mono: true })
+    return setup({ props, context, renderless, api })
   },
   render() {
     let { clearTimer, click, close, closeIcon, message, showClose } = this

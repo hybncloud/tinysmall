@@ -89,7 +89,7 @@ export default defineComponent({
   emits: ['changerange', 'pick'],
   props: dateTableProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api, mono: true })
+    return setup({ props, context, renderless, api })
   }
 })
 </script>

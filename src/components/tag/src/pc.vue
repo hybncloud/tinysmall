@@ -50,7 +50,7 @@ export default defineComponent({
   emits: ['click', 'close'],
   props: tagProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api, h, mono: true }) as unknown as ITagApi
+    return setup({ props, context, renderless, api, h }) as unknown as ITagApi
   },
   render() {
     const {

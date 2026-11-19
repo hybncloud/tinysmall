@@ -55,98 +55,98 @@ import Tree from '@tinysmall/tree'
 import BaseSelect from '@tinysmall/base-select'
 
 export const treeSelectProps = {
-    ...$props,
-    clearable: Boolean,
-    filterable: Boolean,
-    filterMethod: Function,
-    modelValue: {},
-    multiple: Boolean,
-    textField: {
-      type: String,
-      default: 'label'
-    },
-    treeOp: {
-      type: Object,
-      default: () => ({})
-    },
-    valueField: {
-      type: String,
-      default: 'value'
-    },
-    // 基础 props
-    size: String,
-    disabled: Boolean,
-    placeholder: String,
-    readonly: Boolean,
-    // 弹框相关
-    popperClass: String,
-    popperAppendToBody: {
-      type: Boolean,
-      default: true
-    },
-    placement: {
-      type: String,
-      default: 'bottom-start'
-    },
-    dropStyle: {
-      type: Object,
-      default: () => ({})
-    },
-    // 标签相关
-    collapseTags: Boolean,
-    copyable: Boolean,
-    textSplit: {
-      type: String,
-      default: ','
-    },
-    hoverExpand: Boolean,
-    clickExpand: Boolean,
-    showTips: {
-      type: Boolean,
-      default: true
-    },
-    // 搜索和过滤
-    searchable: Boolean,
-    // 多选相关
-    multipleLimit: {
-      type: Number,
-      default: 0
-    },
-    // 下拉图标
-    dropdownIcon: {
-      type: [Object, String],
-      default: ''
-    },
-    // 标签类型
-    tagType: {
-      type: String,
-      default: ''
-    },
-    // 输入框类型
-    inputBoxType: {
-      type: String,
-      default: 'normal',
-      validator: (value: string) => ['normal', 'underline'].includes(value)
-    },
-    // 多行默认最大显示行数
-    maxVisibleRows: {
-      type: Number,
-      default: 1
-    },
-    // 原生属性
-    name: String,
-    autocomplete: {
-      type: String,
-      default: 'off'
-    },
-    // 懒加载相关
-    lazy: {
-      type: Boolean,
-      default: false
-    },
-    load: Function,
-    afterLoad: Function
-  }
+  ...$props,
+  clearable: Boolean,
+  filterable: Boolean,
+  filterMethod: Function,
+  modelValue: {},
+  multiple: Boolean,
+  textField: {
+    type: String,
+    default: 'label'
+  },
+  treeOp: {
+    type: Object,
+    default: () => ({})
+  },
+  valueField: {
+    type: String,
+    default: 'value'
+  },
+  // 基础 props
+  size: String,
+  disabled: Boolean,
+  placeholder: String,
+  readonly: Boolean,
+  // 弹框相关
+  popperClass: String,
+  popperAppendToBody: {
+    type: Boolean,
+    default: true
+  },
+  placement: {
+    type: String,
+    default: 'bottom-start'
+  },
+  dropStyle: {
+    type: Object,
+    default: () => ({})
+  },
+  // 标签相关
+  collapseTags: Boolean,
+  copyable: Boolean,
+  textSplit: {
+    type: String,
+    default: ','
+  },
+  hoverExpand: Boolean,
+  clickExpand: Boolean,
+  showTips: {
+    type: Boolean,
+    default: true
+  },
+  // 搜索和过滤
+  searchable: Boolean,
+  // 多选相关
+  multipleLimit: {
+    type: Number,
+    default: 0
+  },
+  // 下拉图标
+  dropdownIcon: {
+    type: [Object, String],
+    default: ''
+  },
+  // 标签类型
+  tagType: {
+    type: String,
+    default: ''
+  },
+  // 输入框类型
+  inputBoxType: {
+    type: String,
+    default: 'normal',
+    validator: (value: string) => ['normal', 'underline'].includes(value)
+  },
+  // 多行默认最大显示行数
+  maxVisibleRows: {
+    type: Number,
+    default: 1
+  },
+  // 原生属性
+  name: String,
+  autocomplete: {
+    type: String,
+    default: 'off'
+  },
+  // 懒加载相关
+  lazy: {
+    type: Boolean,
+    default: false
+  },
+  load: Function,
+  afterLoad: Function
+}
 
 export default defineComponent({
   name: $prefix + 'TreeSelect',
@@ -157,7 +157,7 @@ export default defineComponent({
   },
   props: treeSelectProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api, mono: true })
+    return setup({ props, context, renderless, api })
   }
 })
 </script>

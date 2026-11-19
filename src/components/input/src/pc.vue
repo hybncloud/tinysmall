@@ -450,7 +450,7 @@ export default defineComponent({
       }
       return result
     }
-    return { ...setup({ props, context, renderless, api, mono: true }), filterAttrs }
+    return { ...setup({ props, context, renderless, api }), filterAttrs }
   }
 })
 </script>

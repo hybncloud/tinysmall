@@ -13,7 +13,17 @@
 
 <script lang="tsx">
 import { renderless, api } from '@tinysmall/renderless/tooltip/vue'
-import { $prefix, setup, createComponent, parseVnode, h, defineComponent, $props, isEmptyVnode, hooks } from '@tinysmall/common'
+import {
+  $prefix,
+  setup,
+  createComponent,
+  parseVnode,
+  h,
+  defineComponent,
+  $props,
+  isEmptyVnode,
+  hooks
+} from '@tinysmall/common'
 import { normalizeClass } from 'vue'
 import type { ITinyVm } from '@tinysmall/renderless/types/shared.type'
 import '@tinysmall/theme/tooltip/index.less'
@@ -117,7 +127,7 @@ export default defineComponent({
   componentName: 'Tooltip',
   props: tooltipProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api, mono: true }) as unknown as ITooltipApi
+    return setup({ props, context, renderless, api }) as unknown as ITooltipApi
   },
   render() {
     const getContent = (vm: ITinyVm<never>) => {

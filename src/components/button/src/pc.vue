@@ -132,7 +132,7 @@ export default defineComponent({
   props: buttonProps,
   components: { IconLoading: iconLoadingShadow() },
   setup(props, context) {
-    return setup({ props, context, renderless, api, mono: true }) as unknown as IButtonApi
+    return setup({ props, context, renderless, api }) as unknown as IButtonApi
   }
 })
 </script>

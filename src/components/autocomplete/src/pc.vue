@@ -193,7 +193,7 @@ export default defineComponent({
   props: autoCompleteProps,
   emits: ['update:modelValue', 'focus', 'blur', 'clear', 'select', 'created'],
   setup(props, context) {
-    return setup({ props, context, renderless, api, mono: true })
+    return setup({ props, context, renderless, api })
   }
 })
 </script>

@@ -29,48 +29,48 @@ import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/commo
 import '@tinysmall/theme/select-dropdown/index.less'
 
 export const selectDropdownProps = {
-    ...$props,
-    appendToBody: {
-      type: Boolean,
-      default: () => true
-    },
-    arrowOffset: {
-      type: Number,
-      default: () => 35
-    },
-    boundariesPadding: {
-      default: () => 0
-    },
-    isDropInheritWidth: Boolean,
-    modelValue: Boolean,
-    offset: {
-      default: () => 0
-    },
-    placement: {
-      default: () => 'bottom-start'
-    },
-    popper: {},
-    popperOptions: {
-      default: () => ({ gpuAcceleration: false })
-    },
-    reference: {},
-    transformOrigin: {
-      type: [Boolean, String],
-      default: () => true
-    },
-    visibleArrow: {
-      default: () => false
-    },
-    closeByMask: {
-      type: Boolean,
-      default: true
-    },
-    searchPlaceholder: {
-      type: String,
-      default: ''
-    },
-    title: String
-  }
+  ...$props,
+  appendToBody: {
+    type: Boolean,
+    default: () => true
+  },
+  arrowOffset: {
+    type: Number,
+    default: () => 35
+  },
+  boundariesPadding: {
+    default: () => 0
+  },
+  isDropInheritWidth: Boolean,
+  modelValue: Boolean,
+  offset: {
+    default: () => 0
+  },
+  placement: {
+    default: () => 'bottom-start'
+  },
+  popper: {},
+  popperOptions: {
+    default: () => ({ gpuAcceleration: false })
+  },
+  reference: {},
+  transformOrigin: {
+    type: [Boolean, String],
+    default: () => true
+  },
+  visibleArrow: {
+    default: () => false
+  },
+  closeByMask: {
+    type: Boolean,
+    default: true
+  },
+  searchPlaceholder: {
+    type: String,
+    default: ''
+  },
+  title: String
+}
 
 export default defineComponent({
   name: $prefix + 'SelectDropdown',
@@ -78,7 +78,7 @@ export default defineComponent({
   inject: ['select'],
   props: selectDropdownProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api, mono: true })
+    return setup({ props, context, renderless, api })
   }
 })
 </script>

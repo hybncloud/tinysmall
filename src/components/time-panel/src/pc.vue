@@ -47,9 +47,9 @@ import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/commo
 import Scrollbar from '@tinysmall/scrollbar'
 
 export const timePanelProps = {
-    ...$props,
-    emitter: Object
-  }
+  ...$props,
+  emitter: Object
+}
 
 export default defineComponent({
   name: $prefix + 'TimePanel',
@@ -60,7 +60,7 @@ export default defineComponent({
   },
   props: timePanelProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api, mono: true })
+    return setup({ props, context, renderless, api })
   }
 })
 </script>

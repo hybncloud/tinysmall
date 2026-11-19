@@ -96,57 +96,57 @@ export const $constants = {
 }
 
 export const carouselProps = {
-    ...$props,
-    _constants: {
-      type: Object,
-      default: () => $constants
-    },
-    initialIndex: {
-      type: Number,
-      default: 0
-    },
-    height: String,
-    trigger: {
-      type: String,
-      default: 'hover'
-    },
-    autoplay: {
-      type: Boolean,
-      default: false
-    },
-    interval: {
-      type: Number,
-      default: 3000
-    },
-    loop: {
-      type: Boolean,
-      default: true
-    },
-    disabled: {
-      type: Boolean,
-      default: false
-    },
-    indicatorPosition: String,
-    arrow: {
-      type: String,
-      default: 'hover'
-    },
-    type: {
-      type: String,
-      default: 'horizontal',
-      validator: (value: string) => Boolean(!value || ~['card', 'vertical', 'horizontal'].indexOf(value))
-    },
-    showTitle: {
-      type: Boolean,
-      default: false
-    },
-    aspectRatio: {
-      type: String,
-      default: '16:2'
-    },
-    lite: Boolean,
-    beforeSwipe: Function
-  }
+  ...$props,
+  _constants: {
+    type: Object,
+    default: () => $constants
+  },
+  initialIndex: {
+    type: Number,
+    default: 0
+  },
+  height: String,
+  trigger: {
+    type: String,
+    default: 'hover'
+  },
+  autoplay: {
+    type: Boolean,
+    default: false
+  },
+  interval: {
+    type: Number,
+    default: 3000
+  },
+  loop: {
+    type: Boolean,
+    default: true
+  },
+  disabled: {
+    type: Boolean,
+    default: false
+  },
+  indicatorPosition: String,
+  arrow: {
+    type: String,
+    default: 'hover'
+  },
+  type: {
+    type: String,
+    default: 'horizontal',
+    validator: (value: string) => Boolean(!value || ~['card', 'vertical', 'horizontal'].indexOf(value))
+  },
+  showTitle: {
+    type: Boolean,
+    default: false
+  },
+  aspectRatio: {
+    type: String,
+    default: '16:2'
+  },
+  lite: Boolean,
+  beforeSwipe: Function
+}
 
 export default defineComponent({
   name: $prefix + 'Carousel',
@@ -154,7 +154,7 @@ export default defineComponent({
   emits: ['change', 'complete', 'updateItems'],
   props: carouselProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api, mono: true })
+    return setup({ props, context, renderless, api })
   },
   components: {
     IconChevronLeft: iconChevronLeft(),

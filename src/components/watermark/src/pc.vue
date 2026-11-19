@@ -41,7 +41,7 @@ export default defineComponent({
     interlaced: { type: Boolean, default: true }
   },
   setup(props, context) {
-    return setup({ props, context, renderless, mono: true, api })
+    return setup({ props, context, renderless, api })
   }
 })
 </script>

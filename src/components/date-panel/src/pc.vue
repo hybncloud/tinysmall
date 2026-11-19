@@ -267,60 +267,60 @@ import {
 import Popup from '@tinysmall/popup'
 
 export const datePanelProps = {
-    ...$props,
-    emitter: Object,
-    /** 时间选择器是否可编辑，取自原 pc.vue 本地 props（模板 :readonly 引用） */
-    timeEditable: {
-      type: Boolean,
-      default: true
-    },
-    step: {
-      type: Object,
-      default() {
-        return { hour: 1, minute: 1, second: 1 }
-      }
-    },
-    showWeekNumber: {
-      type: Boolean,
-      default: false
-    },
-    formatWeeks: Function,
-    type: {
-      type: String,
-      default: ''
-    },
-    firstDayOfWeek: {
-      type: Number,
-      default: 7
-    },
-    nowClick: {
-      type: Function
-    },
-    modelValue: {
-      type: [Date, String, Number],
-      default: ''
-    },
-    format: {
-      type: String,
-      default: ''
-    },
-    readonly: {
-      type: Boolean,
-      default: false
-    },
-    shortcuts: {
-      type: Array,
-      default: () => []
-    },
-    disabledDate: {
-      type: Function,
-      default: () => null
-    },
-    popperClass: {
-      type: String,
-      default: ''
+  ...$props,
+  emitter: Object,
+  /** 时间选择器是否可编辑，取自原 pc.vue 本地 props（模板 :readonly 引用） */
+  timeEditable: {
+    type: Boolean,
+    default: true
+  },
+  step: {
+    type: Object,
+    default() {
+      return { hour: 1, minute: 1, second: 1 }
     }
+  },
+  showWeekNumber: {
+    type: Boolean,
+    default: false
+  },
+  formatWeeks: Function,
+  type: {
+    type: String,
+    default: ''
+  },
+  firstDayOfWeek: {
+    type: Number,
+    default: 7
+  },
+  nowClick: {
+    type: Function
+  },
+  modelValue: {
+    type: [Date, String, Number],
+    default: ''
+  },
+  format: {
+    type: String,
+    default: ''
+  },
+  readonly: {
+    type: Boolean,
+    default: false
+  },
+  shortcuts: {
+    type: Array,
+    default: () => []
+  },
+  disabledDate: {
+    type: Function,
+    default: () => null
+  },
+  popperClass: {
+    type: String,
+    default: ''
   }
+}
 
 export default defineComponent({
   name: $prefix + 'DatePanel',
@@ -349,7 +349,7 @@ export default defineComponent({
       context,
       renderless,
       api,
-      mono: true,
+
       extendOptions: { language }
     })
   }

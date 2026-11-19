@@ -29,22 +29,22 @@ import type { ICascaderPanelApi } from '@tinysmall/renderless/types/cascader-pan
 import '@tinysmall/theme/cascader-panel/index.less'
 
 export const cascaderPanelProps = {
-    ...$props,
-    modelValue: {},
-    options: Array,
-    props: Object,
-    border: {
-      type: Boolean,
-      default: true
-    },
-    renderLabel: Function,
-    // 面板是直接使用，还是在级联组件中被使用， 先仅影响pc模板
-    // 私有属性，无需体现在api 文档
-    onlyUsePanel: {
-      type: Boolean,
-      default: true
-    }
+  ...$props,
+  modelValue: {},
+  options: Array,
+  props: Object,
+  border: {
+    type: Boolean,
+    default: true
+  },
+  renderLabel: Function,
+  // 面板是直接使用，还是在级联组件中被使用， 先仅影响pc模板
+  // 私有属性，无需体现在api 文档
+  onlyUsePanel: {
+    type: Boolean,
+    default: true
   }
+}
 
 export default defineComponent({
   name: $prefix + 'CascaderPanel',
@@ -60,7 +60,7 @@ export default defineComponent({
   },
   emits: ['update:modelValue', 'change', 'close', 'expand-change', 'active-item-change', 'load-data'],
   setup(props, context) {
-    return setup({ props, context, renderless, api, mono: true }) as unknown as ICascaderPanelApi
+    return setup({ props, context, renderless, api }) as unknown as ICascaderPanelApi
   }
 })
 </script>

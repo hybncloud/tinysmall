@@ -163,47 +163,47 @@ export const $constants = {
 }
 
 export const timeSpinnerProps = {
-    ...$props,
-    _constants: {
-      type: Object,
-      default: () => $constants
+  ...$props,
+  _constants: {
+    type: Object,
+    default: () => $constants
+  },
+  date: {},
+  defaultValue: {},
+  showSeconds: {
+    type: Boolean,
+    default: true
+  },
+  arrowControl: Boolean,
+  amPmMode: {
+    type: String,
+    default: '' // 'a': am/pm; 'A': AM/PM
+  },
+  step: {
+    type: Object,
+    default() {
+      return { hour: 1, minute: 1, second: 1 }
     },
-    date: {},
-    defaultValue: {},
-    showSeconds: {
-      type: Boolean,
-      default: true
-    },
-    arrowControl: Boolean,
-    amPmMode: {
-      type: String,
-      default: '' // 'a': am/pm; 'A': AM/PM
-    },
-    step: {
-      type: Object,
-      default() {
-        return { hour: 1, minute: 1, second: 1 }
-      },
-      validator: ({ hour, minute, second }) => {
-        const validateArray = [
-          { value: hour, range: 24 },
-          { value: minute, range: 60 },
-          { value: second, range: 60 }
-        ]
-        return validateArray.every(({ value, range }) =>
-          value || value === 0 ? Math.floor(value) === value && value > 0 && value <= range : true
-        )
-      }
-    },
-    startDate: {
-      type: [Object, Date, String, Number],
-      default: () => ''
-    },
-    endDate: {
-      type: [Object, Date, String, Number],
-      default: () => ''
+    validator: ({ hour, minute, second }) => {
+      const validateArray = [
+        { value: hour, range: 24 },
+        { value: minute, range: 60 },
+        { value: second, range: 60 }
+      ]
+      return validateArray.every(({ value, range }) =>
+        value || value === 0 ? Math.floor(value) === value && value > 0 && value <= range : true
+      )
     }
+  },
+  startDate: {
+    type: [Object, Date, String, Number],
+    default: () => ''
+  },
+  endDate: {
+    type: [Object, Date, String, Number],
+    default: () => ''
   }
+}
 
 export default defineComponent({
   name: $prefix + 'TimeSpinner',
@@ -218,7 +218,7 @@ export default defineComponent({
   props: timeSpinnerProps,
 
   setup(props, context) {
-    return setup({ props, context, renderless, api, mono: true })
+    return setup({ props, context, renderless, api })
   }
 })
 </script>

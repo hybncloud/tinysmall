@@ -42,7 +42,7 @@ export default defineComponent({
     wrapStyle: {}
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api, mono: true })
+    return setup({ props, context, renderless, api })
   },
   render() {
     const {

@@ -219,7 +219,7 @@ export default defineComponent({
   },
   props: transferProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api, mono: true }) as unknown as ITransferApi
+    return setup({ props, context, renderless, api }) as unknown as ITransferApi
   }
 })
 </script>

@@ -157,7 +157,7 @@ export default defineComponent({
   },
   emits: ['dodestroy', 'pick', 'select-change', 'update:modelValue'],
   setup(props, context) {
-    return setup({ props, context, renderless, api, mono: true })
+    return setup({ props, context, renderless, api })
   }
 })
 </script>

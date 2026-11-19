@@ -25,7 +25,7 @@ export default defineComponent({
     move: Number
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api, mono: true, h })
+    return setup({ props, context, renderless, api, h })
   },
   render() {
     const {

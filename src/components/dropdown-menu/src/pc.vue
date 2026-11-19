@@ -123,7 +123,7 @@ export default defineComponent({
   ],
   props: dropdownMenuProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api, mono: true }) as unknown as IDropdownMenuApi
+    return setup({ props, context, renderless, api }) as unknown as IDropdownMenuApi
   }
 })
 </script>

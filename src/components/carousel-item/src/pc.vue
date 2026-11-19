@@ -44,24 +44,24 @@ export const $constants = {
 }
 
 export const carouselItemProps = {
-    ...$props,
-    _constants: {
-      type: Object,
-      default: () => $constants
-    },
-    name: String,
-    title: String,
-    label: {
-      type: [String, Number],
-      default: ''
-    }
+  ...$props,
+  _constants: {
+    type: Object,
+    default: () => $constants
+  },
+  name: String,
+  title: String,
+  label: {
+    type: [String, Number],
+    default: ''
   }
+}
 
 export default defineComponent({
   name: $prefix + 'CarouselItem',
   props: carouselItemProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api, mono: true })
+    return setup({ props, context, renderless, api })
   }
 })
 </script>

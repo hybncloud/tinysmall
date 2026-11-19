@@ -310,7 +310,7 @@ export default defineComponent({
       context,
       renderless,
       api,
-      mono: true,
+
       extendOptions: { Modal, Streamsaver }
     }) as unknown as IFileUploadApi
   },

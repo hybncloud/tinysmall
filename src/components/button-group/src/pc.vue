@@ -180,7 +180,7 @@ export default defineComponent({
     IconEditor: iconEditor() // 新规范图标
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api, mono: true }) as unknown as IButtonGroupApi
+    return setup({ props, context, renderless, api }) as unknown as IButtonGroupApi
   }
 })
 </script>

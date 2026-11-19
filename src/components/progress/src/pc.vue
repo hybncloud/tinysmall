@@ -206,7 +206,7 @@ export default defineComponent({
     IconWarning: iconWarning()
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api, mono: true }) as unknown as IProgressApi
+    return setup({ props, context, renderless, api }) as unknown as IProgressApi
   }
 })
 </script>

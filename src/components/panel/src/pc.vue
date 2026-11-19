@@ -48,34 +48,34 @@ import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/commo
 import { iconChevronDown, iconChevronRight } from '@tinysmall/icon'
 
 export const panelProps = {
-    ...$props,
-    expand: {
-      type: Boolean,
-      default: true
-    },
-    foot: {
-      type: String
-    },
-    head: {
-      type: String
-    },
-    iconOpen: {
-      type: String,
-      default: 'icon-chevron-down'
-    },
-    iconClose: {
-      type: String,
-      default: 'icon-chevron-right'
-    },
-    isToggle: {
-      type: Boolean,
-      default: false
-    },
-    transition: {
-      type: String,
-      default: 'panel'
-    }
+  ...$props,
+  expand: {
+    type: Boolean,
+    default: true
+  },
+  foot: {
+    type: String
+  },
+  head: {
+    type: String
+  },
+  iconOpen: {
+    type: String,
+    default: 'icon-chevron-down'
+  },
+  iconClose: {
+    type: String,
+    default: 'icon-chevron-right'
+  },
+  isToggle: {
+    type: Boolean,
+    default: false
+  },
+  transition: {
+    type: String,
+    default: 'panel'
   }
+}
 
 export default defineComponent({
   name: $prefix + 'Panel',
@@ -86,7 +86,7 @@ export default defineComponent({
   emits: ['expand', 'collapse'],
   props: panelProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api, mono: true })
+    return setup({ props, context, renderless, api })
   }
 })
 </script>

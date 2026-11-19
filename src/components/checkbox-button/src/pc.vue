@@ -69,35 +69,35 @@ export const $constants = {
 }
 
 export const checkboxButtonProps = {
-    ...$props,
-    _constants: {
-      type: Object,
-      default: () => $constants
-    },
-    modelValue: {},
-    label: {},
-    disabled: Boolean,
-    checked: Boolean,
-    name: String,
-    trueLabel: [String, Number],
-    falseLabel: [String, Number],
-    text: String,
-    events: {
-      type: Object,
-      default: () => ({})
-    },
-    tabindex: {
-      type: String,
-      default: '0'
-    }
+  ...$props,
+  _constants: {
+    type: Object,
+    default: () => $constants
+  },
+  modelValue: {},
+  label: {},
+  disabled: Boolean,
+  checked: Boolean,
+  name: String,
+  trueLabel: [String, Number],
+  falseLabel: [String, Number],
+  text: String,
+  events: {
+    type: Object,
+    default: () => ({})
+  },
+  tabindex: {
+    type: String,
+    default: '0'
   }
+}
 
 export default defineComponent({
   name: $prefix + 'CheckboxButton',
   emits: ['change', 'update:modelValue'],
   props: checkboxButtonProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api, mono: true })
+    return setup({ props, context, renderless, api })
   }
 })
 </script>

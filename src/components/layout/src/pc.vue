@@ -20,17 +20,17 @@ import { renderless, api } from '@tinysmall/renderless/layout/vue'
 import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
 
 export const layoutProps = {
-    ...$props,
-    tag: {
-      type: String,
-      default: 'div'
-    },
-    cols: {
-      type: Number,
-      default: 12,
-      validator: (value: string) => Boolean(~[12, 24].indexOf(value))
-    }
+  ...$props,
+  tag: {
+    type: String,
+    default: 'div'
+  },
+  cols: {
+    type: Number,
+    default: 12,
+    validator: (value: string) => Boolean(~[12, 24].indexOf(value))
   }
+}
 
 export default defineComponent({
   name: $prefix + 'Layout',
@@ -41,7 +41,7 @@ export default defineComponent({
   },
   props: layoutProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api, mono: true })
+    return setup({ props, context, renderless, api })
   }
 })
 </script>

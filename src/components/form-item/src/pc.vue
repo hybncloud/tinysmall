@@ -10,15 +10,7 @@
  *
  -->
 <script lang="tsx">
-import {
-  $props,
-  $prefix,
-  setup,
-  parseVnode,
-  h,
-  defineComponent,
-  hooks
-} from '@tinysmall/common'
+import { $props, $prefix, setup, parseVnode, h, defineComponent, hooks } from '@tinysmall/common'
 import { normalizeClass } from 'vue'
 import { renderless, api } from '@tinysmall/renderless/form-item/vue'
 import LabelWrap from './label-wrap'
@@ -103,7 +95,7 @@ export default defineComponent({
   },
   props: formItemProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api, mono: true }) as unknown as IFormItemApi
+    return setup({ props, context, renderless, api }) as unknown as IFormItemApi
   },
 
   render() {

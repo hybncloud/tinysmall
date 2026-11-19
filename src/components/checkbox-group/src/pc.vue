@@ -36,37 +36,37 @@ export const $constants = {
 }
 
 export const checkboxGroupProps = {
-    ...$props,
-    _constants: {
-      type: Object,
-      default: () => $constants
-    },
-    modelValue: {},
-    disabled: Boolean,
-    min: Number,
-    max: Number,
-    size: String,
-    fill: String,
-    textColor: String,
-    vertical: Boolean,
-    options: {
-      type: Array,
-      default: () => []
-    },
-    type: {
-      type: String,
-      default: 'checkbox'
-    },
-    displayOnly: {
-      type: Boolean,
-      default: false
-    },
-    iconPosition: String as PropType<IconPosition>,
-    shape: {
-      type: String,
-      default: ''
-    }
+  ...$props,
+  _constants: {
+    type: Object,
+    default: () => $constants
+  },
+  modelValue: {},
+  disabled: Boolean,
+  min: Number,
+  max: Number,
+  size: String,
+  fill: String,
+  textColor: String,
+  vertical: Boolean,
+  options: {
+    type: Array,
+    default: () => []
+  },
+  type: {
+    type: String,
+    default: 'checkbox'
+  },
+  displayOnly: {
+    type: Boolean,
+    default: false
+  },
+  iconPosition: String as PropType<IconPosition>,
+  shape: {
+    type: String,
+    default: ''
   }
+}
 
 export default defineComponent({
   name: $prefix + 'CheckboxGroup',
@@ -78,7 +78,7 @@ export default defineComponent({
   },
   props: checkboxGroupProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api, mono: true })
+    return setup({ props, context, renderless, api })
   }
 })
 </script>

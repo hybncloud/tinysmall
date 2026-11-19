@@ -117,7 +117,7 @@ export default defineComponent({
     emitter: Object
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api, mono: true })
+    return setup({ props, context, renderless, api })
   }
 })
 </script>

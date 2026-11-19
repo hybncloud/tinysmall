@@ -58,7 +58,7 @@ export default defineComponent({
   name: 'TinySpace',
   props: spaceProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api, mono: true }) as unknown as ISpaceApi
+    return setup({ props, context, renderless, api }) as unknown as ISpaceApi
   },
   render() {
     // 如果 renderless 层有 orderedChildren，就用它，否则 fallback 到默认 slot

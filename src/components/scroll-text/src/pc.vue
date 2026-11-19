@@ -37,43 +37,43 @@ export const $constants = {
 }
 
 export const scrollTextProps = {
-    ...$props,
-    _constants: {
-      type: Object,
-      default: () => $constants
-    },
-    text: {
-      type: String,
-      default: 'ScrollText'
-    },
-    time: {
-      type: Number,
-      default: 5
-    },
-    styles: {
-      type: String,
-      default: ''
-    },
-    direction: {
-      type: String,
-      default: 'left',
-      validator: (value: string) => Boolean(~['up', 'left', 'down', 'right'].indexOf(value))
-    },
-    hoverStop: {
-      type: Boolean,
-      default: true
-    },
-    widthAdapt: {
-      type: Boolean,
-      default: false
-    }
+  ...$props,
+  _constants: {
+    type: Object,
+    default: () => $constants
+  },
+  text: {
+    type: String,
+    default: 'ScrollText'
+  },
+  time: {
+    type: Number,
+    default: 5
+  },
+  styles: {
+    type: String,
+    default: ''
+  },
+  direction: {
+    type: String,
+    default: 'left',
+    validator: (value: string) => Boolean(~['up', 'left', 'down', 'right'].indexOf(value))
+  },
+  hoverStop: {
+    type: Boolean,
+    default: true
+  },
+  widthAdapt: {
+    type: Boolean,
+    default: false
   }
+}
 
 export default defineComponent({
   name: $prefix + 'ScrollText',
   props: scrollTextProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api, mono: true })
+    return setup({ props, context, renderless, api })
   }
 })
 </script>

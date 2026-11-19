@@ -262,60 +262,60 @@ export const $constants = {
 }
 
 export const dateRangeProps = {
-    ...$props,
-    _constants: {
-      type: Object,
-      default: () => $constants
-    },
-    emitter: Object,
-    step: {
-      type: Object,
-      default() {
-        return { hour: 1, minute: 1, second: 1 }
-      }
-    },
-    showWeekNumber: {
-      type: Boolean,
-      default: false
-    },
-    formatWeeks: Function,
-    timeEditable: {
-      type: Boolean,
-      default: true
-    },
-    type: {
-      type: String,
-      default: 'daterange'
-    },
-    modelValue: {
-      type: Array,
-      default: () => []
-    },
-    format: {
-      type: String,
-      default: ''
-    },
-    readonly: {
-      type: Boolean,
-      default: false
-    },
-    shortcuts: {
-      type: Array,
-      default: () => []
-    },
-    disabledDate: {
-      type: Function,
-      default: null
-    },
-    popperClass: {
-      type: String,
-      default: ''
-    },
-    unlinkPanels: {
-      type: Boolean,
-      default: false
+  ...$props,
+  _constants: {
+    type: Object,
+    default: () => $constants
+  },
+  emitter: Object,
+  step: {
+    type: Object,
+    default() {
+      return { hour: 1, minute: 1, second: 1 }
     }
+  },
+  showWeekNumber: {
+    type: Boolean,
+    default: false
+  },
+  formatWeeks: Function,
+  timeEditable: {
+    type: Boolean,
+    default: true
+  },
+  type: {
+    type: String,
+    default: 'daterange'
+  },
+  modelValue: {
+    type: Array,
+    default: () => []
+  },
+  format: {
+    type: String,
+    default: ''
+  },
+  readonly: {
+    type: Boolean,
+    default: false
+  },
+  shortcuts: {
+    type: Array,
+    default: () => []
+  },
+  disabledDate: {
+    type: Function,
+    default: null
+  },
+  popperClass: {
+    type: String,
+    default: ''
+  },
+  unlinkPanels: {
+    type: Boolean,
+    default: false
   }
+}
 
 export default defineComponent({
   name: $prefix + 'DateRange',
@@ -334,7 +334,7 @@ export default defineComponent({
   props: dateRangeProps,
   emits: ['dodestroy', 'pick', 'select-change', 'update:modelValue'],
   setup(props, context) {
-    return setup({ props, context, renderless, api, mono: true })
+    return setup({ props, context, renderless, api })
   }
 })
 </script>

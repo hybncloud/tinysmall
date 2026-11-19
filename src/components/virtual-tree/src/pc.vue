@@ -43,19 +43,19 @@ import VirtualScrollBox from '@tinysmall/virtual-scroll-box'
 import Tree from '@tinysmall/tree'
 
 export const virtualTreeProps = {
-    ...$props,
-    width: [Number, String],
-    height: [Number, String],
-    rowHeight: {
-      type: Number,
-      default: 36
-    },
-    scrollbarSize: {
-      type: Number,
-      default: 6
-    },
-    treeOp: null
-  }
+  ...$props,
+  width: [Number, String],
+  height: [Number, String],
+  rowHeight: {
+    type: Number,
+    default: 36
+  },
+  scrollbarSize: {
+    type: Number,
+    default: 6
+  },
+  treeOp: null
+}
 
 export default defineComponent({
   name: $prefix + 'VirtualTree',
@@ -66,7 +66,7 @@ export default defineComponent({
     TinyTree: Tree
   },
   setup(props, context): any {
-    return setup({ props, context, renderless, api, mono: true })
+    return setup({ props, context, renderless, api })
   }
 })
 </script>

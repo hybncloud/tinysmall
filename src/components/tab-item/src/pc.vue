@@ -52,7 +52,7 @@ export default defineComponent({
   emits: ['tab-nav-update'],
   props: tabItemProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api, mono: true }) as unknown as ITabItemApi
+    return setup({ props, context, renderless, api }) as unknown as ITabItemApi
   }
 })
 </script>

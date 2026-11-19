@@ -68,18 +68,18 @@ import TimeSpinner from '@tinysmall/time-spinner'
 import Button from '@tinysmall/button'
 
 export const timeProps = {
-    ...$props,
-    show: Boolean,
-    timeArrowControl: Boolean,
-    emitter: Object,
-    value: Date,
-    step: {
-      type: Object,
-      default() {
-        return { hour: 1, minute: 1, second: 1 }
-      }
+  ...$props,
+  show: Boolean,
+  timeArrowControl: Boolean,
+  emitter: Object,
+  value: Date,
+  step: {
+    type: Object,
+    default() {
+      return { hour: 1, minute: 1, second: 1 }
     }
   }
+}
 
 export default defineComponent({
   name: $prefix + 'Time',
@@ -91,7 +91,7 @@ export default defineComponent({
   },
   props: timeProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api, mono: true })
+    return setup({ props, context, renderless, api })
   }
 })
 </script>

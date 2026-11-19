@@ -170,7 +170,7 @@ export default defineComponent({
   },
   props: transferPanelProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api, mono: true })
+    return setup({ props, context, renderless, api })
   }
 })
 </script>

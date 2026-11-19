@@ -54,7 +54,7 @@ export default defineComponent({
     }
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api, mono: true, extendOptions: { QRCode } })
+    return setup({ props, context, renderless, api, extendOptions: { QRCode } })
   }
 })
 </script>

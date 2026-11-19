@@ -18,20 +18,20 @@ import { $props, setup, $prefix, props, defineComponent } from '@tinysmall/commo
 import '@tinysmall/theme/option-group/index.less'
 
 export const optionGroupProps = {
-    ...$props,
-    label: String,
-    disabled: {
-      type: Boolean,
-      default: false
-    }
+  ...$props,
+  label: String,
+  disabled: {
+    type: Boolean,
+    default: false
   }
+}
 
 export default defineComponent({
   name: $prefix + 'OptionGroup',
   componentName: 'OptionGroup',
   props: optionGroupProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api, mono: true })
+    return setup({ props, context, renderless, api })
   }
 })
 </script>

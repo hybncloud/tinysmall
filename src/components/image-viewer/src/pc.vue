@@ -109,68 +109,68 @@ export const $constants = {
 }
 
 export const imageViewerProps = {
-    ...$props,
-    _constants: {
-      type: Object,
-      default: () => $constants
-    },
-    urlList: {
-      type: Array,
-      default: () => []
-    },
-    zIndex: {
-      type: Number,
-      default: $constants.DEFAULT_POPPER_ZINDEX
-    },
-    previewVisible: {
-      type: Boolean,
-      default: false
-    },
-    showIndex: {
-      type: Boolean,
-      default: false
-    },
-    imageFullCurrent: {
-      type: Boolean,
-      default: false
-    },
-    startPosition: {
-      type: Number,
-      default: 0
-    },
-    asyncClose: {
-      type: Boolean,
-      default: false
-    },
-    deleteButton: {
-      type: Boolean,
-      default: false
-    },
-    onSwitch: {
-      type: Function,
-      default: () => {
-        // do nothing
-      }
-    },
-    onClose: {
-      type: Function,
-      default: () => {
-        // do nothing
-      }
-    },
-    isThumbnail: {
-      type: Boolean,
-      default: false
-    },
-    isMenuView: {
-      type: Boolean,
-      default: false
-    },
-    keepStyle: {
-      type: Boolean,
-      default: false
+  ...$props,
+  _constants: {
+    type: Object,
+    default: () => $constants
+  },
+  urlList: {
+    type: Array,
+    default: () => []
+  },
+  zIndex: {
+    type: Number,
+    default: $constants.DEFAULT_POPPER_ZINDEX
+  },
+  previewVisible: {
+    type: Boolean,
+    default: false
+  },
+  showIndex: {
+    type: Boolean,
+    default: false
+  },
+  imageFullCurrent: {
+    type: Boolean,
+    default: false
+  },
+  startPosition: {
+    type: Number,
+    default: 0
+  },
+  asyncClose: {
+    type: Boolean,
+    default: false
+  },
+  deleteButton: {
+    type: Boolean,
+    default: false
+  },
+  onSwitch: {
+    type: Function,
+    default: () => {
+      // do nothing
     }
+  },
+  onClose: {
+    type: Function,
+    default: () => {
+      // do nothing
+    }
+  },
+  isThumbnail: {
+    type: Boolean,
+    default: false
+  },
+  isMenuView: {
+    type: Boolean,
+    default: false
+  },
+  keepStyle: {
+    type: Boolean,
+    default: false
   }
+}
 
 export default defineComponent({
   name: $prefix + 'ImageViewer',
@@ -188,7 +188,7 @@ export default defineComponent({
     IconRefres: iconRefres()
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api, mono: true })
+    return setup({ props, context, renderless, api })
   }
 })
 </script>
