@@ -551,9 +551,9 @@ import RecycleScroller from '@tinysmall/recycle-scroller'
 import '@tinysmall/theme/select/index.less'
 import '@tinysmall/theme/base-select/index.less'
 
-const getReference = (el, binding, vnode) => {
+const getReference = (el, binding) => {
   const _ref = binding.expression ? binding.value : binding.arg
-  const popper = vnode.context.$refs[_ref]
+  const popper = binding.instance.$refs[_ref]
 
   if (popper) {
     if (Array.isArray(popper)) {
@@ -880,11 +880,11 @@ export default defineComponent({
     Clickoutside,
     AutoTip,
     popover: {
-      bind(el, binding, vnode) {
-        getReference(el, binding, vnode)
+      beforeMount(el, binding) {
+        getReference(el, binding)
       },
-      inserted(el, binding, vnode) {
-        getReference(el, binding, vnode)
+      mounted(el, binding) {
+        getReference(el, binding)
       }
     }
   }),

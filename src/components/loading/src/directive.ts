@@ -122,8 +122,8 @@ const toggleLoading = (el, binding, maskInstance) => {
 }
 
 const vLoading = {
-  inserted(el, binding, vnode) {
-    const vm = vnode.context
+  mounted(el, binding) {
+    const vm = binding.instance
     const textExr = el.getAttribute(constants.TEXT_ATTR)
     const spinnerExr = el.getAttribute(constants.TEXT_SPINNER)
     const backgroundExr = el.getAttribute(constants.TEXT_BACKGROUND)
@@ -131,9 +131,7 @@ const vLoading = {
 
     const mask = createComponent({
       component: Loading,
-      propsData: {
-        _constants: constants
-      },
+      propsData: {},
       el: document.createElement('div')
     })
 
@@ -158,14 +156,14 @@ const vLoading = {
 
     binding.value && toggleLoading(el, binding, mask)
   },
-  update(el, binding) {
+  updated(el, binding) {
     el.instance.setText(el.getAttribute(constants.TEXT_ATTR))
 
     if (binding.oldValue !== binding.value) {
       toggleLoading(el, binding, el.instance)
     }
   },
-  unbind(el, binding) {
+  unmounted(el, binding) {
     if (el.domInserted) {
       el.mask && el.mask.parentNode && el.mask.parentNode.removeChild(el.mask)
       toggleLoading(el, { value: false, modifiers: binding.modifiers }, el.instance)

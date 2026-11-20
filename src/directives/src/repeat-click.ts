@@ -12,7 +12,7 @@
 import { on, once } from '@tinysmall/utils'
 
 export default {
-  bind(el, binding) {
+  beforeMount(el, binding) {
     // fix issue#919
     const LONG_PRESS_INTERVAL = 200
 

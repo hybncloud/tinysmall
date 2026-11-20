@@ -77,12 +77,6 @@ const emitEvent = (vm) => {
   }
 }
 
-// 跳过异步组件包装层：子组件的 parent 链可能被 AsyncComponentWrapper 隔开
-const getRealParent = (vm) => {
-  if (vm && vm.parent)
-    return vm.parent.type.name === 'AsyncComponentWrapper' && vm.parent.parent ? vm.parent.parent : vm.parent
-}
-
 const defineProperties = (vm, instance, property, filter) => {
   for (const name in instance[property]) {
     if (typeof filter === 'function' && filter(name)) continue
@@ -130,12 +124,11 @@ const createVm = (vm, instance, context = null) => {
     $once: { get: () => $emitter.once },
     $options: { get: () => ({ componentName: instance.type.componentName }) },
     $parent: {
-      get: () => instance.parent && createVm({}, getRealParent(instance))
+      get: () => instance.parent && createVm({}, instance.parent)
     },
     $refs: { get: () => instance.refs },
     $scopedSlots: { get: () => instance.slots },
-    $slots: { get: () => instance.slots },
-    slots: { configurable: true, get: () => instance.slots }
+    $slots: { get: () => instance.slots }
   })
 
   return vm
@@ -167,7 +160,7 @@ export const tools = (context) => {
     }
   )
 
-  const parentVm = getRealParent(instance) ? createVm({}, getRealParent(instance)) : null
+  const parentVm = instance.parent ? createVm({}, instance.parent) : null
 
   const defineInstanceProperties = (props) => {
     Object.defineProperties(vm, props)
@@ -192,31 +185,9 @@ export const tools = (context) => {
   }
 }
 
-const mapping = (content, before, after) => {
-  if (typeof content[before] !== 'undefined') {
-    const fn = content[before]
-
-    content[after] = (el, binding, vnode) => {
-      vnode.context = binding.instance
-      fn(el, binding, vnode)
-    }
-
-    delete content[before]
-  }
-}
-
-export const directive = (directives) => {
-  for (const name in directives) {
-    const content = directives[name]
-
-    mapping(content, 'inserted', 'mounted')
-    mapping(content, 'bind', 'beforeMount')
-    mapping(content, 'update', 'updated')
-    mapping(content, 'unbind', 'unmounted')
-  }
-
-  return directives
-}
+// 指令定义已全面使用 Vue3 生命周期钩子（beforeMount/mounted/updated/unmounted），
+// 此函数仅为保持组件 directives: directive({...}) 的书写习惯而保留
+export const directive = (directives) => directives
 
 export const parseVnode = (vnode) => vnode
 

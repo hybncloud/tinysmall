@@ -172,10 +172,7 @@ v-auto-tip="{content:h('span',{innerHTML:'1234<a>5678</a>'})}" // 支持动态 h
 ** content 支持一个有效的字符串或vnode|vnode[]  
  */
 export default {
-  bind,
-  unbind,
-  update: bind,
   beforeMount: bind,
-  unmounted: unbind,
-  updated: bind
+  updated: bind,
+  unmounted: unbind
 }

@@ -46,9 +46,10 @@ if (!isServer) {
   })
 }
 
-const createDocumentHandler = (el, binding, vnode) =>
+const createDocumentHandler = (el, binding) =>
   function (mouseup = {}, mousedown = {}, cachedMousedownPath) {
-    const popperElm = vnode.context.popperElm || (vnode.context.state && vnode.context.state.popperElm)
+    const ctx = binding.instance
+    const popperElm = ctx.popperElm || (ctx.state && ctx.state.popperElm)
 
     // 使用 event.composedPath() 来处理 Shadow DOM 场景。
     // composedPath() 会返回事件的完整路径，即使事件穿过了 Shadow DOM 的边界。
@@ -68,8 +69,8 @@ const createDocumentHandler = (el, binding, vnode) =>
       return
     }
 
-    if (binding.expression && el[nameSpace].methodName && vnode.context[el[nameSpace].methodName]) {
-      vnode.context[el[nameSpace].methodName]()
+    if (binding.expression && el[nameSpace].methodName && ctx[el[nameSpace].methodName]) {
+      ctx[el[nameSpace].methodName]()
     } else {
       el[nameSpace].bindingFn && el[nameSpace].bindingFn()
     }
@@ -84,14 +85,14 @@ const createDocumentHandler = (el, binding, vnode) =>
  * ```
  */
 export default {
-  bind: (el, binding, vnode) => {
+  beforeMount: (el, binding) => {
     nodeList.push(el)
     const id = seed++
     const { modifiers, expression, value } = binding
     const { mousedown = false, mouseup = false } = modifiers || {}
     el[nameSpace] = {
       id,
-      documentHandler: createDocumentHandler(el, binding, vnode),
+      documentHandler: createDocumentHandler(el, binding),
       methodName: expression,
       bindingFn: value,
       mousedownTrigger: mousedown,
@@ -99,17 +100,17 @@ export default {
     }
   },
 
-  update: (el, binding, vnode) => {
+  updated: (el, binding) => {
     const { modifiers, expression, value } = binding
     const { mousedown = false, mouseup = false } = modifiers || {}
-    el[nameSpace].documentHandler = createDocumentHandler(el, binding, vnode)
+    el[nameSpace].documentHandler = createDocumentHandler(el, binding)
     el[nameSpace].methodName = expression
     el[nameSpace].bindingFn = value
     el[nameSpace].mousedownTrigger = mousedown
     el[nameSpace].mouseupTrigger = mouseup
   },
 
-  unbind: (el) => {
+  unmounted: (el) => {
     if (el.nodeType !== Node.ELEMENT_NODE) {
       return
     }

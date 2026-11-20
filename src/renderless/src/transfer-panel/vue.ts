@@ -67,7 +67,7 @@ const initState = ({ reactive, props, parent, computed, api, slots }) => {
     keyProp: computed(() => props.props.key || 'key'),
     disabledProp: computed(() => props.props.disabled || 'disabled'),
     childrenProp: computed(() => (props.treeOp && props.treeOp.props && props.treeOp.props.childern) || 'children'),
-    hasFooter: computed(() => (!!parent.slots['left-footer'] || !!parent.slots['right-footer']) && !!slots.default),
+    hasFooter: computed(() => (!!parent.$slots['left-footer'] || !!parent.$slots['right-footer']) && !!slots.default),
     renderType: computed(() => props.render && props.render.plugin.name),
     expanded: [],
     inputBoxType: 'underline',

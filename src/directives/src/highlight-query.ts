@@ -116,9 +116,5 @@ const updated = (el: HTMLElement, binding: { value: string }) => {
 export default {
   mounted,
   beforeUpdate,
-  updated,
-  // vue2周期
-  inserted: mounted,
-  update: beforeUpdate,
-  componentUpdated: updated
+  updated
 }

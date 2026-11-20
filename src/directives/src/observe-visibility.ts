@@ -77,19 +77,17 @@ const createVisibilityState = ({ el, options, instance }) => {
   return state
 }
 
-const bind = (el, { value, instance }, { context }) => {
+const bind = (el, { value, instance }) => {
   if (!value) return
 
   if (typeof IntersectionObserver === 'undefined') {
     throw new TypeError('[TINY Error][ObserveVisibility] IntersectionObserver API is not available in your browser')
   } else {
-    instance = instance || context
-
     el[CONTEXT_KEY] = createVisibilityState({ el, options: value, instance })
   }
 }
 
-const update = (el, { value, oldValue, instance }, { context }) => {
+const update = (el, { value, oldValue, instance }) => {
   if (isEqual(value, oldValue)) return
 
   const state = el[CONTEXT_KEY]
@@ -99,12 +97,10 @@ const update = (el, { value, oldValue, instance }, { context }) => {
     return
   }
 
-  instance = instance || context
-
   if (state) {
     createObserver({ options: value, instance, state })
   } else {
-    bind(el, { value, instance }, { context })
+    bind(el, { value, instance })
   }
 }
 
@@ -118,9 +114,6 @@ const unbind = (el) => {
 }
 
 const ObserveVisibility = {
-  bind,
-  update,
-  unbind,
   beforeMount: bind,
   updated: update,
   unmounted: unbind
