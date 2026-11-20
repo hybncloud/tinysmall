@@ -193,7 +193,7 @@ export const mounted =
 
 export const handleMenuItemClick =
   ({ state, dispatch }: Pick<IDropdownMenuRenderlessParams, 'state' | 'dispatch'>) =>
-  ({ itemData, vm, label, showContent, disabled }): void => {
+  ({ itemData, vm, label, showContent, disabled }): void  => {
     state.label = label
     state.showContent = showContent
 

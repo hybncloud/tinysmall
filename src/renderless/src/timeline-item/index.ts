@@ -10,6 +10,7 @@
  *
  */
 
+import { $constants } from './constants'
 import { formatDateByPattern as format } from '@tinysmall/utils'
 import type {
   ITimelineItemRenderlessParams,
@@ -48,11 +49,11 @@ export const handleClick =
   }
 
 export const getStatusCls =
-  ({ constants, state, props }: Pick<ITimelineItemRenderlessParams, 'constants' | 'state' | 'props'>) =>
+  ({ state, props }: Pick<ITimelineItemRenderlessParams, 'constants' | 'state' | 'props'>) =>
   (node: ITimelineItem): ITimelineStatusCls => {
     const index = props.nodeIndex
 
-    const { PROCESS_DONE_CLS, PROCESS_CUR_CLS, PROCESS_WAIT_CLS, PROCESS_DISABLED_CLS, PROCESS_ERROR_CLS } = constants
+    const { PROCESS_DONE_CLS, PROCESS_CUR_CLS, PROCESS_WAIT_CLS, PROCESS_DISABLED_CLS, PROCESS_ERROR_CLS } = $constants
     const cls = {}
     const reverse = state.isReverse
 

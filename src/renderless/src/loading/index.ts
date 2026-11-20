@@ -13,6 +13,7 @@
 import type { ILoadingRenderlessParamUtils, ILoadingRenderlessParams, ILoadingState } from '../../types/loading.type'
 import { afterLeave } from './after-leave'
 import { removeClass } from '@tinysmall/utils'
+import { $constants } from './constants'
 
 export const handleAfterLeave = (emit: ILoadingRenderlessParamUtils['emit']) => (): void => {
   emit('after-leave')
@@ -25,7 +26,7 @@ export const setText =
   }
 
 export const close =
-  ({ state, constants, vm }: Pick<ILoadingRenderlessParams, 'state' | 'constants' | 'vm'>) =>
+  ({ state, vm }: Pick<ILoadingRenderlessParams, 'state' | 'vm'>) =>
   (): void => {
     afterLeave(
       vm,
@@ -33,8 +34,8 @@ export const close =
         const target = state.fullscreen || state.body ? document.body : state.target
 
         if (vm.$el && vm.$el.parentNode) {
-          removeClass(target, constants.PARENT_RELATIVE_CLS)
-          removeClass(target, constants.PARENT_HIDDEN_CLS)
+          removeClass(target, $constants.PARENT_RELATIVE_CLS)
+          removeClass(target, $constants.PARENT_HIDDEN_CLS)
           vm.$el.parentNode.removeChild(vm.$el)
         }
 

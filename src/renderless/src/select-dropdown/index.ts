@@ -1,3 +1,4 @@
+import { $constants } from '../base-select/constants'
 /**
  * Copyright (c) 2022 - present TinyVue Authors.
  * Copyright (c) 2022 - present Huawei Cloud Computing Technologies Co., Ltd.
@@ -11,9 +12,9 @@
  */
 
 export const mounted =
-  ({ selectEmitter, constants, state, selectVm, updatePopper, destroyPopper, parent, select }) =>
+  ({ selectEmitter, state, selectVm, updatePopper, destroyPopper, parent, select }) =>
   () => {
-    selectEmitter.on(constants.EVENT_NAME.updatePopper, (keepZIndex) => {
+    selectEmitter.on($constants.EVENT_NAME.updatePopper, (keepZIndex) => {
       let hideDrop = false
 
       if (!state.referenceElm || state.referenceElm.nodeType !== 1) {
@@ -28,7 +29,7 @@ export const mounted =
       }
     })
 
-    selectEmitter.on(constants.EVENT_NAME.destroyPopper, destroyPopper)
+    selectEmitter.on($constants.EVENT_NAME.destroyPopper, destroyPopper)
   }
 
 export const closeModal =

@@ -11,4 +11,4 @@
  */
 export { default } from './pc.vue'
 export { modalProps } from './pc.vue'
-export { $constants } from './pc.vue'
+export { $constants } from '@tinysmall/renderless/modal/constants'

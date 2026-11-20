@@ -158,16 +158,9 @@ import Scrollbar from '@tinysmall/scrollbar'
 import { RepeatClick } from '@tinysmall/directive'
 import { iconChevronDown, iconChevronUp } from '@tinysmall/icon'
 
-export const $constants = {
-  ANIMATIONNAME: 'tiny-transition-timepicker'
-}
 
 export const timeSpinnerProps = {
   ...$props,
-  _constants: {
-    type: Object,
-    default: () => $constants
-  },
   date: {},
   defaultValue: {},
   showSeconds: {

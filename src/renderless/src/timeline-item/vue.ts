@@ -10,6 +10,7 @@
  *
  */
 
+import { $constants } from './constants'
 import {
   handleClick,
   getStatusCls,
@@ -36,7 +37,7 @@ export const api = ['state', 'handleClick', 'getStatusCls', 'getStatus', 'getDat
 export const renderless = (
   props: ITimelineItemProps,
   { computed, reactive, inject, onUnmounted }: ISharedRenderlessParamHooks,
-  { t, emit, constants }: ITimelineItemRenderlessParamUtils
+  { t, emit}: ITimelineItemRenderlessParamUtils
 ): ITimelineItemApi => {
   const api = {} as ITimelineItemApi
 
@@ -75,7 +76,7 @@ export const renderless = (
     computedWidth: computedWidth(),
     getStatus: getStatus({ state, t }),
     handleClick: handleClick({ emit, state, props }),
-    getStatusCls: getStatusCls({ constants, state, props }),
+    getStatusCls: getStatusCls({ state, props }),
     computedIconClass: computedIconClass({ props, api })
   })
 

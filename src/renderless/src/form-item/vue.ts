@@ -148,7 +148,7 @@ const initState = ({
   return state
 }
 
-const initApi = ({ api, state, dispatch, broadcast, props, constants, vm, t, nextTick, slots }) => {
+const initApi = ({ api, state, dispatch, broadcast, props, vm, t, nextTick, slots }) => {
   // 创建原始的 validate 函数（不经过防抖处理）
   const validateOriginFunc = validate({ api, props, state, t })
 
@@ -165,7 +165,7 @@ const initApi = ({ api, state, dispatch, broadcast, props, constants, vm, t, nex
     computedLabelStyle: computedLabelStyle({ props, state }),
     computedValueStyle: computedValueStyle({ props, state }),
     computedContentStyle: computedContentStyle({ props, state }),
-    computedForm: computedForm({ constants, vm, state }),
+    computedForm: computedForm({ vm, state }),
     computedFieldValue: computedFieldValue({ props, state }),
     computedGetValidateType: computedGetValidateType({ props, state }),
     computedValidateIcon: computedValidateIcon({ props, state }),
@@ -224,14 +224,14 @@ const initWatch = ({ watch, api, props, state, nextTick }) => {
 export const renderless = (
   props: IFormItemProps,
   { computed, inject, onMounted, onUnmounted, provide, reactive, watch }: IFormItemRenderlessParams,
-  { vm, constants, t, nextTick, broadcast, dispatch, slots }: IFormItemRenderlessParamUtils
+  { vm, t, nextTick, broadcast, dispatch, slots }: IFormItemRenderlessParamUtils
 ): IFormItemApi => {
   const api = {} as IFormItemApi
   const state = initState({ reactive, computed, api, inject, props })
 
   provide('formItem', vm)
 
-  initApi({ api, state, dispatch, broadcast, props, constants, vm, t, nextTick, slots })
+  initApi({ api, state, dispatch, broadcast, props, vm, t, nextTick, slots })
   initWatch({ watch, api, props, state, nextTick })
 
   onMounted(api.mounted)

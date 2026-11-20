@@ -109,7 +109,7 @@ const initApi = ({
   props,
   updatePopper,
   nextTick,
-  constants,
+  
   dispatch
 }) => {
   api.getData = getData({ props, state, updatePopper, nextTick })
@@ -122,7 +122,7 @@ const initApi = ({
     open: open(api),
     handleBlur: handleBlur({ emit, state, dispatch, props }),
     mounted: mounted({ vm, state, suggestionState, props }),
-    highlight: highlight({ constants, vm, state }),
+    highlight: highlight({ vm, state }),
     handleClear: handleClear({ emit, state }),
     select: select({ emit, nextTick, props, state, dispatch }),
     watchVisible: watchVisible({ suggestionState, vm }),
@@ -145,7 +145,7 @@ export const renderless = (
     onDeactivated,
     inject
   }: IAutoCompleteRenderlessParams,
-  { $prefix, vm, parent, emit, constants, nextTick, slots, dispatch }: IAutoCompleteRenderlessParamUtils
+  { $prefix, vm, parent, emit, nextTick, slots, dispatch }: IAutoCompleteRenderlessParamUtils
 ) => {
   const api: Partial<IAutoCompleteApi> = {}
   const state = initState({ reactive, $prefix, computed, props, inject })
@@ -175,7 +175,7 @@ export const renderless = (
     props,
     updatePopper,
     nextTick,
-    constants,
+    
     dispatch
   })
 

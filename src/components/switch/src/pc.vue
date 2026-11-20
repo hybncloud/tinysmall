@@ -49,26 +49,16 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/switch/vue'
+import { $constants } from '@tinysmall/renderless/switch/constants'
 import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
 import '@tinysmall/theme/switch/index.less'
 import type { ISwitchApi } from '@tinysmall/renderless/types/switch.type'
 import { IconLoadingShadow } from '@tinysmall/icon'
 
-export const $constants = {
-  PC_PREFIXCLS: 'tiny-switch',
-  MOBILE_PREFIXCLS: 'tiny-mobile-switch',
-  Mode: 'pc',
-  prefixcls(mode) {
-    return mode === this.Mode ? this.PC_PREFIXCLS : this.MOBILE_PREFIXCLS
-  }
-}
 
 export const switchProps = {
   ...$props,
-  _constants: {
-    type: Object,
-    default: () => $constants
-  },
+  
   disabled: {
     type: Boolean,
     default: false

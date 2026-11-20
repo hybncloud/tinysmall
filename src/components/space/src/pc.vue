@@ -42,11 +42,6 @@ export const spaceProps = {
   customStyle: {
     type: Object as PropType<Record<string, any>>,
     default: () => ({})
-  },
-  /** 提供内部使用的常量（保留扩展能力） */
-  _constants: {
-    type: Object,
-    default: () => ({})
   }
 }
 

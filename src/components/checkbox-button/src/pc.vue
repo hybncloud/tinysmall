@@ -62,18 +62,13 @@
 
 <script lang="tsx">
 import { renderless, api } from '@tinysmall/renderless/checkbox-button/vue'
+import { $constants } from '@tinysmall/renderless/checkbox-button/constants'
 import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
 
-export const $constants = {
-  CHECKBOX_GROUP: 'CheckboxGroup'
-}
 
 export const checkboxButtonProps = {
   ...$props,
-  _constants: {
-    type: Object,
-    default: () => $constants
-  },
+  
   modelValue: {},
   label: {},
   disabled: Boolean,

@@ -14,6 +14,7 @@ import { PopupManager } from '@tinysmall/utils'
 import { getStyle, addClass } from '@tinysmall/utils'
 import { createComponent, hooks } from '@tinysmall/common'
 import Loading from './index'
+import { $constants } from '@tinysmall/renderless/loading/constants'
 import type { ILoadingState } from '@tinysmall/renderless/types/loading.type'
 
 interface LoadingConfig {
@@ -46,16 +47,7 @@ export const defaults: LoadingConfig = {
 
 let fullscreenLoading: LoadingInstance | null = null
 
-export const constants = {
-  TEXT_ATTR: 'tiny-loading__text',
-  IS_FULLSCREEN_CLS: 'is-fullscreen',
-  TEXT_SPINNER: 'tiny-loading__spinner',
-  TEXT_BACKGROUND: 'tiny-loading__background',
-  TEXT_CUSTOM_CLS: 'tiny-loading__custom-class',
-  PARENT_HIDDEN_CLS: 'tiny-loading__parent-hidden',
-  PARENT_RELATIVE_CLS: 'tiny-loading__parent-relative',
-  LOAD_ICON_TEXT: 'ui.load.dot'
-}
+export { $constants as constants } from '@tinysmall/renderless/loading/constants'
 
 const addStyle = (options: LoadingConfig, parent: HTMLElement, instance: LoadingInstance) => {
   let maskStyle: Record<string, string> = {}
@@ -121,7 +113,6 @@ export default (configs: LoadingConfig = {}) => {
   let instance = createComponent({
     component: Loading,
     propsData: {
-      _constants: constants,
       size: configs.size,
       loadingImg: configs.loadingImg
     },
@@ -137,11 +128,11 @@ export default (configs: LoadingConfig = {}) => {
   addStyle(configs, parent, instance)
 
   if (instance.originalPosition !== 'absolute' && instance.originalPosition !== 'fixed') {
-    addClass(parent, constants.PARENT_RELATIVE_CLS)
+    addClass(parent, $constants.PARENT_RELATIVE_CLS)
   }
 
   if (configs.fullscreen && configs.lock) {
-    addClass(parent, constants.PARENT_HIDDEN_CLS)
+    addClass(parent, $constants.PARENT_HIDDEN_CLS)
   }
 
   parent.appendChild(instance.$el)

@@ -103,6 +103,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/numeric/vue'
+import { $constants } from '@tinysmall/renderless/numeric/constants'
 import { $prefix, $props, setup, directive, defineComponent } from '@tinysmall/common'
 import { RepeatClick } from '@tinysmall/directive'
 import { iconChevronDown, iconChevronUp, iconMinus, iconPlus } from '@tinysmall/icon'
@@ -112,36 +113,10 @@ import Radio from '@tinysmall/radio'
 import RadioGroup from '@tinysmall/radio-group'
 import Tag from '@tinysmall/tag'
 
-export const $constants = {
-  MAX: 'aria-valuemax',
-  MIN: 'aria-valuemin',
-  VALUENOW: 'aria-valuenow',
-  DISABLED: 'aria-disabled',
-  KEY: 'role',
-  VALUE: 'spinbutton',
-  EVENT_NAME: {
-    blur: 'form.blur',
-    change: 'form.change'
-  },
-  COMPONENT_NAME: 'FormItem',
-  FILTER_OPTION: [
-    'ui.numeric.equalTo',
-    'ui.numeric.notEqualTo',
-    'ui.numeric.moreThan',
-    'ui.numeric.moreThanOrEqualTo',
-    'ui.numeric.lessThan',
-    'ui.numeric.lessThanOrEqualTo',
-    'ui.numeric.empty',
-    'ui.numeric.nonEmpty'
-  ]
-}
 
 export const numericProps = {
   ...$props,
-  _constants: {
-    type: Object,
-    default: () => $constants
-  },
+  
   allowEmpty: {
     type: Boolean,
     default: false

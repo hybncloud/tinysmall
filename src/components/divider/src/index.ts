@@ -1,6 +1,6 @@
 export { default } from './pc.vue'
 export { dividerProps } from './pc.vue'
-export { $constants } from './pc.vue'
+export { $constants } from '@tinysmall/renderless/divider/constants'
 export type DirectionType = 'horizontal' | 'vertical'
 export type BorderStyleType = 'dashed' | 'solid' | 'dotted'
 export type ContentPositionType = 'left' | 'right' | 'center'

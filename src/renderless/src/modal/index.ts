@@ -38,8 +38,8 @@ import type {
 const DragClass = 'is__drag'
 
 const emitZoom = ({ params, parent, emit, event }: IModalEmitZoomParam): void => {
-  let { $listeners, events = {} } = parent
-  if ($listeners.zoom) {
+  let { $attrs, events = {} } = parent
+  if ($attrs?.onZoom) {
     emit('zoom', params, event)
   } else if (events.zoom) {
     events.zoom.call(parent, params, event)
@@ -77,7 +77,7 @@ export const watchValue =
     visible ? api.open() : api.doClose('hide')
 
 export const watchVisible =
-  ({ api, props }) =>
+  ({ api, props }: Pick<IModalRenderlessParams, 'api' | 'props'>) =>
   (visible) => {
     if (props.lockScroll) {
       visible ? api.showScrollbar() : api.hideScrollbar()
@@ -322,7 +322,7 @@ export const open =
     state
   }: Pick<IModalRenderlessParams, 'api' | 'emit' | 'nextTick' | 'parent' | 'props' | 'state'>) =>
   (): void => {
-    let { $listeners, events = {} } = parent
+    let { $attrs, events = {} } = parent
 
     if (!state.visible) {
       let params = { type: 'show', $modal: parent }
@@ -339,7 +339,7 @@ export const open =
       setTimeout(() => {
         state.contentVisible = true
 
-        if (!$listeners.show && events.show) {
+        if (!$attrs?.onShow && events.show) {
           nextTick(() => {
             events.show.call(parent, params)
           })
@@ -851,40 +851,6 @@ const updateDelta = ({ event, delta, state }: IModalUpdateDeltaParam): void => {
   state.prevEvent = event
 }
 
-function _findFormComponent(vm: IModalRenderlessParams['vm'], formList: IModalRenderlessParams['vm'][]): void {
-  const children = vm.$children
-
-  if (children && children.length === 0) {
-    return
-  }
-
-  children.forEach((child) => {
-    const tag = child.$options.componentName
-
-    if (/^Form$/.test(tag)) {
-      formList.push(child)
-    }
-
-    _findFormComponent(child, formList)
-  })
-}
-
-function findFormComponent(vm: IModalRenderlessParams['vm']): IModalRenderlessParams['vm'][] {
-  const formList = []
-  _findFormComponent(vm, formList)
-  return formList
-}
-
-export const updateFormTip = (parent: IModalRenderlessParamUtils['parent']): void => {
-  const formList = findFormComponent(parent)
-
-  if (formList.length > 0) {
-    formList.forEach((form: IModalRenderlessParamUtils['vm']) => {
-      form.updateTip()
-    })
-  }
-}
-
 export const dragEvent =
   ({ api, emit, parent, props, state }: Pick<IModalRenderlessParams, 'api' | 'emit' | 'parent' | 'props' | 'state'>) =>
   (event: MouseEvent) => {
@@ -909,7 +875,6 @@ export const dragEvent =
     }
 
     document.onmousemove = (event: MouseEvent) => {
-      updateFormTip(parent)
       updateDelta({ event, delta, state })
       setModalBoxStyle({ params, delta })
 
@@ -999,7 +964,7 @@ export const mfDragEvent =
       modalBoxElement.style.height = `${height}px`
 
       emit('custom-mousemove', moveEvent)
-      if (parent.$listeners.zoom) {
+      if (parent.$attrs?.onZoom) {
         emit('zoom', { type: 'resize', $modal: parent }, moveEvent)
       } else if (parent.events?.zoom) {
         parent.events.zoom.call(parent, { type: 'resize', $modal: parent }, moveEvent)
@@ -1011,16 +976,6 @@ export const mfDragEvent =
       document.onmouseup = demMouseup
     }
   }
-
-export const resetFormTip = (parent: IModalRenderlessParamUtils['parent'], isFormReset = true) => {
-  const formList = findFormComponent(parent)
-
-  if (formList.length > 0) {
-    formList.forEach((form: IModalRenderlessParamUtils['vm']) => {
-      isFormReset ? form.resetFields() : form.clearValidate()
-    })
-  }
-}
 
 export const resetDragStyle = (api: IModalApi) => (): void => {
   const modalBoxElement = api.getBox()

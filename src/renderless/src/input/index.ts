@@ -95,8 +95,7 @@ export const calcTextareaHeight =
     api,
     hiddenTextarea,
     props,
-    state,
-    constants
+    state
   }: Pick<IInputRenderlessParams, 'api' | 'props' | 'state' | 'constants'> & {
     hiddenTextarea: HTMLTextAreaElement | null
   }) =>

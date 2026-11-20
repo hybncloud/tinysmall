@@ -57,32 +57,16 @@
 <script lang="ts">
 import { props, $props, setup, $prefix, defineComponent } from '@tinysmall/common'
 import { renderless, api } from '@tinysmall/renderless/popconfirm/vue'
+import { $constants } from '@tinysmall/renderless/popconfirm/constants'
 import Popover from '@tinysmall/popover'
 import Button from '@tinysmall/button'
 import { iconError, iconHelp, iconWarningTriangle, iconSuccess } from '@tinysmall/icon'
 import '@tinysmall/theme/popconfirm/index.less'
 
-export const $constants = {
-  PC_PREFIXCLS: 'tiny-popconfim',
-  MOBILE_PREFIXCLS: 'tiny-mobile-popconfim',
-  Mode: 'pc',
-  prefixcls(mode) {
-    return mode === this.Mode ? this.PC_PREFIXCLS : this.MOBILE_PREFIXCLS
-  },
-  ICON_MAP: {
-    success: 'icon-success',
-    error: 'icon-error',
-    info: 'icon-help',
-    warning: 'icon-warning-triangle'
-  }
-}
 
 export const popConfirmProps = {
   ...$props,
-  _constants: {
-    type: Object,
-    default: () => $constants
-  },
+  
   message: String,
   customClass: String,
   popperOptions: Object,

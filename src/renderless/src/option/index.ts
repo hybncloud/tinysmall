@@ -10,6 +10,7 @@
  *
  */
 
+import { $constants } from '../base-select/constants'
 import { getObj } from '@tinysmall/utils'
 
 export const escapeRegexpString = (value = '') => String(value).replace(/[|\\{}()[\]^$+*?.]/g, '\\$&')
@@ -58,11 +59,11 @@ export const hoverItem =
   }
 
 export const selectOptionClick =
-  ({ props, state, select, constants, vm }) =>
+  ({ props, state, select, vm }) =>
   () => {
     if (props.disabled !== true && state.groupDisabled !== true) {
       if (select.multiple && props.required === true) return
-      select.state.selectEmitter.emit(constants.EVENT_NAME.handleOptionClick, vm, true)
+      select.state.selectEmitter.emit($constants.EVENT_NAME.handleOptionClick, vm, true)
     }
   }
 
@@ -88,9 +89,9 @@ export const toggleEvent = ({ props, vm, type }) => {
 }
 
 export const initValue =
-  ({ select, props, constants, vm }) =>
+  ({ select, props, vm }) =>
   () => {
     if (select.multiple && props.required) {
-      select.state.selectEmitter.emit(constants.EVENT_NAME.initValue, vm)
+      select.state.selectEmitter.emit($constants.EVENT_NAME.initValue, vm)
     }
   }

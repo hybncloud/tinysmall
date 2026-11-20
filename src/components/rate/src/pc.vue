@@ -66,22 +66,15 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/rate/vue'
+import { $constants } from '@tinysmall/renderless/rate/constants'
 import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
 import { t } from '@tinysmall/locale'
 import { iconStarActive, iconStarDisable, iconSmile, iconFrown, iconMeh } from '@tinysmall/icon'
 
-export const $constants = {
-  RATENODECLS: 'tiny-rate__star',
-  ICON_PREFIXCLS: '.tiny-rate__icon',
-  DECIMALCLS: 'tiny-rate__decimal'
-}
 
 export const rateProps = {
   ...$props,
-  _constants: {
-    type: Object,
-    default: () => $constants
-  },
+  
   allowHalf: {
     type: Boolean,
     default: false

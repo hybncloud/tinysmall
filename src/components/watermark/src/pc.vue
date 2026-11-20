@@ -7,25 +7,14 @@
 <script lang="ts">
 import { $prefix, setup, defineComponent } from '@tinysmall/common'
 import { renderless, api } from '@tinysmall/renderless/watermark/vue'
+import { $constants } from '@tinysmall/renderless/watermark/constants'
 import '@tinysmall/theme/watermark/index.less'
 
-const $constants = {
-  font: {
-    color: 'rgba(0,0,0,.15)',
-    fontSize: 16,
-    fontWeight: 'normal',
-    fontFamily: 'sans-serif',
-    fontStyle: 'normal'
-  }
-}
 
 export default defineComponent({
   name: $prefix + 'Watermark',
   props: {
-    _constants: {
-      type: Object,
-      default: () => $constants
-    },
+    
     width: { type: Number, default: 120 },
     height: { type: Number, default: 64 },
     rotate: { type: Number, default: -22 },

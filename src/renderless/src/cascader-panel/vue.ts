@@ -74,7 +74,7 @@ const initDefaultProps = () => ({
   hoverThreshold: 500
 })
 
-const initState = ({ reactive, props, computed, parent, slots }) => {
+const initState = ({ reactive, props, computed, parent, slots }: ICascaderPanelRenderlessParams) => {
   const DefaultProps = initDefaultProps()
 
   const state = reactive({

@@ -18,7 +18,7 @@ const createUploadFn = (accept: string, modalMessage = vi.fn()) =>
     props: { accept },
     api: { handleRemove: vi.fn() },
     Modal: { message: modalMessage },
-    constants,
+    
     t,
     state: { isEdm: false, triggerClickType: '' }
     // 单测仅构造 accept 校验所需的最小依赖，props/api/state 为部分 mock

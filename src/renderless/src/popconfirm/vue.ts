@@ -1,3 +1,4 @@
+import { $constants } from './constants'
 import type {
   IPopconfirmApi,
   IPopconfirmProps,
@@ -12,13 +13,13 @@ export const api = ['state', 'show', 'hide', 'confirm', 'handleEmit']
 export const renderless = (
   props: IPopconfirmProps,
   { computed, reactive, onMounted, onBeforeUnmount }: ISharedRenderlessParamHooks,
-  { emit, constants, vm }: IPopconfirmRenderlessParamUtils
+  { emit, vm }: IPopconfirmRenderlessParamUtils
 ): IPopconfirmApi => {
   const api = {} as IPopconfirmApi
   const state = reactive({
     isLock: false,
     showPopover: false,
-    getIcon: computed(() => (typeof props.type === 'object' ? props.type : constants.ICON_MAP[props.type as string]))
+    getIcon: computed(() => (typeof props.type === 'object' ? props.type : $constants.ICON_MAP[props.type as string]))
   })
 
   Object.assign(api, {

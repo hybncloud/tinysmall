@@ -110,7 +110,7 @@ const initState = ({ reactive, props, computed, api }) =>
     uploadsButtonText: computed(() => api.computedUploadsButtonText())
   })
 
-const initApi = ({ api, state, refs, emit, props, constants, t }) => {
+const initApi = ({ api, state, refs, emit, props, t }) => {
   Object.assign(api, {
     state,
     formatFileSize,
@@ -134,26 +134,26 @@ const initApi = ({ api, state, refs, emit, props, constants, t }) => {
     watchUploaFileType: watchUploaFileType(state),
     beforeAvatarUpload: beforeAvatarUpload({ props, state }),
     watchWithCredentials: watchWithCredentials(state),
-    computedFileName: computedFileName({ constants, t }),
-    computedFileSize: computedFileSize({ constants, t }),
-    computedCancel: computedCancel({ constants, props, t }),
-    computedFileStatus: computedFileStatus({ constants, t }),
+    computedFileName: computedFileName({ t }),
+    computedFileSize: computedFileSize({ t }),
+    computedCancel: computedCancel({ props, t }),
+    computedFileStatus: computedFileStatus({ t }),
     computedFileWords: computedFileWords({ t }),
-    computedconfirm: computedconfirm({ constants, props, t }),
-    computedUploadError: computedUploadError({ constants, t }),
-    computedErrorNumTips: computedErrorNumTips({ constants, t }),
+    computedconfirm: computedconfirm({ props, t }),
+    computedUploadError: computedUploadError({ t }),
+    computedErrorNumTips: computedErrorNumTips({ t }),
     handleAvatarSuccess: handleAvatarSuccess({ api, emit, state }),
-    computedErrorTypeTips: computedErrorTypeTips({ constants, t }),
-    computedErrorSizeTips: computedErrorSizeTips({ constants, t }),
-    computedLimitSizeTips: computedLimitSizeTips({ constants, t }),
-    computedLimitTypeTips: computedLimitTypeTips({ constants, t }),
-    computedTipsTitleText: computedTipsTitleText({ constants, t }),
-    computedUploadSuccess: computedUploadSuccess({ constants, t }),
-    computedLimitCountTips: computedLimitCountTips({ constants, t }),
-    watchMaxUploadFileSize: watchMaxUploadFileSize({ constants, state }),
-    computedUploadsButtonText: computedUploadsButtonText({ constants, t }),
-    computedSetDialogTitle: computedSetDialogTitle({ constants, props, t }),
-    computedUploadButtonText: computedUploadButtonText({ constants, props, t })
+    computedErrorTypeTips: computedErrorTypeTips({ t }),
+    computedErrorSizeTips: computedErrorSizeTips({ t }),
+    computedLimitSizeTips: computedLimitSizeTips({ t }),
+    computedLimitTypeTips: computedLimitTypeTips({ t }),
+    computedTipsTitleText: computedTipsTitleText({ t }),
+    computedUploadSuccess: computedUploadSuccess({ t }),
+    computedLimitCountTips: computedLimitCountTips({ t }),
+    watchMaxUploadFileSize: watchMaxUploadFileSize({ state }),
+    computedUploadsButtonText: computedUploadsButtonText({ t }),
+    computedSetDialogTitle: computedSetDialogTitle({ props, t }),
+    computedUploadButtonText: computedUploadButtonText({ props, t })
   })
 }
 
@@ -181,7 +181,7 @@ export const renderless = (props, { computed, reactive, watch }, { t, constants,
   const api = {}
   const state = initState({ reactive, props, computed, api })
 
-  initApi({ api, state, refs, emit, props, constants, t })
+  initApi({ api, state, refs, emit, props, t })
   initWatch({ watch, props, api })
 
   return api

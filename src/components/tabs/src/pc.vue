@@ -17,16 +17,9 @@ import { iconPlus } from '@tinysmall/icon'
 import '@tinysmall/theme/tabs/index.less'
 import type { ITabsApi } from '@tinysmall/renderless/types/tabs.type'
 
-export const $constants = {
-  TAB_ITEM: 'TabItem'
-}
 
 export const tabsProps = {
   ...$props,
-  _constants: {
-    type: Object,
-    default: () => $constants
-  },
   tabStyle: String,
   activeName: String,
   withClose: Boolean,

@@ -24,23 +24,17 @@
 
 <script lang="tsx">
 import { renderless, api } from '@tinysmall/renderless/checkbox-group/vue'
+import { $constants } from '@tinysmall/renderless/checkbox-group/constants'
 import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
 import type { PropType } from '@tinysmall/common'
 import Checkbox from '@tinysmall/checkbox'
 import CheckboxButton from '@tinysmall/checkbox-button'
 import '@tinysmall/theme/checkbox-group/index.less'
 
-export const $constants = {
-  FORM_ITEM: 'FormItem',
-  FORM_CHANGE: 'form.change'
-}
 
 export const checkboxGroupProps = {
   ...$props,
-  _constants: {
-    type: Object,
-    default: () => $constants
-  },
+  
   modelValue: {},
   disabled: Boolean,
   min: Number,

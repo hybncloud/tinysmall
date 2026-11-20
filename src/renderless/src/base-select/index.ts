@@ -1,4 +1,5 @@
 /* eslint-disable unused-imports/no-unused-vars */
+import { $constants } from './constants'
 import { find } from '@tinysmall/utils'
 import { getObj, isEqual } from '@tinysmall/utils'
 import { isKorean } from '@tinysmall/utils'
@@ -62,12 +63,12 @@ export const showTip =
   }
 
 export const defaultOnQueryChange =
-  ({ props, state, constants, api, nextTick, vm }) =>
+  ({ props, state, api, nextTick, vm }) =>
   (value, isInput) => {
     // 如果 filterMethod 存在，优先调用它（用于 grid-select 等组件，它们的 filterMethod 内部会处理 remote 搜索）
     if (typeof props.filterMethod === 'function') {
       props.filterMethod(value)
-      state.selectEmitter.emit(constants.COMPONENT_NAME.OptionGroup, constants.EVENT_NAME.queryChange)
+      state.selectEmitter.emit($constants.COMPONENT_NAME.OptionGroup, $constants.EVENT_NAME.queryChange)
       // 如果同时存在 remoteMethod 且没有使用 panel 插槽，也调用 remoteMethod（兼容其他场景）
       if (props.remote && typeof props.remoteMethod === 'function' && !vm.$slots?.panel) {
         state.hoverIndex = -1
@@ -84,7 +85,7 @@ export const defaultOnQueryChange =
   }
 
 export const queryChange =
-  ({ props, state, constants }) =>
+  ({ props, state }) =>
   (value, isInput) => {
     if (props.optimization && isInput) {
       const filterDatas = state.initDatas.filter((item) =>
@@ -92,7 +93,7 @@ export const queryChange =
       )
       state.datas = filterDatas
     } else {
-      state.selectEmitter.emit(constants.EVENT_NAME.queryChange, value)
+      state.selectEmitter.emit($constants.EVENT_NAME.queryChange, value)
     }
   }
 
@@ -121,7 +122,7 @@ const setFilteredSelectCls = (nextTick, state, props) => {
 }
 
 export const handleQueryChange =
-  ({ api, constants, nextTick, props, vm, state }) =>
+  ({ api, nextTick, props, vm, state }) =>
   (value, isChange = false, isInput = false) => {
     if ((state.previousQuery === value && !isChange) || state.isOnComposition) {
       return
@@ -143,7 +144,7 @@ export const handleQueryChange =
 
     window.requestAnimationFrame(() => {
       if (state.visible) {
-        state.selectEmitter.emit(constants.EVENT_NAME.updatePopper)
+        state.selectEmitter.emit($constants.EVENT_NAME.updatePopper)
         state.showWarper = true
       }
     })
@@ -165,12 +166,12 @@ export const handleQueryChange =
   }
 
 export const scrollToOption =
-  ({ vm, constants }) =>
+  ({ vm }) =>
   (option) => {
     const target =
       Array.isArray(option) && option[0] && option[0].state ? option[0].state.el : option.state ? option.state.el : ''
     if (vm.$refs.popper && target) {
-      const menu = vm.$refs.popper.$el.querySelector(constants.CLASS.SelectDropdownWrap)
+      const menu = vm.$refs.popper.$el.querySelector($constants.CLASS.SelectDropdownWrap)
       setTimeout(() => scrollIntoView(menu, target))
     }
 
@@ -186,7 +187,7 @@ export const handleMenuEnter =
   }
 
 export const emitChange =
-  ({ emit, props, state, constants }) =>
+  ({ emit, props, state }) =>
   (value, changed) => {
     if (!isEqual(props.modelValue, state.compareValue)) {
       emit('change', value)
@@ -464,7 +465,7 @@ export const blur =
   }
 
 export const handleBlur =
-  ({ constants, dispatch, emit, state }) =>
+  ({ dispatch, emit, state }) =>
   (event) => {
     state.willFocusRun = false
     clearTimeout(state.timer)
@@ -476,7 +477,7 @@ export const handleBlur =
       }
     }, 200)
     // tiny 新增： 表单校验不能异步，否则弹窗中嵌套表单会出现弹窗关闭后再出现校验提示的bug
-    dispatch(constants.COMPONENT_NAME.FormItem, constants.EVENT_NAME.formBlur, event.target.value)
+    dispatch($constants.COMPONENT_NAME.FormItem, $constants.EVENT_NAME.formBlur, event.target.value)
 
     state.softFocus = false
   }
@@ -562,7 +563,7 @@ export const resetInputState =
   }
 
 export const resetInputHeight =
-  ({ constants, nextTick, props, vm, state, api }) =>
+  ({ nextTick, props, vm, state, api }) =>
   () => {
     if (state.collapseTags && !(props.filterable || props.searchable)) {
       return
@@ -586,7 +587,7 @@ export const resetInputHeight =
       }
       const noSelected = state.selected.length === 0
       // tiny 新增的spacing (design中配置：aui为4，smb为0，tiny 默认为0)
-      const spacingHeight = constants.SPACING_HEIGHT
+      const spacingHeight = $constants.SPACING_HEIGHT
 
       if (!state.isDisplayOnly) {
         if (!noSelected && tags) {
@@ -609,7 +610,7 @@ export const resetInputHeight =
       }
 
       if (state.visible && state.emptyText !== false) {
-        state.selectEmitter.emit(constants.EVENT_NAME.updatePopper, true)
+        state.selectEmitter.emit($constants.EVENT_NAME.updatePopper, true)
       }
     })
   }
@@ -835,7 +836,7 @@ export const deleteSelected =
   }
 
 export const deleteTag =
-  ({ api, constants, emit, props, state, nextTick, vm }) =>
+  ({ api, emit, props, state, nextTick, vm }) =>
   (event, tag) => {
     if (tag.required) return
 
@@ -851,7 +852,7 @@ export const deleteTag =
 
       api.emitChange(value)
 
-      emit(constants.EVENT_NAME.removeTag, tag[props.valueField])
+      emit($constants.EVENT_NAME.removeTag, tag[props.valueField])
       nextTick(() => state.key++)
     }
 
@@ -859,7 +860,7 @@ export const deleteTag =
   }
 
 export const onInputChange =
-  ({ api, props, state, constants, nextTick }) =>
+  ({ api, props, state, nextTick }) =>
   () => {
     if (!props.delay) {
       if ((props.filterable || props.searchable) && state.query !== state.selectedLabel) {
@@ -870,7 +871,7 @@ export const onInputChange =
         api.handleQueryChange(state.query, isChange, isInput)
 
         nextTick(() => {
-          state.selectEmitter.emit(constants.EVENT_NAME.updatePopper)
+          state.selectEmitter.emit($constants.EVENT_NAME.updatePopper)
         })
       }
     } else {
@@ -878,7 +879,7 @@ export const onInputChange =
     }
 
     nextTick(() => {
-      state.selectEmitter.emit(constants.EVENT_NAME.updatePopper)
+      state.selectEmitter.emit($constants.EVENT_NAME.updatePopper)
     })
   }
 
@@ -1114,7 +1115,7 @@ const remoteEmptyText = function (props, state) {
 }
 
 export const watchValue =
-  ({ api, constants, dispatch, props, vm, state }) =>
+  ({ api, dispatch, props, vm, state }) =>
   (value, oldValue) => {
     if (props.multiple) {
       api.resetInputHeight()
@@ -1147,7 +1148,7 @@ export const watchValue =
     }
 
     if (state.completed && !isEqual(value, oldValue)) {
-      dispatch(constants.COMPONENT_NAME.FormItem, constants.EVENT_NAME.formChange, value)
+      dispatch($constants.COMPONENT_NAME.FormItem, $constants.EVENT_NAME.formChange, value)
     }
 
     props.optimization && optmzApis.setValueIndex({ props, state })
@@ -1197,7 +1198,7 @@ export const calcOverFlow =
     }
   }
 
-const postOperOfToVisible = ({ props, state, constants, vm }) => {
+const postOperOfToVisible = ({ props, state, vm }) => {
   if (props.multiple) {
     if (props.modelValue && props.modelValue.length && props.initLabel && !state.selected.length) {
       state.selectedLabel = props.initLabel
@@ -1206,7 +1207,7 @@ const postOperOfToVisible = ({ props, state, constants, vm }) => {
   }
 
   if (state.selected) {
-    if (props.renderType === constants.TYPE.Grid || props.renderType === constants.TYPE.Tree) {
+    if (props.renderType === $constants.TYPE.Grid || props.renderType === $constants.TYPE.Tree) {
       state.selectedLabel = state.selected.currentLabel
     } else {
       if ((props.filterable || props.searchable) && props.allowCreate && state.createdSelected && state.createdLabel) {
@@ -1239,9 +1240,9 @@ const postOperOfToVisible = ({ props, state, constants, vm }) => {
 }
 
 export const toVisible =
-  ({ constants, state, props, vm, api, nextTick }) =>
+  ({ state, props, vm, api, nextTick }) =>
   () => {
-    state.selectEmitter.emit(constants.EVENT_NAME.destroyPopper)
+    state.selectEmitter.emit($constants.EVENT_NAME.destroyPopper)
     props.remote && props.dropOnlySearch && (state.showWarper = false)
 
     if (vm.$refs.input) {
@@ -1264,15 +1265,15 @@ export const toVisible =
       }
     })
 
-    postOperOfToVisible({ props, state, constants, vm })
+    postOperOfToVisible({ props, state, vm })
   }
 
 export const toHide =
-  ({ constants, state, props, vm, api }) =>
+  ({ state, props, vm, api }) =>
   () => {
     const { remote, remoteConfig, renderType, multiple, valueField } = props
 
-    state.selectEmitter.emit(constants.COMPONENT_NAME.SelectDropdown, constants.EVENT_NAME.updatePopper)
+    state.selectEmitter.emit($constants.COMPONENT_NAME.SelectDropdown, $constants.EVENT_NAME.updatePopper)
 
     if (props.filterable || props.searchable) {
       state.query = remote ? '' : state.selectedLabel
@@ -1284,9 +1285,9 @@ export const toHide =
         vm.$refs.input?.focus()
       } else {
         if (!remote) {
-          state.selectEmitter.emit(constants.EVENT_NAME.queryChange, '')
+          state.selectEmitter.emit($constants.EVENT_NAME.queryChange, '')
 
-          state.selectEmitter.emit(constants.COMPONENT_NAME.OptionGroup, constants.EVENT_NAME.queryChange)
+          state.selectEmitter.emit($constants.COMPONENT_NAME.OptionGroup, $constants.EVENT_NAME.queryChange)
         }
 
         if (state.selectedLabel) {
@@ -1298,7 +1299,7 @@ export const toHide =
   }
 
 export const watchVisible =
-  ({ api, constants, emit, state, vm, props }) =>
+  ({ api, emit, state, vm, props }) =>
   (value) => {
     if ((props.filterable || props.searchable || props.remote) && !value) {
       vm.$refs.reference?.blur()
@@ -1318,10 +1319,10 @@ export const watchVisible =
 
     value ? api.toHide() : api.toVisible()
 
-    emit(constants.EVENT_NAME.visibleChange, value)
+    emit($constants.EVENT_NAME.visibleChange, value)
 
     setTimeout(() => {
-      state.selectEmitter.emit(constants.EVENT_NAME.updatePopper)
+      state.selectEmitter.emit($constants.EVENT_NAME.updatePopper)
       if (value && vm.$refs.scrollbar) {
         if (props.optimization) {
           optmzApis.setScrollTop({ refs: vm.$refs, state })
@@ -1334,14 +1335,14 @@ export const watchVisible =
   }
 
 export const watchOptions =
-  ({ api, constants, nextTick, parent, props, state }) =>
+  ({ api, nextTick, parent, props, state }) =>
   () => {
     if (typeof window === 'undefined') {
       return
     }
 
     nextTick(() => {
-      state.selectEmitter.emit(constants.EVENT_NAME.updatePopper)
+      state.selectEmitter.emit($constants.EVENT_NAME.updatePopper)
     })
 
     if (props.multiple) {
@@ -1459,7 +1460,7 @@ export const getChildValue = () => (data, key) => {
 }
 
 export const watchPropsOption =
-  ({ constants, parent, props, state }) =>
+  ({ parent, props, state }) =>
   () => {
     const dataset = {
       dataset: props.options || props.dataset,
@@ -1649,7 +1650,7 @@ export const watchInputHover =
   }
 
 export const initQuery =
-  ({ props, state, constants, vm }) =>
+  ({ props, state, vm }) =>
   ({ init } = {}) => {
     const isRemote =
       (props.filterable || props.searchable) &&

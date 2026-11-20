@@ -53,27 +53,17 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/image/vue'
+import { $constants } from '@tinysmall/renderless/image/constants'
 import { $prefix, $props, setup, defineComponent, Teleport } from '@tinysmall/common'
 import { isServer } from '@tinysmall/utils'
 import ImageViewer from '@tinysmall/image-viewer'
 import { iconImageError } from '@tinysmall/icon'
 import type { IImageApi } from '@tinysmall/renderless/types/image.type'
 
-export const $constants = {
-  NONE: 'none',
-  CONTAIN: 'contain',
-  COVER: 'cover',
-  FILL: 'fill',
-  SCALE_DOWN: 'scale-down',
-  DEFAULT_POPPER_ZINDEX: Number.POSITIVE_INFINITY
-}
 
 export const imageProps = {
   ...$props,
-  _constants: {
-    type: Object,
-    default: () => $constants
-  },
+  
   fit: String,
   lazy: Boolean,
   previewSrcList: {

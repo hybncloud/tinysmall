@@ -9,11 +9,12 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
+import { $constants } from './constants'
 import type { IRadioRenderlessParams, IRadioState } from '../../types'
 
 export const handleChange =
   ({
-    constants,
+    
     dispatch,
     emit,
     state,
@@ -23,17 +24,17 @@ export const handleChange =
     nextTick(() => {
       emit('change', state.model)
 
-      state.isGroup && dispatch(constants.RADIO_GROUP, 'handleChange', [state.model])
+      state.isGroup && dispatch($constants.RADIO_GROUP, 'handleChange', [state.model])
     })
   }
 
 export const isGroup =
-  ({ constants, parent: $parent, state }: Pick<IRadioRenderlessParams, 'constants' | 'parent' | 'state'>) =>
+  ({ parent: $parent, state }: Pick<IRadioRenderlessParams, 'constants' | 'parent' | 'state'>) =>
   (): boolean => {
     let parent = $parent.$parent.$parent
 
     while (parent) {
-      if (parent.$options.componentName !== constants.RADIO_GROUP) {
+      if (parent.$options.componentName !== $constants.RADIO_GROUP) {
         parent = parent.$parent
       } else {
         state.radioGroup = parent as unknown as IRadioRenderlessParams['parent']
@@ -77,7 +78,7 @@ export const getModel =
 
 export const setModel =
   ({
-    constants,
+    
     dispatch,
     emit,
     props,
@@ -86,7 +87,7 @@ export const setModel =
   }: Pick<IRadioRenderlessParams, 'constants' | 'dispatch' | 'emit' | 'props' | 'vm' | 'state'>) =>
   (val: IRadioState['model']): void => {
     if (state.isGroup) {
-      dispatch(constants.RADIO_GROUP, 'update:modelValue', [val])
+      dispatch($constants.RADIO_GROUP, 'update:modelValue', [val])
     } else {
       emit('update:modelValue', val)
     }

@@ -1,3 +1,4 @@
+import { $constants } from './constants'
 /**
  * Copyright (c) 2022 - present TinyVue Authors.
  * Copyright (c) 2022 - present Huawei Cloud Computing Technologies Co., Ltd.
@@ -11,39 +12,39 @@
  */
 
 export const computedSetDialogTitle =
-  ({ constants, props, t }) =>
+  ({ props, t }) =>
   () =>
-    props.dialogTitle || t(constants.DIALOG_TITLE)
+    props.dialogTitle || t($constants.DIALOG_TITLE)
 
 export const computedUploadSuccess =
-  ({ constants, t }) =>
+  ({ t }) =>
   () =>
-    t(constants.UPLOAD_SUCCESS)
+    t($constants.UPLOAD_SUCCESS)
 
 export const computedCancel =
-  ({ constants, props, t }) =>
+  ({ props, t }) =>
   () =>
-    props.cancelButtonText || t(constants.CANCEL_BUTTTON_TEXT)
+    props.cancelButtonText || t($constants.CANCEL_BUTTTON_TEXT)
 
 export const computedconfirm =
-  ({ constants, props, t }) =>
+  ({ props, t }) =>
   () =>
-    props.submitButtonText || t(constants.SAVE_BUTTON_TEXT)
+    props.submitButtonText || t($constants.SAVE_BUTTON_TEXT)
 
 export const computedFileName =
-  ({ constants, t }) =>
+  ({ t }) =>
   () =>
-    t(constants.FILE_NAME)
+    t($constants.FILE_NAME)
 
 export const computedUploadError =
-  ({ constants, t }) =>
+  ({ t }) =>
   () =>
-    t(constants.UPLOAD_ERROR)
+    t($constants.UPLOAD_ERROR)
 
 export const computedFileStatus =
-  ({ constants, t }) =>
+  ({ t }) =>
   () =>
-    t(constants.FILE_STATUS)
+    t($constants.FILE_STATUS)
 
 export const computedFileWords =
   ({ t }) =>
@@ -57,54 +58,54 @@ export const computedFileWords =
   })
 
 export const computedFileSize =
-  ({ constants, t }) =>
+  ({ t }) =>
   () =>
-    t(constants.FILE_SIZE)
+    t($constants.FILE_SIZE)
 
 export const computedErrorSizeTips =
-  ({ constants, t }) =>
+  ({ t }) =>
   () =>
-    t(constants.ERROR_SIZE_TIPS)
+    t($constants.ERROR_SIZE_TIPS)
 
 export const computedErrorNumTips =
-  ({ constants, t }) =>
+  ({ t }) =>
   () =>
-    t(constants.ERROR_NUM_TIPS)
+    t($constants.ERROR_NUM_TIPS)
 
 export const computedErrorTypeTips =
-  ({ constants, t }) =>
+  ({ t }) =>
   () =>
-    t(constants.ERROR_TYPE_TIPS)
+    t($constants.ERROR_TYPE_TIPS)
 
 export const computedUploadButtonText =
-  ({ constants, props, t }) =>
+  ({ props, t }) =>
   () =>
-    props.uploadButtonText || t(constants.UPLOAD_BUTTON_TEXT)
+    props.uploadButtonText || t($constants.UPLOAD_BUTTON_TEXT)
 
 export const computedUploadsButtonText =
-  ({ constants, t }) =>
+  ({ t }) =>
   () =>
-    t(constants.UPLOADS_BUTTON_TEXT)
+    t($constants.UPLOADS_BUTTON_TEXT)
 
 export const computedTipsTitleText =
-  ({ constants, t }) =>
+  ({ t }) =>
   () =>
-    t(constants.TIPS_TITLE_TEXT)
+    t($constants.TIPS_TITLE_TEXT)
 
 export const computedLimitSizeTips =
-  ({ constants, t }) =>
+  ({ t }) =>
   () =>
-    t(constants.LIMIT_UPLOAD_FILE_SIZE)
+    t($constants.LIMIT_UPLOAD_FILE_SIZE)
 
 export const computedLimitTypeTips =
-  ({ constants, t }) =>
+  ({ t }) =>
   () =>
-    t(constants.LIMIT_UPLOAD_FILE_TYPE)
+    t($constants.LIMIT_UPLOAD_FILE_TYPE)
 
 export const computedLimitCountTips =
-  ({ constants, t }) =>
+  ({ t }) =>
   () =>
-    t(constants.LIMIT_UPLOAD_FILE_NUMBER)
+    t($constants.LIMIT_UPLOAD_FILE_NUMBER)
 
 export const fileUploadChange = (state) => (file, fileList) => (state.uploadList = fileList || [])
 
@@ -176,13 +177,13 @@ export const watchUploaFileType = (state) => (value) => {
 }
 
 export const watchMaxUploadFileSize =
-  ({ constants, state }) =>
+  ({ state }) =>
   (value) => {
     state.maxUploadFileSize = value
 
     if (value !== undefined && value !== 0) {
       state.tipsTitle[2] = {
-        size: Math.floor(value / 1024) + constants.KB
+        size: Math.floor(value / 1024) + $constants.KB
       }
     } else {
       state.tipsTitle[2] = undefined

@@ -10,6 +10,7 @@
  *
  */
 
+import { $constants } from './constants'
 import {
   processIndex,
   calculateTranslate,

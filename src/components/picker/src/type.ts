@@ -3,10 +3,6 @@ import { iconClose } from '@tinysmall/icon'
 
 export const pickerProps = {
   ...$props,
-  _constants: {
-    type: Object,
-    default: () => ({})
-  },
   componentName: String,
   minDate: {
     type: Date

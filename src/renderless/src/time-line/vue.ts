@@ -10,6 +10,7 @@
  *
  */
 
+import { $constants } from './constants'
 import {
   handleClick,
   getStatusCls,
@@ -37,7 +38,7 @@ export const api = ['state', 'handleClick', 'getStatusCls', 'getStatus', 'getDat
 export const renderless = (
   props: ITimelineProps,
   { computed, reactive, provide, watch }: ISharedRenderlessParamHooks,
-  { t, emit, constants }: ITimelineRenderlessParamUtils
+  { t, emit}: ITimelineRenderlessParamUtils
 ): ITimelineApi => {
   const api = {} as ITimelineApi
   const state: ITimelineState = reactive({
@@ -62,7 +63,7 @@ export const renderless = (
     computedSpace: computedSpace({ props }),
     getStatus: getStatus({ state, t }),
     handleClick: handleClick({ emit, state }),
-    getStatusCls: getStatusCls({ constants, state }),
+    getStatusCls: getStatusCls({ state }),
     computedStackNodes: computedStackNodes({ state, props }),
     changeStatus: changeStatus({ state }),
     computedWrapperClass: computedWrapperClass({ props }),

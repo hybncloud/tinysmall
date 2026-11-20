@@ -10,6 +10,7 @@
  *
  */
 
+import { $constants } from './constants'
 import {
   computedGetImageStyle,
   computedGetAlignCenter,
@@ -83,7 +84,7 @@ const initApi = ({
   emit,
   props,
   vm,
-  constants,
+  
   nextTick,
   attrs
 }: Pick<IImageRenderlessParams, 'state' | 'emit' | 'api' | 'props' | 'vm' | 'constants' | 'nextTick' | 'attrs'>) => {
@@ -95,8 +96,8 @@ const initApi = ({
     handleError: handleError({ state, emit }),
     computedGetPreview: computedGetPreview(props),
     removeLazyLoadListener: removeLazyLoadListener(state),
-    getImageStyle: getImageStyle({ state, vm, constants }),
-    computedGetAlignCenter: computedGetAlignCenter({ props, constants }),
+    getImageStyle: getImageStyle({ state, vm }),
+    computedGetAlignCenter: computedGetAlignCenter({ props }),
     mounted: mounted({ api, props }),
     handleLazyLoad: handleLazyLoad({ api, state, vm, nextTick }),
     loadImage: loadImage({ api, state, props, attrs }),
@@ -123,13 +124,13 @@ const initWatch = ({ watch, state, api, props }: Pick<IImageRenderlessParams, 's
 export const renderless = (
   props: IImageProps,
   { computed, onBeforeUnmount, onMounted, reactive, watch, provide }: ISharedRenderlessParamHooks,
-  { vm, emit, constants, nextTick, attrs }: IImageRenderlessParamUtils,
+  { vm, emit, nextTick, attrs }: IImageRenderlessParamUtils,
   { images }: any
 ) => {
   const api = {} as IImageApi
   const state: IImageState = initState({ reactive, computed, api, props, images })
 
-  initApi({ api, state, emit, props, vm, constants, nextTick, attrs })
+  initApi({ api, state, emit, props, vm, nextTick, attrs })
 
   initWatch({ watch, state, api, props })
 

@@ -10,6 +10,7 @@
  *
  */
 
+import { $constants } from './constants'
 import { on, off } from '@tinysmall/utils'
 import { KEY_CODE } from '@tinysmall/utils'
 import { PopupManager } from '@tinysmall/utils'
@@ -191,13 +192,13 @@ export const reset = (state) => () =>
   })
 
 export const toggleMode =
-  ({ state, constants, api }) =>
+  ({ state, api }) =>
   () => {
     if (state.loading) {
       return
     }
 
-    const MODE = constants.MODE
+    const MODE = $constants.MODE
     const modeNames = Object.keys(MODE)
     const modeValues = []
 
@@ -419,7 +420,7 @@ export const computedCurrentImg =
   }
 
 export const computedImgStyle =
-  ({ state, constants }) =>
+  ({ state }) =>
   () => {
     const { offsetX, offsetY, scale, deg, enableTransition } = state.transform
     const transition = enableTransition ? 'transform .3s' : ''
@@ -431,7 +432,7 @@ export const computedImgStyle =
       'margin-left': `${offsetX}px`
     }
 
-    if (JSON.stringify(state.mode) === JSON.stringify(constants.MODE.CONTAIN)) {
+    if (JSON.stringify(state.mode) === JSON.stringify($constants.MODE.CONTAIN)) {
       style.maxWidth = style.maxHeight = '100%'
     }
 
@@ -710,9 +711,9 @@ export const touchend = (state) => (e) => {
 }
 
 export const computeZIndex =
-  ({ constants, props }) =>
+  ({ props }) =>
   () =>
-    props.zIndex === constants.DEFAULT_POPPER_ZINDEX || props.zIndex < 1 ? PopupManager.nextZIndex() : props.zIndex
+    props.zIndex === $constants.DEFAULT_POPPER_ZINDEX || props.zIndex < 1 ? PopupManager.nextZIndex() : props.zIndex
 
 export const activeItems = (state) => (i) => {
   state.index = i

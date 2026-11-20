@@ -10,6 +10,7 @@
  *
  */
 
+import { $constants } from './constants'
 import type {
   INumericApi,
   INumericProps,
@@ -70,7 +71,7 @@ const initState = ({
   props,
   api,
   $service,
-  constants,
+  
   form
 }: INumericInitStateParams & { form: any }): INumericState => {
   const state = reactive({
@@ -95,7 +96,7 @@ const initState = ({
 
     format: computed(() => getUnitPrecision({ service: $service, props })),
 
-    filterMenu: constants.FILTER_OPTION,
+    filterMenu: $constants.FILTER_OPTION,
     filterValue: computed(() => api.filterValue()),
 
     handleClear: computed(() => api.handleClear()),
@@ -115,7 +116,7 @@ const initApi = ({
   vm,
   emit,
   dispatch,
-  constants,
+  
   nextTick,
   form
 }: Pick<
@@ -128,8 +129,8 @@ const initApi = ({
     select: select(vm),
     getPrecision: getPrecision(),
     toPrecision: toPrecision(state),
-    updated: updated({ constants, parent, state }),
-    mounted: mounted({ constants, parent, props, state }),
+    updated: updated({ parent, state }),
+    mounted: mounted({ parent, props, state }),
     unmounted: unmounted({ parent, state }),
     getDecimal: getDecimal(props),
     handleFocus: handleFocus({ emit, state, props, api, vm }),
@@ -142,9 +143,9 @@ const initApi = ({
     internalIncrease: internalIncrease({ api, state }),
     handleInputChange: handleInputChange({ api, state, props }),
     mouseEvent: mouseEvent({ api, props, state }),
-    handleBlur: handleBlur({ constants, dispatch, emit, props, state, api }),
+    handleBlur: handleBlur({ dispatch, emit, props, state, api }),
     watchValue: watchValue({ api, props, state }),
-    setCurrentValue: setCurrentValue({ api, constants, dispatch, emit, props, state }),
+    setCurrentValue: setCurrentValue({ api, dispatch, emit, props, state }),
     getDisplayOnlyText: getDisplayOnlyText({ parent: { tinyForm: form }, props, state }),
     filterValue: filterValue({ state }),
     handleClear: handleClear({ state, emit }),
@@ -175,14 +176,14 @@ const initWatch = ({
 export const renderless = (
   props: INumericProps,
   { computed, onMounted, onUpdated, onUnmounted, reactive, watch, inject }: ISharedRenderlessParamHooks,
-  { emit, vm, constants, dispatch, service, nextTick }: INumericRenderlessParamUtils
+  { emit, vm, dispatch, service, nextTick }: INumericRenderlessParamUtils
 ): INumericApi => {
   const api = {} as INumericApi
   const $service = initService(service)
   const form = inject('form', null)
-  const state = initState({ reactive, computed, props, api, constants, $service, form })
+  const state = initState({ reactive, computed, props, api, $service, form })
 
-  initApi({ api, props, state, parent: vm, vm, emit, dispatch, constants, nextTick, form })
+  initApi({ api, props, state, parent: vm, vm, emit, dispatch, nextTick, form })
   initWatch({ watch, props, api })
 
   onMounted(api.mounted)

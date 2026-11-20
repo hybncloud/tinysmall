@@ -10,6 +10,7 @@
  *
  */
 
+import { $constants } from '../alert/constants'
 import {
   mounted,
   closeModal,
@@ -72,7 +73,7 @@ const initState = ({ reactive, computed, popper, selectVm }) => {
   return state
 }
 
-const initApi = ({ api, popper, state, selectEmitter, constants, selectVm, parent, select, nextTick, props }) => {
+const initApi = ({ api, popper, state, selectEmitter, selectVm, parent, select, nextTick, props }) => {
   const { destroyPopper, doDestroy, updatePopper } = popper
 
   Object.assign(api, {
@@ -89,7 +90,7 @@ const initApi = ({ api, popper, state, selectEmitter, constants, selectVm, paren
     closeModal: closeModal({ state, selectVm, props }),
     cancelSearch: cancelSearch({ api, state, selectVm }),
     handleClear: handleClear({ state, selectVm }),
-    mounted: mounted({ selectEmitter, constants, state, selectVm, updatePopper, destroyPopper, parent, select })
+    mounted: mounted({ selectEmitter, state, selectVm, updatePopper, destroyPopper, parent, select })
   })
 }
 
@@ -142,7 +143,7 @@ export const renderless = (
 ) => {
   const api = {}
   const select = inject('select')
-  const constants = select._constants
+  const constants = $constants
   const selectEmitter = inject('selectEmitter')
   const selectVm = inject('selectVm')
 
@@ -161,7 +162,7 @@ export const renderless = (
 
   const state = initState({ reactive, computed, popper, selectVm })
 
-  initApi({ api, popper, state, selectEmitter, constants, selectVm, parent: vm, select, nextTick, props })
+  initApi({ api, popper, state, selectEmitter, selectVm, parent: vm, select, nextTick, props })
   initWatch({ watch, selectVm, state, nextTick, props })
 
   onBeforeUnmount(() => {

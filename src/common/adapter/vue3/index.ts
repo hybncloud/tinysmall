@@ -11,31 +11,12 @@
  */
 import * as hooks from 'vue'
 import { Teleport } from 'vue'
-import type { VNode } from 'vue'
 
-import { hyphenate } from '@tinysmall/utils'
 import { emitter } from '../utils'
 
 export { Teleport }
 
 export const markRaw = hooks.markRaw
-
-export const renderComponent = ({
-  view = undefined as any,
-  component = undefined as any,
-  props,
-  context: { attrs, slots },
-  extend = {}
-}) => {
-  return () => hooks.h(hooks.unref(view) || component, { ref: 'modeTemplate', ...props, ...attrs, ...extend }, slots)
-}
-
-export const appContext = () =>
-  hooks.getCurrentInstance()?.appContext || {
-    component: () => {
-      // do nothing
-    }
-  }
 
 const setInstanceEmitter = (instance) => {
   const $emitter = emitter()
@@ -96,56 +77,13 @@ const emitEvent = (vm) => {
   }
 }
 
+// 跳过异步组件包装层：子组件的 parent 链可能被 AsyncComponentWrapper 隔开
 const getRealParent = (vm) => {
   if (vm && vm.parent)
     return vm.parent.type.name === 'AsyncComponentWrapper' && vm.parent.parent ? vm.parent.parent : vm.parent
 }
 
-const regEventPrefix = /^on[A-Z]/
-
-const generateListeners = (attrs) => {
-  const $attrs = {}
-  const $listeners = {}
-
-  for (const name in attrs) {
-    const event = attrs[name]
-
-    if (regEventPrefix.test(name) && typeof event === 'function') {
-      $listeners[hyphenate(name.substr(2))] = event
-      continue
-    }
-
-    $attrs[name] = event
-  }
-
-  return { $attrs, $listeners }
-}
-
-const generateChildren = (subTree) => {
-  const children: any = []
-  children.refs = {}
-
-  if (subTree) {
-    const arr = subTree.dynamicChildren || subTree.children
-
-    if (Array.isArray(arr)) {
-      arr.forEach((child) => {
-        if (child.component) {
-          const vm = createVm({}, child.component)
-
-          children.push(vm)
-          child.props.ref && (children.refs[child.props.ref] = vm)
-        }
-      })
-    } else if (subTree.component) {
-      children.push(createVm({}, subTree.component))
-    }
-  }
-
-  return children
-}
-
-const originalDefineProperties = (vm, instance, property, filter) => {
+const defineProperties = (vm, instance, property, filter) => {
   for (const name in instance[property]) {
     if (typeof filter === 'function' && filter(name)) continue
 
@@ -160,20 +98,14 @@ const originalDefineProperties = (vm, instance, property, filter) => {
   return vm
 }
 
-const defineProperties = originalDefineProperties
-
-const filter = (name) => name.indexOf('_') === 0
-
 const defineInstanceVm = (vm, instance) => {
-  originalDefineProperties(vm, instance, 'setupState', null)
-  originalDefineProperties(vm, instance, 'props', filter)
-  defineProperties(vm, instance, 'ctx', filter)
-
+  defineProperties(vm, instance, 'setupState', null)
+  defineProperties(vm, instance, 'props', (name) => name.indexOf('_') === 0)
+  defineProperties(vm, instance, 'ctx', (name) => name.indexOf('_') === 0)
   return vm
 }
 
 const createVm = (vm, instance, context = null) => {
-  const { $attrs, $listeners } = generateListeners(instance.attrs)
   let $emitter = instance.$emitter
 
   if (!$emitter) {
@@ -189,12 +121,10 @@ const createVm = (vm, instance, context = null) => {
   context || defineInstanceVm(vm, instance)
 
   Object.defineProperties(vm, {
-    $attrs: { get: () => $attrs },
-    $children: { get: () => generateChildren(instance.subTree) },
+    $attrs: { get: () => instance.attrs },
     $constants: { get: () => instance.props._constants },
     $emit: { get: () => emit },
     $el: { get: () => instance.vnode.el },
-    $listeners: { get: () => $listeners },
     $nextTick: { get: () => hooks.nextTick },
     $off: { get: () => $emitter.off },
     $on: { get: () => $emitter.on },
@@ -205,42 +135,47 @@ const createVm = (vm, instance, context = null) => {
     },
     $refs: { get: () => instance.refs },
     $scopedSlots: { get: () => instance.slots },
-    $slots: { get: () => instance.slots }
+    $slots: { get: () => instance.slots },
+    slots: { configurable: true, get: () => instance.slots }
   })
 
   return vm
 }
 
-const onBeforeMount = (instance, refs) => {
-  for (let name in instance.refs) {
-    if (Object.prototype.hasOwnProperty.call(instance.refs, name)) {
-      refs[name] = instance.refs[name]
-    }
-  }
-}
-
 export const tools = (context) => {
   const instance = hooks.getCurrentInstance() as any
-  const root = instance?.appContext.config.globalProperties
   const i18n = instance?.proxy?.$root?.$i18n
   const { dispatch, broadcast } = emitEvent(instance)
   const vm = createVm({}, instance, context)
   const emit = context.emit
-  const refs = {}
-  const grandParent = getRealParent(instance)
-  const parentVm = grandParent ? createVm({}, grandParent) : instance.parent ? createVm({}, instance.parent) : null
+
+  const refs = new Proxy(
+    {},
+    {
+      get: (_, name) => (instance.refs ? instance.refs[name] : undefined),
+      set: (_, name, value) => {
+        instance.refs[name] = value
+        return true
+      },
+      has: (_, name) => (instance.refs ? name in instance.refs : false),
+      deleteProperty: (_, name) => {
+        if (instance.refs) return delete instance.refs[name]
+        return false
+      },
+      ownKeys: () => (instance.refs ? Reflect.ownKeys(instance.refs) : []),
+      getOwnPropertyDescriptor: (_, name) =>
+        instance.refs ? Reflect.getOwnPropertyDescriptor(instance.refs, name) : undefined
+    }
+  )
+
+  const parentVm = getRealParent(instance) ? createVm({}, getRealParent(instance)) : null
 
   const defineInstanceProperties = (props) => {
     Object.defineProperties(vm, props)
     Object.defineProperties(instance?.ctx, props)
   }
 
-  const defineParentInstanceProperties = (props) => {
-    parentVm && Object.defineProperties(parentVm, props)
-  }
-
   hooks.onBeforeMount(() => defineInstanceVm(vm, instance))
-  hooks.onMounted(() => onBeforeMount(instance, refs))
 
   return {
     vm,
@@ -251,15 +186,11 @@ export const tools = (context) => {
     i18n,
     refs,
     slots: instance?.slots,
-    scopedSlots: instance?.slots,
     attrs: context.attrs,
     parent: parentVm,
     nextTick: hooks.nextTick,
     constants: instance?.props._constants,
-    service: root?.$getService ? root?.$getService(vm) : root?.$service,
-    getService: () => root?.$getService(vm),
-    defineInstanceProperties,
-    defineParentInstanceProperties
+    defineInstanceProperties
   }
 }
 
@@ -295,10 +226,7 @@ const { Text, Comment } = hooks
 
 export const isEmptyVnode = (vnode) => !vnode || !vnode.type || [Text, Comment].includes(vnode.type)
 
-/** 与 vue 原生 h 等价；签名保持宽松以兼容仓内既有的动态调用方式 */
-type CreateElement = (component: any, propsData?: any, childData?: any) => VNode
-
-export const h: CreateElement = hooks.h
+export const h = hooks.h
 
 export const createComponentFn = () => {
   return ({ component, propsData, el }) => {

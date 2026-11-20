@@ -11,4 +11,4 @@
  */
 export { default } from './pc.vue'
 export { sliderProps } from './pc.vue'
-export { $constants } from './pc.vue'
+export { $constants } from '@tinysmall/renderless/slider/constants'

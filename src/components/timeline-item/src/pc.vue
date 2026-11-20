@@ -166,20 +166,12 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/timeline-item/vue'
+import { $constants } from '@tinysmall/renderless/timeline-item/constants'
 import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
 import { iconWarn, iconClose, iconYes } from '@tinysmall/icon'
 import '@tinysmall/theme/steps/index.less'
 import type { ITimelineItemApi } from '@tinysmall/renderless/types/timeline-item.type'
 
-export const $constants = {
-  PROCESS_DONE_CLS: 'process-done',
-  PROCESS_CUR_CLS: 'process-current',
-  PROCESS_WAIT_CLS: 'process-wait',
-  PROCESS_DISABLED_CLS: 'process-disabled',
-  PROCESS_ERROR_CLS: 'process-error',
-  STACK_NODES_MAX: 7,
-  LIMITED_STACK_NODES: 3
-}
 
 export const timelineItemProps = {
   ...$props,
@@ -193,10 +185,7 @@ export const timelineItemProps = {
   shape: { type: String, default: 'normal' },
   /** 节点描述，取自原 pc.vue props 数组 */
   description: { type: String, default: '' },
-  _constants: {
-    type: Object,
-    default: () => $constants
-  },
+  
   space: {
     type: [String, Number],
     default: ''

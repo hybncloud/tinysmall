@@ -9,6 +9,7 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
+import { $constants } from '../file-upload/constants'
 import type {
   IUploadState,
   IUploadApi,
@@ -57,7 +58,7 @@ export const renderless = (
 ): IUploadApi => {
   const api = {} as IUploadApi
   const uploader = inject('uploader') as IFileUploadVm
-  const constants = uploader.$constants
+  const constants = $constants
   const state: IUploadState = reactive({
     mouseover: false,
     reqs: {},
@@ -70,8 +71,8 @@ export const renderless = (
     headers: computed(() => {
       if (state.isEdm) {
         return {
-          [constants.EDM.EDMTOKEN]: props.edmToken.edmToken || '',
-          [constants.EDM.TRACEID]: props.edmToken.traceId || ''
+          [$constants.EDM.EDMTOKEN]: props.edmToken.edmToken || '',
+          [$constants.EDM.TRACEID]: props.edmToken.traceId || ''
         }
       }
     }),
@@ -86,13 +87,13 @@ export const renderless = (
   Object.assign(api, {
     state,
     isImage,
-    abort: abort({ state, props, constants }),
-    getFormData: getFormData({ state, constants, props }),
+    abort: abort({ state, props}),
+    getFormData: getFormData({ state, props }),
     handleClick: handleClick({ props, refs, state }),
     onBeforeDestroy: onBeforeDestroy(state),
     handleUpdate: handleUpdate({ state, props }),
-    uploadFiles: uploadFiles({ constants, Modal, props, state, t }),
-    post: post({ api, constants, props, state, service }),
+    uploadFiles: uploadFiles({ Modal, props, state, t }),
+    post: post({ api, props, state, service }),
     handleChange: handleChange(api),
     handlePaste: handlePaste({ api, props }),
     handleKeydown: handleKeydown(api),

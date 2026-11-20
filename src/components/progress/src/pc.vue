@@ -95,62 +95,16 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/progress/vue'
+import { $constants } from '@tinysmall/renderless/progress/constants'
 import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
 import { iconClose, iconSuccess, iconError, iconYes, iconWarning } from '@tinysmall/icon'
 import '@tinysmall/theme/progress/index.less'
 import type { IProgressApi } from '@tinysmall/renderless/types/progress.type'
 
-export const $constants = {
-  PROGRESS_TYPE: {
-    LINE: 'line',
-    CIRCLE: 'circle',
-    DASHBOARD: 'dashboard'
-  },
-  PROGRESS_SIZE: {
-    SMALL: 'small',
-    MEDIUM: 'medium',
-    LARGE: 'large'
-  },
-  PROGRESS_SIZE_WIDTH: {
-    SMALL: 48,
-    MEDIUM: 96,
-    LARGE: 160
-  },
-  PROGRESS_STATUS: {
-    DEFAULT: 'default',
-    SUCCESS: 'success',
-    EXCEPTION: 'exception',
-    WARNING: 'warning'
-  },
-  STATUS_TO_COLOR: {
-    success: '#00a874',
-    exception: '#eb171f',
-    warning: '#fdc000'
-  },
-  STATUS_DEFAULT_COLOR: '#0067d1',
-  ICON_CIRCLE_WARNING: 'icon-warning',
-  ICON_CIRCLE_SUCCESS: 'icon-success',
-  ICON_CIRCLE_EXCEPTION: 'icon-error',
-  ICON_SUCCESS: 'icon-yes',
-  ICON_EXCEPTION: 'icon-close',
-  ICON_WARNING: 'icon-warning',
-  TEXT_XS: 12,
-  TEXT_SM: 14,
-  WIDTH_RATE_TWO: 2,
-  WIDTH_RATE_THREE: 3,
-  WIDTH_RATE_SIX: 6,
-  DEFAULT_STROKE_WIDTH: 6,
-  REL_STROKE_WIDTH: 4,
-  DEFAULT_WIDTH: 126,
-  STROKE_WIDTH_RATE: 0.4
-}
 
 export const progressProps = {
   ...$props,
-  _constants: {
-    type: Object,
-    default: () => $constants
-  },
+  
   color: {
     type: [String, Array, Function],
     default: ''

@@ -32,7 +32,7 @@
       @keydown.down.prevent="highlight(state.highlightedIndex + 1)"
       @keydown.enter="handleKeyEnter"
       @keydown.tab="close"
-      v-bind="{ ...$props, ...$attrs, _constants: undefined }"
+      v-bind="{ ...$props, ...$attrs }"
     >
       <template #prepend v-if="slots.prepend">
         <slot name="prepend"></slot>
@@ -105,23 +105,17 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/autocomplete/vue'
+import { $constants } from '@tinysmall/renderless/autocomplete/constants'
 import { $prefix, $props, props, setup, directive, defineComponent } from '@tinysmall/common'
 import TinyScrollbar from '@tinysmall/scrollbar'
 import TinyInput from '@tinysmall/input'
 import { Clickoutside } from '@tinysmall/directive'
 import { IconLoadingShadow } from '@tinysmall/icon'
 
-export const $constants = {
-  WARP_CLS: '.tiny-autocomplete-suggestion__wrap',
-  ITEM_CLS: '.tiny-autocomplete-suggestion__list li'
-}
 
 export const autoCompleteProps = {
   ...$props,
-  _constants: {
-    type: Object,
-    default: () => $constants
-  },
+  
   /** 原生 tabindex 属性，取自原 pc.vue props 数组 */
   tabindex: { type: [String, Number], default: '0' },
   autofocus: Boolean,

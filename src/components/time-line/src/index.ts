@@ -11,5 +11,5 @@
  */
 export { default } from './pc.vue'
 export { timelineProps } from './pc.vue'
-export { $constants } from './pc.vue'
+export { $constants } from '@tinysmall/renderless/time-line/constants'
 export type ShapeType = 'circle' | 'dot'

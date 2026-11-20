@@ -143,9 +143,9 @@ export const closeMenu = (state) => () => {
 export const handleContextMenu =
   ({ treeRoot, vm, props, state, nextTick }) =>
   (event) => {
-    const listeners = treeRoot.vm.$listeners
+    const listeners = treeRoot.vm.$attrs.onNodeContextmenu
 
-    if (treeRoot.showContextmenu || listeners['node-contextmenu']) {
+    if (treeRoot.showContextmenu || listeners) {
       event.stopPropagation()
       event.preventDefault()
     }

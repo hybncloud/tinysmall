@@ -9,6 +9,7 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
+import { $constants } from './constants'
 import type {
   IInputApi,
   IInputProps,
@@ -104,12 +105,12 @@ const initState = ({
   attrs,
   form,
   formItem,
-  constants,
+  
   api,
   vm
 }: Pick<IInputRenderlessParams, 'reactive' | 'computed' | 'props' | 'constants' | 'api' | 'vm'>) => {
   const state = reactive({
-    maskSymbol: constants.MASKSYMBOL,
+    maskSymbol: $constants.MASKSYMBOL,
     focused: false,
     hovering: false,
     isComposing: false,
@@ -135,7 +136,7 @@ const initState = ({
     textLength: computed(() => textLength(props.modelValue)),
     inputExceed: computed(() => state.isWordLimitVisible && state.textLength > state.upperLimit),
     formItemSize: computed(() => (formItem || {}).formItemSize),
-    validateIcon: computed(() => constants.VALIDATE_ICON[state.validateState]),
+    validateIcon: computed(() => $constants.VALIDATE_ICON[state.validateState]),
     showWordLimit: computed(() => props.showWordLimit && attrs.maxlength),
     inputDisabled: computed(
       () => props.disabled || (form || {}).disabled || state.isDisplayOnly || (form || {}).displayOnly
@@ -233,8 +234,7 @@ const mergeApi = ({
   nextTick,
   parent,
   state,
-  vm,
-  constants
+  vm
 }: Pick<IInputRenderlessParams, 'api' | 'emit' | 'props' | 'state' | 'nextTick' | 'parent' | 'vm' | 'constants'> & {
   storages: ReturnType<typeof useStorageBox>
   componentName: string
@@ -269,7 +269,7 @@ const mergeApi = ({
       hiddenTextarea: null,
       props,
       state,
-      constants
+      
     }),
     setNativeInputValue: setNativeInputValue({ api, state }),
     handleCompositionEnd: handleCompositionEnd({ api, state }),
@@ -366,20 +366,20 @@ const initWatch = ({
 export const renderless = (
   props: IInputProps,
   { computed, onMounted, onBeforeUnmount, onUpdated, reactive, toRefs, watch, inject }: ISharedRenderlessParamHooks,
-  { vm, refs, parent, attrs, slots, emit, constants, nextTick, broadcast, dispatch }: IInputRenderlessParamUtils
+  { vm, refs, parent, attrs, slots, emit, nextTick, broadcast, dispatch }: IInputRenderlessParamUtils
 ): IInputApi => {
   const api = {} as IInputApi
-  const componentName = constants.COMPONENT_NAME.FormItem
+  const componentName = $constants.COMPONENT_NAME.FormItem
   const eventName: IInputEventNameConstants = { change: 'form.change', blur: 'form.blur' }
   const form = inject('form', null)
   const formItem = inject('formItem', null)
-  const state = initState({ reactive, computed, props, attrs, form, formItem, constants, api, vm })
+  const state = initState({ reactive, computed, props, attrs, form, formItem, api, vm })
 
   initApi({ api, state, dispatch, broadcast, emit, refs, props, slots, form, parent, vm, nextTick })
 
   const storages = useStorageBox({ api, props, reactive, toRefs })
 
-  mergeApi({ api, storages, componentName, emit, eventName, props, state, nextTick, parent, vm, constants })
+  mergeApi({ api, storages, componentName, emit, eventName, props, state, nextTick, parent, vm })
 
   initWatch({ watch, state, api, props, nextTick, emit, componentName, eventName })
 

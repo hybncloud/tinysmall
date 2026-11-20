@@ -10,6 +10,7 @@
  *
  */
 
+import { $constants } from './constants'
 import { KEY_CODE } from '@tinysmall/utils'
 import { emitEvent } from '@tinysmall/utils'
 import { on, off, hasClass } from '@tinysmall/utils'
@@ -76,7 +77,7 @@ export const bindKeyDown =
 export const bindMouseDown =
   ({
     api,
-    constants,
+    
     emit,
     state,
     props
@@ -97,12 +98,12 @@ export const bindMouseDown =
     let isClickBtn: boolean | undefined = false
     let isClickLabel: boolean | undefined = false
 
-    isClickBar = hasClass(handleEl, constants.sliderCls('pc')) || hasClass(handleEl, constants.rangeCls('pc'))
+    isClickBar = hasClass(handleEl, $constants.sliderCls('pc')) || hasClass(handleEl, $constants.rangeCls('pc'))
     isClickBtn =
-      hasClass(handleEl, constants.buttonCls('pc')) ||
-      hasClass(handleEl, constants.leftSvgCls('pc')) ||
-      hasClass(handleEl, constants.rightSvgCls('pc'))
-    isClickLabel = hasClass(handleEl, constants.PC_LABEL_CLS)
+      hasClass(handleEl, $constants.buttonCls('pc')) ||
+      hasClass(handleEl, $constants.leftSvgCls('pc')) ||
+      hasClass(handleEl, $constants.rightSvgCls('pc'))
+    isClickLabel = hasClass(handleEl, $constants.PC_LABEL_CLS)
     if (state.disabled || (!isClickBtn && !isClickBar && !isClickLabel)) {
       state.activeIndex = -1
       return
@@ -199,7 +200,7 @@ export const hideTip = (state: ISliderState) => () => {
 }
 
 export const setTipStyle =
-  ({ constants, vm, props, state }: Pick<ISliderRenderlessParams, 'vm' | 'props' | 'state' | 'constants'>) =>
+  ({ vm, props, state }: Pick<ISliderRenderlessParams, 'vm' | 'props' | 'state' | 'constants'>) =>
   () => {
     if (!props.showTip) {
       return
@@ -211,10 +212,10 @@ export const setTipStyle =
 
     if (props.vertical) {
       tipStyle.top =
-        state.sliderSize - moveSize - constants.BUTTON_SIZE - constants.TIP_HEIGHT / 2 + constants.HALF_BAR_HEIGHT
-      tipStyle.left = -tipEl.getBoundingClientRect().width / 2 + constants.HALF_BAR_HEIGHT
+        state.sliderSize - moveSize - $constants.BUTTON_SIZE - $constants.TIP_HEIGHT / 2 + $constants.HALF_BAR_HEIGHT
+      tipStyle.left = -tipEl.getBoundingClientRect().width / 2 + $constants.HALF_BAR_HEIGHT
     } else {
-      tipStyle.top = -constants.TIP_HEIGHT - constants.BUTTON_SIZE / 2 + constants.HALF_BAR_HEIGHT
+      tipStyle.top = -$constants.TIP_HEIGHT - $constants.BUTTON_SIZE / 2 + $constants.HALF_BAR_HEIGHT
       tipStyle.left = moveSize - tipEl.getBoundingClientRect().width / 2
     }
 
@@ -226,10 +227,9 @@ export const setTipStyle =
 
 const getActiveButtonIndexFlag = ({
   state,
-  event,
-  constants
+  event
 }: Pick<ISliderRenderlessParams, 'event' | 'constants' | 'state'>) => {
-  const cls = constants.buttonCls('pc')
+  const cls = $constants.buttonCls('pc')
   const { previousElementSibling } = event.target as HTMLElement
 
   return (
@@ -240,9 +240,9 @@ const getActiveButtonIndexFlag = ({
 }
 
 export const getActiveButtonIndex =
-  ({ constants, state }: Pick<ISliderRenderlessParams, 'constants' | 'state'>) =>
+  ({ state }: Pick<ISliderRenderlessParams, 'constants' | 'state'>) =>
   (event) => {
-    const flag = getActiveButtonIndexFlag({ state, event, constants })
+    const flag = getActiveButtonIndexFlag({ state, event})
     return flag ? 1 : 0
   }
 

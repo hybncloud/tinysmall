@@ -30,7 +30,7 @@
 <script lang="ts">
 import { $props, $prefix, setup, defineComponent } from '@tinysmall/common'
 import { renderless, api } from '@tinysmall/renderless/loading/vue'
-import { constants } from './service'
+import { $constants } from '@tinysmall/renderless/loading/constants'
 import '@tinysmall/theme/loading/index.less'
 import { iconLoadingShadow } from '@tinysmall/icon'
 import type { ILoadingApi } from '@tinysmall/renderless/types/loading.type'
@@ -43,11 +43,7 @@ export const loadingProps = {
   },
   loadtext: {
     type: String,
-    default: () => constants.LOAD_ICON_TEXT
-  },
-  _constants: {
-    type: Object,
-    default: () => constants
+    default: () => $constants.LOAD_ICON_TEXT
   },
   loadingImg: {
     type: String

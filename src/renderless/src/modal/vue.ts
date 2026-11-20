@@ -49,6 +49,7 @@ import {
   runBeforeClose
 } from './index'
 import { nanoid } from '@tinysmall/utils'
+import { $constants } from './constants'
 import type { IModalApi, IModalProps, IModalRenderlessParamUtils, ISharedRenderlessParamHooks } from '../../types'
 
 export const api = [
@@ -81,11 +82,11 @@ export const api = [
 export const renderless = (
   props: IModalProps,
   { computed, onMounted, onBeforeUnmount, reactive, watch }: ISharedRenderlessParamHooks,
-  { vm, emit, emitter, nextTick, broadcast, vm: parent, constants }: IModalRenderlessParamUtils,
+  { vm, emit, emitter, nextTick, broadcast, vm: parent }: IModalRenderlessParamUtils,
   {}
 ) => {
   const api = {} as IModalApi
-  const lockScrollClass = constants.SCROLL_LOCK_CLASS('pc')
+  const lockScrollClass = $constants.SCROLL_LOCK_CLASS('pc')
   const state = reactive({
     titleId: 'tiny-modal-title-' + nanoid.api.nanoid(8),
     contentId: 'tiny-modal-content-' + nanoid.api.nanoid(8),

@@ -154,6 +154,7 @@
 
 <script lang="tsx">
 import { renderless, api } from '@tinysmall/renderless/tree/vue'
+import { $constants } from '@tinysmall/renderless/tree/constants'
 import { $prefix, $props, props, setup, defineComponent, directive } from '@tinysmall/common'
 import { iconWarning, iconMarkOn } from '@tinysmall/icon'
 import Switch from '@tinysmall/switch'
@@ -165,16 +166,10 @@ import TreeNode from './tree-node.vue'
 import Radio from '@tinysmall/radio'
 import { HighlightQuery } from '@tinysmall/directive'
 
-export const $constants = {
-  EMPTY_TEXT_LOCAL: 'ui.tree.emptyText'
-}
 
 export const treeProps = {
   ...$props,
-  _constants: {
-    type: Object,
-    default: () => $constants
-  },
+  
   /** 树主题样式，取自原 pc.vue props 数组 */
   theme: String,
   accordion: Boolean,

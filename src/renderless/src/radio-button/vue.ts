@@ -10,6 +10,7 @@
  *
  */
 
+import { $constants } from './constants'
 import type {
   IRadioButtonApi,
   IRadioButtonProps,
@@ -34,10 +35,10 @@ export const api = ['state', 'handleChange', 'keydownHandle', 'handleFocus', 'ha
 export const renderless = (
   props: IRadioButtonProps,
   { computed, reactive, onMounted, onBeforeUnmount, inject }: ISharedRenderlessParamHooks,
-  { parent, dispatch, constants, nextTick, vm }: IRadioButtonRenderlessParamUtils
+  { parent, dispatch, nextTick, vm }: IRadioButtonRenderlessParamUtils
 ): IRadioButtonApi => {
   const api: IRadioButtonApi = {
-    getGroup: getGroup({ constants, parent }),
+    getGroup: getGroup({ parent }),
     toggleEvents: toggleEvents({ vm, props })
   } as IRadioButtonApi
 
@@ -60,7 +61,7 @@ export const renderless = (
     getValue: getValue(state),
     getStyle: getStyle(state),
     setValue: setValue({ state }),
-    handleChange: handleChange({ constants, dispatch, nextTick, state }),
+    handleChange: handleChange({ dispatch, nextTick, state }),
     keydownHandle: keydownHandle({ state, props }),
     handleFocus: handleFocus(state),
     handleBlur: handleBlur(state)

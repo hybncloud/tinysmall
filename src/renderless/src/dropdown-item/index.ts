@@ -10,6 +10,7 @@
  *
  */
 
+import { $constants } from './constants'
 import type {
   IDropdownItemRenderlessParams,
   IDropdownItemStyle,
@@ -181,9 +182,9 @@ export const handleClick =
   }
 
 export const computedGetIcon =
-  ({ constants }: Pick<IDropdownItemRenderlessParams, 'constants'>) =>
+  ({}) =>
   (name = 'leftWardArrow'): object | string => {
-    return constants?.ICON_MAP[name]
+    return $constants?.ICON_MAP[name]
   }
 
 export const computedTip =

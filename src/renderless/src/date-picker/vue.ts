@@ -10,6 +10,7 @@
  *
  */
 
+import { $constants } from './constants'
 import {
   getBoundary,
   clearDisplayValue,
@@ -100,12 +101,12 @@ const setWatchFn = ({ api, watch, props, state, emit }) => {
 export const renderless = (
   props: IDatePickerProps,
   { computed, onMounted, reactive, watch }: ISharedRenderlessParamHooks,
-  { constants, emit, nextTick, refs, parent }: IDatePickerRenderlessParamUtils
+  { emit, nextTick, refs, parent }: IDatePickerRenderlessParamUtils
 ): IDatePickerApi => {
   const api: IDatePickerApi = {
     formatValue: formatValue(props),
-    getMonthEndDay: getMonthEndDay(constants),
-    hookMounted: hookMounted({ constants, parent, refs, nextTick })
+    getMonthEndDay: getMonthEndDay($constants),
+    hookMounted: hookMounted({ parent, refs, nextTick })
   }
 
   const state: IDatePickerState = reactive({
@@ -125,14 +126,14 @@ export const renderless = (
     onCancel: onCancel({ emit, state }),
     getColumns: getColumns({ props, state }),
     clearDisplayValue: clearDisplayValue(state),
-    getDisplayValue: getDisplayValue({ constants, DATE, props, state }),
-    showPickerAndLockScroll: showPickerAndLockScroll({ constants, state }),
-    updateColumnValue: updateColumnValue({ constants, nextTick, props, refs, state })
+    getDisplayValue: getDisplayValue({ DATE, props, state }),
+    showPickerAndLockScroll: showPickerAndLockScroll({ state }),
+    updateColumnValue: updateColumnValue({ nextTick, props, refs, state })
   })
 
-  api.getBoundary = getBoundary({ api, constants, props })
-  api.updateInnerValue = updateInnerValue({ api, constants, props, refs, state })
-  api.getRanges = getRanges({ api, constants, props, state })
+  api.getBoundary = getBoundary({ api, props })
+  api.updateInnerValue = updateInnerValue({ api, props, refs, state })
+  api.getRanges = getRanges({ api, props, state })
 
   setWatchFn({ api, watch, props, state, emit })
 

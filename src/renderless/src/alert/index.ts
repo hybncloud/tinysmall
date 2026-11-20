@@ -9,6 +9,7 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
+import { $constants } from './constants'
 import type { CSSProperties } from 'vue'
 import type { IAlertRenderlessParams, ITinyVm } from '../../types'
 
@@ -45,15 +46,15 @@ export const handleClose =
   }
 
 export const computedGetIcon =
-  ({ constants, props }: Pick<IAlertRenderlessParams, 'constants' | 'props'>) =>
+  ({ props }: Pick<IAlertRenderlessParams, 'constants' | 'props'>) =>
   () => {
-    return props.icon || constants.ICON_MAP[props.type]
+    return props.icon || $constants.ICON_MAP[props.type]
   }
 
 export const computedGetTitle =
-  ({ constants, t, props }: Pick<IAlertRenderlessParams, 'constants' | 't' | 'props'>) =>
+  ({ t, props }: Pick<IAlertRenderlessParams, 'constants' | 't' | 'props'>) =>
   () =>
-    props.title || t(constants.TITLE_MAP[props.type])
+    props.title || t($constants.TITLE_MAP[props.type])
 
 export const handleHeaderClick =
   ({ state, props, vm }: Pick<IAlertRenderlessParams, 'state' | 'props' | 'vm'>) =>

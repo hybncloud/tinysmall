@@ -9,6 +9,7 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
+import { $constants } from './constants'
 import type {
   IProgressRenderlessParams,
   IProgressBarStyle,
@@ -25,24 +26,24 @@ export const computedBarStyle =
   })
 
 export const computedRelativeStrokeWidth =
-  ({ constants, state }: Pick<IProgressRenderlessParams, 'constants' | 'state'>) =>
+  ({ state }: Pick<IProgressRenderlessParams, 'constants' | 'state'>) =>
   (): number => {
-    if (state.width === 0 || state.strokeWidth === 0) return constants.REL_STROKE_WIDTH
+    if (state.width === 0 || state.strokeWidth === 0) return $constants.REL_STROKE_WIDTH
     return Number(((state.strokeWidth / state.width) * 100).toFixed(1))
   }
 
 export const computedRadius =
-  ({ constants, props, state }: Pick<IProgressRenderlessParams, 'constants' | 'props' | 'state'>) =>
+  ({ props, state }: Pick<IProgressRenderlessParams, 'constants' | 'props' | 'state'>) =>
   (): number =>
-    props.type === constants.PROGRESS_TYPE.CIRCLE || props.type === constants.PROGRESS_TYPE.DASHBOARD
+    props.type === $constants.PROGRESS_TYPE.CIRCLE || props.type === $constants.PROGRESS_TYPE.DASHBOARD
       ? parseInt(String(50 - parseFloat(state.relativeStrokeWidth) / 2), 10)
       : 0
 
 export const computedTrackPath =
-  ({ constants, props, state }: Pick<IProgressRenderlessParams, 'constants' | 'props' | 'state'>) =>
+  ({ props, state }: Pick<IProgressRenderlessParams, 'constants' | 'props' | 'state'>) =>
   (): string => {
     const radiusValue = state.radius
-    const isDashboardType = props.type === constants.PROGRESS_TYPE.DASHBOARD
+    const isDashboardType = props.type === $constants.PROGRESS_TYPE.DASHBOARD
 
     return `
     M 50 50
@@ -58,9 +59,9 @@ export const computedPerimeter =
     2 * Math.PI * state.radius
 
 export const computedRate =
-  ({ constants, props }: Pick<IProgressRenderlessParams, 'constants' | 'props'>) =>
+  ({ props }: Pick<IProgressRenderlessParams, 'constants' | 'props'>) =>
   (): number =>
-    props.type === constants.PROGRESS_TYPE.DASHBOARD ? 0.75 : 1
+    props.type === $constants.PROGRESS_TYPE.DASHBOARD ? 0.75 : 1
 
 export const computedStrokeDashoffset =
   ({ state }: Pick<IProgressRenderlessParams, 'state'>) =>
@@ -88,28 +89,28 @@ export const computedCirclePathStyle =
   })
 
 export const computedStroke =
-  ({ api, constants, props }: Pick<IProgressRenderlessParams, 'api' | 'constants' | 'props'>) =>
+  ({ api, props }: Pick<IProgressRenderlessParams, 'api' | 'constants' | 'props'>) =>
   (): string =>
     (props.color && api.getCurrentColor(props.percentage)) ||
-    constants.STATUS_TO_COLOR[props.status] ||
-    constants.STATUS_DEFAULT_COLOR
+    $constants.STATUS_TO_COLOR[props.status] ||
+    $constants.STATUS_DEFAULT_COLOR
 
 export const computedIconClass =
-  ({ constants, props }: Pick<IProgressRenderlessParams, 'constants' | 'props'>) =>
+  ({ props }: Pick<IProgressRenderlessParams, 'constants' | 'props'>) =>
   (): string => {
-    if (props.status === constants.PROGRESS_STATUS.SUCCESS) {
+    if (props.status === $constants.PROGRESS_STATUS.SUCCESS) {
       const iconClasses =
-        props.type === constants.PROGRESS_TYPE.LINE
-          ? [constants.ICON_SUCCESS, constants.ICON_CIRCLE_SUCCESS]
-          : [constants.ICON_CIRCLE_SUCCESS, constants.ICON_SUCCESS]
+        props.type === $constants.PROGRESS_TYPE.LINE
+          ? [$constants.ICON_SUCCESS, $constants.ICON_CIRCLE_SUCCESS]
+          : [$constants.ICON_CIRCLE_SUCCESS, $constants.ICON_SUCCESS]
       return iconClasses[0]
-    } else if (props.status === constants.PROGRESS_STATUS.WARNING) {
-      return props.type === constants.PROGRESS_TYPE.LINE ? constants.ICON_WARNING : constants.ICON_CIRCLE_WARNING
-    } else if (props.status === constants.PROGRESS_STATUS.EXCEPTION) {
+    } else if (props.status === $constants.PROGRESS_STATUS.WARNING) {
+      return props.type === $constants.PROGRESS_TYPE.LINE ? $constants.ICON_WARNING : $constants.ICON_CIRCLE_WARNING
+    } else if (props.status === $constants.PROGRESS_STATUS.EXCEPTION) {
       const iconClasses =
-        props.type === constants.PROGRESS_TYPE.LINE
-          ? [constants.ICON_EXCEPTION, constants.ICON_CIRCLE_EXCEPTION]
-          : [constants.ICON_CIRCLE_EXCEPTION, constants.ICON_EXCEPTION]
+        props.type === $constants.PROGRESS_TYPE.LINE
+          ? [$constants.ICON_EXCEPTION, $constants.ICON_CIRCLE_EXCEPTION]
+          : [$constants.ICON_CIRCLE_EXCEPTION, $constants.ICON_EXCEPTION]
       return iconClasses[0]
     } else {
       return ''
@@ -117,27 +118,27 @@ export const computedIconClass =
   }
 
 export const computedIconStyle =
-  ({ constants, props, state }: Pick<IProgressRenderlessParams, 'constants' | 'props' | 'state'>) =>
+  ({ props, state }: Pick<IProgressRenderlessParams, 'constants' | 'props' | 'state'>) =>
   (): IProgressIconStyle<number> | {} => {
-    if (props.type === constants.PROGRESS_TYPE.LINE) {
+    if (props.type === $constants.PROGRESS_TYPE.LINE) {
       return state.strokeWidth
         ? {
-            width: constants.TEXT_XS + state.strokeWidth * constants.STROKE_WIDTH_RATE,
-            height: constants.TEXT_XS + state.strokeWidth * constants.STROKE_WIDTH_RATE
+            width: $constants.TEXT_XS + state.strokeWidth * $constants.STROKE_WIDTH_RATE,
+            height: $constants.TEXT_XS + state.strokeWidth * $constants.STROKE_WIDTH_RATE
           }
         : {}
     } else {
       return state.width
-        ? { width: state.width / constants.WIDTH_RATE_TWO, height: state.width / constants.WIDTH_RATE_TWO }
+        ? { width: state.width / $constants.WIDTH_RATE_TWO, height: state.width / $constants.WIDTH_RATE_TWO }
         : {}
     }
   }
 
 export const computedProgressTextSize =
-  ({ constants, props, state }: Pick<IProgressRenderlessParams, 'constants' | 'props' | 'state'>) =>
+  ({ props, state }: Pick<IProgressRenderlessParams, 'constants' | 'props' | 'state'>) =>
   (): number => {
-    return props.type === constants.PROGRESS_TYPE.LINE
-      ? constants.TEXT_XS + state.strokeWidth * constants.STROKE_WIDTH_RATE
+    return props.type === $constants.PROGRESS_TYPE.LINE
+      ? $constants.TEXT_XS + state.strokeWidth * $constants.STROKE_WIDTH_RATE
       : state.width * 0.111111 + 2
   }
 

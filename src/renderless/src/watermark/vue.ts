@@ -1,3 +1,4 @@
+import { $constants } from './constants'
 import { mounted, reRenderWatermark, unmounted, watchProps } from './index'
 import type { IWatermarkApi } from '../../types/watermark.type'
 
@@ -10,7 +11,7 @@ export const renderless = (props, { onMounted, reactive, watch, computed, onUnmo
     watermarkDiv: null,
     observerInstance: null,
     flag: 0,
-    font: computed(() => Object.assign(constants.font, props.font))
+    font: computed(() => Object.assign($constants.font, props.font))
   })
 
   Object.assign(api, {

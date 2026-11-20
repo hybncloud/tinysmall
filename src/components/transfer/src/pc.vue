@@ -112,6 +112,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/transfer/vue'
+import { $constants } from '@tinysmall/renderless/transfer/constants'
 import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
 import Button from '@tinysmall/button'
 import TransferPanel from '@tinysmall/transfer-panel'
@@ -120,18 +121,10 @@ import '@tinysmall/theme/transfer/index.less'
 
 import type { ITransferApi } from '@tinysmall/renderless/types/transfer.type'
 
-export const $constants = {
-  ISCHECKED: 'is-checked',
-  DROPPANEL: '.tiny-transfer-panel__list',
-  TRANSFERPANEL: '.tiny-transfer-panel__item'
-}
 
 export const transferProps = {
   ...$props,
-  _constants: {
-    type: Object,
-    default: () => $constants
-  },
+  
   /** 分页配置，取自原 pc.vue props 数组 */
   pageVO: { type: Object },
   buttonTexts: {

@@ -175,6 +175,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/cascader/vue'
+import { $constants } from '@tinysmall/renderless/cascader/constants'
 import { $prefix, $props, setup, defineComponent, directive } from '@tinysmall/common'
 import { t } from '@tinysmall/locale'
 
@@ -190,32 +191,10 @@ import Tooltip from '@tinysmall/tooltip'
 import { iconClose, IconChevronDown, IconUpWard, iconYes } from '@tinysmall/icon'
 import '@tinysmall/theme/cascader/index.less'
 
-const $constants = {
-  placeholder: 'ui.cascader.placeholder',
-  COMPONENT_NAME: { FormItem: 'FormItem' },
-  EVENT_NAME: { FormBlur: 'form.blur', FormChange: 'form.change' },
-  defaultNodeConfig: {
-    lazy: false,
-    load: null,
-    isLeaf: 'leaf',
-    afterLoad: null,
-    currentNodeKey: null,
-    checkStrictly: false,
-    checkDescendants: null,
-    defaultCheckedKeys: null,
-    defaultExpandedKeys: null,
-    autoExpandParent: null,
-    defaultExpandAll: null,
-    filterNodeMethod: null
-  }
-}
 
 export const cascaderProps = {
   ...$props,
-  _constants: {
-    type: Object,
-    default: () => $constants
-  },
+  
   autoSize: Boolean,
   beforeFilter: {
     type: Function,

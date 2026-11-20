@@ -1,5 +1,5 @@
 <script lang="ts">
-import { $props, $prefix, defineComponent, renderComponent } from '@tinysmall/common'
+import { $props, $prefix, defineComponent, h } from '@tinysmall/common'
 import PcStandardTemplate from './pc/pc-standard.vue'
 import PcAdvancedTemplate from './pc/pc-advanced.vue'
 import PcLineTemplate from './pc/pc-line.vue'
@@ -73,7 +73,7 @@ export default defineComponent({
   name: $prefix + 'Steps',
   props: stepsProps,
   setup(props, context) {
-    return renderComponent({ view: template('pc', props), props, context })
+    return () => h(template('pc', props), { ref: 'modeTemplate', ...props, ...context.attrs }, context.slots)
   }
 })
 </script>

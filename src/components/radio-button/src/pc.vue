@@ -46,19 +46,14 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/radio-button/vue'
+import { $constants } from '@tinysmall/renderless/radio-button/constants'
 import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
 import type { IRadioButtonApi } from '@tinysmall/renderless/types/radio-button.type'
 
-export const $constants = {
-  RADIO_GROUP: 'RadioGroup'
-}
 
 export const radioButtonProps = {
   ...$props,
-  _constants: {
-    type: Object,
-    default: () => $constants
-  },
+  
   name: String,
   text: String,
   events: {

@@ -10,6 +10,7 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
+import { $constants } from './constants'
 import type {
   IFileUploadRenderlessParams,
   IFileUploadService,
@@ -99,22 +100,22 @@ export const computedUploadDisabled =
     props.disabled || (state.form || {}).disabled
 
 export const computedUploadingSize =
-  ({ state, constants }: Pick<IFileUploadRenderlessParams, 'state' | 'constants'>) =>
+  ({ state}: Pick<IFileUploadRenderlessParams, 'state' | 'constants'>) =>
   (): number =>
     state.uploadingFiles.reduce(
-      (total, file) => (total + file.status !== constants.FILE_STATUS.FAIL ? file.size : 0),
+      (total, file) => (total + file.status !== $constants.FILE_STATUS.FAIL ? file.size : 0),
       0
     )
 
 export const watchListType =
-  ({ constants, state, api }: Pick<IFileUploadRenderlessParams, 'constants' | 'state' | 'api'>) =>
+  ({ state, api }: Pick<IFileUploadRenderlessParams, 'constants' | 'state' | 'api'>) =>
   (type: string) => {
     if (
       [
-        constants.LIST_TYPE.PICTURE_CARD,
-        constants.LIST_TYPE.PICTURE,
-        constants.LIST_TYPE.PICTURE_SINGLE,
-        constants.LIST_TYPE.DRAG_SINGLE
+        $constants.LIST_TYPE.PICTURE_CARD,
+        $constants.LIST_TYPE.PICTURE,
+        $constants.LIST_TYPE.PICTURE_SINGLE,
+        $constants.LIST_TYPE.DRAG_SINGLE
       ].includes(type)
     ) {
       state.uploadFiles = state.uploadFiles.map((file) => {
@@ -133,18 +134,18 @@ export const watchListType =
   }
 
 export const watchFileList =
-  ({ constants, state, props, api }: Pick<IFileUploadRenderlessParams, 'constants' | 'state' | 'props' | 'api'>) =>
+  ({ state, props, api }: Pick<IFileUploadRenderlessParams, 'constants' | 'state' | 'props' | 'api'>) =>
   (fileList: IFileUploadFile[]) => {
     let uploadFiles =
       fileList &&
       fileList.map((file) => {
         file.uid = file.uid || Date.now() + state.tempIndex++
-        file.status = file.status || constants.FILE_STATUS.SUCESS
+        file.status = file.status || $constants.FILE_STATUS.SUCESS
         // 此处不建议同步AUI的getFileSourceType去更改用户数据的type类型，原生的type不能变更；
 
         return file
       })
-    if ([constants.LIST_TYPE.PICTURE_SINGLE, constants.LIST_TYPE.DRAG_SINGLE].includes(props.listType)) {
+    if ([$constants.LIST_TYPE.PICTURE_SINGLE, $constants.LIST_TYPE.DRAG_SINGLE].includes(props.listType)) {
       uploadFiles = uploadFiles.slice(0, 1)
     }
 
@@ -218,7 +219,7 @@ const onBeforeIsPromise = ({
  *
  * @description  根据file.raw.type和file.name, 判断是否符合accept类型，最为准确！
  */
-const isAcceptType = (acceptArray, file, constants, fileType) => {
+const isAcceptType = (acceptArray, file, fileType) => {
   const mimeType = ((file.raw && file.raw.type) || file.type || '').toLowerCase()
 
   // 任意符合，即符合条件
@@ -279,7 +280,7 @@ export const beforeUpload =
     props,
     api,
     Modal,
-    constants,
+    
     t,
     state
   }: Pick<IFileUploadRenderlessParams, 'props' | 'api' | 'constants' | 't' | 'state'> & IFileUploadModalVm) =>
@@ -287,7 +288,7 @@ export const beforeUpload =
     if (state.isEdm && file.name.length > 255) {
       remove({ api, file, autoRemove })
       return Modal.message({
-        message: `${t(constants.EDM.THEFILENAME)}"${file.name}"${t(constants.EDM.FILENAMEEXCEEDS)}`,
+        message: `${t($constants.EDM.THEFILENAME)}"${file.name}"${t($constants.EDM.FILENAMEEXCEEDS)}`,
         status: 'warning'
       })
     }
@@ -295,7 +296,7 @@ export const beforeUpload =
     if (file) {
       let isValid = true
       const accept = state.isEdm ? state.accept : props.accept
-      const types = constants.FILE_TYPE[state.triggerClickType.toUpperCase()]
+      const types = $constants.FILE_TYPE[state.triggerClickType.toUpperCase()]
       const acceptArray = accept ? accept.split(',') : []
       let fileType = ''
       if (isMergeUpload) {
@@ -303,7 +304,7 @@ export const beforeUpload =
         fileType = file.raw.flatMap((f) => {
           const type = getFileType({ file: f })
           if (accept) {
-            const isExist = isAcceptType(acceptArray, f, constants, type)
+            const isExist = isAcceptType(acceptArray, f, type)
             isExist ? fileRow.push(f) : remove({ api, file: f, autoRemove })
           } else {
             fileRow.push(f)
@@ -318,7 +319,7 @@ export const beforeUpload =
         fileType = getFileType({ file })
 
         if (accept) {
-          const isExist = isAcceptType(acceptArray, file, constants, fileType)
+          const isExist = isAcceptType(acceptArray, file, fileType)
           !isExist && (isValid = false)
         }
       }
@@ -332,8 +333,8 @@ export const beforeUpload =
         remove({ api, file, autoRemove })
         return Modal.message({
           message: fileType
-            ? t(constants.EDM.notSupport, { format: fileType })
-            : t(constants.EDM.NOT_SUPPORT_NO_SUFFIX),
+            ? t($constants.EDM.notSupport, { format: fileType })
+            : t($constants.EDM.NOT_SUPPORT_NO_SUFFIX),
           status: 'warning'
         })
       }
@@ -365,7 +366,7 @@ export const beforeUpload =
 export const startUpload =
   ({
     state,
-    constants,
+    
     vm,
     Modal,
     api,
@@ -373,7 +374,7 @@ export const startUpload =
   }: Pick<IFileUploadRenderlessParams, 'state' | 'constants' | 'vm' | 'api' | 't'> & IFileUploadModalVm) =>
   (file: IFileUploadFile, isList: boolean) => {
     if (state.isHwh5) {
-      vm.$refs[constants.UPLOAD_INNER].upload(file.raw)
+      vm.$refs[$constants.UPLOAD_INNER].upload(file.raw)
       return
     }
     if (file.size > state.docSize && file.size > state.chunkSize) {
@@ -389,11 +390,11 @@ export const startUpload =
       api.largeDocumentUpload(file)
 
       Modal.message({
-        message: `${file.name}${t(constants.EDM.LARGEFILEKEY)}`,
+        message: `${file.name}${t($constants.EDM.LARGEFILEKEY)}`,
         status: 'warning'
       })
     } else {
-      vm.$refs[constants.UPLOAD_INNER].upload(file.raw)
+      vm.$refs[$constants.UPLOAD_INNER].upload(file.raw)
     }
   }
 
@@ -418,7 +419,7 @@ export const properFileSize =
     props,
     state,
     api,
-    constants,
+    
     Modal,
     t
   }: Pick<IFileUploadRenderlessParams, 'props' | 'state' | 'constants' | 'api' | 't'> & IFileUploadModalVm) =>
@@ -460,7 +461,7 @@ export const properFileSize =
     if (state.isEdm || (Array.isArray(props.fileSize) && props.fileSize[1])) {
       if (!isNaN(Number(maxSize)) && file.size > maxSize * 1024 * 1024) {
         Modal.message({
-          message: t(constants.EDM.EXCEED, {
+          message: t($constants.EDM.EXCEED, {
             fileName: file.name,
             maxSize: api.formatFileSize(Number(maxSize * 1024 * 1024))
           }),
@@ -473,7 +474,7 @@ export const properFileSize =
 
     if (file.size <= 0) {
       Modal.message({
-        message: t(constants.EDM.FILEEMPTY),
+        message: t($constants.EDM.FILEEMPTY),
         status: 'warning'
       })
 
@@ -484,7 +485,7 @@ export const properFileSize =
 
     if (file.size <= userMin * 1024) {
       Modal.message({
-        message: `${t(constants.EDM.SIZE, { fileName: file.name, minSize: api.formatFileSize(Number(userMin), 'KB'), sizeUnit: '' })}`,
+        message: `${t($constants.EDM.SIZE, { fileName: file.name, minSize: api.formatFileSize(Number(userMin), 'KB'), sizeUnit: '' })}`,
         status: 'warning'
       })
 
@@ -497,7 +498,7 @@ export const properFileSize =
 export const addFileToList =
   ({
     api,
-    constants,
+    
     emit,
     props,
     state
@@ -505,7 +506,7 @@ export const addFileToList =
   (rawFile: IFileUploadFile, updateId: string, reUpload: boolean) => {
     !reUpload && (rawFile.uid = Date.now() + state.tempIndex++)
 
-    let file = { status: constants.FILE_STATUS.READY, name: rawFile.name, size: rawFile.size }
+    let file = { status: $constants.FILE_STATUS.READY, name: rawFile.name, size: rawFile.size }
 
     Object.assign(file, { percentage: 0, uid: rawFile.uid, raw: rawFile, response: {} })
     file.type = api.getFileSourceType({ file })
@@ -524,10 +525,10 @@ export const addFileToList =
 
     if (
       [
-        constants.LIST_TYPE.PICTURE_CARD,
-        constants.LIST_TYPE.PICTURE,
-        constants.LIST_TYPE.PICTURE_SINGLE,
-        constants.LIST_TYPE.DRAG_SINGLE
+        $constants.LIST_TYPE.PICTURE_CARD,
+        $constants.LIST_TYPE.PICTURE,
+        $constants.LIST_TYPE.PICTURE_SINGLE,
+        $constants.LIST_TYPE.DRAG_SINGLE
       ].includes(props.listType)
     ) {
       try {
@@ -576,14 +577,14 @@ export const getFileHash =
   ({
     emit,
     Modal,
-    constants,
+    
     t,
     state
   }: Pick<IFileUploadRenderlessParams, 'emit' | 'constants' | 't' | 'state'> & IFileUploadModalVm) =>
   ({ file, showTips }: { file: IFileUploadFile; showTips: boolean }) => {
     if (showTips) {
       Modal.message({
-        message: `${t(constants.EDM.CALCHASH)}`,
+        message: `${t($constants.EDM.CALCHASH)}`,
         status: 'warning'
       })
     }
@@ -592,14 +593,14 @@ export const getFileHash =
       const reader = new FileReader()
       reader.readAsArrayBuffer(file.raw)
       reader.onload = async (e) => {
-        if (file.status === constants.FILE_STATUS.FAIL) return
+        if (file.status === $constants.FILE_STATUS.FAIL) return
         const hash = sha256(e.target && e.target.result)
         file.hash = file.raw.hash = hash
         resolve(hash)
         emit('hash-progress', 100)
       }
       reader.onerror = (err) => {
-        file.status = constants.FILE_STATUS.FAIL
+        file.status = $constants.FILE_STATUS.FAIL
         emit('error', err, file, state.uploadFiles)
       }
     })
@@ -630,7 +631,7 @@ const handleHwh5Files = (files: IFileUploadFile[], hwh5: object): IFileUploadFil
 export const handleStart =
   ({
     api,
-    constants,
+    
     props,
     state,
     vm
@@ -642,7 +643,7 @@ export const handleStart =
     state.currentUploadingFileUids = []
     rawFiles.forEach((rawFile) => api.addFileToList(rawFile, updateId, reUpload))
 
-    const { UPLOADING, READY } = constants.FILE_STATUS
+    const { UPLOADING, READY } = $constants.FILE_STATUS
     state.uploadingFiles = state.uploadFiles.filter((file) => [UPLOADING, READY].includes(file.status))
 
     if (state.isEdm && state.isSuccess) {
@@ -673,7 +674,7 @@ export const handleStart =
               const tokenParams = { token: props.edm.upload.token, file, type: 'upload' }
               api.getToken(tokenParams).then((data) => {
                 if (data) {
-                  file.status = constants.FILE_STATUS.UPLOADING
+                  file.status = $constants.FILE_STATUS.UPLOADING
                   api.startUpload(file, true)
                 }
               })
@@ -686,7 +687,7 @@ export const handleStart =
     if (!state.isEdm && props.autoUpload) {
       if (props.multiple && props.mergeService) {
         const handler = (file) =>
-          vm.$refs[constants.UPLOAD_INNER].upload(file.raw)
+          vm.$refs[$constants.UPLOAD_INNER].upload(file.raw)
 
         rawFiles.length && api.beforeUpload({ raw: rawFiles }, true, handler, true)
       } else {
@@ -694,7 +695,7 @@ export const handleStart =
           const file = api.getFile(rawFile)
           if (!file) return
           const handler = (file) =>
-            vm.$refs[constants.UPLOAD_INNER].upload(file.raw)
+            vm.$refs[$constants.UPLOAD_INNER].upload(file.raw)
 
           api.beforeUpload(file, true, handler)
         })
@@ -703,19 +704,19 @@ export const handleStart =
   }
 
 export const calcUploadingFilesInfo =
-  ({ state, constants }: Pick<IFileUploadRenderlessParams, 'state' | 'constants'>) =>
+  ({ state}: Pick<IFileUploadRenderlessParams, 'state' | 'constants'>) =>
   (): { percentage: number; uploadList: IFileUploadFile[]; uploadedCount: number } => {
     let percentage
     if (state.isHwh5) {
       const totalPercentage = state.uploadingFiles.reduce((total, file) => {
-        const curPercentage = file.status !== constants.FILE_STATUS.FAIL ? file.percentage / 100 : 0
+        const curPercentage = file.status !== $constants.FILE_STATUS.FAIL ? file.percentage / 100 : 0
         return total + curPercentage
       }, 0)
 
       percentage = Math.floor((totalPercentage / state.uploadingFiles.length) * 100)
     } else {
       const totalLoadedSize = state.uploadingFiles.reduce((loadedSize, file) => {
-        const loaded = file.status !== constants.FILE_STATUS.FAIL ? (file.size * file.percentage) / 100 : 0
+        const loaded = file.status !== $constants.FILE_STATUS.FAIL ? (file.size * file.percentage) / 100 : 0
         return loadedSize + loaded
       }, 0)
 
@@ -733,12 +734,12 @@ export const calcUploadingFilesInfo =
   }
 
 export const handleProgress =
-  ({ api, constants, emit, state }: Pick<IFileUploadRenderlessParams, 'api' | 'constants' | 'emit' | 'state'>) =>
+  ({ api, emit, state }: Pick<IFileUploadRenderlessParams, 'api' | 'constants' | 'emit' | 'state'>) =>
   (event: any, rawFile: File) => {
     if (Array.isArray(rawFile)) {
       state.uploadFiles.forEach((file) => {
         if (rawFile.some((raw) => file.uid === raw.uid)) {
-          file.status = constants.FILE_STATUS.UPLOADING
+          file.status = $constants.FILE_STATUS.UPLOADING
 
           if (event.lengthComputable) {
             file.percentage = Math.floor((event.loaded * 100) / event.total) || 0
@@ -751,7 +752,7 @@ export const handleProgress =
       const file = api.getFile(rawFile)
 
       if (file) {
-        file.status = constants.FILE_STATUS.UPLOADING
+        file.status = $constants.FILE_STATUS.UPLOADING
         if (state.isHwh5) {
           const { progress } = JSON.parse(event)
           file.percentage = progress
@@ -775,7 +776,7 @@ export const handleProgress =
 export const handleSuccess =
   ({
     api,
-    constants,
+    
     emit,
     state,
     props,
@@ -787,7 +788,7 @@ export const handleSuccess =
     if (Array.isArray(rawFile)) {
       state.uploadFiles.forEach((file) => {
         if (rawFile.some((raw) => file.uid === raw.uid)) {
-          file.status = constants.FILE_STATUS.SUCESS
+          file.status = $constants.FILE_STATUS.SUCESS
           file.percentage = 100
           file.response = res
 
@@ -801,7 +802,7 @@ export const handleSuccess =
       const file = api.getFile(rawFile)
 
       const status = res?.data?.status
-      const { STATUS_SPECIAL_CHARACTERS, NOT_SUPPORT_SPECIAL_CHARACTERS } = constants.EDM
+      const { STATUS_SPECIAL_CHARACTERS, NOT_SUPPORT_SPECIAL_CHARACTERS } = $constants.EDM
 
       file && delete file.cancelToken
 
@@ -812,13 +813,13 @@ export const handleSuccess =
             status: 'warning'
           })
         }
-        file.status = constants.FILE_STATUS.FAIL
+        file.status = $constants.FILE_STATUS.FAIL
         emit('error', res, file, state.uploadFiles)
         return
       }
 
       if (file) {
-        file.status = constants.FILE_STATUS.SUCESS
+        file.status = $constants.FILE_STATUS.SUCESS
         file.percentage = 100
         if (!file.isFinished) {
           emit('progress', file, state.uploadFiles, api.calcUploadingFilesInfo())
@@ -852,7 +853,7 @@ export const handleSuccess =
 export const handleError =
   ({
     api,
-    constants,
+    
     emit,
     state,
     props
@@ -861,7 +862,7 @@ export const handleError =
     const file = api.getFile(rawFile)
     if (!file) return
 
-    file.status = constants.FILE_STATUS.FAIL
+    file.status = $constants.FILE_STATUS.FAIL
     file.percentage = 100
 
     // reUploadable乃tiny独有
@@ -879,8 +880,7 @@ export const handleRemove =
     api,
     emit,
     props,
-    state,
-    constants
+    state
   }: Pick<IFileUploadRenderlessParams, 'api' | 'emit' | 'props' | 'state' | 'constants'>) =>
   (file: IFileUploadFile, raw: File) => {
     if (raw) {
@@ -893,7 +893,7 @@ export const handleRemove =
       let fileList = state.uploadFiles
 
       fileList.splice(fileList.indexOf(file), 1)
-      emit('remove', { ...file, status: constants.FILE_STATUS.FAIL }, fileList)
+      emit('remove', { ...file, status: $constants.FILE_STATUS.FAIL }, fileList)
     }
 
     if (!props.beforeRemove) {
@@ -915,12 +915,12 @@ export const handleRemove =
   }
 
 export const handleReUpload =
-  ({ vm, constants }: Pick<IFileUploadRenderlessParams, 'vm' | 'constants'>) =>
+  ({ vm}: Pick<IFileUploadRenderlessParams, 'vm' | 'constants'>) =>
   (file: IFileUploadFile) => {
-    const { READY } = constants.FILE_STATUS
+    const { READY } = $constants.FILE_STATUS
     file.status = READY
     file.percentage = 0
-    vm.$refs[constants.UPLOAD_INNER].upload(file.raw)
+    vm.$refs[$constants.UPLOAD_INNER].upload(file.raw)
   }
 
 export const handleReUploadTotal = (api: IFileUploadRenderlessParams['api']) => (files: IFileUploadFile[]) => {
@@ -932,9 +932,9 @@ export const handleReUploadTotal = (api: IFileUploadRenderlessParams['api']) => 
 }
 
 export const clearUploadingFiles =
-  ({ constants, state }: Pick<IFileUploadRenderlessParams, 'constants' | 'state'>) =>
+  ({ state }: Pick<IFileUploadRenderlessParams, 'constants' | 'state'>) =>
   () => {
-    const { SUCESS, FAIL } = constants.FILE_STATUS
+    const { SUCESS, FAIL } = $constants.FILE_STATUS
     const isUploadComplete = state.uploadingFiles.every((file) => [SUCESS, FAIL].includes(file.status))
 
     if (isUploadComplete) {
@@ -957,9 +957,9 @@ export const getFile =
   }
 
 export const abort =
-  ({ constants, vm, state }: Pick<IFileUploadRenderlessParams, 'constants' | 'vm' | 'state'>) =>
+  ({ vm, state }: Pick<IFileUploadRenderlessParams, 'constants' | 'vm' | 'state'>) =>
   (file: IFileUploadFile) => {
-    const { READY, UPLOADING, FAIL } = constants.FILE_STATUS
+    const { READY, UPLOADING, FAIL } = $constants.FILE_STATUS
     if (file) {
       state.uploadingFiles.forEach((f) => {
         const uid = file.uid || file
@@ -975,7 +975,7 @@ export const abort =
       })
     }
 
-    vm.$refs[constants.UPLOAD_INNER].abort(file)
+    vm.$refs[$constants.UPLOAD_INNER].abort(file)
   }
 
 export const abortDownload =
@@ -1018,13 +1018,13 @@ export const clearFiles = (state: IFileUploadRenderlessParams['state']) => () =>
 export const submit =
   ({
     api,
-    constants,
+    
     vm,
     state,
     props
   }: Pick<IFileUploadRenderlessParams, 'api' | 'constants' | 'vm' | 'state' | 'props'>) =>
   () => {
-    const files = state.uploadFiles.filter((file) => file.status === constants.FILE_STATUS.READY)
+    const files = state.uploadFiles.filter((file) => file.status === $constants.FILE_STATUS.READY)
 
     if (state.isEdm && state.isSuccess) {
       files.forEach((file) => {
@@ -1047,12 +1047,12 @@ export const submit =
         const rawFiles = files.map((file) => file.raw)
         rawFiles.length &&
           api.beforeUpload({ raw: rawFiles }, false, (file) => {
-            vm.$refs[constants.UPLOAD_INNER].upload(file.raw)
+            vm.$refs[$constants.UPLOAD_INNER].upload(file.raw)
           })
       } else {
         files.forEach((file) => {
           api.beforeUpload(file, false, (file) => {
-            vm.$refs[constants.UPLOAD_INNER].upload(file.raw)
+            vm.$refs[$constants.UPLOAD_INNER].upload(file.raw)
           })
         })
       }
@@ -1060,9 +1060,9 @@ export const submit =
   }
 
 export const handleClick =
-  ({ constants, vm }: Pick<IFileUploadRenderlessParams, 'constants' | 'vm'>) =>
+  ({ vm }: Pick<IFileUploadRenderlessParams, 'constants' | 'vm'>) =>
   () =>
-    vm.$refs[constants.UPLOAD_INNER].handleClick()
+    vm.$refs[$constants.UPLOAD_INNER].handleClick()
 
 export const getFileUploadUrl = (service: IFileUploadRenderlessParams['service']) => (): Promise<string> =>
   service.getFileUploadUrl()
@@ -1184,7 +1184,7 @@ export const getCalcProgress =
   }
 
 export const modifyServiceUrlSingle =
-  ({ state, props, constants }: Pick<IFileUploadRenderlessParams, 'state' | 'props' | 'constants'>) =>
+  ({ state, props}: Pick<IFileUploadRenderlessParams, 'state' | 'props' | 'constants'>) =>
   ({ file, serviceUrl, range }: { file: IFileUploadFile; serviceUrl: string; range: object }): string => {
     if (typeof file === 'object') {
       const downloadOps = props.edm.download || {}
@@ -1208,7 +1208,7 @@ export const modifyServiceUrlSingle =
         }
       }
 
-      file.status = constants.FILE_STATUS.DOWNLOADING
+      file.status = $constants.FILE_STATUS.DOWNLOADING
       file.percentage = 0
     }
 
@@ -1216,11 +1216,11 @@ export const modifyServiceUrlSingle =
   }
 
 export const getKiaScanTip =
-  ({ Modal, constants, t }: Pick<IFileUploadRenderlessParams, 'constants' | 't'> & IFileUploadModalVm) =>
+  ({ Modal, t }: Pick<IFileUploadRenderlessParams, 'constants' | 't'> & IFileUploadModalVm) =>
   ({ data }: { data: IFileUploadFile }): IFileUploadModalVm | undefined => {
-    if (data.status === constants.EDM.KIASTATUS) {
+    if (data.status === $constants.EDM.KIASTATUS) {
       return Modal.message({
-        message: `${t(constants.EDM.KIASCANTIP)}`,
+        message: `${t($constants.EDM.KIASCANTIP)}`,
         status: 'warning'
       })
     }
@@ -1299,7 +1299,7 @@ export const createDownloadCancelToken =
 export const downloadFileSingle =
   ({
     service,
-    constants,
+    
     props,
     state,
     api,
@@ -1370,7 +1370,7 @@ export const downloadFileSingle =
           if (typeof file === 'object') {
             file.percentage = 100
 
-            setTimeout(() => (file.status = constants.FILE_STATUS.SUCESS), 1000)
+            setTimeout(() => (file.status = $constants.FILE_STATUS.SUCESS), 1000)
           }
 
           api.afterDownload({ batchIndex, data, file })
@@ -1451,7 +1451,7 @@ export const downloadFileBatch =
 
 // EDM 跨站批量下载
 export const downloadAsyncPackage =
-  ({ state, props, service, api, constants }) =>
+  ({ state, props, service, api }) =>
   (params) => {
     return service.getAsyncPackageDownload().then((url) => {
       service
@@ -1468,7 +1468,7 @@ export const downloadAsyncPackage =
               return { url: downloadLink, fileSize }
             })
 
-            const { SIZE_17G } = constants.EDM
+            const { SIZE_17G } = $constants.EDM
             const isBatch = false
             const isChunk = false
             const downloadOps = props.edm.download || {}
@@ -1507,13 +1507,13 @@ export const downloadAsyncPackage =
   }
 
 export const downloadFileSingleHwh5 =
-  ({ state, props, emit, constants }: Pick<IFileUploadRenderlessParams, 'state' | 'props' | 'emit' | 'constants'>) =>
+  ({ state, props, emit}: Pick<IFileUploadRenderlessParams, 'state' | 'props' | 'emit' | 'constants'>) =>
   ({ file }: { file: IFileUploadFile }) => {
     const { HWH5, appId } = props.hwh5
     const { downloadToEDM } = HWH5()
     const options = {
       edmAuth: {
-        edmToken: state.headers[constants.EDM.EDMTOKEN],
+        edmToken: state.headers[$constants.EDM.EDMTOKEN],
         appId
       },
       docId: file.docId || file,
@@ -1561,9 +1561,9 @@ export const downloadFile =
   }
 
 export const downloadFileSingleInner =
-  ({ props, state, api, constants }) =>
+  ({ props, state, api }) =>
   ({ file, isBatch }) => {
-    const { SIZE_17G } = constants.EDM
+    const { SIZE_17G } = $constants.EDM
     const downloadOps = props.edm.download || {}
     let tokenParams = { token: downloadOps.token, file, type: 'download' }
     api.getToken(tokenParams).then((data) => {
@@ -1865,7 +1865,7 @@ export const setWriterFile =
   }
 
 export const getFormData =
-  ({ constants, props, state }: Pick<IFileUploadRenderlessParams, 'constants' | 'props' | 'state'>) =>
+  ({ props, state }: Pick<IFileUploadRenderlessParams, 'constants' | 'props' | 'state'>) =>
   ({ formData, file, type }: IFileUploadGetFormData): IUploadFormData => {
     if (state.isEdm && props.edm.upload) {
       const params = Object.assign({}, props.data || {}, props.edm.upload.params || {})
@@ -1876,26 +1876,26 @@ export const getFormData =
     }
 
     if (props.edm.isCheckCode === true) {
-      formData.append(constants.EDM.ISCHECKCODE, 'Y')
-      file.hash && formData.append(constants.EDM.CHECKCODE, file.hash)
+      formData.append($constants.EDM.ISCHECKCODE, 'Y')
+      file.hash && formData.append($constants.EDM.CHECKCODE, file.hash)
     } else {
-      formData.append(constants.EDM.ISCHECKCODE, 'N')
+      formData.append($constants.EDM.ISCHECKCODE, 'N')
     }
 
     const updateId = state.updateId || props.edm.updateId
-    if (type === constants.EDM.CHUNKINIT) {
-      formData.append(constants.EDM.FILESIZE, file.size)
-      formData.append(constants.EDM.CHUNKS, file.chunkSize)
-      formData.append(constants.EDM.FILENAME, file.name)
+    if (type === $constants.EDM.CHUNKINIT) {
+      formData.append($constants.EDM.FILESIZE, file.size)
+      formData.append($constants.EDM.CHUNKS, file.chunkSize)
+      formData.append($constants.EDM.FILENAME, file.name)
 
-      updateId && formData.append(constants.EDM.DOCID, updateId)
+      updateId && formData.append($constants.EDM.DOCID, updateId)
     } else {
-      formData.append(constants.EDM.MULTIPART, file, file.filename)
-      formData.append(constants.EDM.CHUNK, file.chunk)
-      formData.append(constants.EDM.LOWERNAME, file.filename)
+      formData.append($constants.EDM.MULTIPART, file, file.filename)
+      formData.append($constants.EDM.CHUNK, file.chunk)
+      formData.append($constants.EDM.LOWERNAME, file.filename)
 
       const docId = updateId || file.docId
-      formData.append(constants.EDM.DOCID, docId)
+      formData.append($constants.EDM.DOCID, docId)
     }
 
     updateId && formData.append('updateFile', true)
@@ -1909,8 +1909,7 @@ export const largeDocumentUpload =
     Modal,
     state,
     t,
-    emit,
-    constants
+    emit
   }: Pick<IFileUploadRenderlessParams, 'api' | 'state' | 't' | 'emit' | 'constants'> & IFileUploadModalVm) =>
   (file: IFileUploadFile) => {
     const chunkSize = Math.ceil(file.size / state.chunkSize)
@@ -1947,7 +1946,7 @@ export const largeDocumentUpload =
         }
       })
       .catch((err) => {
-        file.status = constants.FILE_STATUS.FAIL
+        file.status = $constants.FILE_STATUS.FAIL
         emit('error', err, file, state.uploadFiles)
       })
   }
@@ -1969,7 +1968,7 @@ export const segmentUploadInit =
           .request({
             method: 'post',
             url: xss.filterUrl(data),
-            data: api.getFormData({ formData, file, type: constants.EDM.CHUNKINIT }),
+            data: api.getFormData({ formData, file, type: $constants.EDM.CHUNKINIT }),
             withCredentials: props.withCredentials,
             headers: Object.assign(props.headers, state.headers)
           })
@@ -2037,7 +2036,7 @@ const segmentUploadInner = ({
   service,
   state,
   emit,
-  constants,
+  
   batchIndex,
   file,
   progress
@@ -2049,7 +2048,7 @@ const segmentUploadInner = ({
 
     if (progress.file.cancelToken) {
       progress.file.cancelToken.push(source.cancel)
-      const { SUCESS, FAIL } = constants.FILE_STATUS
+      const { SUCESS, FAIL } = $constants.FILE_STATUS
 
       service
         .request({
@@ -2142,7 +2141,7 @@ export const segmentUpload =
             emit,
             props,
             file,
-            constants,
+            
             progress
           })
         })
@@ -2153,7 +2152,7 @@ export const segmentUpload =
         service,
         state,
         emit,
-        constants,
+        
         batchIndex,
         file,
         progress
@@ -2164,7 +2163,7 @@ export const segmentUpload =
 export const batchSegmentUpload =
   ({
     api,
-    constants,
+    
     props,
     vm,
     state
@@ -2200,7 +2199,7 @@ export const batchSegmentUpload =
     } else {
       typeof props.edm.upload.closeloading === 'function' && props.edm.upload.closeloading()
 
-      vm.$refs[constants.UPLOAD_INNER].upload(state.largeFileInfo[docId])
+      vm.$refs[$constants.UPLOAD_INNER].upload(state.largeFileInfo[docId])
     }
   }
 
@@ -2249,7 +2248,7 @@ export const sliceChunk =
 
 export const getToken =
   ({
-    constants,
+    
     props,
     state,
     t,
@@ -2279,7 +2278,7 @@ export const getToken =
 
     if ((state.isEdm && !token) || typeof token !== 'function') {
       Modal.message({
-        message: t(constants.EDM.I18NKEY),
+        message: t($constants.EDM.I18NKEY),
         status: 'warning',
         duration: '2000'
       })
@@ -2326,8 +2325,8 @@ export const getToken =
             }
           }
 
-          state.headers[constants.EDM.EDMTOKEN] = result.edmToken || ''
-          state.headers[constants.EDM.TRACEID] = result.traceId || ''
+          state.headers[$constants.EDM.EDMTOKEN] = result.edmToken || ''
+          state.headers[$constants.EDM.TRACEID] = result.traceId || ''
 
           if (result.config) {
             state.singleMaxSize = result.config.singleFileMaxSize
@@ -2380,7 +2379,7 @@ export const previewFileSingle =
     api,
     state,
     props,
-    constants,
+    
     service
   }: Pick<IFileUploadRenderlessParams, 'api' | 'state' | 'props' | 'constants' | 'service'>) =>
   ({ file, resolve, open }: { file: IFileUploadFile; resolve: (res: any) => void; open: boolean }) => {
@@ -2398,8 +2397,8 @@ export const previewFileSingle =
     }
 
     const watermark = props.edm.preview.watermark || {}
-    const params = state.fileWater ? constants.EDM.FORMAT : ''
-    const downParams = state.fileWater ? constants.EDM.WATER : constants.EDM.SOURCE
+    const params = state.fileWater ? $constants.EDM.FORMAT : ''
+    const downParams = state.fileWater ? $constants.EDM.WATER : $constants.EDM.SOURCE
     const tools = props.edm.preview.plugin
 
     service.all([service.getPreviewUrl(), service.getSingleDownloadUrl()]).then(
@@ -2428,12 +2427,12 @@ export const previewFileSingle =
           text: watermark.text || ''
         })
 
-        tools.setPdfjsPaht(props.edm.preview.packageName || constants.EDM.JSLIB)
-        tools.setAuthToken(state.headers[constants.EDM.EDMTOKEN])
+        tools.setPdfjsPaht(props.edm.preview.packageName || $constants.EDM.JSLIB)
+        tools.setAuthToken(state.headers[$constants.EDM.EDMTOKEN])
 
         state.showPreview = true
         state.iframeUrl =
-          props.edm.preview.previewUrl + `${constants.EDM.URLCONTS}${file.docVersion}&docId=${file.docId}`
+          props.edm.preview.previewUrl + `${$constants.EDM.URLCONTS}${file.docVersion}&docId=${file.docId}`
         resolve(state.iframeUrl)
       })
     )
@@ -2478,7 +2477,7 @@ export const previewFileBatch =
   }
 
 export const getPreviewUrlSync =
-  ({ constants, props, state }: Pick<IFileUploadRenderlessParams, 'constants' | 'props' | 'state'>) =>
+  ({ props, state }: Pick<IFileUploadRenderlessParams, 'constants' | 'props' | 'state'>) =>
   (file: object, batch?: boolean) => {
     const edm = props.edm || {}
     const preview = edm.preview || {}
@@ -2495,7 +2494,7 @@ export const getPreviewUrlSync =
 
     const params = [] as string[]
     let paramsData
-    const edmToken = state.headers[constants.EDM.EDMTOKEN]
+    const edmToken = state.headers[$constants.EDM.EDMTOKEN]
 
     if (batch) {
       // 批量预览
@@ -2614,7 +2613,7 @@ export const previewImageBatch =
   }
 
 export const getDialogConfigObj =
-  ({ props, state, t, constants }: Pick<IFileUploadRenderlessParams, 'props' | 'state' | 't' | 'constants'>) =>
+  ({ props, state, t}: Pick<IFileUploadRenderlessParams, 'props' | 'state' | 't' | 'constants'>) =>
   (): object => {
     const dialogConfigDefault = {
       class: 'single-download-modal single-download-modal1',
@@ -2622,7 +2621,7 @@ export const getDialogConfigObj =
       lockScroll: true,
       visible: state.showPreview,
       dragable: true,
-      title: t(constants.EDM.DOC_PREVIEW),
+      title: t($constants.EDM.DOC_PREVIEW),
       width: '60%',
       'onUpdate:visible': (value) => (state.showPreview = value)
     }
@@ -2656,10 +2655,10 @@ export const getDialogConfigObj =
   }
 
 export const computeDocChunkSize =
-  ({ props, state, constants }: Pick<IFileUploadRenderlessParams, 'props' | 'state' | 'constants'>) =>
+  ({ props, state}: Pick<IFileUploadRenderlessParams, 'props' | 'state' | 'constants'>) =>
   () => {
     const isDefaultChunkSize = !(props.edm && props.edm.chunkSize)
-    const { SIZE_0M, SIZE_2M, SIZE_4M, SIZE_8M, SIZE_16M, SIZE_20M, SIZE_32M, SIZE_64M, SIZE_2G } = constants.EDM
+    const { SIZE_0M, SIZE_2M, SIZE_4M, SIZE_8M, SIZE_16M, SIZE_20M, SIZE_32M, SIZE_64M, SIZE_2G } = $constants.EDM
 
     let { docSize = SIZE_20M, chunkSize = SIZE_8M } = props.edm || {}
     docSize = docSize < 0 ? 0 : docSize
@@ -2682,11 +2681,11 @@ export const computeDocChunkSize =
   }
 
 export const computedSourcetype =
-  ({ props, constants }: Pick<IFileUploadRenderlessParams, 'props' | 'constants'>) =>
+  ({ props}: Pick<IFileUploadRenderlessParams, 'props' | 'constants'>) =>
   (): string[] => {
     const { sourceType, listType } = props
     let types = sourceType.split('/')
-    if (listType !== constants.LIST_TYPE.PICTURE_CARD) {
+    if (listType !== $constants.LIST_TYPE.PICTURE_CARD) {
       types = types.slice(0, 1)
     }
 
@@ -2694,9 +2693,9 @@ export const computedSourcetype =
   }
 
 export const getFileSourceType =
-  ({ state, props, constants }: Pick<IFileUploadRenderlessParams, 'state' | 'props' | 'constants'>) =>
+  ({ state, props}: Pick<IFileUploadRenderlessParams, 'state' | 'props' | 'constants'>) =>
   ({ file }: { file: IFileUploadFile }) => {
-    const { PICTURE_SINGLE, PICTURE_CARD } = constants.LIST_TYPE
+    const { PICTURE_SINGLE, PICTURE_CARD } = $constants.LIST_TYPE
     const { listType } = props
     if (![PICTURE_SINGLE, PICTURE_CARD].includes(listType)) return
 
@@ -2704,8 +2703,8 @@ export const getFileSourceType =
     if (file.type) {
       type = file.type
     } else if (listType === PICTURE_CARD) {
-      const { VIDEO, AUDIO, PICTURE } = constants.FILE_TYPE
-      const { SOURCE_VIDEO, SOURCE_AUDIO, SOURCE_PICTURE } = constants.SOURCE_TYPE
+      const { VIDEO, AUDIO, PICTURE } = $constants.FILE_TYPE
+      const { SOURCE_VIDEO, SOURCE_AUDIO, SOURCE_PICTURE } = $constants.SOURCE_TYPE
       const matchs = { [VIDEO]: SOURCE_VIDEO, [AUDIO]: SOURCE_AUDIO, [PICTURE]: SOURCE_PICTURE }
 
       const fileType = getFileType({ file })
@@ -2717,20 +2716,20 @@ export const getFileSourceType =
   }
 
 export const updateFile =
-  ({ constants, vm }: Pick<IFileUploadRenderlessParams, 'constants' | 'vm'>) =>
+  ({ vm }: Pick<IFileUploadRenderlessParams, 'constants' | 'vm'>) =>
   (file: IFileUploadFile) => {
-    vm.$refs[constants.UPLOAD_INNER].handleUpdate(file)
+    vm.$refs[$constants.UPLOAD_INNER].handleUpdate(file)
   }
 
 export const handleChange =
-  ({ vm, constants }: Pick<IFileUploadRenderlessParams, 'vm' | 'constants'>) =>
+  ({ vm}: Pick<IFileUploadRenderlessParams, 'vm' | 'constants'>) =>
   (file: IFileUploadFile) => {
     if (typeof file === 'object' && file !== null && file !== undefined) {
       let files = file
       if (!Array.isArray(file)) {
         files = [file]
       }
-      vm.$refs[constants.UPLOAD_INNER].handleChange({ target: { files } })
+      vm.$refs[$constants.UPLOAD_INNER].handleChange({ target: { files } })
     }
   }
 
@@ -2738,12 +2737,12 @@ export const handleTriggerClick =
   ({
     vm,
     state,
-    constants,
+    
     props,
     emit
   }: Pick<IFileUploadRenderlessParams, 'vm' | 'state' | 'constants' | 'props' | 'emit'>) =>
   ($event: Event, type: string) => {
-    const { PICTURE_CARD, PICTURE_SINGLE } = constants.LIST_TYPE
+    const { PICTURE_CARD, PICTURE_SINGLE } = $constants.LIST_TYPE
     const { isHwh5 } = state
     const { listType } = props
 
@@ -2754,7 +2753,7 @@ export const handleTriggerClick =
     state.triggerClickType = type
 
     if (listType === PICTURE_CARD && isHwh5) {
-      vm.$refs[constants.UPLOAD_LIST_INNER].chooseFile(type)
+      vm.$refs[$constants.UPLOAD_LIST_INNER].chooseFile(type)
       return
     }
 
@@ -2794,52 +2793,52 @@ export const encryptDialogConfirm =
   }
 
 export const closeRecordPanel =
-  ({ vm, constants, state, props }: Pick<IFileUploadRenderlessParams, 'vm' | 'constants' | 'state' | 'props'>) =>
+  ({ vm, state, props }: Pick<IFileUploadRenderlessParams, 'vm' | 'constants' | 'state' | 'props'>) =>
   () => {
-    const { PICTURE_CARD } = constants.LIST_TYPE
+    const { PICTURE_CARD } = $constants.LIST_TYPE
     const { isHwh5 } = state
     const { listType } = props
 
     if (listType === PICTURE_CARD && isHwh5) {
-      vm.$refs[constants.UPLOAD_LIST_INNER].state.showAudioPanel = false
+      vm.$refs[$constants.UPLOAD_LIST_INNER].state.showAudioPanel = false
     }
   }
 
 export const getTipMessage =
-  ({ t, api, constants }: Pick<IFileUploadRenderlessParams, 't' | 'api' | 'constants'>) =>
+  ({ t, api}: Pick<IFileUploadRenderlessParams, 't' | 'api' | 'constants'>) =>
   ({ accept, fileSize, limit }: { accept: string; fileSize: string; limit: number }) => {
     let acceptTip = ''
 
     if (accept) {
-      acceptTip = t(constants.ONLY_SUPPORT, {
+      acceptTip = t($constants.ONLY_SUPPORT, {
         type: accept
           .split(',')
           .map((item) => item.trim().replace(/^\./, ''))
-          .join(t(constants.COMMA))
+          .join(t($constants.COMMA))
       })
     }
 
     if (fileSize && acceptTip.length !== 0) {
-      acceptTip += `${t(constants.COMMA)}`
+      acceptTip += `${t($constants.COMMA)}`
     }
 
     let fileSizeTip = ''
     let kibibyte = 1024
     if (typeof fileSize === 'number') {
-      fileSizeTip = `${t(constants.FILE_NOT_LESS_THAN)}${api.formatFileSize(fileSize * kibibyte)}`
+      fileSizeTip = `${t($constants.FILE_NOT_LESS_THAN)}${api.formatFileSize(fileSize * kibibyte)}`
     } else if (Array.isArray(fileSize)) {
       fileSizeTip +=
         !isNaN(fileSize[0]) && !isNaN(fileSize[1])
-          ? t(constants.FILE_SIZE_RANGE, {
+          ? t($constants.FILE_SIZE_RANGE, {
               moreThan: api.formatFileSize(Number(fileSize[0]) * kibibyte),
               lessThan: api.formatFileSize(Number(fileSize[1]) * kibibyte)
             })
           : ''
     }
 
-    let limitTip = limit ? t(constants.NUMBER_LIMIT, { number: limit }) : ''
+    let limitTip = limit ? t($constants.NUMBER_LIMIT, { number: limit }) : ''
     if ((fileSize || acceptTip.length !== 0) && limit && fileSize?.length === 2 && Array.isArray(fileSize)) {
-      limitTip = `${t(constants.COMMA)} ` + limitTip
+      limitTip = `${t($constants.COMMA)} ` + limitTip
     }
     return acceptTip + fileSizeTip + limitTip
   }

@@ -10,6 +10,7 @@
  *
  */
 
+import { $constants } from './constants'
 import {
   getArrowHourList,
   getArrowMinuteList,
@@ -125,7 +126,7 @@ export const renderless = (props, { computed, onMounted, reactive, watch, nextTi
   watch(
     () => state.hoursList,
     () => {
-      state.animationName = constants.ANIMATIONNAME
+      state.animationName = $constants.ANIMATIONNAME
     },
     { immediate: true }
   )

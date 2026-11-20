@@ -10,6 +10,7 @@
  *
  */
 
+import { $constants } from './constants'
 import { getNodeKey as innerGetNodekey } from '@tinysmall/utils'
 import { KEY_CODE } from '@tinysmall/utils'
 import { TreeStore } from '@tinysmall/utils'
@@ -27,9 +28,9 @@ export const getChildren = () => (props) => props.data
 export const computedTreeItemArray = () => (props, state) => Array.prototype.slice.call(state.treeItems)
 
 export const computedShowEmptyText =
-  ({ constants, t }) =>
+  ({ t }) =>
   (props) =>
-    props.emptyText || t(constants.EMPTY_TEXT_LOCAL)
+    props.emptyText || t($constants.EMPTY_TEXT_LOCAL)
 
 export const computedIsEmpty = () => (props, state) => {
   const { childNodes } = state.root

@@ -7,6 +7,7 @@ import type {
   IFileUploadModalVm,
   IFileUploadConstants
 } from '../../types'
+import { $constants } from '../file-upload/constants'
 import {
   parsePercentage,
   handleClick,
@@ -66,7 +67,7 @@ export const renderless = (
 ): IUploadListApi => {
   const api = { getApi } as IUploadListApi
   parent = inject('uploader')
-  const constants = !isServer ? (parent.$constants as IFileUploadConstants) : null
+  const constants = !isServer ? ($constants as IFileUploadConstants) : null
   const $service = initService({ props, service })
 
   const state = reactive({
@@ -91,7 +92,7 @@ export const renderless = (
     currentFile: null
   }) as IUploadListState
 
-  parent.getToken = getToken({ constants, props: parent, state: parent.state, t, Modal })
+  parent.getToken = getToken({ props: parent, state: parent.state, t, Modal })
 
   Object.assign(api, {
     state,
@@ -107,15 +108,15 @@ export const renderless = (
     destroyed: destroyed({ props, vm }),
     showOperatePanel: showOperatePanel({ state }),
     getFileType: getFileType(),
-    getFileIcon: getFileIcon({ constants }),
+    getFileIcon: getFileIcon({}),
     mounted: mounted({ api, vm }),
-    calcUploadListLiWidth: calcUploadListLiWidth({ vm, nextTick, props, constants }),
+    calcUploadListLiWidth: calcUploadListLiWidth({ vm, nextTick, props}),
     reUpload: reUpload({ emit, props, parent }),
     remove: remove({ emit }),
     handleTriggerClick: handleTriggerClick({ state, props }),
-    chooseFile: chooseFile({ state, constants }),
-    calcVisible: calcVisible({ props, constants, emit }),
-    getNotSuccessFiles: getNotSuccessFiles({ props, constants }),
+    chooseFile: chooseFile({ state}),
+    calcVisible: calcVisible({ props, emit }),
+    getNotSuccessFiles: getNotSuccessFiles({ props}),
     formatFileSize
   })
 

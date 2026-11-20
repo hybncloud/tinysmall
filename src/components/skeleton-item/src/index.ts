@@ -11,6 +11,6 @@
  */
 export { default } from './pc.vue'
 export { skeletonItemProps } from './pc.vue'
-export { $constants } from './pc.vue'
+export { $constants } from '@tinysmall/renderless/skeleton-item/constants'
 export type VariantType = 'image' | 'circle' | 'square'
 export type SizeType = 'large' | 'medium' | 'small'

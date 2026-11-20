@@ -78,6 +78,7 @@
 
 <script lang="tsx">
 import { renderless, api } from '@tinysmall/renderless/image-viewer/vue'
+import { $constants } from '@tinysmall/renderless/image-viewer/constants'
 import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
 import {
   iconClose,
@@ -92,28 +93,10 @@ import {
 } from '@tinysmall/icon'
 import '@tinysmall/theme/image-viewer/index.less'
 
-export const $constants = {
-  MODE: {
-    CONTAIN: {
-      name: 'contain',
-      icon: 'icon-fullscreen'
-    },
-    ORIGINAL: {
-      name: 'original',
-      icon: 'icon-minscreen'
-    }
-  },
-  DEFAULT_POPPER_ZINDEX: Number.POSITIVE_INFINITY,
-  THUMBNAILTOP: 8,
-  MENUTOP: 10
-}
 
 export const imageViewerProps = {
   ...$props,
-  _constants: {
-    type: Object,
-    default: () => $constants
-  },
+  
   urlList: {
     type: Array,
     default: () => []

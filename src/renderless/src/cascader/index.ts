@@ -10,6 +10,7 @@
  *
  */
 
+import { $constants } from './constants'
 import { isServer } from '@tinysmall/utils'
 import { isNull } from '@tinysmall/utils'
 import { debounce } from '@tinysmall/utils'
@@ -95,7 +96,7 @@ export const watchValue =
 export const watchCheckedValue =
   ({
     nextTick,
-    constants,
+    
     dispatch,
     api,
     emit,
@@ -120,7 +121,7 @@ export const watchCheckedValue =
     }
 
     nextTick(() => {
-      dispatch(constants.COMPONENT_NAME.FormItem, constants.EVENT_NAME.FormChange, [
+      dispatch($constants.COMPONENT_NAME.FormItem, $constants.EVENT_NAME.FormChange, [
         state.multiple ? state.presentText : state.inputValue
       ])
     })
@@ -323,10 +324,10 @@ export const handleClear = (state: ICascaderState) => (_event) => {
 }
 
 export const handleExpandChange =
-  ({ constants, dispatch, emit, nextTick, state, updatePopper }) =>
+  ({ dispatch, emit, nextTick, state, updatePopper }) =>
   (value) => {
     nextTick(() => {
-      dispatch(constants.COMPONENT_NAME.FormItem, constants.EVENT_NAME.FormBlur, [
+      dispatch($constants.COMPONENT_NAME.FormItem, $constants.EVENT_NAME.FormBlur, [
         state.multiple ? state.presentText : state.inputValue
       ])
       // 同步时需注意，popper初始化时会保存dom的引用，因此无需传参，否则vue2下会有bug
@@ -726,8 +727,7 @@ export const showPlaceholder =
   ({
     props,
     state,
-    t,
-    constants
+    t
   }: {
     props: ICascaderProps
     state: ICascaderState
@@ -738,6 +738,6 @@ export const showPlaceholder =
     let placeholder: string | null = null
 
     placeholder =
-      (state.multiple && state.presentTags.length) || state.present ? '' : props.placeholder || t(constants.placeholder)
+      (state.multiple && state.presentTags.length) || state.present ? '' : props.placeholder || t($constants.placeholder)
     return placeholder
   }

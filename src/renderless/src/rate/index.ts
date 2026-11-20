@@ -99,7 +99,7 @@ export const selectValue =
   }
 
 export const setCurrentValue =
-  ({ constants: { RATENODECLS, DECIMALCLS, ICON_PREFIXCLS }, props, state, parent, api }) =>
+  ({ props, state, parent, api }) =>
   ({ event, item }) => {
     if (props.disabled) {
       return

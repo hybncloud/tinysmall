@@ -10,6 +10,7 @@
  *
  */
 
+import { $constants } from './constants'
 import {
   getMinVisibleDate,
   watchValue,
@@ -83,7 +84,7 @@ export const api = [
   'watchModelValue'
 ]
 
-const initState = ({ reactive, computed, api, constants, props }) => {
+const initState = ({ reactive, computed, api, props }) => {
   const state = reactive({
     popperElm: null,
     popperClass: props.popperClass || '',
@@ -95,8 +96,8 @@ const initState = ({ reactive, computed, api, constants, props }) => {
     shortcutType: '',
     shortcutText: '',
     singleSelect: false,
-    minRangeDate: constants.startDate,
-    maxRangeDate: constants.endDate,
+    minRangeDate: $constants.startDate,
+    maxRangeDate: $constants.endDate,
     leftDate: new Date(),
     rightDate: nextMonth1(new Date()),
     rangeState: { endDate: null, selecting: false, row: null, column: null },
@@ -178,7 +179,7 @@ const initWatch = ({ watch, state, api, props }) => {
   )
 }
 
-const initApi = ({ api, state, t, vm, nextTick, emit, constants, props }) => {
+const initApi = ({ api, state, t, vm, nextTick, emit, props }) => {
   Object.assign(api, {
     t,
     state,
@@ -221,7 +222,7 @@ const initApi = ({ api, state, t, vm, nextTick, emit, constants, props }) => {
     handleShortcutClick: handleShortcutClick(state, api, props),
     computerBtnDisabled: computerBtnDisabled({ state, api }),
     computerEnableYearArrow: computerEnableYearArrow(state),
-    watchPickerVisible: watchPickerVisible({ state, constants }),
+    watchPickerVisible: watchPickerVisible({ state}),
     watchModelValue: watchModelValue({ state, api })
   })
 }
@@ -229,9 +230,9 @@ const initApi = ({ api, state, t, vm, nextTick, emit, constants, props }) => {
 export const renderless = (props, { computed, reactive, watch, nextTick }, { t, emit: $emit, vm, constants }) => {
   const api = {}
   const emit = props.emitter ? props.emitter.emit : $emit
-  const state = initState({ reactive, computed, api, constants, props })
+  const state = initState({ reactive, computed, api, props })
 
-  initApi({ api, state, t, vm, nextTick, emit, constants, props })
+  initApi({ api, state, t, vm, nextTick, emit, props })
   initWatch({ watch, state, api, props })
 
   return api

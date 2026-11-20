@@ -56,7 +56,7 @@ const initState = ({ reactive, computed, api, form }) => {
   return state
 }
 
-const initApi = ({ api, state, props, formItemSize, parent, constants, emit, nextTick, dispatch, form }) => {
+const initApi = ({ api, state, props, formItemSize, parent, emit, nextTick, dispatch, form }) => {
   Object.assign(api, {
     state,
     addToStore: addToStore({ state, props }),
@@ -68,9 +68,9 @@ const initApi = ({ api, state, props, formItemSize, parent, constants, emit, nex
     computedIsLimitDisabled: computedIsLimitDisabled(state),
     computedIsDisabled: computedIsDisabled({ state, props }),
     computedGetModelGet: computedGetModelGet({ state, props }),
-    computedCheckboxGroup: computedCheckboxGroup({ parent, constants }),
-    handleChange: handleChange({ state, props, emit, nextTick, dispatch, constants }),
-    computedGetModelSet: computedGetModelSet({ state, props, emit, dispatch, constants }),
+    computedCheckboxGroup: computedCheckboxGroup({ parent}),
+    handleChange: handleChange({ state, props, emit, nextTick, dispatch}),
+    computedGetModelSet: computedGetModelSet({ state, props, emit, dispatch}),
     computedIsShowText: computedIsShowText({ props }),
     computedShowText: computedShowText({ props })
   })
@@ -79,14 +79,14 @@ const initApi = ({ api, state, props, formItemSize, parent, constants, emit, nex
 export const renderless = (
   props,
   { computed, onMounted, onBeforeUnmount, reactive, inject },
-  { parent, emit, dispatch, constants, nextTick, vm }
+  { parent, emit, dispatch, nextTick, vm }
 ) => {
   const api = {}
   const form = inject('form', null)
   const formItemSize = computed(() => api.computedFormItemSize())
   const state = initState({ reactive, computed, api, form })
 
-  initApi({ api, state, props, formItemSize, parent, constants, emit, nextTick, dispatch, form })
+  initApi({ api, state, props, formItemSize, parent, emit, nextTick, dispatch, form })
 
   onBeforeUnmount(() => {
     toggleEvent({ parent: vm, props, type: 'remove' })

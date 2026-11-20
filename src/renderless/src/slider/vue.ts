@@ -129,7 +129,7 @@ const initState = ({ reactive, computed, props, api, parent, inject }) => {
 export const renderless = (
   props: ISliderProps,
   { computed, onBeforeUnmount, onMounted, reactive, watch, inject }: ISharedRenderlessParamHooks,
-  { vm, parent, constants, nextTick, emit }: ISliderRenderlessParamUtils
+  { vm, parent, nextTick, emit }: ISliderRenderlessParamUtils
 ) => {
   const api = {} as ISliderApi
   const state: ISliderState = initState({ reactive, computed, props, api, parent, inject })
@@ -145,8 +145,8 @@ export const renderless = (
     setButtonStyle: setButtonStyle({ props, state }),
     calculateValue: calculateValue({ vm, props, state }),
     getActiveButtonValue: getActiveButtonValue(state),
-    getActiveButtonIndex: getActiveButtonIndex({ constants, state }),
-    setTipStyle: setTipStyle({ vm, constants, props, state }),
+    getActiveButtonIndex: getActiveButtonIndex({ state }),
+    setTipStyle: setTipStyle({ vm, props, state }),
     customAfterAppearHook: customAfterAppearHook({ state, props }),
     customBeforeAppearHook: customBeforeAppearHook(props),
     customAppearHook: customAppearHook(),
@@ -157,7 +157,7 @@ export const renderless = (
     bindKeyDown: bindKeyDown({ api, props, state }),
     bindMouseUp: bindMouseUp({ api, emit, state, props }),
     bindMouseMove: bindMouseMove({ api, nextTick, state }),
-    bindMouseDown: bindMouseDown({ api, constants, emit, state, props }),
+    bindMouseDown: bindMouseDown({ api, emit, state, props }),
     setActiveButtonValue: setActiveButtonValue({ api, emit, props, state }),
     initSlider: initSlider({ api, props, state }),
     watchModelValue: watchModelValue({ api, state }),

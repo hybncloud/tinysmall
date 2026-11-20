@@ -12,6 +12,7 @@
 
 import type { ISharedRenderlessParamHooks } from '../../types/shared.type'
 import { handleAfterLeave, setText, close } from './index'
+import { $constants } from './constants'
 import type { ILoadingApi, ILoadingState, ILoadingProps, ILoadingRenderlessParamUtils } from '../../types/loading.type'
 
 export const api = ['state', 'handleAfterLeave', 'setText', 'close']
@@ -19,7 +20,7 @@ export const api = ['state', 'handleAfterLeave', 'setText', 'close']
 export const renderless = (
   props: ILoadingProps,
   { reactive, computed }: ISharedRenderlessParamHooks,
-  { constants, vm, emit }: ILoadingRenderlessParamUtils
+  { vm, emit }: ILoadingRenderlessParamUtils
 ): ILoadingApi => {
   const state: ILoadingState = reactive({
     text: null,
@@ -41,7 +42,7 @@ export const renderless = (
     state,
     setText: setText(state),
     handleAfterLeave: handleAfterLeave(emit),
-    close: close({ state, constants, vm })
+    close: close({ state, vm })
   }
 
   return api

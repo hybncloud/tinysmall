@@ -10,6 +10,7 @@
  *
  */
 
+import { $constants } from './constants'
 import type {
   IAlertApi,
   IAlertProps,
@@ -31,13 +32,13 @@ import { nanoid } from '@tinysmall/utils'
 
 export const api = ['handleClose', 'state', 'handleHeaderClick']
 
-const initState = ({ api, computed, constants, reactive }): IAlertState => {
+const initState = ({ api, computed, reactive }): IAlertState  => {
   return reactive({
     show: true,
     contentVisible: false,
     contentDescribeHeight: 0,
     contentDefaultHeight: 0,
-    contentMaxHeight: constants.CONTENT_MAXHEUGHT,
+    contentMaxHeight: $constants.CONTENT_MAXHEUGHT,
     scrollStatus: false,
     getIcon: computed(() => api.computedGetIcon()),
     getTitle: computed(() => api.computedGetTitle()),
@@ -48,11 +49,11 @@ const initState = ({ api, computed, constants, reactive }): IAlertState => {
   })
 }
 
-const initApi = ({ api, state, constants, props, t, emit, vm, parent, nextTick }): void => {
+const initApi = ({ api, state, props, t, emit, vm, parent, nextTick }): void  => {
   Object.assign(api, {
     state,
-    computedGetIcon: computedGetIcon({ constants, props }),
-    computedGetTitle: computedGetTitle({ constants, props, t }),
+    computedGetIcon: computedGetIcon({ props }),
+    computedGetTitle: computedGetTitle({ props, t }),
     computedClass: computedClass({ props }),
     computedStyle: computedStyle({ props }),
     handleClose: handleClose({ emit, state }),
@@ -70,11 +71,11 @@ const initWatcher = ({ watch, props, api }) => {
 export const renderless = (
   props: IAlertProps,
   { computed, reactive, watch }: ISharedRenderlessParamHooks,
-  { t, emit, constants, vm, parent, nextTick }: IAlertRenderlessParamUtils
+  { t, emit, vm, parent, nextTick }: IAlertRenderlessParamUtils
 ): IAlertApi => {
   const api = {} as IAlertApi
-  const state: IAlertState = initState({ api, computed, constants, reactive })
-  initApi({ api, state, constants, props, t, emit, vm, parent, nextTick })
+  const state: IAlertState = initState({ api, computed, reactive })
+  initApi({ api, state, props, t, emit, vm, parent, nextTick })
   initWatcher({ watch, props, api })
 
   return api

@@ -1,3 +1,4 @@
+import { $constants } from './constants'
 /**
  * Copyright (c) 2022 - present TinyVue Authors.
  * Copyright (c) 2022 - present Huawei Cloud Computing Technologies Co., Ltd.
@@ -11,7 +12,7 @@
  */
 
 export const handleChange =
-  ({ state, props, emit, nextTick, dispatch, constants }) =>
+  ({ state, props, emit, nextTick, dispatch }) =>
   (event) => {
     if (state.isLimitExceeded) {
       return
@@ -29,7 +30,7 @@ export const handleChange =
 
     nextTick(() => {
       if (state.checkboxGroup) {
-        dispatch(constants.CHECKBOX_GROUP, 'change', [state.checkboxGroup.modelValue])
+        dispatch($constants.CHECKBOX_GROUP, 'change', [state.checkboxGroup.modelValue])
       }
     })
   }
@@ -40,7 +41,7 @@ export const computedGetModelGet =
     state.checkboxGroup ? state.store : props.modelValue !== undefined ? props.modelValue : state.selfModel
 
 export const computedGetModelSet =
-  ({ state, props, emit, dispatch, constants }) =>
+  ({ state, props, emit, dispatch }) =>
   (value) => {
     if (state.checkboxGroup) {
       state.isLimitExceeded = false
@@ -49,7 +50,7 @@ export const computedGetModelSet =
 
       state.checkboxGroup.max !== undefined && value.length > state.checkboxGroup.max && (state.isLimitExceeded = true)
 
-      state.isLimitExceeded === false && dispatch(constants.CHECKBOX_GROUP, 'update:modelValue', [value])
+      state.isLimitExceeded === false && dispatch($constants.CHECKBOX_GROUP, 'update:modelValue', [value])
     } else if (props.modelValue !== undefined) {
       emit('update:modelValue', value)
     } else {
@@ -58,12 +59,12 @@ export const computedGetModelSet =
   }
 
 export const computedCheckboxGroup =
-  ({ parent, constants }) =>
+  ({ parent }) =>
   () => {
     let parentObj = parent.$parent
 
     while (parentObj) {
-      if (parentObj.$options.componentName !== constants.CHECKBOX_GROUP) {
+      if (parentObj.$options.componentName !== $constants.CHECKBOX_GROUP) {
         parentObj = parentObj.$parent
       } else {
         return parentObj

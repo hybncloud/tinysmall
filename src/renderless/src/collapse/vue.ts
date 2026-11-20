@@ -9,6 +9,7 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
+import { $constants } from './constants'
 import type {
   ICollapseProps,
   ICollapseState,
@@ -24,9 +25,9 @@ export const api = ['state']
 export const renderless = (
   props: ICollapseProps,
   { reactive, watch }: ISharedRenderlessParamHooks,
-  { vm, emit, constants }: ICollapseRenderlessParamUtils
+  { vm, emit}: ICollapseRenderlessParamUtils
 ) => {
-  const eventName = constants.EVENT_NAME.CollapseItemClick
+  const eventName = $constants.EVENT_NAME.CollapseItemClick
 
   const state: ICollapseState = reactive({
     activeNames: []

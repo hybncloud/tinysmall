@@ -10,6 +10,7 @@
  *
  */
 
+import { $constants } from './constants'
 import { POSITION, VALIDATE_STATE } from '@tinysmall/utils'
 import { omitText } from '@tinysmall/utils'
 import { merge } from '@tinysmall/utils'
@@ -146,9 +147,9 @@ export const computedContentStyle =
   }
 
 export const computedForm =
-  ({ constants, vm, state }: Pick<IFormItemRenderlessParams, 'constants' | 'vm' | 'state'>) =>
+  ({ vm, state }: Pick<IFormItemRenderlessParams, 'constants' | 'vm' | 'state'>) =>
   (): IFormInstance | null => {
-    const { FORM_NAME, FORM_ITEM_NAME } = constants
+    const { FORM_NAME, FORM_ITEM_NAME } = $constants
     let parent = vm.$parent as IFormInstance | null
     let parentName = parent?.$options?.componentName
 

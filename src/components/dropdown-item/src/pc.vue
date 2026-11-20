@@ -78,23 +78,16 @@
 <script lang="ts">
 import { $props, props, setup, $prefix, defineComponent } from '@tinysmall/common'
 import { renderless, api } from '@tinysmall/renderless/dropdown-item/vue'
+import { $constants } from '@tinysmall/renderless/dropdown-item/constants'
 import { iconLeftWardArrow } from '@tinysmall/icon'
 import '@tinysmall/theme/dropdown-item/index.less'
 import { AutoTip } from '@tinysmall/directive'
 import type { IDropdownItemApi } from '@tinysmall/renderless/types/dropdown-item.type'
 
-export const $constants = {
-  ICON_MAP: {
-    leftWardArrow: 'icon-left-ward-arrow'
-  }
-}
 
 export const dropdownItemProps = {
   ...$props,
-  _constants: {
-    type: Object,
-    default: () => $constants
-  },
+  
   /** 是否等宽展示，取自原 pc.vue props 数组 */
   isMono: { type: Boolean, default: false },
   icon: [String, Object],

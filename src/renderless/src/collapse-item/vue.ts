@@ -10,6 +10,8 @@
  *
  */
 
+import { $constants as collapseItemConstants } from './constants'
+import { $constants as collapseConstants } from '../collapse/constants'
 import type {
   ICollapseItemProps,
   ICollapseItemState,
@@ -32,10 +34,10 @@ export const api = [
 export const renderless = (
   props: ICollapseItemProps,
   { computed, inject, reactive }: ISharedRenderlessParamHooks,
-  { vm, constants, dispatch }: ICollapseItemRenderlessParamUtils
+  { vm, dispatch }: ICollapseItemRenderlessParamUtils
 ) => {
   const collapse = inject('collapse')
-  const _constants = collapse._constants
+  const _constants = collapseConstants
   const componentName = _constants.COMPONENT_NAME.Collapse
   const eventName = _constants.EVENT_NAME.CollapseItemClick
 
@@ -52,7 +54,7 @@ export const renderless = (
 
   const api: ICollapseItemApi = {
     state,
-    handleFocus: handleFocus({ state, interval: constants.INTERVAL }),
+    handleFocus: handleFocus({ state, interval: collapseItemConstants.INTERVAL }),
     handleEnterClick: handleEnterClick({ componentName, dispatch, eventName, parent: vm }),
     handleHeaderClick: handleHeaderClick({ componentName, dispatch, eventName, props, parent: vm, state })
   }

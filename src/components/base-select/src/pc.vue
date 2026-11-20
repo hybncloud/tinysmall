@@ -522,6 +522,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/base-select/vue'
+import { $constants } from '@tinysmall/renderless/base-select/constants'
 import { $prefix, $props, setup, directive, defineComponent } from '@tinysmall/common'
 import { t } from '@tinysmall/locale'
 import TinyTag from '@tinysmall/tag'
@@ -563,68 +564,10 @@ const getReference = (el, binding, vnode) => {
   }
 }
 
-const $constants = {
-  CLASS: {
-    SelectDropdownWrap: '.tiny-select-dropdown__wrap',
-    IsReverse: 'is-reverse'
-  },
-  I18N: {
-    noData: 'ui.select.noData',
-    noMatch: 'ui.select.noMatch',
-    loading: 'ui.select.loading'
-  },
-  COMPONENT_NAME: {
-    Form: 'Form',
-    Select: 'Select',
-    Option: 'Option',
-    FormItem: 'FormItem',
-    OptionGroup: 'OptionGroup',
-    SelectDropdown: 'SelectDropdown'
-  },
-  EVENT_NAME: {
-    removeTag: 'remove-tag',
-    formChange: 'form.change',
-    formBlur: 'form.blur',
-    queryChange: 'queryChange',
-    setSelected: 'setSelected',
-    updatePopper: 'updatePopper',
-    destroyPopper: 'destroyPopper',
-    visibleChange: 'visible-change',
-    handleOptionClick: 'handleOptionClick',
-    handleGroupDisabled: 'handleGroupDisabled',
-    initValue: 'initValue'
-  },
-  TYPE: {
-    Grid: 'grid',
-    Tree: 'tree'
-  },
-  MAX_WIDTH: 132,
-  RECYCLE: {
-    SAAS_HEIGHT: 220,
-    AURORA_HEIGHT: 180,
-    ITEM_HEIGHT: 34,
-    SAFE_MARGIN: 4
-  },
-  SAAS_SIZE: {
-    mini: 24,
-    small: 28,
-    medium: 32
-  },
-  AURORA_SIZE: {
-    mini: 24,
-    small: 36,
-    medium: 42
-  },
-  SPACING_HEIGHT: 0,
-  MAX_VISIBLE_ROWS: 1 // 多选默认最大显示行数，超出后自动隐藏
-}
 
 export const baseSelectProps = {
   ...$props,
-  _constants: {
-    type: Object,
-    default: () => $constants
-  },
+  
   id: [Number, String],
   name: String,
   size: String,

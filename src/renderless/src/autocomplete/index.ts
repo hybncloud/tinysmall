@@ -10,6 +10,7 @@
  *
  */
 
+import { $constants } from './constants'
 import type {
   IAutoCompleteProps,
   IAutoCompleteState,
@@ -199,7 +200,7 @@ export const select =
   }
 
 export const highlight =
-  ({ constants, vm, state }: { constants: IAutoCompleteConstants; state: IAutoCompleteState }) =>
+  ({ vm, state }: { constants: IAutoCompleteConstants; state: IAutoCompleteState }) =>
   (index) => {
     if (!state.suggestionVisible || state.loading) {
       return
@@ -214,8 +215,8 @@ export const highlight =
       index = state.suggestions.length - 1
     }
 
-    const suggestion = vm.$refs.popper.querySelector(constants.WARP_CLS)
-    const suggestionList = suggestion.querySelectorAll(constants.ITEM_CLS)
+    const suggestion = vm.$refs.popper.querySelector($constants.WARP_CLS)
+    const suggestionList = suggestion.querySelectorAll($constants.ITEM_CLS)
     let highlightItem = suggestionList[index]
     let scrollTop = suggestion.scrollTop
     let offsetTop = highlightItem.offsetTop

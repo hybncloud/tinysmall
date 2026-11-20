@@ -13,6 +13,7 @@
 import Button from '@tinysmall/button'
 import { $prefix, $props, props, setup, h, defineComponent } from '@tinysmall/common'
 import { renderless, api } from '@tinysmall/renderless/modal/vue'
+import { $constants } from '@tinysmall/renderless/modal/constants'
 import '@tinysmall/theme/modal/index.less'
 
 import {
@@ -29,40 +30,8 @@ import {
 import '@tinysmall/theme/modal/index.less'
 import type { IModalApi } from '@tinysmall/renderless/types/modal.type'
 
-export const $constants = {
-  MODAL_STATUS: {
-    INFO: 'info',
-    SUCCESS: 'success',
-    WARNING: 'warning',
-    ERROR: 'error',
-    LOADING: 'loading'
-  },
-  NODAL_TYPE: {
-    ALERT: 'alert',
-    CONFIRM: 'confirm',
-    MESSAGE: 'message'
-  },
-  STATUS_MAPPING_CLASSS: {
-    INFO: 'tiny-modal-svg__info',
-    SUCCESS: 'tiny-modal-svg__success',
-    WARNING: 'tiny-modal-svg__warning',
-    ERROR: 'tiny-modal-svg__error',
-    LOADING: 'tiny-modal-svg__refresh roll'
-  },
-  PC_SCROLL_LOCK_CLASS: 'dialog-box__scroll-lock',
-  MOBILE_FIRST_SCROLL_LOCK_CLASS: 'tiny-modal-lockscroll',
-  Mode: 'pc',
-  SCROLL_LOCK_CLASS(mode) {
-    return mode === this.Mode ? this.PC_SCROLL_LOCK_CLASS : this.MOBILE_FIRST_SCROLL_LOCK_CLASS
-  }
-}
-
 export const modalProps = {
   ...$props,
-  _constants: {
-    type: Object,
-    default: () => $constants
-  },
   animat: { type: Boolean, default: () => true },
   beforeClose: Function,
   duration: { type: [Number, String], default: () => 3000 },
@@ -146,7 +115,7 @@ export default defineComponent({
       showHeader,
       messageClosable
     } = this
-    let { showFooter, title, message, lockScroll, lockView, mask, _constants: constants, t } = this
+    let { showFooter, title, message, lockScroll, lockView, mask, t } = this
     let { confirmContent, cancelContent, confirmBtnProps, cancelBtnProps } = this
     let { zoomLocat, visible, contentVisible, modalTop, isMsg } = state
     let { slots: propSlots = {} } = $props
@@ -232,8 +201,8 @@ export default defineComponent({
                           [
                             typeof status === 'string'
                               ? h(STATUS_MAPPING_COMPINENT[status.toUpperCase()], {
-                                  'aria-label': `${constants.STATUS_MAPPING_CLASSS[status.toUpperCase()] || 'default'}-circle`,
-                                  class: [constants.STATUS_MAPPING_CLASSS[status.toUpperCase()]]
+                                  'aria-label': `${$constants.STATUS_MAPPING_CLASSS[status.toUpperCase()] || 'default'}-circle`,
+                                  class: [$constants.STATUS_MAPPING_CLASSS[status.toUpperCase()]]
                                 })
                               : h(status, {
                                   class: ['tiny-modal__status-icon']
@@ -283,8 +252,8 @@ export default defineComponent({
                       [
                         typeof status === 'string'
                           ? h(STATUS_MAPPING_COMPINENT[status.toUpperCase()], {
-                              'aria-label': `${constants.STATUS_MAPPING_CLASSS[status.toUpperCase()] || 'default'}-message-circle`,
-                              class: [constants.STATUS_MAPPING_CLASSS[status.toUpperCase()]]
+                              'aria-label': `${$constants.STATUS_MAPPING_CLASSS[status.toUpperCase()] || 'default'}-message-circle`,
+                              class: [$constants.STATUS_MAPPING_CLASSS[status.toUpperCase()]]
                             })
                           : h(status, {
                               class: ['tiny-modal__status-icon']

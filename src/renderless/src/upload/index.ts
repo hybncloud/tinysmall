@@ -9,6 +9,7 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
+import { $constants } from '../file-upload/constants'
 import type {
   IUploadRenderlessParams,
   IFileUploadModalVm,
@@ -64,7 +65,7 @@ export const handlePaste =
   }
 
 export const getFormData =
-  ({ constants, state, props }: Pick<IUploadRenderlessParams, 'constants' | 'state' | 'props'>) =>
+  ({ state, props }: Pick<IUploadRenderlessParams, 'constants' | 'state' | 'props'>) =>
   ({ formData, file, type }: { formData: IUploadFormData; file: IFileUploadFile; type: string }) => {
     const uploaderInner = state.uploader
     if (uploaderInner.edm.upload) {
@@ -75,13 +76,13 @@ export const getFormData =
       }
     }
 
-    formData.append(constants.EDM.FILENAME, file.name)
+    formData.append($constants.EDM.FILENAME, file.name)
 
     if (uploaderInner.edm.isCheckCode === true) {
-      formData.append(constants.EDM.ISCHECKCODE, 'Y')
-      formData.append(constants.EDM.CHECKCODE, file.hash)
+      formData.append($constants.EDM.ISCHECKCODE, 'Y')
+      formData.append($constants.EDM.CHECKCODE, file.hash)
     } else {
-      formData.append(constants.EDM.ISCHECKCODE, 'N')
+      formData.append($constants.EDM.ISCHECKCODE, 'N')
     }
 
     if (props.isFolder) {
@@ -89,13 +90,13 @@ export const getFormData =
     }
 
     const updateId = state.updateId || uploaderInner.edm.updateId
-    if (type === constants.EDM.SINGLEUPLOAD) {
-      formData.append(constants.EDM.MULTIPART, file, props.isFolder ? file.path + file.name : file.name)
-      updateId && formData.append(constants.EDM.DOCID, updateId)
+    if (type === $constants.EDM.SINGLEUPLOAD) {
+      formData.append($constants.EDM.MULTIPART, file, props.isFolder ? file.path + file.name : file.name)
+      updateId && formData.append($constants.EDM.DOCID, updateId)
     } else {
       const docId = updateId || file.docId
-      formData.append(constants.EDM.DOCID, docId)
-      formData.append(constants.EDM.FILESIZE, file.size)
+      formData.append($constants.EDM.DOCID, docId)
+      formData.append($constants.EDM.FILESIZE, file.size)
     }
 
     if (updateId) {
@@ -107,7 +108,7 @@ export const getFormData =
 export const uploadFiles =
   ({
     state,
-    constants,
+    
     Modal,
     props,
     t
@@ -116,9 +117,9 @@ export const uploadFiles =
     if (state.updateId === '') {
       if (props.limit && props.fileList.length + files.length > props.limit) {
         const fileUploadTem = state.uploader
-        if (fileUploadTem && !fileUploadTem.state.listeners.exceed) {
+        if (fileUploadTem && !fileUploadTem.$attrs.onExceed) {
           Modal.message({
-            message: t(constants.EDM.NumberExceed, { number: props.limit }),
+            message: t($constants.EDM.NumberExceed, { number: props.limit }),
             status: 'warning'
           })
         }
@@ -135,7 +136,7 @@ export const uploadFiles =
         item.path = folderAry.slice(0, folderAry.length - 1).join('/') + '/'
         if (folderAry.length >= 7) {
           Modal.message({
-            message: `${item.name}${t(constants.EDM.FOLDERKEY)}`,
+            message: `${item.name}${t($constants.EDM.FOLDERKEY)}`,
             status: 'warning'
           })
         }
@@ -201,7 +202,7 @@ export const upload =
   }
 
 export const abort =
-  ({ state, props, constants }: Pick<IUploadRenderlessParams, 'state' | 'props' | 'constants'>) =>
+  ({ state, props}: Pick<IUploadRenderlessParams, 'state' | 'props' | 'constants'>) =>
   (file: IFileUploadFile) => {
     const { reqs } = state
     const cancel = function (uid) {
@@ -227,7 +228,7 @@ export const abort =
 
       cancel(uid)
     } else {
-      const { READY, UPLOADING, FAIL } = constants.FILE_STATUS
+      const { READY, UPLOADING, FAIL } = $constants.FILE_STATUS
       Object.keys(reqs).forEach((uid) => cancel(uid || ''))
 
       props.fileList.forEach((file: any) => {
@@ -281,8 +282,7 @@ const modifyOptionsOfPost = ({
   state,
   uid,
   uploaderInner,
-  api,
-  constants
+  api
 }: Pick<IUploadRenderlessParams, 'service' | 'props' | 'state' | 'api' | 'constants'> &
   IUploadRenderlessOtherParams & { options: IUploadOptionsOfPost }) => {
   if (service && service.network && props.httpRequest === service.network.request) {
@@ -315,7 +315,7 @@ const modifyOptionsOfPost = ({
         api.getFormData({
           formData,
           file: rawFile,
-          type: !rawFile.isLargeFile ? constants.EDM.SINGLEUPLOAD : ''
+          type: !rawFile.isLargeFile ? $constants.EDM.SINGLEUPLOAD : ''
         })
       } else {
         formData.append(options.filename, rawFile, rawFile.name)
@@ -364,7 +364,7 @@ const getOptionsOfHwh5 = ({
 export const post =
   ({
     api,
-    constants,
+    
     props,
     state,
     service
@@ -378,7 +378,7 @@ export const post =
       options = getOptionsOfHwh5({ state, props, rawFile, uploaderInner, uid })
     } else {
       options = getOptionsOfPost({ props, state, rawFile, uploaderInner, uid })
-      modifyOptionsOfPost({ service, props, options, rawFile, state, uid, uploaderInner, api, constants })
+      modifyOptionsOfPost({ service, props, options, rawFile, state, uid, uploaderInner, api})
     }
 
     const excuteReq = (options) => {

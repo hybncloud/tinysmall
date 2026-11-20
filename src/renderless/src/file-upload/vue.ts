@@ -143,7 +143,7 @@ const initState = ({
   httpRequest,
   markRaw,
   service
-}): IFileUploadState => {
+}): IFileUploadState  => {
   const state = reactive({
     url: '',
     updateId: '',
@@ -154,7 +154,6 @@ const initState = ({
     dragOver: false,
     httpRequest: markRaw(httpRequest),
     form: inject('form', ref({ default: '' })),
-    listeners: vm.$listeners,
     docSize: 0, // unit(B)
     chunkSize: 0,
     chunkBatchLimit: 5,
@@ -208,69 +207,69 @@ const initState = ({
   return state
 }
 
-const initApi = ({ api, state, props, constants, vm, $service, t, Modal, emit }) => {
+const initApi = ({ api, state, props, vm, $service, t, Modal, emit }) => {
   Object.assign(api, {
     state,
     sliceChunk: sliceChunk({ state }),
-    getFormData: getFormData({ constants, props, state }),
-    abort: abort({ constants, vm, state }),
-    handleClick: handleClick({ constants, vm }),
+    getFormData: getFormData({ props, state }),
+    abort: abort({ vm, state }),
+    handleClick: handleClick({ vm }),
     handleFileClick: handleFileClick({ props, emit }),
     getFile: getFile(state),
     clearFiles: clearFiles(state),
-    watchFileList: watchFileList({ constants, state, props, api }),
-    watchListType: watchListType({ constants, state, api }),
+    watchFileList: watchFileList({ state, props, api }),
+    watchListType: watchListType({ state, api }),
     onBeforeDestroy: onBeforeDestroy(state),
     computedUploadDisabled: computedUploadDisabled({ props, state }),
-    computedUploadingSize: computedUploadingSize({ state, constants }),
+    computedUploadingSize: computedUploadingSize({ state}),
     getFileUploadUrl: getFileUploadUrl($service),
-    getToken: getToken({ constants, props, state, t, Modal }),
-    getDialogConfigObj: getDialogConfigObj({ props, state, t, constants }),
-    computeDocChunkSize: computeDocChunkSize({ props, state, constants }),
-    updateFile: updateFile({ constants, vm }),
-    getPreviewUrlSync: getPreviewUrlSync({ constants, props, state }),
+    getToken: getToken({ props, state, t, Modal }),
+    getDialogConfigObj: getDialogConfigObj({ props, state, t}),
+    computeDocChunkSize: computeDocChunkSize({ props, state}),
+    updateFile: updateFile({ vm }),
+    getPreviewUrlSync: getPreviewUrlSync({ props, state }),
     ordinaryDownload: ordinaryDownload($service),
-    clearUploadingFiles: clearUploadingFiles({ constants, state }),
-    calcUploadingFilesInfo: calcUploadingFilesInfo({ state, constants }),
-    properFileSize: properFileSize({ props, state, api, constants, Modal, t }),
+    clearUploadingFiles: clearUploadingFiles({ state }),
+    calcUploadingFilesInfo: calcUploadingFilesInfo({ state}),
+    properFileSize: properFileSize({ props, state, api, Modal, t }),
     mounted: mounted({ vm, state }),
-    previewFileSingle: previewFileSingle({ api, state, props, constants, service: $service }),
+    previewFileSingle: previewFileSingle({ api, state, props, service: $service }),
     previewFileBatch: previewFileBatch({ service: $service, props, state, api }),
     previewImageSingle: previewImageSingle({ state, props, service: $service }),
     previewImageBatch: previewImageBatch({ service: $service, api }),
     abortDownload: abortDownload({ state }),
     createDownloadCancelToken: createDownloadCancelToken({ state, service: $service }),
-    computedSourcetype: computedSourcetype({ props, constants }),
-    getFileSourceType: getFileSourceType({ state, props, constants }),
+    computedSourcetype: computedSourcetype({ props}),
+    getFileSourceType: getFileSourceType({ state, props}),
     encryptDialogConfirm: encryptDialogConfirm({ state }),
-    getTipMessage: getTipMessage({ t, api, constants }),
+    getTipMessage: getTipMessage({ t, api}),
     formatFileSize
   })
 }
 
-const mergeApi = ({ api, props, $service, state, constants, emit, Modal, t, vm, Streamsaver }) => {
+const mergeApi = ({ api, props, $service, state, emit, Modal, t, vm, Streamsaver }) => {
   Object.assign(api, {
-    segmentUploadInit: segmentUploadInit({ api, props, service: $service, state, constants }),
-    segmentUpload: segmentUpload({ api, props, service: $service, state, emit, constants }),
-    addFileToList: addFileToList({ api, constants, emit, props, state }),
+    segmentUploadInit: segmentUploadInit({ api, props, service: $service, state}),
+    segmentUpload: segmentUpload({ api, props, service: $service, state, emit}),
+    addFileToList: addFileToList({ api, emit, props, state }),
     downloadFile: downloadFile({ api, state }),
-    downloadFileSingleInner: downloadFileSingleInner({ props, state, api, constants }),
+    downloadFileSingleInner: downloadFileSingleInner({ props, state, api}),
     previewImage: previewImage({ api, props, service: $service }),
     previewFile: previewFile({ api, props }),
     getNewTabPreviewUrl: getNewTabPreviewUrl({ api }),
-    submit: submit({ api, constants, vm, props, state }),
-    handleStart: handleStart({ api, constants, props, state, vm }),
-    batchSegmentUpload: batchSegmentUpload({ api, constants, props, vm, state }),
-    largeDocumentUpload: largeDocumentUpload({ api, Modal, state, emit, constants, t }),
-    handleProgress: handleProgress({ api, constants, emit, state }),
-    handleSuccess: handleSuccess({ api, constants, emit, Modal, props, state, t }),
-    handleError: handleError({ api, constants, emit, state, props }),
-    handleRemove: handleRemove({ api, emit, props, state, constants }),
-    handleReUpload: handleReUpload({ vm, constants }),
+    submit: submit({ api, vm, props, state }),
+    handleStart: handleStart({ api, props, state, vm }),
+    batchSegmentUpload: batchSegmentUpload({ api, props, vm, state }),
+    largeDocumentUpload: largeDocumentUpload({ api, Modal, state, emit, t }),
+    handleProgress: handleProgress({ api, emit, state }),
+    handleSuccess: handleSuccess({ api, emit, Modal, props, state, t }),
+    handleError: handleError({ api, emit, state, props }),
+    handleRemove: handleRemove({ api, emit, props, state}),
+    handleReUpload: handleReUpload({ vm}),
     handleReUploadTotal: handleReUploadTotal(api),
     updateUrl: updateUrl({ api, props, state }),
-    startUpload: startUpload({ api, state, constants, vm, Modal, t }),
-    beforeUpload: beforeUpload({ api, props, Modal, constants, t, state }),
+    startUpload: startUpload({ api, state, vm, Modal, t }),
+    beforeUpload: beforeUpload({ api, props, Modal, t, state }),
     getDownloadFileInfo: getDownloadFileInfo({ api, props, state, service: $service }),
     largeDocumentDownload: largeDocumentDownload({ api, state }),
     sliceDownloadChunk: sliceDownloadChunk({ state }),
@@ -278,18 +277,18 @@ const mergeApi = ({ api, props, $service, state, constants, emit, Modal, t, vm, 
     downloadFileInner: downloadFileInner({ api, props, state }),
     setWriterFile: setWriterFile({ state, emit, Streamsaver }),
     afterDownload: afterDownload({ api, state }),
-    getFileHash: getFileHash({ emit, Modal, constants, t, state }),
-    modifyServiceUrlSingle: modifyServiceUrlSingle({ state, props, constants }),
-    getKiaScanTip: getKiaScanTip({ Modal, constants, t }),
-    downloadFileSingle: downloadFileSingle({ service: $service, constants, props, state, api, emit }),
+    getFileHash: getFileHash({ emit, Modal, t, state }),
+    modifyServiceUrlSingle: modifyServiceUrlSingle({ state, props}),
+    getKiaScanTip: getKiaScanTip({ Modal, t }),
+    downloadFileSingle: downloadFileSingle({ service: $service, props, state, api, emit }),
     downloadFileBatch: downloadFileBatch({ api, service: $service, props, state, emit }),
-    downloadFileSingleHwh5: downloadFileSingleHwh5({ state, props, emit, constants }),
-    downloadAsyncPackage: downloadAsyncPackage({ state, props, api, constants, service: $service }),
+    downloadFileSingleHwh5: downloadFileSingleHwh5({ state, props, emit}),
+    downloadAsyncPackage: downloadAsyncPackage({ state, props, api, service: $service }),
     validateDownloadStatus: validateDownloadStatus({ state, Modal }),
-    handleChange: handleChange({ vm, constants }),
+    handleChange: handleChange({ vm}),
     handleClickFileList: handleClickFileList({ state, emit }),
-    handleTriggerClick: handleTriggerClick({ vm, state, constants, props, emit }),
-    closeRecordPanel: closeRecordPanel({ vm, constants, state, props })
+    handleTriggerClick: handleTriggerClick({ vm, state, props, emit }),
+    closeRecordPanel: closeRecordPanel({ vm, state, props })
   })
 }
 
@@ -333,7 +332,7 @@ export let getApi = () => ({}) as { downloadFile: Function }
 export const renderless = (
   props: IFileUploadProps,
   { computed, inject, onBeforeUnmount, provide, reactive, ref, watch, onMounted, markRaw }: ISharedRenderlessParamHooks,
-  { t, vm, emit, service, constants }: IFileUploadRenderlessParamUtils,
+  { t, vm, emit, service}: IFileUploadRenderlessParamUtils,
   { Modal, Streamsaver }: IFileUploadModalVm & { Streamsaver: IFileUploadStreamsaver }
 ): IFileUploadApi => {
   let api = {} as IFileUploadApi
@@ -352,8 +351,8 @@ export const renderless = (
     service
   })
 
-  initApi({ api, state, props, constants, vm, $service, t, Modal, emit })
-  mergeApi({ api, props, $service, state, constants, emit, Modal, t, vm, Streamsaver })
+  initApi({ api, state, props, vm, $service, t, Modal, emit })
+  mergeApi({ api, props, $service, state, emit, Modal, t, vm, Streamsaver })
   getApi = () => api
 
   provide('uploader', vm)

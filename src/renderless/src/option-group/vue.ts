@@ -1,10 +1,11 @@
+import { $constants } from '../base-select/constants'
 import { queryChange, observeCallback } from './index'
 
 export const api = ['state', 'queryChange']
 
 export const renderless = (props, { onMounted, onBeforeUnmount, reactive, watch, inject }, { broadcast, vm }) => {
   const select = inject('select')
-  const constants = select._constants
+  const constants = $constants
 
   const state = reactive({
     visible: true,
@@ -22,7 +23,7 @@ export const renderless = (props, { onMounted, onBeforeUnmount, reactive, watch,
   watch(
     () => props.disabled,
     (value) => {
-      broadcast(constants.COMPONENT_NAME.Option, constants.EVENT_NAME.handleGroupDisabled, value)
+      broadcast($constants.COMPONENT_NAME.Option, $constants.EVENT_NAME.handleGroupDisabled, value)
     },
     { immediate: true }
   )
@@ -39,10 +40,10 @@ export const renderless = (props, { onMounted, onBeforeUnmount, reactive, watch,
     }
 
     if (props.disabled) {
-      broadcast(constants.COMPONENT_NAME.Option, constants.EVENT_NAME.handleGroupDisabled, props.disabled)
+      broadcast($constants.COMPONENT_NAME.Option, $constants.EVENT_NAME.handleGroupDisabled, props.disabled)
     }
 
-    select.state.selectEmitter.on(constants.EVENT_NAME.queryChange, api.queryChange)
+    select.state.selectEmitter.on($constants.EVENT_NAME.queryChange, api.queryChange)
   })
 
   onBeforeUnmount(() => {

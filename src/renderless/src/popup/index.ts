@@ -10,6 +10,7 @@
  *
  */
 
+import { $constants } from './constants'
 import { on, off } from '@tinysmall/utils'
 import { touchStart, touchMove } from '@tinysmall/utils'
 import { getScroller } from '../dropdown-menu'
@@ -33,7 +34,7 @@ export const watchValue = (api) => (value) => {
 }
 
 export const open =
-  ({ api, constants, emit, props, state }) =>
+  ({ api, emit, props, state }) =>
   () => {
     if (state.opened) {
       return
@@ -54,7 +55,7 @@ export const open =
       on(document, 'touchmove', api.onTouchMove)
 
       if (!state.context.lockCount) {
-        document.body.classList.add(constants.OVERFLOWHIDDEN)
+        document.body.classList.add($constants.OVERFLOWHIDDEN)
       }
 
       state.context.lockCount++
@@ -62,7 +63,7 @@ export const open =
   }
 
 export const close =
-  ({ api, constants, emit, props, state }) =>
+  ({ api, emit, props, state }) =>
   () => {
     if (!state.opened) {
       return
@@ -75,7 +76,7 @@ export const close =
       off(document, 'touchmove', api.onTouchMove)
 
       if (!state.context.lockCount) {
-        document.body.classList.remove(constants.OVERFLOWHIDDEN)
+        document.body.classList.remove($constants.OVERFLOWHIDDEN)
       }
     }
 

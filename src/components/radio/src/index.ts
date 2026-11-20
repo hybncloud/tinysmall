@@ -11,4 +11,4 @@
  */
 export { default } from './pc.vue'
 export { radioProps } from './pc.vue'
-export { $constants } from './pc.vue'
+export { $constants } from '@tinysmall/renderless/radio/constants'

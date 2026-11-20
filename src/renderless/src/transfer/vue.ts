@@ -9,6 +9,7 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
+import { $constants } from './constants'
 import type {
   ITransferApi,
   ITransferProps,
@@ -37,7 +38,7 @@ import {
 
 export const api = ['state', 'onSourceCheckedChange', 'onTargetCheckedChange', 'addToLeft', 'addToRight', 'clearQuery']
 
-const initState = ({ reactive, computed, api, props, h, slots, Tree }): ITransferState => {
+const initState = ({ reactive, computed, api, props, h, slots, Tree }): ITransferState  => {
   const state = reactive({
     leftChecked: [],
     rightChecked: [],
@@ -74,13 +75,13 @@ const initState = ({ reactive, computed, api, props, h, slots, Tree }): ITransfe
 export const renderless = (
   props: ITransferProps,
   { computed, onMounted, reactive, h, watch }: ISharedRenderlessParamHooks,
-  { $prefix, emit, refs, constants, slots, vm }: ITransferRenderlessParamUtils
+  { $prefix, emit, refs, slots, vm }: ITransferRenderlessParamUtils
 ) => {
   const api = {} as ITransferApi
   const Tree = $prefix + 'Tree'
   const Table = $prefix + 'Table'
   const state = initState({ reactive, computed, api, props, h, slots, Tree })
-  const { DROPPANEL, TRANSFERPANEL } = constants
+  const { DROPPANEL, TRANSFERPANEL } = $constants
 
   Object.assign(api, {
     state,

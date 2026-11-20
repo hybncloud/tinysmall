@@ -29,20 +29,15 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/user-head/vue'
+import { $constants } from '@tinysmall/renderless/user-head/constants'
 import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
 import { iconUser } from '@tinysmall/icon'
 import '@tinysmall/theme/user-head/index.less'
 
-export const $constants = {
-  ITEM_NAME: '.user-head-item'
-}
 
 export const userHeadProps = {
   ...$props,
-  _constants: {
-    type: Object,
-    default: () => $constants
-  },
+  
   /**
    * @property {Boolean} [min=false] - 小尺寸模式
    */

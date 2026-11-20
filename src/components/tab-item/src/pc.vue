@@ -26,16 +26,13 @@
 <script lang="ts">
 import { props, $props, $prefix, setup, defineComponent } from '@tinysmall/common'
 import { renderless, api } from '@tinysmall/renderless/tab-item/vue'
+import { $constants } from '@tinysmall/renderless/tab-item/constants'
 import type { ITabItemApi } from '@tinysmall/renderless/types/tab-item.type'
 
-export const $constants = {}
 
 export const tabItemProps = {
   ...$props,
-  _constants: {
-    type: Object,
-    default: () => $constants
-  },
+  
   title: String,
   name: String,
   withClose: Boolean,

@@ -10,6 +10,7 @@
  *
  */
 
+import { $constants } from './constants'
 import { computedBindStyle, stopAnimation, startAnimation } from './index'
 
 export const api = ['state', 'startAnimation', 'stopAnimation']
@@ -21,7 +22,7 @@ export const renderless = (props, { computed, reactive }, { constants }) => {
 
   const state = reactive({
     isStop: false,
-    bindStyle: computed(() => api.computedBindStyle({ constants, time: props.time }))
+    bindStyle: computed(() => api.computedBindStyle({ time: props.time }))
   })
 
   Object.assign(api, {

@@ -10,6 +10,7 @@
  *
  */
 
+import { $constants } from './constants'
 import type { IImageProps, IImageRenderlessParams, IImageState } from '../../types'
 import { on, off, getScrollContainer, isInContainer } from '@tinysmall/utils'
 import { typeOf } from '@tinysmall/utils'
@@ -33,9 +34,9 @@ export const computedGetImageStyle =
   }
 
 export const computedGetAlignCenter =
-  ({ props, constants }) =>
+  ({ props }) =>
   () =>
-    !isSupportObjectFit() && props.fit !== constants.FILL
+    !isSupportObjectFit() && props.fit !== $constants.FILL
 
 export const computedGetPreview = (props: IImageProps) => () =>
   Array.isArray(props.previewSrcList) && props.previewSrcList.length > 0
@@ -136,7 +137,7 @@ export const removeLazyLoadListener = (state: IImageState) => () => {
  * simulate object-fit behavior to compatible with IE11 and other browsers which not support object-fit
  */
 export const getImageStyle =
-  ({ state, vm, constants }: Pick<IImageRenderlessParams, 'state' | 'vm' | 'constants'>) =>
+  ({ state, vm}: Pick<IImageRenderlessParams, 'state' | 'vm' | 'constants'>) =>
   (fit) => {
     const { imageWidth, imageHeight } = state
     const { clientWidth: containerWidth, clientHeight: containerHeight } = vm.$el
@@ -147,20 +148,20 @@ export const getImageStyle =
 
     const vertical = imageWidth / imageHeight < 1
 
-    if (fit === constants.SCALE_DOWN) {
+    if (fit === $constants.SCALE_DOWN) {
       const isSmaller = imageWidth < containerWidth && imageHeight < containerHeight
-      fit = isSmaller ? constants.NONE : constants.CONTAIN
+      fit = isSmaller ? $constants.NONE : $constants.CONTAIN
     }
 
-    if (fit === constants.NONE) {
+    if (fit === $constants.NONE) {
       return { width: 'auto', height: 'auto' }
     }
 
-    if (fit === constants.CONTAIN) {
+    if (fit === $constants.CONTAIN) {
       return vertical ? { width: 'auto' } : { height: 'auto' }
     }
 
-    if (fit === constants.COVER) {
+    if (fit === $constants.COVER) {
       return vertical ? { height: 'auto' } : { width: 'auto' }
     }
 

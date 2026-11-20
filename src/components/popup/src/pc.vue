@@ -48,12 +48,10 @@
 <script lang="ts">
 import { setup, $prefix, $props, defineComponent } from '@tinysmall/common'
 import { renderless, api } from '@tinysmall/renderless/popup/vue'
+import { $constants } from '@tinysmall/renderless/popup/constants'
 import { iconClose } from '@tinysmall/icon'
 import '@tinysmall/theme/popup/index.less'
 
-const $constants = {
-  OVERFLOWHIDDEN: 'tiny-overflow-hidde'
-}
 
 export default defineComponent({
   name: $prefix + 'Popup',
@@ -63,10 +61,7 @@ export default defineComponent({
   },
   props: {
     ...$props,
-    _constants: {
-      type: Object,
-      default: () => $constants
-    },
+    
     closeIcon: {
       type: String,
       default: 'cross'

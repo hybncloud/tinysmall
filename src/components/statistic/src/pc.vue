@@ -45,18 +45,13 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/statistic/vue'
+import { $constants } from '@tinysmall/renderless/statistic/constants'
 import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
 
-export const $constants = {
-  PREFIX: 'tiny-statistic'
-}
 
 export const statisticProps = {
   ...$props,
-  _constants: {
-    type: Object,
-    default: () => $constants
-  },
+  
   precision: Number,
   formatter: Function,
   value: {

@@ -46,7 +46,7 @@ export const api = [
   'resetCurrentValue'
 ]
 export const useChangeValue = ({
-  constants,
+  
   emit,
   props,
   reactive,
@@ -68,7 +68,6 @@ export const useChangeValue = ({
   } as Pick<IRateApi, 'selectValue' | 'resetCurrentValue' | 'setCurrentValue'>
 
   api.setCurrentValue = setCurrentValue({
-    constants,
     props,
     state,
     parent,
@@ -107,11 +106,11 @@ export const useChangeValue = ({
 export const renderless = (
   props: IRateProps,
   { computed, reactive, toRefs, watch, onMounted, onUnmounted, inject }: ISharedRenderlessParamHooks,
-  { constants, emit, vm }: IRateRenderlessParamUtils
+  { emit, vm }: IRateRenderlessParamUtils
 ) => {
   const api = {} as IRateApi
   const changeValue = useChangeValue({
-    constants,
+    
     emit,
     props,
     reactive,

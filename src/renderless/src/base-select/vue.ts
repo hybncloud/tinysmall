@@ -1,3 +1,4 @@
+import { $constants } from './constants'
 import {
   debouncRquest,
   getChildValue,
@@ -165,7 +166,7 @@ export const api = [
   'computedShowTagText',
   'isTagClosable'
 ]
-const initState = ({ reactive, computed, props, api, emitter, parent, constants, vm }) => {
+const initState = ({ reactive, computed, props, api, emitter, parent, vm }) => {
   const stateAdd = initStateAdd({ computed, props, api, parent })
   const state = reactive({
     ...stateAdd,
@@ -184,7 +185,7 @@ const initState = ({ reactive, computed, props, api, emitter, parent, constants,
     firstAutoSearch: props.remoteConfig.autoSearch,
     tagsStyle: computed(() => api.computedTagsStyle()),
     readonly: computed(() => api.computedReadonly()),
-    iconClass: computed(() => (state.visible ? '' : constants.CLASS.IsReverse)),
+    iconClass: computed(() => (state.visible ? '' : $constants.CLASS.IsReverse)),
     showClose: computed(() => api.computedShowClose()),
     optionsAllDisabled: computed(() => api.computedOptionsAllDisabled()),
     collapseTagSize: computed(() => api.computedCollapseTagSize()),
@@ -323,7 +324,7 @@ const initStateAdd = ({ computed, props, api, parent }) => {
   }
 }
 
-const initApi = ({ api, props, state, emit, maskState, constants, parent, nextTick, dispatch, t, vm }) => {
+const initApi = ({ api, props, state, emit, maskState, parent, nextTick, dispatch, t, vm }) => {
   Object.assign(api, {
     state,
     maskState,
@@ -336,8 +337,8 @@ const initApi = ({ api, props, state, emit, maskState, constants, parent, nextTi
     getChildValue: getChildValue(),
     getOption: getOption({ props, state, api }),
     getSelectedOption: getSelectedOption({ props, state }),
-    emitChange: emitChange({ emit, props, state, constants }),
-    directEmitChange: directEmitChange({ emit, props, state, constants }),
+    emitChange: emitChange({ emit, props, state}),
+    directEmitChange: directEmitChange({ emit, props, state}),
     toggleMenu: toggleMenu({ vm, state, props, api }),
     showTip: showTip({ props, state, vm }),
     onOptionDestroy: onOptionDestroy(state),
@@ -345,20 +346,20 @@ const initApi = ({ api, props, state, emit, maskState, constants, parent, nextTi
     resetInputWidth: resetInputWidth({ vm, state }),
     resetHoverIndex: resetHoverIndex({ props, state }),
     resetDatas: resetDatas({ props, state }),
-    scrollToOption: scrollToOption({ vm, constants }),
+    scrollToOption: scrollToOption({ vm}),
     handleCopyClick: handleCopyClick({ parent, props, state }),
     managePlaceholder: managePlaceholder({ vm, state }),
     checkDefaultFirstOption: checkDefaultFirstOption(state),
 
     setOptionHighlight: setOptionHighlight(state),
-    handleBlur: handleBlur({ constants, dispatch, emit, state }),
+    handleBlur: handleBlur({ dispatch, emit, state }),
     toggleLastOptionHitState: toggleLastOptionHitState({ state }),
-    emptyText: emptyText({ I18N: constants.I18N, props, state, t }),
+    emptyText: emptyText({ I18N: $constants.I18N, props, state, t }),
     emptyFlag: emptyFlag({ props, state }),
     getOptionIndexArr: getOptionIndexArr({ props, state, api }),
     queryVisibleOptions: queryVisibleOptions({ props, vm }),
-    recycleScrollerHeight: recycleScrollerHeight({ state, props, recycle: constants.RECYCLE }),
-    watchPropsOption: watchPropsOption({ constants, parent, props, state }),
+    recycleScrollerHeight: recycleScrollerHeight({ state, props, recycle: $constants.RECYCLE }),
+    watchPropsOption: watchPropsOption({ parent, props, state }),
     onMouseenterNative: onMouseenterNative({ state }),
     onMouseleaveNative: onMouseleaveNative({ state }),
     onMouseenterSelf: onMouseenterSelf({ state }),
@@ -368,7 +369,7 @@ const initApi = ({ api, props, state, emit, maskState, constants, parent, nextTi
     computeCollapseTags: computeCollapseTags(props),
     computeMultipleLimit: computeMultipleLimit({ props, state }),
     watchInputHover: watchInputHover({ vm }),
-    initQuery: initQuery({ props, state, constants, vm }),
+    initQuery: initQuery({ props, state, vm }),
     updateModelValue: updateModelValue({ props, emit, state }),
     computedTagsStyle: computedTagsStyle({ props, parent, state, vm }),
     computedReadonly: computedReadonly({ props, state }),
@@ -396,32 +397,32 @@ const initApi = ({ api, props, state, emit, maskState, constants, parent, nextTi
     watchOptionsWhenAutoSelect: watchOptionsWhenAutoSelect({ state, props, nextTick, api })
   })
 
-  addApi({ api, props, state, emit, constants, parent, nextTick, dispatch, vm })
+  addApi({ api, props, state, emit, parent, nextTick, dispatch, vm })
 }
 
-const addApi = ({ api, props, state, emit, constants, parent, nextTick, dispatch, vm }) => {
+const addApi = ({ api, props, state, emit, parent, nextTick, dispatch, vm }) => {
   Object.assign(api, {
-    resetInputHeight: resetInputHeight({ api, constants, nextTick, props, vm, state }),
+    resetInputHeight: resetInputHeight({ api, nextTick, props, vm, state }),
     calcOverFlow: calcOverFlow({ vm, props, state }),
     handleFocus: handleFocus({ api, emit, props, state }),
-    deleteTag: deleteTag({ api, constants, emit, props, vm, nextTick, state }),
-    watchValue: watchValue({ api, constants, dispatch, props, vm, state }),
-    toHide: toHide({ constants, state, props, vm, api }),
-    toVisible: toVisible({ constants, state, props, vm, api, nextTick }),
-    setSelected: setSelected({ api, constants, nextTick, props, vm, state }),
+    deleteTag: deleteTag({ api, emit, props, vm, nextTick, state }),
+    watchValue: watchValue({ api, dispatch, props, vm, state }),
+    toHide: toHide({ state, props, vm, api }),
+    toVisible: toVisible({ state, props, vm, api, nextTick }),
+    setSelected: setSelected({ api, nextTick, props, vm, state }),
     selectOption: selectOption({ api, state, props }),
     handleResize: handleResize({ api, props, state }),
-    watchOptions: watchOptions({ api, constants, nextTick, parent, props, state, vm }),
-    watchVisible: watchVisible({ api, constants, emit, state, vm, props }),
-    deletePrevTag: deletePrevTag({ api, constants, props, state, vm }),
-    onInputChange: onInputChange({ api, props, state, constants, nextTick }),
-    deleteSelected: deleteSelected({ api, constants, emit, props, vm, state }),
+    watchOptions: watchOptions({ api, nextTick, parent, props, state, vm }),
+    watchVisible: watchVisible({ api, emit, state, vm, props }),
+    deletePrevTag: deletePrevTag({ api, props, state, vm }),
+    onInputChange: onInputChange({ api, props, state, nextTick }),
+    deleteSelected: deleteSelected({ api, emit, props, vm, state }),
     handleMenuEnter: handleMenuEnter({ api, nextTick, state, props }),
     resetInputState: resetInputState({ api, vm, state }),
     navigateOptions: navigateOptions({ api, state, props, nextTick }),
     handleClearClick: handleClearClick(api),
     handleComposition: handleComposition({ api, nextTick, state }),
-    handleQueryChange: handleQueryChange({ api, constants, nextTick, props, vm, state }),
+    handleQueryChange: handleQueryChange({ api, nextTick, props, vm, state }),
     handleOptionSelect: handleOptionSelect({ api, nextTick, props, vm, state }),
     getPluginOption: getPluginOption({ api, props, state }),
     toggleCheckAll: toggleCheckAll({ api, emit, state, props }),
@@ -435,8 +436,8 @@ const addApi = ({ api, props, state, emit, constants, parent, nextTick, dispatch
       api.onInputChange()
     }),
     debouncRquest: debouncRquest({ api, state, props }),
-    defaultOnQueryChange: defaultOnQueryChange({ props, state, constants, api, nextTick, vm }),
-    queryChange: queryChange({ props, state, constants, api, nextTick, vm }),
+    defaultOnQueryChange: defaultOnQueryChange({ props, state, api, nextTick, vm }),
+    queryChange: queryChange({ props, state, api, nextTick, vm }),
     mounted: mounted({ api, parent, state, props, vm, nextTick }),
     unMount: unMount({ api, parent, vm, state }),
     watchOptimizeOpts: watchOptimizeOpts({ props, state }),
@@ -524,7 +525,7 @@ const addWatch = ({ watch, props, api, state, nextTick }) => {
 export const renderless = (
   props,
   { computed, onBeforeUnmount, onMounted, reactive, watch, provide, inject },
-  { vm, emit, constants, nextTick, dispatch, t, emitter }
+  { vm, emit, nextTick, dispatch, t, emitter }
 ) => {
   const api: any = {}
   const state = initState({
@@ -534,7 +535,7 @@ export const renderless = (
     api,
     emitter,
     parent: vm,
-    constants,
+    
     vm
   })
   const dialog = inject('dialog', null)
@@ -550,7 +551,7 @@ export const renderless = (
     state,
     emit,
     maskState,
-    constants,
+    
     parent: vm,
     nextTick,
     dispatch,
@@ -571,9 +572,9 @@ export const renderless = (
   }
 
   dialog && dialog.state.emitter.on('handleSelectClose', api.handleClose)
-  state.selectEmitter.on(constants.EVENT_NAME.handleOptionClick, api.handleOptionSelect)
-  state.selectEmitter.on(constants.EVENT_NAME.setSelected, api.setSelected)
-  state.selectEmitter.on(constants.EVENT_NAME.initValue, api.initValue)
+  state.selectEmitter.on($constants.EVENT_NAME.handleOptionClick, api.handleOptionSelect)
+  state.selectEmitter.on($constants.EVENT_NAME.setSelected, api.setSelected)
+  state.selectEmitter.on($constants.EVENT_NAME.initValue, api.initValue)
 
   initWatch({ watch, props, api, state, nextTick })
 

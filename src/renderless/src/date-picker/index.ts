@@ -10,6 +10,7 @@
  *
  */
 
+import { $constants } from './constants'
 import type {
   IDatePickerColumn,
   IDatePickerConstants,
@@ -22,7 +23,7 @@ import type {
 export const getMonthEndDay =
   (constants: IDatePickerConstants) =>
   (year: number, month: number): number =>
-    constants.MonthDay - new Date(year, month - 1, constants.MonthDay).getDate()
+    $constants.MonthDay - new Date(year, month - 1, $constants.MonthDay).getDate()
 
 export const getTrueValue = (value: string): number => {
   if (!value) {
@@ -41,7 +42,7 @@ export const getTrueValue = (value: string): number => {
 }
 
 export const getBoundary =
-  ({ api, constants, props }: Pick<IDatePickerRenderlessParams, 'api' | 'constants' | 'props'>) =>
+  ({ api, props }: Pick<IDatePickerRenderlessParams, 'api' | 'constants' | 'props'>) =>
   ({
     type,
     value: val
@@ -51,18 +52,18 @@ export const getBoundary =
   }): {
     [x: string]: number
   } => {
-    const boundary = props[`${type}${constants.CapDate}`]
+    const boundary = props[`${type}${$constants.CapDate}`]
     const year = boundary.getFullYear()
     let month = 1
     let date = 1
     let hour = 0
     let minute = 0
 
-    if (type === constants.Max) {
-      month = constants.TotalMonth
+    if (type === $constants.Max) {
+      month = $constants.TotalMonth
       date = api.getMonthEndDay(val.getFullYear(), val.getMonth() + 1)
-      hour = constants.Hours
-      minute = constants.Minutes
+      hour = $constants.Hours
+      minute = $constants.Minutes
     }
 
     if (val.getFullYear() === year) {
@@ -79,18 +80,18 @@ export const getBoundary =
     }
 
     return {
-      [`${type}${constants.CapYear}`]: year,
-      [`${type}${constants.CapMonth}`]: month,
-      [`${type}${constants.CapDate}`]: date,
-      [`${type}${constants.CapHour}`]: hour,
-      [`${type}${constants.CapMinute}`]: minute
+      [`${type}${$constants.CapYear}`]: year,
+      [`${type}${$constants.CapMonth}`]: month,
+      [`${type}${$constants.CapDate}`]: date,
+      [`${type}${$constants.CapHour}`]: hour,
+      [`${type}${$constants.CapMinute}`]: minute
     }
   }
 
 export const updateInnerValue =
   ({
     api,
-    constants,
+    
     props,
     refs,
     state
@@ -108,7 +109,7 @@ export const updateInnerValue =
     const maxDate = api.getMonthEndDay(year, month)
 
     let date
-    if (props.type === constants.YearMonth) {
+    if (props.type === $constants.YearMonth) {
       date = 1
     } else {
       date = getValue(2)
@@ -119,7 +120,7 @@ export const updateInnerValue =
     let hour = 0
     let minute = 0
 
-    if (props.type === constants.DateTime) {
+    if (props.type === $constants.DateTime) {
       hour = getValue(3)
       minute = getValue(4)
     }
@@ -167,7 +168,7 @@ export const padZero = (num: number, targetLength = 2): string => {
 
 export const updateColumnValue =
   ({
-    constants,
+    
     nextTick,
     props,
     refs,
@@ -183,11 +184,11 @@ export const updateColumnValue =
       formatter('day', padZero(value.getDate()))
     ]
 
-    if (props.type === constants.DateTime) {
+    if (props.type === $constants.DateTime) {
       values.push(formatter('hour', padZero(value.getHours())), formatter('minute', padZero(value.getMinutes())))
     }
 
-    if (props.type === constants.YearMonth) {
+    if (props.type === $constants.YearMonth) {
       values = values.slice(0, 2)
     }
 
@@ -197,18 +198,18 @@ export const updateColumnValue =
   }
 
 export const getRanges =
-  ({ api, constants, props, state }) =>
+  ({ api, props, state }) =>
   (): {
     type: string
     range: number[]
   }[] => {
     const { maxYear, maxDate, maxMonth, maxHour, maxMinute } = api.getBoundary({
-      type: constants.Max,
+      type: $constants.Max,
       value: state.innerValue
     })
 
     const { minYear, minDate, minMonth, minHour, minMinute } = api.getBoundary({
-      type: constants.Min,
+      type: $constants.Min,
       value: state.innerValue
     })
 
@@ -217,7 +218,7 @@ export const getRanges =
       range: number[]
     }[] = [
       {
-        type: constants.Year,
+        type: $constants.Year,
         range: [minYear, maxYear]
       },
       {
@@ -225,23 +226,23 @@ export const getRanges =
         range: [minMonth, maxMonth]
       },
       {
-        type: constants.Day,
+        type: $constants.Day,
         range: [minDate, maxDate]
       },
       {
-        type: constants.Hour,
+        type: $constants.Hour,
         range: [minHour, maxHour]
       },
       {
-        type: constants.Minute,
+        type: $constants.Minute,
         range: [minMinute, maxMinute]
       }
     ]
 
-    if (props.type === constants.Date) {
+    if (props.type === $constants.Date) {
       result.splice(3, 2)
     }
-    if (props.type === constants.YearMonth) {
+    if (props.type === $constants.YearMonth) {
       result.splice(2, 3)
     }
     return result
@@ -300,7 +301,7 @@ export const onCancel =
   }
 
 export const getDisplayValue =
-  ({ constants, DATE, props, state }: Pick<IDatePickerRenderlessParams, 'constants' | 'DATE' | 'props' | 'state'>) =>
+  ({ DATE, props, state }: Pick<IDatePickerRenderlessParams, 'constants' | 'DATE' | 'props' | 'state'>) =>
   (): string => {
     const format = function (value: Date, fmt: string): string {
       const o = {
@@ -324,27 +325,27 @@ export const getDisplayValue =
       return fmt
     }
 
-    return format(state.innerValue, props.type === constants.DateTime ? DATE.Datetime : DATE.Date)
+    return format(state.innerValue, props.type === $constants.DateTime ? DATE.Datetime : DATE.Date)
   }
 
 export const hookMounted =
   ({
-    constants,
+    
     parent,
     refs,
     nextTick
   }: Pick<IDatePickerRenderlessParams, 'constants' | 'parent' | 'refs' | 'nextTick'>) =>
   () => {
     nextTick(() => {
-      parent.$emit(constants.HookMounted, refs.refrence.$el)
+      parent.$emit($constants.HookMounted, refs.refrence.$el)
     })
   }
 
 export const showPickerAndLockScroll =
-  ({ constants, state }: Pick<IDatePickerRenderlessParams, 'constants' | 'state'>) =>
+  ({ state }: Pick<IDatePickerRenderlessParams, 'constants' | 'state'>) =>
   () => {
     state.visible = true
-    document.body.style.overflow = constants.Hidden
+    document.body.style.overflow = $constants.Hidden
     state.isReadonly = true
   }
 

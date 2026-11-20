@@ -9,6 +9,7 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
+import { $constants } from '../file-upload/constants'
 import type { IUploadListRenderlessParams, IFileUploadFile, IUploadListVideoParam } from '../../types'
 
 import { xss } from '@tinysmall/utils'
@@ -143,9 +144,9 @@ export const getFileType =
     file.name && file.name.split('.')[file.name.split('.').length - 1].toLowerCase()
 
 export const getFileIcon =
-  ({ constants }: Pick<IUploadListRenderlessParams, 'constants'>) =>
+  ({}) =>
   ({ type }: { type: string }): { name: string; color: string } => {
-    const { EXCEL, FILE, PDF, PICTURE, PPT, TEXT, WORD, ZIP, VIDEO, AUDIO } = constants.FILE_TYPE
+    const { EXCEL, FILE, PDF, PICTURE, PPT, TEXT, WORD, ZIP, VIDEO, AUDIO } = $constants.FILE_TYPE
     let iconTypes = {
       [EXCEL]: {
         name: 'icon-excel-type',
@@ -210,10 +211,10 @@ export const remove =
     emit('remove', file)
 
 export const calcUploadListLiWidth =
-  ({ vm, nextTick, props, constants }: Pick<IUploadListRenderlessParams, 'vm' | 'nextTick' | 'props' | 'constants'>) =>
+  ({ vm, nextTick, props}: Pick<IUploadListRenderlessParams, 'vm' | 'nextTick' | 'props' | 'constants'>) =>
   () => {
     const { listType } = props
-    const { LIST_TYPE } = constants
+    const { LIST_TYPE } = $constants
     nextTick(() => {
       const uploadListEle = vm.$refs.uploadList
       const uploadListLiEle = uploadListEle && uploadListEle.querySelectorAll('[data-tag="tiny-upload-list-item"]')
@@ -240,20 +241,20 @@ export const calcUploadListLiWidth =
   }
 
 export const calcVisible =
-  ({ props, constants, emit }: Pick<IUploadListRenderlessParams, 'props' | 'constants' | 'emit'>) =>
+  ({ props, emit }: Pick<IUploadListRenderlessParams, 'props' | 'constants' | 'emit'>) =>
   () => {
-    const { SUCESS } = constants.FILE_STATUS
+    const { SUCESS } = $constants.FILE_STATUS
     const isAllSuccess = props.files.every(({ status }) => status === SUCESS || !status)
     emit('update:visible', !isAllSuccess)
   }
 
 export const getNotSuccessFiles =
-  ({ props, constants }: Pick<IUploadListRenderlessParams, 'props' | 'constants'>) =>
+  ({ props}: Pick<IUploadListRenderlessParams, 'props' | 'constants'>) =>
   (): object[] => {
-    const { SUCESS } = constants.FILE_STATUS
+    const { SUCESS } = $constants.FILE_STATUS
     let files = props.files
 
-    if (props.mode === constants.MODE.BUBBLE && props.listType === constants.LIST_TYPE.TEXT) {
+    if (props.mode === $constants.MODE.BUBBLE && props.listType === $constants.LIST_TYPE.TEXT) {
       files = props.files.filter(({ status }) => status !== SUCESS)
     }
 
@@ -261,9 +262,9 @@ export const getNotSuccessFiles =
   }
 
 export const chooseFile =
-  ({ state, constants }: Pick<IUploadListRenderlessParams, 'state' | 'constants'>) =>
+  ({ state}: Pick<IUploadListRenderlessParams, 'state' | 'constants'>) =>
   (type: string) => {
-    const { SOURCE_AUDIO } = constants.SOURCE_TYPE
+    const { SOURCE_AUDIO } = $constants.SOURCE_TYPE
     if (type === SOURCE_AUDIO) {
       state.showAudioPanel = true
     } else {

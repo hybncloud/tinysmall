@@ -269,6 +269,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/input/vue'
+import { $constants } from '@tinysmall/renderless/input/constants'
 import { $prefix, $props, props, setup, defineComponent, directive } from '@tinysmall/common'
 import type { PropType } from '@tinysmall/common'
 import { Clickoutside } from '@tinysmall/directive'
@@ -280,36 +281,10 @@ import TinyDialogBox from '@tinysmall/dialog-box'
 import '@tinysmall/theme/input/index.less'
 import '@tinysmall/theme/textarea/index.less'
 
-export const $constants = {
-  INPUT_PC: 'tiny-input__',
-  INPUTGROUP_PC: 'tiny-input-group__',
-  INPUT_MOBILE: 'tiny-mobile-input__',
-  INPUTGROUP_MOBILE: 'tiny-mobile-input-group__',
-  Mode: 'pc',
-  inputMode(mode) {
-    return mode === this.Mode ? this.INPUT_PC : this.INPUT_MOBILE
-  },
-  inputGroupMode(mode) {
-    return mode === this.Mode ? this.INPUTGROUP_PC : this.INPUTGROUP_MOBILE
-  },
-  VALIDATE_ICON: {
-    Validating: 'tiny-icon-loading',
-    Success: 'tiny-icon-circle-check',
-    Error: 'tiny-icon-circle-close'
-  },
-  COMPONENT_NAME: {
-    FormItem: 'FormItem'
-  },
-  MASKSYMBOL: '******',
-  TEXTAREA_HEIGHT_MOBILE: 108
-}
 
 export const inputProps = {
   ...$props,
-  _constants: {
-    type: Object,
-    default: () => $constants
-  },
+  
   name: String,
   size: String,
   form: String,

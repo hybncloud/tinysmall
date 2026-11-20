@@ -248,6 +248,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/date-range/vue'
+import { $constants } from '@tinysmall/renderless/date-range/constants'
 import { $prefix, $props, props, setup, directive, defineComponent } from '@tinysmall/common'
 import { Clickoutside } from '@tinysmall/directive'
 import TimePicker from '@tinysmall/time'
@@ -256,17 +257,10 @@ import Input from '@tinysmall/input'
 import Button from '@tinysmall/button'
 import { iconDoubleRight, iconDoubleLeft, iconChevronLeft, iconChevronRight } from '@tinysmall/icon'
 
-export const $constants = {
-  startDate: new Date('1970-01-01'),
-  endDate: new Date('2099-12-31')
-}
 
 export const dateRangeProps = {
   ...$props,
-  _constants: {
-    type: Object,
-    default: () => $constants
-  },
+  
   emitter: Object,
   step: {
     type: Object,

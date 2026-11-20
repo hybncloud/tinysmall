@@ -10,6 +10,7 @@
  *
  */
 
+import { $constants } from '../base-select/constants'
 import {
   isEqual,
   contains,
@@ -63,25 +64,25 @@ const initState = ({ reactive, computed, props, api, markRaw, select, parent }) 
   return state
 }
 
-const initApi = ({ api, props, state, select, constants, vm }) => {
+const initApi = ({ api, props, state, select, vm }) => {
   Object.assign(api, {
     state,
     isEqual: isEqual({ select, state }),
     contains: contains({ select, state }),
     hoverItem: hoverItem({ select, props, state }),
     queryChange: queryChange({ select, props, state }),
-    selectOptionClick: selectOptionClick({ constants, vm, props, state, select }),
+    selectOptionClick: selectOptionClick({ vm, props, state, select }),
     handleGroupDisabled: handleGroupDisabled({ state, vm }),
-    initValue: initValue({ select, props, constants, vm })
+    initValue: initValue({ select, props, vm })
   })
 }
 
-const initWatch = ({ watch, props, state, select, constants }) => {
+const initWatch = ({ watch, props, state, select }) => {
   watch(
     () => state.currentLabel,
     () => {
       if (!props.created && !select.remote) {
-        select.state.selectEmitter.emit(constants.EVENT_NAME.setSelected)
+        select.state.selectEmitter.emit($constants.EVENT_NAME.setSelected)
       }
     }
   )
@@ -101,20 +102,20 @@ const initWatch = ({ watch, props, state, select, constants }) => {
           return
         }
 
-        select.state.selectEmitter.emit(constants.EVENT_NAME.setSelected)
+        select.state.selectEmitter.emit($constants.EVENT_NAME.setSelected)
       }
     }
   )
 }
 
-const initOnMounted = ({ onMounted, props, api, vm, state, constants, select }) => {
+const initOnMounted = ({ onMounted, props, api, vm, state, select }) => {
   onMounted(() => {
     state.el = vm.$el
 
     toggleEvent({ props, vm, type: 'add' })
 
     if (!select.optimization) {
-      select.state.selectEmitter.on(constants.EVENT_NAME.queryChange, api.queryChange)
+      select.state.selectEmitter.on($constants.EVENT_NAME.queryChange, api.queryChange)
     }
     api.initValue()
   })
@@ -156,16 +157,16 @@ export const renderless = (
 ) => {
   const api = {}
   const select = inject('select')
-  const constants = select._constants
+  const constants = $constants
   const state = initState({ reactive, computed, props, api, markRaw, select, parent })
 
-  initApi({ api, props, state, select, constants, vm })
-  initWatch({ watch, props, state, select, constants })
-  initOnMounted({ onMounted, props, api, vm, state, constants, select })
+  initApi({ api, props, state, select, vm })
+  initWatch({ watch, props, state, select})
+  initOnMounted({ onMounted, props, api, vm, state, select })
   initOnBeforeUnmount({ onBeforeUnmount, props, select, vm, state })
   initSelectState({ state, select, props, toRefs, reactive })
 
-  parent.$on(constants.EVENT_NAME.handleGroupDisabled, api.handleGroupDisabled)
+  parent.$on($constants.EVENT_NAME.handleGroupDisabled, api.handleGroupDisabled)
 
   return api
 }

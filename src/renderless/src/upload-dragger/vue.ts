@@ -9,6 +9,7 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
+import { $constants } from '../file-upload/constants'
 import type {
   IUploadDraggerState,
   IUploadDraggerApi,
@@ -31,13 +32,13 @@ export const renderless = (
     uploader: inject('uploader') || ref({ default: '' })
   }) as IUploadDraggerState
 
-  const constants = state.uploader.$constants || {}
+  const constants = $constants
 
   const api: IUploadDraggerApi = {
     state,
     onDragOver: onDragOver({ props, state }),
     onDrop: onDrop({ emit, props, state }),
-    watchDragover: watchDragover({ state, constants })
+    watchDragover: watchDragover({ state})
   }
 
   watch(

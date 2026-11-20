@@ -10,6 +10,7 @@
  *
  */
 
+import { $constants } from './constants'
 import type {
   IRadioApi,
   IRadioProps,
@@ -34,7 +35,7 @@ export const api = ['state', 'handleChange']
 export const renderless = (
   props: IRadioProps,
   { onMounted, onBeforeUnmount, computed, reactive, inject }: ISharedRenderlessParamHooks,
-  { vm, parent, emit, constants, nextTick, dispatch }: IRadioRenderlessParamUtils
+  { vm, parent, emit, nextTick, dispatch }: IRadioRenderlessParamUtils
 ): IRadioApi => {
   parent.tinyForm = parent.tinyForm || inject('form', null)
 
@@ -61,12 +62,12 @@ export const renderless = (
     state,
     radioSize: radioSize({ props, state }),
     getModel: getModel({ props, state }),
-    isGroup: isGroup({ constants, parent, state }),
+    isGroup: isGroup({ parent, state }),
     tabIndex: tabIndex({ props, state }),
     isDisabled: isDisabled({ props, state }),
     isDisplayOnly: isDisplayOnly({ props }),
-    setModel: setModel({ constants, dispatch, emit, props, vm, state }),
-    handleChange: handleChange({ constants, dispatch, emit, state, nextTick })
+    setModel: setModel({ dispatch, emit, props, vm, state }),
+    handleChange: handleChange({ dispatch, emit, state, nextTick })
   })
 
   onMounted(() => {

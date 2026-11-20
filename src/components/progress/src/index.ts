@@ -11,4 +11,4 @@
  */
 export { default } from './pc.vue'
 export { progressProps } from './pc.vue'
-export { $constants } from './pc.vue'
+export { $constants } from '@tinysmall/renderless/progress/constants'

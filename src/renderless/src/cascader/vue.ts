@@ -10,6 +10,7 @@
  *
  */
 
+import { $constants } from './constants'
 import {
   getConfig,
   deleteTag,
@@ -85,7 +86,7 @@ const initState = ({
   form,
   api,
   t,
-  constants,
+  
   vm,
   inject
 }: {
@@ -127,7 +128,7 @@ const initState = ({
     readonly: computed(() => !props.filterable || state.multiple),
     clearBtnVisible: computed(() => api.computClearVisible()),
     panel: computed(() => vm.$refs.panel),
-    placeholder: computed(() => props.placeholder || t(constants.placeholder)),
+    placeholder: computed(() => props.placeholder || t($constants.placeholder)),
     inputValues: computed(() => (state.multiple ? state.presentText : state.inputValue)),
     collapseTagsLength: 0,
     isHidden: false,
@@ -143,7 +144,7 @@ const initState = ({
 const initApi = ({
   api,
   state,
-  constants,
+  
   dispatch,
   emit,
   vm,
@@ -174,10 +175,10 @@ const initApi = ({
     handleDropdownLeave: handleDropdownLeave(state),
     focusFirstNode: focusFirstNode({ vm, state }),
     computClearVisible: computClearVisible({ props, state }),
-    showPlaceholder: showPlaceholder({ props, state, t, constants }),
+    showPlaceholder: showPlaceholder({ props, state, t }),
     updateStyle: updateStyle({ parent, vm, state, updatePopper, nextTick, props }),
     getSuggestions: getSuggestions({ nextTick, props, state, updatePopper }),
-    handleExpandChange: handleExpandChange({ constants, emit, dispatch, nextTick, state, updatePopper }),
+    handleExpandChange: handleExpandChange({ emit, dispatch, nextTick, state, updatePopper }),
     getConfig: getConfig({ parent, props }),
     setInputHeightToTag: setInputHeightToTag({ nextTick, parent, state }),
     handleSuggestionClick: handleSuggestionClick({ api, state }),
@@ -189,7 +190,7 @@ const initApi = ({
     watchValue: watchValue({ api, state }),
     computePresentTags: computePresentTags({ api, props, state }),
     computePresentContent: computePresentContent({ api, state }),
-    watchCheckedValue: watchCheckedValue({ constants, dispatch, api, nextTick, emit, state, props }),
+    watchCheckedValue: watchCheckedValue({ dispatch, api, nextTick, emit, state, props }),
     toggleDropDownVisible: toggleDropDownVisible({ emit, vm, state, updatePopper }),
     selfMounted: selfMounted({ api, parent, props, vm, state }),
     handleBeforeUpdate: handleBeforeUpdate({ props, api, state }),
@@ -274,7 +275,7 @@ export const renderless = (
     watch,
     inject
   }: ISharedRenderlessFunctionParams<null>,
-  { t, emit, nextTick, constants, slots, dispatch, vm }: ICascadeRenderlessParamUtils
+  { t, emit, nextTick, slots, dispatch, vm }: ICascadeRenderlessParamUtils
 ) => {
   const form = inject('form', null)
 
@@ -308,12 +309,12 @@ export const renderless = (
     form,
     api: api as ICascaderApi,
     t,
-    constants,
+    
     vm,
     inject
   })
 
-  initApi({ api: api as ICascaderApi, state, constants, dispatch, emit, vm, props, updatePopper, nextTick, parent: vm, t })
+  initApi({ api: api as ICascaderApi, state, dispatch, emit, vm, props, updatePopper, nextTick, parent: vm, t })
 
   initWatch({ watch, state, api: api as ICascaderApi, props, nextTick, updatePopper })
 

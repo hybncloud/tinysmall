@@ -1,3 +1,4 @@
+import { $constants } from './constants'
 export const processIndex = ({ activeIndex, index, length }) => {
   if (activeIndex === 0 && index === length - 1) {
     return -1

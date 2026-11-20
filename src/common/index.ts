@@ -1,7 +1,7 @@
 import hooks from './adapter/index.ts'
 import { createComponentFn } from './adapter/index.ts'
 import { directive, h, markRaw, Teleport } from './adapter/index.ts'
-import { parseVnode, isEmptyVnode, renderComponent, tools } from './adapter/index.ts'
+import { parseVnode, isEmptyVnode, tools } from './adapter/index.ts'
 import { t } from '@tinysmall/locale'
 import '@tinysmall/theme/base/index.less'
 import { defineComponent } from './adapter/index.ts'
@@ -30,8 +30,7 @@ export const setup = ({ props, context, renderless, api, extendOptions = {} }) =
   const attrs = {
     t,
     vm: utils.vm,
-    d: utils.defineInstanceProperties,
-    dp: utils.defineParentInstanceProperties
+    d: utils.defineInstanceProperties
   }
 
   /**
@@ -42,11 +41,6 @@ export const setup = ({ props, context, renderless, api, extendOptions = {} }) =
   attrs.d({
     slots: { get: () => utils.vm.$slots, configurable: true },
     scopedSlots: { get: () => utils.vm.$scopedSlots, configurable: true }
-  })
-
-  attrs.dp({
-    slots: { get: () => utils.parent.$slots, configurable: true },
-    scopedSlots: { get: () => utils.parent.$scopedSlots, configurable: true }
   })
 
   if (Array.isArray(api)) {
@@ -63,4 +57,4 @@ export const setup = ({ props, context, renderless, api, extendOptions = {} }) =
 
 export type { PropType, ComponentPublicInstance, App, VNode } from './adapter'
 
-export { h, hooks, directive, parseVnode, isEmptyVnode, createComponent, Teleport, markRaw, renderComponent }
+export { h, hooks, directive, parseVnode, isEmptyVnode, createComponent, Teleport, markRaw }

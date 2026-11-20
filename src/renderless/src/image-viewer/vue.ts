@@ -10,6 +10,7 @@
  *
  */
 
+import { $constants } from './constants'
 import {
   computedIsSingle,
   watchVisible,
@@ -76,7 +77,7 @@ export const api = [
   'langClick'
 ]
 
-const initState = ({ reactive, computed, api, props, constants, inject }) => {
+const initState = ({ reactive, computed, api, props, inject }) => {
   const state = reactive({
     originScale: '',
     moveable: false,
@@ -95,7 +96,7 @@ const initState = ({ reactive, computed, api, props, constants, inject }) => {
     transform: { scale: 1, deg: 0, offsetX: 0, offsetY: 0, objfit: 'contain', enableTransition: false },
     urlList:
       props.urlList || (Array.isArray(inject('urlList')) && inject('urlList').length !== 0) ? inject('urlList') : null,
-    mode: constants.MODE.CONTAIN,
+    mode: $constants.MODE.CONTAIN,
     previewVisible: props.previewVisible,
     fullScreen: props.imageFullCurrent,
     hammer: null,
@@ -126,15 +127,15 @@ const initState = ({ reactive, computed, api, props, constants, inject }) => {
     boxVisibility: false,
     fileName: '',
     scrollTop: 0,
-    thumbnailTop: constants.THUMBNAILTOP,
-    menuTop: constants.MENUTOP,
+    thumbnailTop: $constants.THUMBNAILTOP,
+    menuTop: $constants.MENUTOP,
     centerIndex: -1
   })
 
   return state
 }
 
-const initApi = ({ api, state, props, parent, nextTick, emit, t, constants, vm }) => {
+const initApi = ({ api, state, props, parent, nextTick, emit, t, vm }) => {
   Object.assign(api, {
     state,
     touchstart: touchstart({ state, api }),
@@ -155,11 +156,11 @@ const initApi = ({ api, state, props, parent, nextTick, emit, t, constants, vm }
     watchVisible: watchVisible(state),
     deviceSupportUninstall: deviceSupportUninstall({ state }),
     computedCurrentImg: computedCurrentImg({ state, api }),
-    computedImgStyle: computedImgStyle({ state, constants }),
-    computeZIndex: computeZIndex({ constants, props }),
+    computedImgStyle: computedImgStyle({ state}),
+    computeZIndex: computeZIndex({ props }),
     hide: hide({ props, api, state }),
     deviceSupportInstall: deviceSupportInstall({ state, api }),
-    toggleMode: toggleMode({ state, constants, api }),
+    toggleMode: toggleMode({ state, api }),
     swipeRight: swipeRight({ api, state, emit }),
     swipeLeft: swipeLeft({ api, state, emit }),
     handleDelete: handleDelete({ api, state, emit }),
@@ -244,12 +245,12 @@ const initWatch = ({ watch, state, api, props, nextTick, vm }) => {
 export const renderless = (
   props,
   { computed, onMounted, onBeforeUnmount, onUpdated, reactive, watch, inject, provide },
-  { t, parent, nextTick, emit, constants, vm }
+  { t, parent, nextTick, emit, vm }
 ) => {
   const api = {}
-  const state = initState({ reactive, computed, api, props, constants, inject })
+  const state = initState({ reactive, computed, api, props, inject })
 
-  initApi({ api, state, props, parent, nextTick, emit, t, constants, vm })
+  initApi({ api, state, props, parent, nextTick, emit, t, vm })
 
   initWatch({ watch, state, api, props, nextTick, vm })
 

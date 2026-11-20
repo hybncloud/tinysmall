@@ -9,6 +9,7 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
+import { $constants } from './constants'
 import type {
   IProgressProps,
   IProgressState,
@@ -53,11 +54,11 @@ export const api = [
 export const renderless = (
   props: IProgressProps,
   { computed, reactive }: ISharedRenderlessParamHooks,
-  { constants }: IProgressRenderlessParamUtils
+  {}: IProgressRenderlessParamUtils
 ): IProgressApi => {
   const api = {} as IProgressApi
   const state: IProgressState = reactive({
-    percentTextSize: constants.TEXT_XS,
+    percentTextSize: $constants.TEXT_XS,
     rate: computed(() => api.computedRate()),
     radius: computed(() => api.computedRadius()),
     stroke: computed(() => api.computedStroke()),
@@ -72,8 +73,8 @@ export const renderless = (
     circlePathStyle: computed(() => api.computedCirclePathStyle()),
     progressTextSize: computed(() => api.computedProgressTextSize()),
     strokeDashoffset: computed(() => api.computedStrokeDashoffset()),
-    strokeWidth: computed(() => props.strokeWidth || constants.DEFAULT_STROKE_WIDTH),
-    width: computed(() => props.width || constants.DEFAULT_WIDTH),
+    strokeWidth: computed(() => props.strokeWidth || $constants.DEFAULT_STROKE_WIDTH),
+    width: computed(() => props.width || $constants.DEFAULT_WIDTH),
     relativeStrokeWidth: computed(() => api.computedRelativeStrokeWidth())
   })
 
@@ -82,24 +83,24 @@ export const renderless = (
     customAppearHook,
     computedContent: computedContent({ props }),
     getColorArray: getColorArray({ props }),
-    computedRate: computedRate({ constants, props }),
+    computedRate: computedRate({ props }),
     computedPerimeter: computedPerimeter({ state }),
-    computedRadius: computedRadius({ constants, props, state }),
-    computedTrackPath: computedTrackPath({ constants, props, state }),
-    computedIconClass: computedIconClass({ constants, props }),
-    computedIconStyle: computedIconStyle({ constants, props, state }),
+    computedRadius: computedRadius({ props, state }),
+    computedTrackPath: computedTrackPath({ props, state }),
+    computedIconClass: computedIconClass({ props }),
+    computedIconStyle: computedIconStyle({ props, state }),
     computedCircleStyle: computedCircleStyle({ state }),
     computedCirclePathStyle: computedCirclePathStyle({ props, state }),
     computedStrokeDashoffset: computedStrokeDashoffset({ state }),
     computedTrailPathStyle: computedTrailPathStyle({ state }),
-    computedRelativeStrokeWidth: computedRelativeStrokeWidth({ state, constants }),
-    computedProgressTextSize: computedProgressTextSize({ state, constants, props }),
+    computedRelativeStrokeWidth: computedRelativeStrokeWidth({ state }),
+    computedProgressTextSize: computedProgressTextSize({ state, props }),
     customAfterAppearHook: customAfterAppearHook({ state, props }),
     customBeforeAppearHook: customBeforeAppearHook({ props, state }),
     getLevelColor: getLevelColor({ api }),
     computedBarStyle: computedBarStyle({ api, props }),
     getCurrentColor: getCurrentColor({ api, props }),
-    computedStroke: computedStroke({ api, constants, props })
+    computedStroke: computedStroke({ api, props })
   })
 
   return api

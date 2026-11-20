@@ -10,6 +10,7 @@
  *
  */
 
+import { $constants } from './constants'
 import { toggle, computedWarpClasses, computedInnerClasses, computedStyle } from './index'
 import type {
   ISwitchApi,
@@ -24,9 +25,9 @@ export const api = ['toggle', 'state']
 export const renderless = (
   props: ISwitchProps,
   { computed, watch, reactive, inject }: ISharedRenderlessParamHooks,
-  { parent, constants, emit }: ISwitchRenderlessParamUtils
+  { parent, emit }: ISwitchRenderlessParamUtils
 ): ISwitchApi => {
-  const prefixCls = constants.prefixcls('pc')
+  const prefixCls = $constants.prefixcls('pc')
 
   parent.tinyForm = parent.tinyForm || inject('form', null)
 

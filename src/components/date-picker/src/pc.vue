@@ -15,29 +15,8 @@ import { $prefix, $props } from '@tinysmall/common'
 import { extend } from '@tinysmall/utils'
 import { iconClose } from '@tinysmall/icon'
 import type { PropType } from 'vue'
+import { $constants } from '@tinysmall/renderless/date-picker/constants'
 
-export const $constants = {
-  MonthDay: 32,
-  Minutes: 59,
-  Hours: 23,
-  TotalMonth: 12,
-  Max: 'max',
-  Min: 'min',
-  Hour: 'hour',
-  Minute: 'minute',
-  CapYear: 'Year',
-  CapMonth: 'Month',
-  CapDate: 'Date',
-  CapHour: 'Hour',
-  CapMinute: 'Minute',
-  YearMonth: 'year-month',
-  DateTime: 'datetime',
-  Date: 'date',
-  HookMounted: 'hook-mounted',
-  Hidden: 'hidden',
-  Year: 'year',
-  Day: 'day'
-}
 
 const validator = (value) => {
   const result =
@@ -99,10 +78,6 @@ export const datePickerProps = {
       | 'datetimerange'
     >,
     default: 'date'
-  },
-  _constants: {
-    type: Object,
-    default: () => $constants
   },
   timeArrowControl: Boolean,
   timeEditable: {
@@ -211,10 +186,6 @@ const DatePicker = extend(
   {
     props: {
       ...$props,
-      _constants: {
-        type: Object,
-        default: () => ({})
-      },
       componentName: { type: String, default: 'DatePicker' },
       minDate: {
         type: Date

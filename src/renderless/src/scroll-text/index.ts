@@ -1,3 +1,4 @@
+import { $constants } from './constants'
 /**
  * Copyright (c) 2022 - present TinyVue Authors.
  * Copyright (c) 2022 - present Huawei Cloud Computing Technologies Co., Ltd.
@@ -10,8 +11,8 @@
  *
  */
 
-export const computedBindStyle = ({ constants, time }) => ({
-  [constants.ANIMATION_DURATION]: parseInt(time, 10) + 's'
+export const computedBindStyle = ({ time }) => ({
+  [$constants.ANIMATION_DURATION]: parseInt(time, 10) + 's'
 })
 
 export const stopAnimation =

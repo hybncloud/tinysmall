@@ -10,6 +10,7 @@
  *
  */
 
+import { $constants } from './constants'
 import type {
   IBreadcrumbProps,
   IBreadcrumbState,
@@ -34,7 +35,7 @@ export const renderless = (
 
   const api: IBreadcrumbApi = {
     state,
-    breadcrumbItemSelect: () => breadcrumbItemSelect({ api, emit, state, constants })
+    breadcrumbItemSelect: () => breadcrumbItemSelect({ api, emit, state })
   }
 
   provide('size', state.size)

@@ -10,6 +10,7 @@
  *
  */
 
+import { $constants } from './constants'
 import {
   toDate1,
   nextDate,
@@ -621,12 +622,12 @@ export const computerEnableYearArrow = (state) => () =>
   state.unlinkPanels && state.rightYear * 12 + state.rightMonth - (state.leftYear * 12 + state.leftMonth + 1) >= 12
 
 export const watchPickerVisible =
-  ({ state, constants }) =>
+  ({ state }) =>
   (val) => {
     if (!val) {
       state.singleSelect = false
-      state.minRangeDate = constants.startDate
-      state.maxRangeDate = constants.endDate
+      state.minRangeDate = $constants.startDate
+      state.maxRangeDate = $constants.endDate
     }
   }
 

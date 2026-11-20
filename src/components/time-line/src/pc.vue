@@ -52,28 +52,17 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/time-line/vue'
+import { $constants } from '@tinysmall/renderless/time-line/constants'
 import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
 import type { PropType } from '@tinysmall/common'
 import '@tinysmall/theme/steps/index.less'
 import TimelineItem from '@tinysmall/timeline-item'
 import type { ITimelineApi } from '@tinysmall/renderless/types/time-line.type'
 
-export const $constants = {
-  PROCESS_DONE_CLS: 'process-done',
-  PROCESS_CUR_CLS: 'process-current',
-  PROCESS_WAIT_CLS: 'process-wait',
-  PROCESS_DISABLED_CLS: 'process-disabled',
-  PROCESS_ERROR_CLS: 'process-error',
-  STACK_NODES_MAX: 7,
-  LIMITED_STACK_NODES: 3
-}
 
 export const timelineProps = {
   ...$props,
-  _constants: {
-    type: Object,
-    default: () => $constants
-  },
+  
   /** 尺寸，取自原 pc.vue props 数组 */
   size: { type: String, default: '' },
   /** 文本位置，取自原 pc.vue props 数组 */

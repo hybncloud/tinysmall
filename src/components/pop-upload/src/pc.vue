@@ -158,35 +158,13 @@ import FileUpload from '@tinysmall/file-upload'
 import Progress from '@tinysmall/progress'
 import Popconfirm from '@tinysmall/popconfirm'
 import { renderless, api } from '@tinysmall/renderless/pop-upload/vue'
+import { $constants } from '@tinysmall/renderless/pop-upload/constants'
 import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
 
-export const $constants = {
-  KB: 'KB',
-  FILE_NAME: 'ui.popupload.fileName',
-  FILE_SIZE: 'ui.popupload.fileSize',
-  FILE_STATUS: 'ui.popupload.fileStatus',
-  DIALOG_TITLE: 'ui.popupload.dialogTitle',
-  UPLOAD_ERROR: 'ui.popupload.uploadError',
-  ERROR_NUM_TIPS: 'ui.popupload.errorNumTips',
-  UPLOAD_SUCCESS: 'ui.popupload.uploadSuccess',
-  TIPS_TITLE_TEXT: 'ui.popupload.tipsFileText',
-  ERROR_TYPE_TIPS: 'ui.popupload.errorTypeTips',
-  ERROR_SIZE_TIPS: 'ui.popupload.errorSizeTips',
-  SAVE_BUTTON_TEXT: 'ui.popupload.saveButtonText',
-  UPLOAD_BUTTON_TEXT: 'ui.popupload.uploadButtonText',
-  CANCEL_BUTTTON_TEXT: 'ui.popupload.cancelButtonText',
-  UPLOADS_BUTTON_TEXT: 'ui.popupload.uploadsButtonText',
-  LIMIT_UPLOAD_FILE_TYPE: 'ui.popupload.limitUploadFileType',
-  LIMIT_UPLOAD_FILE_SIZE: 'ui.popupload.limitUploadFileSize',
-  LIMIT_UPLOAD_FILE_NUMBER: 'ui.popupload.limitUploadFileNumber'
-}
 
 export const popUploadProps = {
   ...$props,
-  _constants: {
-    type: Object,
-    default: () => $constants
-  },
+  
   /** 文件列表，取自原 pc.vue props 数组 */
   fileList: { type: Array, default: () => [] },
   size: {

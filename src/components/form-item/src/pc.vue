@@ -18,17 +18,9 @@ import Tooltip from '@tinysmall/tooltip'
 import { iconError } from '@tinysmall/icon'
 import type { IFormItemApi, IFormItemInstance } from '@tinysmall/renderless/types/form-item.type'
 
-export const $constants = {
-  FORM_NAME: 'Form',
-  FORM_ITEM_NAME: 'FormItem'
-}
 
 export const formItemProps = {
   ...$props,
-  _constants: {
-    type: Object,
-    default: () => $constants
-  },
   appendToBody: {
     type: Boolean,
     default: undefined

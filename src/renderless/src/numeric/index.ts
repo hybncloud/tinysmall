@@ -10,6 +10,7 @@
  *
  */
 
+import { $constants } from './constants'
 import type {
   INumericProps,
   INumericState,
@@ -168,7 +169,7 @@ export const decrease =
 
 export const handleBlur =
   ({
-    constants,
+    
     dispatch,
     emit,
     props,
@@ -181,7 +182,7 @@ export const handleBlur =
     emit('blur', event)
 
     if (props.validateEvent) {
-      dispatch(constants.COMPONENT_NAME, constants.EVENT_NAME.blur, [state.displayValue])
+      dispatch($constants.COMPONENT_NAME, $constants.EVENT_NAME.blur, [state.displayValue])
     }
   }
 
@@ -254,7 +255,7 @@ const getEmitValue = (
 export const setCurrentValue =
   ({
     api,
-    constants,
+    
     dispatch,
     emit,
     props,
@@ -296,11 +297,11 @@ export const setCurrentValue =
       state.userInput = emitValue
 
       if (validateEvent && oldVal === '') {
-        dispatch(constants.COMPONENT_NAME, constants.EVENT_NAME.blur, [state.currentValue])
+        dispatch($constants.COMPONENT_NAME, $constants.EVENT_NAME.blur, [state.currentValue])
       }
 
       if (validateEvent) {
-        dispatch(constants.COMPONENT_NAME, constants.EVENT_NAME.change, [state.currentValue])
+        dispatch($constants.COMPONENT_NAME, $constants.EVENT_NAME.change, [state.currentValue])
       }
 
       if (props.step instanceof Object && props.step?.mode === 'restore' && props.step?.value) {
@@ -380,7 +381,7 @@ export const handleInputChange =
 export const select = (vm: INumericRenderlessParams['vm']) => () => vm.$refs.input.select()
 
 export const mounted =
-  ({ constants, parent, props, state }: Pick<INumericRenderlessParams, 'constants' | 'parent' | 'props' | 'state'>) =>
+  ({ parent, props, state }: Pick<INumericRenderlessParams, 'constants' | 'parent' | 'props' | 'state'>) =>
   (): void => {
     if (props.shape === 'filter') {
       state.controls = false
@@ -401,11 +402,11 @@ export const mounted =
 
     if (!innerInput) return
 
-    innerInput.setAttribute(constants.KEY, constants.VALUE)
-    innerInput.setAttribute(constants.MAX, props.max)
-    innerInput.setAttribute(constants.MIN, props.min)
-    innerInput.setAttribute(constants.VALUENOW, state.currentValue)
-    innerInput.setAttribute(constants.DISABLED, state.inputDisabled)
+    innerInput.setAttribute($constants.KEY, $constants.VALUE)
+    innerInput.setAttribute($constants.MAX, props.max)
+    innerInput.setAttribute($constants.MIN, props.min)
+    innerInput.setAttribute($constants.VALUENOW, state.currentValue)
+    innerInput.setAttribute($constants.DISABLED, state.inputDisabled)
 
     state.onPase = () => {
       state.pasting = true
@@ -424,11 +425,11 @@ export const unmounted =
   }
 
 export const updated =
-  ({ constants, parent, state }: Pick<INumericRenderlessParams, 'constants' | 'parent' | 'state'>) =>
+  ({ parent, state }: Pick<INumericRenderlessParams, 'constants' | 'parent' | 'state'>) =>
   (): void => {
     const innerInput = parent.$el.querySelector('input')
 
-    innerInput && innerInput.setAttribute(constants.VALUENOW, state.currentValue)
+    innerInput && innerInput.setAttribute($constants.VALUENOW, state.currentValue)
   }
 
 export const displayValue =

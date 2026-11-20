@@ -10,18 +10,19 @@
  *
  */
 
+import { $constants } from './constants'
 import type { IRadioButtonRenderlessParams, IRadioGroupProps, IRadioButtonState } from '../../types'
 
 export const handleChange =
   ({
-    constants,
+    
     nextTick,
     dispatch,
     state
   }: Pick<IRadioButtonRenderlessParams, 'constants' | 'nextTick' | 'dispatch' | 'state'>) =>
   (): void => {
     nextTick(() => {
-      dispatch(constants.RADIO_GROUP, 'handleChange', [state.value])
+      dispatch($constants.RADIO_GROUP, 'handleChange', [state.value])
     })
   }
 
@@ -34,12 +35,12 @@ export const setValue =
     state.radioGroup?.$emit('update:modelValue', val)
 
 export const getGroup =
-  ({ constants, parent: $parent }: Pick<IRadioButtonRenderlessParams, 'constants' | 'parent'>) =>
+  ({ parent: $parent }: Pick<IRadioButtonRenderlessParams, 'constants' | 'parent'>) =>
   (): IRadioButtonState['radioGroup'] | null => {
     let parent = $parent.$parent
 
     while (parent) {
-      if (parent.$options.componentName !== constants.RADIO_GROUP) {
+      if (parent.$options.componentName !== $constants.RADIO_GROUP) {
         parent = parent.$parent
       } else {
         return parent
