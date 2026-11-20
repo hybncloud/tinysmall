@@ -122,7 +122,7 @@
 
 <script lang="tsx">
 import { renderless, api } from '@tinysmall/renderless/search/vue'
-import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
 import { iconChevronDown, iconSearch, iconClose } from '@tinysmall/icon'
 import '@tinysmall/theme/search/index.less'
 import type { ISearchApi } from '@tinysmall/renderless/types/search.type'

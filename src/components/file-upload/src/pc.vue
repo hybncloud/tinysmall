@@ -12,7 +12,7 @@
 <script lang="tsx">
 import { $constants } from '@tinysmall/renderless/file-upload/constants'
 import { renderless, api } from '@tinysmall/renderless/file-upload/vue'
-import { $prefix, $props, props, setup, h, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, setup, h, defineComponent } from '@tinysmall/common'
 import UploadList from '@tinysmall/upload-list'
 import Upload from '@tinysmall/upload'
 import Progress from '@tinysmall/progress'

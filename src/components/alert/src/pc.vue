@@ -59,7 +59,7 @@
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/alert/vue'
 import { $constants } from '@tinysmall/renderless/alert/constants'
-import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
 import { iconClose, iconSuccess, iconError, iconHelp, iconWarning, iconWarningTriangle } from '@tinysmall/icon'
 import type { IAlertApi } from '@tinysmall/renderless/types/alert.type'
 import '@tinysmall/theme/alert/index.less'

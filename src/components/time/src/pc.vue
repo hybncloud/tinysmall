@@ -63,7 +63,7 @@
 
 <script lang="tsx">
 import { renderless, api } from '@tinysmall/renderless/time/vue'
-import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
 import TimeSpinner from '@tinysmall/time-spinner'
 import Button from '@tinysmall/button'
 

@@ -11,5 +11,5 @@
  */
 export { default } from './pc.vue'
 export { checkboxProps } from './pc.vue'
-export { $constants } from './pc.vue'
+export { $constants } from '@tinysmall/renderless/checkbox/constants'
 export type IconPosition = 'center' | 'top'

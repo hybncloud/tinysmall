@@ -28,7 +28,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/drop-times/vue'
-import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
 import Select from '@tinysmall/base-select'
 import Option from '@tinysmall/option'
 

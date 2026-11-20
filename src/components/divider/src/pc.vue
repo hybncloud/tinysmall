@@ -29,7 +29,7 @@
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/divider/vue'
 import { $constants } from '@tinysmall/renderless/divider/constants'
-import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
 import type { PropType } from '@tinysmall/common'
 
 type DirectionType = 'horizontal' | 'vertical'

@@ -47,7 +47,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/link/vue'
-import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
 import type { ILinkApi } from '@tinysmall/renderless/types/link.type'
 
 export const linkProps = {

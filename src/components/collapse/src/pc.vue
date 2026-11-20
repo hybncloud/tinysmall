@@ -18,7 +18,7 @@
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/collapse/vue'
 import { $constants } from '@tinysmall/renderless/collapse/constants'
-import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
 
 
 export const collapseProps = {

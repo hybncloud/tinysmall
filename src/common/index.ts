@@ -10,11 +10,7 @@ export { defineComponent }
 
 export const $prefix = 'Tiny'
 
-export const $props = {
-  '_constants': Object
-}
-
-export const props: Array<'_constants'> = ['_constants']
+export const $props = {}
 
 const createComponent = createComponentFn()
 

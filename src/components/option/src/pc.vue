@@ -37,7 +37,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/option/vue'
-import { $props, $prefix, props, setup, defineComponent } from '@tinysmall/common'
+import { $props, $prefix, setup, defineComponent } from '@tinysmall/common'
 import { AutoTip } from '@tinysmall/directive'
 import '@tinysmall/theme/option/index.less'
 import { IconCheck, IconCheckedSur, IconFinish } from '@tinysmall/icon'

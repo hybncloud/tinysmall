@@ -25,7 +25,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/select-dropdown/vue'
-import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
 import '@tinysmall/theme/select-dropdown/index.less'
 
 export const selectDropdownProps = {

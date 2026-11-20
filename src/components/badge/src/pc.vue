@@ -38,7 +38,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/badge/vue'
-import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
 import type { IBadgeApi } from '@tinysmall/renderless/types/badge.type'
 import '@tinysmall/theme/badge/index.less'
 

@@ -38,7 +38,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/virtual-tree/vue'
-import { $prefix, $props, defineComponent, props, setup } from '@tinysmall/common'
+import { $prefix, $props, defineComponent, setup } from '@tinysmall/common'
 import VirtualScrollBox from '@tinysmall/virtual-scroll-box'
 import Tree from '@tinysmall/tree'
 

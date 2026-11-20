@@ -46,7 +46,7 @@
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/statistic/vue'
 import { $constants } from '@tinysmall/renderless/statistic/constants'
-import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
 
 
 export const statisticProps = {

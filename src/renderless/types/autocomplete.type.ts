@@ -1,3 +1,4 @@
+import { $constants as autoCompleteConstants } from '@tinysmall/renderless/autocomplete/constants'
 import type { ExtractPropTypes, ComputedRef } from 'vue'
 import type { autoCompleteProps } from '../../components/autocomplete/src'
 import type { initSuggestionState } from '../src/autocomplete/vue'
@@ -51,6 +52,6 @@ export interface IAutoCompleteApi {
   debouncedGetData: Function
 }
 
-export type IAutoCompleteConstants = ReturnType<typeof autoCompleteProps._constants.default>
+export type IAutoCompleteConstants = typeof autoCompleteConstants
 
 export type IAutoCompleteRenderlessParamUtils = ISharedRenderlessParamUtils<IAutoCompleteConstants>

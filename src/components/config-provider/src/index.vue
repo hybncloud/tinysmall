@@ -1,5 +1,5 @@
 <script lang="ts">
-import { hooks, props as _props, $prefix, defineComponent } from '@tinysmall/common'
+import { hooks, $prefix, defineComponent } from '@tinysmall/common'
 import type { PropType } from '@tinysmall/common'
 import type { Tag, TextDirection, breakPoint } from './props'
 import { configProviderContextKey } from '../index'
@@ -35,21 +35,7 @@ export default defineComponent({
           name: 'div'
         }
       }
-    },
-    ..._props
-      .map((item) => {
-        return {
-          [item]: {
-            type: String
-          }
-        }
-      })
-      .reduce((pre, cur) => {
-        return {
-          ...pre,
-          ...cur
-        }
-      })
+    }
   },
   setup(props, { slots }) {
     const { direction } = hooks.toRefs(props)

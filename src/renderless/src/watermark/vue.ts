@@ -4,7 +4,7 @@ import type { IWatermarkApi } from '../../types/watermark.type'
 
 export const api = ['reRenderWatermark']
 
-export const renderless = (props, { onMounted, reactive, watch, computed, onUnmounted }, { constants, vm }) => {
+export const renderless = (props, { onMounted, reactive, watch, computed, onUnmounted }, { vm }) => {
   const api = {} as IWatermarkApi
 
   const state = reactive({

@@ -1956,9 +1956,8 @@ export const segmentUploadInit =
     api,
     props,
     service,
-    state,
-    constants
-  }: Pick<IFileUploadRenderlessParams, 'api' | 'props' | 'service' | 'state' | 'constants'>) =>
+    state
+  }: Pick<IFileUploadRenderlessParams, 'api' | 'props' | 'service' | 'state'>) =>
   (file: IFileUploadFile) => {
     const formData = new FormData()
 
@@ -2104,9 +2103,8 @@ export const segmentUpload =
     props,
     service,
     state,
-    emit,
-    constants
-  }: Pick<IFileUploadRenderlessParams, 'api' | 'props' | 'service' | 'state' | 'emit' | 'constants'>) =>
+    emit
+  }: Pick<IFileUploadRenderlessParams, 'api' | 'props' | 'service' | 'state' | 'emit'>) =>
   (
     batchIndex: number,
     file: IFileUploadFile,

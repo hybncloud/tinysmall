@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/guide/vue'
-import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
 import '@tinysmall/theme/guide/index.less'
 import Shepherd from 'shepherd.js'
 import { offset } from '@floating-ui/dom'

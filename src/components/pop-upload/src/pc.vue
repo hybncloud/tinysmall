@@ -159,7 +159,7 @@ import Progress from '@tinysmall/progress'
 import Popconfirm from '@tinysmall/popconfirm'
 import { renderless, api } from '@tinysmall/renderless/pop-upload/vue'
 import { $constants } from '@tinysmall/renderless/pop-upload/constants'
-import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
 
 
 export const popUploadProps = {

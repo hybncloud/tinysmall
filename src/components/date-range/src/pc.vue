@@ -249,7 +249,7 @@
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/date-range/vue'
 import { $constants } from '@tinysmall/renderless/date-range/constants'
-import { $prefix, $props, props, setup, directive, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, setup, directive, defineComponent } from '@tinysmall/common'
 import { Clickoutside } from '@tinysmall/directive'
 import TimePicker from '@tinysmall/time'
 import DateTable from '@tinysmall/date-table'

@@ -1,5 +1,5 @@
 <script lang="tsx">
-import { props, setup, $prefix, defineComponent } from '@tinysmall/common'
+import { setup, $prefix, defineComponent } from '@tinysmall/common'
 import { renderless, api } from '@tinysmall/renderless/anchor/vue'
 import { AutoTip } from '@tinysmall/directive'
 import type { IAnchorApi } from '@tinysmall/renderless/types/anchor.type'

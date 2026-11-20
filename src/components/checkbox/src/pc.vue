@@ -86,25 +86,16 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/checkbox/vue'
-import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
 import type { PropType } from '@tinysmall/common'
 import '@tinysmall/theme/checkbox/index.less'
 import { iconHalfselect, iconCheckedSur, iconCheck } from '@tinysmall/icon'
 import type { ICheckboxApi } from '@tinysmall/renderless/types/checkbox.type'
 import { AutoTip } from '@tinysmall/directive'
-export const $constants = {
-  FORM_ITEM: 'FormItem',
-  FORM_CHANGE: 'form.change',
-  CHECKBOX: $prefix + 'Checkbox',
-  CHECKBOX_GROUP: 'CheckboxGroup'
-}
+import { $constants } from '@tinysmall/renderless/checkbox/constants'
 
 export const checkboxProps = {
   ...$props,
-  _constants: {
-    type: Object,
-    default: () => $constants
-  },
   modelValue: {
     type: [String, Number, Boolean],
     // Tiny新增，因为类型有Boolean类型，所以默认值需要显示设置成 undefined 才可以保持逻辑正确

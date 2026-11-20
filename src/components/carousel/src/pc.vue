@@ -87,20 +87,12 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/carousel/vue'
-import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
 import { iconChevronLeft, iconChevronRight, iconChevronUp, iconChevronDown } from '@tinysmall/icon'
 import '@tinysmall/theme/carousel/index.less'
 
-export const $constants = {
-  CHILD_NAME: $prefix + 'CarouselItem'
-}
-
 export const carouselProps = {
   ...$props,
-  _constants: {
-    type: Object,
-    default: () => $constants
-  },
   initialIndex: {
     type: Number,
     default: 0

@@ -15,7 +15,7 @@ import { computedBindStyle, stopAnimation, startAnimation } from './index'
 
 export const api = ['state', 'startAnimation', 'stopAnimation']
 
-export const renderless = (props, { computed, reactive }, { constants }) => {
+export const renderless = (props, { computed, reactive }) => {
   const api = {
     computedBindStyle
   }

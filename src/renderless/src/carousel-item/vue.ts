@@ -43,8 +43,8 @@ export const api = [
 
 export const renderless = (props, { computed, onMounted, onUnmounted, reactive, inject }, { parent, dispatch, vm }) => {
   const api = {}
-  const CARD_SCALE = parent.$constants.CARD_SCALE
-  const TYPE_VERTICAL = parent.$constants.TYPE_VERTICAL
+  const CARD_SCALE = $constants.CARD_SCALE
+  const TYPE_VERTICAL = $constants.TYPE_VERTICAL
 
   const carouselParent = inject('CarouselVm')
 

@@ -11,4 +11,4 @@
  */
 export { default } from './pc.vue'
 export { dialogBoxProps } from './pc.vue'
-export { $constants } from './pc.vue'
+export { $constants } from '@tinysmall/renderless/dialog-box/constants'

@@ -1,3 +1,4 @@
+import { $constants as cascaderConstants } from '@tinysmall/renderless/cascader/constants'
 import type { ISharedRenderlessParamUtils } from './shared.type'
 import type { ExtractPropTypes } from 'vue'
 import type { cascaderProps } from '../../components/cascader/src'
@@ -110,5 +111,5 @@ export interface ICascaderApi {
   handleMouseleave: ReturnType<typeof handleMouseleave>
   filterHandler: Function
 }
-export type ICascaderConstants = ReturnType<typeof cascaderProps._constants.default>
+export type ICascaderConstants = typeof cascaderConstants
 export type ICascadeRenderlessParamUtils = ISharedRenderlessParamUtils<ICascaderConstants>

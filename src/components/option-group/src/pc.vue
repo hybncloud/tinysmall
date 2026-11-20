@@ -14,7 +14,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/option-group/vue'
-import { $props, setup, $prefix, props, defineComponent } from '@tinysmall/common'
+import { $props, setup, $prefix, defineComponent } from '@tinysmall/common'
 import '@tinysmall/theme/option-group/index.less'
 
 export const optionGroupProps = {

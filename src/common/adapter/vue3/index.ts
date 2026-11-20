@@ -122,7 +122,6 @@ const createVm = (vm, instance, context = null) => {
 
   Object.defineProperties(vm, {
     $attrs: { get: () => instance.attrs },
-    $constants: { get: () => instance.props._constants },
     $emit: { get: () => emit },
     $el: { get: () => instance.vnode.el },
     $nextTick: { get: () => hooks.nextTick },
@@ -189,7 +188,6 @@ export const tools = (context) => {
     attrs: context.attrs,
     parent: parentVm,
     nextTick: hooks.nextTick,
-    constants: instance?.props._constants,
     defineInstanceProperties
   }
 }

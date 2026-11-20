@@ -50,7 +50,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/recycle-scroller/vue'
-import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
 import { ObserveVisibility } from '@tinysmall/directive'
 import '@tinysmall/theme/recycle-scroller/index.less'
 

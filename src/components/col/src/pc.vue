@@ -17,7 +17,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/col/vue'
-import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
 
 export const colProps = {
   ...$props,

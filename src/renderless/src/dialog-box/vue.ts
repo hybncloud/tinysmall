@@ -10,6 +10,7 @@
  *
  */
 
+import { $constants } from './constants'
 import {
   afterEnter,
   afterLeave,
@@ -109,7 +110,6 @@ const initApi = ({
   parent,
   props,
   lockScrollClass,
-  constants,
   usePopups,
   nextTick,
   broadcast,
@@ -123,15 +123,14 @@ const initApi = ({
     broadcast,
     handleCancel: handleCancel({ api, emit }),
     handleConfirm: handleConfirm({ api, emit }),
-    updatePopper: updatePopper({ api, constants }),
+    updatePopper: updatePopper({ api }),
     handleWrapperClick: handleWrapperClick({ api, props, state }),
     useMouseEventDown: useMouseEventDown({ state }),
     useMouseEventUp: useMouseEventUp({ state }),
     hide: hide({ api, emit, state, props }),
-    handleClose: handleClose({ api, constants, emit, parent, props }),
+    handleClose: handleClose({ api, emit, parent, props }),
     watchVisible: watchVisible({
       api,
-      constants,
       emit,
       nextTick,
       parent,
@@ -142,7 +141,7 @@ const initApi = ({
     computedStyle: computedStyle({ state, props }),
     mounted: mounted({ api, parent, props }),
     unMounted: unMounted({ api, parent, props }),
-    computedAnimationName: computedAnimationName({ constants, props }),
+    computedAnimationName: computedAnimationName({ props }),
     afterEnter: afterEnter(emit),
     afterLeave: afterLeave(emit),
     hideScrollbar: hideScrollbar(lockScrollClass),
@@ -167,10 +166,10 @@ const initWatch = ({ watch, state, api, props }: IDialogBoxInitWatchParam) => {
 export const renderless = (
   props: IDialogBoxProps,
   { computed, onBeforeUnmount, onMounted, toRefs, reactive, watch }: ISharedRenderlessParamHooks,
-  { vm, emitter, parent, emit, constants, nextTick, broadcast }: IDialogBoxRenderlessParamUtils
+  { vm, emitter, parent, emit, nextTick, broadcast }: IDialogBoxRenderlessParamUtils
 ): IDialogBoxApi => {
   const api = {} as IDialogBoxApi
-  const lockScrollClass = constants.SCROLL_LOCK_CLASS('pc')
+  const lockScrollClass = $constants.SCROLL_LOCK_CLASS('pc')
   let state = initState({ reactive, computed, api, emitter, props })
   const usePopups = usePopup({
     api,
@@ -190,7 +189,6 @@ export const renderless = (
     parent: vm,
     props,
     emit,
-    constants,
     usePopups,
     lockScrollClass,
     nextTick,

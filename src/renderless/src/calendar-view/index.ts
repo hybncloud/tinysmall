@@ -1,5 +1,6 @@
 import { copyArray, extend, getDirection, isObject } from '@tinysmall/utils'
 import { getDays, lastMonth, nextMonth, getCalendar, transformArray } from '@tinysmall/utils'
+import { $constants } from './constants'
 
 export const cloneDeep = (data) => {
   if (isObject(data)) {
@@ -32,8 +33,8 @@ export const genDayTimes =
   ({ props }) =>
   () => {
     const dayTimes = []
-    const defaultStartTime = props._constants.DAY_START_HOUR
-    const defaultEndTime = props._constants.DAY_END_HOUR
+    const defaultStartTime = $constants.DAY_START_HOUR
+    const defaultEndTime = $constants.DAY_END_HOUR
     const startTime = isNaN(Number(props.dayTimes[0])) ? defaultStartTime : Number(props.dayTimes[0])
     const endTime = isNaN(Number(props.dayTimes[1])) ? defaultEndTime : Number(props.dayTimes[1])
     for (let i = startTime; i <= endTime; i++) {
@@ -434,7 +435,7 @@ export const selectDay =
 
 const dealEvents = (props, api, date) => {
   return date.map((item) => {
-    let event = api.getEventByTime(item, props._constants.DAY_START_TIME, props._constants.DAY_END_TIME)
+    let event = api.getEventByTime(item, $constants.DAY_START_TIME, $constants.DAY_END_TIME)
     event.forEach((e) => {
       delete e.dayArr
       delete e.dayNumber
@@ -540,7 +541,7 @@ export const getEventByTime =
 
     if (state.mode === 'timeline') {
       const halfHourMillisecond = 30 * 60 * 1000
-      const cellHeight = props._constants.CELL_HEIGHT
+      const cellHeight = $constants.CELL_HEIGHT
       const timeZero = ':00:00'
 
       state.events.forEach((event) => {

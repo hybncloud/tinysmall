@@ -16,9 +16,8 @@ import type { IBreadcrumbRenderlessParams } from '../../types'
 export const breadcrumbItemSelect = ({
   api,
   emit,
-  state,
-  constants
-}: Pick<IBreadcrumbRenderlessParams, 'api' | 'emit' | 'state' | 'constants'>) => {
+  state
+}: Pick<IBreadcrumbRenderlessParams, 'api' | 'emit' | 'state'>) => {
   state.breadcrumbEmitter.on($constants.EVENT_NAME.breadcrumbItemSelect, (value) => {
     state.currentBreadcrumbItem = value
     emit('select', value)

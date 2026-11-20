@@ -1,3 +1,4 @@
+import { $constants } from './constants'
 import {
   computedCalendar,
   handleEvents,
@@ -79,9 +80,9 @@ export const api = [
 
 const initState = ({ reactive, props, computed, api, images, modesIcon }) => {
   const state = reactive({
-    dayStartTime: props._constants.DAY_START_TIME,
-    dayEndTime: props._constants.DAY_END_TIME,
-    wednesday: props._constants.WEDNESDAY,
+    dayStartTime: $constants.DAY_START_TIME,
+    dayEndTime: $constants.DAY_END_TIME,
+    wednesday: $constants.WEDNESDAY,
     modesIcon,
     images,
     weekDays: [0, 1, 2, 3, 4, 5, 6],

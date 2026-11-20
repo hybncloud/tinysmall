@@ -60,7 +60,7 @@
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/radio/vue'
 import { $constants } from '@tinysmall/renderless/radio/constants'
-import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
 import type { PropType } from '@tinysmall/common'
 import type { IRadioApi } from '@tinysmall/renderless/types/radio.type'
 import { AutoTip } from '@tinysmall/directive'

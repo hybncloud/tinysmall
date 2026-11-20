@@ -113,7 +113,7 @@
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/transfer/vue'
 import { $constants } from '@tinysmall/renderless/transfer/constants'
-import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
 import Button from '@tinysmall/button'
 import TransferPanel from '@tinysmall/transfer-panel'
 import { iconDoubleLeft, iconChevronLeft, iconChevronRight, iconDoubleRight } from '@tinysmall/icon'

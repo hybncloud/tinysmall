@@ -11,6 +11,7 @@
  */
 
 import type { ICheckboxRenderlessParams, ICheckboxState, ICheckboxChangeEvent, ICheckboxProps } from '../../types'
+import { $constants } from './constants'
 import { isNull } from '@tinysmall/utils'
 
 export const addToStore =
@@ -40,9 +41,8 @@ export const handleChange =
     props,
     emit,
     nextTick,
-    dispatch,
-    constants
-  }: Pick<ICheckboxRenderlessParams, 'state' | 'props' | 'emit' | 'nextTick' | 'dispatch' | 'constants'>) =>
+    dispatch
+  }: Pick<ICheckboxRenderlessParams, 'state' | 'props' | 'emit' | 'nextTick' | 'dispatch'>) =>
   (event: ICheckboxChangeEvent): void => {
     if (state.isLimitExceeded) {
       return
@@ -60,7 +60,7 @@ export const handleChange =
     emit('change', moduleValue, event)
 
     nextTick(() => {
-      state.isGroup && dispatch(constants.CHECKBOX_GROUP, 'change', [state.checkboxGroup.modelValue])
+      state.isGroup && dispatch($constants.CHECKBOX_GROUP, 'change', [state.checkboxGroup.modelValue])
     })
   }
 
@@ -79,9 +79,8 @@ export const computedGetModelSet =
   ({
     state,
     dispatch,
-    emit,
-    constants
-  }: Pick<ICheckboxRenderlessParams, 'state' | 'dispatch' | 'emit' | 'constants'>) =>
+    emit
+  }: Pick<ICheckboxRenderlessParams, 'state' | 'dispatch' | 'emit'>) =>
   (value: ICheckboxState['model']): void => {
     if (state.isGroup) {
       state.isLimitExceeded = false
@@ -90,7 +89,7 @@ export const computedGetModelSet =
 
       state.checkboxGroup.max !== undefined && value.length > state.checkboxGroup.max && (state.isLimitExceeded = true)
 
-      state.isLimitExceeded === false && dispatch(constants.CHECKBOX_GROUP, 'update:modelValue', [value])
+      state.isLimitExceeded === false && dispatch($constants.CHECKBOX_GROUP, 'update:modelValue', [value])
     } else {
       emit('update:modelValue', value)
       state.selfModel = value
@@ -111,12 +110,12 @@ export const computedIsChecked =
   }
 
 export const computedIsGroup =
-  ({ state, parent, constants }: Pick<ICheckboxRenderlessParams, 'state' | 'parent' | 'constants'>) =>
+  ({ state, parent }: Pick<ICheckboxRenderlessParams, 'state' | 'parent'>) =>
   (): boolean => {
     let parentObj = parent.$parent
 
     while (parentObj) {
-      if (parentObj.$options.componentName !== constants.CHECKBOX_GROUP) {
+      if (parentObj.$options.componentName !== $constants.CHECKBOX_GROUP) {
         parentObj = parentObj.$parent
       } else {
         state.checkboxGroup = parentObj

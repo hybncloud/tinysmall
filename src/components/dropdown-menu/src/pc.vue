@@ -43,7 +43,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/dropdown-menu/vue'
-import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
 import DropdownItem from '@tinysmall/dropdown-item'
 import '@tinysmall/theme/dropdown-menu/index.less'
 import type { IDropdownMenuApi } from '@tinysmall/renderless/types/dropdown-menu.type'

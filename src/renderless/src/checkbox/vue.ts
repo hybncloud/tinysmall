@@ -10,6 +10,7 @@
  *
  */
 
+import { $constants } from './constants'
 import type {
   ICheckboxApi,
   ICheckboxProps,
@@ -82,7 +83,6 @@ const initApi = ({
   dispatch,
   props,
   parent,
-  constants,
   formItemSize,
   emit,
   nextTick,
@@ -90,7 +90,7 @@ const initApi = ({
   vm
 }: Pick<
   ICheckboxRenderlessParams & ICheckboxRenderlessParamUtils & ISharedRenderlessParamHooks,
-  'api' | 'state' | 'dispatch' | 'props' | 'parent' | 'constants' | 'formItemSize' | 'emit' | 'nextTick' | 't' | 'vm'
+  'api' | 'state' | 'dispatch' | 'props' | 'parent' | 'formItemSize' | 'emit' | 'nextTick' | 't' | 'vm'
 >) => {
   Object.assign(api, {
     state,
@@ -104,11 +104,11 @@ const initApi = ({
     computedIsDisplayOnly: computedIsDisplayOnly({ state, props }),
     computedIsGroupDisplayOnly: computedIsGroupDisplayOnly({ state }),
     computedGetModelGet: computedGetModelGet({ state, props }),
-    computedIsGroup: computedIsGroup({ state, parent, constants }),
+    computedIsGroup: computedIsGroup({ state, parent }),
     computedCheckboxSize: computedCheckboxSize({ state, props, formItemSize }),
-    computedGetModelSet: computedGetModelSet({ state, dispatch, emit, constants }),
+    computedGetModelSet: computedGetModelSet({ state, dispatch, emit }),
     mounted: mounted({ emit, props, api, parent: vm }),
-    handleChange: handleChange({ state, props, emit, nextTick, dispatch, constants }),
+    handleChange: handleChange({ state, props, emit, nextTick, dispatch }),
     computedDisplayLabel: computedDisplayLabel({ state, props, t }),
     computedIsShowText: computedIsShowText({ props }),
     computedShowText: computedShowText({ props })
@@ -118,18 +118,18 @@ const initApi = ({
 export const renderless = (
   props: ICheckboxProps,
   { computed, onMounted, onBeforeUnmount, reactive, watch, inject }: ISharedRenderlessParamHooks,
-  { vm, parent, emit, constants, nextTick, dispatch, t }: ICheckboxRenderlessParamUtils
+  { vm, parent, emit, nextTick, dispatch, t }: ICheckboxRenderlessParamUtils
 ): ICheckboxApi => {
   const api = { dispatch } as ICheckboxApi
   const formItemSize = computed(() => api.computedFormItemSize())
   const form = inject('form', null)
   const state: ICheckboxState = initState({ reactive, computed, form, api, inject, props })
 
-  initApi({ api, state, dispatch, props, parent, constants, formItemSize, emit, nextTick, t, vm })
+  initApi({ api, state, dispatch, props, parent, formItemSize, emit, nextTick, t, vm })
 
   watch(
     () => props.modelValue,
-    (value) => props.validateEvent && api.dispatch(constants.FORM_ITEM, constants.FORM_CHANGE, value)
+    (value) => props.validateEvent && api.dispatch($constants.FORM_ITEM, $constants.FORM_CHANGE, value)
   )
 
   watch(

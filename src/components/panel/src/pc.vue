@@ -44,7 +44,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/panel/vue'
-import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
 import { iconChevronDown, iconChevronRight } from '@tinysmall/icon'
 
 export const panelProps = {

@@ -55,7 +55,7 @@
 </template>
 
 <script lang="ts">
-import { props, $props, setup, $prefix, defineComponent } from '@tinysmall/common'
+import { $props, setup, $prefix, defineComponent } from '@tinysmall/common'
 import { renderless, api } from '@tinysmall/renderless/popconfirm/vue'
 import { $constants } from '@tinysmall/renderless/popconfirm/constants'
 import Popover from '@tinysmall/popover'

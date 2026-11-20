@@ -153,7 +153,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/time-spinner/vue'
-import { $prefix, $props, props, setup, directive, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, setup, directive, defineComponent } from '@tinysmall/common'
 import Scrollbar from '@tinysmall/scrollbar'
 import { RepeatClick } from '@tinysmall/directive'
 import { iconChevronDown, iconChevronUp } from '@tinysmall/icon'

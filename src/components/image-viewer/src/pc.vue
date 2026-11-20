@@ -79,7 +79,7 @@
 <script lang="tsx">
 import { renderless, api } from '@tinysmall/renderless/image-viewer/vue'
 import { $constants } from '@tinysmall/renderless/image-viewer/constants'
-import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
 import {
   iconClose,
   iconChevronLeft,

@@ -11,7 +11,7 @@
  -->
 <script lang="tsx">
 import Button from '@tinysmall/button'
-import { $prefix, $props, props, setup, h, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, setup, h, defineComponent } from '@tinysmall/common'
 import { renderless, api } from '@tinysmall/renderless/modal/vue'
 import { $constants } from '@tinysmall/renderless/modal/constants'
 import '@tinysmall/theme/modal/index.less'

@@ -117,7 +117,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/button-group/vue'
-import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
 import type { PropType } from '@tinysmall/common'
 import Popover from '@tinysmall/popover'
 import Button from '@tinysmall/button'

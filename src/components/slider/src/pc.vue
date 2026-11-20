@@ -137,7 +137,7 @@
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/slider/vue'
 import { $constants } from '@tinysmall/renderless/slider/constants'
-import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
 import type { PropType } from '@tinysmall/common'
 import Input from '@tinysmall/input'
 import type { ISliderApi } from '@tinysmall/renderless/types/slider.type'

@@ -31,7 +31,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/radio-group/vue'
-import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
 import type { PropType } from '@tinysmall/common'
 import Radio from '@tinysmall/radio'
 import RadioButton from '@tinysmall/radio-button'

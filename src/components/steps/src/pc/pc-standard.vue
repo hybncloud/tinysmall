@@ -30,7 +30,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/steps/vue'
-import { props, setup, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import { iconRefresh, iconYes } from '@tinysmall/icon'
 
 export default defineComponent({
@@ -40,7 +40,6 @@ export default defineComponent({
     IconYes: iconYes()
   },
   props: [
-    ...props,
     'advanced',
     'line',
     'dot',

@@ -32,7 +32,7 @@ export const translateItem =
     const parentWidth = carouselParent.$el.offsetWidth
     const vnode = carouselParent
     const length = vnode.state.items.length
-    const { TYPE_CARD, TYPE_VERTICAL } = parent.$constants
+    const { TYPE_CARD, TYPE_VERTICAL } = $constants
 
     if (vnode.type !== TYPE_CARD && oldIndex !== undefined) {
       state.animating = index === activeIndex || index === oldIndex
@@ -74,7 +74,7 @@ export const handleItemClick =
   () => {
     const vnode = carouselParent
 
-    if (vnode && vnode.type === parent.$constants.TYPE_CARD) {
+    if (vnode && vnode.type === $constants.TYPE_CARD) {
       const index = vnode.state.items.findIndex((item) => item.state.translate === state.translate)
       vnode.setActiveItem(index)
     }

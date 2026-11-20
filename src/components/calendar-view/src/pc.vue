@@ -71,7 +71,7 @@
               </div>
               <div class="day-events" style="max-height: calc(100% - 26px)">
                 <div
-                  v-for="(event, idx) of getEventByTime(day, _constants.DAY_START_TIME, _constants.DAY_END_TIME)"
+                  v-for="(event, idx) of getEventByTime(day, constants.DAY_START_TIME, constants.DAY_END_TIME)"
                   :key="idx"
                   @mouseenter="handleMouseenter($event, event)"
                   @mouseleave="handleMouseleave($event, event)"
@@ -79,7 +79,7 @@
                 >
                   <div
                     v-if="
-                      isStartOrEndDay('start', day.value, _constants.DAY_START_TIME, _constants.DAY_END_TIME, event)
+                      isStartOrEndDay('start', day.value, constants.DAY_START_TIME, constants.DAY_END_TIME, event)
                     "
                     class="events-start"
                     :class="event.dayNumber > 1 && 'multi-day'"
@@ -92,7 +92,7 @@
                     v-else
                     class="events-end"
                     :class="[
-                      isStartOrEndDay('end', day.value, _constants.DAY_START_TIME, _constants.DAY_END_TIME, event)
+                      isStartOrEndDay('end', day.value, constants.DAY_START_TIME, constants.DAY_END_TIME, event)
                         ? 'is-end'
                         : '',
                       event.theme ? 'bg-' + event.theme : ''
@@ -239,7 +239,8 @@
 
 <script>
 import { renderless, api } from '@tinysmall/renderless/calendar-view/vue'
-import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $constants } from '@tinysmall/renderless/calendar-view/constants'
+import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
 import Button from '@tinysmall/button'
 import DatePicker from '@tinysmall/date-picker'
 import RadioButton from '@tinysmall/radio-button'
@@ -255,21 +256,8 @@ import {
   iconDayView
 } from '@tinysmall/icon'
 
-export const $constants = {
-  DAY_START_TIME: '00:00:00',
-  DAY_END_TIME: '23:59:59',
-  DAY_START_HOUR: 8,
-  DAY_END_HOUR: 18,
-  CELL_HEIGHT: 20,
-  WEDNESDAY: 3
-}
-
 export const calendarViewProps = {
   ...$props,
-  _constants: {
-    type: Object,
-    default: () => $constants
-  },
   /** 指定的日期天数，取自原 pc.vue props 数组 */
   day: { type: Number },
   modelValue: {},
@@ -370,20 +358,24 @@ export default defineComponent({
   },
   props: calendarViewProps,
   setup(props, context) {
-    return setup({
-      props,
-      context,
-      renderless,
-      api,
+    return {
+      // 模板以 constants 访问静态常量（替代原 _constants prop 注入）
+      constants: $constants,
+      ...setup({
+        props,
+        context,
+        renderless,
+        api,
 
-      extendOptions: {
-        modesIcon: {
-          timeline: iconDayView(),
-          schedule: iconAgendaView(),
-          month: iconMonthView()
+        extendOptions: {
+          modesIcon: {
+            timeline: iconDayView(),
+            schedule: iconAgendaView(),
+            month: iconMonthView()
+          }
         }
-      }
-    })
+      })
+    }
   }
 })
 </script>

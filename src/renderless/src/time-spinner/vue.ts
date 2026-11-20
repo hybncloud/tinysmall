@@ -80,7 +80,7 @@ const initState = ({ reactive, computed, props, api }) => {
   return state
 }
 
-export const renderless = (props, { computed, onMounted, reactive, watch, nextTick }, { emit, vm, constants }) => {
+export const renderless = (props, { computed, onMounted, reactive, watch, nextTick }, { emit, vm }) => {
   const api = {}
   const state = initState({ reactive, computed, props, api })
 

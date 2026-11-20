@@ -30,7 +30,7 @@
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/breadcrumb/vue'
 import { $constants } from '@tinysmall/renderless/breadcrumb/constants'
-import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
 import BreadcrumbItem from '@tinysmall/breadcrumb-item'
 
 

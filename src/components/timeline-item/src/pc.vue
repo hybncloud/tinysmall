@@ -167,7 +167,7 @@
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/timeline-item/vue'
 import { $constants } from '@tinysmall/renderless/timeline-item/constants'
-import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
 import { iconWarn, iconClose, iconYes } from '@tinysmall/icon'
 import '@tinysmall/theme/steps/index.less'
 import type { ITimelineItemApi } from '@tinysmall/renderless/types/timeline-item.type'

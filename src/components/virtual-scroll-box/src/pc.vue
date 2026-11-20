@@ -10,7 +10,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/virtual-scroll-box/vue'
-import { $prefix, $props, defineComponent, props, setup } from '@tinysmall/common'
+import { $prefix, $props, defineComponent, setup } from '@tinysmall/common'
 
 export const virtualScrollBoxProps = {
   ...$props,

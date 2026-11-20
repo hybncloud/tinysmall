@@ -106,7 +106,7 @@
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/autocomplete/vue'
 import { $constants } from '@tinysmall/renderless/autocomplete/constants'
-import { $prefix, $props, props, setup, directive, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, setup, directive, defineComponent } from '@tinysmall/common'
 import TinyScrollbar from '@tinysmall/scrollbar'
 import TinyInput from '@tinysmall/input'
 import { Clickoutside } from '@tinysmall/directive'

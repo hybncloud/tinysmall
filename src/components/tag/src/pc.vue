@@ -11,7 +11,7 @@
  -->
 <script lang="tsx">
 import { renderless, api } from '@tinysmall/renderless/tag/vue'
-import { $prefix, $props, props, setup, h, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, setup, h, defineComponent } from '@tinysmall/common'
 import { iconClose } from '@tinysmall/icon'
 import type { ITagApi } from '@tinysmall/renderless/types/tag.type'
 

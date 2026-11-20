@@ -25,7 +25,7 @@ export const api = ['breadcrumbItemSelect', 'state']
 export const renderless = (
   props: IBreadcrumbProps,
   { reactive, provide }: ISharedRenderlessParamHooks,
-  { emit, constants, emitter }: IBreadcrumbRenderlessParamUtils
+  { emit, emitter }: IBreadcrumbRenderlessParamUtils
 ): IBreadcrumbApi => {
   const state: IBreadcrumbState = reactive({
     breadcrumbEmitter: emitter(),

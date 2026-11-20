@@ -15,7 +15,7 @@ import { computedFormItemSize, computedCheckboxGroupSize } from './index'
 
 export const api = ['state']
 
-export const renderless = (props, { computed, reactive, watch, provide }, { dispatch, constants }) => {
+export const renderless = (props, { computed, reactive, watch, provide }, { dispatch }) => {
   const api = {
     computedFormItemSize: computedFormItemSize(props)
   }

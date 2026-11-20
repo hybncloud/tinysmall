@@ -13,12 +13,13 @@
 import { on, off, addClass, removeClass } from '@tinysmall/utils'
 import { emitEvent } from '@tinysmall/utils'
 import { getDomNode } from '@tinysmall/utils'
+import { $constants } from './constants'
 import type { IDialogBoxRenderlessParams, IDialogBoxStyle } from '../../types'
 
 export const computedAnimationName =
-  ({ constants, props }: Pick<IDialogBoxRenderlessParams, 'constants' | 'props'>) =>
+  ({ props }: Pick<IDialogBoxRenderlessParams, 'props'>) =>
   (): string =>
-    props.rightSlide ? constants.DIALOG_SLIDER_RIGHT : constants.DIALOG_FADE
+    props.rightSlide ? $constants.DIALOG_SLIDER_RIGHT : $constants.DIALOG_FADE
 
 export const computedAddUnit = (value: string): string => (isNaN(Number(value)) ? value : value + 'px')
 
@@ -66,7 +67,6 @@ export const computedStyle =
 export const watchVisible =
   ({
     api,
-    constants,
     emit,
     nextTick,
     parent,
@@ -75,7 +75,7 @@ export const watchVisible =
     state
   }: Pick<
     IDialogBoxRenderlessParams,
-    'api' | 'constants' | 'emit' | 'nextTick' | 'parent' | 'props' | 'vm' | 'state'
+    'api' | 'emit' | 'nextTick' | 'parent' | 'props' | 'vm' | 'state'
   >) =>
   (val: boolean): void => {
     const el = parent.$el
@@ -180,11 +180,10 @@ export const handleWrapperClick =
 export const handleClose =
   ({
     api,
-    constants,
     emit,
     parent,
     props
-  }: Pick<IDialogBoxRenderlessParams, 'api' | 'constants' | 'emit' | 'parent' | 'props'>) =>
+  }: Pick<IDialogBoxRenderlessParams, 'api' | 'emit' | 'parent' | 'props'>) =>
   (type = 'close') => {
     if (typeof props.beforeClose === 'function' && props.beforeClose(type) === false) {
       return
@@ -196,7 +195,7 @@ export const handleClose =
     const el = parent.$el
 
     if (props.rightSlide) {
-      const dialogBoxDom = (el.querySelector(constants.DIALOG_BOX_CLASS) || el) as HTMLElement
+      const dialogBoxDom = (el.querySelector($constants.DIALOG_BOX_CLASS) || el) as HTMLElement
       dialogBoxDom.style.left = ''
     }
 
@@ -233,10 +232,10 @@ export const handleCancel =
   }
 
 export const updatePopper =
-  ({ api, constants }: Pick<IDialogBoxRenderlessParams, 'api' | 'constants'>) =>
+  ({ api }: Pick<IDialogBoxRenderlessParams, 'api'>) =>
   (): void => {
-    api.broadcast(constants.SELECT_DROPDOWN, 'updatePopper')
-    api.broadcast(constants.DROPDOWN_MENU, 'updatePopper')
+    api.broadcast($constants.SELECT_DROPDOWN, 'updatePopper')
+    api.broadcast($constants.DROPDOWN_MENU, 'updatePopper')
   }
 
 export const afterEnter = (emit: IDialogBoxRenderlessParams['emit']) => (): void => {

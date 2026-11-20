@@ -40,7 +40,7 @@
 
 <script lang="tsx">
 import { renderless, api } from '@tinysmall/renderless/form/vue'
-import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
 import type { IFormApi } from '@tinysmall/renderless/types/form.type'
 import Tooltip from '@tinysmall/tooltip'
 import '@tinysmall/theme/form/index.less'

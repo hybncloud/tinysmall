@@ -11,3 +11,4 @@
  */
 export { default } from './pc.vue'
 export { exceptionProps } from './pc.vue'
+export { $constants } from '@tinysmall/renderless/exception/constants'

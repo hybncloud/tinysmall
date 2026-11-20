@@ -143,7 +143,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/steps/vue'
-import { props, setup, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import { IconFinish, IconWarn } from '@tinysmall/icon'
 import { AutoTip } from '@tinysmall/directive'
 
@@ -155,7 +155,6 @@ export default defineComponent({
   directives: { AutoTip }, // 新规范
   emits: ['click'],
   props: [
-    ...props,
     'advanced',
     'line',
     'dot',

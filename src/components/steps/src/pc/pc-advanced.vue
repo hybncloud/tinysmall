@@ -92,7 +92,7 @@
 <script lang="ts">
 import Popover from '@tinysmall/popover'
 import { renderless, api } from '@tinysmall/renderless/steps/vue'
-import { props, setup, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import { iconFinish, iconWarn, iconChevronLeft, iconChevronRight } from '@tinysmall/icon'
 import SlideBar from './slide-bar.vue'
 
@@ -107,7 +107,6 @@ export default defineComponent({
     IconChevronRight: iconChevronRight()
   },
   props: [
-    ...props,
     'advanced',
     'line',
     'dot',

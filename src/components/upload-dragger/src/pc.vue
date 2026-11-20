@@ -23,7 +23,7 @@
 </template>
 
 <script lang="ts">
-import { $props, $prefix, setup, props, defineComponent } from '@tinysmall/common'
+import { $props, $prefix, setup, defineComponent } from '@tinysmall/common'
 import { renderless, api } from '@tinysmall/renderless/upload-dragger/vue'
 import type { IUploadDraggerApi } from '@tinysmall/renderless/types/upload-dragger.type'
 

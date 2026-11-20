@@ -33,7 +33,7 @@
 </template>
 
 <script lang="ts">
-import { $prefix, $props, setup, props, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
 import { renderless, api } from '@tinysmall/renderless/popover/vue'
 import '@tinysmall/theme/popover/index.less'
 import type { IPopoverApi } from '@tinysmall/renderless/types/popover.type'

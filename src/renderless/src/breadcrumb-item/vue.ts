@@ -16,6 +16,7 @@ import type {
   IBreadcrumbItemRenderlessParamUtils,
   ISharedRenderlessParamHooks
 } from '../../types'
+import { $constants } from '../breadcrumb/constants'
 import { linkClick } from './index'
 
 export const api = ['linkClick', 'state']
@@ -27,14 +28,13 @@ export const renderless = (
 ) => {
   const breadcrumbEmitter = inject('breadcrumbEmitter')
   const breadcrumb = inject('breadcrumb')
-  const constants = breadcrumb._constants
   const state = reactive({
     size: inject('size', null),
     separator: computed(() => breadcrumb.separator || '/')
   })
   const api: IBreadcrumbItemApi = {
     state,
-    linkClick: linkClick({ props, refs, router, emit, breadcrumbEmitter, constants })
+    linkClick: linkClick({ props, refs, router, emit, breadcrumbEmitter, constants: $constants })
   }
 
   return api

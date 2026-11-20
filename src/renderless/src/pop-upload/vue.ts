@@ -177,7 +177,7 @@ const initWatch = ({ watch, props, api }) => {
   watch(() => props.limit, api.watchLimit, { immediate: true })
 }
 
-export const renderless = (props, { computed, reactive, watch }, { t, constants, emit, refs }) => {
+export const renderless = (props, { computed, reactive, watch }, { t, emit, refs }) => {
   const api = {}
   const state = initState({ reactive, props, computed, api })
 

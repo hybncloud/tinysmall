@@ -93,33 +93,14 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/dialog-box/vue'
-import { $prefix, $props, props, setup, defineComponent } from '@tinysmall/common'
+import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
 import type { PropType } from '@tinysmall/common'
 import { iconClose, iconFullscreen, iconMinscreen } from '@tinysmall/icon'
 import '@tinysmall/theme/dialog-box/index.less'
 import type { IDialogBoxApi } from '@tinysmall/renderless/types/dialog-box.type'
 
-export const $constants = {
-  DIALOG_SLIDER_RIGHT: 'dialog-slideRight',
-  DIALOG_FADE: 'dialog-fade',
-  SELECT_DROPDOWN: $prefix + 'SelectDropdown',
-  DROPDOWN_MENU: $prefix + 'DropdownMenu',
-  DIALOG_BOX_CLASS: 'div.tiny-dialog-box',
-  PC_SCROLL_LOCK_CLASS: 'dialog-box__scroll-lock',
-  MOBILE_SCROLL_LOCK_CLASS: 'mobile-dialog-box__scroll-lock',
-  DIALOG_BOX_DATA_TAG: 'tiny-dialog-box',
-  Mode: 'pc',
-  SCROLL_LOCK_CLASS(mode) {
-    return mode === this.Mode ? this.PC_SCROLL_LOCK_CLASS : this.MOBILE_SCROLL_LOCK_CLASS
-  }
-}
-
 export const dialogBoxProps = {
   ...$props,
-  _constants: {
-    type: Object,
-    default: () => $constants
-  },
   appendToBody: {
     type: Boolean,
     default: () => false

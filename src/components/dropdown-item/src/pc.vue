@@ -59,7 +59,6 @@
           :key="index"
           :label="item[state.textField]"
           :item-data="item"
-          :_constants="_constants"
           :icon="item.icon"
           :is-mono="true"
           :disabled="item.disabled"
@@ -76,7 +75,7 @@
 </template>
 
 <script lang="ts">
-import { $props, props, setup, $prefix, defineComponent } from '@tinysmall/common'
+import { $props, setup, $prefix, defineComponent } from '@tinysmall/common'
 import { renderless, api } from '@tinysmall/renderless/dropdown-item/vue'
 import { $constants } from '@tinysmall/renderless/dropdown-item/constants'
 import { iconLeftWardArrow } from '@tinysmall/icon'
