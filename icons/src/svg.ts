@@ -1,5 +1,5 @@
 import { type Component } from 'vue'
-import { $prefix, defineComponent, markRaw, renderComponent } from '@tinysmall/common'
+import { $prefix, defineComponent, h, markRaw } from '@tinysmall/common'
 import { GRADIENT_ICONS_LIST, generateIcon } from './generateIcon'
 
 export interface SvgOptions {
@@ -27,11 +27,6 @@ export function svg({ name = 'Icon', component }: SvgOptions) {
             isSvg: true
           }
 
-          // 解决本地运行会报大量警告的问题
-          if (process.env.BUILD_TARGET) {
-            extend.nativeOn = (context as any).listeners
-          }
-
           // 解决多个相同的渐变图标svg中有相同id时，在display：none，情况下导致的样式异常问题
           if (GRADIENT_ICONS_LIST.includes(name)) {
             const comp = component as any
@@ -48,12 +43,7 @@ export function svg({ name = 'Icon', component }: SvgOptions) {
             }
           }
 
-          return renderComponent({
-            view: component,
-            props: mergeProps,
-            context,
-            extend
-          })
+          return () => h(component, { ref: 'modeTemplate', ...mergeProps, ...context.attrs, ...extend }, context.slots)
         }
       })
     )
