@@ -54,16 +54,13 @@
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/image/vue'
 import { $constants } from '@tinysmall/renderless/image/constants'
-import { $prefix, $props, setup, defineComponent, Teleport } from '@tinysmall/common'
+import { setup, defineComponent, Teleport } from '@tinysmall/common'
 import { isServer } from '@tinysmall/utils'
 import ImageViewer from '@tinysmall/image-viewer'
 import { iconImageError } from '@tinysmall/icon'
 import type { IImageApi } from '@tinysmall/renderless/types/image.type'
 
-
 export const imageProps = {
-  ...$props,
-  
   fit: String,
   lazy: Boolean,
   previewSrcList: {
@@ -98,7 +95,7 @@ export const imageProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'Image',
+  name: 'TinyImage',
   components: {
     ImageViewer,
     Teleport,

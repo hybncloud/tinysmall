@@ -87,12 +87,11 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/carousel/vue'
-import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import { iconChevronLeft, iconChevronRight, iconChevronUp, iconChevronDown } from '@tinysmall/icon'
 import '@tinysmall/theme/carousel/index.less'
 
 export const carouselProps = {
-  ...$props,
   initialIndex: {
     type: Number,
     default: 0
@@ -141,7 +140,7 @@ export const carouselProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'Carousel',
+  name: 'TinyCarousel',
   componentName: 'Carousel',
   emits: ['change', 'complete', 'updateItems'],
   props: carouselProps,

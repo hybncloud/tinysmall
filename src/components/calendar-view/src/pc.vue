@@ -17,7 +17,7 @@
       </div>
       <tiny-radio-group v-if="modes.length" v-model="state.mode" size="mini" class="tiny-calendar-view__radio">
         <tiny-radio-button v-for="mode in modes" :key="mode" :label="mode">
-          <component :is="state.modesIcon[mode]" :class="state.mode === mode && 'fill-brand'" />
+          <component :is="modesIcon[mode]" :class="state.mode === mode && 'fill-brand'" />
         </tiny-radio-button>
       </tiny-radio-group>
     </div>
@@ -78,9 +78,7 @@
                   class="events-container"
                 >
                   <div
-                    v-if="
-                      isStartOrEndDay('start', day.value, constants.DAY_START_TIME, constants.DAY_END_TIME, event)
-                    "
+                    v-if="isStartOrEndDay('start', day.value, constants.DAY_START_TIME, constants.DAY_END_TIME, event)"
                     class="events-start"
                     :class="event.dayNumber > 1 && 'multi-day'"
                   >
@@ -240,7 +238,7 @@
 <script>
 import { renderless, api } from '@tinysmall/renderless/calendar-view/vue'
 import { $constants } from '@tinysmall/renderless/calendar-view/constants'
-import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import Button from '@tinysmall/button'
 import DatePicker from '@tinysmall/date-picker'
 import RadioButton from '@tinysmall/radio-button'
@@ -257,7 +255,6 @@ import {
 } from '@tinysmall/icon'
 
 export const calendarViewProps = {
-  ...$props,
   /** 指定的日期天数，取自原 pc.vue props 数组 */
   day: { type: Number },
   modelValue: {},
@@ -332,7 +329,7 @@ export const calendarViewProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'CalendarView',
+  name: 'TinyCalendarView',
   emits: [
     'update:modelValue',
     'new-schedule',
@@ -361,19 +358,16 @@ export default defineComponent({
     return {
       // 模板以 constants 访问静态常量（替代原 _constants prop 注入）
       constants: $constants,
+      modesIcon: {
+        timeline: iconDayView(),
+        schedule: iconAgendaView(),
+        month: iconMonthView()
+      },
       ...setup({
         props,
         context,
         renderless,
-        api,
-
-        extendOptions: {
-          modesIcon: {
-            timeline: iconDayView(),
-            schedule: iconAgendaView(),
-            month: iconMonthView()
-          }
-        }
+        api
       })
     }
   }

@@ -247,7 +247,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/date-panel/vue'
-import { $prefix, setup, directive, defineComponent, $props } from '@tinysmall/common'
+import { setup, directive, defineComponent } from '@tinysmall/common'
 import { language } from '@tinysmall/locale'
 import { Clickoutside } from '@tinysmall/directive'
 import TimePicker from '@tinysmall/time'
@@ -267,7 +267,6 @@ import {
 import Popup from '@tinysmall/popup'
 
 export const datePanelProps = {
-  ...$props,
   emitter: Object,
   /** 时间选择器是否可编辑，取自原 pc.vue 本地 props（模板 :readonly 引用） */
   timeEditable: {
@@ -323,7 +322,7 @@ export const datePanelProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'DatePanel',
+  name: 'TinyDatePanel',
   componentName: 'DatePanel',
   directives: directive({ Clickoutside }),
   components: {
@@ -348,9 +347,7 @@ export default defineComponent({
       props,
       context,
       renderless,
-      api,
-
-      extendOptions: { language }
+      api
     })
   }
 })

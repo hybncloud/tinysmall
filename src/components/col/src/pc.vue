@@ -17,11 +17,9 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/col/vue'
-import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 
 export const colProps = {
-  ...$props,
-
   /**
    * @property {number} [span=12] - 栅格占据的列数（一行以12/24栅格划分）
    */
@@ -101,7 +99,7 @@ export const colProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'Col',
+  name: 'TinyCol',
   props: colProps,
   setup(props, context) {
     return setup({ props, context, renderless, api })

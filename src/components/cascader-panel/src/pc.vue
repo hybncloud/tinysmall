@@ -22,14 +22,13 @@
 </template>
 
 <script lang="ts">
-import { $prefix, setup, defineComponent, $props } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import { renderless, api } from '@tinysmall/renderless/cascader-panel/vue'
 import CascaderMenu from '@tinysmall/cascader-menu'
 import type { ICascaderPanelApi } from '@tinysmall/renderless/types/cascader-panel.type'
 import '@tinysmall/theme/cascader-panel/index.less'
 
 export const cascaderPanelProps = {
-  ...$props,
   modelValue: {},
   options: Array,
   props: Object,
@@ -47,7 +46,7 @@ export const cascaderPanelProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'CascaderPanel',
+  name: 'TinyCascaderPanel',
   componentName: 'CascaderPanel',
   components: {
     CascaderMenu

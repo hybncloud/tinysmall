@@ -68,15 +68,12 @@
 <script lang="tsx">
 import { renderless, api } from '@tinysmall/renderless/collapse-item/vue'
 import { $constants } from '@tinysmall/renderless/collapse-item/constants'
-import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import CollapseTransition from '@tinysmall/collapse-transition'
 import { iconChevronRight } from '@tinysmall/icon'
 import type { ICollapseItemApi } from '@tinysmall/renderless/types/collapse-item.type'
 
-
 export const collapseItemProps = {
-  ...$props,
-  
   title: String,
   titleRight: String,
   name: {
@@ -92,7 +89,7 @@ export const collapseItemProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'CollapseItem',
+  name: 'TinyCollapseItem',
   componentName: 'CollapseItem',
   inject: ['collapse'],
   props: collapseItemProps,

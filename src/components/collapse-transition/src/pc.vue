@@ -18,10 +18,10 @@
 
 <script lang="ts">
 import { addClass as addCls, removeClass as rmvCls } from '@tinysmall/utils'
-import { $prefix, defineComponent } from '@tinysmall/common'
+import { defineComponent } from '@tinysmall/common'
 
 export default defineComponent({
-  name: $prefix + 'CollapseTransition',
+  name: 'TinyCollapseTransition',
   setup() {
     return {
       on: {

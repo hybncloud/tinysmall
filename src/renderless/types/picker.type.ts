@@ -76,9 +76,4 @@ export interface IPickerState {
   isDisplayOnly: ComputedRef<boolean>
 }
 
-export type IPickerRenderlessParamUtils = ISharedRenderlessParamUtils<null>
-
-export interface IPickRenderlessParamExtendOptions {
-  TimePanel: Component
-  TimeRangePanel: Component
-}
+export type IPickerRenderlessParamUtils = ISharedRenderlessParamUtils

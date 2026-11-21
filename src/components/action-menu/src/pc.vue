@@ -65,7 +65,7 @@
 
 <script lang="ts">
 import type { IActionMenuApi } from '@tinysmall/renderless/types/action-menu.type'
-import { setup, $prefix, defineComponent, $props } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import { renderless, api } from '@tinysmall/renderless/action-menu/vue'
 import { iconEllipsis } from '@tinysmall/icon'
 import '@tinysmall/theme/action-menu/index.less'
@@ -74,7 +74,6 @@ import DropdownMenu from '@tinysmall/dropdown-menu'
 import DropdownItem from '@tinysmall/dropdown-item'
 
 export const actionMenuProps = {
-  ...$props,
   options: {
     type: Array,
     default: () => []
@@ -116,7 +115,7 @@ export const actionMenuProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'ActionMenu',
+  name: 'TinyActionMenu',
   components: {
     TinyDropdown: Dropdown,
     TinyDropdownMenu: DropdownMenu,

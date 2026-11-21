@@ -23,18 +23,17 @@
 </template>
 
 <script lang="ts">
-import { $props, $prefix, setup, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import { renderless, api } from '@tinysmall/renderless/upload-dragger/vue'
 import type { IUploadDraggerApi } from '@tinysmall/renderless/types/upload-dragger.type'
 
 export const UploadDraggerProps = {
-  ...$props,
   disabled: Boolean,
   customClass: [String, Object, Array]
 }
 
 export default defineComponent({
-  name: $prefix + 'UploadDragger',
+  name: 'TinyUploadDragger',
   emits: ['file'],
   props: UploadDraggerProps,
   setup(props, context) {

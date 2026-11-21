@@ -86,7 +86,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/checkbox/vue'
-import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import type { PropType } from '@tinysmall/common'
 import '@tinysmall/theme/checkbox/index.less'
 import { iconHalfselect, iconCheckedSur, iconCheck } from '@tinysmall/icon'
@@ -95,7 +95,6 @@ import { AutoTip } from '@tinysmall/directive'
 import { $constants } from '@tinysmall/renderless/checkbox/constants'
 
 export const checkboxProps = {
-  ...$props,
   modelValue: {
     type: [String, Number, Boolean],
     // Tiny新增，因为类型有Boolean类型，所以默认值需要显示设置成 undefined 才可以保持逻辑正确
@@ -149,7 +148,7 @@ export const checkboxProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'Checkbox',
+  name: 'TinyCheckbox',
   // tiny 新增。 renderless中，没有emit('click')的地方。 此处勿声明，否则会造成丢失click事件。
   emits: ['update:modelValue', 'change', 'complete'],
   directives: { AutoTip },

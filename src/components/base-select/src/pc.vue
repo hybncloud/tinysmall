@@ -523,7 +523,7 @@
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/base-select/vue'
 import { $constants } from '@tinysmall/renderless/base-select/constants'
-import { $prefix, $props, setup, directive, defineComponent } from '@tinysmall/common'
+import { setup, directive, defineComponent } from '@tinysmall/common'
 import { t } from '@tinysmall/locale'
 import TinyTag from '@tinysmall/tag'
 import TinyInput from '@tinysmall/input'
@@ -564,10 +564,7 @@ const getReference = (el, binding) => {
   }
 }
 
-
 export const baseSelectProps = {
-  ...$props,
-  
   id: [Number, String],
   name: String,
   size: String,
@@ -849,7 +846,7 @@ export const baseSelectProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'BaseSelect',
+  name: 'TinyBaseSelect',
   componentName: 'BaseSelect',
   inject: {
     form: {

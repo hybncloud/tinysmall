@@ -275,15 +275,13 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/calendar/vue'
-import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import Tooltip from '@tinysmall/tooltip'
 import Popover from '@tinysmall/popover'
 import Button from '@tinysmall/button'
 import { iconChevronUp, iconChevronDown } from '@tinysmall/icon'
 
 export const calendarProps = {
-  ...$props,
-
   /**
    * @property {String} [mode='month'] - 显示模式，month|year 可选
    */
@@ -329,7 +327,7 @@ export const calendarProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'Calendar',
+  name: 'TinyCalendar',
   components: {
     Tooltip,
     Popover,

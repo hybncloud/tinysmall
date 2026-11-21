@@ -106,7 +106,7 @@
 </template>
 
 <script lang="ts">
-import { $prefix, setup, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import { renderless, api } from '@tinysmall/renderless/transfer-panel/vue'
 import Checkbox from '@tinysmall/checkbox'
 import Input from '@tinysmall/input'
@@ -147,7 +147,7 @@ export const transferPanelProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'TransferPanel',
+  name: 'TinyTransferPanel',
   componentName: 'TransferPanel',
   inheritAttrs: false,
   components: {

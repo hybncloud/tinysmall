@@ -55,7 +55,7 @@
 </template>
 
 <script lang="ts">
-import { $props, setup, $prefix, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import { renderless, api } from '@tinysmall/renderless/popconfirm/vue'
 import { $constants } from '@tinysmall/renderless/popconfirm/constants'
 import Popover from '@tinysmall/popover'
@@ -63,10 +63,7 @@ import Button from '@tinysmall/button'
 import { iconError, iconHelp, iconWarningTriangle, iconSuccess } from '@tinysmall/icon'
 import '@tinysmall/theme/popconfirm/index.less'
 
-
 export const popConfirmProps = {
-  ...$props,
-  
   message: String,
   customClass: String,
   popperOptions: Object,
@@ -99,7 +96,7 @@ export const popConfirmProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'Popconfirm',
+  name: 'TinyPopconfirm',
   components: {
     TinyPopover: Popover,
     TinyButton: Button,

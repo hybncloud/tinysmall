@@ -1,6 +1,6 @@
 <script lang="tsx">
 import { renderless, api } from '@tinysmall/renderless/cascader-menu/vue'
-import { $props, $prefix, h, setup, defineComponent } from '@tinysmall/common'
+import { h, setup, defineComponent } from '@tinysmall/common'
 import { t } from '@tinysmall/locale'
 import Scrollbar from '@tinysmall/scrollbar'
 import CascaderNode from '@tinysmall/cascader-node'
@@ -34,7 +34,6 @@ const renderNodeListFunc = (_vm: InstanceType<typeof CascaderMenu>) => () => {
 }
 
 export const cascaderMenuProps = {
-  ...$props,
   nodes: {
     type: Array,
     required: true
@@ -44,7 +43,7 @@ export const cascaderMenuProps = {
 }
 
 const CascaderMenu = defineComponent({
-  name: $prefix + 'CascaderMenu',
+  name: 'TinyCascaderMenu',
   componentName: 'CascaderMenu',
   components: {
     TinyScrollbar: Scrollbar,

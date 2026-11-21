@@ -63,12 +63,11 @@
 
 <script lang="tsx">
 import { renderless, api } from '@tinysmall/renderless/time/vue'
-import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import TimeSpinner from '@tinysmall/time-spinner'
 import Button from '@tinysmall/button'
 
 export const timeProps = {
-  ...$props,
   show: Boolean,
   timeArrowControl: Boolean,
   emitter: Object,
@@ -82,7 +81,7 @@ export const timeProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'Time',
+  name: 'TinyTime',
   componentName: 'Time',
   emits: ['dodestroy', 'pick', 'select-range'],
   components: {

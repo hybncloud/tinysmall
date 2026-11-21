@@ -113,7 +113,7 @@
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/transfer/vue'
 import { $constants } from '@tinysmall/renderless/transfer/constants'
-import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import Button from '@tinysmall/button'
 import TransferPanel from '@tinysmall/transfer-panel'
 import { iconDoubleLeft, iconChevronLeft, iconChevronRight, iconDoubleRight } from '@tinysmall/icon'
@@ -121,10 +121,7 @@ import '@tinysmall/theme/transfer/index.less'
 
 import type { ITransferApi } from '@tinysmall/renderless/types/transfer.type'
 
-
 export const transferProps = {
-  ...$props,
-  
   /** 分页配置，取自原 pc.vue props 数组 */
   pageVO: { type: Object },
   buttonTexts: {
@@ -201,7 +198,7 @@ export const transferProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'Transfer',
+  name: 'TinyTransfer',
   components: {
     TinyButton: Button,
     TinyTransferPanel: TransferPanel,

@@ -117,7 +117,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/button-group/vue'
-import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import type { PropType } from '@tinysmall/common'
 import Popover from '@tinysmall/popover'
 import Button from '@tinysmall/button'
@@ -126,7 +126,6 @@ import { AutoTip } from '@tinysmall/directive'
 import type { IButtonGroupApi } from '@tinysmall/renderless/types/button-group.type'
 
 export const buttonGroupProps = {
-  ...$props,
   size: {
     type: String,
     default: '',
@@ -164,7 +163,7 @@ export const buttonGroupProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'ButtonGroup',
+  name: 'TinyButtonGroup',
   provide() {
     return {
       buttonGroup: this

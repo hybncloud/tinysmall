@@ -1,7 +1,4 @@
-import { $props } from '@tinysmall/common'
-
 export const tabNavPcProps = {
-  ...$props,
   panes: {
     type: Array,
     default: () => []
@@ -41,6 +38,5 @@ export const tabNavPcProps = {
 }
 
 export const tabBarProps = {
-  ...$props,
   tabs: Array
 }

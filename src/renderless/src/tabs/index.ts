@@ -23,8 +23,6 @@ const getOrderedPanes = (parent, panes) => {
     const handler = ({ type, componentOptions, props }) => {
       let componentName = type && type.componentName
 
-      if (!componentName) componentName = componentOptions && componentOptions.Ctor.extendOptions.componentName
-
       if (componentName === 'TabItem') {
         const paneName = (props && props.name) || (componentOptions && componentOptions.propsData.name)
 
@@ -64,11 +62,7 @@ const getOrderedPanes = (parent, panes) => {
 }
 
 export const calcPaneInstances =
-  ({
-    parent,
-    state,
-    panes
-  }: Pick<ITabsRenderlessParams, 'parent' | 'state'> & { panes: ITabsPaneVm[] }) =>
+  ({ parent, state, panes }: Pick<ITabsRenderlessParams, 'parent' | 'state'> & { panes: ITabsPaneVm[] }) =>
   (isForceUpdate = false) => {
     const tabItemVNodes = parent.$slots.default
 

@@ -40,14 +40,13 @@
 
 <script lang="tsx">
 import { renderless, api } from '@tinysmall/renderless/form/vue'
-import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import type { IFormApi } from '@tinysmall/renderless/types/form.type'
 import Tooltip from '@tinysmall/tooltip'
 import '@tinysmall/theme/form/index.less'
 import '@tinysmall/theme/form-item/index.less'
 
 export const formProps = {
-  ...$props,
   model: Object,
   rules: Object,
   inlineMessage: {
@@ -153,7 +152,7 @@ export const formProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'Form',
+  name: 'TinyForm',
   componentName: 'Form',
   components: {
     TinyTooltip: Tooltip

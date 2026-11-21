@@ -45,11 +45,10 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/date-table/vue'
-import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import { isDate1 } from '@tinysmall/utils'
 
 export const dateTableProps = {
-  ...$props,
   cellClassName: {},
   date: {},
   defaultValue: {
@@ -84,7 +83,7 @@ export const dateTableProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'DateTable',
+  name: 'TinyDateTable',
   componentName: 'DateTable',
   emits: ['changerange', 'pick'],
   props: dateTableProps,

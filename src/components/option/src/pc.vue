@@ -37,13 +37,12 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/option/vue'
-import { $props, $prefix, setup, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import { AutoTip } from '@tinysmall/directive'
 import '@tinysmall/theme/option/index.less'
 import { IconCheck, IconCheckedSur, IconFinish } from '@tinysmall/icon'
 
 export const optionsProps = {
-  ...$props,
   value: {
     required: true
   },
@@ -71,7 +70,7 @@ export const optionsProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'Option',
+  name: 'TinyOption',
   componentName: 'Option',
   directives: { AutoTip },
   components: {

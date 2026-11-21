@@ -11,12 +11,11 @@
  -->
 <script lang="tsx">
 import { renderless, api } from '@tinysmall/renderless/tag/vue'
-import { $prefix, $props, setup, h, defineComponent } from '@tinysmall/common'
+import { setup, h, defineComponent } from '@tinysmall/common'
 import { iconClose } from '@tinysmall/icon'
 import type { ITagApi } from '@tinysmall/renderless/types/tag.type'
 
 export const tagProps = {
-  ...$props,
   hit: Boolean,
   text: String,
   type: String,
@@ -43,7 +42,7 @@ export const tagProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'Tag',
+  name: 'TinyTag',
   components: {
     IconClose: iconClose()
   },

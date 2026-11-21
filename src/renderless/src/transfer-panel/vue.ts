@@ -133,10 +133,10 @@ const initWatcher = ({ watch, state, api, props, Table }) => {
   )
 }
 
-export const renderless = (props, { computed, reactive, watch, toRaw }, { $prefix, emit, parent, vm, slots }) => {
+export const renderless = (props, { computed, reactive, watch, toRaw }, { emit, parent, vm, slots }) => {
   const api = {}
-  const Table = $prefix + 'Table'
-  const Tree = $prefix + 'Tree'
+  const Table = 'TinyTable'
+  const Tree = 'TinyTree'
   const state = initState({ reactive, props, parent, computed, api, slots })
 
   Object.assign(api, {

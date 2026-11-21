@@ -43,13 +43,12 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/dropdown-menu/vue'
-import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import DropdownItem from '@tinysmall/dropdown-item'
 import '@tinysmall/theme/dropdown-menu/index.less'
 import type { IDropdownMenuApi } from '@tinysmall/renderless/types/dropdown-menu.type'
 
 export const dropdownMenuProps = {
-  ...$props,
   multiStage: {
     type: Boolean,
     default: false
@@ -103,8 +102,8 @@ export const dropdownMenuProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'DropdownMenu',
-  componentName: $prefix + 'DropdownMenu',
+  name: 'TinyDropdownMenu',
+  componentName: 'TinyDropdownMenu',
   components: {
     TinyDropdownItem: DropdownItem
   },

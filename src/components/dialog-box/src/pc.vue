@@ -93,14 +93,13 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/dialog-box/vue'
-import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import type { PropType } from '@tinysmall/common'
 import { iconClose, iconFullscreen, iconMinscreen } from '@tinysmall/icon'
 import '@tinysmall/theme/dialog-box/index.less'
 import type { IDialogBoxApi } from '@tinysmall/renderless/types/dialog-box.type'
 
 export const dialogBoxProps = {
-  ...$props,
   appendToBody: {
     type: Boolean,
     default: () => false
@@ -205,7 +204,7 @@ export const dialogBoxProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'DialogBox',
+  name: 'TinyDialogBox',
   model: {
     prop: 'visible',
     event: 'update:visible'

@@ -22,11 +22,11 @@ export interface ICascaderMenuApi {
   handleMouseMove: ReturnType<typeof handleMouseMove>
 }
 
-export type ICascaderMenuRenderlessParams = ISharedRenderlessFunctionParams<never> & {
+export type ICascaderMenuRenderlessParams = ISharedRenderlessFunctionParams & {
   state: ICascaderMenuState
   props: ICascaderMenuProps
   api: ICascaderMenuApi
   panel: ICascaderPanelApi // 在packages\vue\src\cascader-menu\src\index.tsx被inject的值
 }
 
-export type ICascaderMenuRenderlessParamUtils = ISharedRenderlessParamUtils<never>
+export type ICascaderMenuRenderlessParamUtils = ISharedRenderlessParamUtils

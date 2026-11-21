@@ -24,15 +24,12 @@
 </template>
 
 <script lang="ts">
-import { $props, $prefix, setup, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import { renderless, api } from '@tinysmall/renderless/tab-item/vue'
 import { $constants } from '@tinysmall/renderless/tab-item/constants'
 import type { ITabItemApi } from '@tinysmall/renderless/types/tab-item.type'
 
-
 export const tabItemProps = {
-  ...$props,
-  
   title: String,
   name: String,
   withClose: Boolean,
@@ -44,7 +41,7 @@ export const tabItemProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'TabItem',
+  name: 'TinyTabItem',
   componentName: 'TabItem',
   emits: ['tab-nav-update'],
   props: tabItemProps,

@@ -63,12 +63,9 @@
 <script lang="tsx">
 import { renderless, api } from '@tinysmall/renderless/checkbox-button/vue'
 import { $constants } from '@tinysmall/renderless/checkbox-button/constants'
-import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
-
+import { setup, defineComponent } from '@tinysmall/common'
 
 export const checkboxButtonProps = {
-  ...$props,
-  
   modelValue: {},
   label: {},
   disabled: Boolean,
@@ -88,7 +85,7 @@ export const checkboxButtonProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'CheckboxButton',
+  name: 'TinyCheckboxButton',
   emits: ['change', 'update:modelValue'],
   props: checkboxButtonProps,
   setup(props, context) {

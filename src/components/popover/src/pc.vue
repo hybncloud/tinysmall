@@ -33,13 +33,12 @@
 </template>
 
 <script lang="ts">
-import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import { renderless, api } from '@tinysmall/renderless/popover/vue'
 import '@tinysmall/theme/popover/index.less'
 import type { IPopoverApi } from '@tinysmall/renderless/types/popover.type'
 
 export const popoverProps = {
-  ...$props,
   appendToBody: {
     type: Boolean,
     default: true
@@ -111,7 +110,7 @@ export const popoverProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'Popover',
+  name: 'TinyPopover',
   inheritAttrs: true,
   emits: ['update:modelValue', 'hide', 'show', 'after-enter', 'after-leave', 'created'],
   props: popoverProps,

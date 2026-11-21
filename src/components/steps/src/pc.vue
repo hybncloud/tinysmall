@@ -1,5 +1,5 @@
 <script lang="ts">
-import { $props, $prefix, defineComponent, h } from '@tinysmall/common'
+import { defineComponent, h } from '@tinysmall/common'
 import PcStandardTemplate from './pc/pc-standard.vue'
 import PcAdvancedTemplate from './pc/pc-advanced.vue'
 import PcLineTemplate from './pc/pc-line.vue'
@@ -19,7 +19,6 @@ const template = (mode, props) => {
 }
 
 export const stepsProps = {
-  ...$props,
   nameField: {
     type: String,
     default: 'name'
@@ -70,7 +69,7 @@ export const stepsProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'Steps',
+  name: 'TinySteps',
   props: stepsProps,
   setup(props, context) {
     return () => h(template('pc', props), { ref: 'modeTemplate', ...props, ...context.attrs }, context.slots)

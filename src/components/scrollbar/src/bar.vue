@@ -12,12 +12,12 @@
 
 <script lang="tsx">
 import { renderless, api } from '@tinysmall/renderless/scrollbar/vue-bar'
-import { setup, $prefix, h, defineComponent } from '@tinysmall/common'
+import { setup, h, defineComponent } from '@tinysmall/common'
 
 // 此处引入 h 是为了防止打包后 h 被重命名导致组件报错的问题
 
 export default defineComponent({
-  name: $prefix + 'Bar',
+  name: 'TinyBar',
   props: {
     vertical: Boolean,
     show: Boolean,

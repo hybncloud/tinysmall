@@ -270,7 +270,7 @@
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/input/vue'
 import { $constants } from '@tinysmall/renderless/input/constants'
-import { $prefix, $props, setup, defineComponent, directive } from '@tinysmall/common'
+import { setup, defineComponent, directive } from '@tinysmall/common'
 import type { PropType } from '@tinysmall/common'
 import { Clickoutside } from '@tinysmall/directive'
 import TinyTallStorage from './tall-storage.vue'
@@ -281,10 +281,7 @@ import TinyDialogBox from '@tinysmall/dialog-box'
 import '@tinysmall/theme/input/index.less'
 import '@tinysmall/theme/textarea/index.less'
 
-
 export const inputProps = {
-  ...$props,
-  
   name: String,
   size: String,
   form: String,
@@ -384,7 +381,7 @@ export const inputProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'Input',
+  name: 'TinyInput',
   emits: [
     'update:modelValue',
     'change',

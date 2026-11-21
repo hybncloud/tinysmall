@@ -20,7 +20,7 @@ export interface ITagApi {
 
 export type ITagProps = ExtractPropTypes<typeof tagProps>
 
-export type ITagRenderlessParams = ISharedRenderlessFunctionParams<never> & {
+export type ITagRenderlessParams = ISharedRenderlessFunctionParams & {
   state: ITagState
   props: ITagProps
   api: ITagApi

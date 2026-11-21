@@ -1,8 +1,6 @@
-import { $props } from '@tinysmall/common'
 import { iconClose } from '@tinysmall/icon'
 
 export const pickerProps = {
-  ...$props,
   componentName: String,
   minDate: {
     type: Date

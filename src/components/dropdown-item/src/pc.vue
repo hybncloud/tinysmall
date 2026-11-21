@@ -75,7 +75,7 @@
 </template>
 
 <script lang="ts">
-import { $props, setup, $prefix, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import { renderless, api } from '@tinysmall/renderless/dropdown-item/vue'
 import { $constants } from '@tinysmall/renderless/dropdown-item/constants'
 import { iconLeftWardArrow } from '@tinysmall/icon'
@@ -83,10 +83,7 @@ import '@tinysmall/theme/dropdown-item/index.less'
 import { AutoTip } from '@tinysmall/directive'
 import type { IDropdownItemApi } from '@tinysmall/renderless/types/dropdown-item.type'
 
-
 export const dropdownItemProps = {
-  ...$props,
-  
   /** 是否等宽展示，取自原 pc.vue props 数组 */
   isMono: { type: Boolean, default: false },
   icon: [String, Object],
@@ -156,8 +153,8 @@ export const dropdownItemProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'DropdownItem',
-  componentName: $prefix + 'DropdownItem',
+  name: 'TinyDropdownItem',
+  componentName: 'TinyDropdownItem',
   directives: { AutoTip },
   emits: ['item-click', 'update:modelValue', 'change', 'closed', 'open', 'opened', 'close', 'confirm', 'reset'],
   props: dropdownItemProps,

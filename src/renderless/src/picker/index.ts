@@ -17,39 +17,35 @@ import { DATEPICKER } from '@tinysmall/utils'
 import { formatDate, parseDate1 as parseDate, isDateObject, getWeekNumber, prevDate, nextDate } from '@tinysmall/utils'
 import { extend } from '@tinysmall/utils'
 import globalTimezone from './timezone'
+import DatePanel from '@tinysmall/date-panel'
+import DateRangePanel from '@tinysmall/date-range'
+import MonthRangePanel from '@tinysmall/month-range'
+import YearRangePanel from '@tinysmall/year-range'
+import TimePanel from '@tinysmall/time'
+import TimeRangePanel from '@tinysmall/time-range'
+import QuarterPanel from '@tinysmall/quarter-panel'
+import TimeSelect from '@tinysmall/time-panel'
 
 const iso8601Reg = /^\d{4}-\d{2}-\d{2}(.)\d{2}:\d{2}:\d{2}(.+)$/
 
-export const getPanel =
-  ({
-    DatePanel,
-    DateRangePanel,
-    MonthRangePanel,
-    YearRangePanel,
-    TimePanel,
-    TimeRangePanel,
-    QuarterPanel,
-    TimeSelect
-  }) =>
-  (type) => {
-    if (type === DATEPICKER.DateRange || type === DATEPICKER.DateTimeRange) {
-      return DateRangePanel
-    } else if (type === DATEPICKER.MonthRange) {
-      return MonthRangePanel
-    } else if (type === DATEPICKER.YearRange) {
-      return YearRangePanel
-    } else if (type === DATEPICKER.TimeRange) {
-      return TimeRangePanel
-    } else if (type === DATEPICKER.Time) {
-      return TimePanel
-    } else if (type === DATEPICKER.TimeSelect) {
-      return TimeSelect
-    } else if (type === DATEPICKER.Quarter) {
-      return QuarterPanel
-    }
-
-    return DatePanel
+export const getPanel = () => (type) => {
+  if (type === DATEPICKER.DateRange || type === DATEPICKER.DateTimeRange) {
+    return DateRangePanel
+  } else if (type === DATEPICKER.MonthRange) {
+    return MonthRangePanel
+  } else if (type === DATEPICKER.YearRange) {
+    return YearRangePanel
+  } else if (type === DATEPICKER.TimeRange) {
+    return TimeRangePanel
+  } else if (type === DATEPICKER.Time) {
+    return TimePanel
+  } else if (type === DATEPICKER.TimeSelect) {
+    return TimeSelect
+  } else if (type === DATEPICKER.Quarter) {
+    return QuarterPanel
   }
+  return DatePanel
+}
 
 export const watchMobileVisible =
   ({ api, props, state, nextTick }) =>
@@ -1279,7 +1275,7 @@ export const isValidValue =
 
 // TODO: 这个方法有问题
 export const watchIsRange =
-  ({ api, state, TimePanel, TimeRangePanel }) =>
+  ({ api, state }) =>
   (value) => {
     state.type = value ? DATEPICKER.TimeRange : DATEPICKER.Time
     state.panel = value ? TimeRangePanel : TimePanel

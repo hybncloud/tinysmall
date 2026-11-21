@@ -19,7 +19,7 @@ export const renderless = (
   props: IButtonProps,
   { computed, onBeforeUnmount, reactive, watch, inject }: ISharedRenderlessParamHooks,
   { emit }: IButtonRenderlessParamUtils
-) => {
+): IButtonApi => {
   const form = inject('form', null)
   const buttonGroup = inject('buttonGroup', null)
 

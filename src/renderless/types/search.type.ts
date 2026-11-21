@@ -18,7 +18,7 @@ export interface ISearchState {
 
 export type ISearchProps = ExtractPropTypes<typeof searchProps>
 
-export type ISearchRenderlessParams = ISharedRenderlessFunctionParams<never> & {
+export type ISearchRenderlessParams = ISharedRenderlessFunctionParams & {
   state: ISearchState
   props: ISearchProps
   api: ISearchApi
@@ -43,4 +43,4 @@ export interface ISearchApi {
   searchEnterKey: () => void
 }
 
-export type ISearchRenderlessParamUtils = ISharedRenderlessParamUtils<never>
+export type ISearchRenderlessParamUtils = ISharedRenderlessParamUtils

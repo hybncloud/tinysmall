@@ -11,7 +11,7 @@
  -->
 <script lang="tsx">
 import Button from '@tinysmall/button'
-import { $prefix, $props, setup, h, defineComponent } from '@tinysmall/common'
+import { setup, h, defineComponent } from '@tinysmall/common'
 import { renderless, api } from '@tinysmall/renderless/modal/vue'
 import { $constants } from '@tinysmall/renderless/modal/constants'
 import '@tinysmall/theme/modal/index.less'
@@ -31,7 +31,6 @@ import '@tinysmall/theme/modal/index.less'
 import type { IModalApi } from '@tinysmall/renderless/types/modal.type'
 
 export const modalProps = {
-  ...$props,
   animat: { type: Boolean, default: () => true },
   beforeClose: Function,
   duration: { type: [Number, String], default: () => 3000 },
@@ -81,7 +80,7 @@ export const modalProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'Modal',
+  name: 'TinyModal',
   componentName: 'Modal',
   props: modalProps,
   emits: [
@@ -179,18 +178,16 @@ export default defineComponent({
             class: 'tiny-modal__box',
             style: state.boxStyle,
             ref: 'modalBox',
-            ...(type === 'message'
-              ? { onMouseenter: this.mouseEnterEvent, onMouseleave: this.mouseLeaveEvent }
-              : {})
+            ...(type === 'message' ? { onMouseenter: this.mouseEnterEvent, onMouseleave: this.mouseLeaveEvent } : {})
           },
           [
             showHeader
               ? h(
                   'div',
-                               {
+                  {
                     class: ['tiny-modal__header'],
                     onMousedown: this.headerDragable ? this.mousedownEvent : () => {}
-                    },
+                  },
                   [
                     status
                       ? h(

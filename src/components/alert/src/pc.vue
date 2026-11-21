@@ -59,15 +59,12 @@
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/alert/vue'
 import { $constants } from '@tinysmall/renderless/alert/constants'
-import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import { iconClose, iconSuccess, iconError, iconHelp, iconWarning, iconWarningTriangle } from '@tinysmall/icon'
 import type { IAlertApi } from '@tinysmall/renderless/types/alert.type'
 import '@tinysmall/theme/alert/index.less'
 
-
 export const alertProps = {
-  ...$props,
-  
   icon: [String, Object],
   type: {
     type: String,
@@ -106,7 +103,7 @@ export const alertProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'Alert',
+  name: 'TinyAlert',
   props: alertProps,
   components: {
     IconClose: iconClose(),

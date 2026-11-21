@@ -17,10 +17,9 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/row/vue'
-import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 
 export const rowProps = {
-  ...$props,
   flex: Boolean,
   gutter: {
     type: Number,
@@ -54,7 +53,7 @@ export const rowProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'Row',
+  name: 'TinyRow',
   componentName: 'Row',
   props: rowProps,
   setup(props, context) {

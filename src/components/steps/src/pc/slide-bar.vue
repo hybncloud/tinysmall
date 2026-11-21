@@ -50,7 +50,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/steps/slide-bar'
-import { defineComponent, setup, $props } from '@tinysmall/common'
+import { defineComponent, setup } from '@tinysmall/common'
 import { iconChevronLeft, iconChevronRight } from '@tinysmall/icon'
 
 export default defineComponent({
@@ -60,7 +60,6 @@ export default defineComponent({
     IconChevronRight: iconChevronRight()
   },
   props: {
-    ...$props,
     data: Array,
     duration: {
       type: Number,

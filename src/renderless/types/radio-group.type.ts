@@ -11,16 +11,16 @@ export interface IRadioGroupState {
 
 export type IRadioGroupProps = ExtractPropTypes<typeof radioGroupProps>
 
-export type IRadioGroupRenderlessParams = ISharedRenderlessFunctionParams<never> & {
+export type IRadioGroupRenderlessParams = ISharedRenderlessFunctionParams & {
   state: IRadioGroupState
   props: IRadioGroupProps
 }
 
 export interface IRadioGroupApi {
   state: IRadioGroupState
-  dispatch: ISharedRenderlessParamUtils<never>['dispatch']
+  dispatch: ISharedRenderlessParamUtils['dispatch']
   onMounted: ReturnType<typeof mounted>
   handleKeydown: ReturnType<typeof handleKeydown>
 }
 
-export type IRadioGroupRenderlessParamUtils = ISharedRenderlessParamUtils<never>
+export type IRadioGroupRenderlessParamUtils = ISharedRenderlessParamUtils

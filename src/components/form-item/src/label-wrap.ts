@@ -1,8 +1,7 @@
-import { setup, h, $props, defineComponent } from '@tinysmall/common'
+import { setup, h, defineComponent } from '@tinysmall/common'
 
 export default defineComponent({
   props: {
-    ...$props,
     isAutoWidth: Boolean,
     updateAll: Boolean,
     isMobile: Boolean,

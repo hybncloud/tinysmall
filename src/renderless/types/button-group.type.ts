@@ -29,7 +29,7 @@ export interface IButtonGroupState {
   disabled: boolean
 }
 
-export type IButtonGroupRenderlessParams = ISharedRenderlessFunctionParams<never> & {
+export type IButtonGroupRenderlessParams = ISharedRenderlessFunctionParams & {
   state: IButtonGroupState
   props: IButtonGroupProps
 }
@@ -42,4 +42,4 @@ export interface IButtonGroupApi {
   getItemClass: ReturnType<typeof getItemClass>
 }
 
-export type IButtonGroupRenderlessParamUtils = ISharedRenderlessParamUtils<never>
+export type IButtonGroupRenderlessParamUtils = ISharedRenderlessParamUtils

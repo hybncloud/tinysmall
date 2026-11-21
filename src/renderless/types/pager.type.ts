@@ -96,10 +96,10 @@ export interface IPagerApi {
   watchInternalPageSize: ReturnType<typeof watchInternalPageSize>
   getInternalPageSize: ReturnType<typeof getInternalPageSize>
 }
-export type IPagerRenderlessParams = ISharedRenderlessFunctionParams<never> & {
+export type IPagerRenderlessParams = ISharedRenderlessFunctionParams & {
   api: IPagerApi
   state: IPagerState
   props: IPagerProps
 }
 
-export type IPagerRenderlessParamUtils = ISharedRenderlessParamUtils<never>
+export type IPagerRenderlessParamUtils = ISharedRenderlessParamUtils

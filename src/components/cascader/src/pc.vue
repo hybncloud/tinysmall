@@ -176,7 +176,7 @@
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/cascader/vue'
 import { $constants } from '@tinysmall/renderless/cascader/constants'
-import { $prefix, $props, setup, defineComponent, directive } from '@tinysmall/common'
+import { setup, defineComponent, directive } from '@tinysmall/common'
 import { t } from '@tinysmall/locale'
 
 import { Clickoutside } from '@tinysmall/directive'
@@ -191,10 +191,7 @@ import Tooltip from '@tinysmall/tooltip'
 import { iconClose, IconChevronDown, IconUpWard, iconYes } from '@tinysmall/icon'
 import '@tinysmall/theme/cascader/index.less'
 
-
 export const cascaderProps = {
-  ...$props,
-  
   autoSize: Boolean,
   beforeFilter: {
     type: Function,
@@ -275,7 +272,7 @@ export const cascaderProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'Cascader',
+  name: 'TinyCascader',
   componentName: 'Cascader',
   props: cascaderProps,
   emits: [

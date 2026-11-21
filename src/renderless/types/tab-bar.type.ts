@@ -17,9 +17,9 @@ export interface ITabBarPcApi {
   computedBarStyle: ReturnType<typeof computedBarStyle>
 }
 
-export type ITabBarPcRenderlessParamUtils = ISharedRenderlessParamUtils<never>
+export type ITabBarPcRenderlessParamUtils = ISharedRenderlessParamUtils
 
-export type ITabBarPcRenderlessParams = ISharedRenderlessFunctionParams<never> & {
+export type ITabBarPcRenderlessParams = ISharedRenderlessFunctionParams & {
   state: ITabBarPcState
   props: ITabBarPcProps
   api: ITabBarPcApi

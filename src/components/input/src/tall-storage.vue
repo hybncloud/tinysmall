@@ -28,12 +28,12 @@
 </template>
 
 <script lang="ts">
-import { $prefix, setup, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import { renderless, api } from '@tinysmall/renderless/tall-storage/vue'
 import '@tinysmall/theme/tall-storage/index.less'
 
 export default defineComponent({
-  name: $prefix + 'TallStorage',
+  name: 'TinyTallStorage',
   inheritAttrs: false,
   props: {
     isMemoryStorage: Boolean,

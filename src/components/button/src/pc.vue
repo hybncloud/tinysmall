@@ -45,15 +45,13 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/button/vue'
-import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import type { PropType } from '@tinysmall/common'
 import type { SlotsType } from 'vue'
 import { iconLoadingShadow } from '@tinysmall/icon'
-import type { IButtonApi } from '@tinysmall/renderless/types/button.type'
 import '@tinysmall/theme/button/index.less'
 
 export const buttonProps = {
-  ...$props,
   /** 展示按钮不同的状态，设置为text则展示为文本按钮。可取值为：'default' | 'primary' | 'success' | 'warning' | 'danger' | 'info' | 'text'  */
   type: {
     type: String,
@@ -118,7 +116,7 @@ export const buttonProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'Button',
+  name: 'TinyButton',
   inject: {
     buttonGroup: {
       default: ''
@@ -132,7 +130,7 @@ export default defineComponent({
   props: buttonProps,
   components: { IconLoading: iconLoadingShadow() },
   setup(props, context) {
-    return setup({ props, context, renderless, api }) as unknown as IButtonApi
+    return setup({ props, context, renderless, api })
   }
 })
 </script>

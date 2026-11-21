@@ -137,16 +137,13 @@
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/slider/vue'
 import { $constants } from '@tinysmall/renderless/slider/constants'
-import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import type { PropType } from '@tinysmall/common'
 import Input from '@tinysmall/input'
 import type { ISliderApi } from '@tinysmall/renderless/types/slider.type'
 import '@tinysmall/theme/slider/index.less'
 
-
 export const sliderProps = {
-  ...$props,
-  
   formatTooltip: Function,
   disabled: {
     type: Boolean,
@@ -215,7 +212,7 @@ export const sliderProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'Slider',
+  name: 'TinySlider',
   emits: ['update:modelValue', 'change', 'start', 'stop'],
   props: sliderProps,
   components: {

@@ -1,4 +1,4 @@
-import type { ComputedRef, ExtractPropTypes } from 'vue'
+import type { ExtractPropTypes } from 'vue'
 import type { buttonProps } from '../../components/button/src'
 import type { ISharedRenderlessFunctionParams, ISharedRenderlessParamUtils } from './shared.type'
 import type { clearTimer, handleClick } from '../src/button'
@@ -6,13 +6,13 @@ import type { clearTimer, handleClick } from '../src/button'
 export interface IButtonState {
   timer: number
   disabled: boolean
-  plain: ComputedRef<boolean>
-  round: ComputedRef<boolean>
-  formDisabled: ComputedRef<boolean>
-  buttonDisabled: ComputedRef<boolean>
+  plain: boolean
+  round: boolean
+  formDisabled: boolean
+  buttonDisabled: boolean
 }
 
-export type IButtonRenderlessParams = ISharedRenderlessFunctionParams<never> & {
+export type IButtonRenderlessParams = ISharedRenderlessFunctionParams & {
   state: IButtonState
   props: IButtonProps
 }
@@ -25,4 +25,4 @@ export interface IButtonApi {
   handleClick: ReturnType<typeof handleClick>
 }
 
-export type IButtonRenderlessParamUtils = ISharedRenderlessParamUtils<never>
+export type IButtonRenderlessParamUtils = ISharedRenderlessParamUtils

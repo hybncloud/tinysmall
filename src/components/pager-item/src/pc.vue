@@ -45,13 +45,12 @@
 </template>
 
 <script lang="ts">
-import { $props, setup, $prefix, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import { renderless, api } from '@tinysmall/renderless/pager-item/vue'
 import { iconPopup, iconDoubleLeft, iconDoubleRight } from '@tinysmall/icon'
 import { IconPopup, IconDoubleLeft, IconDoubleRight } from '@tinysmall/icon'
 
 export const pagerItemProps = {
-  ...$props,
   disabled: {
     type: Boolean,
     default: false
@@ -75,7 +74,7 @@ export const pagerItemProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'PagerItem',
+  name: 'TinyPagerItem',
   emits: ['click', 'change'],
   components: {
     IconPopup: iconPopup(),

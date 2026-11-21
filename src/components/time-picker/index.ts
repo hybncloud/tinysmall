@@ -12,18 +12,16 @@
 import Picker from '@tinysmall/picker'
 import '@tinysmall/theme/time-picker/index.less'
 import { extend } from '@tinysmall/utils'
-import { $prefix, $props } from '@tinysmall/common'
 import { version } from 'package.json'
 
 const TimePicker = extend(true, { props: { componentName: { type: String, default: 'TimePicker' } } }, Picker, {
   props: {
-    ...$props,
     type: {
       type: String,
       default: 'time'
     }
   },
-  name: $prefix + 'TimePicker'
+  name: 'TinyTimePicker'
 })
 
 /* istanbul ignore next */

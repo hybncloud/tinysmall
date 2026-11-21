@@ -5,16 +5,14 @@
 </template>
 
 <script lang="ts">
-import { $prefix, setup, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import { renderless, api } from '@tinysmall/renderless/watermark/vue'
 import { $constants } from '@tinysmall/renderless/watermark/constants'
 import '@tinysmall/theme/watermark/index.less'
 
-
 export default defineComponent({
-  name: $prefix + 'Watermark',
+  name: 'TinyWatermark',
   props: {
-    
     width: { type: Number, default: 120 },
     height: { type: Number, default: 64 },
     rotate: { type: Number, default: -22 },

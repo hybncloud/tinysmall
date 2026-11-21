@@ -43,7 +43,7 @@ export interface ICascaderNodeApi {
   handleNodeClick: ReturnType<typeof handleNodeClick>
 }
 
-export type ICascaderNodeRenderlessParams = ISharedRenderlessFunctionParams<never> & {
+export type ICascaderNodeRenderlessParams = ISharedRenderlessFunctionParams & {
   state: ICascaderNodeState
   props: ICascaderNodeProps
   api: ICascaderNodeApi

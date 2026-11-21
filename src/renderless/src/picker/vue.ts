@@ -71,13 +71,7 @@ import {
 } from './index'
 import { dateMobileToggle, timeMobileToggle, dateToTimeArray, timeArrayToDate, timeMobileConfirm } from './mb'
 import { DATEPICKER, nanoid } from '@tinysmall/utils'
-import type {
-  IPickerProps,
-  IPickerApi,
-  ISharedRenderlessParamHooks,
-  IPickerRenderlessParamUtils,
-  IPickRenderlessParamExtendOptions
-} from '../../types'
+import type { IPickerProps, IPickerApi, ISharedRenderlessParamHooks, IPickerRenderlessParamUtils } from '../../types'
 
 export const api = [
   'state',
@@ -184,9 +178,8 @@ const initState = ({ api, reactive, vm, computed, props, utils, form }) => {
   return state
 }
 
-const initApi = ({ api, props, hooks, state, vnode, others, utils }) => {
+const initApi = ({ api, props, hooks, state, vnode, utils }) => {
   const { t, emit, dispatch, nextTick, vm } = vnode
-  const { TimePanel, TimeRangePanel } = others
   const { destroyPopper, popperElm, updatePopper } = initPopper({ props, hooks, vnode })
 
   state.popperElm = popperElm
@@ -197,7 +190,7 @@ const initApi = ({ api, props, hooks, state, vnode, others, utils }) => {
     emitDbTime: emitDbTime({ emit, state, t }),
     hidePicker: hidePicker({ destroyPopper, state }),
     handleSelectChange: ({ tz, date }) => !state.ranged && emit('select-change', { tz, date }),
-    getPanel: getPanel(others),
+    getPanel: getPanel(),
     handleFocus: handleFocus({ emit, vm, state, api, props }),
     getTimezone: getTimezone({ props, utils }),
     emitChange: emitChange({ api, dispatch, emit, props, state }),
@@ -224,7 +217,7 @@ const initApi = ({ api, props, hooks, state, vnode, others, utils }) => {
     watchPickerVisible: watchPickerVisible({ api, vm, dispatch, emit, props, state, nextTick }),
     watchMobileVisible: watchMobileVisible({ api, props, state, nextTick }),
     formatToString: formatToString({ api, state }),
-    watchIsRange: watchIsRange({ api, state, TimePanel, TimeRangePanel }),
+    watchIsRange: watchIsRange({ api, state }),
     mountPicker: mountPicker({ api, vm, props, state, updatePopper }),
     watchModelValue: watchModelValue({ api, props, state, dispatch }),
     computedFormat: computedFormat({ props, utils }),
@@ -345,8 +338,7 @@ const initWatch = ({ api, state, props, watch, markRaw }) => {
 export const renderless = (
   props: IPickerProps,
   hooks: ISharedRenderlessParamHooks,
-  vnode: IPickerRenderlessParamUtils,
-  others: IPickRenderlessParamExtendOptions
+  vnode: IPickerRenderlessParamUtils
 ): IPickerApi => {
   const api = {} as IPickerApi
   const { reactive, computed, watch, onBeforeUnmount, inject, markRaw, onMounted } = hooks
@@ -355,7 +347,7 @@ export const renderless = (
   const form = inject('form', null)
   const state = initState({ api, reactive, vm, computed, props, utils, form })
 
-  initApi({ api, props, hooks, state, vnode, others, utils })
+  initApi({ api, props, hooks, state, vnode, utils })
   initWatch({ api, state, props, watch, markRaw })
 
   api.initGlobalTimezone()

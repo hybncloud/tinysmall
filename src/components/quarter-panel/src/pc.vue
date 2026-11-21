@@ -55,13 +55,13 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/quarter-panel/vue'
-import { $prefix, setup, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import YearTable from '@tinysmall/year-table'
 import { iconDoubleRight, iconDoubleLeft } from '@tinysmall/icon'
 import '@tinysmall/theme/quarter-panel/index.less'
 
 export default defineComponent({
-  name: $prefix + 'QuarterPanel',
+  name: 'TinyQuarterPanel',
   components: {
     YearTable,
     IconDoubleRight: iconDoubleRight(),

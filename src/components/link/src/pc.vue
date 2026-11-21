@@ -47,11 +47,10 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/link/vue'
-import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import type { ILinkApi } from '@tinysmall/renderless/types/link.type'
 
 export const linkProps = {
-  ...$props,
   /** 文本链接类型：'primary' | 'success' | 'warning' | 'danger' | 'info' */
   type: {
     type: String,
@@ -73,7 +72,7 @@ export const linkProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'Link',
+  name: 'TinyLink',
   props: linkProps,
   emits: ['click'],
   setup(props, context) {

@@ -13,24 +13,12 @@
 
 <script lang="tsx">
 import { renderless, api } from '@tinysmall/renderless/tooltip/vue'
-import {
-  $prefix,
-  setup,
-  createComponent,
-  parseVnode,
-  h,
-  defineComponent,
-  $props,
-  isEmptyVnode,
-  hooks
-} from '@tinysmall/common'
+import { setup, createComponent, parseVnode, h, defineComponent, isEmptyVnode, hooks } from '@tinysmall/common'
 import { normalizeClass, Transition } from 'vue'
 import type { ITinyVm } from '@tinysmall/renderless/types/shared.type'
 import '@tinysmall/theme/tooltip/index.less'
-import type { ITooltipApi } from '@tinysmall/renderless/types/tooltip.type'
 
 export const tooltipProps = {
-  ...$props,
   visible: {
     type: String,
     default: () => 'always',
@@ -123,14 +111,14 @@ export const tooltipProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'Tooltip',
+  name: 'TinyTooltip',
   componentName: 'Tooltip',
   props: tooltipProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api }) as unknown as ITooltipApi
+    return setup({ props, context, renderless, api })
   },
   render() {
-    const getContent = (vm: ITinyVm<never>) => {
+    const getContent = (vm: ITinyVm) => {
       let slotContent = vm.slots.content && vm.slots.content()
 
       if (slotContent && (!hooks.Comment || slotContent[0].type !== hooks.Comment)) {

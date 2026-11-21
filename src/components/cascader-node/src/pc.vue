@@ -11,7 +11,7 @@
  -->
 <script lang="tsx">
 import { renderless, api } from '@tinysmall/renderless/cascader-node/vue'
-import { $prefix, setup, h, $props, defineComponent } from '@tinysmall/common'
+import { setup, h, defineComponent } from '@tinysmall/common'
 import Checkbox from '@tinysmall/checkbox'
 import Radio from '@tinysmall/radio'
 import { isEqual } from '@tinysmall/utils'
@@ -23,7 +23,6 @@ import type { ICascaderPanelNode } from '@tinysmall/renderless/types/cascader-pa
 import '@tinysmall/theme/cascader-node/index.less'
 
 export const cascaderNodeProps = {
-  ...$props,
   node: {
     required: true
   },
@@ -31,7 +30,7 @@ export const cascaderNodeProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'CascaderNode',
+  name: 'TinyCascaderNode',
   componentName: 'CascaderNode',
   directives: { AutoTip },
   components: {

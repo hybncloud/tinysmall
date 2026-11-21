@@ -17,10 +17,9 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/layout/vue'
-import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 
 export const layoutProps = {
-  ...$props,
   tag: {
     type: String,
     default: 'div'
@@ -33,7 +32,7 @@ export const layoutProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'Layout',
+  name: 'TinyLayout',
   provide() {
     return {
       layout: this

@@ -25,16 +25,13 @@
 <script lang="tsx">
 import { renderless, api } from '@tinysmall/renderless/checkbox-group/vue'
 import { $constants } from '@tinysmall/renderless/checkbox-group/constants'
-import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import type { PropType } from '@tinysmall/common'
 import Checkbox from '@tinysmall/checkbox'
 import CheckboxButton from '@tinysmall/checkbox-button'
 import '@tinysmall/theme/checkbox-group/index.less'
 
-
 export const checkboxGroupProps = {
-  ...$props,
-  
   modelValue: {},
   disabled: Boolean,
   min: Number,
@@ -63,7 +60,7 @@ export const checkboxGroupProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'CheckboxGroup',
+  name: 'TinyCheckboxGroup',
   componentName: 'CheckboxGroup',
   emits: ['change', 'update:modelValue'],
   components: {

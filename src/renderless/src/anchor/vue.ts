@@ -42,7 +42,7 @@ export const api = [
 export const renderless = (
   props: IAnchorProps,
   { onMounted, onUnmounted, onUpdated, reactive, watch }: ISharedRenderlessParamHooks,
-  { vm, emit, nextTick }: ISharedRenderlessParamUtils<never>
+  { vm, emit, nextTick }: ISharedRenderlessParamUtils
 ): IAnchorApi => {
   const api = {} as IAnchorApi
   const state: IAnchorState = reactive({

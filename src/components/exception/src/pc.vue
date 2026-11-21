@@ -26,7 +26,7 @@
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/exception/vue'
 import { $constants } from '@tinysmall/renderless/exception/constants'
-import { $prefix, setup, defineComponent, $props } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import Button from '@tinysmall/button'
 import '@tinysmall/theme/exception/index.less'
 
@@ -43,27 +43,26 @@ import {
 } from '@tinysmall/icon'
 
 export const exceptionProps = {
-    ...$props,
-    type: {
-      type: String,
-      default: 'nodata'
-    },
-    message: String,
-    subMessage: String,
-    exceptionClass: String,
-    imageUrl: String,
-    pageEmpty: {
-      type: Boolean,
-      default: false
-    },
-    componentPage: {
-      type: Boolean,
-      default: false
-    }
+  type: {
+    type: String,
+    default: 'nodata'
+  },
+  message: String,
+  subMessage: String,
+  exceptionClass: String,
+  imageUrl: String,
+  pageEmpty: {
+    type: Boolean,
+    default: false
+  },
+  componentPage: {
+    type: Boolean,
+    default: false
   }
+}
 
 export default defineComponent({
-  name: $prefix + 'Exception',
+  name: 'TinyException',
   components: {
     TinyButton: Button,
     IconNoData: iconNoData(),

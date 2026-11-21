@@ -38,12 +38,11 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/badge/vue'
-import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import type { IBadgeApi } from '@tinysmall/renderless/types/badge.type'
 import '@tinysmall/theme/badge/index.less'
 
 export const badgeProps = {
-  ...$props,
   isDot: {
     type: Boolean,
     default: false
@@ -71,7 +70,7 @@ export const badgeProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'Badge',
+  name: 'TinyBadge',
   props: badgeProps,
   setup(props, context) {
     return setup({ props, context, renderless, api }) as unknown as IBadgeApi

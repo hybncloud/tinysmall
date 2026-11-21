@@ -28,10 +28,9 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/breadcrumb-item/vue'
-import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 
 export const breadcrumbItemProps = {
-  ...$props,
   to: Object,
   /** 面包屑项显示文本（默认插槽兜底内容），取自原 pc.vue props 数组 */
   label: String,
@@ -51,7 +50,7 @@ export const breadcrumbItemProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'BreadcrumbItem',
+  name: 'TinyBreadcrumbItem',
   props: breadcrumbItemProps,
   inject: ['breadcrumb'],
   emits: ['select'],

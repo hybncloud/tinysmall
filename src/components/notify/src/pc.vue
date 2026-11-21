@@ -10,12 +10,12 @@
  *
  -->
 <script lang="tsx">
-import { $prefix, setup, h, defineComponent } from '@tinysmall/common'
+import { setup, h, defineComponent } from '@tinysmall/common'
 import { renderless, api } from '@tinysmall/renderless/notify/vue'
 import { iconClose } from '@tinysmall/icon'
 
 export default defineComponent({
-  name: $prefix + 'Notify',
+  name: 'TinyNotify',
   props: {
     beforeClose: Function,
     closeIcon: {

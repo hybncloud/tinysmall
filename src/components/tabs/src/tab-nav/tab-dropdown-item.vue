@@ -5,16 +5,15 @@
 </template>
 
 <script lang="ts">
-import { $prefix, $props, defineComponent } from '@tinysmall/common'
+import { defineComponent } from '@tinysmall/common'
 import DropdownItem from '@tinysmall/dropdown-item'
 
 export default defineComponent({
-  name: $prefix + 'TabDropdownItem',
+  name: 'TinyTabDropdownItem',
   components: {
     TinyDropdownItem: DropdownItem
   },
   props: {
-    ...$props,
     itemClick: { type: Function }
   }
 })

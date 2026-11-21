@@ -79,7 +79,7 @@
 <script lang="tsx">
 import { renderless, api } from '@tinysmall/renderless/image-viewer/vue'
 import { $constants } from '@tinysmall/renderless/image-viewer/constants'
-import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import {
   iconClose,
   iconChevronLeft,
@@ -93,10 +93,7 @@ import {
 } from '@tinysmall/icon'
 import '@tinysmall/theme/image-viewer/index.less'
 
-
 export const imageViewerProps = {
-  ...$props,
-  
   urlList: {
     type: Array,
     default: () => []
@@ -156,7 +153,7 @@ export const imageViewerProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'ImageViewer',
+  name: 'TinyImageViewer',
   emits: ['close', 'update:preview-visible', 'delete', 'change', 'newImageList'],
   props: imageViewerProps,
   components: {

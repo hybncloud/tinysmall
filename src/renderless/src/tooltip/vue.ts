@@ -77,7 +77,7 @@ export const renderless = (
     onUnmounted,
     inject
   }: ISharedRenderlessParamHooks,
-  { vm, emit, slots, nextTick, parent }: ISharedRenderlessParamUtils<never>
+  { vm, emit, slots, nextTick, parent }: ISharedRenderlessParamUtils
 ) => {
   const api = {} as ITooltipApi
 

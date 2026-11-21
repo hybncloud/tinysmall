@@ -11,7 +11,7 @@ import type {
 
 export type IStepsProps = ExtractPropTypes<typeof stepsProps>
 
-export type IStepsRenderlessParamUtils = ISharedRenderlessParamUtils<never>
+export type IStepsRenderlessParamUtils = ISharedRenderlessParamUtils
 
 export interface IStepsState {
   startIndex: number
@@ -32,7 +32,7 @@ export interface IStepsApi {
   computedRightNodePos: ReturnType<typeof computedRightNodePos>
 }
 
-export type IStepsRenderlessParams = ISharedRenderlessFunctionParams<never> & {
+export type IStepsRenderlessParams = ISharedRenderlessFunctionParams & {
   props: IStepsProps
   state: IStepsState
   api: IStepsApi

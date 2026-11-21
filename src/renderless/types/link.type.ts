@@ -14,10 +14,10 @@ export interface ILinkApi {
   state: ILinkState
   handleClick: (event: MouseEvent) => void
 }
-export type ILinkRenderlessParams = ISharedRenderlessFunctionParams<never> & {
+export type ILinkRenderlessParams = ISharedRenderlessFunctionParams & {
   api: ILinkApi
   state: ILinkState
   props: ILinkProps
 }
 
-export type ILinkRenderlessParamUtils = ISharedRenderlessParamUtils<never>
+export type ILinkRenderlessParamUtils = ISharedRenderlessParamUtils

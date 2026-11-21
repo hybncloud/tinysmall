@@ -106,16 +106,13 @@
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/autocomplete/vue'
 import { $constants } from '@tinysmall/renderless/autocomplete/constants'
-import { $prefix, $props, setup, directive, defineComponent } from '@tinysmall/common'
+import { setup, directive, defineComponent } from '@tinysmall/common'
 import TinyScrollbar from '@tinysmall/scrollbar'
 import TinyInput from '@tinysmall/input'
 import { Clickoutside } from '@tinysmall/directive'
 import { IconLoadingShadow } from '@tinysmall/icon'
 
-
 export const autoCompleteProps = {
-  ...$props,
-  
   /** 原生 tabindex 属性，取自原 pc.vue props 数组 */
   tabindex: { type: [String, Number], default: '0' },
   autofocus: Boolean,
@@ -177,7 +174,7 @@ export const autoCompleteProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'Autocomplete',
+  name: 'TinyAutocomplete',
   components: {
     TinyInput,
     TinyScrollbar,

@@ -41,12 +41,11 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/year-table/vue'
-import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import { isDate1 } from '@tinysmall/utils'
 import '@tinysmall/theme/year-table/index.less'
 
 export const yearTableProps = {
-  ...$props,
   disabledDate: {},
   value: {},
   defaultValue: {
@@ -70,7 +69,7 @@ export const yearTableProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'YearTable',
+  name: 'TinyYearTable',
   emits: ['pick', 'changerange'],
   props: yearTableProps,
   setup(props, context): any {

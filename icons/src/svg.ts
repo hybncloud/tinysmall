@@ -1,5 +1,5 @@
 import { type Component } from 'vue'
-import { $prefix, defineComponent, h, markRaw } from '@tinysmall/common'
+import { defineComponent, h, markRaw } from '@tinysmall/common'
 import { GRADIENT_ICONS_LIST, generateIcon } from './generateIcon'
 
 export interface SvgOptions {
@@ -12,7 +12,7 @@ export function svg({ name = 'Icon', component }: SvgOptions) {
   return (propData?) =>
     markRaw(
       defineComponent({
-        name: $prefix + name,
+        name: 'Tiny' + name,
         setup: (props, context) => {
           const { fill, width, height } = context.attrs || {}
           const mergeProps = Object.assign({}, props, propData || null)

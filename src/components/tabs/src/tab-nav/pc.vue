@@ -10,7 +10,7 @@
  *
  -->
 <script lang="tsx">
-import { $prefix, setup, h, defineComponent } from '@tinysmall/common'
+import { setup, h, defineComponent } from '@tinysmall/common'
 import { t } from '@tinysmall/locale'
 import { renderless, api } from '@tinysmall/renderless/tab-nav/vue'
 import Dropdown from '@tinysmall/dropdown'
@@ -23,7 +23,7 @@ import TabBar from './tab-bar.vue'
 import { tabNavPcProps } from './index'
 
 export default defineComponent({
-  name: $prefix + 'TabNav',
+  name: 'TinyTabNav',
   components: {
     TabBar,
     Dropdown,
@@ -242,38 +242,38 @@ export default defineComponent({
             'is-disabled': pane.disabled,
             'is-closable': withClose,
             'is-focus': state.isFocus
-        },
-        id: `tab-${tabName}`,
-        'aria-controls': `pane-${tabName}`,
-        'aria-disabled': pane.disabled ? 'true' : 'false', // 无障碍：标识禁用状态
-        'data-index': index + 1,
-        role: 'tab',
-        'aria-selected': pane.state.active,
-        tabindex,
-        onFocus() {
-          setFocus()
-        },
-        onBlur() {
-          removeFocus()
-        },
-        onClick(e) {
-          removeFocus()
-          onTabClick(pane, tabName, e)
-        },
-        onKeydown(e) {
-          if (withClose && (e.key === 'Delete' || e.key === 'Backspace')) {
-            e.preventDefault()
-            onTabRemove(pane, e)
+          },
+          id: `tab-${tabName}`,
+          'aria-controls': `pane-${tabName}`,
+          'aria-disabled': pane.disabled ? 'true' : 'false', // 无障碍：标识禁用状态
+          'data-index': index + 1,
+          role: 'tab',
+          'aria-selected': pane.state.active,
+          tabindex,
+          onFocus() {
+            setFocus()
+          },
+          onBlur() {
+            removeFocus()
+          },
+          onClick(e) {
+            removeFocus()
+            onTabClick(pane, tabName, e)
+          },
+          onKeydown(e) {
+            if (withClose && (e.key === 'Delete' || e.key === 'Backspace')) {
+              e.preventDefault()
+              onTabRemove(pane, e)
+            }
           }
-        }
-      },
-      [
-        overflowTitle ? getTabTitle(tabLabelContent) : tabLabelContent,
-        btnClose,
-        (state.separator || tabStyle === 'button-card') && itemsSeparator
-      ]
-    )
-  })
+        },
+        [
+          overflowTitle ? getTabTitle(tabLabelContent) : tabLabelContent,
+          btnClose,
+          (state.separator || tabStyle === 'button-card') && itemsSeparator
+        ]
+      )
+    })
 
     // 根据生成的子元素宽度动态设置tabslist盒子的padding-right
     const paddingRight = this.$refs.more ? `${this.$refs.more.offsetWidth}px` : '0'

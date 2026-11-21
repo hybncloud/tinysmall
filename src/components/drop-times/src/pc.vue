@@ -28,12 +28,11 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/drop-times/vue'
-import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import Select from '@tinysmall/base-select'
 import Option from '@tinysmall/option'
 
 export const dropTimesProps = {
-  ...$props,
   modelValue: {},
   placeholder: {
     type: String,
@@ -64,7 +63,7 @@ export const dropTimesProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'DropTimes',
+  name: 'TinyDropTimes',
   components: {
     TinySelect: Select,
     TinyOption: Option

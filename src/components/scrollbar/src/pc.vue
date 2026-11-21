@@ -11,13 +11,13 @@
  -->
 <script lang="tsx">
 import { renderless, api } from '@tinysmall/renderless/scrollbar/vue'
-import { $prefix, setup, h, defineComponent } from '@tinysmall/common'
+import { setup, h, defineComponent } from '@tinysmall/common'
 import { calcScrollWidth } from '@tinysmall/utils'
 import { toObject, isObject } from '@tinysmall/utils'
 import Bar from './bar.vue'
 
 export default defineComponent({
-  name: $prefix + 'Scrollbar',
+  name: 'TinyScrollbar',
   emits: ['mouseenter', 'mousemove', 'scroll'],
   components: {
     Bar

@@ -10,7 +10,7 @@
  *
  -->
 <script lang="tsx">
-import { $props, $prefix, setup, parseVnode, h, defineComponent, hooks } from '@tinysmall/common'
+import { setup, parseVnode, h, defineComponent, hooks } from '@tinysmall/common'
 import { normalizeClass, Transition } from 'vue'
 import { renderless, api } from '@tinysmall/renderless/form-item/vue'
 import LabelWrap from './label-wrap'
@@ -18,9 +18,7 @@ import Tooltip from '@tinysmall/tooltip'
 import { iconError } from '@tinysmall/icon'
 import type { IFormItemApi, IFormItemInstance } from '@tinysmall/renderless/types/form-item.type'
 
-
 export const formItemProps = {
-  ...$props,
   appendToBody: {
     type: Boolean,
     default: undefined
@@ -78,7 +76,7 @@ export const formItemProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'FormItem',
+  name: 'TinyFormItem',
   componentName: 'FormItem',
   components: {
     LabelWrap,

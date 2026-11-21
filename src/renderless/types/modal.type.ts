@@ -11,7 +11,7 @@ type zoomLocatType = null | {
 }
 
 export interface IModalState {
-  emitter: ISharedRenderlessParamUtils<never>['emitter']
+  emitter: ISharedRenderlessParamUtils['emitter']
   visible: boolean
   contentVisible: boolean
   cumsumZindex: number

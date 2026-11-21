@@ -17,13 +17,12 @@
 </template>
 
 <script lang="ts">
-import QRCode from 'qrcode'
-import { $prefix, setup, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import { renderless, api } from '@tinysmall/renderless/qr-code/vue'
 import '@tinysmall/theme/qr-code/index.less'
 
 export default defineComponent({
-  name: $prefix + 'QrCode',
+  name: 'TinyQrCode',
   emits: ['change'],
   props: {
     value: {
@@ -54,7 +53,7 @@ export default defineComponent({
     }
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api, extendOptions: { QRCode } })
+    return setup({ props, context, renderless, api })
   }
 })
 </script>

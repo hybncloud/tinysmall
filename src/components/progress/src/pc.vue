@@ -96,15 +96,12 @@
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/progress/vue'
 import { $constants } from '@tinysmall/renderless/progress/constants'
-import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import { iconClose, iconSuccess, iconError, iconYes, iconWarning } from '@tinysmall/icon'
 import '@tinysmall/theme/progress/index.less'
 import type { IProgressApi } from '@tinysmall/renderless/types/progress.type'
 
-
 export const progressProps = {
-  ...$props,
-  
   color: {
     type: [String, Array, Function],
     default: ''
@@ -150,7 +147,7 @@ export const progressProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'Progress',
+  name: 'TinyProgress',
   props: progressProps,
   components: {
     IconClose: iconClose(),

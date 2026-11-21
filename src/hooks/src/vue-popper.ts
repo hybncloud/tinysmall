@@ -23,7 +23,7 @@ export interface IPopperState {
   currentPlacement: string
 }
 
-type IPopperInputParams = ISharedRenderlessFunctionParams<never> & {
+type IPopperInputParams = ISharedRenderlessFunctionParams & {
   api: { open: Function; close: Function }
   state: IPopperState
   props: any

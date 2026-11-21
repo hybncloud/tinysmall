@@ -1,12 +1,12 @@
 <script lang="ts">
-import { hooks, $prefix, defineComponent } from '@tinysmall/common'
+import { hooks, defineComponent } from '@tinysmall/common'
 import type { PropType } from '@tinysmall/common'
 import type { Tag, TextDirection, breakPoint } from './props'
 import { configProviderContextKey } from '../index'
 import '@tinysmall/theme/config-provider/index.less'
 
 export default defineComponent({
-  name: $prefix + 'ConfigProvider',
+  name: 'TinyConfigProvider',
   props: {
     breakPoints: {
       type: Object as PropType<breakPoint>,

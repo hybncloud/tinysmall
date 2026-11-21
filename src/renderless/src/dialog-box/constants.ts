@@ -9,14 +9,13 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-import { $prefix } from '@tinysmall/common'
 
 /** dialog-box 静态常量：由组件层与 renderless 层直接共享导入，替代原 _constants prop 注入机制 */
 export const $constants = {
   DIALOG_SLIDER_RIGHT: 'dialog-slideRight',
   DIALOG_FADE: 'dialog-fade',
-  SELECT_DROPDOWN: $prefix + 'SelectDropdown',
-  DROPDOWN_MENU: $prefix + 'DropdownMenu',
+  SELECT_DROPDOWN: 'TinySelectDropdown',
+  DROPDOWN_MENU: 'TinyDropdownMenu',
   DIALOG_BOX_CLASS: 'div.tiny-dialog-box',
   PC_SCROLL_LOCK_CLASS: 'dialog-box__scroll-lock',
   MOBILE_SCROLL_LOCK_CLASS: 'mobile-dialog-box__scroll-lock',

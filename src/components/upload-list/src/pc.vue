@@ -219,7 +219,7 @@
 </template>
 
 <script lang="tsx">
-import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import { renderless, api } from '@tinysmall/renderless/upload-list/vue'
 import Progress from '@tinysmall/progress'
 import Tooltip from '@tinysmall/tooltip'
@@ -259,7 +259,6 @@ import Modal from '@tinysmall/modal'
 import type { IUploadListApi } from '@tinysmall/renderless/types/upload-list.type'
 
 export const uploadListProps = {
-  ...$props,
   disabled: {
     type: Boolean,
     default: () => false
@@ -358,7 +357,7 @@ export const uploadListProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'UploadList',
+  name: 'TinyUploadList',
   components: {
     TinyProgress: Progress,
     TinyTooltip: Tooltip,
@@ -396,7 +395,7 @@ export default defineComponent({
   emits: ['click-file-list', 'remove', 'start', 'update:visible', 'update', 'reUpload', 'ReUploadTotal'],
   props: uploadListProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api, extendOptions: { Modal } }) as unknown as IUploadListApi
+    return setup({ props, context, renderless, api }) as unknown as IUploadListApi
   }
 })
 </script>

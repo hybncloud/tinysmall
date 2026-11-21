@@ -157,10 +157,10 @@ export const renderless = (
     onActivated,
     onDeactivated
   }: ISharedRenderlessParamHooks,
-  { $prefix, emit, vm, slots, nextTick }: ISharedRenderlessParamUtils<never>
+  { emit, vm, slots, nextTick }: ISharedRenderlessParamUtils
 ) => {
   const api = {} as IPopoverApi
-  const constants = { IDPREFIX: `${$prefix.toLowerCase()}-popover` }
+  const constants = { IDPREFIX: `tiny-popover` }
   const options = { emit, onBeforeUnmount, nextTick, reactive, props, watch, onDeactivated, vm, slots, toRefs }
   const { showPopper, popperElm, referenceElm, doDestroy, updatePopper } = userPopper(options as any)
   const state: IPopoverState = initState({ reactive, computed, api, popperElm, showPopper, referenceElm })

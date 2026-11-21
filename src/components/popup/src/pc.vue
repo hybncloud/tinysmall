@@ -46,22 +46,19 @@
 </template>
 
 <script lang="ts">
-import { setup, $prefix, $props, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import { renderless, api } from '@tinysmall/renderless/popup/vue'
 import { $constants } from '@tinysmall/renderless/popup/constants'
 import { iconClose } from '@tinysmall/icon'
 import '@tinysmall/theme/popup/index.less'
 
-
 export default defineComponent({
-  name: $prefix + 'Popup',
+  name: 'TinyPopup',
   emits: ['open', 'close', 'update:modelValue', 'click-overlay', 'closed', 'opened', 'click'],
   components: {
     IconClose: iconClose()
   },
   props: {
-    ...$props,
-    
     closeIcon: {
       type: String,
       default: 'cross'

@@ -158,17 +158,9 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/picker/vue'
-import { $prefix, setup, directive, defineComponent } from '@tinysmall/common'
+import { setup, directive, defineComponent } from '@tinysmall/common'
 import Input from '@tinysmall/input'
 import { Clickoutside } from '@tinysmall/directive'
-import DatePanel from '@tinysmall/date-panel'
-import DateRangePanel from '@tinysmall/date-range'
-import MonthRangePanel from '@tinysmall/month-range'
-import YearRangePanel from '@tinysmall/year-range'
-import TimePanel from '@tinysmall/time'
-import TimeRangePanel from '@tinysmall/time-range'
-import QuarterPanel from '@tinysmall/quarter-panel'
-import TimeSelect from '@tinysmall/time-panel'
 import TinyTooltip from '@tinysmall/tooltip'
 import { iconCalendar, iconTime } from '@tinysmall/icon'
 import { pickerProps } from './type'
@@ -177,7 +169,7 @@ export { pickerProps }
 import '@tinysmall/theme/picker/index.less'
 
 export default defineComponent({
-  name: $prefix + 'Picker',
+  name: 'TinyPicker',
   componentName: 'Picker',
   components: {
     TinyInput: Input,
@@ -193,18 +185,7 @@ export default defineComponent({
       props,
       context,
       renderless,
-      api,
-
-      extendOptions: {
-        DatePanel,
-        DateRangePanel,
-        MonthRangePanel,
-        YearRangePanel,
-        TimePanel,
-        TimeRangePanel,
-        QuarterPanel,
-        TimeSelect
-      }
+      api
     })
   }
 })

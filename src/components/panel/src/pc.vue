@@ -44,11 +44,10 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/panel/vue'
-import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import { iconChevronDown, iconChevronRight } from '@tinysmall/icon'
 
 export const panelProps = {
-  ...$props,
   expand: {
     type: Boolean,
     default: true
@@ -78,7 +77,7 @@ export const panelProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'Panel',
+  name: 'TinyPanel',
   components: {
     IconChevronDown: iconChevronDown(),
     IconChevronRight: iconChevronRight()

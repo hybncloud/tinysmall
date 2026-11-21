@@ -78,13 +78,11 @@ export const api = [
   'touchend'
 ]
 
-const initState = ({ reactive, props, computed, api, images, modesIcon }) => {
+const initState = ({ reactive, props, computed, api }) => {
   const state = reactive({
     dayStartTime: $constants.DAY_START_TIME,
     dayEndTime: $constants.DAY_END_TIME,
     wednesday: $constants.WEDNESDAY,
-    modesIcon,
-    images,
     weekDays: [0, 1, 2, 3, 4, 5, 6],
     dayTimes: computed(() => api.genDayTimes()),
     mode: props.mode,
@@ -324,14 +322,9 @@ const initApi = ({ vm, api, state, t, props, emit, nextTick }) => {
   })
 }
 
-export const renderless = (
-  props,
-  { computed, reactive, watch, onMounted },
-  { vm, t, emit, nextTick },
-  { images, modesIcon }
-) => {
+export const renderless = (props, { computed, reactive, watch, onMounted }, { vm, t, emit, nextTick }, {}) => {
   const api = {}
-  const state = initState({ reactive, props, computed, api, images, modesIcon })
+  const state = initState({ reactive, props, computed, api })
 
   initWatch({ vm, api, watch, props, state, emit, nextTick })
   initApi({ vm, api, state, t, props, emit, nextTick })

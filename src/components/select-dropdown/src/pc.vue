@@ -25,11 +25,10 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/select-dropdown/vue'
-import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import '@tinysmall/theme/select-dropdown/index.less'
 
 export const selectDropdownProps = {
-  ...$props,
   appendToBody: {
     type: Boolean,
     default: () => true
@@ -73,7 +72,7 @@ export const selectDropdownProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'SelectDropdown',
+  name: 'TinySelectDropdown',
   componentName: 'SelectDropdown',
   inject: ['select'],
   props: selectDropdownProps,

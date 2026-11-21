@@ -10,10 +10,9 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/virtual-scroll-box/vue'
-import { $prefix, $props, defineComponent, setup } from '@tinysmall/common'
+import { defineComponent, setup } from '@tinysmall/common'
 
 export const virtualScrollBoxProps = {
-  ...$props,
   width: [Number, String], // 区域的宽度
   height: [Number, String], // 区域的高度
   rowBuffer: { type: [Number, String], default: 200 }, // 行缓冲区高度
@@ -29,7 +28,7 @@ export const virtualScrollBoxProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'VirtualScrollBox',
+  name: 'TinyVirtualScrollBox',
   emits: ['change'],
   props: virtualScrollBoxProps,
   setup(props, context): any {

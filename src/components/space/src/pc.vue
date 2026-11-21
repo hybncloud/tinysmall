@@ -1,12 +1,11 @@
 <script lang="ts">
-import { $prefix, defineComponent, $props, setup, h } from '@tinysmall/common'
+import { defineComponent, setup, h } from '@tinysmall/common'
 import type { SlotsType } from 'vue'
 import type { PropType } from 'vue'
 import { renderless, api } from '@tinysmall/renderless/space/vue'
 import type { ISpaceApi } from '@tinysmall/renderless/types/space.type'
 
 export const spaceProps = {
-  ...$props,
   /** 设置空间尺寸，可为字符串、数字或 [水平, 垂直] 数组 */
   size: {
     type: [String, Number, Array] as PropType<string | number | [string | number, string | number]>,
@@ -46,7 +45,7 @@ export const spaceProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'Space',
+  name: 'TinySpace',
   slots: Object as SlotsType<{
     default: {} // 默认插槽
   }>,

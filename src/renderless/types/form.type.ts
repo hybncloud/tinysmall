@@ -46,7 +46,7 @@ export interface IFormState {
 
 export type IFormProps = ExtractPropTypes<typeof formProps>
 
-export type IFormRenderlessParams = ISharedRenderlessFunctionParams<never> & {
+export type IFormRenderlessParams = ISharedRenderlessFunctionParams & {
   state: IFormState
   props: IFormProps
   api: IFormApi
@@ -74,6 +74,6 @@ export interface IFormApi {
   hideTooltip: ReturnType<typeof hideTooltip>
 }
 
-export type IFormRenderlessParamUtils = ISharedRenderlessParamUtils<never>
+export type IFormRenderlessParamUtils = ISharedRenderlessParamUtils
 
 export type IFormInstance = ComponentPublicInstance & IFormProps & IFormApi

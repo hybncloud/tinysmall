@@ -6,13 +6,12 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/guide/vue'
-import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import '@tinysmall/theme/guide/index.less'
 import Shepherd from 'shepherd.js'
 import { offset } from '@floating-ui/dom'
 
 export const guideProps = {
-  ...$props,
   showStep: {
     type: Boolean,
     default: false
@@ -69,19 +68,14 @@ export const guideProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'Guide',
+  name: 'TinyGuide',
   props: guideProps,
   setup(props, context) {
     return setup({
       props,
       context,
       renderless,
-      api,
-
-      extendOptions: {
-        Shepherd,
-        offset
-      }
+      api
     })
   }
 })

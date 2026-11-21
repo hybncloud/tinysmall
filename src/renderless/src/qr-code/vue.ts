@@ -2,7 +2,7 @@ import { change, draw } from '.'
 
 export const api = ['state']
 
-export const renderless = (props, { reactive, watch, onMounted }, { vm, emit }, { QRCode }) => {
+export const renderless = (props, { reactive, watch, onMounted }, { vm, emit }, {}) => {
   const api: any = {}
   const state = reactive({
     sizeStr: '',
@@ -12,7 +12,7 @@ export const renderless = (props, { reactive, watch, onMounted }, { vm, emit }, 
 
   Object.assign(api, {
     state,
-    draw: draw({ props, state, vm, QRCode }),
+    draw: draw({ props, state, vm }),
     change: change(emit)
   })
 

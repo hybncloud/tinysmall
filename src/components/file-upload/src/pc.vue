@@ -12,7 +12,7 @@
 <script lang="tsx">
 import { $constants } from '@tinysmall/renderless/file-upload/constants'
 import { renderless, api } from '@tinysmall/renderless/file-upload/vue'
-import { $prefix, $props, setup, h, defineComponent } from '@tinysmall/common'
+import { setup, h, defineComponent } from '@tinysmall/common'
 import UploadList from '@tinysmall/upload-list'
 import Upload from '@tinysmall/upload'
 import Progress from '@tinysmall/progress'
@@ -47,9 +47,7 @@ const TinyIconFileCloudupload = iconFileCloudupload()
 const TinyIconPlus = iconPlus()
 const TinyIconHelpCircle = iconHelpCircle()
 
-
 export const fileUploadProps = {
-  ...$props,
   accept: String,
   action: String,
   autoUpload: {
@@ -200,7 +198,7 @@ export const fileUploadProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'FileUpload',
+  name: 'TinyFileUpload',
   props: fileUploadProps,
   emits: ['change', 'hash-progress', 'progress', 'success', 'error', 'remove', 'download'],
   setup(props, context): any {
@@ -208,9 +206,7 @@ export default defineComponent({
       props,
       context,
       renderless,
-      api,
-
-      extendOptions: { Modal, Streamsaver }
+      api
     }) as unknown as IFileUploadApi
   },
   components: {

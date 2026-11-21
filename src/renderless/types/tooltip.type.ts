@@ -61,7 +61,7 @@ export interface ITooltipApi {
   observeCallback: ReturnType<typeof observeCallback>
 }
 
-export type ITooltipRenderlessParams = ISharedRenderlessFunctionParams<never> & {
+export type ITooltipRenderlessParams = ISharedRenderlessFunctionParams & {
   props: ITooltipProps
   state: ITooltipState
   api: ITooltipApi

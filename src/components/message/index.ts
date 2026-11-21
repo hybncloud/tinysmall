@@ -1,6 +1,5 @@
 import Modal from '@tinysmall/modal'
 import { extend } from '@tinysmall/utils'
-import { $prefix } from '@tinysmall/common'
 import { version } from 'package.json'
 import type { ComponentPublicInstance } from '@tinysmall/common'
 
@@ -18,7 +17,7 @@ interface VueConstructor {
 }
 
 const Message = extend(true, { props: { componentName: { type: String, default: 'Message' } } }, Modal, {
-  name: $prefix + 'Message'
+  name: 'TinyMessage'
 }) as MessageComponent
 
 /* istanbul ignore next */

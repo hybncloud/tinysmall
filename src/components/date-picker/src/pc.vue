@@ -11,12 +11,10 @@
  -->
 <script lang="ts">
 import Picker from '@tinysmall/picker'
-import { $prefix, $props } from '@tinysmall/common'
 import { extend } from '@tinysmall/utils'
 import { iconClose } from '@tinysmall/icon'
 import type { PropType } from 'vue'
 import { $constants } from '@tinysmall/renderless/date-picker/constants'
-
 
 const validator = (value) => {
   const result =
@@ -34,8 +32,6 @@ const validator = (value) => {
 const currentYear = new Date().getFullYear()
 
 export const datePickerProps = {
-  ...$props,
-
   tabindex: {
     type: String,
     default: '0'
@@ -185,7 +181,6 @@ const DatePicker = extend(
   true,
   {
     props: {
-      ...$props,
       componentName: { type: String, default: 'DatePicker' },
       minDate: {
         type: Date
@@ -201,7 +196,7 @@ const DatePicker = extend(
   },
   Picker,
   {
-    name: $prefix + 'DatePicker',
+    name: 'TinyDatePicker',
     props: datePickerProps
   }
 )

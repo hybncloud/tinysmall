@@ -49,13 +49,12 @@
 </template>
 
 <script lang="ts">
-import { $props, $prefix, defineComponent, setup } from '@tinysmall/common'
+import { defineComponent, setup } from '@tinysmall/common'
 import { renderless, api } from '@tinysmall/renderless/tree-select/vue'
 import Tree from '@tinysmall/tree'
 import BaseSelect from '@tinysmall/base-select'
 
 export const treeSelectProps = {
-  ...$props,
   clearable: Boolean,
   filterable: Boolean,
   filterMethod: Function,
@@ -149,7 +148,7 @@ export const treeSelectProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'TreeSelect',
+  name: 'TinyTreeSelect',
   componentName: 'TreeSelect',
   components: {
     TinyTree: Tree,

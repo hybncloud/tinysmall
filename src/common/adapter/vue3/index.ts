@@ -12,17 +12,12 @@
 import * as hooks from 'vue'
 import { Teleport } from 'vue'
 
-import { emitter } from '../utils'
+import { emitter, type Emitter } from '../utils'
+import type { ISharedRenderlessParamUtils, ITinyVm } from '@tinysmall/renderless/types/shared.type'
 
 export { Teleport }
 
 export const markRaw = hooks.markRaw
-
-const setInstanceEmitter = (instance) => {
-  const $emitter = emitter()
-
-  if (typeof instance.$emitter === 'undefined') Object.defineProperty(instance, '$emitter', { get: () => $emitter })
-}
 
 const emitEvent = (vm) => {
   const broadcast = (vm, componentName, eventName, params) => {
@@ -77,10 +72,8 @@ const emitEvent = (vm) => {
   }
 }
 
-const defineProperties = (vm, instance, property, filter) => {
+const defineProperties = (vm, instance, property) => {
   for (const name in instance[property]) {
-    if (typeof filter === 'function' && filter(name)) continue
-
     Object.defineProperty(vm, name, {
       configurable: true,
       enumerable: true,
@@ -88,28 +81,32 @@ const defineProperties = (vm, instance, property, filter) => {
       set: (value) => (instance[property][name] = value)
     })
   }
-
   return vm
 }
 
 const defineInstanceVm = (vm, instance) => {
-  defineProperties(vm, instance, 'setupState', null)
-  defineProperties(vm, instance, 'props', (name) => name.indexOf('_') === 0)
-  defineProperties(vm, instance, 'ctx', (name) => name.indexOf('_') === 0)
+  defineProperties(vm, instance, 'setupState')
+  defineProperties(vm, instance, 'props')
+  defineProperties(vm, instance, 'ctx')
   return vm
 }
 
-const createVm = (vm, instance, context = null) => {
-  let $emitter = instance.$emitter
-
-  if (!$emitter) {
-    setInstanceEmitter(instance)
-    $emitter = instance.$emitter
+const createVm = (
+  vm: object,
+  instance: hooks.ComponentInternalInstance,
+  context: hooks.SetupContext | null = null
+): ITinyVm => {
+  let $emitter: Emitter
+  if ('$emitter' in instance) {
+    $emitter = instance.$emitter as Emitter
+  } else {
+    $emitter = emitter()
+    Object.defineProperty(instance, '$emitter', { get: () => $emitter })
   }
 
-  const emit = (...args) => {
-    instance.emit(...args)
-    $emitter.emit.apply(vm, args)
+  const emit = (event: string, ...args: any) => {
+    instance.emit(event, ...args)
+    $emitter.emit.call(vm, event, ...args)
   }
 
   context || defineInstanceVm(vm, instance)
@@ -131,11 +128,12 @@ const createVm = (vm, instance, context = null) => {
     $slots: { get: () => instance.slots }
   })
 
-  return vm
+  return vm as ITinyVm
 }
 
-export const tools = (context) => {
-  const instance = hooks.getCurrentInstance() as any
+export const tools = (context: hooks.SetupContext<any, any>): Omit<ISharedRenderlessParamUtils, 't'> => {
+  const instance = hooks.getCurrentInstance()
+  if (instance == null) throw new Error('tools() must be called within setup()')
   const i18n = instance?.proxy?.$root?.$i18n
   const { dispatch, broadcast } = emitEvent(instance)
   const vm = createVm({}, instance, context)
@@ -144,27 +142,17 @@ export const tools = (context) => {
   const refs = new Proxy(
     {},
     {
-      get: (_, name) => (instance.refs ? instance.refs[name] : undefined),
-      set: (_, name, value) => {
-        instance.refs[name] = value
-        return true
-      },
-      has: (_, name) => (instance.refs ? name in instance.refs : false),
-      deleteProperty: (_, name) => {
-        if (instance.refs) return delete instance.refs[name]
-        return false
-      },
-      ownKeys: () => (instance.refs ? Reflect.ownKeys(instance.refs) : []),
-      getOwnPropertyDescriptor: (_, name) =>
-        instance.refs ? Reflect.getOwnPropertyDescriptor(instance.refs, name) : undefined
+      get: (_, name) => (typeof name !== 'symbol' ? instance.refs[name] : undefined),
+      has: (_, name) => (typeof name !== 'symbol' ? name in instance.refs : false),
+      ownKeys: () => Reflect.ownKeys(instance.refs)
     }
   )
 
   const parentVm = instance.parent ? createVm({}, instance.parent) : null
 
-  const defineInstanceProperties = (props) => {
+  const defineInstanceProperties = (props: PropertyDescriptorMap) => {
     Object.defineProperties(vm, props)
-    Object.defineProperties(instance?.ctx, props)
+    if ('ctx' in instance) Object.defineProperties(instance.ctx, props)
   }
 
   hooks.onBeforeMount(() => defineInstanceVm(vm, instance))
@@ -177,7 +165,8 @@ export const tools = (context) => {
     broadcast,
     i18n,
     refs,
-    slots: instance?.slots,
+    slots: instance.slots,
+    scopedSlots: instance.slots,
     attrs: context.attrs,
     parent: parentVm,
     nextTick: hooks.nextTick,
@@ -201,7 +190,8 @@ export const createComponentFn = () => {
   return ({ component, propsData, el }) => {
     const vnode = hooks.createVNode(component, propsData)
     hooks.render(vnode, el)
-    return createVm({}, vnode.component)
+    // render 后实例已挂载，component 必非空（类型层声明为可空，用断言）
+    return createVm({}, vnode.component!)
   }
 }
 

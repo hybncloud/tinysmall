@@ -14,17 +14,14 @@
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/skeleton-item/vue'
 import { $constants } from '@tinysmall/renderless/skeleton-item/constants'
-import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import type { PropType } from '@tinysmall/common'
 import { iconPicture } from '@tinysmall/icon'
 
 type VariantType = 'image' | 'circle' | 'square'
 type SizeType = 'large' | 'medium' | 'small'
 
-
 export const skeletonItemProps = {
-  ...$props,
-  
   modelValue: String,
   variant: {
     type: String as PropType<VariantType>,
@@ -37,7 +34,7 @@ export const skeletonItemProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'SkeletonItem',
+  name: 'TinySkeletonItem',
   emits: ['update:modelValue'],
   props: skeletonItemProps,
   components: {

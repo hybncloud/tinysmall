@@ -55,11 +55,10 @@ export const api = [
 
 const initState = ({
   reactive,
-  $prefix,
   computed,
   props,
   inject
-}: Pick<IAutoCompleteRenderlessParams, 'reactive' | '$prefix' | 'computed' | 'props' | 'inject'>) => {
+}: Pick<IAutoCompleteRenderlessParams, 'reactive' | 'computed' | 'props' | 'inject'>) => {
   const state = reactive<IAutoCompleteState>({
     showAutoWidth: inject('showAutoWidth', null),
     popperElm: null,
@@ -68,7 +67,7 @@ const initState = ({
     loading: false,
     highlightedIndex: -1,
     suggestionDisabled: false,
-    id: $prefix + '-' + guid(),
+    id: 'Tiny-' + guid(),
     suggestionVisible: computed(() => computedVisible(state)),
     // props.validateEvent优先级大于inject，都没有配置默认为true
     validateEvent: props.validateEvent ?? inject('validateEvent', true)
@@ -109,7 +108,7 @@ const initApi = ({
   props,
   updatePopper,
   nextTick,
-  
+
   dispatch
 }) => {
   api.getData = getData({ props, state, updatePopper, nextTick })
@@ -145,10 +144,10 @@ export const renderless = (
     onDeactivated,
     inject
   }: IAutoCompleteRenderlessParams,
-  { $prefix, vm, parent, emit, nextTick, slots, dispatch }: IAutoCompleteRenderlessParamUtils
+  { vm, parent, emit, nextTick, slots, dispatch }: IAutoCompleteRenderlessParamUtils
 ) => {
   const api: Partial<IAutoCompleteApi> = {}
-  const state = initState({ reactive, $prefix, computed, props, inject })
+  const state = initState({ reactive, computed, props, inject })
 
   const { showPopper, popperElm, referenceElm, doDestroy, updatePopper } = userPopper({
     reactive,
@@ -175,7 +174,7 @@ export const renderless = (
     props,
     updatePopper,
     nextTick,
-    
+
     dispatch
   })
 

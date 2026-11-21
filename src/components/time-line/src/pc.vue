@@ -53,16 +53,13 @@
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/time-line/vue'
 import { $constants } from '@tinysmall/renderless/time-line/constants'
-import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import type { PropType } from '@tinysmall/common'
 import '@tinysmall/theme/steps/index.less'
 import TimelineItem from '@tinysmall/timeline-item'
 import type { ITimelineApi } from '@tinysmall/renderless/types/time-line.type'
 
-
 export const timelineProps = {
-  ...$props,
-  
   /** 尺寸，取自原 pc.vue props 数组 */
   size: { type: String, default: '' },
   /** 文本位置，取自原 pc.vue props 数组 */
@@ -144,7 +141,7 @@ export const timelineProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'TimeLine',
+  name: 'TinyTimeLine',
   emits: ['click'],
   props: timelineProps,
   components: {

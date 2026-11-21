@@ -9,12 +9,11 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-import { $prefix } from '@tinysmall/common'
 
 /** checkbox 静态常量：由组件层与 renderless 层直接共享导入，替代原 _constants prop 注入机制 */
 export const $constants = {
   FORM_ITEM: 'FormItem',
   FORM_CHANGE: 'form.change',
-  CHECKBOX: $prefix + 'Checkbox',
+  CHECKBOX: 'TinyCheckbox',
   CHECKBOX_GROUP: 'CheckboxGroup'
 }

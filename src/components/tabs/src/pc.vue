@@ -11,15 +11,13 @@
  -->
 <script lang="tsx">
 import { renderless, api } from '@tinysmall/renderless/tabs/vue'
-import { $prefix, $props, setup, h, defineComponent } from '@tinysmall/common'
+import { setup, h, defineComponent } from '@tinysmall/common'
 import TabNav from './tab-nav/pc.vue'
 import { iconPlus } from '@tinysmall/icon'
 import '@tinysmall/theme/tabs/index.less'
 import type { ITabsApi } from '@tinysmall/renderless/types/tabs.type'
 
-
 export const tabsProps = {
-  ...$props,
   tabStyle: String,
   activeName: String,
   withClose: Boolean,
@@ -61,7 +59,7 @@ export const tabsProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'Tabs',
+  name: 'TinyTabs',
   emits: [
     'add',
     'click',

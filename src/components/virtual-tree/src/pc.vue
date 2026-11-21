@@ -38,12 +38,11 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/virtual-tree/vue'
-import { $prefix, $props, defineComponent, setup } from '@tinysmall/common'
+import { defineComponent, setup } from '@tinysmall/common'
 import VirtualScrollBox from '@tinysmall/virtual-scroll-box'
 import Tree from '@tinysmall/tree'
 
 export const virtualTreeProps = {
-  ...$props,
   width: [Number, String],
   height: [Number, String],
   rowHeight: {
@@ -58,7 +57,7 @@ export const virtualTreeProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'VirtualTree',
+  name: 'TinyVirtualTree',
   inheritAttrs: false,
   props: virtualTreeProps,
   components: {

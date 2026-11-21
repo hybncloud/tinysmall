@@ -159,12 +159,9 @@ import Progress from '@tinysmall/progress'
 import Popconfirm from '@tinysmall/popconfirm'
 import { renderless, api } from '@tinysmall/renderless/pop-upload/vue'
 import { $constants } from '@tinysmall/renderless/pop-upload/constants'
-import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
-
+import { setup, defineComponent } from '@tinysmall/common'
 
 export const popUploadProps = {
-  ...$props,
-  
   /** 文件列表，取自原 pc.vue props 数组 */
   fileList: { type: Array, default: () => [] },
   size: {
@@ -219,7 +216,7 @@ export const popUploadProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'PopUpload',
+  name: 'TinyPopUpload',
   components: {
     TinyButton: Button,
     TinyModal: Modal,

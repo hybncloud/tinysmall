@@ -130,7 +130,7 @@ export interface ICascaderPanelApi {
   handleKeyDown: ReturnType<typeof handleKeyDown>
 }
 
-export type ICascaderPanelRenderlessParams = ISharedRenderlessFunctionParams<never> & {
+export type ICascaderPanelRenderlessParams = ISharedRenderlessFunctionParams & {
   state: ICascaderPanelState
   props: ICascaderPanelProps
   api: ICascaderPanelApi
@@ -139,4 +139,4 @@ export type ICascaderPanelRenderlessParams = ISharedRenderlessFunctionParams<nev
   menus: ICascaderPanelRenderlessParams['vm'][]
 }
 
-export type ICascaderPanelRenderlessParamUtils = ISharedRenderlessParamUtils<never>
+export type ICascaderPanelRenderlessParamUtils = ISharedRenderlessParamUtils

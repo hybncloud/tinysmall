@@ -1,3 +1,5 @@
+import QRCode from 'qrcode'
+
 export const change = (emit) => () => {
   emit('change')
 }
@@ -13,7 +15,7 @@ export function getSizeStr({ props, state }) {
   }
 }
 
-export function getQrCodeCanvas({ props, vm, QRCode }) {
+export function getQrCodeCanvas({ props, vm }) {
   const container = vm.$refs.wrapperRef
   const qrcodeRef = vm.$refs.qrcodeRef
 
@@ -47,9 +49,9 @@ export function getCssLength(style: string) {
 }
 
 export const draw =
-  ({ props, state, vm, QRCode }) =>
+  ({ props, state, vm }) =>
   () => {
     getSizeStr({ props, state }) // 计算宽度
-    getQrCodeCanvas({ props, vm, QRCode }) // 绘制二维码
+    getQrCodeCanvas({ props, vm }) // 绘制二维码
     setIconBackground({ vm, state }) // 设置icon背景色与当前二维码背景色一致
   }

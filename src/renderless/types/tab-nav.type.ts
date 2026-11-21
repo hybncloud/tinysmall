@@ -90,9 +90,9 @@ export interface ITabNavApi {
   updated: ReturnType<typeof updated>
 }
 
-export type ITabNavRenderlessParamUtils = ISharedRenderlessParamUtils<never>
+export type ITabNavRenderlessParamUtils = ISharedRenderlessParamUtils
 
-export type ITabNavRenderlessParams = ISharedRenderlessFunctionParams<never> & {
+export type ITabNavRenderlessParams = ISharedRenderlessFunctionParams & {
   state: ITabNavState
   props: ITabNavProps
   api: ITabNavApi

@@ -11,7 +11,7 @@
  -->
 
 <script lang="tsx">
-import { $props, $prefix, setup, h, defineComponent } from '@tinysmall/common'
+import { setup, h, defineComponent } from '@tinysmall/common'
 import { uploadAjax } from '@tinysmall/utils'
 
 // 此处引入 h 是为了防止打包后 h 被重命名导致组件报错的问题
@@ -21,7 +21,6 @@ import Modal from '@tinysmall/modal'
 import type { IUploadApi } from '@tinysmall/renderless/types/upload.type'
 
 export const uploadProps = {
-  ...$props,
   accept: String,
   action: {
     type: String,
@@ -118,7 +117,7 @@ export const uploadProps = {
 
 export default defineComponent({
   inheritAttrs: false,
-  name: $prefix + 'Upload',
+  name: 'TinyUpload',
   props: uploadProps,
   setup(props, context) {
     return setup({
@@ -126,9 +125,7 @@ export default defineComponent({
       context,
       renderless,
       api,
-      h,
-
-      extendOptions: { Modal }
+      h
     }) as unknown as IUploadApi
   },
   render() {

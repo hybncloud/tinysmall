@@ -25,11 +25,11 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/month-table/vue'
-import { $prefix, setup, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import { isDate1 } from '@tinysmall/utils'
 
 export default defineComponent({
-  name: $prefix + 'MonthTable',
+  name: 'TinyMonthTable',
   emits: ['changerange', 'pick'],
   props: {
     date: {},

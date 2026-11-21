@@ -104,7 +104,7 @@
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/numeric/vue'
 import { $constants } from '@tinysmall/renderless/numeric/constants'
-import { $prefix, $props, setup, directive, defineComponent } from '@tinysmall/common'
+import { setup, directive, defineComponent } from '@tinysmall/common'
 import { RepeatClick } from '@tinysmall/directive'
 import { iconChevronDown, iconChevronUp, iconMinus, iconPlus } from '@tinysmall/icon'
 import '@tinysmall/theme/numeric/index.less'
@@ -113,10 +113,7 @@ import Radio from '@tinysmall/radio'
 import RadioGroup from '@tinysmall/radio-group'
 import Tag from '@tinysmall/tag'
 
-
 export const numericProps = {
-  ...$props,
-  
   allowEmpty: {
     type: Boolean,
     default: false
@@ -237,7 +234,7 @@ export const numericProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'Numeric',
+  name: 'TinyNumeric',
   directives: directive({ repeatClick: RepeatClick }),
   components: {
     IconChevronDown: iconChevronDown(),

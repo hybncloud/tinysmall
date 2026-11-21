@@ -155,7 +155,7 @@
 <script lang="tsx">
 import { renderless, api } from '@tinysmall/renderless/tree/vue'
 import { $constants } from '@tinysmall/renderless/tree/constants'
-import { $prefix, $props, setup, defineComponent, directive } from '@tinysmall/common'
+import { setup, defineComponent, directive } from '@tinysmall/common'
 import { iconWarning, iconMarkOn } from '@tinysmall/icon'
 import Switch from '@tinysmall/switch'
 import Popover from '@tinysmall/popover'
@@ -166,10 +166,7 @@ import TreeNode from './tree-node.vue'
 import Radio from '@tinysmall/radio'
 import { HighlightQuery } from '@tinysmall/directive'
 
-
 export const treeProps = {
-  ...$props,
-  
   /** 树主题样式，取自原 pc.vue props 数组 */
   theme: String,
   accordion: Boolean,
@@ -319,7 +316,7 @@ export const treeProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'Tree',
+  name: 'TinyTree',
   directives: { ...directive({ Clickoutside }), HighlightQuery },
   props: treeProps,
   components: {

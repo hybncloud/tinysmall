@@ -17,13 +17,13 @@
 </template>
 
 <script lang="tsx">
-import { $prefix, setup, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import { renderless, api } from '@tinysmall/renderless/tab-bar/vue'
 import type { ITabBarPcApi } from '@tinysmall/renderless/types/tab-bar.type'
 import { tabBarProps } from './index'
 
 export default defineComponent({
-  name: $prefix + 'TabBar',
+  name: 'TinyTabBar',
   props: tabBarProps,
   setup(props, context) {
     return setup({ props, context, renderless, api }) as unknown as ITabBarPcApi

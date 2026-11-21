@@ -12,7 +12,7 @@
 
 <script lang="tsx">
 import { renderless, api } from '@tinysmall/renderless/dropdown/vue'
-import { setup, $prefix, directive, defineComponent, h, $props } from '@tinysmall/common'
+import { setup, directive, defineComponent, h } from '@tinysmall/common'
 import Button from '@tinysmall/button'
 import ButtonGroup from '@tinysmall/button-group'
 import { Clickoutside } from '@tinysmall/directive'
@@ -20,7 +20,6 @@ import DropdownMenu from '@tinysmall/dropdown-menu'
 import { iconDownWard } from '@tinysmall/icon'
 
 export const dropdownProps = {
-  ...$props,
   modelValue: [String, Number],
   // tiny新增
   visible: {
@@ -102,7 +101,7 @@ export const dropdownProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'Dropdown',
+  name: 'TinyDropdown',
   componentName: 'TinyDropdown',
   model: {
     prop: 'visible',

@@ -4,7 +4,7 @@ import type { ISharedRenderlessFunctionParams, ISharedRenderlessParamUtils } fro
 
 export type IBreadcrumbItemProps = ExtractPropTypes<typeof breadcrumbItemProps>
 
-export type IBreadcrumbItemRenderlessParams = ISharedRenderlessFunctionParams<never> & {
+export type IBreadcrumbItemRenderlessParams = ISharedRenderlessFunctionParams & {
   props: IBreadcrumbItemProps
 }
 
@@ -13,4 +13,4 @@ export interface IBreadcrumbItemApi {
   linkClick: (event: MouseEvent) => void
 }
 
-export type IBreadcrumbItemRenderlessParamUtils = ISharedRenderlessParamUtils<never>
+export type IBreadcrumbItemRenderlessParamUtils = ISharedRenderlessParamUtils

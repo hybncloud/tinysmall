@@ -36,12 +36,9 @@
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/carousel-item/vue'
 import { $constants } from '@tinysmall/renderless/carousel-item/constants'
-import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
-
+import { setup, defineComponent } from '@tinysmall/common'
 
 export const carouselItemProps = {
-  ...$props,
-  
   name: String,
   title: String,
   label: {
@@ -51,7 +48,7 @@ export const carouselItemProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'CarouselItem',
+  name: 'TinyCarouselItem',
   props: carouselItemProps,
   setup(props, context) {
     return setup({ props, context, renderless, api })

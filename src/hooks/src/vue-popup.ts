@@ -22,7 +22,7 @@ export interface IPopupState {
   opened: boolean
   rendered: boolean
 }
-type IPopupInputParams = ISharedRenderlessFunctionParams<never> & {
+type IPopupInputParams = ISharedRenderlessFunctionParams & {
   api: { open: Function; close: Function }
   state: IPopupState
   props: any

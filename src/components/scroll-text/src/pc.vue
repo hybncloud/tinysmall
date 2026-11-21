@@ -31,12 +31,9 @@
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/scroll-text/vue'
 import { $constants } from '@tinysmall/renderless/scroll-text/constants'
-import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
-
+import { setup, defineComponent } from '@tinysmall/common'
 
 export const scrollTextProps = {
-  ...$props,
-  
   text: {
     type: String,
     default: 'ScrollText'
@@ -65,7 +62,7 @@ export const scrollTextProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'ScrollText',
+  name: 'TinyScrollText',
   props: scrollTextProps,
   setup(props, context) {
     return setup({ props, context, renderless, api })

@@ -30,13 +30,10 @@
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/breadcrumb/vue'
 import { $constants } from '@tinysmall/renderless/breadcrumb/constants'
-import { $prefix, $props, setup, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import BreadcrumbItem from '@tinysmall/breadcrumb-item'
 
-
 export const breadcrumbProps = {
-  ...$props,
-  
   separator: {
     type: String,
     default: ''
@@ -60,7 +57,7 @@ export const breadcrumbProps = {
 }
 
 export default defineComponent({
-  name: $prefix + 'Breadcrumb',
+  name: 'TinyBreadcrumb',
   components: {
     TinyBreadcrumbItem: BreadcrumbItem
   },

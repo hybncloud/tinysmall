@@ -21,13 +21,13 @@ export interface IDividerApi {
   setDividerHeight: ReturnType<typeof setDividerHeight>
 }
 
-export type IDividerRenderlessParams = ISharedRenderlessFunctionParams<never> & {
+export type IDividerRenderlessParams = ISharedRenderlessFunctionParams & {
   api: IDividerApi
   state: IDividerState
   props: IDividerProps
 }
 
-export type IDividerRenderlessParamUtils = ISharedRenderlessParamUtils<never>
+export type IDividerRenderlessParamUtils = ISharedRenderlessParamUtils
 
 export interface IDividerStyle {
   margin?: string | number
