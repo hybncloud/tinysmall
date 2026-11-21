@@ -1,4 +1,4 @@
-export interface ISharedRenderlessFunctionParams<T> {
+export interface ISharedRenderlessFunctionParams {
   vm: any
   props: any
   slots: any

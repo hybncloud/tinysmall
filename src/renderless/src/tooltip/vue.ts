@@ -77,12 +77,12 @@ export const renderless = (
     onUnmounted,
     inject
   }: ISharedRenderlessParamHooks,
-  { vm, emit, slots, nextTick, parent }: ISharedRenderlessParamUtils
+  { vm, emit, slots, nextTick }: ISharedRenderlessParamUtils
 ) => {
   const api = {} as ITooltipApi
 
   const popperVmRef = {} as { popper: HTMLElement }
-  const popperParam = { emit, props, nextTick, toRefs, reactive, parent: parent?.$parent, vm, popperVmRef }
+  const popperParam = { emit, props, nextTick, toRefs, reactive, vm, popperVmRef }
 
   Object.assign(popperParam, { slots, onBeforeUnmount, onDeactivated, watch })
 

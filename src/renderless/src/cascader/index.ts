@@ -191,8 +191,6 @@ export const selfMounted =
     const { input } = vm.$refs
     const inputSizeMap = { medium: 36, small: 32, mini: 28 }
 
-    input && (input.$parent.popperElm = vm.$refs.popper)
-
     if (input && input.$el) {
       state.inputInitialHeight = input.$el.offsetHeight || inputSizeMap[state.realSize] || 30
     }

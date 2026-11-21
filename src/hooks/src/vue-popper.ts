@@ -27,6 +27,8 @@ type IPopperInputParams = ISharedRenderlessFunctionParams & {
   api: { open: Function; close: Function }
   state: IPopperState
   props: any
+  /** popper 的挂载宿主元素；需在挂载后求值（$el 在 setup 期为 null），由调用方负责传入时机 */
+  parentEl?: HTMLElement | null
 }
 
 /** 给 popper 的click添加stop, 阻止冒泡 */
@@ -74,7 +76,7 @@ const getReferMaxZIndex = (reference: HTMLElement) => {
 // 历史原因，暂时先命名为userPopper， 以后统一替换
 export const userPopper = (options: IPopperInputParams) => {
   const {
-    parent,
+    parentEl,
     emit,
     nextTick,
     onBeforeUnmount,
@@ -152,8 +154,8 @@ export const userPopper = (options: IPopperInputParams) => {
     if (props.appendToBody || props.popperAppendToBody) {
       document.body.appendChild(state.popperElm)
     } else {
-      // 只有tooltip 传入parent了
-      parent && parent.$el && parent.$el.appendChild(state.popperElm)
+      // 未开 appendToBody 时，若显式传入 parentEl 则挂到宿主元素下
+      parentEl && parentEl.appendChild(state.popperElm)
       options.forceAbsolute = true
     }
 
