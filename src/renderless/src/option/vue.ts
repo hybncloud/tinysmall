@@ -24,9 +24,10 @@ import {
 
 export const api = ['state', 'visible', 'hoverItem', 'selectOptionClick']
 
-const initState = ({ reactive, computed, props, api, markRaw, select, parent }) => {
+const initState = ({ reactive, computed, props, api, markRaw, select, parent, inject }) => {
   const state = reactive({
     parent: markRaw(parent),
+    group: inject('optionGroup', null),
     selectMultiple: computed(() => select.multiple),
     created: computed(() => props.created),
     index: -1,
@@ -158,15 +159,15 @@ export const renderless = (
   const api = {}
   const select = inject('select')
   const constants = $constants
-  const state = initState({ reactive, computed, props, api, markRaw, select, parent })
+  const state = initState({ reactive, computed, props, api, markRaw, select, parent, inject })
 
   initApi({ api, props, state, select, vm })
-  initWatch({ watch, props, state, select})
+  initWatch({ watch, props, state, select })
   initOnMounted({ onMounted, props, api, vm, state, select })
   initOnBeforeUnmount({ onBeforeUnmount, props, select, vm, state })
   initSelectState({ state, select, props, toRefs, reactive })
 
-  parent.$on($constants.EVENT_NAME.handleGroupDisabled, api.handleGroupDisabled)
+  state.group?.$on($constants.EVENT_NAME.handleGroupDisabled, api.handleGroupDisabled)
 
   return api
 }

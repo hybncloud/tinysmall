@@ -10,7 +10,6 @@
  *
  */
 
-import { $constants } from './constants'
 import { POSITION, VALIDATE_STATE } from '@tinysmall/utils'
 import { omitText } from '@tinysmall/utils'
 import { merge } from '@tinysmall/utils'
@@ -147,22 +146,10 @@ export const computedContentStyle =
   }
 
 export const computedForm =
-  ({ vm, state }: Pick<IFormItemRenderlessParams, 'constants' | 'vm' | 'state'>) =>
+  ({ state }: Pick<IFormItemRenderlessParams, 'state'>) =>
   (): IFormInstance | null => {
-    const { FORM_NAME, FORM_ITEM_NAME } = $constants
-    let parent = vm.$parent as IFormInstance | null
-    let parentName = parent?.$options?.componentName
-
-    while (parent && parentName !== FORM_NAME) {
-      if (parentName === FORM_ITEM_NAME) {
-        state.isNested = true
-      }
-
-      parent = parent?.$parent as IFormInstance | null
-      parentName = parent?.$options?.componentName
-    }
-
-    return parent
+    // form 上下文来自 inject('form')（见 form/vue.ts）；嵌套判定由 inject('formItem') 完成
+    return state.formInstance ?? null
   }
 
 export const computedIsRequired =

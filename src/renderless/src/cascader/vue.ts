@@ -273,11 +273,15 @@ export const renderless = (
     reactive,
     toRefs,
     watch,
-    inject
+    inject,
+    provide
   }: ISharedRenderlessFunctionParams<null>,
   { t, emit, nextTick, slots, dispatch, vm }: ICascadeRenderlessParamUtils
 ) => {
   const form = inject('form', null)
+
+  // 下发自身 vm，供 cascader-panel 注入，替代 $parent 链访问
+  provide('cascader', vm)
 
   const { updatePopper } = userPopper({
     reactive,

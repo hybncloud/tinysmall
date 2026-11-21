@@ -5,7 +5,8 @@ export const queryChange =
 
     if (Array.isArray(select.state.options)) {
       const groupOptions = select.state.options.filter((option) => {
-        return option.state.parent.$parent && vm && option.state.parent.$parent.label === vm.label
+        // option.state.group 来自 option 侧 inject('optionGroup')（见 option-group/vue.ts）
+        return vm && option.state.group === vm
       })
 
       if (Array.isArray(groupOptions)) {

@@ -74,8 +74,11 @@ const initDefaultProps = () => ({
   hoverThreshold: 500
 })
 
-const initState = ({ reactive, props, computed, parent, slots }: ICascaderPanelRenderlessParams) => {
+const initState = ({ reactive, props, inject, computed, slots }) => {
   const DefaultProps = initDefaultProps()
+
+  // cascader 上下文来自 inject('cascader')（见 cascader/vue.ts），整个 vm 放入 state
+  const cascader = inject('cascader', null)
 
   const state = reactive({
     checkedValue: null,
@@ -84,17 +87,13 @@ const initState = ({ reactive, props, computed, parent, slots }: ICascaderPanelR
     menus: [],
     activePath: [],
     loadCount: 0,
+    cascader,
     config: computed(() => merge({ ...DefaultProps }, props.props || {})),
     multiple: computed(() => state.config.multiple),
     checkStrictly: computed(() => state.config.checkStrictly),
     leafOnly: computed(() => !state.checkStrictly),
     isHoverMenu: computed(() => state.config.expandTrigger === 'hover'),
-    renderLabelFn: computed(
-      () =>
-        props.renderLabel ||
-        slots.default ||
-        (parent.$parent?.$options.componentName === 'TinyCascader' && parent.$parent.$scopedSlots.default)
-    )
+    renderLabelFn: computed(() => props.renderLabel || slots.default || cascader?.$scopedSlots.default)
   })
 
   return state
@@ -106,9 +105,8 @@ const initApi = ({
   menus,
   props,
   nextTick,
-  parent,
   emit
-}: Pick<ICascaderPanelRenderlessParams, 'api' | 'state' | 'menus' | 'props' | 'nextTick' | 'parent' | 'emit'>) => {
+}: Pick<ICascaderPanelRenderlessParams, 'api' | 'state' | 'menus' | 'props' | 'nextTick' | 'emit'>) => {
   Object.assign(api, {
     state,
     isLeaf: isLeaf(),
@@ -122,7 +120,7 @@ const initApi = ({
     syncMenuState: syncMenuState({ api, nextTick, state }),
     syncMultiCheckState: syncMultiCheckState({ api, state }),
     calculateCheckedNodePaths: calculateCheckedNodePaths({ api, state }),
-    lazyLoad: lazyLoad({ api, $parent: parent, state, Store, emit }),
+    lazyLoad: lazyLoad({ api, state, Store, emit }),
     syncCheckedValue: syncCheckedValue({ api, props, state }),
     focusNode: focusNode(api),
     checkNode: checkNode(api),
@@ -167,12 +165,12 @@ const initWatch = ({
 
 export const renderless = (
   props: ICascaderPanelProps,
-  { computed, onMounted, reactive, watch, provide }: ISharedRenderlessParamHooks,
-  { nextTick, emit, parent, slots }: ICascaderPanelRenderlessParamUtils
+  { computed, onMounted, reactive, watch, provide, inject }: ISharedRenderlessParamHooks,
+  { nextTick, emit, slots }: ICascaderPanelRenderlessParamUtils
 ) => {
   const api = {} as ICascaderPanelApi
   const menus: ICascaderPanelRenderlessParams['vm'][] = []
-  const state = initState({ reactive, props, computed, parent, slots })
+  const state = initState({ reactive, props, inject, computed, slots })
 
   // 子组件注册：cascader-menu 在 setup 时注册自身，替代遍历子树的 childrenHandler
   provide('registerMenu', (menu: ICascaderPanelRenderlessParams['vm']) => menus.push(menu))

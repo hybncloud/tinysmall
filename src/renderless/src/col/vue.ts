@@ -10,14 +10,15 @@
  *
  */
 
-import { setSubitemAttrValue, setGlobalAttrValue, getClassName, getStyle, row } from './index'
+import { setSubitemAttrValue, setGlobalAttrValue, getClassName, getStyle } from './index'
 
 export const api = ['state']
 
-export const renderless = (props, { computed, reactive, inject }, { parent }) => {
+export const renderless = (props, { computed, reactive, inject }) => {
   const api = {}
   const state = reactive({
-    row: computed(() => api.row()),
+    // row 上下文来自 inject('row')（见 row/vue.ts），整个 vm 放入 state
+    row: inject('row', null),
     style: computed(() => api.getStyle()),
     className: computed(() => api.getClassName()),
     layout: inject('layout', {})
@@ -25,7 +26,6 @@ export const renderless = (props, { computed, reactive, inject }, { parent }) =>
 
   Object.assign(api, {
     state,
-    row: row(parent),
     setGlobalAttrValue,
     setSubitemAttrValue,
     getStyle: getStyle({ props, state }),

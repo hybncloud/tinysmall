@@ -3,9 +3,15 @@ import { queryChange, observeCallback } from './index'
 
 export const api = ['state', 'queryChange']
 
-export const renderless = (props, { onMounted, onBeforeUnmount, reactive, watch, inject }, { broadcast, vm }) => {
+export const renderless = (
+  props,
+  { onMounted, onBeforeUnmount, reactive, watch, inject, provide },
+  { broadcast, vm }
+) => {
   const select = inject('select')
   const constants = $constants
+
+  provide('optionGroup', vm)
 
   const state = reactive({
     visible: true,

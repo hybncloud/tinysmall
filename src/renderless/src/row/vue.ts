@@ -14,11 +14,14 @@ import { computedClassName, computedStyle } from './index'
 
 export const api = ['state']
 
-export const renderless = (props, { computed, reactive }) => {
+export const renderless = (props, { computed, reactive, provide }, { vm }) => {
   const api = {
     computedStyle,
     computedClassName
   }
+
+  // 下发自身 vm，供 col 注入，替代 $parent 链查找
+  provide('row', vm)
 
   const state = reactive({
     style: computed(() => api.computedStyle(props.gutter)),

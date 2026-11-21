@@ -235,11 +235,10 @@ export const handleCheckChange =
 export const lazyLoad =
   ({
     api,
-    $parent,
     state,
     Store,
     emit
-  }: Pick<ICascaderPanelRenderlessParams, 'api' | '$parent' | 'state' | 'Store' | 'emit'>) =>
+  }: Pick<ICascaderPanelRenderlessParams, 'api' | 'state' | 'Store' | 'emit'>) =>
   (currentNode?: ICascaderPanelNode, onFullfiled?: (dataList: ICascaderPanelData[]) => void) => {
     let node = currentNode as ICascaderPanelLazyLoadNode | ICascaderPanelNode
 
@@ -274,8 +273,9 @@ export const lazyLoad =
             })
           }
 
-          if ($parent.computePresentText && state.loadCount === state.checkedValue.length) {
-            $parent.computePresentText()
+          // cascader 上下文来自 inject('cascader')（见 cascader/vue.ts），存于 state.cascader
+          if (state.cascader?.computePresentText && state.loadCount === state.checkedValue.length) {
+            state.cascader.computePresentText()
           }
         }
       }

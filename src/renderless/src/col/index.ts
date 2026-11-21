@@ -92,27 +92,6 @@ export const getClassName =
     return result.join(' ')
   }
 
-export const row = (pcontext) => () => {
-  const ROW_NAME = 'Row'
-  const COL_NAME = 'Col'
-
-  let parent = pcontext.$parent.$parent
-  /* istanbul ignore next  */
-  let parentName = parent ? parent.$options.componentName : null
-  let depth = 10
-
-  /* istanbul ignore next  */
-  while (parent && parentName !== ROW_NAME && parentName !== COL_NAME && depth--) {
-    parent = parent.$parent
-
-    /* istanbul ignore next  */
-    parentName = parent && parent.$options ? parent.$options.componentName : null
-  }
-
-  /* istanbul ignore next  */
-  return parentName === ROW_NAME ? parent : null
-}
-
 export const getStyle =
   ({ props, state }) =>
   () => {

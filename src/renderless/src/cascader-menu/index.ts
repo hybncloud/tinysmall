@@ -18,11 +18,10 @@ export const handleExpand = (state: ICascaderMenuState) => (e: MouseEvent) =>
 export const handleMouseMove =
   ({
     api,
-    parent,
     vm,
     state,
     svg
-  }: Pick<ICascaderMenuRenderlessParams, 'api' | 'parent' | 'state' | 'vm'> & {
+  }: Pick<ICascaderMenuRenderlessParams, 'api' | 'state' | 'vm'> & {
     svg: string
   }) =>
   (e: MouseEvent) => {
@@ -37,9 +36,10 @@ export const handleMouseMove =
         clearTimeout(state.hoverTimer)
       }
 
-      const { left } = vm.$refs.cascaderMenu.$parent.$el.getBoundingClientRect()
+      // ref cascaderMenu 的 $parent 即 cascader-menu 自身，等价于取自身根元素
+      const { left } = vm.$el.getBoundingClientRect()
       const startX = e.clientX - left
-      const { offsetWidth, offsetHeight } = vm.$refs.cascaderMenu.$parent.$el
+      const { offsetWidth, offsetHeight } = vm.$el
       const top = state.activeNode.offsetTop
       const bottom = top + state.activeNode.offsetHeight
 
@@ -48,7 +48,8 @@ export const handleMouseMove =
       ${svg}${startX} ${bottom} L${offsetWidth} ${offsetHeight} V${bottom} Z" />
     `
     } else if (!state.hoverTimer) {
-      state.hoverTimer = setTimeout(api.clearHoverZone, parent.$parent.state.config.hoverThreshold)
+      // hoverThreshold 来自注入的 cascader-panel 上下文（state.config 默认 500）
+      state.hoverTimer = setTimeout(api.clearHoverZone, state.panel?.state.config.hoverThreshold || 500)
     }
   }
 

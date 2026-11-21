@@ -127,12 +127,8 @@ export const renderless = (
   watch(() => state.showPopup, api.bindScroll)
 
   onMounted(() => {
-    if (dropdownVm) {
-      dropdownVm.state.children.push(vm)
-    } else {
-      if (dropdownMenuVm) {
-        dropdownMenuVm.state.children.push(vm)
-      }
+    if (dropdownMenuVm) {
+      dropdownMenuVm.state.children.push(vm)
     }
 
     if (props.disabled) {

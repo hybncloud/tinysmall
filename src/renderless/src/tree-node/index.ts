@@ -150,18 +150,19 @@ export const handleContextMenu =
       event.preventDefault()
     }
 
-    state.tree.$parent.$emit('node-contextmenu', event, props.node.data, props.node, vm)
+    // state.tree 即 inject('TreeRoot') 注入的 tree 上下文（见 components/tree/src/pc.vue 的 provide）
+    state.tree.$emit('node-contextmenu', event, props.node.data, props.node, vm)
 
     if (!treeRoot.showContextmenu) {
       return
     }
 
     state.showMenu = true
-    state.tree.$parent.menuInstance = vm
+    state.tree.menuInstance = vm
 
     nextTick(() => {
       const menuWidth = vm.$refs.menuContext.offsetWidth
-      const treeWidth = state.tree.$parent.$el.offsetWidth
+      const treeWidth = state.tree.$el.offsetWidth
 
       if (event.clientY > -10) {
         state.menuposition.top = `${vm.$refs.node.offsetTop + vm.$refs.content.offsetHeight / 2}px`
@@ -199,7 +200,7 @@ export const handleExpandClick =
     }
 
     if (state.expanded) {
-      state.tree.$parent.$emit('node-collapse', props.node.data, props.node, vm)
+      state.tree.$emit('node-collapse', props.node.data, props.node, vm)
       props.node.collapse()
     } else {
       props.node.expand()

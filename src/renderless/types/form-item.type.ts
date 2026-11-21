@@ -75,6 +75,8 @@ export interface IFormItemState {
   showTooltip: boolean
   typeName: string
   formInstance: IFormInstance | undefined
+  /** inject('formItem') 注入的外层 form-item 上下文，用于嵌套判定 */
+  formItemInstance: IFormInstance | null
   labelFor: string
   labelStyle: IFormItemLabelStyle
   valueStyle: StyleValue

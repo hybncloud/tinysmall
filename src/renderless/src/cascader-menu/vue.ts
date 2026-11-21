@@ -26,7 +26,7 @@ export const api = ['state', 'handleMouseMove', 'handleExpand']
 export const renderless = (
   props: ICascaderMenuProps,
   { computed, reactive, inject, onUnmounted }: ISharedRenderlessParamHooks,
-  { vm, parent }: ICascaderMenuRenderlessParamUtils
+  { vm }: ICascaderMenuRenderlessParamUtils
 ): ICascaderMenuApi => {
   const api = {} as ICascaderMenuApi
 
@@ -42,6 +42,8 @@ export const renderless = (
     activeNode: null,
     hoverTimer: null,
     id: Math.floor(random() * 10000),
+    // panel 上下文来自 inject('panel')（见 components/cascader-panel/src/pc.vue 的 provide），整个 vm 放入 state
+    panel: inject('panel', null),
     isEmpty: computed(() => !props.nodes.length),
     menuId: computed(() => `${CASCADER.MenuConnector}${state.id}-${props.index}`)
   })
@@ -50,7 +52,7 @@ export const renderless = (
     state,
     clearHoverZone: clearHoverZone({ vm }),
     handleExpand: handleExpand(state),
-    handleMouseMove: handleMouseMove({ api, parent, vm, state, svg: CASCADER.SvgStr })
+    handleMouseMove: handleMouseMove({ api, vm, state, svg: CASCADER.SvgStr })
   })
 
   return api
