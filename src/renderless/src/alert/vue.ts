@@ -25,8 +25,7 @@ import {
   computedClass,
   handleClose,
   handleHeaderClick,
-  watchAutoHide,
-  handlerTargetNode
+  watchAutoHide
 } from './index'
 import { nanoid } from '@tinysmall/utils'
 
@@ -49,7 +48,7 @@ const initState = ({ api, computed, reactive }): IAlertState  => {
   })
 }
 
-const initApi = ({ api, state, props, t, emit, vm, parent, nextTick }): void  => {
+const initApi = ({ api, state, props, t, emit, vm }): void  => {
   Object.assign(api, {
     state,
     computedGetIcon: computedGetIcon({ props }),
@@ -58,24 +57,22 @@ const initApi = ({ api, state, props, t, emit, vm, parent, nextTick }): void  =>
     computedStyle: computedStyle({ props }),
     handleClose: handleClose({ emit, state }),
     handleHeaderClick: handleHeaderClick({ state, props, vm }),
-    watchAutoHide: watchAutoHide({ api, props }),
-    handlerTargetNode: handlerTargetNode({ props, parent, vm, nextTick })
+    watchAutoHide: watchAutoHide({ api, props })
   })
 }
 
 const initWatcher = ({ watch, props, api }) => {
   watch(() => props.autoHide, api.watchAutoHide, { immediate: true })
-  watch(() => props.target, api.handlerTargetNode, { immediate: true })
 }
 
 export const renderless = (
   props: IAlertProps,
   { computed, reactive, watch }: ISharedRenderlessParamHooks,
-  { t, emit, vm, parent, nextTick }: IAlertRenderlessParamUtils
+  { t, emit, vm }: IAlertRenderlessParamUtils
 ): IAlertApi => {
   const api = {} as IAlertApi
   const state: IAlertState = initState({ api, computed, reactive })
-  initApi({ api, state, props, t, emit, vm, parent, nextTick })
+  initApi({ api, state, props, t, emit, vm })
   initWatcher({ watch, props, api })
 
   return api

@@ -11,7 +11,7 @@
  */
 import { $constants } from './constants'
 import type { CSSProperties } from 'vue'
-import type { IAlertRenderlessParams, ITinyVm } from '../../types'
+import type { IAlertRenderlessParams } from '../../types'
 
 export const ALERT_TIMEOUT = 2000
 
@@ -76,24 +76,4 @@ export const handleHeaderClick =
         state.scrollStatus = true
       }
     }
-  }
-
-const getEl = (node: ITinyVm): HTMLElement => {
-  return node.$el || node
-}
-
-export const handlerTargetNode =
-  ({ props, parent, vm, nextTick }) =>
-  () => {
-    const { target } = props
-    const { $parent } = parent
-    nextTick(() => {
-      const alertParentNode = $parent?.$refs[target]
-      if (!target || !alertParentNode) {
-        return
-      }
-
-      const targetNode = Array.isArray(alertParentNode) ? alertParentNode[0] : alertParentNode
-      getEl(targetNode).insertBefore(vm.$el, getEl(targetNode).firstChild)
-    })
   }

@@ -14,11 +14,14 @@ import { init, change } from './index'
 
 export const api = ['state', 'change']
 
-export const renderless = (props, { onMounted, reactive, watch }, { emit }) => {
+export const renderless = (props, { onMounted, reactive, watch, provide }, { emit, vm }) => {
   const state = reactive({
     options: [],
     selectedValue: props.modelValue
   })
+
+  // 下发自身 vm，供 base-select 注入，替代 $parent 访问父级 $attrs
+  provide('baseSelectParent', vm)
 
   watch(
     () => props.modelValue,

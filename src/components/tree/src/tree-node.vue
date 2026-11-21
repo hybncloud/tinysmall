@@ -341,8 +341,9 @@ export default defineComponent({
           required: true
         }
       },
+      inject: ['TreeRoot'],
       render() {
-        const tree = this.$parent.state.tree
+        const tree = this.TreeRoot
         const { data } = this.node
 
         return (
@@ -362,8 +363,7 @@ export default defineComponent({
       },
       inject: ['TreeRoot', 'parentTree'],
       render() {
-        const parent = this.$parent
-        const tree = parent.state.tree
+        const tree = this.TreeRoot
         const node = this.node
         const { data, store } = node
 

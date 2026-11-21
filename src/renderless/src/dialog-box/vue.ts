@@ -146,7 +146,7 @@ const initApi = ({
     afterLeave: afterLeave(emit),
     hideScrollbar: hideScrollbar(lockScrollClass),
     showScrollbar: showScrollbar(lockScrollClass),
-    handleDrag: handleDrag({ parent, props, state, emit, vm }),
+    handleDrag: handleDrag({ props, state, emit, vm }),
     // tiny 新增
     toggleFullScreen: toggleFullScreen({ state, emit, nextTick, vm })
   })

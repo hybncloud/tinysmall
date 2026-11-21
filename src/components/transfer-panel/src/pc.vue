@@ -99,7 +99,7 @@
         {{ t('ui.transfer.noData') }}
       </p>
     </div>
-    <p class="tiny-transfer-panel__footer" v-if="$parent.$slots['left-footer'] || $parent.$slots['right-footer']">
+    <p class="tiny-transfer-panel__footer" v-if="state.hasFooter">
       <slot></slot>
     </p>
   </div>

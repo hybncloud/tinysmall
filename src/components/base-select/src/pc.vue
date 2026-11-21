@@ -26,7 +26,7 @@
       clickExpand ? 'is-click-expand' : '',
       state.showCollapseTag ? 'collapse-tag-clicked' : '',
       state.isDisabled ? 'is-disabled' : '',
-      $parent.$attrs.class
+      baseSelectParent && baseSelectParent.$attrs.class
     ]"
     @mouseleave.self="
       () => {
@@ -854,6 +854,9 @@ export default defineComponent({
     },
     formItem: {
       default: ''
+    },
+    baseSelectParent: {
+      default: null
     }
   },
   provide() {

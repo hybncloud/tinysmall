@@ -12,8 +12,11 @@ import {
 
 export const api = ['state', 'check', 'filter', 'nodeClick']
 
-export const renderless = (props, { reactive, computed, watch, onMounted }, { vm, emit }) => {
+export const renderless = (props, { reactive, computed, watch, onMounted, provide }, { vm, emit }) => {
   const api = {}
+
+  // 下发自身 vm，供 base-select 注入，替代 $parent 访问父级 $attrs
+  provide('baseSelectParent', vm)
 
   const resolveTreeData = () => {
     if (Array.isArray(props.treeOp)) {

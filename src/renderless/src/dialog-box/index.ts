@@ -246,46 +246,13 @@ export const afterLeave = (emit: IDialogBoxRenderlessParams['emit']) => (): void
   emit('closed')
 }
 
-const findPopoverComponent = ({
-  vm,
-  componentList
-}: {
-  vm: IDialogBoxRenderlessParams['vm']
-  componentList: IDialogBoxRenderlessParams['vm'][]
-}): IDialogBoxRenderlessParams['vm'][] => {
-  const children = vm.$children
-
-  if (!children || children.length === 0) {
-    return []
-  }
-
-  children.forEach((child) => {
-    const tag = child.$options.componentName
-
-    if (tag === 'Select') {
-      componentList.push(child)
-    }
-
-    findPopoverComponent({ vm: child, componentList })
-  })
-
-  return componentList
-}
-
-const closeAllPopover = (parent: IDialogBoxRenderlessParams['parent']) => {
-  findPopoverComponent({ vm: parent, componentList: [] }).forEach((component) => {
-    component.state.visible = false
-  })
-}
-
 export const handleDrag =
   ({
-    parent,
     props,
     state,
     emit,
     vm
-  }: Pick<IDialogBoxRenderlessParams, 'parent' | 'props' | 'state' | 'emit' | 'vm'>) =>
+  }: Pick<IDialogBoxRenderlessParams, 'props' | 'state' | 'emit' | 'vm'>) =>
   (event: MouseEvent): void => {
     if (!props.draggable || state.isFull) {
       return
@@ -306,7 +273,6 @@ export const handleDrag =
 
       if (!state.move) {
         emit('drag-start', event)
-        closeAllPopover(parent)
         state.move = true
       }
 

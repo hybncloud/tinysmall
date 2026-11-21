@@ -78,6 +78,8 @@ export const renderless = (
   const api = {} as IPagerApi
 
   provide('pager', vm)
+  // 下发自身 vm，供 base-select 注入，替代 $parent 访问父级 $attrs
+  provide('baseSelectParent', vm)
 
   const state: IPagerState = reactive({
     showSizes: false,
