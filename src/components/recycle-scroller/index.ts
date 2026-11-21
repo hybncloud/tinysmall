@@ -1,8 +1,5 @@
 import RecycleScroller from './src/index'
-import IdState from './src/idState'
 import { version } from 'package.json'
-
-RecycleScroller.IdState = IdState
 
 /* istanbul ignore next */
 RecycleScroller.install = function (Vue) {

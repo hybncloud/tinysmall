@@ -135,7 +135,6 @@ export type ICascaderPanelRenderlessParams = ISharedRenderlessFunctionParams & {
   props: ICascaderPanelProps
   api: ICascaderPanelApi
   Store: typeof Store
-  $parent: ICascaderPanelRenderlessParams['parent']
   menus: ICascaderPanelRenderlessParams['vm'][]
 }
 

@@ -77,11 +77,6 @@ export interface ITinyVm {
   $on: (eventname: string, callback: Function) => void
   /** instance.$emitter.once */
   $once: (eventname: string, callback: Function) => void
-  /** 返回 instance.type.componentName。
-   * @mark instance.type 可能是字符串，也可能是组件类，所以只有组件类的时候，才能返回组件的真实名字 */
-  $options: { componentName: string | undefined }
-  /** 返回 instance.parent  */
-  $parent: hooks.ComponentPublicInstance
   /** 返回 instance.refs,
    * @mark ⭐ 尽量使用这个，每次都会是最新的refs */
   $refs: Record<string, any>

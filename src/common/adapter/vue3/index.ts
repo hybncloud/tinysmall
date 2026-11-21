@@ -119,10 +119,6 @@ const createVm = (
     $off: { get: () => $emitter.off },
     $on: { get: () => $emitter.on },
     $once: { get: () => $emitter.once },
-    $options: { get: () => ({ componentName: instance.type.componentName }) },
-    $parent: {
-      get: () => instance.parent && createVm({}, instance.parent)
-    },
     $refs: { get: () => instance.refs },
     $scopedSlots: { get: () => instance.slots },
     $slots: { get: () => instance.slots }
