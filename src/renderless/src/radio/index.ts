@@ -29,21 +29,10 @@ export const handleChange =
   }
 
 export const isGroup =
-  ({ parent: $parent, state }: Pick<IRadioRenderlessParams, 'constants' | 'parent' | 'state'>) =>
+  ({ state }: Pick<IRadioRenderlessParams, 'state'>) =>
   (): boolean => {
-    let parent = $parent.$parent.$parent
-
-    while (parent) {
-      if (parent.$options.componentName !== $constants.RADIO_GROUP) {
-        parent = parent.$parent
-      } else {
-        state.radioGroup = parent as unknown as IRadioRenderlessParams['parent']
-
-        return true
-      }
-    }
-
-    return false
+    // 分组上下文来自 inject('radioGroup')（见 radio-group/vue.ts）
+    return !!state.radioGroup
   }
 
 export const radioSize =

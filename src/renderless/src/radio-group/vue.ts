@@ -52,6 +52,8 @@ export const renderless = (
 
   onMounted(api.onMounted)
 
+  provide('radioGroup', vm)
+
   provide('radioVertical', props.vertical)
 
   provide('showTips', props.showTips)

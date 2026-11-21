@@ -11,7 +11,7 @@
  */
 
 import { $constants } from './constants'
-import type { IRadioButtonRenderlessParams, IRadioGroupProps, IRadioButtonState } from '../../types'
+import type { IRadioButtonRenderlessParams, IRadioGroupProps } from '../../types'
 
 export const handleChange =
   ({
@@ -33,22 +33,6 @@ export const setValue =
   ({ state }: Pick<IRadioButtonRenderlessParams, 'state'>) =>
   (val: IRadioGroupProps['modelValue']): void =>
     state.radioGroup?.$emit('update:modelValue', val)
-
-export const getGroup =
-  ({ parent: $parent }: Pick<IRadioButtonRenderlessParams, 'constants' | 'parent'>) =>
-  (): IRadioButtonState['radioGroup'] | null => {
-    let parent = $parent.$parent
-
-    while (parent) {
-      if (parent.$options.componentName !== $constants.RADIO_GROUP) {
-        parent = parent.$parent
-      } else {
-        return parent
-      }
-    }
-
-    return null
-  }
 
 export const getStyle = (state: IRadioButtonRenderlessParams['state']) => () => ({
   backgroundColor: state.radioGroup?.fill || '',

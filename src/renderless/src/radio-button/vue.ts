@@ -22,7 +22,6 @@ import {
   handleChange,
   getValue,
   setValue,
-  getGroup,
   getStyle,
   toggleEvents,
   keydownHandle,
@@ -35,10 +34,9 @@ export const api = ['state', 'handleChange', 'keydownHandle', 'handleFocus', 'ha
 export const renderless = (
   props: IRadioButtonProps,
   { computed, reactive, onMounted, onBeforeUnmount, inject }: ISharedRenderlessParamHooks,
-  { parent, dispatch, nextTick, vm }: IRadioButtonRenderlessParamUtils
+  { dispatch, nextTick, vm }: IRadioButtonRenderlessParamUtils
 ): IRadioButtonApi => {
   const api: IRadioButtonApi = {
-    getGroup: getGroup({ parent }),
     toggleEvents: toggleEvents({ vm, props })
   } as IRadioButtonApi
 
@@ -48,7 +46,7 @@ export const renderless = (
       get: () => api.getValue(),
       set: (val) => api.setValue(val)
     }),
-    radioGroup: computed(() => api.getGroup()),
+    radioGroup: inject('radioGroup', null),
     activeStyle: computed(() => api.getStyle()),
     size: computed(() => state.radioGroup?.state.radioGroupSize),
     isDisabled: computed(() => props.disabled || state.radioGroup?.disabled),
