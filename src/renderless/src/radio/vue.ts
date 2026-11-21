@@ -35,7 +35,7 @@ export const api = ['state', 'handleChange']
 export const renderless = (
   props: IRadioProps,
   { onMounted, onBeforeUnmount, computed, reactive, inject }: ISharedRenderlessParamHooks,
-  { vm, parent, emit, nextTick, dispatch }: IRadioRenderlessParamUtils
+  { vm, parent, emit, nextTick }: IRadioRenderlessParamUtils
 ): IRadioApi => {
   parent.tinyForm = parent.tinyForm || inject('form', null)
 
@@ -66,12 +66,16 @@ export const renderless = (
     tabIndex: tabIndex({ props, state }),
     isDisabled: isDisabled({ props, state }),
     isDisplayOnly: isDisplayOnly({ props }),
-    setModel: setModel({ dispatch, emit, props, vm, state }),
-    handleChange: handleChange({ dispatch, emit, state, nextTick })
+    setModel: setModel({ emit, props, vm, state }),
+    handleChange: handleChange({ emit, state, nextTick })
   })
 
+  // 替代 dispatch('Tooltip', 'tooltip-update')：tooltip 通过 provide('tooltipVm') 暴露 vm，
+  // 走 $emitter.emit 纯总线通知（tooltip 以 vm.$on('tooltip-update') 订阅）
+  const tooltipVm: any = inject('tooltipVm', null)
+
   onMounted(() => {
-    dispatch('Tooltip', 'tooltip-update')
+    tooltipVm?.$emitter.emit('tooltip-update')
     toggleEvent({ props, vm, type: 'add' })
   })
 

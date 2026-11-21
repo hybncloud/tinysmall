@@ -166,10 +166,17 @@ const initWatch = ({
 export const renderless = (
   props: ICascaderPanelProps,
   { computed, onMounted, reactive, watch, provide, inject }: ISharedRenderlessParamHooks,
-  { nextTick, emit, slots }: ICascaderPanelRenderlessParamUtils
+  { vm, nextTick, emit, slots }: ICascaderPanelRenderlessParamUtils
 ) => {
   const api = {} as ICascaderPanelApi
   const menus: ICascaderPanelRenderlessParams['vm'][] = []
+
+  // 下发自身 vm（TinyVM），供 cascader-node 替代 dispatch('TinyCascaderPanel', 'close')
+  provide('cascaderPanelVm', vm)
+  // 桥接：cascader-node 通过 $emitter 广播的内部事件 'panel:close'，
+  // 这里以公共事件 'close' 对外触发（cascader 模板的 @close 监听随之生效）。
+  // setup 级 emit 仅走 instance.emit、不回总线，与内部事件名不同名故无重入风险
+  vm.$on('panel:close', () => emit('close', false))
   const state = initState({ reactive, props, inject, computed, slots })
 
   // 子组件注册：cascader-menu 在 setup 时注册自身，替代遍历子树的 childrenHandler

@@ -161,10 +161,10 @@ export const handleClick =
   ({
     state,
     props,
-    dispatch,
+    dropdownVm,
     vm,
     emit
-  }: Pick<IDropdownItemRenderlessParams, 'state' | 'props' | 'dispatch' | 'vm' | 'emit'>) =>
+  }: Pick<IDropdownItemRenderlessParams, 'state' | 'props' | 'vm' | 'emit'> & { dropdownVm: any }) =>
   (event: MouseEvent): void => {
     // 此处需要手动阻止事件冒泡，如果使用@click.sotp在vue2.x下会导致在自循环组件（dropdown-item）事件绑定错乱
     event.stopPropagation()
@@ -176,9 +176,13 @@ export const handleClick =
       emit('item-click', data)
     }
     // 此处需要传递一个对象，如果是数组[param1,param2],会导致vue2和vue3的表现形式不一样,aui 目前还是数组形式
-    dispatch('TinyDropdown', 'menu-item-click', data)
-    dispatch('TinyDropdown', 'is-disabled', [props.disabled])
-    dispatch('TinyDropdown', 'selected-index', [state.currentIndex])
+    // 替代 dispatch('TinyDropdown', ...)：dropdown 通过 provide('dropdownVm') 暴露 vm，
+    // 走 $emitter.emit 纯总线广播（dropdown 以 vm.$on('menu-item-click'/'is-disabled'/'selected-index') 订阅）。
+    // 注：原 dispatch 靠 instance.parent 链找 TinyDropdown，用户书写的 slot 内容上该链
+    // 不经过 dropdown，旧实现实际收不到通知，此处替换顺带修复了该问题
+    dropdownVm?.$emitter.emit('menu-item-click', data)
+    dropdownVm?.$emitter.emit('is-disabled', props.disabled)
+    dropdownVm?.$emitter.emit('selected-index', state.currentIndex)
   }
 
 export const computedGetIcon =

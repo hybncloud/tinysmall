@@ -26,19 +26,19 @@ export const handleFocus =
 
 export const handleHeaderClick =
   ({
-    componentName,
-    dispatch,
+    collapseVm,
     eventName,
     props,
     parent,
     state
-  }: Pick<ICollapseItemRenderlessParams, 'componentName' | 'dispatch' | 'eventName' | 'props' | 'parent' | 'state'>) =>
+  }: Pick<ICollapseItemRenderlessParams, 'eventName' | 'props' | 'parent' | 'state'> & { collapseVm: any }) =>
   () => {
     if (props.disabled) {
       return
     }
 
-    dispatch(componentName, eventName, parent)
+    // 替代 dispatch('Collapse', eventName)：见 collapse-item/vue.ts，走 collapse TinyVM 的 $emitter 纯总线广播
+    collapseVm?.$emitter.emit(eventName, parent)
 
     state.focusing = false
     state.isClick = true
@@ -55,10 +55,9 @@ export const handleHeaderContainerClick =
 
 export const handleEnterClick =
   ({
-    componentName,
-    dispatch,
+    collapseVm,
     eventName,
     parent
-  }: Pick<ICollapseItemRenderlessParams, 'componentName' | 'dispatch' | 'eventName' | 'parent'>) =>
+  }: Pick<ICollapseItemRenderlessParams, 'eventName' | 'parent'> & { collapseVm: any }) =>
   () =>
-    dispatch(componentName, eventName, parent)
+    collapseVm?.$emitter.emit(eventName, parent)

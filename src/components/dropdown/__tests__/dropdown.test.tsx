@@ -87,6 +87,71 @@ describe('PC Mode', () => {
     }, 500)
   })
 
+  test('visible 通知 dropdown-menu 显隐（emitter 替代 broadcast）', async () => {
+    const wrapper = mount(() => (
+      <Dropdown
+        showTimeout={0}
+        hideTimeout={0}
+        v-slots={{
+          dropdown: () => (
+            <DropdownMenu>
+              <DropdownItem>老友粉</DropdownItem>
+            </DropdownMenu>
+          )
+        }}
+      ></Dropdown>
+    ))
+
+    const triggerEle = wrapper.find('.tiny-dropdown__trigger')
+    // 菜单显示后 popper 会将 DOM 移动到 body，需用 document 查询
+    const menuEl = () => document.querySelector('.tiny-dropdown-menu') as HTMLElement | null
+
+    await triggerEle.trigger('mouseenter')
+    await new Promise((resolve) => setTimeout(resolve, 50))
+    expect(menuEl()).toBeTruthy()
+    expect(menuEl()!.style.display).not.toBe('none')
+
+    await triggerEle.trigger('mouseleave')
+    await new Promise((resolve) => setTimeout(resolve, 50))
+    expect(menuEl()!.style.display).toBe('none')
+  })
+
+  test('dispatch 基线：dropdown-item 点击通知 dropdown 并收起菜单', async () => {
+    const wrapper = mount(() => (
+      <Dropdown
+        showTimeout={0}
+        hideTimeout={0}
+        v-slots={{
+          default: () => <span class="test-trigger">触发</span>,
+          dropdown: () => (
+            <DropdownMenu>
+              <DropdownItem>老友粉</DropdownItem>
+            </DropdownMenu>
+          )
+        }}
+      ></Dropdown>
+    ))
+
+    await wrapper.find('.tiny-dropdown__trigger').trigger('mouseenter')
+    await new Promise((resolve) => setTimeout(resolve, 50))
+    // 注意：同文件多个用例共享 document，popper 显示时会将菜单移入 body，
+    // 取最后一个元素以避开上一个用例遗留的菜单 DOM
+    const menuEl = () => {
+      const menus = document.querySelectorAll('.tiny-dropdown-menu')
+      return menus[menus.length - 1] as HTMLElement | null
+    }
+    expect(menuEl()!.style.display).not.toBe('none')
+
+    // 点击菜单项 → dropdown-item 通知 dropdown（menu-item-click）→ dropdown 收起菜单并 emit('item-click')
+    const items = document.querySelectorAll('.tiny-dropdown-item')
+    ;(items[items.length - 1] as HTMLElement).dispatchEvent(new MouseEvent('click', { bubbles: true }))
+    await new Promise((resolve) => setTimeout(resolve, 50))
+
+    const dropdownComp = wrapper.findComponent({ name: 'TinyDropdown' })
+    expect(dropdownComp.emitted('item-click')).toBeTruthy()
+    expect(menuEl()!.style.display).toBe('none')
+  })
+
   test.todo('type 菜单按钮类型，同 Button 组件(只在split-button为 true 的情况下有效)')
   test.todo('size 菜单尺寸，在split-button为 true 的情况下也对触发按钮生效。可选值（medium / small / mini）')
   test.todo('split-button 下拉触发元素呈现为按钮组')

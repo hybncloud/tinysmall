@@ -124,7 +124,6 @@ export type IFormItemRenderlessParams = ISharedRenderlessFunctionParams<IFormIte
 export interface IFormItemApi {
   state: IFormItemState
   dispatch: ISharedRenderlessParamUtils['dispatch']
-  broadcast: ISharedRenderlessParamUtils['broadcast']
   watchError: ReturnType<typeof watchError>
   updateTip: ReturnType<typeof updateTip>
   updateTooltip: ReturnType<typeof updateTooltip>

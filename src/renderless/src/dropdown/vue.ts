@@ -45,7 +45,7 @@ export const api = ['state', 'handleMainButtonClick', 'hide', 'show', 'initDomOp
 export const renderless = (
   props: IDropdownProps,
   { reactive, watch, provide, onMounted, computed, onBeforeUnmount }: ISharedRenderlessParamHooks,
-  { emit, parent, broadcast, vm, nextTick }: IDropdownRenderlessParamUtils
+  { emit, parent, vm, nextTick }: IDropdownRenderlessParamUtils
 ): IDropdownApi => {
   const api = {} as IDropdownApi
   const state: IDropdownState = reactive({
@@ -69,11 +69,11 @@ export const renderless = (
 
   Object.assign(api, {
     state,
-    watchVisible: watchVisible({ broadcast, emit, nextTick }),
+    watchVisible: watchVisible({ vm, emit, nextTick }),
     watchFocusing: watchFocusing(vm),
     show: show({ props, state, emit }),
     hide: hide({ api, props, state, emit }),
-    mounted: mounted({ api, vm, state, broadcast, props }),
+    mounted: mounted({ api, vm, state, props }),
     handleClick: handleClick({ api, props, state, emit }),
     handleTriggerKeyDown: handleTriggerKeyDown({ api, state }),
     handleItemKeyDown: handleItemKeyDown({ api, props, state, emit }),

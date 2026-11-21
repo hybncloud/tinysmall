@@ -121,7 +121,7 @@ export const watchCheckedValue =
     }
 
     nextTick(() => {
-      dispatch($constants.COMPONENT_NAME.FormItem, $constants.EVENT_NAME.FormChange, [
+      dispatch($constants.EVENT_NAME.FormChange, [
         state.multiple ? state.presentText : state.inputValue
       ])
     })
@@ -325,7 +325,7 @@ export const handleExpandChange =
   ({ dispatch, emit, nextTick, state, updatePopper }) =>
   (value) => {
     nextTick(() => {
-      dispatch($constants.COMPONENT_NAME.FormItem, $constants.EVENT_NAME.FormBlur, [
+      dispatch($constants.EVENT_NAME.FormBlur, [
         state.multiple ? state.presentText : state.inputValue
       ])
       // 同步时需注意，popper初始化时会保存dom的引用，因此无需传参，否则vue2下会有bug

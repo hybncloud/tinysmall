@@ -195,14 +195,14 @@ export const select = (api: IInputApi) => (): void => api.getInput().select()
 export const handleBlur =
   ({
     api,
-    componentName,
+    formItem,
     eventName,
     emit,
     props,
     state,
     vm
   }: Pick<IInputRenderlessParams, 'api' | 'emit' | 'props' | 'state' | 'vm'> & {
-    componentName: string
+    formItem: any
     eventName: string
   }) =>
   (event: FocusEvent): void => {
@@ -213,7 +213,9 @@ export const handleBlur =
     api.isMemoryStorage.value = false
 
     if (props.validateEvent) {
-      api.dispatch(componentName, eventName, [props.modelValue])
+      // 替代 dispatch('FormItem', eventName)：走 form-item 的 $emitter 纯总线通知
+      // （form-item 以 vm.$on('form.blur') 订阅），不触发其 instance.emit
+      formItem?.$emitter.emit(eventName, props.modelValue)
     }
 
     if (props.hoverExpand) {

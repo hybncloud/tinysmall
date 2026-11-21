@@ -80,7 +80,6 @@ const initState = ({ reactive, computed, form, api, inject, props }) => {
 const initApi = ({
   api,
   state,
-  dispatch,
   props,
   formItemSize,
   emit,
@@ -89,7 +88,7 @@ const initApi = ({
   vm
 }: Pick<
   ICheckboxRenderlessParams & ICheckboxRenderlessParamUtils & ISharedRenderlessParamHooks,
-  'api' | 'state' | 'dispatch' | 'props' | 'formItemSize' | 'emit' | 'nextTick' | 't' | 'vm'
+  'api' | 'state' | 'props' | 'formItemSize' | 'emit' | 'nextTick' | 't' | 'vm'
 >) => {
   Object.assign(api, {
     state,
@@ -105,9 +104,9 @@ const initApi = ({
     computedGetModelGet: computedGetModelGet({ state, props }),
     computedIsGroup: computedIsGroup({ state }),
     computedCheckboxSize: computedCheckboxSize({ state, props, formItemSize }),
-    computedGetModelSet: computedGetModelSet({ state, dispatch, emit }),
+    computedGetModelSet: computedGetModelSet({ state, emit }),
     mounted: mounted({ emit, props, api, parent: vm }),
-    handleChange: handleChange({ state, props, emit, nextTick, dispatch }),
+    handleChange: handleChange({ state, props, emit, nextTick }),
     computedDisplayLabel: computedDisplayLabel({ state, props, t }),
     computedIsShowText: computedIsShowText({ props }),
     computedShowText: computedShowText({ props })
@@ -117,18 +116,22 @@ const initApi = ({
 export const renderless = (
   props: ICheckboxProps,
   { computed, onMounted, onBeforeUnmount, reactive, watch, inject }: ISharedRenderlessParamHooks,
-  { vm, emit, nextTick, dispatch, t }: ICheckboxRenderlessParamUtils
+  { vm, emit, nextTick, t }: ICheckboxRenderlessParamUtils
 ): ICheckboxApi => {
-  const api = { dispatch } as ICheckboxApi
+  const api = {} as ICheckboxApi
   const formItemSize = computed(() => api.computedFormItemSize())
   const form = inject('form', null)
   const state: ICheckboxState = initState({ reactive, computed, form, api, inject, props })
 
-  initApi({ api, state, dispatch, props, formItemSize, emit, nextTick, t, vm })
+  initApi({ api, state, props, formItemSize, emit, nextTick, t, vm })
+
+  // 替代 dispatch('FormItem', 'form.change')：form-item 通过 provide('formItem') 暴露 vm，
+  // 走 $emitter.emit 纯总线通知（form-item 以 vm.$on('form.change') 订阅），不触发其 instance.emit
+  const formItem: any = inject('formItem', null)
 
   watch(
     () => props.modelValue,
-    (value) => props.validateEvent && api.dispatch($constants.FORM_ITEM, $constants.FORM_CHANGE, value)
+    (value) => props.validateEvent && formItem?.$emitter.emit($constants.FORM_CHANGE, value)
   )
 
   watch(
@@ -142,8 +145,12 @@ export const renderless = (
     toggleEvent({ parent: vm, props, type: 'remove' })
   })
 
+  // 替代 dispatch('Tooltip', 'tooltip-update')：tooltip 通过 provide('tooltipVm') 暴露 vm，
+  // 走 $emitter.emit 纯总线通知（tooltip 以 vm.$on('tooltip-update') 订阅）
+  const tooltipVm: any = inject('tooltipVm', null)
+
   onMounted(() => {
-    dispatch('Tooltip', 'tooltip-update')
+    tooltipVm?.$emitter.emit('tooltip-update')
     toggleEvent({ parent: vm, props, type: 'add' })
     api.mounted()
   })

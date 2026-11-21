@@ -276,9 +276,16 @@ export const renderless = (
     inject,
     provide
   }: ISharedRenderlessFunctionParams<null>,
-  { t, emit, nextTick, slots, dispatch, vm }: ICascadeRenderlessParamUtils
+  { t, emit, nextTick, slots, vm }: ICascadeRenderlessParamUtils
 ) => {
   const form = inject('form', null)
+  // 替代适配器的 dispatch('FormItem', ...)：form-item 通过 provide('formItem') 暴露 vm，
+  // 走 $emitter.emit 纯总线通知（form-item 以 vm.$on('form.change'/'form.blur') 订阅），
+  // 不触发其 instance.emit；旧签名首个参数 componentName 恒为 'FormItem'，已移除；
+  // 兼容旧调用约定：params 为数组时展开为单个实参
+  const formItem: any = inject('formItem', null)
+  const dispatch = (eventName: string, params?: any) =>
+    formItem?.$emitter.emit(eventName, ...(Array.isArray(params) ? params : [params]))
 
   // 下发自身 vm，供 cascader-panel 注入，替代 $parent 链访问
   provide('cascader', vm)

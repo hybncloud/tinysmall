@@ -112,7 +112,6 @@ const initApi = ({
   lockScrollClass,
   usePopups,
   nextTick,
-  broadcast,
   vm
 }: IDialogBoxInitApiParam): void => {
   const { open, close } = usePopups
@@ -120,10 +119,9 @@ const initApi = ({
     state,
     open,
     close,
-    broadcast,
     handleCancel: handleCancel({ api, emit }),
     handleConfirm: handleConfirm({ api, emit }),
-    updatePopper: updatePopper({ api }),
+    updatePopper: updatePopper({ vm }),
     handleWrapperClick: handleWrapperClick({ api, props, state }),
     useMouseEventDown: useMouseEventDown({ state }),
     useMouseEventUp: useMouseEventUp({ state }),
@@ -165,11 +163,16 @@ const initWatch = ({ watch, state, api, props }: IDialogBoxInitWatchParam) => {
 
 export const renderless = (
   props: IDialogBoxProps,
-  { computed, onBeforeUnmount, onMounted, toRefs, reactive, watch }: ISharedRenderlessParamHooks,
-  { vm, emitter, parent, emit, nextTick, broadcast }: IDialogBoxRenderlessParamUtils
+  { computed, onBeforeUnmount, onMounted, toRefs, reactive, watch, provide }: ISharedRenderlessParamHooks,
+  { vm, emitter, parent, emit, nextTick }: IDialogBoxRenderlessParamUtils
 ): IDialogBoxApi => {
   const api = {} as IDialogBoxApi
   const lockScrollClass = $constants.SCROLL_LOCK_CLASS('pc')
+
+  // 供后代组件（如 dropdown-menu）订阅本组件 $emitter 上广播的事件（updatePopper），
+  // 替代 broadcast 按组件名遍历子树
+  provide('dialogBoxVm', vm)
+
   let state = initState({ reactive, computed, api, emitter, props })
   const usePopups = usePopup({
     api,
@@ -192,8 +195,7 @@ export const renderless = (
     usePopups,
     lockScrollClass,
     nextTick,
-    vm,
-    broadcast
+    vm
   })
 
   state = mergeState({ reactive, state, toRefs, usePopups })

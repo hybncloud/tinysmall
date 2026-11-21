@@ -41,7 +41,7 @@ export const api = [
   'setDelta'
 ]
 
-export const renderless = (props, { computed, onMounted, onUnmounted, reactive, inject }, { parent, dispatch, vm }) => {
+export const renderless = (props, { computed, onMounted, onUnmounted, reactive, inject }, { parent, vm }) => {
   const api = {}
   const CARD_SCALE = $constants.CARD_SCALE
   const TYPE_VERTICAL = $constants.TYPE_VERTICAL
@@ -78,10 +78,10 @@ export const renderless = (props, { computed, onMounted, onUnmounted, reactive, 
   })
 
   onMounted(() => {
-    // 向父组件提交 updateItems 事件
-    dispatch('Carousel', 'updateItems', [vm])
-    // 向父组件提交 complete 事件
-    dispatch('Carousel', 'complete', [])
+    // 替代 dispatch('Carousel', ...)：carousel 通过 provide('CarouselVm') 暴露 vm，
+    // 走 $emitter.emit 纯总线广播（carousel 以 vm.$on('updateItems'/'complete') 订阅）
+    carouselParent?.$emitter.emit('updateItems', vm)
+    carouselParent?.$emitter.emit('complete')
   })
 
   onUnmounted(() => {

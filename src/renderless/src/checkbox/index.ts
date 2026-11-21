@@ -40,9 +40,8 @@ export const handleChange =
     state,
     props,
     emit,
-    nextTick,
-    dispatch
-  }: Pick<ICheckboxRenderlessParams, 'state' | 'props' | 'emit' | 'nextTick' | 'dispatch'>) =>
+    nextTick
+  }: Pick<ICheckboxRenderlessParams, 'state' | 'props' | 'emit' | 'nextTick'>) =>
   (event: ICheckboxChangeEvent): void => {
     if (state.isLimitExceeded) {
       return
@@ -60,7 +59,9 @@ export const handleChange =
     emit('change', moduleValue, event)
 
     nextTick(() => {
-      state.isGroup && dispatch($constants.CHECKBOX_GROUP, 'change', [state.checkboxGroup.modelValue])
+      // 替代 dispatch(CHECKBOX_GROUP, 'change')：走 checkbox-group 的 $emitter 纯总线广播，
+      // group 侧桥接后以公共事件 'change' 对外触发
+      state.isGroup && state.checkboxGroup?.$emitter.emit('change', state.checkboxGroup.modelValue)
     })
   }
 
@@ -78,9 +79,8 @@ export const computedGetModelGet = ({ state, props }: Pick<ICheckboxRenderlessPa
 export const computedGetModelSet =
   ({
     state,
-    dispatch,
     emit
-  }: Pick<ICheckboxRenderlessParams, 'state' | 'dispatch' | 'emit'>) =>
+  }: Pick<ICheckboxRenderlessParams, 'state' | 'emit'>) =>
   (value: ICheckboxState['model']): void => {
     if (state.isGroup) {
       state.isLimitExceeded = false
@@ -89,7 +89,7 @@ export const computedGetModelSet =
 
       state.checkboxGroup.max !== undefined && value.length > state.checkboxGroup.max && (state.isLimitExceeded = true)
 
-      state.isLimitExceeded === false && dispatch($constants.CHECKBOX_GROUP, 'update:modelValue', [value])
+      state.isLimitExceeded === false && state.checkboxGroup?.$emitter.emit('update:modelValue', value)
     } else {
       emit('update:modelValue', value)
       state.selfModel = value

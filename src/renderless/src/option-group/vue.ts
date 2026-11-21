@@ -6,10 +6,9 @@ export const api = ['state', 'queryChange']
 export const renderless = (
   props,
   { onMounted, onBeforeUnmount, reactive, watch, inject, provide },
-  { broadcast, vm }
+  { vm }
 ) => {
   const select = inject('select')
-  const constants = $constants
 
   provide('optionGroup', vm)
 
@@ -29,7 +28,9 @@ export const renderless = (
   watch(
     () => props.disabled,
     (value) => {
-      broadcast($constants.COMPONENT_NAME.Option, $constants.EVENT_NAME.handleGroupDisabled, value)
+      // option 侧通过 inject('optionGroup') 拿到本 vm 并 $on(handleGroupDisabled)（即 $emitter.on），
+      // 这里走 $emitter.emit 纯总线广播，不触发组件自身的 instance.emit，与 broadcast 行为一致
+      vm.$emitter.emit($constants.EVENT_NAME.handleGroupDisabled, value)
     },
     { immediate: true }
   )
@@ -46,7 +47,7 @@ export const renderless = (
     }
 
     if (props.disabled) {
-      broadcast($constants.COMPONENT_NAME.Option, $constants.EVENT_NAME.handleGroupDisabled, props.disabled)
+      vm.$emitter.emit($constants.EVENT_NAME.handleGroupDisabled, props.disabled)
     }
 
     select.state.selectEmitter.on($constants.EVENT_NAME.queryChange, api.queryChange)

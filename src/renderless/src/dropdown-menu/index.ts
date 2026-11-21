@@ -166,6 +166,14 @@ export const useVuePopper = ({ api, props, hooks, instance, state, dropdownVm }:
     }
   })
 
+  // broadcast 兼容桥：dropdown 侧通过 dropdownVm.$emitter.emit 广播的事件，
+  // 转发到本组件自身的 $emit（同时触发 instance.emit 和自身 $emitter），
+  // 与旧 broadcast 对子组件触发 component.emit + $emitter.emit 的组合行为一致
+  if (dropdownVm) {
+    dropdownVm.$emitter.on('visible', (value) => vm.$emit('visible', value))
+    dropdownVm.$emitter.on('menu-selected-index', (selectedIndex) => vm.$emit('menu-selected-index', selectedIndex))
+  }
+
   watch(
     () => props.placement,
     (value) => {
@@ -192,13 +200,14 @@ export const mounted =
   }
 
 export const handleMenuItemClick =
-  ({ state, dispatch }: Pick<IDropdownMenuRenderlessParams, 'state' | 'dispatch'>) =>
+  ({ state, dropdownVm }: Pick<IDropdownMenuRenderlessParams, 'state'> & { dropdownVm: any }) =>
   ({ itemData, vm, label, showContent, disabled }): void  => {
     state.label = label
     state.showContent = showContent
 
     const data = { itemData, vm, disabled }
-    dispatch('TinyDropdown', 'current-item-click', data) // 统一参数格式为对象
+    // 替代 dispatch('TinyDropdown', 'current-item-click')：同 dropdown-item，走 $emitter 纯总线广播
+    dropdownVm?.$emitter.emit('current-item-click', data) // 统一参数格式为对象
   }
 
 export const handleMouseenter =

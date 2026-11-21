@@ -477,7 +477,7 @@ export const handleBlur =
       }
     }, 200)
     // tiny 新增： 表单校验不能异步，否则弹窗中嵌套表单会出现弹窗关闭后再出现校验提示的bug
-    dispatch($constants.COMPONENT_NAME.FormItem, $constants.EVENT_NAME.formBlur, event.target.value)
+    dispatch($constants.EVENT_NAME.formBlur, event.target.value)
 
     state.softFocus = false
   }
@@ -1148,7 +1148,7 @@ export const watchValue =
     }
 
     if (state.completed && !isEqual(value, oldValue)) {
-      dispatch($constants.COMPONENT_NAME.FormItem, $constants.EVENT_NAME.formChange, value)
+      dispatch($constants.EVENT_NAME.formChange, value)
     }
 
     props.optimization && optmzApis.setValueIndex({ props, state })

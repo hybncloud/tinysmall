@@ -20,7 +20,6 @@ import type {
   IAutoCompleteRenderlessParamUtils
 } from '../../types'
 
-const FORM_ITEM = 'FormItem'
 
 const FORM_EVENT = {
   change: 'form.change',
@@ -77,7 +76,7 @@ export const handleChange =
     emit('update:modelValue', value)
     state.suggestionDisabled = false
     if (state.validateEvent) {
-      dispatch(FORM_ITEM, FORM_EVENT.change, [value])
+      dispatch(FORM_EVENT.change, [value])
     }
 
     if (!props.triggerOnFocus && !value) {
@@ -124,7 +123,7 @@ export const handleBlur =
     state.suggestionDisabled = true
     emit('blur')
     if (state.validateEvent) {
-      dispatch(FORM_ITEM, FORM_EVENT.blur, [props.modelValue])
+      dispatch(FORM_EVENT.blur, [props.modelValue])
     }
   }
 
@@ -190,7 +189,7 @@ export const select =
     emit('select', item)
 
     if (state.validateEvent) {
-      dispatch(FORM_ITEM, FORM_EVENT.change, [value])
+      dispatch(FORM_EVENT.change, [value])
     }
     nextTick(() => {
       state.activated = false

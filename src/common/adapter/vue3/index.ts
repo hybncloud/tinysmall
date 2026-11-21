@@ -114,6 +114,9 @@ const createVm = (
   Object.defineProperties(vm, {
     $attrs: { get: () => instance.attrs },
     $emit: { get: () => emit },
+    // 组件实例的事件总线。broadcast 替代实现：发送端 $emitter.emit（不触发 instance.emit），
+    // 接收端 $emitter.on 订阅，与旧 broadcast 触发 component.emit + $emitter.emit 的组合行为对齐
+    $emitter: { get: () => $emitter },
     $el: { get: () => instance.vnode.el },
     $nextTick: { get: () => hooks.nextTick },
     $off: { get: () => $emitter.off },

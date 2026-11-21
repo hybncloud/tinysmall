@@ -71,6 +71,8 @@ export interface ITinyVm {
   $nextTick: typeof hooks.nextTick
   /** 自动触发 instance.emit 和 instance.$emitter 两处地方 */
   $emit: (...args) => void
+  /** instance.$emitter，即组件实例的事件总线（EventBus） */
+  $emitter: Emitter
   /** instance.$emitter.off, 不传任何参数则是移除所有事件 */
   $off: (eventname?: string, callback?: Function) => void
   /** instance.$emitter.on */

@@ -18,7 +18,6 @@ export type IRadioGroupRenderlessParams = ISharedRenderlessFunctionParams & {
 
 export interface IRadioGroupApi {
   state: IRadioGroupState
-  dispatch: ISharedRenderlessParamUtils['dispatch']
   onMounted: ReturnType<typeof mounted>
   handleKeydown: ReturnType<typeof handleKeydown>
 }

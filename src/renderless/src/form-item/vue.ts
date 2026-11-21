@@ -149,14 +149,12 @@ const initState = ({
   return state
 }
 
-const initApi = ({ api, state, dispatch, broadcast, props, vm, t, nextTick, slots }) => {
+const initApi = ({ api, state, props, vm, t, nextTick, slots }) => {
   // 创建原始的 validate 函数（不经过防抖处理）
   const validateOriginFunc = validate({ api, props, state, t })
 
   Object.assign(api, {
     state,
-    dispatch,
-    broadcast,
     watchError: watchError(state),
     updateTip: updateTip({ api, vm, state }),
     updateTooltip: updateTooltip({ vm, state }),
@@ -225,14 +223,14 @@ const initWatch = ({ watch, api, props, state, nextTick }) => {
 export const renderless = (
   props: IFormItemProps,
   { computed, inject, onMounted, onUnmounted, provide, reactive, watch }: IFormItemRenderlessParams,
-  { vm, t, nextTick, broadcast, dispatch, slots }: IFormItemRenderlessParamUtils
+  { vm, t, nextTick, slots }: IFormItemRenderlessParamUtils
 ): IFormItemApi => {
   const api = {} as IFormItemApi
   const state = initState({ reactive, computed, api, inject, props })
 
   provide('formItem', vm)
 
-  initApi({ api, state, dispatch, broadcast, props, vm, t, nextTick, slots })
+  initApi({ api, state, props, vm, t, nextTick, slots })
   initWatch({ watch, api, props, state, nextTick })
 
   onMounted(api.mounted)

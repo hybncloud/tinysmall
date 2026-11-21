@@ -34,11 +34,13 @@ export const api = [
 export const renderless = (
   props: ICollapseItemProps,
   { computed, inject, reactive }: ISharedRenderlessParamHooks,
-  { vm, dispatch }: ICollapseItemRenderlessParamUtils
+  { vm }: ICollapseItemRenderlessParamUtils
 ) => {
   const collapse = inject('collapse')
+  // 替代 dispatch('Collapse', eventName)：collapse 通过 provide('collapseVm') 暴露 TinyVM，
+  // 走 $emitter.emit 纯总线广播（collapse 以 vm.$on(eventName) 订阅）
+  const collapseVm = inject('collapseVm', null)
   const _constants = collapseConstants
-  const componentName = _constants.COMPONENT_NAME.Collapse
   const eventName = _constants.EVENT_NAME.CollapseItemClick
 
   const state: ICollapseItemState = reactive({
@@ -55,8 +57,8 @@ export const renderless = (
   const api: ICollapseItemApi = {
     state,
     handleFocus: handleFocus({ state, interval: collapseItemConstants.INTERVAL }),
-    handleEnterClick: handleEnterClick({ componentName, dispatch, eventName, parent: vm }),
-    handleHeaderClick: handleHeaderClick({ componentName, dispatch, eventName, props, parent: vm, state })
+    handleEnterClick: handleEnterClick({ collapseVm, eventName, parent: vm }),
+    handleHeaderClick: handleHeaderClick({ collapseVm, eventName, props, parent: vm, state })
   }
 
   Object.assign(api, {

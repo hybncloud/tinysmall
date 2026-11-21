@@ -179,8 +179,17 @@ const initState = ({ api, reactive, vm, computed, props, utils, form }) => {
 }
 
 const initApi = ({ api, props, hooks, state, vnode, utils }) => {
-  const { t, emit, dispatch, nextTick, vm } = vnode
+  const { t, emit, nextTick, vm } = vnode
   const { destroyPopper, popperElm, updatePopper } = initPopper({ props, hooks, vnode })
+  // 替代适配器的 dispatch('FormItem', ...)：form-item 通过 provide('formItem') 暴露 vm，
+  // 直接对它 $emit（instance.emit + $emitter.emit 双通道，与旧 dispatch 行为一致）；
+  // 兼容旧调用约定：params 为数组时展开为单个实参
+  const { inject } = hooks
+  const formItem: any = inject('formItem', null)
+  // 替代适配器的 dispatch('FormItem', ...)：走 form-item 的 $emitter 纯总线通知（同 cascader）；
+  // 旧签名首个参数 componentName 恒为 'FormItem'，已移除
+  const dispatch = (eventName: string, params?: any) =>
+    formItem?.$emitter.emit(eventName, ...(Array.isArray(params) ? params : [params]))
 
   state.popperElm = popperElm
   state.picker = null

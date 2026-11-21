@@ -76,7 +76,7 @@ export const watchPickerVisible =
       state.userInput = null
 
       if (props.validateEvent) {
-        dispatch('FormItem', 'form.blur')
+        dispatch('form.blur')
       }
 
       if (props.changeOnConfirm && !valueEquals(props.modelValue, state.oldValue)) {
@@ -1230,7 +1230,7 @@ export const emitChange =
       state.valueOnOpen = val
 
       if (props.validateEvent) {
-        dispatch('FormItem', 'form.change', val)
+        dispatch('form.change', val)
       }
 
       api.emitDbTime(props.value)
@@ -1310,7 +1310,7 @@ export const watchModelValue =
     }
 
     if (!valueEquals(value, oldValue) && !state.pickerVisible && props.validateEvent) {
-      dispatch('FormItem', 'form.change', value)
+      dispatch('form.change', value)
     }
   }
 

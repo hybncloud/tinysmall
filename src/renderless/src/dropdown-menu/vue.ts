@@ -52,6 +52,11 @@ export const renderless = (
   provide('dropdownMenuVm', vm)
   provide('multiStage', props.multiStage)
   const dropdownVm: IDropdownVm = inject('dropdownVm')
+  // dialog-box 打开/滚动时通过 dialogBoxVm.$emitter 广播 updatePopper，
+  // 转发到自身 $emit（instance.emit + 自身 $emitter），使 vm.$on('updatePopper') 订阅生效
+  const dialogBoxVm: any = inject('dialogBoxVm', null)
+
+  dialogBoxVm?.$emitter.on('updatePopper', () => vm.$emit('updatePopper'))
 
   const state: IDropdownMenuState = reactive({
     offset: 0,
@@ -77,7 +82,7 @@ export const renderless = (
     mounted: mounted({ api, vm, state }),
     handleMouseenter: handleMouseenter(emit),
     handleMouseleave: handleMouseleave(emit),
-    handleMenuItemClick: handleMenuItemClick({ dispatch, state })
+    handleMenuItemClick: handleMenuItemClick({ dropdownVm, state })
   })
 
   onMounted(api.mounted)

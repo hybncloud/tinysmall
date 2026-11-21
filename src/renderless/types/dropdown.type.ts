@@ -69,5 +69,11 @@ export type IDropdownVm =
       inheritWidth: boolean
       popperElm: HTMLElement
       initDomOperation: () => void
+      /** createVm 暴露的组件事件总线，dropdown-menu 通过它订阅 dropdown 广播的事件 */
+      $emitter: {
+        emit: (event: string, ...args: any[]) => void
+        on: (event: string, callback: (...args: any[]) => void) => void
+        off: (...args: any[]) => void
+      }
     })
   | undefined

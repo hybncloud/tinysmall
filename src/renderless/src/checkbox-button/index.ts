@@ -29,8 +29,9 @@ export const handleChange =
     emit('change', value, event)
 
     nextTick(() => {
+      // 替代 dispatch(CHECKBOX_GROUP, 'change')：同 checkbox，走 checkbox-group 的 $emitter 纯总线广播
       if (state.checkboxGroup) {
-        dispatch($constants.CHECKBOX_GROUP, 'change', [state.checkboxGroup.modelValue])
+        state.checkboxGroup.$emitter.emit('change', state.checkboxGroup.modelValue)
       }
     })
   }
@@ -50,7 +51,7 @@ export const computedGetModelSet =
 
       state.checkboxGroup.max !== undefined && value.length > state.checkboxGroup.max && (state.isLimitExceeded = true)
 
-      state.isLimitExceeded === false && dispatch($constants.CHECKBOX_GROUP, 'update:modelValue', [value])
+      state.isLimitExceeded === false && state.checkboxGroup.$emitter.emit('update:modelValue', value)
     } else if (props.modelValue !== undefined) {
       emit('update:modelValue', value)
     } else {

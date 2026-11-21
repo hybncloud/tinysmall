@@ -176,9 +176,15 @@ const initWatch = ({
 export const renderless = (
   props: INumericProps,
   { computed, onMounted, onUpdated, onUnmounted, reactive, watch, inject }: ISharedRenderlessParamHooks,
-  { emit, vm, dispatch, service, nextTick }: INumericRenderlessParamUtils
+  { emit, vm, service, nextTick }: INumericRenderlessParamUtils
 ): INumericApi => {
   const api = {} as INumericApi
+  // 替代适配器的 dispatch('FormItem', ...)：走 form-item 的 $emitter 纯总线通知（同 cascader）；
+  // 旧签名首个参数 componentName 恒为 'FormItem'（总线模式下目标已由 inject 确定），已移除；
+  // 兼容旧调用约定：params 为数组时展开为单个实参
+  const formItem: any = inject('formItem', null)
+  const dispatch = (eventName: string, params?: any) =>
+    formItem?.$emitter.emit(eventName, ...(Array.isArray(params) ? params : [params]))
   const $service = initService(service)
   const form = inject('form', null)
   const state = initState({ reactive, computed, props, api, $service, form })

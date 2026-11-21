@@ -2,7 +2,7 @@ import { handelNodeClick } from './index'
 
 export const api = ['state', 'handelNodeClick']
 
-export const renderless = (props, { reactive, watch, computed }, { dispatch, nextTick }) => {
+export const renderless = (props, { reactive, watch, computed }, { nextTick }) => {
   const api = {}
 
   const state = reactive({
@@ -14,7 +14,7 @@ export const renderless = (props, { reactive, watch, computed }, { dispatch, nex
 
   Object.assign(api, {
     state,
-    handelNodeClick: handelNodeClick({ state, dispatch })
+    handelNodeClick: handelNodeClick({ state })
   })
 
   watch(
@@ -23,7 +23,6 @@ export const renderless = (props, { reactive, watch, computed }, { dispatch, nex
       if (props.activedKeys && props.nodes.id === props.activedKeys && state.activeNodeId !== props.activedKeys) {
         nextTick(() => {
           state.activeNodeId = props.activedKeys
-          dispatch('Menu', 'node-changed', { id: props.activedKeys })
         })
       }
     },

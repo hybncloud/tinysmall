@@ -23,8 +23,8 @@ export const api = ['state', 'handleKeydown']
 
 export const renderless = (
   props: IRadioGroupProps,
-  { computed, onMounted, reactive, watch, provide }: ISharedRenderlessParamHooks,
-  { vm, dispatch }: IRadioGroupRenderlessParamUtils
+  { computed, inject, onMounted, reactive, watch, provide }: ISharedRenderlessParamHooks,
+  { vm, emit }: IRadioGroupRenderlessParamUtils
 ): IRadioGroupApi => {
   const state: IRadioGroupState = reactive({
     radioGroupSize: computed(() => props.size),
@@ -32,13 +32,21 @@ export const renderless = (
     activeStyle: props.fill
   })
 
+  // radio/radio-button 通过 radioGroup.$emitter 广播 'handleChange'（内部事件），
+  // 这里转发为公共事件 'change'（不同名，且 setup 级 emit 不回总线，无重入风险）
   vm.$on('handleChange', (value) => {
-    vm.$emit('change', value)
+    emit('change', value)
   })
+
+  // 桥接 'update:modelValue'：v-model 公共事件（setup 级 emit 仅 instance.emit，同名不重入）
+  vm.$on('update:modelValue', (value) => emit('update:modelValue', value))
+
+  // 替代 dispatch('FormItem', 'form.change')：见 checkbox-group 同款改造说明，
+  // 走 $emitter.emit 纯总线通知（form-item 以 vm.$on('form.change') 订阅），不触发其 instance.emit
+  const formItem: any = inject('formItem', null)
 
   const api: IRadioGroupApi = {
     state,
-    dispatch,
     onMounted: mounted(vm),
     handleKeydown: handleKeydown(vm)
   }
@@ -46,7 +54,7 @@ export const renderless = (
   watch(
     () => props.modelValue,
     (value) => {
-      api.dispatch('FormItem', 'form.change', [value])
+      formItem?.$emitter.emit('form.change', value)
     }
   )
 

@@ -186,7 +186,6 @@ const initState = ({
 const initApi = ({
   api,
   state,
-  dispatch,
   broadcast,
   emit,
   vm,
@@ -197,11 +196,10 @@ const initApi = ({
   form
 }: Pick<
   IInputRenderlessParams,
-  'api' | 'state' | 'dispatch' | 'broadcast' | 'emit' | 'refs' | 'props' | 'parent' | 'vm' | 'nextTick' | 'slots' | 'form'
+  'api' | 'state' | 'broadcast' | 'emit' | 'refs' | 'props' | 'parent' | 'vm' | 'nextTick' | 'slots' | 'form'
 >) => {
   Object.assign(api, {
     state,
-    dispatch,
     broadcast,
     showBox: showBox(state),
     clear: clear(emit),
@@ -227,7 +225,7 @@ const initApi = ({
 const mergeApi = ({
   storages,
   api,
-  componentName,
+  formItem,
   props,
   emit,
   eventName,
@@ -237,7 +235,7 @@ const mergeApi = ({
   vm
 }: Pick<IInputRenderlessParams, 'api' | 'emit' | 'props' | 'state' | 'nextTick' | 'parent' | 'vm' | 'constants'> & {
   storages: ReturnType<typeof useStorageBox>
-  componentName: string
+  formItem: any
   eventName: IInputEventNameConstants
 }) => {
   const { storageData, isMemoryStorage, addMemory, searchMemory, selectedMemory } = storages
@@ -253,7 +251,7 @@ const mergeApi = ({
     select: select(api),
     handleBlur: handleBlur({
       api,
-      componentName,
+      formItem,
       emit,
       eventName: eventName.blur,
       props,
@@ -288,10 +286,10 @@ const initWatch = ({
   props,
   nextTick,
   emit,
-  componentName,
+  formItem,
   eventName
 }: Pick<IInputRenderlessParams, 'watch' | 'state' | 'api' | 'props' | 'nextTick' | 'emit'> & {
-  componentName: string
+  formItem: any
   eventName: IInputEventNameConstants
 }) => {
   watch(
@@ -300,7 +298,8 @@ const initWatch = ({
       nextTick(api.resizeTextarea)
 
       if (props.validateEvent) {
-        api.dispatch(componentName, eventName.change, [value])
+        // 替代 dispatch('FormItem', 'form.change')：同 handleBlur，走 $emitter.emit 纯总线通知
+        formItem?.$emitter.emit(eventName.change, value)
       }
 
       if (props.type === 'textarea' && props.popupMore && state.isDisplayOnly) {
@@ -366,22 +365,23 @@ const initWatch = ({
 export const renderless = (
   props: IInputProps,
   { computed, onMounted, onBeforeUnmount, onUpdated, reactive, toRefs, watch, inject }: ISharedRenderlessParamHooks,
-  { vm, refs, parent, attrs, slots, emit, nextTick, broadcast, dispatch }: IInputRenderlessParamUtils
+  { vm, refs, parent, attrs, slots, emit, nextTick, broadcast }: IInputRenderlessParamUtils
 ): IInputApi => {
   const api = {} as IInputApi
-  const componentName = $constants.COMPONENT_NAME.FormItem
   const eventName: IInputEventNameConstants = { change: 'form.change', blur: 'form.blur' }
   const form = inject('form', null)
-  const formItem = inject('formItem', null)
+  const formItem: any = inject('formItem', null)
+  // 替代 dispatch('Tooltip', 'tooltip-update')：tooltip 通过 provide('tooltipVm') 暴露 vm
+  const tooltipVm: any = inject('tooltipVm', null)
   const state = initState({ reactive, computed, props, attrs, form, formItem, api, vm })
 
-  initApi({ api, state, dispatch, broadcast, emit, refs, props, slots, form, parent, vm, nextTick })
+  initApi({ api, state, broadcast, emit, refs, props, slots, form, parent, vm, nextTick })
 
   const storages = useStorageBox({ api, props, reactive, toRefs })
 
-  mergeApi({ api, storages, componentName, emit, eventName, props, state, nextTick, parent, vm })
+  mergeApi({ api, storages, formItem, emit, eventName, props, state, nextTick, parent, vm })
 
-  initWatch({ watch, state, api, props, nextTick, emit, componentName, eventName })
+  initWatch({ watch, state, api, props, nextTick, emit, formItem, eventName })
 
   onMounted(() => {
     api.setNativeInputValue()
@@ -389,8 +389,9 @@ export const renderless = (
     api.updateIconOffset()
     api.setInputDomValue()
 
-    dispatch('Select', 'input-mounted', vm.$el)
-    dispatch('Tooltip', 'tooltip-update', vm.$el)
+    // 注：原 dispatch('Select', 'input-mounted', ...) 为死代码已删除——全仓库无任何订阅者
+    // tooltip 以 vm.$on('tooltip-update') 订阅，走 $emitter.emit 纯总线通知
+    tooltipVm?.$emitter.emit('tooltip-update', vm.$el)
 
     if (props.type === 'textarea' && props.popupMore && state.isDisplayOnly) {
       api.setShowMoreBtn(true)

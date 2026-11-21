@@ -15,16 +15,17 @@ import type { IRadioRenderlessParams, IRadioState } from '../../types'
 export const handleChange =
   ({
     
-    dispatch,
     emit,
     state,
     nextTick
-  }: Pick<IRadioRenderlessParams, 'constants' | 'dispatch' | 'emit' | 'state' | 'nextTick'>) =>
+  }: Pick<IRadioRenderlessParams, 'constants' | 'emit' | 'state' | 'nextTick'>) =>
   (): void => {
     nextTick(() => {
       emit('change', state.model)
 
-      state.isGroup && dispatch($constants.RADIO_GROUP, 'handleChange', [state.model])
+      // 替代 dispatch(RADIO_GROUP, 'handleChange')：走 radio-group 的 $emitter 纯总线广播，
+      // group 侧 vm.$on('handleChange') 处理器转发为公共事件 'change'
+      state.isGroup && state.radioGroup?.$emitter.emit('handleChange', state.model)
     })
   }
 
@@ -67,16 +68,15 @@ export const getModel =
 
 export const setModel =
   ({
-    
-    dispatch,
     emit,
     props,
     vm,
     state
-  }: Pick<IRadioRenderlessParams, 'constants' | 'dispatch' | 'emit' | 'props' | 'vm' | 'state'>) =>
+  }: Pick<IRadioRenderlessParams, 'constants' | 'emit' | 'props' | 'vm' | 'state'>) =>
   (val: IRadioState['model']): void => {
     if (state.isGroup) {
-      dispatch($constants.RADIO_GROUP, 'update:modelValue', [val])
+      // 替代 dispatch(RADIO_GROUP, 'update:modelValue')：同上，走 $emitter 纯总线广播（group 桥接到 v-model）
+      state.radioGroup?.$emitter.emit('update:modelValue', val)
     } else {
       emit('update:modelValue', val)
     }

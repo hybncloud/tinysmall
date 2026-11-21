@@ -22,7 +22,8 @@ export const handleChange =
   }: Pick<IRadioButtonRenderlessParams, 'constants' | 'nextTick' | 'dispatch' | 'state'>) =>
   (): void => {
     nextTick(() => {
-      dispatch($constants.RADIO_GROUP, 'handleChange', [state.value])
+      // 替代 dispatch(RADIO_GROUP, 'handleChange')：同 radio，走 $emitter 纯总线广播
+      state.radioGroup?.$emitter.emit('handleChange', state.value)
     })
   }
 
@@ -32,7 +33,7 @@ export const getValue = (state: IRadioButtonRenderlessParams['state']) => (): IR
 export const setValue =
   ({ state }: Pick<IRadioButtonRenderlessParams, 'state'>) =>
   (val: IRadioGroupProps['modelValue']): void =>
-    state.radioGroup?.$emit('update:modelValue', val)
+    state.radioGroup?.$emitter.emit('update:modelValue', val)
 
 export const getStyle = (state: IRadioButtonRenderlessParams['state']) => () => ({
   backgroundColor: state.radioGroup?.fill || '',

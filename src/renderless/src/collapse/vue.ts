@@ -24,10 +24,15 @@ export const api = ['state']
 
 export const renderless = (
   props: ICollapseProps,
-  { reactive, watch }: ISharedRenderlessParamHooks,
+  { reactive, watch, provide }: ISharedRenderlessParamHooks,
   { vm, emit}: ICollapseRenderlessParamUtils
 ) => {
   const eventName = $constants.EVENT_NAME.CollapseItemClick
+
+  // 下发自身 vm（TinyVM），供 collapse-item 替代 dispatch(Collapse, CollapseItemClick)——
+  // 注意 pc.vue 的 provide('collapse', this) 是公共代理，其 $emit 不经过 $emitter，
+  // 而本组件的 vm.$on(eventName) 订阅在 $emitter 上，故事件通知走 collapseVm
+  provide('collapseVm', vm)
 
   const state: ICollapseState = reactive({
     activeNames: []

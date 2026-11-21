@@ -264,7 +264,10 @@ export const registerField =
       return
     }
 
-    api.dispatch('Form', 'form:addField', vm)
+    // 替代 dispatch('Form', 'form:addField')：form 通过 provide('form') 暴露 vm，
+    // 这里走 $emitter.emit 纯总线通知（form 以 vm.$on('form:addField') 订阅），
+    // 不触发 form 的 instance.emit，内部事件不外泄
+    state.formInstance?.$emitter.emit('form:addField', vm)
 
     let initialValue = state.fieldValue
 
@@ -284,7 +287,7 @@ export const unregisterField =
       return
     }
 
-    api.dispatch('Form', 'form:removeField', vm)
+    state.formInstance?.$emitter.emit('form:removeField', vm)
     api.removeValidateEvents()
     state.fieldRegistered = false
   }
@@ -407,7 +410,9 @@ export const resetField =
 
     setTimeout(() => state.validateState && (state.validateState = ''))
 
-    api.broadcast('timeSelect', 'fieldReset', state.initialValue)
+    // 注：原此处有 broadcast('timeSelect', 'fieldReset', ...)，为死代码已删除——
+    // time-select 组件的 componentName 是 'TimeSelect'（大小写不匹配），
+    // 且全仓库无任何 'fieldReset' 订阅者
   }
 
 /**

@@ -232,10 +232,14 @@ export const handleCancel =
   }
 
 export const updatePopper =
-  ({ api }: Pick<IDialogBoxRenderlessParams, 'api'>) =>
+  ({ vm }: Pick<IDialogBoxRenderlessParams, 'vm'>) =>
   (): void => {
-    api.broadcast($constants.SELECT_DROPDOWN, 'updatePopper')
-    api.broadcast($constants.DROPDOWN_MENU, 'updatePopper')
+    // 原 broadcast('TinyDropdownMenu', 'updatePopper')：dropdown-menu 侧 inject('dialogBoxVm')
+    // 订阅本 vm 的 $emitter 并转发到自身 $emit，其 $on('updatePopper') 订阅随之生效
+    vm.$emitter.emit('updatePopper')
+    // 注：原 broadcast('TinySelectDropdown', 'updatePopper') 为死代码，已删除——
+    // select-dropdown 的 componentName 是 'SelectDropdown'，广播目标名永远匹配不到，
+    // 且其 updatePopper 由 base-select 通过 selectEmitter 触发
   }
 
 export const afterEnter = (emit: IDialogBoxRenderlessParams['emit']) => (): void => {

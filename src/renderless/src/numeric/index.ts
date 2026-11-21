@@ -182,7 +182,7 @@ export const handleBlur =
     emit('blur', event)
 
     if (props.validateEvent) {
-      dispatch($constants.COMPONENT_NAME, $constants.EVENT_NAME.blur, [state.displayValue])
+      dispatch($constants.EVENT_NAME.blur, [state.displayValue])
     }
   }
 
@@ -297,11 +297,11 @@ export const setCurrentValue =
       state.userInput = emitValue
 
       if (validateEvent && oldVal === '') {
-        dispatch($constants.COMPONENT_NAME, $constants.EVENT_NAME.blur, [state.currentValue])
+        dispatch($constants.EVENT_NAME.blur, [state.currentValue])
       }
 
       if (validateEvent) {
-        dispatch($constants.COMPONENT_NAME, $constants.EVENT_NAME.change, [state.currentValue])
+        dispatch($constants.EVENT_NAME.change, [state.currentValue])
       }
 
       if (props.step instanceof Object && props.step?.mode === 'restore' && props.step?.value) {

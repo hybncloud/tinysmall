@@ -75,11 +75,15 @@ export const renderless = (
     onDeactivated,
     onMounted,
     onUnmounted,
-    inject
+    inject,
+    provide
   }: ISharedRenderlessParamHooks,
   { vm, emit, slots, nextTick }: ISharedRenderlessParamUtils
 ) => {
   const api = {} as ITooltipApi
+
+  // 下发自身 vm，供后代组件（input/checkbox/radio 等）替代 dispatch('Tooltip', 'tooltip-update')
+  provide('tooltipVm', vm)
 
   const popperVmRef = {} as { popper: HTMLElement }
   const popperParam = { emit, props, nextTick, toRefs, reactive, vm, popperVmRef }

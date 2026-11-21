@@ -32,9 +32,11 @@ export const api = ['state', 'handleMultiCheckChange', 'handleCheckChange', 'han
 export const renderless = (
   props: ICascaderNodeProps,
   { computed, reactive, inject, watch }: ISharedRenderlessParamHooks,
-  { dispatch }: ISharedRenderlessParamUtils
+  {}: ISharedRenderlessParamUtils
 ): ICascaderNodeApi => {
   const parent = inject('panel') as ICascaderNodeRenderlessParams['parent']
+  // cascader-panel 通过 provide('cascaderPanelVm') 暴露的 TinyVM，用于 $emitter 总线广播
+  const cascaderPanelVm = inject('cascaderPanelVm', null)
   const api = {} as ICascaderNodeApi
   const state = reactive({
     config: computed(() => parent.state.config),
@@ -69,7 +71,7 @@ export const renderless = (
     isInPath: isInPath(props),
     handleExpand: handleExpand({ api, props, parent, state }),
     comptCheckPath: comptCheckPath({ api, parent, state }),
-    handleCheckChange: handleCheckChange({ api, parent, dispatch, state }),
+    handleCheckChange: handleCheckChange({ api, parent, cascaderPanelVm, state }),
     handleMultiCheckChange: handleMultiCheckChange({ parent, props }),
     handleNodeClick: handleNodeClick({ state, api })
   })

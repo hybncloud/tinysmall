@@ -16,9 +16,11 @@ import { KEY_CODE } from '@tinysmall/utils'
 import { addClass, removeClass, on, off } from '@tinysmall/utils'
 
 export const watchVisible =
-  ({ broadcast, emit, nextTick }: Pick<IDropdownRenderlessParams, 'broadcast' | 'emit' | 'nextTick'>) =>
+  ({ vm, emit, nextTick }: Pick<IDropdownRenderlessParams, 'vm' | 'emit' | 'nextTick'>) =>
   (value: boolean) => {
-    broadcast('TinyDropdownMenu', 'visible', value)
+    // dropdown-menu 通过 inject('dropdownVm') 订阅本 vm 的 $emitter（'visible'），
+    // 这里走 $emitter.emit 纯总线广播，不触发组件自身的 instance.emit，与 broadcast 行为一致
+    vm.$emitter.emit('visible', value)
 
     /**
      * 此处必须延时处理，不然 Vue3 环境下会从 nextTick 冒出一个错误：
@@ -269,13 +271,7 @@ export const handleMainButtonClick =
   }
 
 export const mounted =
-  ({
-    api,
-    vm,
-    state,
-    broadcast,
-    props
-  }: Pick<IDropdownRenderlessParams, 'api' | 'vm' | 'state' | 'broadcast' | 'props'>) =>
+  ({ api, vm, state, props }: Pick<IDropdownRenderlessParams, 'api' | 'vm' | 'state' | 'props'>) =>
   () => {
     if (state.showSelfIcon) {
       state.showIcon = false
@@ -284,12 +280,12 @@ export const mounted =
     vm.$on('menu-item-click', api.handleMenuItemClick)
     vm.$on('current-item-click', api.handleMenuItemClick)
     vm.$on('selected-index', (selectedIndex) => {
-      broadcast('TinyDropdownMenu', 'menu-selected-index', selectedIndex)
+      vm.$emitter.emit('menu-selected-index', selectedIndex)
     })
     if (!state.visibleIsBoolean) {
       vm.$on('is-disabled', api.clickOutside)
     } else if (props.visible) {
-      broadcast('TinyDropdownMenu', 'visible', true)
+      vm.$emitter.emit('visible', true)
     }
   }
 

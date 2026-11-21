@@ -69,7 +69,6 @@ export interface IDialogBoxApi {
   state: IDialogBoxState
   open: (options: any) => void
   close: () => void
-  broadcast: ISharedRenderlessParamUtils<IDialogBoxConstants>['broadcast']
   handleCancel: ReturnType<typeof handleCancel>
   handleConfirm: ReturnType<typeof handleConfirm>
   updatePopper: ReturnType<typeof updatePopper>
@@ -104,7 +103,7 @@ export type IDialogBoxMergeStateParam = Pick<IDialogBoxRenderlessParams, 'reacti
 
 export type IDialogBoxInitApiParam = Pick<
   IDialogBoxRenderlessParams,
-  'api' | 'state' | 'parent' | 'props' | 'emit' | 'constants' | 'nextTick' | 'vm' | 'broadcast'
+  'api' | 'state' | 'parent' | 'props' | 'emit' | 'constants' | 'nextTick' | 'vm'
 > & { usePopups: object; lockScrollClass: string }
 
 export interface IDialogBoxInitWatchParam {
