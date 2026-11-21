@@ -14,19 +14,20 @@ import { getPages, onPagerClick, onMouseenter } from './index'
 
 export const api = ['state', 'onPagerClick', 'onMouseenter']
 
-export const renderless = (props, { computed, reactive, watch }, { emit, vm }) => {
-  const api = {
-    onPagerClick: onPagerClick({ emit, props, vm })
-  }
-
+export const renderless = (props, { computed, reactive, watch, inject }, { emit, vm }) => {
   const state = reactive({
     current: null,
     showPrevMore: false,
     showNextMore: false,
     quicknextIconClass: props.popupIcon,
     quickprevIconClass: props.popupIcon,
+    pager: inject('pager', null),
     pagers: computed(() => api.getPages())
   })
+
+  const api = {
+    onPagerClick: onPagerClick({ emit, props, vm, state })
+  }
 
   Object.assign(api, {
     state,

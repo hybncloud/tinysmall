@@ -110,20 +110,10 @@ export const computedIsChecked =
   }
 
 export const computedIsGroup =
-  ({ state, parent }: Pick<ICheckboxRenderlessParams, 'state' | 'parent'>) =>
+  ({ state }: Pick<ICheckboxRenderlessParams, 'state'>) =>
   (): boolean => {
-    let parentObj = parent.$parent
-
-    while (parentObj) {
-      if (parentObj.$options.componentName !== $constants.CHECKBOX_GROUP) {
-        parentObj = parentObj.$parent
-      } else {
-        state.checkboxGroup = parentObj
-        return true
-      }
-    }
-
-    return false
+    // 分组上下文来自 inject('checkboxGroup')（见 checkbox-group/vue.ts）
+    return !!state.checkboxGroup
   }
 
 export const computedStore =

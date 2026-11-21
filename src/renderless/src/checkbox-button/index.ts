@@ -58,22 +58,6 @@ export const computedGetModelSet =
     }
   }
 
-export const computedCheckboxGroup =
-  ({ parent }) =>
-  () => {
-    let parentObj = parent.$parent
-
-    while (parentObj) {
-      if (parentObj.$options.componentName !== $constants.CHECKBOX_GROUP) {
-        parentObj = parentObj.$parent
-      } else {
-        return parentObj
-      }
-    }
-
-    return false
-  }
-
 // tiny新增： 增加监听form的disabled
 export const computedIsDisabled =
   ({ state, props }) =>

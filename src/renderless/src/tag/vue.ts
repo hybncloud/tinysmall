@@ -22,14 +22,14 @@ export const api = ['state', 'handleClose', 'handleClick']
 
 export const renderless = (
   props: ITagProps,
-  { reactive, computed }: ISharedRenderlessParamHooks,
-  { emit, parent }: ISharedRenderlessParamUtils
+  { reactive, computed, inject }: ISharedRenderlessParamHooks,
+  { emit }: ISharedRenderlessParamUtils
 ): ITagApi => {
   const state: ITagState = reactive({
     type: computed(() => props.type),
     show: true,
     selected: false,
-    mini: props.mini,
+    tagSelectable: inject('tagSelectable', false),
     color: props.color,
     text: props.text,
     maxWidth: props.maxWidth
@@ -38,7 +38,7 @@ export const renderless = (
   const api: ITagApi = {
     state,
     handleClose: handleClose({ emit, props, state }),
-    handleClick: handleClick({ emit, props, parent, state })
+    handleClick: handleClick({ emit, props, state })
   }
 
   return api

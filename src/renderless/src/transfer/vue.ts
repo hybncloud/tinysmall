@@ -74,12 +74,14 @@ const initState = ({ reactive, computed, api, props, h, slots, Tree }): ITransfe
 
 export const renderless = (
   props: ITransferProps,
-  { computed, onMounted, reactive, h, watch }: ISharedRenderlessParamHooks,
+  { computed, onMounted, reactive, h, watch, provide }: ISharedRenderlessParamHooks,
   { emit, refs, slots, vm }: ITransferRenderlessParamUtils
 ) => {
   const api = {} as ITransferApi
   const Tree = 'TinyTree'
   const Table = 'TinyTable'
+
+  provide('transfer', vm)
   const state = initState({ reactive, computed, api, props, h, slots, Tree })
   const { DROPPANEL, TRANSFERPANEL } = $constants
 

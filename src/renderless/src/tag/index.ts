@@ -22,11 +22,12 @@ export const handleClose =
   }
 
 export const handleClick =
-  ({ emit, props, parent, state }: Pick<ITagRenderlessParams, 'emit' | 'props' | 'parent' | 'state'>) =>
+  ({ emit, props, state }: Pick<ITagRenderlessParams, 'emit' | 'props' | 'state'>) =>
   (event: Event) => {
     if (props.disabled) return
 
-    parent.$parent && parent.$parent.tagSelectable && event.stopPropagation()
+    // tagSelectable 来自 inject('tagSelectable')（见 base-select/vue.ts），仅 base-select 场景提供
+    state.tagSelectable && event.stopPropagation()
     state.selected = !state.selected
     emit('click', event)
   }

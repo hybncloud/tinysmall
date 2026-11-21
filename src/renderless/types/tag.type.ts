@@ -6,9 +6,10 @@ export interface ITagState {
   type: string | undefined
   show: boolean
   selected: boolean
-  text: string
-  color: string
-  mini: boolean
+  /** inject('tagSelectable') 注入的值，仅 base-select 场景提供 */
+  tagSelectable?: boolean
+  text?: string
+  color?: string | unknown[]
   maxWidth: string | number
 }
 

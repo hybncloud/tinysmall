@@ -81,7 +81,7 @@ const getClassListVal = (parentNode) => {
 }
 
 export const onPagerClick =
-  ({ emit, props, vm }) =>
+  ({ emit, props, vm, state }) =>
   (event) => {
     const target = event.target
 
@@ -122,7 +122,7 @@ export const onPagerClick =
 
     if (props.isBeforePageChange && newPage !== currentPage) {
       let params = { newPage, currentPage, callback }
-      vm.$parent.$parent.beforePagerChangeHandler(params)
+      state.pager?.beforePagerChangeHandler(params)
     } else {
       callback()
     }

@@ -72,10 +72,12 @@ export const api = [
 
 export const renderless = (
   props: IPagerProps,
-  { reactive, computed, watch }: ISharedRenderlessParamHooks,
+  { reactive, computed, watch, provide }: ISharedRenderlessParamHooks,
   { emit, vm, nextTick, t }: IPagerRenderlessParamUtils
 ): IPagerApi => {
   const api = {} as IPagerApi
+
+  provide('pager', vm)
 
   const state: IPagerState = reactive({
     showSizes: false,

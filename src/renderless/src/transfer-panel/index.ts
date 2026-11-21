@@ -243,7 +243,7 @@ export const checkedEvent = (state) => (value, disabled) => {
 }
 
 export const setPosition =
-  ({ parent, state }) =>
+  ({ state }) =>
   (trend, event) => {
     event.stopPropagation()
     event.preventDefault()
@@ -260,7 +260,8 @@ export const setPosition =
     })
 
     const result = trend === 'up' ? [...checkedKey, ...uncheckedKey] : [...uncheckedKey, ...checkedKey]
-    parent.$parent.$emit('update:modelValue', result)
+    // transfer 来自 inject('transfer')（见 transfer/vue.ts），通过其 $emit 更新模型值
+    state.transfer?.$emit('update:modelValue', result)
   }
 
 export const selectChange = (state) => (keys) => (state.checked = keys)

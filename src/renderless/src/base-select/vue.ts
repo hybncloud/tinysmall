@@ -543,6 +543,8 @@ export const renderless = (
   provide('selectEmitter', state.selectEmitter)
   provide('selectVm', vm)
 
+  provide('tagSelectable', props.tagSelectable)
+
   const maskState = reactive({ width: '', height: '', top: '' })
 
   initApi({

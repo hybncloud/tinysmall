@@ -410,9 +410,10 @@ export const handleClick =
       return
     }
 
-    const { uploader, uploadInner } = state
+    const { uploader } = state
     const { encryptConfig = {} } = uploader
-    const fileUploadVm = uploadInner.$parent
+    // uploader 即注入的 file-upload 组件上下文，encryptDialogConfig 位于其 state
+    const fileUploadVm = uploader
     const inputHandler = () => {
       typeof props.handleTriggerClick === 'function' && props.handleTriggerClick($event, type)
 

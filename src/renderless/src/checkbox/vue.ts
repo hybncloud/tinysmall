@@ -52,7 +52,7 @@ const initState = ({ reactive, computed, form, api, inject, props }) => {
     selfModel: false,
     showLabel: false,
     isLimitExceeded: false,
-    checkboxGroup: null,
+    checkboxGroup: inject('checkboxGroup', null),
     store: computed(() => api.computedStore()),
     isGroup: computed(() => api.computedIsGroup()),
     isChecked: computed(() => api.computedIsChecked()),
@@ -82,7 +82,6 @@ const initApi = ({
   state,
   dispatch,
   props,
-  parent,
   formItemSize,
   emit,
   nextTick,
@@ -90,7 +89,7 @@ const initApi = ({
   vm
 }: Pick<
   ICheckboxRenderlessParams & ICheckboxRenderlessParamUtils & ISharedRenderlessParamHooks,
-  'api' | 'state' | 'dispatch' | 'props' | 'parent' | 'formItemSize' | 'emit' | 'nextTick' | 't' | 'vm'
+  'api' | 'state' | 'dispatch' | 'props' | 'formItemSize' | 'emit' | 'nextTick' | 't' | 'vm'
 >) => {
   Object.assign(api, {
     state,
@@ -104,7 +103,7 @@ const initApi = ({
     computedIsDisplayOnly: computedIsDisplayOnly({ state, props }),
     computedIsGroupDisplayOnly: computedIsGroupDisplayOnly({ state }),
     computedGetModelGet: computedGetModelGet({ state, props }),
-    computedIsGroup: computedIsGroup({ state, parent }),
+    computedIsGroup: computedIsGroup({ state }),
     computedCheckboxSize: computedCheckboxSize({ state, props, formItemSize }),
     computedGetModelSet: computedGetModelSet({ state, dispatch, emit }),
     mounted: mounted({ emit, props, api, parent: vm }),
@@ -118,14 +117,14 @@ const initApi = ({
 export const renderless = (
   props: ICheckboxProps,
   { computed, onMounted, onBeforeUnmount, reactive, watch, inject }: ISharedRenderlessParamHooks,
-  { vm, parent, emit, nextTick, dispatch, t }: ICheckboxRenderlessParamUtils
+  { vm, emit, nextTick, dispatch, t }: ICheckboxRenderlessParamUtils
 ): ICheckboxApi => {
   const api = { dispatch } as ICheckboxApi
   const formItemSize = computed(() => api.computedFormItemSize())
   const form = inject('form', null)
   const state: ICheckboxState = initState({ reactive, computed, form, api, inject, props })
 
-  initApi({ api, state, dispatch, props, parent, formItemSize, emit, nextTick, t, vm })
+  initApi({ api, state, dispatch, props, formItemSize, emit, nextTick, t, vm })
 
   watch(
     () => props.modelValue,

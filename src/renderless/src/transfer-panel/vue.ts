@@ -46,14 +46,15 @@ export const api = [
   'handlePageChange'
 ]
 
-const initState = ({ reactive, props, parent, computed, api, slots }) => {
+const initState = ({ reactive, props, transfer, computed, api, slots }) => {
   const state = reactive({
     query: '',
     checked: [],
     allChecked: false,
     internalPage: props.pagerOp.pageVO.currentPage || 1,
     pagerTotal: 0,
-    pageChangeData: parent.state.isToLeft,
+    transfer,
+    pageChangeData: transfer?.state.isToLeft,
     currentPage: props.pagerOp.pageVO.currentPage || 1,
     sizes: props.pagerOp && props.pagerOp.pageVO.pageSize,
     render: {},
@@ -67,7 +68,9 @@ const initState = ({ reactive, props, parent, computed, api, slots }) => {
     keyProp: computed(() => props.props.key || 'key'),
     disabledProp: computed(() => props.props.disabled || 'disabled'),
     childrenProp: computed(() => (props.treeOp && props.treeOp.props && props.treeOp.props.childern) || 'children'),
-    hasFooter: computed(() => (!!parent.$slots['left-footer'] || !!parent.$slots['right-footer']) && !!slots.default),
+    hasFooter: computed(
+      () => (!!transfer?.$slots['left-footer'] || !!transfer?.$slots['right-footer']) && !!slots.default
+    ),
     renderType: computed(() => props.render && props.render.plugin.name),
     expanded: [],
     inputBoxType: 'underline',
@@ -133,11 +136,13 @@ const initWatcher = ({ watch, state, api, props, Table }) => {
   )
 }
 
-export const renderless = (props, { computed, reactive, watch, toRaw }, { emit, parent, vm, slots }) => {
+export const renderless = (props, { computed, reactive, watch, toRaw, inject }, { emit, vm, slots }) => {
   const api = {}
   const Table = 'TinyTable'
   const Tree = 'TinyTree'
-  const state = initState({ reactive, props, parent, computed, api, slots })
+
+  const transfer = inject('transfer', null)
+  const state = initState({ reactive, props, transfer, computed, api, slots })
 
   Object.assign(api, {
     state,

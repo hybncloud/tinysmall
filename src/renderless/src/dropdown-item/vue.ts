@@ -115,24 +115,23 @@ const initApi = ({ api, state, emit, props, parent, dispatch, vm }) => {
 export const renderless = (
   props: IDropdownItemProps,
   { computed, onMounted, reactive, watch, inject }: ISharedRenderlessParamHooks,
-  { parent, emit, vm, dispatch}: IDropdownItemRenderlessParamUtils
+  { parent, emit, vm, dispatch }: IDropdownItemRenderlessParamUtils
 ): IDropdownItemApi => {
   const api = {} as IDropdownItemApi
-  const dropdownMenuVm = inject('dropdownMenuVm', null) as IDropdownMenuVm
+  const dropdownMenuVm = inject('dropdownMenuVm', null)
   const dropdownVm = inject('dropdownVm', null)
   const state: IDropdownItemState = initState({ reactive, computed, api, props, parent, dropdownMenuVm, dropdownVm })
 
-  initApi({ api, state, emit, props, parent, dispatch, vm})
+  initApi({ api, state, emit, props, parent, dispatch, vm })
 
   watch(() => state.showPopup, api.bindScroll)
 
   onMounted(() => {
-    const realParent = parent.$parent.$parent || {}
-    if (realParent.state && realParent.state.children) {
-      realParent.state.children.push(vm)
+    if (dropdownVm) {
+      dropdownVm.state.children.push(vm)
     } else {
       if (dropdownMenuVm) {
-        dropdownMenuVm.state.children = [...dropdownMenuVm.state.children, vm]
+        dropdownMenuVm.state.children.push(vm)
       }
     }
 
