@@ -14,8 +14,6 @@ export type ISharedRenderlessParamHooks = typeof hooks
 
 /** utils变量: renderless的第三个参数  */
 export interface ISharedRenderlessParamUtils {
-  /** app的root上的i18n对象，renderless基本没有使用它 */
-  i18n: any
   /** 组件内国际化，常用函数 */
   t: (path: string, options?: any) => string
   /** vue组件实例的context.attrs */
@@ -53,20 +51,20 @@ export type ISharedRenderlessFunctionParams = {
 
 /** Tiny-Vue的Adapter 内部为组件创建的Vm */
 export interface ITinyVm {
-  /** 从instance.attrs上， 过滤出所有的非函数的attrs */
+  /** instance.attrs */
   $attrs: Record<string, any>
-  /** 返回instance.subTree的同等树状的vm数据 */
-  $children: any[]
   /** 返回 instance.vnode.el */
   $el: HTMLElement
   /** 即 hooks.nextTick */
   $nextTick: typeof hooks.nextTick
   /** 自动触发 instance.emit 和 instance.$emitter 两处地方 */
-  $emit: (...args) => void
+  $emit: (eventname: string, ...args: any[]) => void
   /** instance.$emitter，即组件实例的事件总线（EventBus） */
   $emitter: Emitter
   /** instance.$emitter.off, 不传任何参数则是移除所有事件 */
-  $off: (eventname?: string, callback?: Function) => void
+  $off(): void
+  $off(eventname: string): void
+  $off(eventname: string, callback: Function): void
   /** instance.$emitter.on */
   $on: (eventname: string, callback: Function) => void
   /** instance.$emitter.once */

@@ -376,7 +376,7 @@ const innerParse = (value, dateFormat) => {
  * @param {String} [minDate] 最小时间，默认为 0001-01-01 00:00:00.000
  * @returns {Date}
  */
-export const toDate = (value, dateFormat, minDate) => {
+export const toDate = (value, dateFormat?, minDate?) => {
   let date
 
   if (isNumber(value)) {

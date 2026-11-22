@@ -11,7 +11,7 @@
       "@tinysmall/directive": ["../src/directives"],
       "@tinysmall/hooks": ["../src/hooks"],
       "@tinysmall/icon": ["../icons"],
-      "@tinysmall/locale": ["../locale/src"],
+      "@tinysmall/locale": ["../src/locale"],
       "@tinysmall/theme/*": ["../theme/src/*"],
       "@tinysmall/renderless/types": ["../src/renderless/types"],
       "@tinysmall/renderless/types/*": ["../src/renderless/types/*"],

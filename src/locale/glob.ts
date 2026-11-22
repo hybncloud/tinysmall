@@ -47,8 +47,8 @@ export const getStrTimezone = (value) => {
   const match = typeof value === 'string' && value.match(TZRE)
 
   if (match) {
-    const minoffset = match[2] * 1 + (match[3] * 1) / 60
-    value = minoffset * `${match[1]}1`
+    const minoffset = Number(match[2]) + Number(match[3]) / 60
+    value = minoffset * Number(`${match[1]}1`)
   }
 
   if (isNumber(value) && value >= -12 && value <= 14) {

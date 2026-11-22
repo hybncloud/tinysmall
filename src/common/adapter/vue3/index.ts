@@ -81,7 +81,6 @@ const createVm = (
 export const tools = (context: hooks.SetupContext<any, any>): Omit<ISharedRenderlessParamUtils, 't' | 'parent'> => {
   const instance = hooks.getCurrentInstance()
   if (instance == null) throw new Error('tools() must be called within setup()')
-  const i18n = instance?.proxy?.$root?.$i18n
   const vm = createVm({}, instance, context)
   const emit = context.emit
 
@@ -105,7 +104,6 @@ export const tools = (context: hooks.SetupContext<any, any>): Omit<ISharedRender
     vm,
     emit,
     emitter,
-    i18n,
     refs,
     slots: instance.slots,
     scopedSlots: instance.slots,

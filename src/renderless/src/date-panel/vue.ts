@@ -59,6 +59,7 @@ import {
   getNowTime
 } from './index'
 import { DATEPICKER, DATE, toDate1, getWeekNumber, modifyDate, extractDateFormat } from '@tinysmall/utils'
+import { language } from '@tinysmall/locale'
 
 export const api = [
   'state',
@@ -87,7 +88,7 @@ export const api = [
   'getNowTime'
 ]
 
-const initState = ({ reactive, computed, api, i18n, props }) => {
+const initState = ({ reactive, computed, api, props }) => {
   const state = reactive({
     popperClass: props.popperClass || '',
     date: new Date(),
@@ -129,7 +130,7 @@ const initState = ({ reactive, computed, api, i18n, props }) => {
     yearLabel: computed(() => api.getYearLabel()),
     timeFormat: computed(() => api.computerTimeFormat()),
     dateFormat: computed(() => (state.format ? extractDateFormat(state.format.replace(state.timefmt, '')) : DATE.Date)),
-    lang: computed(() => (i18n ? i18n.locale.replace(/_/g, '-') : 'zh-CN')),
+    lang: computed(() => language() || 'zh-CN'),
     isShowTz: computed(() => state.showTimezone && state.showTime),
     isShowFooter: computed(() => state.footerVisible && [DATEPICKER.Date, DATEPICKER.Year].includes(state.currentView)),
     buttonType: 'default',
@@ -287,10 +288,10 @@ const initApi = ({ api, state, t, emit, nextTick, vm, watch, props }) => {
   })
 }
 
-export const renderless = (props, { computed, reactive, watch, nextTick }, { t, emit: $emit, vm, i18n }) => {
+export const renderless = (props, { computed, reactive, watch, nextTick }, { t, emit: $emit, vm }) => {
   const api = {}
   const emit = props.emitter ? props.emitter.emit : $emit
-  const state = initState({ reactive, computed, api, i18n, props })
+  const state = initState({ reactive, computed, api, props })
 
   initApi({ api, state, t, emit, nextTick, vm, watch, props })
   initWatch({ watch, state, api, nextTick, props, t })

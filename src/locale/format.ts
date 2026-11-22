@@ -1,12 +1,14 @@
 const RE_NARGS = /(%|)\{([0-9a-zA-Z_]+)\}/g
 
-export default function (string, ...args) {
+export default function (string: string, ...args: any[]) {
+  let params: any = args
+
   if (args.length === 1 && typeof args[0] === 'object') {
-    args = args[0]
+    params = args[0]
   }
 
-  if (!args || !args.hasOwnProperty) {
-    args = {}
+  if (!params || !params.hasOwnProperty) {
+    params = {}
   }
 
   return string.replace(RE_NARGS, (match, prefix, i, index) => {
@@ -15,7 +17,7 @@ export default function (string, ...args) {
     if (string[index - 1] === '{' && string[index + match.length] === '}') {
       return i
     } else {
-      result = Object.prototype.hasOwnProperty.call(args, i) ? args[i] : null
+      result = Object.prototype.hasOwnProperty.call(params, i) ? params[i] : null
 
       if (result === null || result === undefined) {
         return ''
