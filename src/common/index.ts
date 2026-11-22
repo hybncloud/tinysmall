@@ -1,6 +1,6 @@
 import hooks from './adapter/index.ts'
-import { directive, h, markRaw, Teleport } from './adapter/index.ts'
-import { parseVnode, isEmptyVnode, tools } from './adapter/index.ts'
+import { h, markRaw, Teleport } from './adapter/index.ts'
+import { tools } from './adapter/index.ts'
 import { t } from '@tinysmall/locale'
 import '@tinysmall/theme/base/index.less'
 import { defineComponent } from './adapter/index.ts'
@@ -64,4 +64,4 @@ export const setup = <P, R extends object = {}, C extends SetupContext<any[], {}
 
 export type { PropType, ComponentPublicInstance, App, VNode } from './adapter'
 
-export { h, hooks, directive, parseVnode, isEmptyVnode, Teleport, markRaw }
+export { h, hooks, Teleport, markRaw }

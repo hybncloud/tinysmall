@@ -399,7 +399,7 @@ export default defineComponent({
     'selectMenu',
     'isSelect'
   ],
-  directives: directive({ Clickoutside }),
+  directives: { Clickoutside },
   components: {
     IconClose: IconClose(),
     IconEyeopen: IconEyeopen(),

@@ -10,7 +10,7 @@
  *
  -->
 <script lang="tsx">
-import { setup, parseVnode, h, defineComponent, hooks } from '@tinysmall/common'
+import { setup, h, defineComponent, hooks } from '@tinysmall/common'
 import { normalizeClass, Transition } from 'vue'
 import { renderless, api } from '@tinysmall/renderless/form-item/vue'
 import LabelWrap from './label-wrap'
@@ -151,7 +151,7 @@ export default defineComponent({
 
     const ItemContent = defaultSlots
       ? defaultSlots.map((vnode) => {
-          let item = parseVnode(vnode)
+          let item = vnode
           item.props = item.props || {}
           const { type } = item
           // 修复production模式下动态切换size失败问题

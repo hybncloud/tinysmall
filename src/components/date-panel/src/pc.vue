@@ -247,7 +247,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/date-panel/vue'
-import { setup, directive, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import { language } from '@tinysmall/locale'
 import { Clickoutside } from '@tinysmall/directive'
 import TimePicker from '@tinysmall/time'
@@ -324,7 +324,7 @@ export const datePanelProps = {
 export default defineComponent({
   name: 'TinyDatePanel',
   componentName: 'DatePanel',
-  directives: directive({ Clickoutside }),
+  directives: { Clickoutside },
   components: {
     TimePicker,
     YearTable,

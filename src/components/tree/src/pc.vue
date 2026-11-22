@@ -317,7 +317,7 @@ export const treeProps = {
 
 export default defineComponent({
   name: 'TinyTree',
-  directives: { ...directive({ Clickoutside }), HighlightQuery },
+  directives: { Clickoutside, HighlightQuery },
   props: treeProps,
   components: {
     TreeNode,

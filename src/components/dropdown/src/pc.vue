@@ -12,7 +12,7 @@
 
 <script lang="tsx">
 import { renderless, api } from '@tinysmall/renderless/dropdown/vue'
-import { setup, directive, defineComponent, h } from '@tinysmall/common'
+import { setup, defineComponent, h } from '@tinysmall/common'
 import Button from '@tinysmall/button'
 import ButtonGroup from '@tinysmall/button-group'
 import { Clickoutside } from '@tinysmall/directive'
@@ -113,7 +113,7 @@ export default defineComponent({
     TinyDropdownMenu: DropdownMenu,
     IconDownWard: iconDownWard()
   },
-  directives: directive({ Clickoutside }),
+  directives: { Clickoutside },
   props: dropdownProps,
   emits: [
     'visible-change',

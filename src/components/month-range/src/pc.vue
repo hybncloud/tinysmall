@@ -112,14 +112,14 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/month-range/vue'
-import { setup, directive, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import { Clickoutside } from '@tinysmall/directive'
 import MonthTable from '@tinysmall/month-table'
 import { iconDoubleRight, iconDoubleLeft } from '@tinysmall/icon'
 
 export default defineComponent({
   name: 'TinyMonthRange',
-  directives: directive({ Clickoutside }),
+  directives: { Clickoutside },
   components: {
     MonthTable,
     IconDoubleRight: iconDoubleRight(),

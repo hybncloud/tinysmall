@@ -236,7 +236,7 @@
 </template>
 
 <script lang="ts">
-import { setup, directive, h, defineComponent } from '@tinysmall/common'
+import { setup, h, defineComponent } from '@tinysmall/common'
 import { renderless, api } from '@tinysmall/renderless/tree-node/vue'
 import CollapseTransition from '@tinysmall/collapse-transition'
 import {
@@ -258,7 +258,7 @@ import { Clickoutside } from '@tinysmall/directive'
 export default defineComponent({
   name: 'TreeNode',
   componentName: 'TreeNode',
-  directives: directive({ Clickoutside }),
+  directives: { Clickoutside },
   inject: ['TreeRoot'],
   provide() {
     return {

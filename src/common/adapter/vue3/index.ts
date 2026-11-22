@@ -31,32 +31,28 @@ const defineProperties = (vm, instance, property) => {
   return vm
 }
 
+// props/ctx 在 setup 阶段即已就绪，可同步镜像到 vm
 const defineInstanceVm = (vm, instance) => {
-  defineProperties(vm, instance, 'setupState')
   defineProperties(vm, instance, 'props')
   defineProperties(vm, instance, 'ctx')
   return vm
 }
 
-const createVm = (
-  vm: object,
-  instance: hooks.ComponentInternalInstance,
-  context: hooks.SetupContext | null = null
-): ITinyVm => {
-  let $emitter: Emitter
-  if ('$emitter' in instance) {
-    $emitter = instance.$emitter as Emitter
-  } else {
-    $emitter = emitter()
-    Object.defineProperty(instance, '$emitter', { get: () => $emitter })
-  }
+// setupState 要等 setup() 返回后才由 Vue 填充，只能在 beforeMount 时镜像
+const defineSetupState = (vm, instance) => {
+  defineProperties(vm, instance, 'setupState')
+  return vm
+}
+
+const createVm = (vm: object, instance: hooks.ComponentInternalInstance): ITinyVm => {
+  let $emitter: Emitter = emitter()
 
   const emit = (event: string, ...args: any) => {
     instance.emit(event, ...args)
     $emitter.emit.call(vm, event, ...args)
   }
 
-  context || defineInstanceVm(vm, instance)
+  defineInstanceVm(vm, instance)
 
   Object.defineProperties(vm, {
     $attrs: { get: () => instance.attrs },
@@ -78,10 +74,10 @@ const createVm = (
 }
 
 // 链式 parentVm 已移除：跨组件数据一律走 provide/inject（见 AGENTS.md），parent 字段仅供内部函数签名复用
-export const tools = (context: hooks.SetupContext<any, any>): Omit<ISharedRenderlessParamUtils, 't' | 'parent'> => {
+export const tools = (context: hooks.SetupContext<any, any>): Omit<ISharedRenderlessParamUtils, 't'> => {
   const instance = hooks.getCurrentInstance()
   if (instance == null) throw new Error('tools() must be called within setup()')
-  const vm = createVm({}, instance, context)
+  const vm = createVm({}, instance)
   const emit = context.emit
 
   const refs = new Proxy(
@@ -98,7 +94,7 @@ export const tools = (context: hooks.SetupContext<any, any>): Omit<ISharedRender
     if ('ctx' in instance) Object.defineProperties(instance.ctx, props)
   }
 
-  hooks.onBeforeMount(() => defineInstanceVm(vm, instance))
+  hooks.onBeforeMount(() => defineSetupState(vm, instance))
 
   return {
     vm,
@@ -112,16 +108,6 @@ export const tools = (context: hooks.SetupContext<any, any>): Omit<ISharedRender
     defineInstanceProperties
   }
 }
-
-// 指令定义已全面使用 Vue3 生命周期钩子（beforeMount/mounted/updated/unmounted），
-// 此函数仅为保持组件 directives: directive({...}) 的书写习惯而保留
-export const directive = (directives) => directives
-
-export const parseVnode = (vnode) => vnode
-
-const { Text, Comment } = hooks
-
-export const isEmptyVnode = (vnode) => !vnode || !vnode.type || [Text, Comment].includes(vnode.type)
 
 export const h = hooks.h
 

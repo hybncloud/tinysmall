@@ -104,7 +104,7 @@
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/numeric/vue'
 import { $constants } from '@tinysmall/renderless/numeric/constants'
-import { setup, directive, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import { RepeatClick } from '@tinysmall/directive'
 import { iconChevronDown, iconChevronUp, iconMinus, iconPlus } from '@tinysmall/icon'
 import '@tinysmall/theme/numeric/index.less'
@@ -235,7 +235,7 @@ export const numericProps = {
 
 export default defineComponent({
   name: 'TinyNumeric',
-  directives: directive({ repeatClick: RepeatClick }),
+  directives: { repeatClick: RepeatClick },
   components: {
     IconChevronDown: iconChevronDown(),
     IconChevronUp: iconChevronUp(),

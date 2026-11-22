@@ -158,7 +158,7 @@
 
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/picker/vue'
-import { setup, directive, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import Input from '@tinysmall/input'
 import { Clickoutside } from '@tinysmall/directive'
 import TinyTooltip from '@tinysmall/tooltip'
@@ -179,7 +179,7 @@ export default defineComponent({
   },
   emits: ['created', 'select-change', 'update:modelValue', 'blur', 'focus', 'change'],
   props: pickerProps,
-  directives: directive({ Clickoutside }),
+  directives: { Clickoutside },
   setup(props, context) {
     return setup({
       props,

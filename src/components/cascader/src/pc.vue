@@ -286,7 +286,7 @@ export default defineComponent({
     'remove-tag',
     'created'
   ],
-  directives: { ...directive({ Clickoutside }), HighlightQuery },
+  directives: { Clickoutside, HighlightQuery },
   provide() {
     return {
       cascaderRoot: this

@@ -523,7 +523,7 @@
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/base-select/vue'
 import { $constants } from '@tinysmall/renderless/base-select/constants'
-import { setup, directive, defineComponent } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import { t } from '@tinysmall/locale'
 import TinyTag from '@tinysmall/tag'
 import TinyInput from '@tinysmall/input'
@@ -876,7 +876,7 @@ export default defineComponent({
     'dropdown-click',
     'top-create-click'
   ],
-  directives: directive({
+  directives: {
     Clickoutside,
     AutoTip,
     popover: {
@@ -887,7 +887,7 @@ export default defineComponent({
         getReference(el, binding)
       }
     }
-  }),
+  },
   components: {
     TinyTag,
     TinyInput,

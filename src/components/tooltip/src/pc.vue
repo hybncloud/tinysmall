@@ -13,8 +13,8 @@
 
 <script lang="tsx">
 import { renderless, api } from '@tinysmall/renderless/tooltip/vue'
-import { setup, parseVnode, h, defineComponent, isEmptyVnode, hooks } from '@tinysmall/common'
-import { normalizeClass, Transition } from 'vue'
+import { setup, h, defineComponent, hooks } from '@tinysmall/common'
+import { normalizeClass, Transition, Text, Comment, type VNode } from 'vue'
 import type { ITinyVm } from '@tinysmall/renderless/types/shared.type'
 import '@tinysmall/theme/tooltip/index.less'
 
@@ -149,64 +149,66 @@ export default defineComponent({
         popperVM: {
           get: () => {
             if (!_cacheVm.value) {
-              _cacheVm.value = hooks.createApp(
-                {
-                  render: () => {
-                    const content = getContent(this)
+              _cacheVm.value = hooks
+                .createApp(
+                  {
+                    render: () => {
+                      const content = getContent(this)
 
-                    // 当内容为纯文本时，添加一层wrapper，其他情况（插槽、renderContent）原样输出
-                    const addWrapper = typeof content === 'string'
-                    const propsData = {
-                      name: this.transition,
-                      onAfterLeave: this.doDestroy
-                    }
-                    const typeClass = 'is-' + (this.type || this.effect || 'dark')
-                    const mouseenter = () => this.setExpectedState(true)
-                    const mouseleave = () => {
-                      this.setExpectedState(false)
-                      this.debounceClose()
-                    }
-
-                    // 直接 updatePopper 会造成scroll事件的绑定，即使tooltip不显示，也在滚动时带来性能影响
-                    this.$nextTick(() => {
-                      // 取 v-show的条件， v-show时，要更新一下位置
-                      if (!this.disabled && this.state.showPopper && content) {
-                        this.updatePopper()
+                      // 当内容为纯文本时，添加一层wrapper，其他情况（插槽、renderContent）原样输出
+                      const addWrapper = typeof content === 'string'
+                      const propsData = {
+                        name: this.transition,
+                        onAfterLeave: this.doDestroy
                       }
-                    })
+                      const typeClass = 'is-' + (this.type || this.effect || 'dark')
+                      const mouseenter = () => this.setExpectedState(true)
+                      const mouseleave = () => {
+                        this.setExpectedState(false)
+                        this.debounceClose()
+                      }
 
-                    return h(Transition, propsData, () => [
-                      <div
-                        ref="popper"
-                        id={this.state.tooltipId}
-                        v-show={!this.disabled && this.state.showPopper && content}
-                        class={[
-                          'tiny-tooltip',
-                          'tiny-tooltip__popper',
-                          typeClass,
-                          this.popperClass,
-                          { 'tiny-tooltip__show-tips': this.state.showContent }
-                        ]}
-                        style={`max-width:${this.state.tipsMaxWidth}px`}
-                        role="tooltip"
-                        aria-hidden={this.disabled || !this.state.showPopper ? 'true' : 'false'}
-                        aria-live="polite"
-                        onMouseenter={() => mouseenter()}
-                        onMouseleave={() => mouseleave()}
-                      >
-                        {addWrapper ? (
-                          <div class="tiny-tooltip__content-wrapper" style={`max-height:${this.contentMaxHeight};`}>
-                            {content}
-                          </div>
-                        ) : (
-                          content
-                        )}
-                      </div>
-                    ])
-                  }
-                },
-                null
-              ).mount(document.createElement('div'))
+                      // 直接 updatePopper 会造成scroll事件的绑定，即使tooltip不显示，也在滚动时带来性能影响
+                      this.$nextTick(() => {
+                        // 取 v-show的条件， v-show时，要更新一下位置
+                        if (!this.disabled && this.state.showPopper && content) {
+                          this.updatePopper()
+                        }
+                      })
+
+                      return h(Transition, propsData, () => [
+                        <div
+                          ref="popper"
+                          id={this.state.tooltipId}
+                          v-show={!this.disabled && this.state.showPopper && content}
+                          class={[
+                            'tiny-tooltip',
+                            'tiny-tooltip__popper',
+                            typeClass,
+                            this.popperClass,
+                            { 'tiny-tooltip__show-tips': this.state.showContent }
+                          ]}
+                          style={`max-width:${this.state.tipsMaxWidth}px`}
+                          role="tooltip"
+                          aria-hidden={this.disabled || !this.state.showPopper ? 'true' : 'false'}
+                          aria-live="polite"
+                          onMouseenter={() => mouseenter()}
+                          onMouseleave={() => mouseleave()}
+                        >
+                          {addWrapper ? (
+                            <div class="tiny-tooltip__content-wrapper" style={`max-height:${this.contentMaxHeight};`}>
+                              {content}
+                            </div>
+                          ) : (
+                            content
+                          )}
+                        </div>
+                      ])
+                    }
+                  },
+                  null
+                )
+                .mount(document.createElement('div'))
             }
 
             return _cacheVm.value
@@ -223,12 +225,13 @@ export default defineComponent({
 
       if (!Array.isArray(slots)) return null
 
-      let element = null
+      let element: VNode | null = null
 
       for (let index = 0; index < slots.length; index++) {
-        const vnode = parseVnode(slots[index])
+        const vnode = slots[index]
 
-        if (!isEmptyVnode(vnode)) {
+        // 内联 isEmptyVnode：排除空 vnode 与 Text/Comment 占位 vnode
+        if (vnode && vnode.type && vnode.type !== Text && vnode.type !== Comment) {
           element = vnode
           break
         }
