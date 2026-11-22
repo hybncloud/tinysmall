@@ -7,7 +7,7 @@
 
 // 使用vue3的声明，来代表hooks中所有函数的声明
 import type * as hooks from 'vue'
-import type { Emitter } from '../../common/adapter/utils'
+import type { Emitter } from '../../common/index'
 
 /** hooks 变量: renderless的第二个参数 */
 export type ISharedRenderlessParamHooks = typeof hooks
