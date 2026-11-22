@@ -45,38 +45,6 @@ import {
 } from './index'
 import { throttle } from '@tinysmall/utils'
 
-export const api = [
-  'state',
-  'renderProxy',
-  'isToday',
-  'dateIsToday',
-  'getEventByTime',
-  'computedSelectDay',
-  'selectDay',
-  'toToday',
-  'getPrevWeek',
-  'getNextWeek',
-  'goPrevMonth',
-  'goNextMonth',
-  'currentDateChange',
-  'newSchedule',
-  'handleMouseenter',
-  'handleMouseleave',
-  'isSelectedDate',
-  'isStartOrEndDay',
-  'getDayBgColor',
-  'getDayBgStyle',
-  'getDayBgClass',
-  'isShowNewSchedule',
-  'isShowMark',
-  'handleCascaderChange',
-  'setCascaderVisible',
-  'handleDropBtnClick',
-  'getEventShowTime',
-  'touchstart',
-  'touchmove',
-  'touchend'
-]
 
 const initState = ({ reactive, props, computed, api }) => {
   const state = reactive({

@@ -21,7 +21,6 @@ import {
   getIsDefault
 } from './index'
 
-export const api = ['state', 'handleYearTableClick', 'handleMouseMove', 'getIsDisabled', 'getIsCurrent', 'getIsDefault']
 
 export const renderless = (props, { computed, reactive, watch }, { emit, vm }) => {
   const api = {}

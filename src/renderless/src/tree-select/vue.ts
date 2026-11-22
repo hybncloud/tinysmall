@@ -10,7 +10,6 @@ import {
   getChildValue
 } from './index'
 
-export const api = ['state', 'check', 'filter', 'nodeClick']
 
 export const renderless = (props, { reactive, computed, watch, onMounted, provide }, { vm, emit }) => {
   const api = {}

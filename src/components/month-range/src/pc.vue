@@ -111,7 +111,7 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@tinysmall/renderless/month-range/vue'
+import { renderless } from '@tinysmall/renderless/month-range/vue'
 import { setup, defineComponent } from '@tinysmall/common'
 import { Clickoutside } from '@tinysmall/directive'
 import MonthTable from '@tinysmall/month-table'
@@ -156,7 +156,7 @@ export default defineComponent({
   },
   emits: ['dodestroy', 'pick', 'select-change', 'update:modelValue'],
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   }
 })
 </script>

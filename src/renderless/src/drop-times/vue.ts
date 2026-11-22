@@ -12,7 +12,6 @@
 
 import { init, change } from './index'
 
-export const api = ['state', 'change']
 
 export const renderless = (props, { onMounted, reactive, watch, provide }, { emit, vm }) => {
   const state = reactive({

@@ -27,20 +27,6 @@ import {
   getCurrentDate
 } from './index'
 
-export const api = [
-  'state',
-  'renderProxy',
-  'isToday',
-  'isThisMonth',
-  'getEventByMonth',
-  'getEventByDay',
-  'selectDay',
-  'selectMonth',
-  'toggeModel',
-  'getTime',
-  'genMonths',
-  'toToday'
-]
 
 const initState = ({ reactive, props, computed, api }) => {
   const state = reactive({

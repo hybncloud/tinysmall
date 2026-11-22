@@ -91,7 +91,7 @@
 
 <script lang="ts">
 import Popover from '@tinysmall/popover'
-import { renderless, api } from '@tinysmall/renderless/steps/vue'
+import { renderless } from '@tinysmall/renderless/steps/vue'
 import { setup, defineComponent } from '@tinysmall/common'
 import { iconFinish, iconWarn, iconChevronLeft, iconChevronRight } from '@tinysmall/icon'
 import SlideBar from './slide-bar.vue'
@@ -125,7 +125,7 @@ export default defineComponent({
     'contentCenter'
   ],
   setup(props: any, context: any) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   }
 })
 </script>

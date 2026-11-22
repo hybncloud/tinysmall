@@ -23,7 +23,7 @@
 
 <script lang="ts">
 import { setup, defineComponent } from '@tinysmall/common'
-import { renderless, api } from '@tinysmall/renderless/cascader-panel/vue'
+import { renderless } from '@tinysmall/renderless/cascader-panel/vue'
 import CascaderMenu from '@tinysmall/cascader-menu'
 import type { ICascaderPanelApi } from '@tinysmall/renderless/types/cascader-panel.type'
 import '@tinysmall/theme/cascader-panel/index.less'
@@ -59,7 +59,7 @@ export default defineComponent({
   },
   emits: ['update:modelValue', 'change', 'close', 'expand-change', 'active-item-change', 'load-data'],
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   }
 })
 </script>

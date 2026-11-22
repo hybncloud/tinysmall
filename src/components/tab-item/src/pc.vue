@@ -25,7 +25,7 @@
 
 <script lang="ts">
 import { setup, defineComponent } from '@tinysmall/common'
-import { renderless, api } from '@tinysmall/renderless/tab-item/vue'
+import { renderless } from '@tinysmall/renderless/tab-item/vue'
 import { $constants } from '@tinysmall/renderless/tab-item/constants'
 import type { ITabItemApi } from '@tinysmall/renderless/types/tab-item.type'
 
@@ -45,7 +45,7 @@ export default defineComponent({
   componentName: 'TabItem',
   props: tabItemProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   }
 })
 </script>

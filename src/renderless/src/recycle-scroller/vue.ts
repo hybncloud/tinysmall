@@ -22,16 +22,6 @@ import {
 } from './index'
 import { addResizeListener, removeResizeListener } from '@tinysmall/utils'
 
-export const api = [
-  'state',
-  'handleVisibilityChange',
-  'handleScroll',
-  'scrollToItem',
-  'computeViewStyle',
-  'computeViewEvent',
-  'updateVisibleItems',
-  'resetTemporary'
-]
 
 const addWatchers = ({ watch, props, api, state }) => {
   watch(

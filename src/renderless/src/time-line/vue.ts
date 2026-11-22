@@ -33,7 +33,6 @@ import type {
   ISharedRenderlessParamHooks
 } from '../../types'
 
-export const api = ['state', 'handleClick', 'getStatusCls', 'getStatus', 'getDate', 'changeStatus', 'toggleFold']
 
 export const renderless = (
   props: ITimelineProps,

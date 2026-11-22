@@ -34,7 +34,7 @@
 
 <script lang="ts">
 import { setup, defineComponent } from '@tinysmall/common'
-import { renderless, api } from '@tinysmall/renderless/popover/vue'
+import { renderless } from '@tinysmall/renderless/popover/vue'
 import '@tinysmall/theme/popover/index.less'
 import type { IPopoverApi } from '@tinysmall/renderless/types/popover.type'
 
@@ -115,7 +115,7 @@ export default defineComponent({
   emits: ['update:modelValue', 'hide', 'show', 'after-enter', 'after-leave', 'created'],
   props: popoverProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   }
 })
 </script>

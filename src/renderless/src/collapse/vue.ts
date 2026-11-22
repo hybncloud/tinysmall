@@ -20,7 +20,6 @@ import type {
 
 import { setActiveNames, handleItemClick } from './index'
 
-export const api = ['state']
 
 export const renderless = (
   props: ICollapseProps,

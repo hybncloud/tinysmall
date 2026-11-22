@@ -37,21 +37,6 @@ import type {
   IAutoCompleteRenderlessParamUtils
 } from '../../types'
 
-export const api = [
-  'state',
-  'suggestionState',
-  'getInput',
-  'handleChange',
-  'close',
-  'open',
-  'handleFocus',
-  'handleBlur',
-  'handleClear',
-  'handleKeyEnter',
-  'highlight',
-  'select',
-  'doDestroy'
-]
 
 const initState = ({
   reactive,

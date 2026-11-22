@@ -9,15 +9,6 @@ import {
   refresh
 } from './index'
 
-export const api = [
-  'state',
-  'onVsBoxChange',
-  'onTreeChange',
-  'getTreeInstance',
-  'keepExpandStatus',
-  'keepScrollTop',
-  'refresh'
-]
 
 export const renderless = (props, { reactive, watch, provide }, { nextTick, vm }) => {
   const api = {}

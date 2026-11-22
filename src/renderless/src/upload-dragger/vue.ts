@@ -19,7 +19,6 @@ import type {
 } from '../../types'
 import { onDragOver, onDrop, watchDragover } from './index'
 
-export const api = ['state', 'onDragOver', 'onDrop']
 
 export const renderless = (
   props: IUploadDraggerProps,

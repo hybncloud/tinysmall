@@ -2,7 +2,6 @@ import { $constants } from './constants'
 import { mounted, reRenderWatermark, unmounted, watchProps } from './index'
 import type { IWatermarkApi } from '../../types/watermark.type'
 
-export const api = ['reRenderWatermark']
 
 export const renderless = (props, { onMounted, reactive, watch, computed, onUnmounted }, { vm }) => {
   const api = {} as IWatermarkApi

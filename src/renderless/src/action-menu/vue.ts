@@ -27,7 +27,6 @@ import {
   computedSuffixIcon
 } from './index'
 
-export const api = ['state', 'handleMoreClick', 'handleItemClick', 'visibleChange']
 
 export const renderless = (
   props: IActionMenuProps,

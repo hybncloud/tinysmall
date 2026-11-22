@@ -1,6 +1,5 @@
 import { computedBarSize, analyzeScrolling, createVirtualScroll, onScroll, refresh } from './index'
 
-export const api = ['state', 'onScroll', 'refresh']
 
 export const renderless = (props, { reactive, computed, onMounted }, { emit, vm, nextTick }) => {
   const api = {}

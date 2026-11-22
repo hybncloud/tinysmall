@@ -165,7 +165,7 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@tinysmall/renderless/timeline-item/vue'
+import { renderless } from '@tinysmall/renderless/timeline-item/vue'
 import { $constants } from '@tinysmall/renderless/timeline-item/constants'
 import { setup, defineComponent } from '@tinysmall/common'
 import { iconWarn, iconClose, iconYes } from '@tinysmall/icon'
@@ -212,7 +212,6 @@ export default defineComponent({
       props,
       context,
       renderless,
-      api,
       mono: true
     })
   }

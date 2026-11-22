@@ -12,7 +12,6 @@
 
 import { emitClick } from './index'
 
-export const api = ['state', 'create']
 
 export const renderless = (props, { reactive }, { emit }) => {
   const state = reactive({

@@ -21,7 +21,6 @@ import { handleExpand, handleMouseMove, clearHoverZone } from './index'
 import { CASCADER } from '@tinysmall/utils'
 import { random } from '@tinysmall/utils'
 
-export const api = ['state', 'handleMouseMove', 'handleExpand']
 
 export const renderless = (
   props: ICascaderMenuProps,

@@ -268,7 +268,7 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@tinysmall/renderless/input/vue'
+import { renderless } from '@tinysmall/renderless/input/vue'
 import { $constants } from '@tinysmall/renderless/input/constants'
 import { setup, defineComponent } from '@tinysmall/common'
 import type { PropType } from '@tinysmall/common'
@@ -422,7 +422,7 @@ export default defineComponent({
       }
       return result
     }
-    return { ...setup({ props, context, renderless, api }), filterAttrs }
+    return { ...setup({ props, context, renderless }), filterAttrs }
   }
 })
 </script>

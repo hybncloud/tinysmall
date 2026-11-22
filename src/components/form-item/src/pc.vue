@@ -12,7 +12,7 @@
 <script lang="tsx">
 import { setup, h, defineComponent, hooks } from '@tinysmall/common'
 import { normalizeClass, Transition } from 'vue'
-import { renderless, api } from '@tinysmall/renderless/form-item/vue'
+import { renderless } from '@tinysmall/renderless/form-item/vue'
 import LabelWrap from './label-wrap'
 import Tooltip from '@tinysmall/tooltip'
 import { iconError } from '@tinysmall/icon'
@@ -85,7 +85,7 @@ export default defineComponent({
   },
   props: formItemProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   },
 
   render() {

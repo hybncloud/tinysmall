@@ -40,23 +40,6 @@ import {
   computedTip
 } from './index'
 
-export const api = [
-  'state',
-  'confirm',
-  'clickOutside',
-  'getOptionStyle',
-  'reset',
-  'tagClick',
-  'clickItem',
-  'clickWrapper',
-  'toggle',
-  'open',
-  'opened',
-  'close',
-  'closed',
-  'handleClick',
-  'computedTip'
-]
 
 const initState = ({ reactive, computed, api, props, dropdownMenuVm, dropdownVm }) => {
   const state: IDropdownItemState = reactive({

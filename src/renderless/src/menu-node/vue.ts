@@ -1,6 +1,5 @@
 import { handelNodeClick } from './index'
 
-export const api = ['state', 'handelNodeClick']
 
 export const renderless = (props, { reactive, watch, computed }, { nextTick }) => {
   const api = {}

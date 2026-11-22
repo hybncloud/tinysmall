@@ -66,7 +66,7 @@
 <script lang="ts">
 import type { IActionMenuApi } from '@tinysmall/renderless/types/action-menu.type'
 import { setup, defineComponent } from '@tinysmall/common'
-import { renderless, api } from '@tinysmall/renderless/action-menu/vue'
+import { renderless } from '@tinysmall/renderless/action-menu/vue'
 import { iconEllipsis } from '@tinysmall/icon'
 import '@tinysmall/theme/action-menu/index.less'
 import Dropdown from '@tinysmall/dropdown'
@@ -125,7 +125,7 @@ export default defineComponent({
   emits: ['more-click', 'item-click', 'visible-change'],
   props: actionMenuProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   }
 })
 </script>

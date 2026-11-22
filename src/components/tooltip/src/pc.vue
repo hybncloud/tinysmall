@@ -12,7 +12,7 @@
  -->
 
 <script lang="tsx">
-import { renderless, api } from '@tinysmall/renderless/tooltip/vue'
+import { renderless } from '@tinysmall/renderless/tooltip/vue'
 import { setup, h, defineComponent, hooks } from '@tinysmall/common'
 import { normalizeClass, Transition, Text, Comment, type VNode } from 'vue'
 import type { ITinyVm } from '@tinysmall/renderless/types/shared.type'
@@ -115,7 +115,7 @@ export default defineComponent({
   componentName: 'Tooltip',
   props: tooltipProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   },
   render() {
     const getContent = (vm: ITinyVm) => {

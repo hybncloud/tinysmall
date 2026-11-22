@@ -2,7 +2,7 @@
 import { defineComponent, setup, h } from '@tinysmall/common'
 import type { SlotsType } from 'vue'
 import type { PropType } from 'vue'
-import { renderless, api } from '@tinysmall/renderless/space/vue'
+import { renderless } from '@tinysmall/renderless/space/vue'
 import type { ISpaceApi } from '@tinysmall/renderless/types/space.type'
 
 export const spaceProps = {
@@ -52,7 +52,7 @@ export default defineComponent({
   name: 'TinySpace',
   props: spaceProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   },
   render() {
     // 如果 renderless 层有 orderedChildren，就用它，否则 fallback 到默认 slot

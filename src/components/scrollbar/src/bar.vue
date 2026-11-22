@@ -11,7 +11,7 @@
  -->
 
 <script lang="tsx">
-import { renderless, api } from '@tinysmall/renderless/scrollbar/vue-bar'
+import { renderless } from '@tinysmall/renderless/scrollbar/vue-bar'
 import { setup, h, defineComponent } from '@tinysmall/common'
 
 // 此处引入 h 是为了防止打包后 h 被重命名导致组件报错的问题
@@ -25,7 +25,7 @@ export default defineComponent({
     move: Number
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api, h })
+    return setup({ props, context, renderless, h })
   },
   render() {
     const {

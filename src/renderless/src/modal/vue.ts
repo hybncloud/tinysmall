@@ -52,32 +52,6 @@ import { nanoid } from '@tinysmall/utils'
 import { $constants } from './constants'
 import type { IModalApi, IModalProps, IModalRenderlessParamUtils, ISharedRenderlessParamHooks } from '../../types'
 
-export const api = [
-  'state',
-  'dragEvent',
-  'mfDragEvent',
-  'mousedownEvent',
-  'toggleZoomEvent',
-  'revert',
-  'maximize',
-  'getBox',
-  'close',
-  'updateStyle',
-  'selfClickEvent',
-  'mouseEnterEvent',
-  'mouseLeaveEvent',
-  'updateZindex',
-  'closeEvent',
-  'confirmEvent',
-  'cancelEvent',
-  'open',
-  'beforeUnmouted',
-  'resetDragStyle',
-  'resetModalViewPosition',
-  'doClose',
-  'doEmitAndClose',
-  'runBeforeClose'
-]
 
 export const renderless = (
   props: IModalProps,

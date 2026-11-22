@@ -17,18 +17,6 @@ import {
 } from './index'
 import { DATEPICKER, nextYear } from '@tinysmall/utils'
 
-export const api = [
-  'state',
-  'rightPrevYear',
-  'rightNextYear',
-  'handleRangePick',
-  'handleShortcutClick',
-  'handleChangeRange',
-  'leftPrevYear',
-  'leftNextYear',
-  'resetView',
-  'watchModelValue'
-]
 
 const initState = ({ reactive, computed, api, props, t }) => {
   const initStartYear = Math.floor(new Date().getFullYear() / 10) * 10

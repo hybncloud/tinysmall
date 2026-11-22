@@ -23,7 +23,6 @@ import {
   updateZIndex
 } from './index'
 
-export const api = ['state', 'open', 'close', 'clickOverlay', 'onTouchMove', 'opened', 'closed']
 
 const initState = ({ reactive, computed, props, api }) => {
   const state = reactive({

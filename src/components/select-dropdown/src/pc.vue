@@ -24,7 +24,7 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@tinysmall/renderless/select-dropdown/vue'
+import { renderless } from '@tinysmall/renderless/select-dropdown/vue'
 import { setup, defineComponent } from '@tinysmall/common'
 import '@tinysmall/theme/select-dropdown/index.less'
 
@@ -77,7 +77,7 @@ export default defineComponent({
   inject: ['select'],
   props: selectDropdownProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   }
 })
 </script>

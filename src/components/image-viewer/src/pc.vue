@@ -77,7 +77,7 @@
 </template>
 
 <script lang="tsx">
-import { renderless, api } from '@tinysmall/renderless/image-viewer/vue'
+import { renderless } from '@tinysmall/renderless/image-viewer/vue'
 import { $constants } from '@tinysmall/renderless/image-viewer/constants'
 import { setup, defineComponent } from '@tinysmall/common'
 import {
@@ -168,7 +168,7 @@ export default defineComponent({
     IconRefres: iconRefres()
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   }
 })
 </script>

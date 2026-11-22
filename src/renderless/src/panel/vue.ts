@@ -12,7 +12,6 @@
 
 import { collapse, expand, toggle } from './index'
 
-export const api = ['state', 'toggle']
 
 export const renderless = (props, { reactive }, { emit }) => {
   const api: Record<string, any> = {}

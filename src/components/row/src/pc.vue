@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@tinysmall/renderless/row/vue'
+import { renderless } from '@tinysmall/renderless/row/vue'
 import { setup, defineComponent } from '@tinysmall/common'
 
 export const rowProps = {
@@ -57,7 +57,7 @@ export default defineComponent({
   componentName: 'Row',
   props: rowProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   }
 })
 </script>

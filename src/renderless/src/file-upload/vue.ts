@@ -100,37 +100,6 @@ import {
 } from './index'
 import { isEmptyObject } from '@tinysmall/utils'
 
-export const api = [
-  'state',
-  'getNewTabPreviewUrl',
-  'previewFile',
-  'downloadFile',
-  'abort',
-  'clearFiles',
-  'getFile',
-  'handleStart',
-  'handleProgress',
-  'handleSuccess',
-  'handleError',
-  'handleRemove',
-  'handleReUpload',
-  'handleReUploadTotal',
-  'submit',
-  'handleClick',
-  'handleFileClick',
-  'getFileUploadUrl',
-  'updateUrl',
-  'previewImage',
-  'updateFile',
-  'handleChange',
-  'abortDownload',
-  'handleClickFileList',
-  'handleTriggerClick',
-  'closeRecordPanel',
-  'encryptDialogConfirm',
-  'formatFileSize',
-  'getTipMessage'
-]
 
 const initState = ({
   api,

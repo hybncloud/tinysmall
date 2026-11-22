@@ -27,7 +27,6 @@ import {
 } from './index'
 import type { ISharedRenderlessParamHooks } from '../../types/shared.type'
 
-export const api = ['state', 'handleClick', 'mouseEnter']
 
 export const renderless = (
   props: IUserHeadProps,

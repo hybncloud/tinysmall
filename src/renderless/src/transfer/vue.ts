@@ -36,7 +36,6 @@ import {
   setCheckedOnMounted
 } from './index'
 
-export const api = ['state', 'onSourceCheckedChange', 'onTargetCheckedChange', 'addToLeft', 'addToRight', 'clearQuery']
 
 const initState = ({ reactive, computed, api, props, h, slots, Tree }): ITransferState => {
   const state = reactive({

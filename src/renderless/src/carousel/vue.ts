@@ -27,32 +27,6 @@ import {
 } from './index'
 import { addResizeListener, removeResizeListener } from '@tinysmall/utils'
 
-export const api = [
-  'state',
-  'items',
-  'activeIndex',
-  'containerWidth',
-  'hover',
-  'hasLabel',
-  'onComplete',
-  'handleMouseEnter',
-  'handleMouseLeave',
-  'itemInStage',
-  'handleButtonEnter',
-  'handleButtonLeave',
-  'updateItems',
-  'resetItemPosition',
-  'playSlides',
-  'pauseTimer',
-  'startTimer',
-  'setActiveItem',
-  'prev',
-  'next',
-  'handleIndicatorClick',
-  'handleIndicatorHover',
-  'throttledArrowClick',
-  'throttledIndicatorHover',
-]
 
 const initState = ({ reactive, computed, api }) => {
   const state = reactive({

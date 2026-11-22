@@ -21,15 +21,6 @@ import {
 } from './index'
 import { on, off } from '@tinysmall/utils'
 
-export const api = [
-  'state',
-  'startDrag',
-  'renderThumbStyle',
-  'clickTrackHandler',
-  'clickThumbHandler',
-  'mouseUpDocumentHandler',
-  'mouseMoveDocumentHandler'
-]
 
 export const renderless = (props, { computed, inject, onUnmounted, reactive }, { vm }) => {
   const state = reactive({

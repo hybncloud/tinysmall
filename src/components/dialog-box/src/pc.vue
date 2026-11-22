@@ -95,7 +95,7 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@tinysmall/renderless/dialog-box/vue'
+import { renderless } from '@tinysmall/renderless/dialog-box/vue'
 import { setup, defineComponent, Teleport } from '@tinysmall/common'
 import type { PropType } from '@tinysmall/common'
 import { iconClose, iconFullscreen, iconMinscreen } from '@tinysmall/icon'
@@ -243,7 +243,7 @@ export default defineComponent({
     return { dialog: this }
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   }
 })
 </script>

@@ -13,7 +13,6 @@
 import { mousedown, selectItem, keydown } from './index'
 import { on, off } from '@tinysmall/utils'
 
-export const api = ['state', 'mousedown', 'selectItem']
 
 export const renderless = (props, { onUnmounted, reactive, watch }, { emit }) => {
   const state = reactive({

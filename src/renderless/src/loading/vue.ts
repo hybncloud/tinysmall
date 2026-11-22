@@ -15,7 +15,6 @@ import { handleAfterLeave, setText, close } from './index'
 import { $constants } from './constants'
 import type { ILoadingApi, ILoadingState, ILoadingProps, ILoadingRenderlessParamUtils } from '../../types/loading.type'
 
-export const api = ['state', 'handleAfterLeave', 'setText', 'close']
 
 export const renderless = (
   props: ILoadingProps,

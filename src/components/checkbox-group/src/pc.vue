@@ -23,7 +23,7 @@
 </template>
 
 <script lang="tsx">
-import { renderless, api } from '@tinysmall/renderless/checkbox-group/vue'
+import { renderless } from '@tinysmall/renderless/checkbox-group/vue'
 import { setup, defineComponent } from '@tinysmall/common'
 import type { PropType } from '@tinysmall/common'
 import type { IconPosition } from '@tinysmall/checkbox/src'
@@ -69,7 +69,7 @@ export default defineComponent({
   },
   props: checkboxGroupProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   }
 })
 </script>

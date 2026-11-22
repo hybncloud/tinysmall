@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import { setup, defineComponent } from '@tinysmall/common'
-import { renderless, api } from '@tinysmall/renderless/watermark/vue'
+import { renderless } from '@tinysmall/renderless/watermark/vue'
 import { $constants } from '@tinysmall/renderless/watermark/constants'
 import '@tinysmall/theme/watermark/index.less'
 
@@ -28,7 +28,7 @@ export default defineComponent({
     interlaced: { type: Boolean, default: true }
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   }
 })
 </script>

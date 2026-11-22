@@ -18,7 +18,7 @@
 
 <script lang="tsx">
 import { setup, defineComponent } from '@tinysmall/common'
-import { renderless, api } from '@tinysmall/renderless/tab-bar/vue'
+import { renderless } from '@tinysmall/renderless/tab-bar/vue'
 import type { ITabBarPcApi } from '@tinysmall/renderless/types/tab-bar.type'
 import { tabBarProps } from './index'
 
@@ -26,7 +26,7 @@ export default defineComponent({
   name: 'TinyTabBar',
   props: tabBarProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   }
 })
 </script>

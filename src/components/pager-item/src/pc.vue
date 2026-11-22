@@ -46,7 +46,7 @@
 
 <script lang="ts">
 import { setup, defineComponent } from '@tinysmall/common'
-import { renderless, api } from '@tinysmall/renderless/pager-item/vue'
+import { renderless } from '@tinysmall/renderless/pager-item/vue'
 import { iconPopup, iconDoubleLeft, iconDoubleRight } from '@tinysmall/icon'
 import { IconPopup, IconDoubleLeft, IconDoubleRight } from '@tinysmall/icon'
 
@@ -83,7 +83,7 @@ export default defineComponent({
   },
   props: pagerItemProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   }
 })
 </script>

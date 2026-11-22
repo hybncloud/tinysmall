@@ -12,7 +12,7 @@
 <script lang="tsx">
 import Button from '@tinysmall/button'
 import { setup, h, defineComponent, Teleport } from '@tinysmall/common'
-import { renderless, api } from '@tinysmall/renderless/modal/vue'
+import { renderless } from '@tinysmall/renderless/modal/vue'
 import { $constants } from '@tinysmall/renderless/modal/constants'
 import '@tinysmall/theme/modal/index.less'
 
@@ -98,7 +98,7 @@ export default defineComponent({
     return { dialog: this }
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   },
   render() {
     let {

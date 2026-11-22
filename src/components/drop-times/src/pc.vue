@@ -27,7 +27,7 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@tinysmall/renderless/drop-times/vue'
+import { renderless } from '@tinysmall/renderless/drop-times/vue'
 import { setup, defineComponent } from '@tinysmall/common'
 import Select from '@tinysmall/base-select'
 import Option from '@tinysmall/option'
@@ -71,7 +71,7 @@ export default defineComponent({
   props: dropTimesProps,
   emits: ['change', 'update:modelValue', 'clear', 'visible-change'],
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   }
 })
 </script>

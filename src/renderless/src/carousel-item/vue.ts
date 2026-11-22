@@ -21,25 +21,6 @@ import {
   setDelta
 } from './index'
 
-export const api = [
-  'state',
-  'hover',
-  'translate',
-  'scale',
-  'active',
-  'ready',
-  'inStage',
-  'animating',
-  'isOblique',
-  'hasTitle',
-  'getTransform',
-  'processIndex',
-  'calculateTranslate',
-  'translateItem',
-  'handleItemClick',
-  'resetAnimatingMf',
-  'setDelta'
-]
 
 export const renderless = (props, { computed, onMounted, onUnmounted, reactive, inject }, { vm }) => {
   const api = {}

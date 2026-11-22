@@ -10,7 +10,7 @@
  *
  -->
 <script lang="tsx">
-import { renderless, api } from '@tinysmall/renderless/scrollbar/vue'
+import { renderless } from '@tinysmall/renderless/scrollbar/vue'
 import { setup, h, defineComponent } from '@tinysmall/common'
 import { calcScrollWidth } from '@tinysmall/utils'
 import { toObject, isObject } from '@tinysmall/utils'
@@ -42,7 +42,7 @@ export default defineComponent({
     wrapStyle: {}
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   },
   render() {
     const {

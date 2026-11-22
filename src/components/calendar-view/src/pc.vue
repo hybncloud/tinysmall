@@ -236,7 +236,7 @@
 </template>
 
 <script>
-import { renderless, api } from '@tinysmall/renderless/calendar-view/vue'
+import { renderless } from '@tinysmall/renderless/calendar-view/vue'
 import { $constants } from '@tinysmall/renderless/calendar-view/constants'
 import { setup, defineComponent } from '@tinysmall/common'
 import Button from '@tinysmall/button'
@@ -367,7 +367,6 @@ export default defineComponent({
         props,
         context,
         renderless,
-        api
       })
     }
   }

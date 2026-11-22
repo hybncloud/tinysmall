@@ -12,7 +12,6 @@
 
 import { setSubitemAttrValue, setGlobalAttrValue, getClassName, getStyle } from './index'
 
-export const api = ['state']
 
 export const renderless = (props, { computed, reactive, inject }) => {
   const api = {}

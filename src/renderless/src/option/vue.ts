@@ -22,7 +22,6 @@ import {
   initValue
 } from './index'
 
-export const api = ['state', 'visible', 'hoverItem', 'selectOptionClick']
 
 const initState = ({ reactive, computed, props, api, select, inject }) => {
   const state = reactive({

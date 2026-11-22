@@ -33,20 +33,6 @@ import { guid } from '@tinysmall/utils'
 import type { ISharedRenderlessParamHooks, ISharedRenderlessParamUtils } from '../../types/shared.type'
 import type { ITooltipApi, ITooltipProps, ITooltipState } from '../../types/tooltip.type'
 
-export const api = [
-  'state',
-  'bindEvent',
-  'hide',
-  'show',
-  'doDestroy',
-  'handleFocus',
-  'debounceClose',
-  'handleShowPopper',
-  'handleClosePopper',
-  'setExpectedState',
-  'updatePopper',
-  'focusHandler'
-]
 
 const initState = ({ reactive, showPopper, popperElm, referenceElm, props, inject, popperJS, currentPlacement }) =>
   reactive({

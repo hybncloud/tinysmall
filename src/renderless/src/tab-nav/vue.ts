@@ -44,24 +44,6 @@ import {
   handleTitleMouseleave
 } from './index'
 
-export const api = [
-  'state',
-  'setFocus',
-  'removeFocus',
-  'scrollPrev',
-  'scrollNext',
-  'changeTab',
-  'scrollToActiveTab',
-  'scrollIntoView',
-  'moreTabShow',
-  'expandTabShow',
-  'expandTabHide',
-  'computedHeaderStyle',
-  'swiperHandle',
-  'updated',
-  'handleTitleMouseenter',
-  'handleTitleMouseleave'
-]
 
 export const renderless = (
   props: ITabNavProps,

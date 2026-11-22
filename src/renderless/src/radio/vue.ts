@@ -30,7 +30,6 @@ import {
   toggleEvent
 } from './index'
 
-export const api = ['state', 'handleChange']
 
 export const renderless = (
   props: IRadioProps,

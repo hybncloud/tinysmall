@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@tinysmall/renderless/guide/vue'
+import { renderless } from '@tinysmall/renderless/guide/vue'
 import { setup, defineComponent } from '@tinysmall/common'
 import '@tinysmall/theme/guide/index.less'
 import Shepherd from 'shepherd.js'
@@ -75,7 +75,6 @@ export default defineComponent({
       props,
       context,
       renderless,
-      api
     })
   }
 })

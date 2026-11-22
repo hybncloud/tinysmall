@@ -14,7 +14,6 @@ import { computedContent, computedValueRef, computedTransform } from './index'
 import { xss } from '@tinysmall/utils'
 import type { IBadgeState, IBadgeProps, IBadgeApi, IBadgeRenderlessParams } from '../../types'
 
-export const api = ['state']
 
 export const renderless = (props: IBadgeProps, { computed, reactive }: IBadgeRenderlessParams, {}): IBadgeApi => {
   const state: IBadgeState = reactive({

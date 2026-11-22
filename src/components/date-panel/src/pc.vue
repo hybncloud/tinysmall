@@ -246,7 +246,7 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@tinysmall/renderless/date-panel/vue'
+import { renderless } from '@tinysmall/renderless/date-panel/vue'
 import { setup, defineComponent } from '@tinysmall/common'
 import { language } from '@tinysmall/locale'
 import { Clickoutside } from '@tinysmall/directive'
@@ -347,7 +347,6 @@ export default defineComponent({
       props,
       context,
       renderless,
-      api
     })
   }
 })

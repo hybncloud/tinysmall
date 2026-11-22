@@ -12,7 +12,6 @@
 
 import { getPages, onPagerClick, onMouseenter } from './index'
 
-export const api = ['state', 'onPagerClick', 'onMouseenter']
 
 export const renderless = (props, { computed, reactive, watch, inject }, { emit, vm }) => {
   const state = reactive({

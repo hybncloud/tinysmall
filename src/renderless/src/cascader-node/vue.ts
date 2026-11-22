@@ -27,7 +27,6 @@ import {
   handleNodeClick
 } from './index'
 
-export const api = ['state', 'handleMultiCheckChange', 'handleCheckChange', 'handleExpand', 'handleNodeClick']
 
 export const renderless = (
   props: ICascaderNodeProps,

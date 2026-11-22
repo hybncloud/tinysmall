@@ -18,7 +18,6 @@ import type {
 } from '../../types'
 import { computedBarStyle } from './index'
 
-export const api = ['state', 'computedBarStyle']
 
 export const renderless = (
   props: ITabBarPcProps,

@@ -49,7 +49,7 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@tinysmall/renderless/steps/slide-bar'
+import { renderless } from '@tinysmall/renderless/steps/slide-bar'
 import { defineComponent, setup } from '@tinysmall/common'
 import { iconChevronLeft, iconChevronRight } from '@tinysmall/icon'
 
@@ -73,7 +73,7 @@ export default defineComponent({
     flex: Boolean
   },
   setup(props: any, context: any) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   }
 })
 </script>

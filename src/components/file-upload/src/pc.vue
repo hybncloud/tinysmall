@@ -11,7 +11,7 @@
  -->
 <script lang="tsx">
 import { $constants } from '@tinysmall/renderless/file-upload/constants'
-import { renderless, api } from '@tinysmall/renderless/file-upload/vue'
+import { renderless } from '@tinysmall/renderless/file-upload/vue'
 import { setup, h, defineComponent } from '@tinysmall/common'
 import UploadList from '@tinysmall/upload-list'
 import Upload from '@tinysmall/upload'
@@ -210,7 +210,6 @@ export default defineComponent({
       props,
       context,
       renderless,
-      api
     })
   },
   components: {

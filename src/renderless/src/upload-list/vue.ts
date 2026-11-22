@@ -36,28 +36,6 @@ import { formatFileSize } from '@tinysmall/utils'
 import { getApi } from '../file-upload/vue'
 import { isServer } from '@tinysmall/utils'
 
-export const api = [
-  't',
-  'state',
-  'parsePercentage',
-  'handleClick',
-  'handlePreview',
-  'picturefilePreview',
-  'getDeleteData',
-  'downloadFile',
-  'play',
-  'pause',
-  'handleLoadedmetadata',
-  'handleTimeupdate',
-  'showOperatePanel',
-  'getFileType',
-  'getFileIcon',
-  'reUpload',
-  'remove',
-  'handleTriggerClick',
-  'chooseFile',
-  'formatFileSize'
-]
 
 export const renderless = (
   props: IUploadListProps,

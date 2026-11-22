@@ -65,7 +65,7 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@tinysmall/renderless/rate/vue'
+import { renderless } from '@tinysmall/renderless/rate/vue'
 import { $constants } from '@tinysmall/renderless/rate/constants'
 import { setup, defineComponent } from '@tinysmall/common'
 import { t } from '@tinysmall/locale'
@@ -180,7 +180,7 @@ export default defineComponent({
     IconMeh: iconMeh()
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   }
 })
 </script>

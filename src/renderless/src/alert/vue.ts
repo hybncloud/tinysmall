@@ -29,7 +29,6 @@ import {
 } from './index'
 import { nanoid } from '@tinysmall/utils'
 
-export const api = ['handleClose', 'state', 'handleHeaderClick']
 
 const initState = ({ api, computed, reactive }): IAlertState  => {
   return reactive({

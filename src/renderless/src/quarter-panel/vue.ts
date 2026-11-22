@@ -9,15 +9,6 @@ import {
   getCellStyle
 } from './index'
 
-export const api = [
-  'state',
-  'handleQuarterTableClick',
-  'showYearPicker',
-  'handleYearPick',
-  'cusPrevYear',
-  'cusNextYear',
-  'getCellStyle'
-]
 
 export const renderless = (props, { reactive, computed }, { emit, t }) => {
   const api = {}

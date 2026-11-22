@@ -76,7 +76,7 @@
 
 <script lang="ts">
 import { setup, defineComponent } from '@tinysmall/common'
-import { renderless, api } from '@tinysmall/renderless/dropdown-item/vue'
+import { renderless } from '@tinysmall/renderless/dropdown-item/vue'
 import { $constants } from '@tinysmall/renderless/dropdown-item/constants'
 import { iconLeftWardArrow } from '@tinysmall/icon'
 import '@tinysmall/theme/dropdown-item/index.less'
@@ -163,7 +163,7 @@ export default defineComponent({
   },
   setup(props, context) {
     // 修复 <双层组件 + 自调用组件> 复合场景导致的数据混乱问题
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   }
 })
 </script>

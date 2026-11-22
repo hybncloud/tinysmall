@@ -13,7 +13,6 @@ import type { ISharedRenderlessParamHooks, IButtonProps, IButtonApi, IButtonRend
 
 import { handleClick, clearTimer } from './index'
 
-export const api = ['state', 'handleClick']
 
 export const renderless = (
   props: IButtonProps,

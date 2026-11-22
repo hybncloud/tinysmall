@@ -41,7 +41,6 @@ import {
   computedShowText
 } from './index'
 
-export const api = ['state', 'handleChange', 'computedStore']
 
 const initState = ({ reactive, computed, api, inject, props }) => {
   const state: ICheckboxState = reactive({

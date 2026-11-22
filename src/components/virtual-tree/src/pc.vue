@@ -37,7 +37,7 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@tinysmall/renderless/virtual-tree/vue'
+import { renderless } from '@tinysmall/renderless/virtual-tree/vue'
 import { defineComponent, setup } from '@tinysmall/common'
 import VirtualScrollBox from '@tinysmall/virtual-scroll-box'
 import Tree from '@tinysmall/tree'
@@ -65,7 +65,7 @@ export default defineComponent({
     TinyTree: Tree
   },
   setup(props, context): any {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   }
 })
 </script>

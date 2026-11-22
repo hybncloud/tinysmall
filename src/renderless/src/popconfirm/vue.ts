@@ -8,7 +8,6 @@ import type {
 import { on, off } from '@tinysmall/utils'
 import { show, hide, confirm, handleEmit, handleDocumentClick } from './index'
 
-export const api = ['state', 'show', 'hide', 'confirm', 'handleEmit']
 
 export const renderless = (
   props: IPopconfirmProps,

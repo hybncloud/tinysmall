@@ -61,32 +61,6 @@ import {
 import { DATEPICKER, DATE, toDate1, getWeekNumber, modifyDate, extractDateFormat } from '@tinysmall/utils'
 import { language } from '@tinysmall/locale'
 
-export const api = [
-  'state',
-  'isValidValue',
-  'handleTzPickClose',
-  'toggleTz',
-  'searchTz',
-  'selectTz',
-  'confirm',
-  'cusPrevYear',
-  'cusNextYear',
-  'cusPrevMonth',
-  'cusNextMonth',
-  'changeToNow',
-  'handleMonthPick',
-  'handleYearPick',
-  'handleDatePick',
-  'showHeaderPicker',
-  'handleTimePick',
-  'handleEnter',
-  'handleVisibleTimeChange',
-  'handleVisibleDateChange',
-  'handleLeave',
-  'handleShortcutClick',
-  'handleTimePickClose',
-  'getNowTime'
-]
 
 const initState = ({ reactive, computed, api, props }) => {
   const state = reactive({

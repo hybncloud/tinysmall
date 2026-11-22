@@ -85,7 +85,7 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@tinysmall/renderless/checkbox/vue'
+import { renderless } from '@tinysmall/renderless/checkbox/vue'
 import { setup, defineComponent } from '@tinysmall/common'
 import type { PropType } from '@tinysmall/common'
 import '@tinysmall/theme/checkbox/index.less'
@@ -159,7 +159,7 @@ export default defineComponent({
     IconCheck: iconCheck()
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   }
 })
 </script>

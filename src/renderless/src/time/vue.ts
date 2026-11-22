@@ -27,15 +27,6 @@ import {
 import { compuAmPmMode } from '../time-range'
 import { isDate1 as isDate } from '@tinysmall/utils'
 
-export const api = [
-  'state',
-  'handleChange',
-  'setSelectionRange',
-  'handleCancel',
-  'handleConfirm',
-  'adjustSpinners',
-  'adjustPosition'
-]
 
 const initState = ({ reactive, props, computed, api }) => {
   const state = reactive({

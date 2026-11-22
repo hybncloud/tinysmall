@@ -12,7 +12,6 @@
 
 import { handleClick, setDropdownTabs } from './index'
 
-export const api = ['state', 'handleClick', ' setDropdownTabs']
 
 export const renderless = (props, { inject, reactive }) => {
   const state = reactive({

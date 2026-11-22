@@ -2,7 +2,6 @@
 import type { ISpaceProps } from '../../types'
 import { getGapStyle } from './index'
 
-export const api = ['state', 'orderedChildren']
 
 function isVNodeFn(node: any): boolean {
   return !!(node && (node.__v_isVNode || node.componentOptions))

@@ -19,7 +19,6 @@ import type {
 } from '../../types'
 import { computedIsClosable, computedActive, computedPaneName, watchTitle } from './index'
 
-export const api = ['state']
 
 export const renderless = (
   props: ITabItemProps,

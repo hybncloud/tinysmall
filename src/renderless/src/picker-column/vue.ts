@@ -30,7 +30,6 @@ import {
   onTouchend
 } from './index'
 
-export const api = ['state', 'onClickItem', 'onTransitionEnd', 'setValue', 'getValue', 'setOptions', 'setIndex']
 
 const initState = ({ reactive, computed, props, api }) => {
   const state = reactive({

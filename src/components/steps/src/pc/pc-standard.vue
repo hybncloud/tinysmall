@@ -29,7 +29,7 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@tinysmall/renderless/steps/vue'
+import { renderless } from '@tinysmall/renderless/steps/vue'
 import { setup, defineComponent } from '@tinysmall/common'
 import { iconRefresh, iconYes } from '@tinysmall/icon'
 
@@ -60,7 +60,7 @@ export default defineComponent({
     'contentCenter'
   ],
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   }
 })
 </script>

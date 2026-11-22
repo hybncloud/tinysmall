@@ -1,5 +1,5 @@
 <script lang="tsx">
-import { renderless, api } from '@tinysmall/renderless/cascader-menu/vue'
+import { renderless } from '@tinysmall/renderless/cascader-menu/vue'
 import { h, setup, defineComponent } from '@tinysmall/common'
 import { t } from '@tinysmall/locale'
 import Scrollbar from '@tinysmall/scrollbar'
@@ -61,7 +61,7 @@ const CascaderMenu = defineComponent({
     }
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api }) & Pick<ICascaderMenuRenderlessParams, 'panel'>
+    return setup({ props, context, renderless }) & Pick<ICascaderMenuRenderlessParams, 'panel'>
   },
   render() {
     const parentVm = this.cascaderRoot || this.panel || this

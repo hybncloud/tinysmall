@@ -104,7 +104,7 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@tinysmall/renderless/autocomplete/vue'
+import { renderless } from '@tinysmall/renderless/autocomplete/vue'
 import { setup, defineComponent } from '@tinysmall/common'
 import TinyScrollbar from '@tinysmall/scrollbar'
 import TinyInput from '@tinysmall/input'
@@ -183,7 +183,7 @@ export default defineComponent({
   props: autoCompleteProps,
   emits: ['update:modelValue', 'focus', 'blur', 'clear', 'select', 'created'],
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   }
 })
 </script>

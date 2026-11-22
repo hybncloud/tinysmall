@@ -24,7 +24,7 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@tinysmall/renderless/skeleton/vue'
+import { renderless } from '@tinysmall/renderless/skeleton/vue'
 import { $constants } from '@tinysmall/renderless/skeleton/constants'
 import { setup, defineComponent } from '@tinysmall/common'
 import type { PropType } from '@tinysmall/common'
@@ -62,7 +62,7 @@ export default defineComponent({
     TinySkeletonItem: SkeletonItem
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   }
 })
 </script>

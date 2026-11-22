@@ -50,7 +50,7 @@
 
 <script lang="ts">
 import { defineComponent, setup } from '@tinysmall/common'
-import { renderless, api } from '@tinysmall/renderless/tree-select/vue'
+import { renderless } from '@tinysmall/renderless/tree-select/vue'
 import Tree from '@tinysmall/tree'
 import BaseSelect from '@tinysmall/base-select'
 
@@ -156,7 +156,7 @@ export default defineComponent({
   },
   props: treeSelectProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   }
 })
 </script>

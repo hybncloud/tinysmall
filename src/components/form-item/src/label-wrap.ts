@@ -88,6 +88,6 @@ export default defineComponent({
 
     const api = ['computedWidth', 'form']
 
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   }
 })

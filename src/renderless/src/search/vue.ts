@@ -38,19 +38,6 @@ const generateUniqueId = (): string => {
   return `search-${Date.now()}-${Math.random().toString(36).substring(2, 11)}`
 }
 
-export const api = [
-  'state',
-  'handleChange',
-  'handleInput',
-  'showSelector',
-  'changeKey',
-  'searchClick',
-  'searchEnterKey',
-  'inputStyle',
-  'formatSearchTypes',
-  'setDefaultType',
-  'clear'
-]
 
 export const useFormatSearchTypes = ({ computed, props, reactive, toRefs, watch }) => {
   const api = {

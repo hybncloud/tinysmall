@@ -174,7 +174,7 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@tinysmall/renderless/cascader/vue'
+import { renderless } from '@tinysmall/renderless/cascader/vue'
 import { $constants } from '@tinysmall/renderless/cascader/constants'
 import { setup, defineComponent } from '@tinysmall/common'
 import { t } from '@tinysmall/locale'
@@ -304,7 +304,7 @@ export default defineComponent({
     TinyTooltip: Tooltip
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   }
 })
 </script>

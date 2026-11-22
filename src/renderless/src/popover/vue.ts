@@ -36,17 +36,6 @@ import { userPopper } from '@tinysmall/hooks'
 import type { ISharedRenderlessParamHooks, ISharedRenderlessParamUtils } from '../../types/shared.type'
 import type { IPopoverApi, IPopoverProps, IPopoverState, IPopoverRenderlessParams } from '../../types/popover.type'
 
-export const api = [
-  'state',
-  'handleAfterEnter',
-  'handleAfterLeave',
-  'doToggle',
-  'doShow',
-  'doClose',
-  'doDestroy',
-  'handleItemClick',
-  'handleDocumentClick'
-]
 
 const initState = ({
   reactive,

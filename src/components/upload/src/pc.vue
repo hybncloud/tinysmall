@@ -15,7 +15,7 @@ import { setup, h, defineComponent } from '@tinysmall/common'
 import { uploadAjax } from '@tinysmall/utils'
 
 // 此处引入 h 是为了防止打包后 h 被重命名导致组件报错的问题
-import { renderless, api } from '@tinysmall/renderless/upload/vue'
+import { renderless } from '@tinysmall/renderless/upload/vue'
 import UploadDragger from '@tinysmall/upload-dragger'
 import Modal from '@tinysmall/modal'
 import type { IUploadApi } from '@tinysmall/renderless/types/upload.type'
@@ -124,7 +124,6 @@ export default defineComponent({
       props,
       context,
       renderless,
-      api,
       h
     })
   },

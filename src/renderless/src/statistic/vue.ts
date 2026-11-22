@@ -1,7 +1,6 @@
 import { getIntegerAndDecimal, animateValue } from './index'
 import type { IStatisticApi, IStatisticState } from '../../types'
 
-export const api = ['state', 'getIntegerAndDecimal', 'animateValue']
 
 export const renderless = (props, hooks): IStatisticApi => {
   const { reactive, computed, watch } = hooks

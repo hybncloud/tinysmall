@@ -29,7 +29,6 @@ import {
   handleBlur
 } from './index'
 
-export const api = ['state', 'handleChange', 'keydownHandle', 'handleFocus', 'handleBlur']
 
 export const renderless = (
   props: IRadioButtonProps,

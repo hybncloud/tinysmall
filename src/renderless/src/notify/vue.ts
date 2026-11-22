@@ -25,19 +25,6 @@ import {
 
 import { nanoid } from '@tinysmall/utils'
 
-export const api = [
-  'state',
-  'clearTimer',
-  'startTimer',
-  'close',
-  'bindEvent',
-  'unBindEvent',
-  'click',
-  'watchClosed',
-  'getOffsetStyle',
-  'getPositionSide',
-  'getZindex'
-]
 
 export const renderless = (props, { computed, onBeforeUnmount, onMounted, reactive, watch }, { emit }) => {
   const api = {}

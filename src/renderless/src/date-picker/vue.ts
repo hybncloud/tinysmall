@@ -37,15 +37,6 @@ import type {
   ISharedRenderlessParamHooks
 } from '../../types'
 
-export const api = [
-  'state',
-  'clearDisplayValue',
-  'showPickerAndLockScroll',
-  'hookMounted',
-  'onConfirm',
-  'onCancel',
-  'onChange'
-]
 
 const setWatchFn = ({ api, watch, props, state, emit }) => {
   watch(

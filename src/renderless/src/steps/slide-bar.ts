@@ -121,7 +121,6 @@ const animationHandler =
     })
   }
 
-export const api = ['slideBarState', 'leftSlideHandler', 'rightSlideHandler', 'updatePosition']
 
 export const renderless = (props, { reactive, onMounted, onUnmounted, computed }, { vm }) => {
   const state = reactive({

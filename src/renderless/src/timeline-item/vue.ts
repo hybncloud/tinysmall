@@ -32,7 +32,6 @@ import type {
   ITimelineInject
 } from '../../types'
 
-export const api = ['state', 'handleClick', 'getStatusCls', 'getStatus', 'getDate', 'rootProps']
 
 export const renderless = (
   props: ITimelineItemProps,

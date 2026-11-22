@@ -11,7 +11,7 @@
  -->
 <script lang="tsx">
 import { setup, h, defineComponent, Teleport } from '@tinysmall/common'
-import { renderless, api } from '@tinysmall/renderless/notify/vue'
+import { renderless } from '@tinysmall/renderless/notify/vue'
 import { iconClose } from '@tinysmall/icon'
 
 export default defineComponent({
@@ -46,7 +46,7 @@ export default defineComponent({
     type: String
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   },
   render() {
     let { clearTimer, click, close, closeIcon, message, showClose } = this

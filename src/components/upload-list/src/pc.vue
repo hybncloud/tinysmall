@@ -220,7 +220,7 @@
 
 <script lang="tsx">
 import { setup, defineComponent } from '@tinysmall/common'
-import { renderless, api } from '@tinysmall/renderless/upload-list/vue'
+import { renderless } from '@tinysmall/renderless/upload-list/vue'
 import Progress from '@tinysmall/progress'
 import Tooltip from '@tinysmall/tooltip'
 import Button from '@tinysmall/button'
@@ -395,7 +395,7 @@ export default defineComponent({
   emits: ['click-file-list', 'remove', 'start', 'update:visible', 'update', 'reUpload', 'ReUploadTotal'],
   props: uploadListProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   }
 })
 </script>

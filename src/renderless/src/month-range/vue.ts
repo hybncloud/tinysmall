@@ -29,19 +29,6 @@ import {
 } from './index'
 import { nextYear } from '@tinysmall/utils'
 
-export const api = [
-  'state',
-  'rightNextYear',
-  'rightPrevYear',
-  'handleRangePick',
-  'handleShortcutClick',
-  'handleChangeRange',
-  'leftPrevYear',
-  'leftNextYear',
-  'isValidValue',
-  'resetView',
-  'watchModelValue'
-]
 
 const initState = ({ reactive, computed, api, props, t }) => {
   const state = reactive({

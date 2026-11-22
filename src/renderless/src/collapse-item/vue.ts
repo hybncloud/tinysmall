@@ -22,14 +22,6 @@ import type {
 import { handleFocus, handleEnterClick, handleHeaderClick, handleHeaderContainerClick } from './index'
 import { guid } from '@tinysmall/utils'
 
-export const api = [
-  'state',
-  'isActive',
-  'handleFocus',
-  'handleEnterClick',
-  'handleHeaderClick',
-  'handleHeaderContainerClick'
-]
 
 export const renderless = (
   props: ICollapseItemProps,

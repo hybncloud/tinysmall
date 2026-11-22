@@ -14,7 +14,6 @@ import type {
   IStepsState
 } from '../../types'
 
-export const api = ['state', 'isVisibleHandler', 'handleMouseenter', 'handleMouseleave']
 
 export const renderless = (
   props: IStepsProps,

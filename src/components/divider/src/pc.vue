@@ -27,7 +27,7 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@tinysmall/renderless/divider/vue'
+import { renderless } from '@tinysmall/renderless/divider/vue'
 import { $constants } from '@tinysmall/renderless/divider/constants'
 import { setup, defineComponent } from '@tinysmall/common'
 import type { PropType } from '@tinysmall/common'
@@ -79,7 +79,7 @@ export default defineComponent({
   name: 'TinyDivider',
   props: dividerProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   }
 })
 </script>

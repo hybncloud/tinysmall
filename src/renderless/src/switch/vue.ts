@@ -20,7 +20,6 @@ import type {
   ISwitchRenderlessParamUtils
 } from '../../types'
 
-export const api = ['toggle', 'state']
 
 export const renderless = (
   props: ISwitchProps,

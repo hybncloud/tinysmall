@@ -142,7 +142,7 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@tinysmall/renderless/steps/vue'
+import { renderless } from '@tinysmall/renderless/steps/vue'
 import { setup, defineComponent } from '@tinysmall/common'
 import { IconFinish, IconWarn } from '@tinysmall/icon'
 import { AutoTip } from '@tinysmall/directive'
@@ -174,7 +174,7 @@ export default defineComponent({
     'contentCenter'
   ],
   setup(props: any, context: any) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   }
 })
 </script>

@@ -1,7 +1,6 @@
 import { $constants } from '../base-select/constants'
 import { queryChange, observeCallback } from './index'
 
-export const api = ['state', 'queryChange']
 
 export const renderless = (
   props,

@@ -60,43 +60,6 @@ import useStorageBox from '../tall-storage/vue-storage-box'
 import { on, off } from '@tinysmall/utils'
 import { debounceBoth } from '@tinysmall/utils'
 
-export const api = [
-  'blur',
-  'showBox',
-  'clear',
-  'focus',
-  'state',
-  'select',
-  'getInput',
-  'handleBlur',
-  'handleInput',
-  'handleFocus',
-  'handleChange',
-  'calcIconOffset',
-  'resizeTextarea',
-  'getSuffixVisible',
-  'updateIconOffset',
-  'calcTextareaHeight',
-  'setNativeInputValue',
-  'calculateNodeStyling',
-  'handleCompositionEnd',
-  'handlePasswordVisible',
-  'handleCompositionStart',
-  'handleCompositionUpdate',
-  'addMemory',
-  'searchMemory',
-  'selectedMemory',
-  'storageData',
-  'isMemoryStorage',
-  'hasSelection',
-  'handleEnterDisplayOnlyContent',
-  'hiddenPassword',
-  'inputStyle',
-  'handleEnterTextarea',
-  'handleLeaveTextarea',
-  'handleTextareaMouseDown',
-  'handleTextareaMouseUp'
-]
 
 const initState = ({
   reactive,

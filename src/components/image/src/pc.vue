@@ -52,7 +52,7 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@tinysmall/renderless/image/vue'
+import { renderless } from '@tinysmall/renderless/image/vue'
 import { $constants } from '@tinysmall/renderless/image/constants'
 import { setup, defineComponent, Teleport } from '@tinysmall/common'
 import { isServer } from '@tinysmall/utils'
@@ -104,7 +104,7 @@ export default defineComponent({
   emits: ['load', 'error', 'delete', 'change-index'],
   props: imageProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   }
 })
 </script>

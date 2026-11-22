@@ -38,19 +38,6 @@ import type {
   IImageRenderlessParams
 } from '../../types/image.type'
 
-export const api = [
-  'state',
-  'src',
-  'zIndex',
-  'previewSrcList',
-  'loadImage',
-  'clickHandler',
-  'closeViewer',
-  'handleLoad',
-  'handleError',
-  'deleteHander',
-  'handleSwitch'
-]
 
 const initState = ({
   reactive,

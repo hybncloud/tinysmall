@@ -178,7 +178,7 @@ import Popover from '@tinysmall/popover'
 import Loading from '@tinysmall/loading'
 import { setup, defineComponent } from '@tinysmall/common'
 import type { PropType } from '@tinysmall/common'
-import { renderless, api } from '@tinysmall/renderless/pager/vue'
+import { renderless } from '@tinysmall/renderless/pager/vue'
 import { IconChevronDown, iconChevronLeft, iconChevronRight } from '@tinysmall/icon'
 import type { IPagerApi } from '@tinysmall/renderless/types/pager.type'
 import '@tinysmall/theme/pager/index.less'
@@ -263,7 +263,7 @@ export default defineComponent({
     loading: Loading.directive
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   },
   components: {
     TinyPopover: Popover,

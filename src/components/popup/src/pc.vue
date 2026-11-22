@@ -47,7 +47,7 @@
 
 <script lang="ts">
 import { setup, defineComponent } from '@tinysmall/common'
-import { renderless, api } from '@tinysmall/renderless/popup/vue'
+import { renderless } from '@tinysmall/renderless/popup/vue'
 import { $constants } from '@tinysmall/renderless/popup/constants'
 import { iconClose } from '@tinysmall/icon'
 import '@tinysmall/theme/popup/index.less'
@@ -103,7 +103,7 @@ export default defineComponent({
     zIndex: [Number, String]
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   }
 })
 </script>

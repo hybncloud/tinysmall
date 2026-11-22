@@ -23,7 +23,6 @@ import {
 } from './index'
 import { DATEPICKER } from '@tinysmall/utils'
 
-export const api = ['state', 'handleMonthTableClick', 'handleMouseMove', 'getCellStyle']
 
 export const renderless = (props, { computed, reactive, watch }, { t, vm, emit }) => {
   const api = {}

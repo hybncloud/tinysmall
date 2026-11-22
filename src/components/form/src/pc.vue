@@ -39,7 +39,7 @@
 </template>
 
 <script lang="tsx">
-import { renderless, api } from '@tinysmall/renderless/form/vue'
+import { renderless } from '@tinysmall/renderless/form/vue'
 import { setup, defineComponent } from '@tinysmall/common'
 import type { IFormApi } from '@tinysmall/renderless/types/form.type'
 import Tooltip from '@tinysmall/tooltip'
@@ -159,7 +159,7 @@ export default defineComponent({
   },
   props: formProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   }
 })
 </script>

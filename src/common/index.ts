@@ -84,13 +84,11 @@ export type SetupState<
 export const setup = <P extends object = {}, S extends object = {}, C extends SetupContext<any[], {}> = SetupContext>({
   props,
   context,
-  renderless,
-  api
+  renderless
 }: {
   props: P
   context: C
   renderless: (props: P, hooks: ISharedRenderlessParamHooks, utils: ISharedRenderlessParamUtils) => S
-  api: string[]
 }): SetupState<P, S, C> => {
   const $this = getCurrentInstance()
 

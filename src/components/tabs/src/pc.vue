@@ -10,7 +10,7 @@
  *
  -->
 <script lang="tsx">
-import { renderless, api } from '@tinysmall/renderless/tabs/vue'
+import { renderless } from '@tinysmall/renderless/tabs/vue'
 import { setup, h, defineComponent } from '@tinysmall/common'
 import TabNav from './tab-nav/pc.vue'
 import { iconPlus } from '@tinysmall/icon'
@@ -72,7 +72,7 @@ export default defineComponent({
     }
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   },
   render() {
     let {

@@ -12,7 +12,7 @@
 <script lang="tsx">
 import { setup, h, defineComponent } from '@tinysmall/common'
 import { t } from '@tinysmall/locale'
-import { renderless, api } from '@tinysmall/renderless/tab-nav/vue'
+import { renderless } from '@tinysmall/renderless/tab-nav/vue'
 import Dropdown from '@tinysmall/dropdown'
 import DropdownMenu from '@tinysmall/dropdown-menu'
 import TabDropdownItem from './tab-dropdown-item.vue'
@@ -41,7 +41,7 @@ export default defineComponent({
   props: tabNavPcProps,
   inject: ['moreIcon'],
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   },
   render() {
     const {

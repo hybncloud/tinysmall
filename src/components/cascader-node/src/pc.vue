@@ -10,7 +10,7 @@
  *
  -->
 <script lang="tsx">
-import { renderless, api } from '@tinysmall/renderless/cascader-node/vue'
+import { renderless } from '@tinysmall/renderless/cascader-node/vue'
 import { setup, h, defineComponent } from '@tinysmall/common'
 import Checkbox from '@tinysmall/checkbox'
 import Radio from '@tinysmall/radio'
@@ -45,7 +45,7 @@ export default defineComponent({
   inject: ['panel'],
   props: cascaderNodeProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api }) & Pick<ICascaderNodeRenderlessParams, 'panel'>
+    return setup({ props, context, renderless }) & Pick<ICascaderNodeRenderlessParams, 'panel'>
   },
   render() {
     const renderPrefix = () => {

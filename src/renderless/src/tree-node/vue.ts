@@ -41,26 +41,6 @@ import {
   computedIndent
 } from './index'
 
-export const api = [
-  'state',
-  'getNodeKey',
-  'handleClick',
-  'handleContentClick',
-  'closeMenu',
-  'handleDragEnd',
-  'handleDrop',
-  'handleDragOver',
-  'handleDragStart',
-  'handleChildNodeExpand',
-  'handleSelectChange',
-  'handleContextMenu',
-  'handleExpandIconClick',
-  'openEdit',
-  'addNode',
-  'saveEdit',
-  'deleteNode',
-  'handleCheckChange'
-]
 
 const initState = ({ reactive, props, emitter, vm, api, inject, computed }) => {
   const state = reactive({

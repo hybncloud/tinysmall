@@ -29,7 +29,6 @@ import {
 } from './index'
 import { getStartDateOfMonth } from '@tinysmall/utils'
 
-export const api = ['state', 'getCellClasses', 'getCssToken', 'isWeekActive', 'handleMouseMove', 'handleClick']
 
 const initState = ({ reactive, computed, api, props }) => {
   const state = reactive({

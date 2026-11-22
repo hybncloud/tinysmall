@@ -40,7 +40,6 @@ import {
   toggleFocus
 } from './index'
 
-export const api = ['state', 'handleMainButtonClick', 'hide', 'show', 'initDomOperation', 'handleClick', 'clickOutside']
 
 export const renderless = (
   props: IDropdownProps,

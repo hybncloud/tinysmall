@@ -1,6 +1,6 @@
 <script lang="tsx">
 import { setup, defineComponent } from '@tinysmall/common'
-import { renderless, api } from '@tinysmall/renderless/anchor/vue'
+import { renderless } from '@tinysmall/renderless/anchor/vue'
 import { AutoTip } from '@tinysmall/directive'
 import type { IAnchorApi } from '@tinysmall/renderless/types/anchor.type'
 
@@ -37,7 +37,7 @@ export default defineComponent({
   props: anchorProps,
   emits: ['linkClick', 'onChange', 'change'], // deprecated v3.12.0废弃，v3.17.0移除onChange 事件
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   },
   render() {
     const {

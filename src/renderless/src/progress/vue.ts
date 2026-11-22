@@ -41,15 +41,6 @@ import {
   customAfterAppearHook
 } from './index'
 
-export const api = [
-  'state',
-  'getCurrentColor',
-  'getLevelColor',
-  'getColorArray',
-  'customBeforeAppearHook',
-  'customAppearHook',
-  'customAfterAppearHook'
-]
 
 export const renderless = (
   props: IProgressProps,

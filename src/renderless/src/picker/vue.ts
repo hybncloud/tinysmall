@@ -73,32 +73,6 @@ import { dateMobileToggle, timeMobileToggle, dateToTimeArray, timeArrayToDate, t
 import { DATEPICKER, nanoid } from '@tinysmall/utils'
 import type { IPickerProps, IPickerApi, ISharedRenderlessParamHooks, IPickerRenderlessParamUtils } from '../../types'
 
-export const api = [
-  'state',
-  'btnClick',
-  'handleEndChange',
-  'handleEndInput',
-  'focus',
-  'handleFocus',
-  'handleStartChange',
-  'handleStartInput',
-  'handleKeydown',
-  'handleClickIcon',
-  'handleMouseEnter',
-  'handleInput',
-  'handleChange',
-  'handleClose',
-  'handlePick',
-  'handleSelectRange',
-  'handleSelectChange',
-  'popperElm',
-  'handleEnterDisplayOnlyContent',
-  'handleEnterPickerlabel',
-  'timeMobileToggle',
-  'timeMobileConfirm',
-  'emitInput',
-  'dateMobileToggle'
-]
 
 const initState = ({ api, reactive, vm, computed, props, utils, inject }) => {
   const state = reactive({

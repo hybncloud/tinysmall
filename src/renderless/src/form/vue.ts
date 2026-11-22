@@ -33,19 +33,6 @@ import {
   hideTooltip
 } from './index'
 
-export const api = [
-  'state',
-  'resetFields',
-  'clearValidate',
-  'validate',
-  'validateField',
-  'getLabelWidthIndex',
-  'registerLabelWidth',
-  'deregisterLabelWidth',
-  'updateTip',
-  'showTooltip',
-  'hideTooltip'
-]
 
 export const renderless = (
   props: IFormProps,

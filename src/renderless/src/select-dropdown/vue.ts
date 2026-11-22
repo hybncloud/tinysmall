@@ -27,18 +27,6 @@ import { PopupManager } from '@tinysmall/utils'
 import { debounce } from '@tinysmall/utils'
 import { isServer } from '@tinysmall/utils'
 
-export const api = [
-  'state',
-  'doDestroy',
-  'closeModal',
-  'debouncedQueryChange',
-  'toggleSelectedBox',
-  'deleteSelected',
-  'selectedBoxConfirm',
-  'selectDropdownConfirm',
-  'cancelSearch',
-  'handleClear'
-]
 
 const initState = ({ reactive, computed, popper, selectVm }) => {
   const { showPopper, currentPlacement, popperElm, referenceElm } = popper

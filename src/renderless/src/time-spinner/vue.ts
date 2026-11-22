@@ -33,16 +33,6 @@ import {
 } from './index'
 import { getRangeHours, getRangeMinutes } from '@tinysmall/utils'
 
-export const api = [
-  'state',
-  'emitSelectRange',
-  'adjustCurrentSpinner',
-  'handleClick',
-  'decrease',
-  'increase',
-  'amPm',
-  'adjustSpinners'
-]
 
 const initState = ({ reactive, computed, props, api }) => {
   const state = reactive({

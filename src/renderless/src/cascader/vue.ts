@@ -57,26 +57,6 @@ import type {
   ICascadeRenderlessParamUtils
 } from '../../types'
 
-export const api = [
-  'state',
-  'getCheckedNodes',
-  'computePresentText',
-  'handleSuggestionClick',
-  'handleSuggestionKeyDown',
-  'handleExpandChange',
-  'handleDropdownLeave',
-  'handleDelete',
-  'deleteTag',
-  'handleClear',
-  'handleInput',
-  'handleBlur',
-  'handleFocus',
-  'toggleDropDownVisible',
-  'handleKeyDown',
-  'handleMouseenter',
-  'handleMouseleave',
-  'computePresentContent'
-]
 
 const initState = ({
   reactive,

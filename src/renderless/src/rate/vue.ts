@@ -35,16 +35,6 @@ import {
 } from './index'
 import { on, off } from '@tinysmall/utils'
 
-export const api = [
-  'state',
-  'showDecimalIcon',
-  'getIconStyle',
-  'getTextStyle',
-  'selectValue',
-  'handelKey',
-  'setCurrentValue',
-  'resetCurrentValue'
-]
 export const useChangeValue = ({
   emit,
   props,

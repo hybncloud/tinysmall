@@ -107,7 +107,7 @@
 
 <script lang="ts">
 import { setup, defineComponent } from '@tinysmall/common'
-import { renderless, api } from '@tinysmall/renderless/transfer-panel/vue'
+import { renderless } from '@tinysmall/renderless/transfer-panel/vue'
 import Checkbox from '@tinysmall/checkbox'
 import Input from '@tinysmall/input'
 import Pager from '@tinysmall/pager'
@@ -170,7 +170,7 @@ export default defineComponent({
   },
   props: transferPanelProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   }
 })
 </script>

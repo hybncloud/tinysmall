@@ -55,37 +55,6 @@ import type {
   ISliderRenderlessParamUtils
 } from '../../types'
 
-export const api = [
-  'state',
-  'bindKeyDown',
-  'bindMouseDown',
-  'bindMouseMove',
-  'bindMouseUp',
-  'bindEvent',
-  'unBindEvent',
-  'bindResize',
-  'setTipStyle',
-  'getActiveButtonIndex',
-  'setActiveButtonValue',
-  'setBarStyle',
-  'setButtonStyle',
-  'initSlider',
-  'calculateValue',
-  'changeActiveValue',
-  'formatTipValue',
-  'getActiveButtonValue',
-  'displayTip',
-  'hideTip',
-  'autoSlider',
-  'customBeforeAppearHook',
-  'customAppearHook',
-  'customAfterAppearHook',
-  'inputValueChange',
-  'inputOnChange',
-  'handleSlotInputFocus',
-  'handleSlotInputBlur',
-  'handleSlotInput'
-]
 
 const initState = ({ reactive, computed, props, api, inject }) => {
   const state: ISliderState = reactive({

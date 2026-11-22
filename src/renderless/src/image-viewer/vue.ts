@@ -51,31 +51,6 @@ import {
   filterImageUrl
 } from './index'
 
-export const api = [
-  'state',
-  'zIndex',
-  'touchstart',
-  'touchmove',
-  'touchend',
-  'urlList',
-  'hide',
-  'prev',
-  'next',
-  'handleActions',
-  'toggleMode',
-  'handleImgLoad',
-  'handleImgError',
-  'handleMouseDown',
-  'handleVisible',
-  'swipeLeft',
-  'swipeRight',
-  'handleDelete',
-  'activeItems',
-  'imagePreview',
-  'itemClick',
-  'selectOption',
-  'langClick'
-]
 
 const initState = ({ reactive, computed, api, props, inject }) => {
   const state = reactive({

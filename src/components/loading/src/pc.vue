@@ -29,7 +29,7 @@
 
 <script lang="ts">
 import { setup, defineComponent } from '@tinysmall/common'
-import { renderless, api } from '@tinysmall/renderless/loading/vue'
+import { renderless } from '@tinysmall/renderless/loading/vue'
 import { $constants } from '@tinysmall/renderless/loading/constants'
 import '@tinysmall/theme/loading/index.less'
 import { iconLoadingShadow } from '@tinysmall/icon'
@@ -62,7 +62,7 @@ export default defineComponent({
     TinyIconLoadingShadow: iconLoadingShadow()
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   }
 })
 </script>

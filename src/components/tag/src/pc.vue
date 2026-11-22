@@ -10,7 +10,7 @@
  *
  -->
 <script lang="tsx">
-import { renderless, api } from '@tinysmall/renderless/tag/vue'
+import { renderless } from '@tinysmall/renderless/tag/vue'
 import { setup, h, defineComponent } from '@tinysmall/common'
 import { iconClose } from '@tinysmall/icon'
 import type { ITagApi } from '@tinysmall/renderless/types/tag.type'
@@ -49,7 +49,7 @@ export default defineComponent({
   emits: ['click', 'close'],
   props: tagProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api, h })
+    return setup({ props, context, renderless, h })
   },
   render() {
     const {

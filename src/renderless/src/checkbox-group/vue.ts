@@ -13,7 +13,6 @@
 import { $constants } from './constants'
 import { computedFormItemSize, computedCheckboxGroupSize } from './index'
 
-export const api = ['state']
 
 export const renderless = (props, { computed, reactive, watch, inject, provide }, { vm, emit }) => {
   const api = {

@@ -58,25 +58,6 @@ import type {
   IFormItemRenderlessParamUtils
 } from '../../types'
 
-export const api = [
-  'state',
-  'validate',
-  'validateOrigin',
-  'clearValidate',
-  'resetField',
-  'getRules',
-  'getFilteredRule',
-  'onFieldBlur',
-  'onFieldChange',
-  'updateComputedLabelWidth',
-  'addValidateEvents',
-  'removeValidateEvents',
-  'updateTip',
-  'getDisplayedValue',
-  'handleLabelMouseenter',
-  'handleMouseenter',
-  'handleMouseleave'
-]
 
 const initState = ({
   reactive,

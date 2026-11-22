@@ -20,7 +20,6 @@ import type {
 } from '../../types'
 import { breadcrumbItemSelect } from './index'
 
-export const api = ['breadcrumbItemSelect', 'state']
 
 export const renderless = (
   props: IBreadcrumbProps,

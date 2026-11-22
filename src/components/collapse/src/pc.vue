@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@tinysmall/renderless/collapse/vue'
+import { renderless } from '@tinysmall/renderless/collapse/vue'
 import { $constants } from '@tinysmall/renderless/collapse/constants'
 import { setup, defineComponent } from '@tinysmall/common'
 
@@ -43,7 +43,7 @@ export default defineComponent({
     }
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   }
 })
 </script>

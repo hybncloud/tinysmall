@@ -54,7 +54,7 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@tinysmall/renderless/quarter-panel/vue'
+import { renderless } from '@tinysmall/renderless/quarter-panel/vue'
 import { setup, defineComponent } from '@tinysmall/common'
 import YearTable from '@tinysmall/year-table'
 import { iconDoubleRight, iconDoubleLeft } from '@tinysmall/icon'
@@ -68,7 +68,7 @@ export default defineComponent({
     IconDoubleLeft: iconDoubleLeft()
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   }
 })
 </script>

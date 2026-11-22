@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@tinysmall/renderless/option-group/vue'
+import { renderless } from '@tinysmall/renderless/option-group/vue'
 import { setup, defineComponent } from '@tinysmall/common'
 import '@tinysmall/theme/option-group/index.less'
 
@@ -30,7 +30,7 @@ export default defineComponent({
   componentName: 'OptionGroup',
   props: optionGroupProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   }
 })
 </script>

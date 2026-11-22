@@ -35,19 +35,6 @@ import {
   handleTabDragEnd
 } from './index'
 
-export const api = [
-  'state',
-  'handleTabAdd',
-  'calcPaneInstances',
-  'calcMorePanes',
-  'handleTabRemove',
-  'handleTabClick',
-  'handleTabDragStart',
-  'handleTabDragOver',
-  'handleTabDragEnd',
-  'setCurrentName',
-  'getNavRefs'
-]
 
 const initState = ({ reactive, props }: Pick<ITabsRenderlessParams, 'reactive' | 'props'>): ITabsState =>
   reactive({

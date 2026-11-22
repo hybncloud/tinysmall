@@ -44,31 +44,6 @@ import {
   watchInternalPageSize
 } from './index'
 
-export const api = [
-  'state',
-  'handleJumperFocus',
-  'handleSizeChange',
-  'handleJumperInput',
-  'handleJumperChange',
-  'handleJumperClick',
-  'isValueNumber',
-  'parseValueNumber',
-  'handleSizeShowPopover',
-  'handleSizeHidePopover',
-  'canJumperGo',
-  'beforeSizeChangeHandler',
-  'beforePagerChangeHandler',
-  'beforeJumperChangeHandler',
-  'beforeChangeHandler',
-  'handleCurrentChange',
-  'prev',
-  'next',
-  'buildBeforePageChangeParam',
-  'getValidCurrentPage',
-  'emitChange',
-  'setTotal',
-  'clickSizes'
-]
 
 export const renderless = (
   props: IPagerProps,

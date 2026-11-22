@@ -18,7 +18,6 @@ import type {
 } from '../../types'
 import { handleClose, handleClick } from './index'
 
-export const api = ['state', 'handleClose', 'handleClick']
 
 export const renderless = (
   props: ITagProps,

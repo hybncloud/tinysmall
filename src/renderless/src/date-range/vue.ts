@@ -56,33 +56,6 @@ import {
 } from './index'
 import { nextMonth1, extractDateFormat, extractTimeFormat } from '@tinysmall/utils'
 
-export const api = [
-  'state',
-  'handleShortcutClick',
-  'handleConfirm',
-  'handleClear',
-  'handleChangeRange',
-  'rightNextMonth',
-  'rightNextYear',
-  'rightPrevMonth',
-  'rightPrevYear',
-  'handleRangePick',
-  'leftNextMonth',
-  'leftNextYear',
-  'leftPrevMonth',
-  'leftPrevYear',
-  'handleMaxTimePick',
-  'handleDateInput',
-  'handleMinTimePick',
-  'handleTimeChange',
-  'handleTimeInput',
-  'handleMinTimeClose',
-  'handleDateChange',
-  'handleMaxTimeClose',
-  'isValidValue',
-  'resetView',
-  'watchModelValue'
-]
 
 const initState = ({ reactive, computed, api, props }) => {
   const state = reactive({

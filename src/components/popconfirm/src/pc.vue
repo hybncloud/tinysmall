@@ -56,7 +56,7 @@
 
 <script lang="ts">
 import { setup, defineComponent } from '@tinysmall/common'
-import { renderless, api } from '@tinysmall/renderless/popconfirm/vue'
+import { renderless } from '@tinysmall/renderless/popconfirm/vue'
 import { $constants } from '@tinysmall/renderless/popconfirm/constants'
 import Popover from '@tinysmall/popover'
 import Button from '@tinysmall/button'
@@ -108,7 +108,7 @@ export default defineComponent({
   props: popConfirmProps,
   emits: ['hide', 'show', 'confirm'],
   setup(props, context): any {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   }
 })
 </script>

@@ -30,15 +30,6 @@ import {
   handleMouseleave
 } from './index'
 
-export const api = [
-  'state',
-  'toggleItem',
-  'updateOffset',
-  'clickOutside',
-  'doDestroy',
-  'handleMouseenter',
-  'handleMouseleave'
-]
 
 export const renderless = (
   props: IDropdownMenuProps,

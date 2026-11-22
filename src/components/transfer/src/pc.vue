@@ -111,7 +111,7 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@tinysmall/renderless/transfer/vue'
+import { renderless } from '@tinysmall/renderless/transfer/vue'
 import { $constants } from '@tinysmall/renderless/transfer/constants'
 import { setup, defineComponent } from '@tinysmall/common'
 import Button from '@tinysmall/button'
@@ -209,7 +209,7 @@ export default defineComponent({
   },
   props: transferProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   }
 })
 </script>

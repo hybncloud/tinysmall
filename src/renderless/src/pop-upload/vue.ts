@@ -54,24 +54,6 @@ import {
 } from './index'
 import { formatFileSize } from '@tinysmall/utils'
 
-export const api = [
-  'state',
-  'closeSuccessTips',
-  'abort',
-  'beforeAvatarUpload',
-  'beforeRemove',
-  'handleAvatarSuccess',
-  'handleExceed',
-  'errorEvent',
-  'progressEvent',
-  'closeErrorTips',
-  'uploadSubmit',
-  'showDialog',
-  'closeDialog',
-  'fileUploadChange',
-  'formatFileSize',
-  'deleteFile'
-]
 
 const initState = ({ reactive, props, computed, api }) =>
   reactive({

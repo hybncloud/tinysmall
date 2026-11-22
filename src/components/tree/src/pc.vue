@@ -153,7 +153,7 @@
 </template>
 
 <script lang="tsx">
-import { renderless, api } from '@tinysmall/renderless/tree/vue'
+import { renderless } from '@tinysmall/renderless/tree/vue'
 import { $constants } from '@tinysmall/renderless/tree/constants'
 import { setup, defineComponent } from '@tinysmall/common'
 import { iconWarning, iconMarkOn } from '@tinysmall/icon'
@@ -359,7 +359,7 @@ export default defineComponent({
     }
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   }
 })
 </script>

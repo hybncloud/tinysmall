@@ -7,7 +7,6 @@ import type {
 } from '../../types'
 import { computedLineStyle, computedTextStyle, computedRootStyle, setDividerHeight } from './index'
 
-export const api = ['state']
 
 export const renderless = (
   props: IDividerProps,

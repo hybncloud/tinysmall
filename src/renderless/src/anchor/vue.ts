@@ -30,14 +30,6 @@ import {
   handleScroll
 } from './index'
 
-export const api = [
-  'state',
-  'getContainer',
-  'linkClick',
-  'onItersectionObserver',
-  'setScrollContainer',
-  'getCurrentAnchor'
-]
 
 export const renderless = (
   props: IAnchorProps,

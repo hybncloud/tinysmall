@@ -13,7 +13,6 @@
 import { handleScroll, update } from './index'
 import { addResizeListener, removeResizeListener } from '@tinysmall/utils'
 
-export const api = ['state', 'update', 'handleScroll']
 
 export const renderless = (props, { onBeforeUnmount, onMounted, reactive, provide }, { vm, nextTick, emit }) => {
   // 下发自身 vm，供内部 Bar 子组件 inject 后读取 $refs.wrap，替代链式 parent 访问

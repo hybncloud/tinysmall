@@ -19,7 +19,6 @@ import type {
 import { xss } from '@tinysmall/utils'
 import { handleClick } from './index'
 
-export const api = ['state', 'handleClick']
 
 export const renderless = (
   props: ILinkProps,

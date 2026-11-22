@@ -18,7 +18,6 @@ import type {
 } from '../../types'
 import { linkClick } from './index'
 
-export const api = ['linkClick', 'state']
 
 export const renderless = (
   props: IBreadcrumbItemProps,

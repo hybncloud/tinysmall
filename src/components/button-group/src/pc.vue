@@ -116,7 +116,7 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@tinysmall/renderless/button-group/vue'
+import { renderless } from '@tinysmall/renderless/button-group/vue'
 import { setup, defineComponent } from '@tinysmall/common'
 import type { PropType } from '@tinysmall/common'
 import Popover from '@tinysmall/popover'
@@ -179,7 +179,7 @@ export default defineComponent({
     IconEditor: iconEditor() // 新规范图标
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   }
 })
 </script>

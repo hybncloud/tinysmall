@@ -13,7 +13,6 @@
 import { $constants } from './constants'
 import { computedBindStyle, stopAnimation, startAnimation } from './index'
 
-export const api = ['state', 'startAnimation', 'stopAnimation']
 
 export const renderless = (props, { computed, reactive }) => {
   const api = {

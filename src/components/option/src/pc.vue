@@ -36,7 +36,7 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@tinysmall/renderless/option/vue'
+import { renderless } from '@tinysmall/renderless/option/vue'
 import { setup, defineComponent } from '@tinysmall/common'
 import { AutoTip } from '@tinysmall/directive'
 import '@tinysmall/theme/option/index.less'
@@ -80,7 +80,7 @@ export default defineComponent({
   },
   props: optionsProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   }
 })
 </script>

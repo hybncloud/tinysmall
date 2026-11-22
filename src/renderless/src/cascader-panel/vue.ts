@@ -45,19 +45,6 @@ import type {
   ISharedRenderlessParamHooks
 } from '../../types'
 
-export const api = [
-  'state',
-  'handleKeyDown',
-  'getCheckedNodes',
-  'clearCheckedNodes',
-  'scrollIntoView',
-  'handleExpand',
-  'handleCheckChange',
-  'getNodeByValue',
-  'calculateMultiCheckedValue',
-  'lazyLoad',
-  'getFlattedNodes'
-]
 
 const initDefaultProps = () => ({
   expandTrigger: 'click',

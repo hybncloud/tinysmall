@@ -29,7 +29,6 @@ import {
   computedShowText
 } from '../checkbox'
 
-export const api = ['state', 'handleChange']
 
 const initState = ({ reactive, computed, api, form, inject }) => {
   const state = reactive({

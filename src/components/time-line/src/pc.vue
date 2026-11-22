@@ -51,7 +51,7 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@tinysmall/renderless/time-line/vue'
+import { renderless } from '@tinysmall/renderless/time-line/vue'
 import { $constants } from '@tinysmall/renderless/time-line/constants'
 import { setup, defineComponent } from '@tinysmall/common'
 import type { PropType } from '@tinysmall/common'
@@ -153,7 +153,6 @@ export default defineComponent({
       props,
       context,
       renderless,
-      api,
       mono: true
     })
   }

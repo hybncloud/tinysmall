@@ -12,7 +12,6 @@
 
 import { computedClassName, computedStyle } from './index'
 
-export const api = ['state']
 
 export const renderless = (props, { computed, reactive, provide }, { vm }) => {
   const api = {

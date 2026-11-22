@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@tinysmall/renderless/virtual-scroll-box/vue'
+import { renderless } from '@tinysmall/renderless/virtual-scroll-box/vue'
 import { defineComponent, setup } from '@tinysmall/common'
 
 export const virtualScrollBoxProps = {
@@ -32,7 +32,7 @@ export default defineComponent({
   emits: ['change'],
   props: virtualScrollBoxProps,
   setup(props, context): any {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   }
 })
 </script>

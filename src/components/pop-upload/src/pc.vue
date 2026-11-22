@@ -157,7 +157,7 @@ import Modal from '@tinysmall/modal'
 import FileUpload from '@tinysmall/file-upload'
 import Progress from '@tinysmall/progress'
 import Popconfirm from '@tinysmall/popconfirm'
-import { renderless, api } from '@tinysmall/renderless/pop-upload/vue'
+import { renderless } from '@tinysmall/renderless/pop-upload/vue'
 import { $constants } from '@tinysmall/renderless/pop-upload/constants'
 import { setup, defineComponent } from '@tinysmall/common'
 
@@ -228,7 +228,7 @@ export default defineComponent({
   props: popUploadProps,
   emits: ['remove', 'progress', 'error', 'exceed', 'success'],
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   }
 })
 </script>

@@ -50,20 +50,6 @@ import {
   handleChange
 } from './index'
 
-export const api = [
-  'state',
-  'decrease',
-  'increase',
-  'handleBlur',
-  'handleFocus',
-  'handleInput',
-  'handleInputChange',
-  'mouseEvent',
-  'focus',
-  'select',
-  'handleClear',
-  'handleChange'
-]
 
 const initState = ({
   reactive,

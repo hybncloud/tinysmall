@@ -57,7 +57,7 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@tinysmall/renderless/alert/vue'
+import { renderless } from '@tinysmall/renderless/alert/vue'
 import { $constants } from '@tinysmall/renderless/alert/constants'
 import { setup, defineComponent } from '@tinysmall/common'
 import { iconClose, iconSuccess, iconError, iconHelp, iconWarning, iconWarningTriangle } from '@tinysmall/icon'
@@ -115,7 +115,7 @@ export default defineComponent({
   },
   emits: ['close'],
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   }
 })
 </script>

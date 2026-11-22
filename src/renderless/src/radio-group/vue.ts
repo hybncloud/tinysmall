@@ -19,7 +19,6 @@ import type {
 } from '../../types'
 import { handleKeydown, mounted } from './index'
 
-export const api = ['state', 'handleKeydown']
 
 export const renderless = (
   props: IRadioGroupProps,

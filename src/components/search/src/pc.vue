@@ -121,7 +121,7 @@
 </template>
 
 <script lang="tsx">
-import { renderless, api } from '@tinysmall/renderless/search/vue'
+import { renderless } from '@tinysmall/renderless/search/vue'
 import { setup, defineComponent } from '@tinysmall/common'
 import { iconChevronDown, iconSearch, iconClose } from '@tinysmall/icon'
 import '@tinysmall/theme/search/index.less'
@@ -199,7 +199,7 @@ export default defineComponent({
     IconClose: iconClose()
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   }
 })
 </script>

@@ -32,19 +32,6 @@ import {
   setExpandCache
 } from './index'
 
-export const api = [
-  'markRaw',
-  'toRaw',
-  'state',
-  'check',
-  'sizesChange',
-  'clearQuery',
-  'handleAllCheckedChange',
-  'checkedEvent',
-  'setPosition',
-  'selectChange',
-  'handlePageChange'
-]
 
 const initState = ({ reactive, props, transfer, computed, api, slots }) => {
   const state = reactive({

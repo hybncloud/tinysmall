@@ -36,19 +36,6 @@ import {
   onBeforeDestroy
 } from './index'
 
-export const api = [
-  'state',
-  'isImage',
-  'handleChange',
-  'handlePaste',
-  'uploadFiles',
-  'upload',
-  'abort',
-  'post',
-  'handleClick',
-  'handleKeydown',
-  'handleUpdate'
-]
 
 export const renderless = (
   props: IUploadProps,

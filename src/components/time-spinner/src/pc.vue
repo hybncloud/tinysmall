@@ -152,7 +152,7 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@tinysmall/renderless/time-spinner/vue'
+import { renderless } from '@tinysmall/renderless/time-spinner/vue'
 import { setup, defineComponent } from '@tinysmall/common'
 import Scrollbar from '@tinysmall/scrollbar'
 import { RepeatClick } from '@tinysmall/directive'
@@ -209,7 +209,7 @@ export default defineComponent({
   props: timeSpinnerProps,
 
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   }
 })
 </script>

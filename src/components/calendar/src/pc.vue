@@ -274,7 +274,7 @@
 </template>
 
 <script lang="ts">
-import { renderless, api } from '@tinysmall/renderless/calendar/vue'
+import { renderless } from '@tinysmall/renderless/calendar/vue'
 import { setup, defineComponent } from '@tinysmall/common'
 import Tooltip from '@tinysmall/tooltip'
 import Popover from '@tinysmall/popover'
@@ -337,7 +337,7 @@ export default defineComponent({
   },
   props: calendarProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api })
+    return setup({ props, context, renderless })
   }
 })
 </script>

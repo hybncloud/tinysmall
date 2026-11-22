@@ -29,7 +29,6 @@ import {
 } from './index'
 import { DATEPICKER } from '@tinysmall/utils'
 
-export const api = ['state', 'handleMenuEnter', 'handleClick', 'handleClear', 'emitDestroy']
 
 const initState = ({ reactive, computed, api }) => {
   const { Start, End, Step } = DATEPICKER

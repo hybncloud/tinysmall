@@ -32,15 +32,6 @@ import {
 } from './index'
 import { parseDate1 as parseDate } from '@tinysmall/utils'
 
-export const api = [
-  'state',
-  'handleMinChange',
-  'handleConfirm',
-  'setMinSelectionRange',
-  'handleCancel',
-  'setMaxSelectionRange',
-  'handleMaxChange'
-]
 
 const initState = ({ reactive, computed, vm, api }) => {
   const state = reactive({

@@ -11,7 +11,7 @@
  -->
 
 <script lang="tsx">
-import { renderless, api } from '@tinysmall/renderless/dropdown/vue'
+import { renderless } from '@tinysmall/renderless/dropdown/vue'
 import { setup, defineComponent, h } from '@tinysmall/common'
 import Button from '@tinysmall/button'
 import ButtonGroup from '@tinysmall/button-group'
@@ -126,7 +126,7 @@ export default defineComponent({
     'update:visible'
   ],
   setup(props, context) {
-    return setup({ props, context, renderless, api, h })
+    return setup({ props, context, renderless, h })
   },
   render() {
     const { splitButton, type, disabled, handleMainButtonClick, menuOptions, title, suffixIcon, prefixIcon } = this

@@ -46,20 +46,6 @@ import type {
   IDialogBoxInitWatchParam
 } from '../../types'
 
-export const api = [
-  'afterEnter',
-  'afterLeave',
-  'handleClose',
-  'hide',
-  'handleWrapperClick',
-  'useMouseEventDown',
-  'useMouseEventUp',
-  'handleCancel',
-  'handleConfirm',
-  'handleDrag',
-  'toggleFullScreen',
-  'state'
-]
 
 const initState = ({
   reactive,

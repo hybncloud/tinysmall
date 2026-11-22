@@ -18,7 +18,6 @@ import type {
 } from '../../types'
 import { handleClick, moreNodeClick, handleChange, getItemClass } from './index'
 
-export const api = ['state', 'handleClick', 'moreNodeClick', 'handleChange', 'getItemClass']
 
 export const renderless = (
   props: IButtonGroupProps,
