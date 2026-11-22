@@ -78,19 +78,16 @@ const initState = ({
 
 export const initSuggestionState = ({
   reactive,
-  parent,
   showPopper,
   popperElm,
   referenceElm
 }: {
   reactive: IAutoCompleteRenderlessParams['reactive']
-  parent: IAutoCompleteRenderlessParamUtils['parent']
   showPopper: Ref<boolean>
   popperElm: Ref<HTMLElement>
   referenceElm: Ref<HTMLElement>
 }) => {
   return reactive({
-    parent,
     dropdownWidth: '',
     showPopper,
     popperElm,
@@ -144,7 +141,7 @@ export const renderless = (
     onDeactivated,
     inject
   }: IAutoCompleteRenderlessParams,
-  { vm, parent, emit, nextTick, slots }: IAutoCompleteRenderlessParamUtils
+  { vm, emit, nextTick, slots }: IAutoCompleteRenderlessParamUtils
 ) => {
   const api: Partial<IAutoCompleteApi> = {}
   // 替代适配器的 dispatch('FormItem', ...)：form-item 通过 provide('formItem') 暴露 vm，
@@ -170,7 +167,7 @@ export const renderless = (
     onDeactivated
   } as any)
 
-  const suggestionState = initSuggestionState({ reactive, parent, showPopper, popperElm, referenceElm })
+  const suggestionState = initSuggestionState({ reactive, showPopper, popperElm, referenceElm })
 
   initApi({
     api,

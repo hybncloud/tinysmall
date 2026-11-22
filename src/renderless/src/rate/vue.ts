@@ -46,7 +46,6 @@ export const api = [
   'resetCurrentValue'
 ]
 export const useChangeValue = ({
-  
   emit,
   props,
   reactive,
@@ -54,7 +53,7 @@ export const useChangeValue = ({
   watch,
   onMounted,
   onUnmounted,
-  parent,
+  vm,
   inject
 }) => {
   const state = reactive({
@@ -70,7 +69,7 @@ export const useChangeValue = ({
   api.setCurrentValue = setCurrentValue({
     props,
     state,
-    parent,
+    vm,
     api
   })
 
@@ -118,7 +117,7 @@ export const renderless = (
     watch,
     onMounted,
     onUnmounted,
-    parent: vm,
+    vm,
     inject
   })
   const state = reactive<IRateState>({

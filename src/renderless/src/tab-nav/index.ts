@@ -9,7 +9,7 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-import type { ITabNavRenderlessParams } from '../../types'
+import type { ITabNavRenderlessParams, ITabsVm } from '../../types'
 import { KEY_CODE, POSITION } from '@tinysmall/utils'
 import { capitalize } from '@tinysmall/utils'
 import { addResizeListener, removeResizeListener } from '@tinysmall/utils'
@@ -23,14 +23,14 @@ export const computedNavStyle = (state: ITabNavRenderlessParams['state']): { tra
 }
 
 export const scrollIntoView =
-  ({ parent, vm, state }: Pick<ITabNavRenderlessParams, 'parent' | 'vm' | 'state'>) =>
+  ({ vm, state }: Pick<ITabNavRenderlessParams, 'vm' | 'state'>) =>
   () => {
     if (!state.scrollable) {
       return
     }
 
     const nav = vm.$refs.nav
-    const activeTab = parent.$el.querySelector('.is-active') as HTMLElement
+    const activeTab = state.rootTabs.$el.querySelector('.is-active') as HTMLElement
 
     if (!activeTab) {
       return
@@ -88,10 +88,10 @@ export const updated =
     }
   }
 
-export const mounted = ({ api, parent, nextTick }: Pick<ITabNavRenderlessParams, 'api' | 'parent' | 'nextTick'>) => {
+export const mounted = ({ api, rootTabs, nextTick }: { rootTabs: ITabsVm } & Pick<ITabNavRenderlessParams, 'api' | 'nextTick'>) => {
   // 等待 DOM 更新完成后再初始化，确保 nav 等 refs 已就绪，避免 scroll/sortable 等逻辑访问不到 DOM
   nextTick(() => {
-    const el = parent.$refs.nav.$el
+    const el = (rootTabs.$refs as Record<string, any>).nav.$el
 
     /* istanbul ignore next */
     addResizeListener(el, api.updated)
@@ -105,8 +105,9 @@ export const mounted = ({ api, parent, nextTick }: Pick<ITabNavRenderlessParams,
   })
 }
 
-export const beforeUnmount = ({ api, parent }: Pick<ITabNavRenderlessParams, 'api' | 'parent'>) => {
-  const el = parent.$refs.nav && parent.$refs.nav.$el
+export const beforeUnmount = ({ api, rootTabs }: { rootTabs: ITabsVm } & Pick<ITabNavRenderlessParams, 'api'>) => {
+  const nav = (rootTabs.$refs as Record<string, any>).nav
+  const el = nav && nav.$el
 
   /* istanbul ignore next */
   if (el && api.updated) {
@@ -143,14 +144,14 @@ export const windowFocusHandler = (state: ITabNavRenderlessParams['state']) => (
 
 /* istanbul ignore next */
 export const scrollToActiveTab =
-  ({ parent, vm, state }: Pick<ITabNavRenderlessParams, 'parent' | 'vm' | 'state'>) =>
+  ({ vm, state }: Pick<ITabNavRenderlessParams, 'vm' | 'state'>) =>
   () => {
     if (!state.scrollable) {
       return
     }
 
     const nav = vm.$refs.nav
-    const activeTab = parent.$el.querySelector('.is-active')
+    const activeTab = state.rootTabs.$el.querySelector('.is-active')
 
     if (!activeTab) {
       return
@@ -192,7 +193,7 @@ export const scrollPrev =
 
     // 箭头滚动后通知父级 Tabs 重新计算溢出，用 rAF 等待级联 DOM 更新落定
     requestAnimationFrame(() => {
-      ;(state.rootTabs as Record<string, unknown>)?.calcMorePanes?.()
+      ;(state.rootTabs as unknown as { calcMorePanes?: () => void })?.calcMorePanes?.()
     })
   }
 
@@ -214,7 +215,7 @@ export const scrollNext =
 
     // 箭头滚动后通知父级 Tabs 重新计算溢出，用 rAF 等待级联 DOM 更新落定
     requestAnimationFrame(() => {
-      ;(state.rootTabs as Record<string, unknown>)?.calcMorePanes?.()
+      ;(state.rootTabs as unknown as { calcMorePanes?: () => void })?.calcMorePanes?.()
     })
   }
 

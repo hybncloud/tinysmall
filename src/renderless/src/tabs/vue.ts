@@ -110,7 +110,7 @@ const initWatcher = ({
 export const renderless = (
   props: ITabsProps,
   { onMounted, onUpdated, provide, reactive, watch, onUnmounted }: ISharedRenderlessParamHooks,
-  { vm, refs, parent, emit, nextTick }: ITabsRenderlessParamUtils
+  { vm, refs, emit, nextTick }: ITabsRenderlessParamUtils
 ): ITabsApi => {
   const api = {} as ITabsApi
   const state: ITabsState = initState({ reactive, props })
@@ -130,15 +130,15 @@ export const renderless = (
     handleTabRemove: handleTabRemove({ emit, props }),
     changeDirection: changeDirection({ props, state }),
     changeCurrentName: changeCurrentName({ emit, state }),
-    calcMorePanes: calcMorePanes({ parent: vm, props, state, refs }),
-    calcExpandPanes: calcExpandPanes({ parent: vm, props, state }),
-    calcPaneInstances: calcPaneInstances({ parent: vm, state, panes }),
+    calcMorePanes: calcMorePanes({ vm, props, state, refs }),
+    calcExpandPanes: calcExpandPanes({ vm, props, state }),
+    calcPaneInstances: calcPaneInstances({ vm, state, panes }),
     handleTabDragStart: handleTabDragStart({ emit }),
     handleTabDragOver: handleTabDragOver({ emit }),
     handleTabDragEnd: handleTabDragEnd({ state, emit }),
     handleTabClick: handleTabClick({ api, emit, props, refs }),
     setCurrentName: setCurrentName({ api, props, refs, state }),
-    created: created({ api, parent: vm, state })
+    created: created({ api, vm, state })
   })
 
   api.created()

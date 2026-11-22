@@ -10,12 +10,12 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-import type { ITabBarPcRenderlessParams, ITabBarStyle } from '../../types'
+import type { ITabBarPcRenderlessParams, ITabBarStyle, ITinyVm } from '../../types'
 import { POSITION } from '@tinysmall/utils'
 import { capitalize } from '@tinysmall/utils'
 
 export const computedBarStyle =
-  (parent: ITabBarPcRenderlessParams['parent']) =>
+  (rootTabs: ITinyVm) =>
   (props: ITabBarPcRenderlessParams['props'], state: ITabBarPcRenderlessParams['state']): ITabBarStyle => {
     const style = {} as ITabBarStyle
     let offset = 0
@@ -25,7 +25,7 @@ export const computedBarStyle =
 
     if (props.tabs && props.tabs.length) {
       props.tabs.every(({ state }) => {
-        const $el = parent.$refs[`tabs-${state.paneName}`]
+        const $el = rootTabs.$refs[`tabs-${state.paneName}`]
         if (!$el) {
           return false
         }

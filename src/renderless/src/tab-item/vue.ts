@@ -24,9 +24,8 @@ export const api = ['state']
 export const renderless = (
   props: ITabItemProps,
   { computed, inject, reactive, watch, onUnmounted }: ISharedRenderlessParamHooks,
-  { parent, nextTick, vm }: ITabItemRenderlessParamUtils
+  { nextTick, vm }: ITabItemRenderlessParamUtils
 ): ITabItemApi => {
-  const rootTabs = inject('rootTabs') as ITabsVm
   const registerPane = inject('registerPane') as ((pane: ITabsVm) => void) | undefined
   const unregisterPane = inject('unregisterPane') as ((pane: ITabsVm) => void) | undefined
 
@@ -35,20 +34,21 @@ export const renderless = (
 
   onUnmounted(() => unregisterPane?.(vm))
 
-  const api = {
-    watchTitle: watchTitle(parent),
-    computedIsClosable: computedIsClosable({ rootTabs, props })
-  } as ITabItemApi
-
   const state = reactive({
     index: null,
     loaded: false,
     animateShow: true,
-    rootTabs,
+    // tabs 通过 provide('rootTabs') 暴露 vm，替代组件链 parent 访问；后续统一从 state.rootTabs 取用
+    rootTabs: inject('rootTabs') as ITabsVm,
     active: computed(() => api.computedActive()),
     paneName: computed(() => api.computedPaneName()),
     isClosable: computed(() => api.computedIsClosable())
   }) as ITabItemState
+
+  const api = {
+    watchTitle: watchTitle(state.rootTabs),
+    computedIsClosable: computedIsClosable({ rootTabs: state.rootTabs, props })
+  } as ITabItemApi
 
   Object.assign(api, {
     state,

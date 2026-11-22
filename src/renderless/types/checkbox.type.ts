@@ -1,6 +1,6 @@
 import type { ExtractPropTypes, ComputedRef } from 'vue'
 import type { checkboxProps, $constants } from '../../components/checkbox/src'
-import type { ISharedRenderlessFunctionParams, ISharedRenderlessParamUtils } from './shared.type'
+import type { ISharedRenderlessFunctionParams, ISharedRenderlessParamUtils, ITinyVm } from './shared.type'
 import type {
   addToStore,
   removeFromStore,
@@ -35,7 +35,7 @@ export interface ICheckboxState {
   selfModel: ICheckboxModalValue
   showLabel: boolean
   isLimitExceeded: boolean
-  checkboxGroup: ISharedRenderlessFunctionParams<ICheckboxConstants>['parent']
+  checkboxGroup: ITinyVm
   store: ICheckboxModalValue | ICheckboxModalValue[]
   isGroup: boolean
   isChecked: boolean

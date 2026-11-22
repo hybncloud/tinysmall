@@ -24,9 +24,8 @@ import {
 
 export const api = ['state', 'visible', 'hoverItem', 'selectOptionClick']
 
-const initState = ({ reactive, computed, props, api, markRaw, select, parent, inject }) => {
+const initState = ({ reactive, computed, props, api, select, inject }) => {
   const state = reactive({
-    parent: markRaw(parent),
     group: inject('optionGroup', null),
     selectMultiple: computed(() => select.multiple),
     created: computed(() => props.created),
@@ -153,13 +152,13 @@ const initSelectState = ({ state, select, props, toRefs, reactive }) => {
 
 export const renderless = (
   props,
-  { computed, onMounted, onBeforeUnmount, reactive, watch, inject, markRaw, toRefs },
-  { vm, parent }
+  { computed, onMounted, onBeforeUnmount, reactive, watch, inject, toRefs },
+  { vm }
 ) => {
   const api = {}
   const select = inject('select')
   const constants = $constants
-  const state = initState({ reactive, computed, props, api, markRaw, select, parent, inject })
+  const state = initState({ reactive, computed, props, api, select, inject })
 
   initApi({ api, props, state, select, vm })
   initWatch({ watch, props, state, select })

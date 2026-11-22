@@ -79,8 +79,8 @@ export const useFormatSearchTypes = ({ computed, props, reactive, toRefs, watch 
 
 export const renderless = (
   props: ISearchProps,
-  { computed, onBeforeUnmount, onMounted, reactive, toRefs, watch }: ISharedRenderlessParamHooks,
-  { vm, parent, emit, nextTick }: ISearchRenderlessParamUtils
+  { computed, inject, onBeforeUnmount, onMounted, reactive, toRefs, watch }: ISharedRenderlessParamHooks,
+  { vm, emit, nextTick }: ISearchRenderlessParamUtils
 ): ISearchApi => {
   const formatSearchTypes = useFormatSearchTypes({
     computed,
@@ -97,8 +97,10 @@ export const renderless = (
     collapse: props.mini,
     currentValue: props.modelValue,
     ...formatSearchTypes.state,
+    // form-item 通过 provide('formItem') 暴露 vm，替代组件链 parent.formItem 访问；统一从 state.formItem 取用
+    formItem: inject('formItem', null) as any,
     showClear: computed(() => props.clearable && (state.focus || state.hovering) && state.currentValue),
-    formItemSize: computed(() => (parent.formItem || {}).formItemSize),
+    formItemSize: computed(() => state.formItem?.state?.formItemSize),
     searchSize: computed(() => props.size || state.formItemSize),
     instanceId: generateUniqueId() // 生成唯一 ID，用于避免多个组件实例时 id 重复
   })
@@ -109,7 +111,7 @@ export const renderless = (
     handleChange: handleChange({ emit, state }),
     showSelector: showSelector({ vm, state }),
     searchClick: searchClick({ emit, props, state }),
-    clickOutside: clickOutside({ parent: vm, props, state, emit }),
+    clickOutside: clickOutside({ vm, props, state, emit }),
     emitInput: emitInput({ emit }),
     ...formatSearchTypes.api
   } as ISearchApi

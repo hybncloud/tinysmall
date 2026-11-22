@@ -87,7 +87,7 @@ export const api = [
   'handleSlotInput'
 ]
 
-const initState = ({ reactive, computed, props, api, parent, inject }) => {
+const initState = ({ reactive, computed, props, api, inject }) => {
   const state: ISliderState = reactive({
     showAutoWidth: inject('showAutoWidth', null),
     tipStyle: {},
@@ -116,7 +116,9 @@ const initState = ({ reactive, computed, props, api, parent, inject }) => {
     changeCompat: computed(() => props.changeCompat),
     rangeDiff: computed(() => props.max - props.min),
     tipValue: computed(() => api.formatTipValue(state.activeValue)),
-    formDisabled: computed(() => (parent.tinyForm || {}).disabled),
+    // form 通过 provide('form') 暴露 vm，替代挂在链式 parent 上的 tinyForm 缓存；后续统一从 state.tinyForm 取用
+    tinyForm: inject('form', null),
+    formDisabled: computed(() => (state.tinyForm || {}).disabled),
     disabled: computed(() => props.disabled || state.formDisabled),
     slotValue: '',
     isSlotTyping: false,
@@ -129,11 +131,10 @@ const initState = ({ reactive, computed, props, api, parent, inject }) => {
 export const renderless = (
   props: ISliderProps,
   { computed, onBeforeUnmount, onMounted, reactive, watch, inject }: ISharedRenderlessParamHooks,
-  { vm, parent, nextTick, emit }: ISliderRenderlessParamUtils
+  { vm, nextTick, emit }: ISliderRenderlessParamUtils
 ) => {
   const api = {} as ISliderApi
-  const state: ISliderState = initState({ reactive, computed, props, api, parent, inject })
-  parent.tinyForm = parent.tinyForm || inject('form', null)
+  const state: ISliderState = initState({ reactive, computed, props, api, inject })
 
   Object.assign(api, {
     state,

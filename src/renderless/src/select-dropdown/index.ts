@@ -12,7 +12,7 @@ import { $constants } from '../base-select/constants'
  */
 
 export const mounted =
-  ({ selectEmitter, state, selectVm, updatePopper, destroyPopper, parent, select }) =>
+  ({ selectEmitter, state, selectVm, updatePopper, destroyPopper, vm, select }) =>
   () => {
     selectEmitter.on($constants.EVENT_NAME.updatePopper, (keepZIndex) => {
       let hideDrop = false
@@ -20,7 +20,7 @@ export const mounted =
       if (!state.referenceElm || state.referenceElm.nodeType !== 1) {
         // 触发源如果是用户传递的插槽，则赋值为外侧div
         state.referenceElm = selectVm.$refs.reference ? selectVm.$refs.reference.$el : selectVm.$refs.select // Tiny新逻辑，同步时需谨慎对比逻辑
-        selectVm.popperElm = selectVm.state.popperElm = state.popperElm = parent.$el
+        selectVm.popperElm = selectVm.state.popperElm = state.popperElm = vm.$el
       }
 
       if (select.state.visible && !hideDrop) {

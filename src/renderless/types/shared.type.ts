@@ -22,8 +22,6 @@ export interface ISharedRenderlessParamUtils {
   attrs: any
   /** vue的内置nextTick， 其实可以从第二参 hooks中获取, 还可以通过当前vm.$nextTick来获取 */
   nextTick: typeof hooks.nextTick
-  /** parentVm */
-  parent: ITinyVm | null
   /** 当前vm */
   vm: ITinyVm
   /** 第一次mount加载后的所有refs，不会更新！ ⭐要避免使用 */

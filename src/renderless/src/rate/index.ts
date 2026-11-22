@@ -99,13 +99,13 @@ export const selectValue =
   }
 
 export const setCurrentValue =
-  ({ props, state, parent, api }) =>
+  ({ props, state, vm, api }) =>
   ({ event, item }) => {
     if (props.disabled) {
       return
     }
 
-    if (!parent.$el.contains(state.mouseTarget)) {
+    if (!vm.$el.contains(state.mouseTarget)) {
       api.resetCurrentValue()
     }
 

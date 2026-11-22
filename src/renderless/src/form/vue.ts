@@ -50,7 +50,7 @@ export const api = [
 export const renderless = (
   props: IFormProps,
   { computed, inject, provide, reactive, watch, onBeforeUnmount }: IFormRenderlessParams,
-  { vm, parent }: IFormRenderlessParamUtils
+  { vm }: IFormRenderlessParamUtils
 ): IFormApi => {
   const api = {} as IFormApi
   const dialog = inject('dialog', null)

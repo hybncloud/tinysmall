@@ -35,23 +35,23 @@ export const api = ['state', 'handleChange']
 export const renderless = (
   props: IRadioProps,
   { onMounted, onBeforeUnmount, computed, reactive, inject }: ISharedRenderlessParamHooks,
-  { vm, parent, emit, nextTick }: IRadioRenderlessParamUtils
+  { vm, emit, nextTick }: IRadioRenderlessParamUtils
 ): IRadioApi => {
-  parent.tinyForm = parent.tinyForm || inject('form', null)
-
   const api = {} as IRadioApi
 
   const state: IRadioState = reactive({
     vertical: inject('radioVertical', false),
-    size: computed(() => props.size || inject('size', null) || (parent.tinyForm || {}).size),
+    // form 通过 provide('form') 暴露 vm，替代挂在链式 parent 上的 tinyForm 缓存；后续统一从 state.tinyForm 取用
+    tinyForm: inject('form', null),
+    size: computed(() => props.size || inject('size', null) || (state.tinyForm || {}).size),
     focus: false,
     radioGroup: inject('radioGroup', null),
     isGroup: computed(() => api.isGroup()),
     radioSize: computed(() => api.radioSize()),
     isDisabled: computed(() => api.isDisabled()),
-    isDisplayOnly: computed(() => api.isDisplayOnly() || (parent.tinyForm || {}).displayOnly),
+    isDisplayOnly: computed(() => api.isDisplayOnly() || (state.tinyForm || {}).displayOnly),
     tabIndex: computed(() => api.tabIndex()),
-    formDisabled: computed(() => (parent.tinyForm || {}).disabled),
+    formDisabled: computed(() => (state.tinyForm || {}).disabled),
     model: computed({
       get: () => api.getModel(),
       set: (val) => api.setModel(val)

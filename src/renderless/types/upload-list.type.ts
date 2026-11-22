@@ -1,6 +1,6 @@
 import type { ExtractPropTypes } from 'vue'
 import type { uploadListProps } from '../../components/upload-list/src'
-import type { ISharedRenderlessFunctionParams, ISharedRenderlessParamUtils } from './shared.type'
+import type { ISharedRenderlessFunctionParams, ISharedRenderlessParamUtils, ITinyVm } from './shared.type'
 import type { IFileUploadFile, IFileUploadConstants } from './file-upload.type'
 import type {
   getDeleteData,
@@ -83,6 +83,8 @@ export type IUploadListRenderlessParams = ISharedRenderlessFunctionParams<IFileU
   state: IUploadListState
   props: IUploadListProps
   api: IUploadListApi
+  /** upload(file-upload) 通过 provide('uploader') 暴露的 vm，供 upload-list 注入后访问 */
+  uploader: ITinyVm
 }
 
 export interface IUploadListVideoParam {

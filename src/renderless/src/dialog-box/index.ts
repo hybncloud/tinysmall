@@ -69,16 +69,15 @@ export const watchVisible =
     api,
     emit,
     nextTick,
-    parent,
     props,
     vm,
     state
   }: Pick<
     IDialogBoxRenderlessParams,
-    'api' | 'emit' | 'nextTick' | 'parent' | 'props' | 'vm' | 'state'
+    'api' | 'emit' | 'nextTick' | 'props' | 'vm' | 'state'
   >) =>
   (val: boolean): void => {
-    const el = parent.$el
+    const el = vm.$el
 
     if (props.lockScroll) {
       val ? api.showScrollbar() : api.hideScrollbar()
@@ -118,14 +117,14 @@ export const watchVisible =
   }
 
 export const mounted =
-  ({ api, parent, props }: Pick<IDialogBoxRenderlessParams, 'api' | 'parent' | 'props'>) =>
+  ({ api, vm, props }: Pick<IDialogBoxRenderlessParams, 'api' | 'vm' | 'props'>) =>
   (): void => {
     if (props.lockScroll && props.visible) {
       api.showScrollbar()
     }
 
     if (props.visible) {
-      const el = parent.$el
+      const el = vm.$el
 
       api.open()
 
@@ -136,9 +135,9 @@ export const mounted =
   }
 
 export const unMounted =
-  ({ api, parent, props }: Pick<IDialogBoxRenderlessParams, 'api' | 'parent' | 'props'>) =>
+  ({ api, vm, props }: Pick<IDialogBoxRenderlessParams, 'api' | 'vm' | 'props'>) =>
   (): void => {
-    const el = parent.$el
+    const el = vm.$el
 
     api.hideScrollbar()
 
@@ -181,9 +180,9 @@ export const handleClose =
   ({
     api,
     emit,
-    parent,
+    vm,
     props
-  }: Pick<IDialogBoxRenderlessParams, 'api' | 'emit' | 'parent' | 'props'>) =>
+  }: Pick<IDialogBoxRenderlessParams, 'api' | 'emit' | 'vm' | 'props'>) =>
   (type = 'close') => {
     if (typeof props.beforeClose === 'function' && props.beforeClose(type) === false) {
       return
@@ -192,7 +191,7 @@ export const handleClose =
       return
     }
 
-    const el = parent.$el
+    const el = vm.$el
 
     if (props.rightSlide) {
       const dialogBoxDom = (el.querySelector($constants.DIALOG_BOX_CLASS) || el) as HTMLElement

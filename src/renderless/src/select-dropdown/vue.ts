@@ -73,7 +73,7 @@ const initState = ({ reactive, computed, popper, selectVm }) => {
   return state
 }
 
-const initApi = ({ api, popper, state, selectEmitter, selectVm, parent, select, nextTick, props }) => {
+const initApi = ({ api, popper, state, selectEmitter, selectVm, vm, select, nextTick, props }) => {
   const { destroyPopper, doDestroy, updatePopper } = popper
 
   Object.assign(api, {
@@ -90,7 +90,7 @@ const initApi = ({ api, popper, state, selectEmitter, selectVm, parent, select, 
     closeModal: closeModal({ state, selectVm, props }),
     cancelSearch: cancelSearch({ api, state, selectVm }),
     handleClear: handleClear({ state, selectVm }),
-    mounted: mounted({ selectEmitter, state, selectVm, updatePopper, destroyPopper, parent, select })
+    mounted: mounted({ selectEmitter, state, selectVm, updatePopper, destroyPopper, vm, select })
   })
 }
 
@@ -139,7 +139,7 @@ const initWatch = ({ watch, selectVm, state, nextTick, props }) => {
 export const renderless = (
   props,
   { computed, onBeforeUnmount, onDeactivated, onMounted, reactive, toRefs, watch, inject },
-  { vm, slots, parent, emit, nextTick }
+  { vm, slots, emit, nextTick }
 ) => {
   const api = {}
   const select = inject('select')
@@ -162,7 +162,7 @@ export const renderless = (
 
   const state = initState({ reactive, computed, popper, selectVm })
 
-  initApi({ api, popper, state, selectEmitter, selectVm, parent: vm, select, nextTick, props })
+  initApi({ api, popper, state, selectEmitter, selectVm, vm, select, nextTick, props })
   initWatch({ watch, selectVm, state, nextTick, props })
 
   onBeforeUnmount(() => {

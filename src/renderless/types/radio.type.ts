@@ -1,6 +1,6 @@
 import type { ExtractPropTypes } from 'vue'
 import type { radioProps, $constants } from '../../components/radio/src'
-import type { ISharedRenderlessFunctionParams, ISharedRenderlessParamUtils } from './shared.type'
+import type { ISharedRenderlessFunctionParams, ISharedRenderlessParamUtils, ITinyVm } from './shared.type'
 import type {
   handleChange,
   isGroup,
@@ -19,7 +19,7 @@ export interface IRadioState {
   vertical: boolean
   size: IRadioProps['size']
   focus: boolean
-  radioGroup: ISharedRenderlessParamUtils<IRadioConstants>['parent'] | null
+  radioGroup: ITinyVm | null
   isGroup: boolean
   radioSize: IRadioProps['size']
   isDisabled: boolean

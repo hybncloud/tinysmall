@@ -187,7 +187,7 @@ export const renderless = (
     index > -1 && menus.splice(index, 1)
   })
 
-  initApi({ api, state, menus, props, nextTick, parent, emit })
+  initApi({ api, state, menus, props, nextTick, emit })
 
   initWatch({ watch, state, props, api })
 

@@ -22,8 +22,7 @@ export const api = ['state', 'computedBarStyle']
 
 export const renderless = (
   props: ITabBarPcProps,
-  { inject, reactive }: ISharedRenderlessParamHooks,
-  { parent }: ITabBarPcRenderlessParamUtils
+  { inject, reactive }: ISharedRenderlessParamHooks
 ): ITabBarPcApi => {
   const state = reactive({
     rootTabs: inject('rootTabs'),
@@ -33,7 +32,8 @@ export const renderless = (
 
   const api: ITabBarPcApi = {
     state,
-    computedBarStyle: computedBarStyle(parent)
+    // tabs 通过 provide('rootTabs') 暴露 vm，替代组件链 parent 访问
+    computedBarStyle: computedBarStyle(state.rootTabs)
   }
 
   return api

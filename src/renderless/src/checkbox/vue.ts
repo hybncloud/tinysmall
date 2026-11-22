@@ -105,7 +105,7 @@ const initApi = ({
     computedIsGroup: computedIsGroup({ state }),
     computedCheckboxSize: computedCheckboxSize({ state, props, formItemSize }),
     computedGetModelSet: computedGetModelSet({ state, emit }),
-    mounted: mounted({ emit, props, api, parent: vm }),
+    mounted: mounted({ emit, props, api, vm }),
     handleChange: handleChange({ state, props, emit, nextTick }),
     computedDisplayLabel: computedDisplayLabel({ state, props, t }),
     computedIsShowText: computedIsShowText({ props }),
@@ -142,7 +142,7 @@ export const renderless = (
   )
 
   onBeforeUnmount(() => {
-    toggleEvent({ parent: vm, props, type: 'remove' })
+    toggleEvent({ vm, props, type: 'remove' })
   })
 
   // 替代 dispatch('Tooltip', 'tooltip-update')：tooltip 通过 provide('tooltipVm') 暴露 vm，
@@ -151,7 +151,7 @@ export const renderless = (
 
   onMounted(() => {
     tooltipVm?.$emitter.emit('tooltip-update')
-    toggleEvent({ parent: vm, props, type: 'add' })
+    toggleEvent({ vm, props, type: 'add' })
     api.mounted()
   })
 

@@ -381,7 +381,7 @@ export const handleInputChange =
 export const select = (vm: INumericRenderlessParams['vm']) => () => vm.$refs.input.select()
 
 export const mounted =
-  ({ parent, props, state }: Pick<INumericRenderlessParams, 'constants' | 'parent' | 'props' | 'state'>) =>
+  ({ vm, props, state }: Pick<INumericRenderlessParams, 'constants' | 'vm' | 'props' | 'state'>) =>
   (): void => {
     if (props.shape === 'filter') {
       state.controls = false
@@ -398,7 +398,7 @@ export const mounted =
       state.userInput = props.max as number
     }
 
-    const innerInput = parent.$el.querySelector('input')
+    const innerInput = vm.$el.querySelector('input')
 
     if (!innerInput) return
 
@@ -417,17 +417,17 @@ export const mounted =
   }
 
 export const unmounted =
-  ({ parent, state }: Pick<INumericRenderlessParams, 'parent' | 'state'>) =>
+  ({ vm, state }: Pick<INumericRenderlessParams, 'vm' | 'state'>) =>
   (): void => {
-    const innerInput = parent.$el.querySelector('input')
+    const innerInput = vm.$el.querySelector('input')
 
     innerInput && off(innerInput, 'paste', state.onPase)
   }
 
 export const updated =
-  ({ parent, state }: Pick<INumericRenderlessParams, 'constants' | 'parent' | 'state'>) =>
+  ({ vm, state }: Pick<INumericRenderlessParams, 'constants' | 'vm' | 'state'>) =>
   (): void => {
-    const innerInput = parent.$el.querySelector('input')
+    const innerInput = vm.$el.querySelector('input')
 
     innerInput && innerInput.setAttribute($constants.VALUENOW, state.currentValue)
   }
@@ -504,9 +504,9 @@ export const getUnitPrecision = ({
 }
 
 export const getDisplayOnlyText =
-  ({ parent, state, props }: Pick<INumericRenderlessParams, 'parent' | 'state' | 'props'>) =>
+  ({ tinyForm, state, props }: { tinyForm: any } & Pick<INumericRenderlessParams, 'state' | 'props'>) =>
   (): string | number => {
-    const showEmptyValue = props.showEmptyValue || (parent.tinyForm || {}).showEmptyValue
+    const showEmptyValue = props.showEmptyValue || (tinyForm || {}).showEmptyValue
 
     if (showEmptyValue) {
       return state.displayValue

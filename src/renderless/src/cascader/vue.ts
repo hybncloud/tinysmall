@@ -82,18 +82,16 @@ const initState = ({
   reactive,
   props,
   computed,
-  parent,
   form,
   api,
   t,
-  
+
   vm,
   inject
 }: {
   reactive: ISharedRenderlessFunctionParams<null>['reactive']
   props: ICascaderProps
   computed: ISharedRenderlessFunctionParams<null>['computed']
-  parent: ICascadeRenderlessParamUtils['parent']
   form: ReturnType<ISharedRenderlessFunctionParams<null>['inject']>
   api: ICascaderApi
   t: ICascadeRenderlessParamUtils['t']
@@ -151,7 +149,6 @@ const initApi = ({
   props,
   updatePopper,
   nextTick,
-  parent,
   t
 }: {
   api: ICascaderApi
@@ -163,7 +160,6 @@ const initApi = ({
   props: ICascaderProps
   updatePopper: (popperElm?: HTMLElement | undefined) => void
   nextTick: ICascadeRenderlessParamUtils['nextTick']
-  parent: ICascadeRenderlessParamUtils['parent']
   t: ICascadeRenderlessParamUtils['t']
 }) => {
   Object.assign(api, {
@@ -176,11 +172,11 @@ const initApi = ({
     focusFirstNode: focusFirstNode({ vm, state }),
     computClearVisible: computClearVisible({ props, state }),
     showPlaceholder: showPlaceholder({ props, state, t }),
-    updateStyle: updateStyle({ parent, vm, state, updatePopper, nextTick, props }),
+    updateStyle: updateStyle({ vm, state, updatePopper, nextTick, props }),
     getSuggestions: getSuggestions({ nextTick, props, state, updatePopper }),
     handleExpandChange: handleExpandChange({ emit, dispatch, nextTick, state, updatePopper }),
-    getConfig: getConfig({ parent, props }),
-    setInputHeightToTag: setInputHeightToTag({ nextTick, parent, state }),
+    getConfig: getConfig({ vm, props }),
+    setInputHeightToTag: setInputHeightToTag({ nextTick, vm, state }),
     handleSuggestionClick: handleSuggestionClick({ api, state }),
     handleDelete: handleDelete({ api, state }),
     computePresentText: computePresentText({ props, state }),
@@ -192,7 +188,7 @@ const initApi = ({
     computePresentContent: computePresentContent({ api, state }),
     watchCheckedValue: watchCheckedValue({ dispatch, api, nextTick, emit, state, props }),
     toggleDropDownVisible: toggleDropDownVisible({ emit, vm, state, updatePopper }),
-    selfMounted: selfMounted({ api, parent, props, vm, state }),
+    selfMounted: selfMounted({ api, props, vm, state }),
     handleBeforeUpdate: handleBeforeUpdate({ props, api, state }),
     handleBlur: handleBlur({ emit, api, props }),
     calcCollapseTags: calcCollapseTags({ vm, state, nextTick }),
@@ -316,16 +312,15 @@ export const renderless = (
     reactive,
     props,
     computed,
-    parent: vm,
     form,
     api: api as ICascaderApi,
     t,
-    
+
     vm,
     inject
   })
 
-  initApi({ api: api as ICascaderApi, state, dispatch, emit, vm, props, updatePopper, nextTick, parent: vm, t })
+  initApi({ api: api as ICascaderApi, state, dispatch, emit, vm, props, updatePopper, nextTick, t })
 
   initWatch({ watch, state, api: api as ICascaderApi, props, nextTick, updatePopper })
 

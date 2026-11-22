@@ -11,15 +11,15 @@ import { reactive } from 'vue'
 import { TinyFileUpload, TinyButton, TinyModal } from '@hybncloud/tinysmall'
 
 const fileList = reactive([])
-const httpRequest = reactive(({ onSuccess, file }) => {
-  return new Promise((resolve) => {
+const httpRequest = ({ onSuccess, file }) => {
+  return new Promise(() => {
     // 此处为用户自定义的上传服务请求
     setTimeout(() => {
       onSuccess('上传成功')
       this.fileList.push(file)
     }, 500)
   })
-})
+}
 const handleSuccess = (res) => {
   TinyModal.message(res)
 }

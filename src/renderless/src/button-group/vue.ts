@@ -23,15 +23,15 @@ export const api = ['state', 'handleClick', 'moreNodeClick', 'handleChange', 'ge
 export const renderless = (
   props: IButtonGroupProps,
   { computed, reactive, watch, inject }: ISharedRenderlessParamHooks,
-  { emit, parent }: IButtonGroupRenderlessParamUtils
+  { emit }: IButtonGroupRenderlessParamUtils
 ) => {
-  parent.tinyForm = parent.tinyForm || inject('form', null)
-
   const state: IButtonGroupState = reactive({
     value: props.modelValue,
+    // form 通过 provide('form') 暴露 vm，替代挂在链式 parent 上的 tinyForm 缓存；后续统一从 state.tinyForm 取用
+    tinyForm: inject('form', null),
     buttonData: props.data?.slice(0, props.showMore) || [],
     moreData: props.data?.slice(props.showMore, props.data.length) || [],
-    formDisabled: computed(() => (parent.tinyForm || {}).disabled),
+    formDisabled: computed(() => (state.tinyForm || {}).disabled),
     disabled: computed(() => props.disabled || state.formDisabled)
   })
 

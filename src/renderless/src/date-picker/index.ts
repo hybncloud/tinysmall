@@ -330,14 +330,15 @@ export const getDisplayValue =
 
 export const hookMounted =
   ({
-    
-    parent,
+    vm,
     refs,
     nextTick
-  }: Pick<IDatePickerRenderlessParams, 'constants' | 'parent' | 'refs' | 'nextTick'>) =>
+  }: Pick<IDatePickerRenderlessParams, 'constants' | 'vm' | 'refs' | 'nextTick'>) =>
   () => {
     nextTick(() => {
-      parent.$emit($constants.HookMounted, refs.refrence.$el)
+      // 'hook-mounted' 库内无监听方，父组件也未 provide 自身 vm 可供 inject：
+      // 改为广播到自身总线，监听方通过 vm.$on('hook-mounted', ...) 订阅
+      vm.$emitter.emit($constants.HookMounted, refs.refrence.$el)
     })
   }
 

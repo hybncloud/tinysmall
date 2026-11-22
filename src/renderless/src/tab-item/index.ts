@@ -9,7 +9,7 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
-import type { ITabItemRenderlessParams } from '../../types'
+import type { ITabItemRenderlessParams, ITabsVm } from '../../types'
 
 export const computedIsClosable =
   ({ rootTabs, props }: Pick<ITabItemRenderlessParams, 'rootTabs' | 'props'>) =>
@@ -39,4 +39,5 @@ export const computedPaneName =
   (): string | null =>
     props.name || state.index
 
-export const watchTitle = (parent: ITabItemRenderlessParams['parent']) => () => parent.$emit('tab-nav-update')
+// 统一事件机制：发送端对 tabs 的 vm 走 $emitter 纯总线（tabs 以 vm.$on 订阅），不触发 instance.emit
+export const watchTitle = (rootTabs: ITabsVm) => () => rootTabs.$emitter.emit('tab-nav-update')

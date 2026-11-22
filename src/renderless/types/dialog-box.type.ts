@@ -103,7 +103,7 @@ export type IDialogBoxMergeStateParam = Pick<IDialogBoxRenderlessParams, 'reacti
 
 export type IDialogBoxInitApiParam = Pick<
   IDialogBoxRenderlessParams,
-  'api' | 'state' | 'parent' | 'props' | 'emit' | 'constants' | 'nextTick' | 'vm'
+  'api' | 'state' | 'props' | 'emit' | 'constants' | 'nextTick' | 'vm'
 > & { usePopups: object; lockScrollClass: string }
 
 export interface IDialogBoxInitWatchParam {

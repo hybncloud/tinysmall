@@ -24,12 +24,12 @@ export const api = ['state', 'handleClick']
 export const renderless = (
   props: ILinkProps,
   { inject, reactive, computed }: ISharedRenderlessParamHooks,
-  { emit, parent }: ILinkRenderlessParamUtils
+  { emit }: ILinkRenderlessParamUtils
 ): ILinkApi => {
-  parent.tinyForm = parent.tinyForm || inject('form', null)
-
   const state: ILinkState = reactive({
-    formDisabled: computed(() => (parent.tinyForm || {}).disabled),
+    // form 通过 provide('form') 暴露 vm，替代挂在链式 parent 上的 tinyForm 缓存；后续统一从 state.tinyForm 取用
+    tinyForm: inject('form', null),
+    formDisabled: computed(() => (state.tinyForm || {}).disabled),
     disabled: computed(() => props.disabled || state.formDisabled),
     href: computed(() => xss.filterUrl(props.href))
   })

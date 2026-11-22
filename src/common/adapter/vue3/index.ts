@@ -130,7 +130,8 @@ const createVm = (
   return vm as ITinyVm
 }
 
-export const tools = (context: hooks.SetupContext<any, any>): Omit<ISharedRenderlessParamUtils, 't'> => {
+// 链式 parentVm 已移除：跨组件数据一律走 provide/inject（见 AGENTS.md），parent 字段仅供内部函数签名复用
+export const tools = (context: hooks.SetupContext<any, any>): Omit<ISharedRenderlessParamUtils, 't' | 'parent'> => {
   const instance = hooks.getCurrentInstance()
   if (instance == null) throw new Error('tools() must be called within setup()')
   const i18n = instance?.proxy?.$root?.$i18n
@@ -146,8 +147,6 @@ export const tools = (context: hooks.SetupContext<any, any>): Omit<ISharedRender
       ownKeys: () => Reflect.ownKeys(instance.refs)
     }
   )
-
-  const parentVm = instance.parent ? createVm({}, instance.parent) : null
 
   const defineInstanceProperties = (props: PropertyDescriptorMap) => {
     Object.defineProperties(vm, props)
@@ -167,7 +166,6 @@ export const tools = (context: hooks.SetupContext<any, any>): Omit<ISharedRender
     slots: instance.slots,
     scopedSlots: instance.slots,
     attrs: context.attrs,
-    parent: parentVm,
     nextTick: hooks.nextTick,
     defineInstanceProperties
   }

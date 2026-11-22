@@ -72,14 +72,14 @@ export type IModalRenderlessParamUtils = ISharedRenderlessParamUtils<IModalConst
 
 export interface IModalEmitParam {
   type: string
-  $modal: IModalRenderlessParamUtils['parent']
+  $modal: IModalRenderlessParamUtils['vm']
   options?: any[]
 }
 
 export type IModalEmitZoomParam = {
   params: IModalEmitParam
   event: Event
-} & Pick<IModalRenderlessParams, 'parent' | 'emit'>
+} & Pick<IModalRenderlessParams, 'vm' | 'emit'>
 
 interface IModalSizeInfo {
   width: number

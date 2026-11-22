@@ -259,13 +259,14 @@ export const handleChange =
     emit('change', (event.target as HTMLInputElement | HTMLTextAreaElement).value)
 
 export const resizeTextarea =
-  ({ api, parent, vm, state, props }: Pick<IInputRenderlessParams, 'api' | 'parent' | 'vm' | 'state' | 'props'>) =>
+  ({ api, vm, state, props }: Pick<IInputRenderlessParams, 'api' | 'vm' | 'state' | 'props'>) =>
   (): void => {
     if (isServer) {
       return
     }
 
-    const { autosize, type } = parent
+    // autosize/type 为 input 自身 props：历史代码误从链式 parent 取值，导致独立使用时 textarea 自适应失效
+    const { autosize, type } = props
 
     if (type !== 'textarea' || !vm.$refs.textarea) {
       return

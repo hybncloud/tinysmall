@@ -107,7 +107,6 @@ const initApi = ({
   emit,
   api,
   state,
-  parent,
   props,
   lockScrollClass,
   usePopups,
@@ -126,19 +125,18 @@ const initApi = ({
     useMouseEventDown: useMouseEventDown({ state }),
     useMouseEventUp: useMouseEventUp({ state }),
     hide: hide({ api, emit, state, props }),
-    handleClose: handleClose({ api, emit, parent, props }),
+    handleClose: handleClose({ api, emit, vm, props }),
     watchVisible: watchVisible({
       api,
       emit,
       nextTick,
-      parent,
       props,
       vm,
       state
     }),
     computedStyle: computedStyle({ state, props }),
-    mounted: mounted({ api, parent, props }),
-    unMounted: unMounted({ api, parent, props }),
+    mounted: mounted({ api, vm, props }),
+    unMounted: unMounted({ api, vm, props }),
     computedAnimationName: computedAnimationName({ props }),
     afterEnter: afterEnter(emit),
     afterLeave: afterLeave(emit),
@@ -164,7 +162,7 @@ const initWatch = ({ watch, state, api, props }: IDialogBoxInitWatchParam) => {
 export const renderless = (
   props: IDialogBoxProps,
   { computed, onBeforeUnmount, onMounted, toRefs, reactive, watch, provide }: ISharedRenderlessParamHooks,
-  { vm, emitter, parent, emit, nextTick }: IDialogBoxRenderlessParamUtils
+  { vm, emitter, emit, nextTick }: IDialogBoxRenderlessParamUtils
 ): IDialogBoxApi => {
   const api = {} as IDialogBoxApi
   const lockScrollClass = $constants.SCROLL_LOCK_CLASS('pc')
@@ -189,7 +187,6 @@ export const renderless = (
   initApi({
     api,
     state,
-    parent: vm,
     props,
     emit,
     usePopups,

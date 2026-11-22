@@ -30,14 +30,14 @@ export const getTitle = (props: IDropdownItemRenderlessParams['props']) => (): s
 }
 
 export const bindScroll =
-  ({ api, parent }: Pick<IDropdownItemRenderlessParams, 'api' | 'parent'>) =>
+  ({ api, dropdownMenuVm }: Pick<IDropdownItemRenderlessParams, 'api' | 'dropdownMenuVm'>) =>
   (value): void => {
     const action = value ? on : off
-    action(parent.state.scroller, 'scroll', api.onScroll, true)
+    action(dropdownMenuVm.state.scroller, 'scroll', api.onScroll, true)
   }
 
 export const toggle =
-  ({ parent, props, state }: Pick<IDropdownItemRenderlessParams, 'parent' | 'props' | 'state'>) =>
+  ({ dropdownMenuVm, props, state }: Pick<IDropdownItemRenderlessParams, 'dropdownMenuVm' | 'props' | 'state'>) =>
   (show: boolean): void => {
     if (show === state.showPopup) {
       return
@@ -47,17 +47,18 @@ export const toggle =
     state.showPopup = show
 
     if (show) {
-      parent.updateOffset()
+      dropdownMenuVm.updateOffset()
       state.showWrapper = true
     }
   }
 
-export const onScroll = (parent: IDropdownItemRenderlessParams['parent']) => (): void => parent.updateOffset()
+export const onScroll = (dropdownMenuVm: IDropdownItemRenderlessParams['dropdownMenuVm']) => (): void =>
+  dropdownMenuVm.updateOffset()
 
 export const clickWrapper =
-  (parent: IDropdownItemRenderlessParams['parent']) =>
+  (dropdownMenuVm: IDropdownItemRenderlessParams['dropdownMenuVm']) =>
   (event: MouseEvent): void =>
-    parent.$el && event.stopPropagation()
+    dropdownMenuVm.$el && event.stopPropagation()
 
 // mode为mobile时点击菜单项的方法
 export const clickItem =
@@ -72,11 +73,11 @@ export const clickItem =
   }
 
 export const getItemStyle =
-  ({ parent, state }: Pick<IDropdownItemRenderlessParams, 'parent' | 'state'>) =>
+  ({ dropdownMenuVm, state }: Pick<IDropdownItemRenderlessParams, 'dropdownMenuVm' | 'state'>) =>
   (): IDropdownItemStyle => ({
-    zIndex: parent.zIndex,
-    top: parent.direction === 'down' ? state.offset + 'px' : '',
-    bottom: parent.direction !== 'down' ? state.offset + 'px' : ''
+    zIndex: dropdownMenuVm.zIndex,
+    top: dropdownMenuVm.direction === 'down' ? state.offset + 'px' : '',
+    bottom: dropdownMenuVm.direction !== 'down' ? state.offset + 'px' : ''
   })
 
 // mode为mobile时动态获取样式的方法
@@ -149,9 +150,9 @@ export const reset =
     emit('reset', array)
   }
 
-export const clickOutside = (parent: IDropdownItemRenderlessParams['parent']) => (): void => {
-  if (parent.closeOnClickOutside && parent.closeOnClickOverlay) {
-    parent.state.children.forEach((item) => {
+export const clickOutside = (dropdownMenuVm: IDropdownItemRenderlessParams['dropdownMenuVm']) => (): void => {
+  if (dropdownMenuVm.closeOnClickOutside && dropdownMenuVm.closeOnClickOverlay) {
+    dropdownMenuVm.state.children.forEach((item) => {
       item.toggle(false)
     })
   }

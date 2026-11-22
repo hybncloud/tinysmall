@@ -464,14 +464,14 @@ export const handleVisible =
   }
 
 export const getImageWidth =
-  ({ state, parent, props, vm }) =>
+  ({ state, props, vm }) =>
   () => {
     let imageW = 0
     const len = state.urlList.length
 
-    imageW = parent.$el.querySelector('.tiny-image-viewer__canvas').offsetWidth
+    imageW = vm.$el.querySelector('.tiny-image-viewer__canvas').offsetWidth
 
-    state.imageList = parent.$el.querySelectorAll('.tiny-image-viewer__img')
+    state.imageList = vm.$el.querySelectorAll('.tiny-image-viewer__img')
 
     state.imageItemWidth = imageW
     state.imageAllWidth = state.urlList.length * imageW

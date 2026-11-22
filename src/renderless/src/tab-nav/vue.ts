@@ -66,7 +66,7 @@ export const api = [
 export const renderless = (
   props: ITabNavProps,
   { computed, inject, onBeforeUnmount, onMounted, onUpdated, reactive, markRaw }: ISharedRenderlessParamHooks,
-  { parent, vm, nextTick, mode: tinyMode, emit }: ITabNavRenderlessParamUtils
+  { vm, nextTick, mode: tinyMode, emit }: ITabNavRenderlessParamUtils
 ): ITabNavApi => {
   const api = { mounted, beforeUnmount, computedNavStyle, computedSizeName } as ITabNavApi
   const state = reactive({
@@ -87,7 +87,8 @@ export const renderless = (
     showExpandItem: false,
     showExpandTabs: props.showExpandTabs,
     expandHeaderStyle: {},
-    mode: props._mode || parent.$mode || tinyMode || 'pc',
+    mode: props._mode || tinyMode || 'pc',
+    // tabs 通过 provide('rootTabs') 暴露 vm，替代组件链 parent 访问；后续统一从 state.rootTabs 取用
     rootTabs: inject('rootTabs'),
     sizeName: computed(() => api.computedSizeName(state)),
     navStyle: computed(() => api.computedNavStyle(state)),
@@ -107,8 +108,8 @@ export const renderless = (
     windowBlurHandler: windowBlurHandler(state),
     windowFocusHandler: windowFocusHandler(state),
     visibilityChangeHandler: visibilityChangeHandler(state),
-    scrollToActiveTab: scrollToActiveTab({ parent, vm, state }),
-    scrollIntoView: scrollIntoView({ parent, vm, state }),
+    scrollToActiveTab: scrollToActiveTab({ vm, state }),
+    scrollIntoView: scrollIntoView({ vm, state }),
     computedHeaderStyle: computedHeaderStyle({ vm, state }),
     watchCurrentName: watchCurrentName({ nextTick, vm, state }),
     handleTabDragStart: handleTabDragStart({ state, vm, emit }),
@@ -120,8 +121,8 @@ export const renderless = (
 
   Object.assign(api, { updated: updated({ api, vm, state }), changeTab: changeTab(api) })
   onUpdated(() => api.updated())
-  onMounted(() => api.mounted({ api, parent, nextTick }))
-  onBeforeUnmount(() => api.beforeUnmount({ api, parent }))
+  onMounted(() => api.mounted({ api, rootTabs: state.rootTabs, nextTick }))
+  onBeforeUnmount(() => api.beforeUnmount({ api, rootTabs: state.rootTabs }))
 
   return api
 }

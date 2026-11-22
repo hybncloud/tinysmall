@@ -125,8 +125,8 @@ export const renderless = (
 
   api.updateItems = updateItems
 
-  useActiveIndex({ api, parent: vm, props, state, watch })
-  useResizeListener({ api, onBeforeUnmount, onMounted, parent: vm })
+  useActiveIndex({ api, props, state, watch })
+  useResizeListener({ api, onBeforeUnmount, onMounted, vm })
 
   provide('CarouselVm', vm)
   initWatch({ watch, props, api, state })
@@ -173,14 +173,14 @@ export const useActiveIndex = ({ api, state, watch }) => {
   )
 }
 
-export const useResizeListener = ({ api, onBeforeUnmount, onMounted, parent }) => {
+export const useResizeListener = ({ api, onBeforeUnmount, onMounted, vm }) => {
   onMounted(() => {
-    addResizeListener(parent.$el, api.resetItemPosition)
+    addResizeListener(vm.$el, api.resetItemPosition)
   })
 
   onBeforeUnmount(() => {
-    if (parent.$el) {
-      removeResizeListener(parent.$el, api.resetItemPosition)
+    if (vm.$el) {
+      removeResizeListener(vm.$el, api.resetItemPosition)
     }
   })
 }

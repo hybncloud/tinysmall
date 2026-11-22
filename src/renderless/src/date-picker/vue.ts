@@ -101,12 +101,12 @@ const setWatchFn = ({ api, watch, props, state, emit }) => {
 export const renderless = (
   props: IDatePickerProps,
   { computed, onMounted, reactive, watch }: ISharedRenderlessParamHooks,
-  { emit, nextTick, refs, parent }: IDatePickerRenderlessParamUtils
+  { emit, nextTick, refs, vm }: IDatePickerRenderlessParamUtils
 ): IDatePickerApi => {
   const api: IDatePickerApi = {
     formatValue: formatValue(props),
     getMonthEndDay: getMonthEndDay($constants),
-    hookMounted: hookMounted({ parent, refs, nextTick })
+    hookMounted: hookMounted({ vm, refs, nextTick })
   }
 
   const state: IDatePickerState = reactive({

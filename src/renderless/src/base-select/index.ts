@@ -1335,7 +1335,7 @@ export const watchVisible =
   }
 
 export const watchOptions =
-  ({ api, nextTick, parent, props, state }) =>
+  ({ api, nextTick, vm, props, state }) =>
   () => {
     if (typeof window === 'undefined') {
       return
@@ -1351,7 +1351,7 @@ export const watchOptions =
 
     nextTick(() => {
       if (
-        parent.$el.querySelector('input') !== document.activeElement && // filterable时， 从 input 框离开了
+        vm.$el.querySelector('input') !== document.activeElement && // filterable时， 从 input 框离开了
         !(
           document.activeElement?.classList.contains('tiny-input__inner') && // 并且当前不在下拉面板的searchable 的input中时，  才需要更新一下setSelect
           document.activeElement.closest('.tiny-select-dropdown__search')
@@ -1411,7 +1411,7 @@ export const queryVisibleOptions =
   }
 
 export const handleCopyClick =
-  ({ parent, props, state }) =>
+  ({ vm, props, state }) =>
   () => {
     const input = document.createElement('input')
 
@@ -1419,7 +1419,7 @@ export const handleCopyClick =
     input.style.border = 'none'
     input.style.position = 'absolute'
 
-    parent.$el.appendChild(input)
+    vm.$el.appendChild(input)
 
     input.value = state.selected
       .map((item) => (item.state ? item.state.currentLabel : item.currentLabel))
@@ -1427,7 +1427,7 @@ export const handleCopyClick =
 
     input.select()
     document.execCommand('copy')
-    parent.$el.removeChild(input)
+    vm.$el.removeChild(input)
   }
 
 export const debouncRquest = ({ api, state, props }) =>
@@ -1460,11 +1460,11 @@ export const getChildValue = () => (data, key) => {
 }
 
 export const watchPropsOption =
-  ({ parent, props, state }) =>
+  ({ vm, props, state }) =>
   () => {
     const dataset = {
       dataset: props.options || props.dataset,
-      service: parent.$service
+      service: vm.$service
     }
     getDataset(dataset).then((data) => {
       let sortData = data.slice()
@@ -1685,9 +1685,9 @@ export const computedCurrentSizeMap =
   }
 
 export const mounted =
-  ({ api, parent, state, props, vm, nextTick }) =>
+  ({ api, state, props, vm, nextTick }) =>
   () => {
-    const parentEl = parent.$el
+    const parentEl = vm.$el
     const inputEl = parentEl.querySelector('input[data-tag="tiny-input-inner"]')
 
     if (inputEl === document.activeElement) {
@@ -1732,10 +1732,10 @@ export const mounted =
   }
 
 export const unMount =
-  ({ api, parent, vm, state }) =>
+  ({ api, vm, state }) =>
   () => {
-    if (parent.$el && api.handleResize) {
-      removeResizeListener(parent.$el, api.handleResize)
+    if (vm.$el && api.handleResize) {
+      removeResizeListener(vm.$el, api.handleResize)
     }
 
     if (vm.$refs.tags) {
@@ -1853,9 +1853,9 @@ export const getLabelSlotValue =
   }
 
 export const computedTagsStyle =
-  ({ props, parent, state, vm }) =>
+  ({ props, state, vm }) =>
   () => {
-    const isReadonly = props.disabled || (parent.form || {}).disabled || props.displayOnly
+    const isReadonly = props.disabled || (vm.form || {}).disabled || props.displayOnly
     let tagsStyle = {
       'max-width': isReadonly ? '' : state.inputWidth - state.inputPaddingRight + 'px',
       width: '100%'
@@ -1963,11 +1963,11 @@ export const watchInitValue =
   }
 
 export const watchShowClose =
-  ({ nextTick, state, parent }) =>
+  ({ nextTick, state, vm }) =>
   () => {
     if (isServer) return
     nextTick(() => {
-      const parentEl = parent.$el
+      const parentEl = vm.$el
       const inputEl = parentEl.querySelector('input[data-tag="tiny-input-inner"]')
 
       if (inputEl) {

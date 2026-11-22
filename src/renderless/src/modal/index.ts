@@ -37,12 +37,12 @@ import type {
 
 const DragClass = 'is__drag'
 
-const emitZoom = ({ params, parent, emit, event }: IModalEmitZoomParam): void => {
-  let { $attrs, events = {} } = parent
+const emitZoom = ({ params, vm, emit, event }: IModalEmitZoomParam): void => {
+  let { $attrs, events = {} } = vm
   if ($attrs?.onZoom) {
     emit('zoom', params, event)
   } else if (events.zoom) {
-    events.zoom.call(parent, params, event)
+    events.zoom.call(vm, params, event)
   }
 }
 
@@ -95,7 +95,7 @@ export const created =
   }
 
 export const mounted =
-  ({ api, parent, props, state }: Pick<IModalRenderlessParams, 'api' | 'parent' | 'props' | 'state'>) =>
+  ({ api, vm, props, state }: Pick<IModalRenderlessParams, 'api' | 'vm' | 'props' | 'state'>) =>
   () => {
     let modalBoxElem = api.getBox()
 
@@ -115,11 +115,11 @@ export const mounted =
 
     on(window, 'hashchange', api.handleHashChange)
 
-    document.body.appendChild(parent.$el)
+    document.body.appendChild(vm.$el)
   }
 
 export const beforeUnmouted =
-  ({ api, parent }: Pick<IModalRenderlessParams, 'api' | 'parent'>) =>
+  ({ api, vm }: Pick<IModalRenderlessParams, 'api' | 'vm'>) =>
   (): void => {
     off(document, 'keydown', api.handleGlobalKeydownEvent)
     off(window, 'hashchange', api.handleHashChange)
@@ -127,15 +127,15 @@ export const beforeUnmouted =
     api.removeMsgQueue()
     api.hideScrollbar()
 
-    if (parent.$el.parentNode) {
-      parent.$el.parentNode.removeChild(parent.$el)
+    if (vm.$el.parentNode) {
+      vm.$el.parentNode.removeChild(vm.$el)
     }
   }
 
 export const selfClickEvent =
-  ({ api, parent, props }: Pick<IModalRenderlessParams, 'api' | 'parent' | 'props'>) =>
+  ({ api, vm, props }: Pick<IModalRenderlessParams, 'api' | 'vm' | 'props'>) =>
   (event: MouseEvent): void => {
-    if (props.maskClosable && event.target === parent.$el) {
+    if (props.maskClosable && event.target === vm.$el) {
       api.close('mask')
     }
   }
@@ -165,7 +165,7 @@ export const updateZindex =
 
 // 新增：执行实际关闭逻辑（动画 + emit hide）此方法不触发 beforeClose，用于程序内部直接关闭
 export const doClose =
-  ({ emit, parent, props, state }: Pick<IModalRenderlessParams, 'emit' | 'parent' | 'props' | 'state'>) =>
+  ({ emit, vm, props, state }: Pick<IModalRenderlessParams, 'emit' | 'vm' | 'props' | 'state'>) =>
   (type: string): void => {
     // 如果已经在关闭动画中，直接返回，防止重复触发
     if (state.isClosingAnimation) {
@@ -173,16 +173,16 @@ export const doClose =
     }
     state.isClosingAnimation = true
 
-    let { events = {} } = parent
+    let { events = {} } = vm
     state.emitter.emit('boxclose', props.isFormReset)
 
     if (state.visible) {
       state.contentVisible = false
       setTimeout(() => {
         state.visible = false
-        let params = { type, $modal: parent }
+        let params = { type, $modal: vm }
         if (events.hide) {
-          events.hide.call(parent, params)
+          events.hide.call(vm, params)
         } else {
           emit('update:modelValue', false)
           emit('hide', params)
@@ -202,13 +202,13 @@ export const doClose =
 
 // 先执行 doClose 开始关闭动画，然后异步执行 events 回调
 export const doEmitAndClose =
-  ({ api, emit, parent }: Pick<IModalRenderlessParams, 'api' | 'emit' | 'parent'>) =>
+  ({ api, emit, vm }: Pick<IModalRenderlessParams, 'api' | 'emit' | 'vm'>) =>
   (type: string, event?: Event, options?: any[]): void => {
-    const { events = {} } = parent
+    const { events = {} } = vm
 
     const params: IModalEmitParam = {
       type,
-      $modal: parent
+      $modal: vm
     }
 
     // 先 emit Vue 事件
@@ -218,7 +218,7 @@ export const doEmitAndClose =
     api.doClose(type)
 
     setTimeout(() => {
-      events[type] && events[type].call(parent, params)
+      events[type] && events[type].call(vm, params)
     }, 0)
   }
 
@@ -317,15 +317,15 @@ export const open =
     api,
     emit,
     nextTick,
-    parent,
+    vm,
     props,
     state
-  }: Pick<IModalRenderlessParams, 'api' | 'emit' | 'nextTick' | 'parent' | 'props' | 'state'>) =>
+  }: Pick<IModalRenderlessParams, 'api' | 'emit' | 'nextTick' | 'vm' | 'props' | 'state'>) =>
   (): void => {
-    let { $attrs, events = {} } = parent
+    let { $attrs, events = {} } = vm
 
     if (!state.visible) {
-      let params = { type: 'show', $modal: parent }
+      let params = { type: 'show', $modal: vm }
 
       state.visible = true
       state.contentVisible = false
@@ -341,7 +341,7 @@ export const open =
 
         if (!$attrs?.onShow && events.show) {
           nextTick(() => {
-            events.show.call(parent, params)
+            events.show.call(vm, params)
           })
         }
       }, 10)
@@ -385,19 +385,19 @@ export const open =
   }
 
 export const addMsgQueue =
-  ({ api, parent }: Pick<IModalRenderlessParams, 'api' | 'parent'>) =>
+  ({ api, vm }: Pick<IModalRenderlessParams, 'api' | 'vm'>) =>
   (): void => {
-    if (!~MsgQueue.indexOf(parent)) {
-      MsgQueue.push(parent)
+    if (!~MsgQueue.indexOf(vm)) {
+      MsgQueue.push(vm)
     }
 
     api.updateStyle()
   }
 
 export const removeMsgQueue =
-  ({ api, parent }: Pick<IModalRenderlessParams, 'api' | 'parent'>) =>
+  ({ api, vm }: Pick<IModalRenderlessParams, 'api' | 'vm'>) =>
   (): void => {
-    const index = MsgQueue.indexOf(parent)
+    const index = MsgQueue.indexOf(vm)
 
     if (~index) {
       MsgQueue.splice(index, 1)
@@ -527,13 +527,13 @@ export const revert =
   }
 
 export const toggleZoomEvent =
-  ({ api, emit, parent, state }: Pick<IModalRenderlessParams, 'api' | 'emit' | 'parent' | 'state'>) =>
+  ({ api, emit, vm, state }: Pick<IModalRenderlessParams, 'api' | 'emit' | 'vm' | 'state'>) =>
   (event: PointerEvent): Promise<void> => {
-    let params = { type: state.zoomLocat ? 'min' : 'max', $modal: parent }
+    let params = { type: state.zoomLocat ? 'min' : 'max', $modal: vm }
     const callback = state.zoomLocat ? api.revert : api.maximize
 
     return callback().then(() => {
-      emitZoom({ params, parent, emit, event })
+      emitZoom({ params, vm, emit, event })
     })
   }
 
@@ -852,7 +852,7 @@ const updateDelta = ({ event, delta, state }: IModalUpdateDeltaParam): void => {
 }
 
 export const dragEvent =
-  ({ api, emit, parent, props, state }: Pick<IModalRenderlessParams, 'api' | 'emit' | 'parent' | 'props' | 'state'>) =>
+  ({ api, emit, vm, props, state }: Pick<IModalRenderlessParams, 'api' | 'emit' | 'vm' | 'props' | 'state'>) =>
   (event: MouseEvent) => {
     event.preventDefault()
 
@@ -883,8 +883,8 @@ export const dragEvent =
       addClass(modalBoxElem, DragClass)
 
       emitZoom({
-        params: { type: 'resize', $modal: parent },
-        parent,
+        params: { type: 'resize', $modal: vm },
+        vm,
         emit,
         event
       })
@@ -903,7 +903,7 @@ export const dragEvent =
   }
 /** 多端与pc端的布局方式不一致，所以多端的拖动代码专门写一份 */
 export const mfDragEvent =
-  ({ api, emit, parent, props }: Pick<IModalRenderlessParams, 'api' | 'emit' | 'parent' | 'props'>) =>
+  ({ api, emit, vm, props }: Pick<IModalRenderlessParams, 'api' | 'emit' | 'vm' | 'props'>) =>
   (event: MouseEvent): void => {
     event.preventDefault()
 
@@ -964,10 +964,10 @@ export const mfDragEvent =
       modalBoxElement.style.height = `${height}px`
 
       emit('custom-mousemove', moveEvent)
-      if (parent.$attrs?.onZoom) {
-        emit('zoom', { type: 'resize', $modal: parent }, moveEvent)
-      } else if (parent.events?.zoom) {
-        parent.events.zoom.call(parent, { type: 'resize', $modal: parent }, moveEvent)
+      if (vm.$attrs?.onZoom) {
+        emit('zoom', { type: 'resize', $modal: vm }, moveEvent)
+      } else if (vm.events?.zoom) {
+        vm.events.zoom.call(vm, { type: 'resize', $modal: vm }, moveEvent)
       }
     }
 

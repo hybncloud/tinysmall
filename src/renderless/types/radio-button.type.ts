@@ -1,6 +1,6 @@
 import type { ExtractPropTypes, StyleValue } from 'vue'
 import type { radioButtonProps, $constants } from '../../components/radio-button/src'
-import type { ISharedRenderlessFunctionParams, ISharedRenderlessParamUtils } from './shared.type'
+import type { ISharedRenderlessFunctionParams, ISharedRenderlessParamUtils, ITinyVm } from './shared.type'
 import type {
   handleChange,
   getValue,
@@ -16,7 +16,7 @@ import type {
 export interface IRadioButtonState {
   focus: boolean
   value: IRadioButtonProps['label']
-  radioGroup: ISharedRenderlessFunctionParams<IRadioButtonConstants>['parent'] | null
+  radioGroup: ITinyVm | null
   activeStyle: StyleValue
   size: string
   isDisabled: boolean

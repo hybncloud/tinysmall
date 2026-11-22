@@ -135,7 +135,7 @@ const initState = ({ reactive, computed, api, props, inject }) => {
   return state
 }
 
-const initApi = ({ api, state, props, parent, nextTick, emit, t, vm }) => {
+const initApi = ({ api, state, props, nextTick, emit, t, vm }) => {
   Object.assign(api, {
     state,
     touchstart: touchstart({ state, api }),
@@ -144,7 +144,7 @@ const initApi = ({ api, state, props, parent, nextTick, emit, t, vm }) => {
     reset: reset(state),
     prev: prev({ state, api, vm }),
     next: next({ state, api, vm }),
-    getImageWidth: getImageWidth({ state, parent: vm, props, nextTick, vm }),
+    getImageWidth: getImageWidth({ state, props, nextTick, vm }),
     handleVisible: handleVisible({ state, emit, props }),
     handleActions: handleActions(state, props, emit),
     handleImgLoad: handleImgLoad(state),
@@ -245,12 +245,12 @@ const initWatch = ({ watch, state, api, props, nextTick, vm }) => {
 export const renderless = (
   props,
   { computed, onMounted, onBeforeUnmount, onUpdated, reactive, watch, inject, provide },
-  { t, parent, nextTick, emit, vm }
+  { t, nextTick, emit, vm }
 ) => {
   const api = {}
   const state = initState({ reactive, computed, api, props, inject })
 
-  initApi({ api, state, props, parent, nextTick, emit, t, vm })
+  initApi({ api, state, props, nextTick, emit, t, vm })
 
   initWatch({ watch, state, api, props, nextTick, vm })
 

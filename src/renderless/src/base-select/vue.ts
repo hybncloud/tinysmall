@@ -166,8 +166,8 @@ export const api = [
   'computedShowTagText',
   'isTagClosable'
 ]
-const initState = ({ reactive, computed, props, api, emitter, parent, vm }) => {
-  const stateAdd = initStateAdd({ computed, props, api, parent })
+const initState = ({ reactive, computed, props, api, emitter, vm }) => {
+  const stateAdd = initStateAdd({ computed, props, api, vm })
   const state = reactive({
     ...stateAdd,
     selectEmitter: emitter(),
@@ -264,7 +264,7 @@ const initState = ({ reactive, computed, props, api, emitter, parent, vm }) => {
   return state
 }
 
-const initStateAdd = ({ computed, props, api, parent }) => {
+const initStateAdd = ({ computed, props, api, vm }) => {
   const { isIOS } = useUserAgent()
   return {
     selectedTags: [],
@@ -305,10 +305,10 @@ const initStateAdd = ({ computed, props, api, parent }) => {
     debounce: computed(() => (isNumber(props.queryDebounce) ? props.queryDebounce : props.remote ? 300 : 0)),
     emptyText: computed(() => api.emptyText()),
     emptyFlag: computed(() => api.emptyFlag()),
-    formItemSize: computed(() => (parent.formItem || { state: {} }).state.formItemSize),
+    formItemSize: computed(() => (vm.formItem || { state: {} }).state.formItemSize),
     selectDisabled: computed(() => api.computedSelectDisabled()),
-    isDisplayOnly: computed(() => props.displayOnly || (parent.form || {}).displayOnly),
-    isDisabled: computed(() => props.disabled || (parent.form || {}).disabled),
+    isDisplayOnly: computed(() => props.displayOnly || (vm.form || {}).displayOnly),
+    isDisabled: computed(() => props.disabled || (vm.form || {}).disabled),
     isShowTagText: computed(() => api.computedShowTagText()),
     searchSingleCopy: computed(() => props.allowCopy && !props.multiple && (props.filterable || props.searchable)),
     childrenName: computed(() => 'children'),
@@ -324,7 +324,7 @@ const initStateAdd = ({ computed, props, api, parent }) => {
   }
 }
 
-const initApi = ({ api, props, state, emit, maskState, parent, nextTick, dispatch, t, vm }) => {
+const initApi = ({ api, props, state, emit, maskState, nextTick, dispatch, t, vm }) => {
   Object.assign(api, {
     state,
     maskState,
@@ -347,7 +347,7 @@ const initApi = ({ api, props, state, emit, maskState, parent, nextTick, dispatc
     resetHoverIndex: resetHoverIndex({ props, state }),
     resetDatas: resetDatas({ props, state }),
     scrollToOption: scrollToOption({ vm}),
-    handleCopyClick: handleCopyClick({ parent, props, state }),
+    handleCopyClick: handleCopyClick({ vm, props, state }),
     managePlaceholder: managePlaceholder({ vm, state }),
     checkDefaultFirstOption: checkDefaultFirstOption(state),
 
@@ -359,7 +359,7 @@ const initApi = ({ api, props, state, emit, maskState, parent, nextTick, dispatc
     getOptionIndexArr: getOptionIndexArr({ props, state, api }),
     queryVisibleOptions: queryVisibleOptions({ props, vm }),
     recycleScrollerHeight: recycleScrollerHeight({ state, props, recycle: $constants.RECYCLE }),
-    watchPropsOption: watchPropsOption({ parent, props, state }),
+    watchPropsOption: watchPropsOption({ vm, props, state }),
     onMouseenterNative: onMouseenterNative({ state }),
     onMouseleaveNative: onMouseleaveNative({ state }),
     onMouseenterSelf: onMouseenterSelf({ state }),
@@ -371,7 +371,7 @@ const initApi = ({ api, props, state, emit, maskState, parent, nextTick, dispatc
     watchInputHover: watchInputHover({ vm }),
     initQuery: initQuery({ props, state, vm }),
     updateModelValue: updateModelValue({ props, emit, state }),
-    computedTagsStyle: computedTagsStyle({ props, parent, state, vm }),
+    computedTagsStyle: computedTagsStyle({ props, state, vm }),
     computedReadonly: computedReadonly({ props, state }),
     computedShowClose: computedShowClose({ props, state }),
     computedCollapseTagSize: computedCollapseTagSize(state),
@@ -383,7 +383,7 @@ const initApi = ({ api, props, state, emit, maskState, parent, nextTick, dispatc
     computedSelectDisabled: computedSelectDisabled({ state }),
     computedIsExpand: computedIsExpand({ props, state }),
     watchInitValue: watchInitValue({ props, emit }),
-    watchShowClose: watchShowClose({ nextTick, state, parent }),
+    watchShowClose: watchShowClose({ nextTick, state, vm }),
     // tiny 新增
     computedGetIcon: computedGetIcon({ props }),
     computedGetTagType: computedGetTagType({ props }),
@@ -397,10 +397,10 @@ const initApi = ({ api, props, state, emit, maskState, parent, nextTick, dispatc
     watchOptionsWhenAutoSelect: watchOptionsWhenAutoSelect({ state, props, nextTick, api })
   })
 
-  addApi({ api, props, state, emit, parent, nextTick, dispatch, vm })
+  addApi({ api, props, state, emit, nextTick, dispatch, vm })
 }
 
-const addApi = ({ api, props, state, emit, parent, nextTick, dispatch, vm }) => {
+const addApi = ({ api, props, state, emit, nextTick, dispatch, vm }) => {
   Object.assign(api, {
     resetInputHeight: resetInputHeight({ api, nextTick, props, vm, state }),
     calcOverFlow: calcOverFlow({ vm, props, state }),
@@ -412,7 +412,7 @@ const addApi = ({ api, props, state, emit, parent, nextTick, dispatch, vm }) => 
     setSelected: setSelected({ api, nextTick, props, vm, state }),
     selectOption: selectOption({ api, state, props }),
     handleResize: handleResize({ api, props, state }),
-    watchOptions: watchOptions({ api, nextTick, parent, props, state, vm }),
+    watchOptions: watchOptions({ api, nextTick, vm, props, state }),
     watchVisible: watchVisible({ api, emit, state, vm, props }),
     deletePrevTag: deletePrevTag({ api, props, state, vm }),
     onInputChange: onInputChange({ api, props, state, nextTick }),
@@ -438,8 +438,8 @@ const addApi = ({ api, props, state, emit, parent, nextTick, dispatch, vm }) => 
     debouncRquest: debouncRquest({ api, state, props }),
     defaultOnQueryChange: defaultOnQueryChange({ props, state, api, nextTick, vm }),
     queryChange: queryChange({ props, state, api, nextTick, vm }),
-    mounted: mounted({ api, parent, state, props, vm, nextTick }),
-    unMount: unMount({ api, parent, vm, state }),
+    mounted: mounted({ api, state, props, vm, nextTick }),
+    unMount: unMount({ api, vm, state }),
     watchOptimizeOpts: watchOptimizeOpts({ props, state }),
     handleDropdownClick: handleDropdownClick({ props, vm, state, emit }),
     handleEnterTag: handleEnterTag({ state }),
@@ -542,8 +542,7 @@ export const renderless = (
     props,
     api,
     emitter,
-    parent: vm,
-    
+
     vm
   })
   const dialog = inject('dialog', null)
@@ -561,8 +560,7 @@ export const renderless = (
     state,
     emit,
     maskState,
-    
-    parent: vm,
+
     nextTick,
     dispatch,
     t,

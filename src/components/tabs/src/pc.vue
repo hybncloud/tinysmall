@@ -66,7 +66,6 @@ export default defineComponent({
     'close',
     'edit',
     'update:modelValue',
-    'tab-nav-update',
     'tab-drag-start',
     'tab-drag-over',
     'tab-drag-end'

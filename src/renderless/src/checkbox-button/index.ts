@@ -80,8 +80,8 @@ export const computedSize =
   () =>
     (state.checkboxGroup && state.checkboxGroup.state.checkboxGroupSize) || formItemSize.value
 
-export const toggleEvent = ({ parent, props, type }) => {
-  const inputEl = parent.$el.querySelector('input')
+export const toggleEvent = ({ vm, props, type }) => {
+  const inputEl = vm.$el.querySelector('input')
 
   Object.keys(props.events).forEach((ev) => {
     inputEl[type + 'EventListener'](ev, props.events[ev])

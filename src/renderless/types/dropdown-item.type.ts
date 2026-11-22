@@ -1,6 +1,6 @@
 import type { ExtractPropTypes, ComponentPublicInstance, ComputedRef } from 'vue'
 import type { dropdownItemProps, $constants } from '../../components/dropdown-item/src'
-import type { ISharedRenderlessFunctionParams, ISharedRenderlessParamUtils } from './shared.type'
+import type { ISharedRenderlessFunctionParams, ISharedRenderlessParamUtils, ITinyVm } from './shared.type'
 import type { IDropdownMenuVm } from './dropdown-menu.type'
 import type {
   open,
@@ -83,6 +83,8 @@ export type IDropdownItemRenderlessParams = ISharedRenderlessFunctionParams<IDro
   state: IDropdownItemState
   props: IDropdownItemProps
   api: IDropdownItemApi
+  /** dropdown-menu 通过 provide('dropdownMenuVm') 暴露的 vm，供 dropdown-item 注入后访问 */
+  dropdownMenuVm: ITinyVm
 }
 
 export type IDropdownItemRenderlessParamUtils = ISharedRenderlessParamUtils<IDropdownItemConstants>

@@ -104,7 +104,7 @@ export interface INumericUnitPrecision {
 
 export interface INumericInitStateParams extends Pick<
   INumericRenderlessParams,
-  'constants' | 'reactive' | 'computed' | 'props' | 'api' | 'parent'
+  'constants' | 'reactive' | 'computed' | 'props' | 'api'
 > {
   $service: ReturnType<typeof initService>
 }

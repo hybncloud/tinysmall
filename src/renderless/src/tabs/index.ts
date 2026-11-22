@@ -12,8 +12,8 @@
 import type { ITabsRenderlessParams, ITabsPane, ITabsCustomEvent, ITabsPaneVm } from '../../types'
 
 // 此处与aui区别开，将tabNav的方法抽离出来，从源头解决pane的排序问题
-const getOrderedPanes = (parent, panes) => {
-  const slotDefault = parent.$slots.default
+const getOrderedPanes = (vm, panes) => {
+  const slotDefault = vm.$slots.default
   let orders
 
   if (typeof slotDefault === 'function') {
@@ -62,9 +62,9 @@ const getOrderedPanes = (parent, panes) => {
 }
 
 export const calcPaneInstances =
-  ({ parent, state, panes }: Pick<ITabsRenderlessParams, 'parent' | 'state'> & { panes: ITabsPaneVm[] }) =>
+  ({ vm, state, panes }: Pick<ITabsRenderlessParams, 'vm' | 'state'> & { panes: ITabsPaneVm[] }) =>
   (isForceUpdate = false) => {
-    const tabItemVNodes = parent.$slots.default
+    const tabItemVNodes = vm.$slots.default
 
     /* istanbul ignore if */
     if (tabItemVNodes) {
@@ -87,7 +87,7 @@ export const calcPaneInstances =
         const index = orderPanes.findIndex((name) => name === pane.name)
         index > -1 ? (currentPanes[index] = pane) : currentPanes.push(pane)
       })
-      const newPanes = getOrderedPanes(parent, currentPanes) as ITabsPaneVm[]
+      const newPanes = getOrderedPanes(vm, currentPanes) as ITabsPaneVm[]
 
       const panesChanged = !(
         newPanes.length === state.panes.length &&
@@ -104,13 +104,13 @@ export const calcPaneInstances =
 
 /* istanbul ignore */
 export const calcMorePanes =
-  ({ parent, props, state, refs }: Pick<ITabsRenderlessParams, 'parent' | 'props' | 'state' | 'refs'>) =>
+  ({ vm, props, state, refs }: Pick<ITabsRenderlessParams, 'vm' | 'props' | 'state' | 'refs'>) =>
   () => {
     if (!props.showMoreTabs) {
       return
     }
 
-    const el = parent.$el
+    const el = vm.$el
     const tabs = el.querySelectorAll('.tiny-tabs__item')
     const navScrollEl = refs.nav.$refs.navScroll as HTMLElement
 
@@ -157,12 +157,12 @@ export const calcMorePanes =
   }
 
 export const calcExpandPanes =
-  ({ parent, props, state }: Pick<ITabsRenderlessParams, 'parent' | 'props' | 'state'>) =>
+  ({ vm, props, state }: Pick<ITabsRenderlessParams, 'vm' | 'props' | 'state'>) =>
   () => {
     if (!props.showExpandTabs) {
       return
     }
-    const el = parent.$el
+    const el = vm.$el
     const tabsHeader = el.querySelector('.tiny-mobile-tabs__header')
 
     if (tabsHeader) {
@@ -249,11 +249,11 @@ export const changeCurrentName =
   }
 
 export const created =
-  ({ api, parent, state }: Pick<ITabsRenderlessParams, 'api' | 'parent' | 'state'>) =>
+  ({ api, vm, state }: Pick<ITabsRenderlessParams, 'api' | 'vm' | 'state'>) =>
   () => {
     api.changeDirection(state.currentName)
 
-    parent.$on('tab-nav-update', api.calcPaneInstances.bind(null, true))
+    vm.$on('tab-nav-update', api.calcPaneInstances.bind(null, true))
   }
 
 export const changeDirection =

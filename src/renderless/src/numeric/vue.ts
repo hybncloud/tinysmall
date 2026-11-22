@@ -112,16 +112,15 @@ const initApi = ({
   api,
   props,
   state,
-  parent,
   vm,
   emit,
   dispatch,
-  
+
   nextTick,
   form
 }: Pick<
   INumericRenderlessParams,
-  'api' | 'props' | 'state' | 'parent' | 'vm' | 'emit' | 'dispatch' | 'constants' | 'nextTick'
+  'api' | 'props' | 'state' | 'vm' | 'emit' | 'dispatch' | 'constants' | 'nextTick'
 > & { form: any }): void => {
   Object.assign(api, {
     state,
@@ -129,9 +128,9 @@ const initApi = ({
     select: select(vm),
     getPrecision: getPrecision(),
     toPrecision: toPrecision(state),
-    updated: updated({ parent, state }),
-    mounted: mounted({ parent, props, state }),
-    unmounted: unmounted({ parent, state }),
+    updated: updated({ vm, state }),
+    mounted: mounted({ vm, props, state }),
+    unmounted: unmounted({ vm, state }),
     getDecimal: getDecimal(props),
     handleFocus: handleFocus({ emit, state, props, api, vm }),
     decrease: decrease({ api, props, state }),
@@ -146,7 +145,7 @@ const initApi = ({
     handleBlur: handleBlur({ dispatch, emit, props, state, api }),
     watchValue: watchValue({ api, props, state }),
     setCurrentValue: setCurrentValue({ api, dispatch, emit, props, state }),
-    getDisplayOnlyText: getDisplayOnlyText({ parent: { tinyForm: form }, props, state }),
+    getDisplayOnlyText: getDisplayOnlyText({ tinyForm: form, props, state }),
     filterValue: filterValue({ state }),
     handleClear: handleClear({ state, emit }),
     handleChange: handleChange({ state, emit })
@@ -189,7 +188,7 @@ export const renderless = (
   const form = inject('form', null)
   const state = initState({ reactive, computed, props, api, $service, form })
 
-  initApi({ api, props, state, parent: vm, vm, emit, dispatch, nextTick, form })
+  initApi({ api, props, state, vm, emit, dispatch, nextTick, form })
   initWatch({ watch, props, api })
 
   onMounted(api.mounted)

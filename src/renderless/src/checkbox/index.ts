@@ -151,21 +151,21 @@ export const computedCheckboxSize =
   }
 
 export const mounted =
-  ({ props, emit, api, parent }: Pick<ICheckboxRenderlessParams, 'props' | 'emit' | 'api' | 'parent'>) =>
+  ({ props, emit, api, vm }: Pick<ICheckboxRenderlessParams, 'props' | 'emit' | 'api' | 'vm'>) =>
   (): void => {
     props.checked && api.addToStore()
 
-    props.indeterminate && parent.$el.setAttribute('aria-controls', props.controls)
+    props.indeterminate && vm.$el.setAttribute('aria-controls', props.controls)
 
     emit('complete', true)
   }
 
 export const toggleEvent = ({
-  parent,
+  vm,
   props,
   type
-}: Pick<ICheckboxRenderlessParams, 'parent' | 'props' | 'type'>): void => {
-  const inputEl = parent.$el
+}: Pick<ICheckboxRenderlessParams, 'vm' | 'props' | 'type'>): void => {
+  const inputEl = vm.$el
 
   for (let ev in props.events) {
     inputEl[type + 'EventListener'](ev, props.events[ev])

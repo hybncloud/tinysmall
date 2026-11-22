@@ -33,8 +33,8 @@ export const watchVisible =
     nextTick(() => emit('visible-change', value))
   }
 
-export const watchFocusing = (parent: IDropdownRenderlessParams['parent']) => (value: boolean) => {
-  const selfDefine: HTMLElement | null = parent.$el.querySelector('.tiny-dropdown-selfdefine')
+export const watchFocusing = (vm: IDropdownRenderlessParams['vm']) => (value: boolean) => {
+  const selfDefine: HTMLElement | null = vm.$el.querySelector('.tiny-dropdown-selfdefine')
 
   if (selfDefine) {
     value ? addClass(selfDefine, 'focusing') : removeClass(selfDefine, 'focusing')

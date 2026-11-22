@@ -87,11 +87,11 @@ export const renderless = (
   initApi({ api, state, props, formItemSize, emit, nextTick, dispatch, form })
 
   onBeforeUnmount(() => {
-    toggleEvent({ parent: vm, props, type: 'remove' })
+    toggleEvent({ vm, props, type: 'remove' })
   })
 
   onMounted(() => {
-    toggleEvent({ parent: vm, props, type: 'add' })
+    toggleEvent({ vm, props, type: 'add' })
 
     props.checked && api.addToStore()
   })

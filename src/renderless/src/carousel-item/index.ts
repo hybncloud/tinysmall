@@ -26,11 +26,11 @@ export const calculateTranslate =
   }
 
 export const translateItem =
-  ({ api, CARD_SCALE, parent, state, carouselParent }) =>
+  ({ api, CARD_SCALE, state }) =>
   ({ activeIndex, index, oldIndex }) => {
-    const parentHeight = carouselParent.$el.offsetHeight
-    const parentWidth = carouselParent.$el.offsetWidth
-    const vnode = carouselParent
+    const vnode = state.carouselParent
+    const parentHeight = vnode.$el.offsetHeight
+    const parentWidth = vnode.$el.offsetWidth
     const length = vnode.state.items.length
     const { TYPE_CARD, TYPE_VERTICAL } = $constants
 
@@ -70,9 +70,9 @@ export const translateItem =
   }
 
 export const handleItemClick =
-  ({ state, parent, carouselParent }) =>
+  ({ state }) =>
   () => {
-    const vnode = carouselParent
+    const vnode = state.carouselParent
 
     if (vnode && vnode.type === $constants.TYPE_CARD) {
       const index = vnode.state.items.findIndex((item) => item.state.translate === state.translate)
@@ -81,15 +81,15 @@ export const handleItemClick =
   }
 
 export const computedTransform =
-  ({ carouselParent, TYPE_VERTICAL, state }) =>
+  ({ TYPE_VERTICAL, state }) =>
   () => {
     const TRANSLATE =
-      carouselParent.type === TYPE_VERTICAL
+      state.carouselParent.type === TYPE_VERTICAL
         ? `translateY(${state.translate + state.delta}px) scale(${state.scale})`
         : `translateX(${state.translate + state.delta}px) scale(${state.scale})`
     const style = {}
 
-    moveItemBack(carouselParent, state, TYPE_VERTICAL)
+    moveItemBack(state.carouselParent, state, TYPE_VERTICAL)
 
     return {
       msTransform: TRANSLATE,
@@ -99,14 +99,15 @@ export const computedTransform =
     }
   }
 // 幻灯片切换完后将第一张的位置移动到当前显示的幻灯片的后面，修复幻灯片数量为2时滚动方向不一致的问题
-const moveItemBack = (parent, state, TYPE_VERTICAL) => {
-  if (!parent || !parent.$el) return
+const moveItemBack = (carouselParent, state, TYPE_VERTICAL) => {
+  if (!carouselParent || !carouselParent.$el) return
 
-  const length = parent.state.items.length
+  const length = carouselParent.state.items.length
 
   setTimeout(() => {
     if (length === 2 && !state.active) {
-      state.translate = parent.type === TYPE_VERTICAL ? parent.$el.offsetHeight : parent.$el.offsetWidth
+      state.translate =
+        carouselParent.type === TYPE_VERTICAL ? carouselParent.$el.offsetHeight : carouselParent.$el.offsetWidth
     }
   }, 300) // 300是幻灯片动画时间
 }

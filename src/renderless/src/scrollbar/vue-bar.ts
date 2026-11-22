@@ -31,10 +31,12 @@ export const api = [
   'mouseMoveDocumentHandler'
 ]
 
-export const renderless = (props, { computed, onUnmounted, reactive }, { vm, parent }) => {
+export const renderless = (props, { computed, inject, onUnmounted, reactive }, { vm }) => {
   const state = reactive({
     bar: computed(() => BAR_MAP[props.vertical ? 'vertical' : 'horizontal']),
-    wrap: computed(() => parent.$refs.wrap)
+    // scrollbar 通过 provide('scrollbarVm') 暴露 vm，替代组件链 parent 访问；统一从 state.scrollbarVm 取用
+    scrollbarVm: inject('scrollbarVm'),
+    wrap: computed(() => state.scrollbarVm.$refs.wrap)
   })
 
   const api = {

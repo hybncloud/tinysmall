@@ -62,11 +62,12 @@ export const api = [
 export const renderless = (
   props: IUploadListProps,
   { reactive, onMounted, onUnmounted, watch, inject, computed }: ISharedRenderlessParamHooks,
-  { t, parent, emit, service, vm, nextTick }: IUploadListRenderlessParamUtils,
+  { t, emit, service, vm, nextTick }: IUploadListRenderlessParamUtils,
   { Modal }: IFileUploadModalVm
 ): IUploadListApi => {
   const api = { getApi } as IUploadListApi
-  parent = inject('uploader')
+  // uploader 通过 provide('uploader') 暴露 vm，替代组件链 parent 访问
+  const uploader = inject('uploader')
   const constants = !isServer ? ($constants as IFileUploadConstants) : null
   const $service = initService({ props, service })
 
@@ -92,7 +93,7 @@ export const renderless = (
     currentFile: null
   }) as IUploadListState
 
-  parent.getToken = getToken({ props: parent, state: parent.state, t, Modal })
+  uploader.getToken = getToken({ props: uploader, state: uploader.state, t, Modal })
 
   Object.assign(api, {
     state,
@@ -100,7 +101,7 @@ export const renderless = (
     parsePercentage: parsePercentage(),
     downloadFile: downloadFile($service),
     picturefilePreview: picturefilePreview(state),
-    handleClick: handleClick({ props, api, parent }),
+    handleClick: handleClick({ props, api, uploader }),
     play: play({ vm, api, props }),
     pause: pause({ vm, props }),
     handleLoadedmetadata: handleLoadedmetadata({ vm }),
@@ -111,7 +112,7 @@ export const renderless = (
     getFileIcon: getFileIcon({}),
     mounted: mounted({ api, vm }),
     calcUploadListLiWidth: calcUploadListLiWidth({ vm, nextTick, props}),
-    reUpload: reUpload({ emit, props, parent }),
+    reUpload: reUpload({ emit, props, uploader }),
     remove: remove({ emit }),
     handleTriggerClick: handleTriggerClick({ state, props }),
     chooseFile: chooseFile({ state}),

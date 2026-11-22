@@ -39,10 +39,10 @@ const kebabCase = (str) => {
 }
 
 export const getConfig =
-  ({ parent, props }: { parent: ICascadeRenderlessParamUtils['parent']; props: ICascaderProps }) =>
+  ({ vm, props }: { vm: ICascadeRenderlessParamUtils['vm']; props: ICascaderProps }) =>
   () => {
     const config = props.props || {}
-    const { $attrs } = parent
+    const { $attrs } = vm
     const migratingProps = initMigratingProps()
 
     Object.keys(migratingProps).forEach((oldProp) => {
@@ -176,13 +176,11 @@ export const isEmpty = (val) => {
 export const selfMounted =
   ({
     api,
-    parent,
     props,
     vm,
     state
   }: {
     api: ICascaderApi
-    parent: ICascadeRenderlessParamUtils['parent']
     props: ICascaderProps
     vm: ICascadeRenderlessParamUtils['vm']
     state: ICascaderState
@@ -216,7 +214,7 @@ export const selfMounted =
       }
     })
 
-    addResizeListener(parent.$el, api.updateStyle)
+    addResizeListener(vm.$el, api.updateStyle)
   }
 
 export const toggleDropDownVisible =
@@ -633,9 +631,9 @@ export const deleteTag =
   }
 
 export const updateStyle =
-  ({ parent, vm, state, updatePopper, nextTick, props }) =>
+  ({ vm, state, updatePopper, nextTick, props }) =>
   () => {
-    const $el = parent.$el
+    const $el = vm.$el
     const { suggestionPanel } = vm.$refs
     const inputInner = $el.querySelector(CASCADER.InputClass)
 
@@ -679,16 +677,16 @@ export const getCheckedNodes = (state: ICascaderState) => (leafOnly: boolean) =>
 export const setInputHeightToTag =
   ({
     nextTick,
-    parent,
+    vm,
     state
   }: {
     nextTick: ICascadeRenderlessParamUtils['nextTick']
-    parent: ICascadeRenderlessParamUtils['parent']
+    vm: ICascadeRenderlessParamUtils['vm']
     state: ICascaderState
   }) =>
   () => {
     nextTick(() => {
-      const parentEl = parent.$el as HTMLDivElement
+      const parentEl = vm.$el as HTMLDivElement
       const height = (parentEl?.querySelector(CASCADER.TagClass) as HTMLDivElement)?.offsetHeight + 6 + 'px'
 
       if (!state.isDisplayOnly) {

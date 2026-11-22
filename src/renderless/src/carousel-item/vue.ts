@@ -41,12 +41,10 @@ export const api = [
   'setDelta'
 ]
 
-export const renderless = (props, { computed, onMounted, onUnmounted, reactive, inject }, { parent, vm }) => {
+export const renderless = (props, { computed, onMounted, onUnmounted, reactive, inject }, { vm }) => {
   const api = {}
   const CARD_SCALE = $constants.CARD_SCALE
   const TYPE_VERTICAL = $constants.TYPE_VERTICAL
-
-  const carouselParent = inject('CarouselVm')
 
   const state = reactive({
     scale: 1,
@@ -58,10 +56,11 @@ export const renderless = (props, { computed, onMounted, onUnmounted, reactive, 
     animating: false,
     animatingMf: false,
     isOblique: false,
-    carouselParent,
+    // carousel 通过 provide('CarouselVm') 暴露 vm，替代组件链 parent 访问；后续统一从 state.carouselParent 取用
+    carouselParent: inject('CarouselVm'),
     hasTitle: computed(() => !!props.title),
-    moving: computed(() => carouselParent.state.moving),
-    animate: computed(() => (Math.abs(carouselParent.state.delta) > 0 ? !state.animatingMf : state.animating)),
+    moving: computed(() => state.carouselParent.state.moving),
+    animate: computed(() => (Math.abs(state.carouselParent.state.delta) > 0 ? !state.animatingMf : state.animating)),
     getTransform: computed(() => api.computedTransform()),
     delta: 0
   })
@@ -69,10 +68,10 @@ export const renderless = (props, { computed, onMounted, onUnmounted, reactive, 
   Object.assign(api, {
     state,
     processIndex,
-    handleItemClick: handleItemClick({ state, parent, carouselParent }),
-    computedTransform: computedTransform({ carouselParent, TYPE_VERTICAL, state }),
+    handleItemClick: handleItemClick({ state }),
+    computedTransform: computedTransform({ TYPE_VERTICAL, state }),
     calculateTranslate: calculateTranslate({ CARD_SCALE, state }),
-    translateItem: translateItem({ api, CARD_SCALE, parent, state, carouselParent }),
+    translateItem: translateItem({ api, CARD_SCALE, state }),
     setDelta: setDelta({ state }),
     resetAnimatingMf: resetAnimatingMf(state)
   })
@@ -80,12 +79,12 @@ export const renderless = (props, { computed, onMounted, onUnmounted, reactive, 
   onMounted(() => {
     // 替代 dispatch('Carousel', ...)：carousel 通过 provide('CarouselVm') 暴露 vm，
     // 走 $emitter.emit 纯总线广播（carousel 以 vm.$on('updateItems'/'complete') 订阅）
-    carouselParent?.$emitter.emit('updateItems', vm)
-    carouselParent?.$emitter.emit('complete')
+    state.carouselParent?.$emitter.emit('updateItems', vm)
+    state.carouselParent?.$emitter.emit('complete')
   })
 
   onUnmounted(() => {
-    carouselParent && carouselParent.updateItems()
+    state.carouselParent && state.carouselParent.updateItems()
   })
 
   return api

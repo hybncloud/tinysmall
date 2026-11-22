@@ -190,13 +190,12 @@ const initApi = ({
   emit,
   vm,
   props,
-  parent,
   nextTick,
   slots,
   form
 }: Pick<
   IInputRenderlessParams,
-  'api' | 'state' | 'broadcast' | 'emit' | 'refs' | 'props' | 'parent' | 'vm' | 'nextTick' | 'slots' | 'form'
+  'api' | 'state' | 'broadcast' | 'emit' | 'refs' | 'props' | 'vm' | 'nextTick' | 'slots' | 'form'
 >) => {
   Object.assign(api, {
     state,
@@ -230,10 +229,9 @@ const mergeApi = ({
   emit,
   eventName,
   nextTick,
-  parent,
   state,
   vm
-}: Pick<IInputRenderlessParams, 'api' | 'emit' | 'props' | 'state' | 'nextTick' | 'parent' | 'vm' | 'constants'> & {
+}: Pick<IInputRenderlessParams, 'api' | 'emit' | 'props' | 'state' | 'nextTick' | 'vm' | 'constants'> & {
   storages: ReturnType<typeof useStorageBox>
   formItem: any
   eventName: IInputEventNameConstants
@@ -260,7 +258,7 @@ const mergeApi = ({
     }),
     handleFocus: handleFocus({ api, emit, state }),
     handleInput: handleInput({ api, emit, nextTick, state }),
-    resizeTextarea: debounceBoth(200, resizeTextarea({ api, parent, vm, state, props })), // 抖动的首尾都要执行一次
+    resizeTextarea: debounceBoth(200, resizeTextarea({ api, vm, state, props })), // 抖动的首尾都要执行一次
     updateIconOffset: updateIconOffset(api),
     calcTextareaHeight: calcTextareaHeight({
       api,
@@ -365,7 +363,7 @@ const initWatch = ({
 export const renderless = (
   props: IInputProps,
   { computed, onMounted, onBeforeUnmount, onUpdated, reactive, toRefs, watch, inject }: ISharedRenderlessParamHooks,
-  { vm, refs, parent, attrs, slots, emit, nextTick, broadcast }: IInputRenderlessParamUtils
+  { vm, refs, attrs, slots, emit, nextTick, broadcast }: IInputRenderlessParamUtils
 ): IInputApi => {
   const api = {} as IInputApi
   const eventName: IInputEventNameConstants = { change: 'form.change', blur: 'form.blur' }
@@ -375,11 +373,11 @@ export const renderless = (
   const tooltipVm: any = inject('tooltipVm', null)
   const state = initState({ reactive, computed, props, attrs, form, formItem, api, vm })
 
-  initApi({ api, state, broadcast, emit, refs, props, slots, form, parent, vm, nextTick })
+  initApi({ api, state, broadcast, emit, refs, props, slots, form, vm, nextTick })
 
   const storages = useStorageBox({ api, props, reactive, toRefs })
 
-  mergeApi({ api, storages, formItem, emit, eventName, props, state, nextTick, parent, vm })
+  mergeApi({ api, storages, formItem, emit, eventName, props, state, nextTick, vm })
 
   initWatch({ watch, state, api, props, nextTick, emit, formItem, eventName })
 

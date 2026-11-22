@@ -43,7 +43,6 @@ export const tabItemProps = {
 export default defineComponent({
   name: 'TinyTabItem',
   componentName: 'TabItem',
-  emits: ['tab-nav-update'],
   props: tabItemProps,
   setup(props, context) {
     return setup({ props, context, renderless, api }) as unknown as ITabItemApi

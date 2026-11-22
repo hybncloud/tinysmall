@@ -57,8 +57,8 @@ export const renderless = (
   const api: ICollapseItemApi = {
     state,
     handleFocus: handleFocus({ state, interval: collapseItemConstants.INTERVAL }),
-    handleEnterClick: handleEnterClick({ collapseVm, eventName, parent: vm }),
-    handleHeaderClick: handleHeaderClick({ collapseVm, eventName, props, parent: vm, state })
+    handleEnterClick: handleEnterClick({ collapseVm, eventName, vm }),
+    handleHeaderClick: handleHeaderClick({ collapseVm, eventName, props, vm, state })
   }
 
   Object.assign(api, {

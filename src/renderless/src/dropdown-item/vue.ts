@@ -58,7 +58,7 @@ export const api = [
   'computedTip'
 ]
 
-const initState = ({ reactive, computed, api, props, parent, dropdownMenuVm, dropdownVm }) => {
+const initState = ({ reactive, computed, api, props, dropdownMenuVm, dropdownVm }) => {
   const state: IDropdownItemState = reactive({
     checkedStatus: dropdownMenuVm?.checkedStatus,
     sort: props.modelValue,
@@ -66,15 +66,17 @@ const initState = ({ reactive, computed, api, props, parent, dropdownMenuVm, dro
     getTitle: false,
     showWrapper: false,
     showPopup: false,
-    duration: parent.duration,
-    overlay: computed(() => parent.overlay),
-    offset: computed(() => parent.state.offset),
-    direction: computed(() => parent.direction),
+    duration: dropdownMenuVm?.duration,
+    overlay: computed(() => dropdownMenuVm?.overlay),
+    offset: computed(() => dropdownMenuVm?.state.offset),
+    direction: computed(() => dropdownMenuVm?.direction),
     displayTitle: computed(() => api.getTitle()),
     itemStyle: computed(() => api.getItemStyle()),
-    activeColor: computed(() => parent.activeColor),
-    closeOnClickOverlay: computed(() => parent.closeOnClickOverlay),
+    activeColor: computed(() => dropdownMenuVm?.activeColor),
+    closeOnClickOverlay: computed(() => dropdownMenuVm?.closeOnClickOverlay),
+    // dropdown-menu 通过 provide('dropdownMenuVm') 暴露 vm，替代组件链 parent 访问；后续统一从 state.dropdownMenuVm 取用
     dropdownMenuVm,
+    dropdownVm,
     currentIndex: props.currentIndex,
     textField: dropdownMenuVm?.textField || props.textField,
     popperClass: dropdownMenuVm?.popperClass || '',
@@ -87,24 +89,24 @@ const initState = ({ reactive, computed, api, props, parent, dropdownMenuVm, dro
   return state
 }
 
-const initApi = ({ api, state, emit, props, parent, dropdownVm, vm }) => {
+const initApi = ({ api, state, emit, props, dropdownMenuVm, dropdownVm, vm }) => {
   Object.assign(api, {
     state,
     open: open(emit),
     opened: opened(emit),
     close: close(emit),
     getTitle: getTitle(props),
-    onScroll: onScroll(parent),
+    onScroll: onScroll(dropdownMenuVm),
     reset: reset({ emit, props }),
     closed: closed({ emit, state }),
-    clickWrapper: clickWrapper(parent),
-    clickOutside: clickOutside(parent),
+    clickWrapper: clickWrapper(dropdownMenuVm),
+    clickOutside: clickOutside(dropdownMenuVm),
     tagClick: tagClick({ emit, props }),
     getOptionStyle: getOptionStyle(state),
-    toggle: toggle({ parent, props, state }),
+    toggle: toggle({ dropdownMenuVm, props, state }),
     clickItem: clickItem({ emit, props, state }),
-    getItemStyle: getItemStyle({ parent, state }),
-    bindScroll: bindScroll({ api, parent }),
+    getItemStyle: getItemStyle({ dropdownMenuVm, state }),
+    bindScroll: bindScroll({ api, dropdownMenuVm }),
     confirm: confirm({ emit, props, state }),
     handleClick: handleClick({ state, props, dropdownVm, vm, emit }),
     computedGetIcon: computedGetIcon({}),
@@ -115,20 +117,26 @@ const initApi = ({ api, state, emit, props, parent, dropdownVm, vm }) => {
 export const renderless = (
   props: IDropdownItemProps,
   { computed, onMounted, reactive, watch, inject }: ISharedRenderlessParamHooks,
-  { parent, emit, vm }: IDropdownItemRenderlessParamUtils
+  { emit, vm }: IDropdownItemRenderlessParamUtils
 ): IDropdownItemApi => {
   const api = {} as IDropdownItemApi
-  const dropdownMenuVm = inject('dropdownMenuVm', null)
   const dropdownVm = inject('dropdownVm', null)
-  const state: IDropdownItemState = initState({ reactive, computed, api, props, parent, dropdownMenuVm, dropdownVm })
+  const state: IDropdownItemState = initState({
+    reactive,
+    computed,
+    api,
+    props,
+    dropdownMenuVm: inject('dropdownMenuVm', null),
+    dropdownVm
+  })
 
-  initApi({ api, state, emit, props, parent, dropdownVm, vm })
+  initApi({ api, state, emit, props, dropdownMenuVm: state.dropdownMenuVm, dropdownVm: state.dropdownVm, vm })
 
   watch(() => state.showPopup, api.bindScroll)
 
   onMounted(() => {
-    if (dropdownMenuVm) {
-      dropdownMenuVm.state.children.push(vm)
+    if (state.dropdownMenuVm) {
+      state.dropdownMenuVm.state.children.push(vm)
     }
 
     if (props.disabled) {

@@ -25,20 +25,20 @@ export const api = ['toggle', 'state']
 export const renderless = (
   props: ISwitchProps,
   { computed, watch, reactive, inject }: ISharedRenderlessParamHooks,
-  { parent, emit }: ISwitchRenderlessParamUtils
+  { emit }: ISwitchRenderlessParamUtils
 ): ISwitchApi => {
   const prefixCls = $constants.prefixcls('pc')
 
-  parent.tinyForm = parent.tinyForm || inject('form', null)
-
   const state: ISwitchState = reactive({
     currentValue: props.modelValue,
+    // form 通过 provide('form') 暴露 vm，替代挂在链式 parent 上的 tinyForm 缓存；后续统一从 state.tinyForm 取用
+    tinyForm: inject('form', null),
     innerClasses: computed(() => api.computedInnerClasses()),
     wrapClasses: computed(() => api.computedWarpClasses()),
     style: computed(() => api.computedStyle()),
-    formDisabled: computed(() => (parent.tinyForm || {}).disabled),
+    formDisabled: computed(() => (state.tinyForm || {}).disabled),
     disabled: computed(() => props.disabled || state.formDisabled || state.isDisplayOnly || props.loading),
-    isDisplayOnly: computed(() => props.displayOnly || (parent.tinyForm || {}).displayOnly),
+    isDisplayOnly: computed(() => props.displayOnly || (state.tinyForm || {}).displayOnly),
     showText: computed(() => {
       // 用户没传showText属性时，aurora默认是展示文本
       if (props.showText === undefined) {
