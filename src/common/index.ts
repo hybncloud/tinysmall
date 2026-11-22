@@ -122,8 +122,8 @@ export const tools = (context: vueHooks.SetupContext<any[], {}>): Omit<ISharedRe
     new Proxy(
       {},
       {
-        get: (_, name) => (typeof name !== 'symbol' ? source()[name] : undefined),
-        has: (_, name) => (typeof name !== 'symbol' ? name in source() : false),
+        get: (_, name) => source()[name],
+        has: (_, name) => name in source(),
         ownKeys: () => Reflect.ownKeys(source())
       }
     )
@@ -136,14 +136,18 @@ export const tools = (context: vueHooks.SetupContext<any[], {}>): Omit<ISharedRe
 
   const slots = proxyForward(() => instance.slots)
 
+  const refs = proxyForward(() => instance.refs)
+
+  const attrs = proxyForward(() => instance.attrs)
+
   return {
     vm,
     emit,
     emitter,
-    refs: proxyForward(() => instance.refs),
+    refs,
     slots,
     scopedSlots: slots,
-    attrs: proxyForward(() => instance.attrs),
+    attrs,
     nextTick: vueHooks.nextTick
   }
 }
