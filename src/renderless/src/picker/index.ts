@@ -60,7 +60,7 @@ export const watchMobileVisible =
   }
 
 export const watchPickerVisible =
-  ({ api, vm, dispatch, emit, props, state, nextTick }) =>
+  ({ api, vm, emit, props, state, nextTick }) =>
   (value) => {
     if (props.readonly || state.pickerDisabled) return
 
@@ -76,7 +76,7 @@ export const watchPickerVisible =
       state.userInput = null
 
       if (props.validateEvent) {
-        dispatch('form.blur')
+        state.formItem?.$emitter.emit('form.blur')
       }
 
       if (props.changeOnConfirm && !valueEquals(props.modelValue, state.oldValue)) {
@@ -1222,7 +1222,7 @@ export const valueEquals = (left, right) => {
 }
 
 export const emitChange =
-  ({ api, dispatch, emit, props, state }) =>
+  ({ api, emit, props, state }) =>
   (val) => {
     if (!valueEquals(val, state.valueOnOpen)) {
       emit('change', val)
@@ -1230,7 +1230,7 @@ export const emitChange =
       state.valueOnOpen = val
 
       if (props.validateEvent) {
-        dispatch('form.change', val)
+        state.formItem?.$emitter.emit('form.change', val)
       }
 
       api.emitDbTime(props.value)
@@ -1295,7 +1295,7 @@ export const getType =
   }
 
 export const watchModelValue =
-  ({ api, props, state, dispatch }) =>
+  ({ api, props, state }) =>
   (value, oldValue) => {
     state.historyInput = state.displayValue
     if (state.picker) {
@@ -1310,7 +1310,7 @@ export const watchModelValue =
     }
 
     if (!valueEquals(value, oldValue) && !state.pickerVisible && props.validateEvent) {
-      dispatch('form.change', value)
+      state.formItem?.$emitter.emit('form.change', value)
     }
   }
 

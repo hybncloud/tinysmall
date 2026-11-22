@@ -21,10 +21,10 @@ export const parsePercentage =
     parseInt(val, 10)
 
 export const handleClick =
-  ({ props, api, uploader }: Pick<IUploadListRenderlessParams, 'props' | 'api' | 'uploader'>) =>
+  ({ props, api, state }: Pick<IUploadListRenderlessParams, 'props' | 'api' | 'state'>) =>
   (e: Event, file: IFileUploadFile): Function => {
     e.preventDefault()
-    if (uploader.state.isEdm) {
+    if (state.uploader.state.isEdm) {
       const { downloadFile } = api.getApi()
       props.openDownloadFile && downloadFile && downloadFile(file)
     } else {
@@ -76,9 +76,9 @@ export const showOperatePanel =
   }
 
 export const reUpload =
-  ({ emit, props, uploader }: Pick<IUploadListRenderlessParams, 'emit' | 'props' | 'uploader'>) =>
+  ({ emit, props, state }: Pick<IUploadListRenderlessParams, 'emit' | 'props' | 'state'>) =>
   (file: IFileUploadFile) => {
-    uploader.state.isEdm
+    state.uploader.state.isEdm
       ? emit('start', [file && file.raw], '', true)
       : props.handleReUpload && props.handleReUpload(file)
   }

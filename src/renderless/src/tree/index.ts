@@ -601,7 +601,7 @@ export const initTabIndex =
   }
 
 export const handleKeydown =
-  ({ vm, state, TreeAdapter }) =>
+  ({ vm, state }) =>
   (event) => {
     const currentItem = event.target
 
@@ -627,7 +627,7 @@ export const handleKeydown =
 
       const treeNode = state.treeItemArray[nextIndex]
 
-      if (TreeAdapter) {
+      if (state.treeAdapter) {
         const nodeContent = treeNode.querySelector('div.tiny-tree-node__content')
 
         treeNode.focus({ preventScroll: true })

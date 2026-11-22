@@ -141,11 +141,11 @@ export const closeMenu = (state) => () => {
 }
 
 export const handleContextMenu =
-  ({ treeRoot, vm, props, state, nextTick }) =>
+  ({ vm, props, state, nextTick }) =>
   (event) => {
-    const listeners = treeRoot.vm.$attrs.onNodeContextmenu
+    const listeners = state.tree.vm.$attrs.onNodeContextmenu
 
-    if (treeRoot.showContextmenu || listeners) {
+    if (state.tree.showContextmenu || listeners) {
       event.stopPropagation()
       event.preventDefault()
     }
@@ -153,7 +153,7 @@ export const handleContextMenu =
     // state.tree 即 inject('TreeRoot') 注入的 tree 上下文（见 components/tree/src/pc.vue 的 provide）
     state.tree.$emit('node-contextmenu', event, props.node.data, props.node, vm)
 
-    if (!treeRoot.showContextmenu) {
+    if (!state.tree.showContextmenu) {
       return
     }
 
@@ -361,13 +361,13 @@ export const addNode =
 // tiny 新增
 export const computedExpandIcon =
   ({}) =>
-  (treeRoot, state) => {
+  (tree, state) => {
     if (state.tree.icon) {
       return state.tree.icon
     }
 
     // tiny 新增的判断。 显示线时强制切换图标，仅smb定制了
-    if (treeRoot.showLine) {
+    if (tree.showLine) {
       const expandIcon = 'icon-expand'
       const collapseIcon = 'icon-put-away'
       return state.expanded ? expandIcon : collapseIcon

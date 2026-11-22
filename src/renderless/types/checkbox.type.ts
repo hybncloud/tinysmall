@@ -36,6 +36,9 @@ export interface ICheckboxState {
   showLabel: boolean
   isLimitExceeded: boolean
   checkboxGroup: ITinyVm
+  /** form/form-item 通过 provide 注入的 vm（可能为 null，未处于表单内） */
+  tinyForm: any
+  formItem: any
   store: ICheckboxModalValue | ICheckboxModalValue[]
   isGroup: boolean
   isChecked: boolean

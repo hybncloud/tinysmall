@@ -82,7 +82,6 @@ const initState = ({
   reactive,
   props,
   computed,
-  form,
   api,
   t,
 
@@ -92,7 +91,6 @@ const initState = ({
   reactive: ISharedRenderlessFunctionParams<null>['reactive']
   props: ICascaderProps
   computed: ISharedRenderlessFunctionParams<null>['computed']
-  form: ReturnType<ISharedRenderlessFunctionParams<null>['inject']>
   api: ICascaderApi
   t: ICascadeRenderlessParamUtils['t']
   constants: ICascaderConstants
@@ -101,6 +99,9 @@ const initState = ({
 }) => {
   const state = reactive({
     showAutoWidth: inject('showAutoWidth', null),
+    /** form/form-item 通过 provide 注入的 vm：读取表单上下文、走 $emitter 总线通知 */
+    tinyForm: inject('form', null),
+    formItem: inject('formItem', null),
     /** popper 元素是否显示。 它是通过v-show 绑定到页面上，造成隐藏时，popperJs并没有destory,有一定的性能影响 */
     dropDownVisible: false,
     checkedValue: props.modelValue || null,
@@ -114,12 +115,12 @@ const initState = ({
     inputInitialHeight: 0,
     pressDeleteCount: 0,
     realSize: computed(() => props.size),
-    formDisabled: computed(() => (form || {}).disabled),
+    formDisabled: computed(() => (state.tinyForm || {}).disabled),
     displayOnly: computed(() => props.displayOnly),
     disabled: computed(() => props.disabled || state.isDisplayOnly || state.formDisabled),
     tagSize: computed(() => (~['small', 'mini'].indexOf(state.realSize) ? 'mini' : 'small')),
     isDisabled: computed(() => state.disabled),
-    isDisplayOnly: computed(() => state.displayOnly || (form || {}).displayOnly),
+    isDisplayOnly: computed(() => state.displayOnly || (state.tinyForm || {}).displayOnly),
     config: computed(() => api.getConfig()),
     multiple: computed(() => state.config.multiple),
     leafOnly: computed(() => !state.config.checkStrictly),
@@ -142,8 +143,7 @@ const initState = ({
 const initApi = ({
   api,
   state,
-  
-  dispatch,
+
   emit,
   vm,
   props,
@@ -154,7 +154,6 @@ const initApi = ({
   api: ICascaderApi
   state: ICascaderState
   constants: ICascaderConstants
-  dispatch: (eventName: string, params?: any) => void
   emit: ICascadeRenderlessParamUtils['emit']
   vm: ICascadeRenderlessParamUtils['vm']
   props: ICascaderProps
@@ -174,7 +173,7 @@ const initApi = ({
     showPlaceholder: showPlaceholder({ props, state, t }),
     updateStyle: updateStyle({ vm, state, updatePopper, nextTick, props }),
     getSuggestions: getSuggestions({ nextTick, props, state, updatePopper }),
-    handleExpandChange: handleExpandChange({ emit, dispatch, nextTick, state, updatePopper }),
+    handleExpandChange: handleExpandChange({ emit, nextTick, state, updatePopper }),
     getConfig: getConfig({ vm, props }),
     setInputHeightToTag: setInputHeightToTag({ nextTick, vm, state }),
     handleSuggestionClick: handleSuggestionClick({ api, state }),
@@ -186,7 +185,7 @@ const initApi = ({
     watchValue: watchValue({ api, state }),
     computePresentTags: computePresentTags({ api, props, state }),
     computePresentContent: computePresentContent({ api, state }),
-    watchCheckedValue: watchCheckedValue({ dispatch, api, nextTick, emit, state, props }),
+    watchCheckedValue: watchCheckedValue({ api, nextTick, emit, state, props }),
     toggleDropDownVisible: toggleDropDownVisible({ emit, vm, state, updatePopper }),
     selfMounted: selfMounted({ api, props, vm, state }),
     handleBeforeUpdate: handleBeforeUpdate({ props, api, state }),
@@ -274,15 +273,6 @@ export const renderless = (
   }: ISharedRenderlessFunctionParams<null>,
   { t, emit, nextTick, slots, vm }: ICascadeRenderlessParamUtils
 ) => {
-  const form = inject('form', null)
-  // 替代适配器的 dispatch('FormItem', ...)：form-item 通过 provide('formItem') 暴露 vm，
-  // 走 $emitter.emit 纯总线通知（form-item 以 vm.$on('form.change'/'form.blur') 订阅），
-  // 不触发其 instance.emit；旧签名首个参数 componentName 恒为 'FormItem'，已移除；
-  // 兼容旧调用约定：params 为数组时展开为单个实参
-  const formItem: any = inject('formItem', null)
-  const dispatch = (eventName: string, params?: any) =>
-    formItem?.$emitter.emit(eventName, ...(Array.isArray(params) ? params : [params]))
-
   // 下发自身 vm，供 cascader-panel 注入，替代 $parent 链访问
   provide('cascader', vm)
 
@@ -312,7 +302,6 @@ export const renderless = (
     reactive,
     props,
     computed,
-    form,
     api: api as ICascaderApi,
     t,
 
@@ -320,7 +309,7 @@ export const renderless = (
     inject
   })
 
-  initApi({ api: api as ICascaderApi, state, dispatch, emit, vm, props, updatePopper, nextTick, t })
+  initApi({ api: api as ICascaderApi, state, emit, vm, props, updatePopper, nextTick, t })
 
   initWatch({ watch, state, api: api as ICascaderApi, props, nextTick, updatePopper })
 

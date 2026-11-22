@@ -22,6 +22,8 @@ export interface ICascaderNodeProps {
 }
 
 export interface ICascaderNodeState {
+  /** cascader-panel 通过 provide('panel') 注入的 panel api */
+  panel: ICascaderPanelApi
   config: ICascaderPanelConfig
   isLeaf: boolean
   isDisabled: boolean
@@ -47,6 +49,5 @@ export type ICascaderNodeRenderlessParams = ISharedRenderlessFunctionParams & {
   state: ICascaderNodeState
   props: ICascaderNodeProps
   api: ICascaderNodeApi
-  parent: ICascaderPanelApi // 在packages\renderless\src\cascader-node\vue.ts中被inject的值
-  panel: ICascaderPanelApi // 在packages\vue\src\cascader-node\src\pc.vue中被inject的值
+  panel: ICascaderPanelApi // cascader-panel 通过 provide('panel') 注入的 panel api（renderless 与 pc.vue 模板共用）
 }

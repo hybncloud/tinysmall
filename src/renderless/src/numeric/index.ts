@@ -168,23 +168,14 @@ export const decrease =
   }
 
 export const handleBlur =
-  ({
-    
-    dispatch,
-    emit,
-    props,
-    state,
-    api
-  }: Pick<INumericRenderlessParams, 'constants' | 'emit' | 'props' | 'state' | 'api'> & {
-    dispatch: (eventName: string, params?: any) => void
-  }) =>
+  ({ emit, props, state, api }: Pick<INumericRenderlessParams, 'constants' | 'emit' | 'props' | 'state' | 'api'>) =>
   (event: FocusEvent): void => {
     state.inputStatus = false
     api.setCurrentValue(event.target.value)
     emit('blur', event)
 
     if (props.validateEvent) {
-      dispatch($constants.EVENT_NAME.blur, [state.displayValue])
+      state.formItem?.$emitter.emit($constants.EVENT_NAME.blur, state.displayValue)
     }
   }
 
@@ -257,14 +248,11 @@ const getEmitValue = (
 export const setCurrentValue =
   ({
     api,
-    
-    dispatch,
+
     emit,
     props,
     state
-  }: Pick<INumericRenderlessParams, 'api' | 'constants' | 'emit' | 'props' | 'state'> & {
-    dispatch: (eventName: string, params?: any) => void
-  }) =>
+  }: Pick<INumericRenderlessParams, 'api' | 'constants' | 'emit' | 'props' | 'state'>) =>
   (newVal: number, emitChangeFlag = true): void => {
     const { max, min, allowEmpty, validateEvent, stringMode, plugin, emptyValue } = props
     const { format } = state
@@ -301,11 +289,11 @@ export const setCurrentValue =
       state.userInput = emitValue
 
       if (validateEvent && oldVal === '') {
-        dispatch($constants.EVENT_NAME.blur, [state.currentValue])
+        state.formItem?.$emitter.emit($constants.EVENT_NAME.blur, state.currentValue)
       }
 
       if (validateEvent) {
-        dispatch($constants.EVENT_NAME.change, [state.currentValue])
+        state.formItem?.$emitter.emit($constants.EVENT_NAME.change, state.currentValue)
       }
 
       if (props.step instanceof Object && props.step?.mode === 'restore' && props.step?.value) {
@@ -508,9 +496,9 @@ export const getUnitPrecision = ({
 }
 
 export const getDisplayOnlyText =
-  ({ tinyForm, state, props }: { tinyForm: any } & Pick<INumericRenderlessParams, 'state' | 'props'>) =>
+  ({ state, props }: Pick<INumericRenderlessParams, 'state' | 'props'>) =>
   (): string | number => {
-    const showEmptyValue = props.showEmptyValue || (tinyForm || {}).showEmptyValue
+    const showEmptyValue = props.showEmptyValue || (state.tinyForm || {}).showEmptyValue
 
     if (showEmptyValue) {
       return state.displayValue

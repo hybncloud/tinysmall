@@ -57,7 +57,7 @@ const Root = defineComponent({
 
 const optionItems = (wrapper: ReturnType<typeof mountComponent>) => wrapper.findAll('li[data-tag="tiny-option"]')
 
-describe('OptionGroup disabled 通知 Option（emitter 替代 broadcast）', () => {
+describe('OptionGroup disabled 通知 Option（$emitter 总线）', () => {
   test('运行时切换 group disabled，内部 option 同步禁用', async () => {
     const wrapper = mountComponent(Root, { props: { groupDisabled: false } })
 

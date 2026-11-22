@@ -28,6 +28,8 @@ import type {
 import type { getApi } from '../src/file-upload/vue'
 
 export interface IUploadListState {
+  /** upload(file-upload) 通过 provide('uploader') 注入的 vm：替代组件链 parent 访问 */
+  uploader: ITinyVm
   focusing: boolean
   shows: boolean
   progressType: string
@@ -83,8 +85,6 @@ export type IUploadListRenderlessParams = ISharedRenderlessFunctionParams<IFileU
   state: IUploadListState
   props: IUploadListProps
   api: IUploadListApi
-  /** upload(file-upload) 通过 provide('uploader') 暴露的 vm，供 upload-list 注入后访问 */
-  uploader: ITinyVm
 }
 
 export interface IUploadListVideoParam {

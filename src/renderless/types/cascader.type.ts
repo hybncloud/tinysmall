@@ -40,6 +40,10 @@ import type CascaderPanelNode from '../src/cascader-panel/node'
 
 export interface ICascaderState {
   showAutoWidth: boolean
+  /** form 通过 provide('form') 注入的 vm（可能为 null，未处于 form 内） */
+  tinyForm: any
+  /** form-item 通过 provide('formItem') 注入的 vm（可能为 null，未处于 form-item 内） */
+  formItem: any
   /** popper 元素是否显示。 它是通过v-show 绑定到页面上，造成隐藏时，popperJs并没有destory,有一定的性能影响 */
   dropDownVisible: boolean
   checkedValue: ICascaderPanelNodePropValue

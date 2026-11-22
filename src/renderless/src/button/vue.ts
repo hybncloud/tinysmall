@@ -20,17 +20,17 @@ export const renderless = (
   { computed, onBeforeUnmount, reactive, watch, inject }: ISharedRenderlessParamHooks,
   { emit }: IButtonRenderlessParamUtils
 ): IButtonApi => {
-  const form = inject('form', null)
-  const buttonGroup = inject('buttonGroup', null)
-
   const state = reactive({
     timer: 0,
     disabled: props.disabled,
-    plain: computed(() => props.plain || (buttonGroup || {}).plain),
+    /** form/button-group 通过 provide 注入的 vm：读取表单上下文 */
+    tinyForm: inject('form', null),
+    buttonGroup: inject('buttonGroup', null),
+    plain: computed(() => props.plain || (state.buttonGroup || {}).plain),
     round: computed(() => props.round ?? false),
-    formDisabled: computed(() => (form || {}).disabled),
+    formDisabled: computed(() => (state.tinyForm || {}).disabled),
     buttonDisabled: computed(
-      () => props.disabled || state.disabled || (buttonGroup || {}).disabled || state.formDisabled
+      () => props.disabled || state.disabled || (state.buttonGroup || {}).disabled || state.formDisabled
     )
   })
 

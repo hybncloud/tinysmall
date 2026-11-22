@@ -61,6 +61,8 @@ const initState = ({
 }: Pick<IAutoCompleteRenderlessParams, 'reactive' | 'computed' | 'props' | 'inject'>) => {
   const state = reactive<IAutoCompleteState>({
     showAutoWidth: inject('showAutoWidth', null),
+    // form-item 通过 provide('formItem') 暴露的 vm：通知走 state.formItem.$emitter.emit 纯总线
+    formItem: inject('formItem', null),
     popperElm: null,
     activated: false,
     suggestions: [],
@@ -104,9 +106,7 @@ const initApi = ({
   vm,
   props,
   updatePopper,
-  nextTick,
-
-  dispatch
+  nextTick
 }) => {
   api.getData = getData({ props, state, updatePopper, nextTick })
 
@@ -116,13 +116,13 @@ const initApi = ({
     suggestionState,
     close: close(state),
     open: open(api),
-    handleBlur: handleBlur({ emit, state, dispatch, props }),
+    handleBlur: handleBlur({ emit, state, props }),
     mounted: mounted({ vm, state, suggestionState, props }),
     highlight: highlight({ vm, state }),
     handleClear: handleClear({ emit, state }),
-    select: select({ emit, nextTick, props, state, dispatch }),
+    select: select({ emit, nextTick, props, state }),
     watchVisible: watchVisible({ suggestionState, vm }),
-    handleChange: handleChange({ api, emit, state, props, dispatch }),
+    handleChange: handleChange({ api, emit, state, props }),
     handleFocus: handleFocus({ api, emit, props, state }),
     handleKeyEnter: handleKeyEnter({ api, emit, nextTick, props, state }),
     debouncedGetData: debounce(props.debounce, api.getData)
@@ -144,14 +144,6 @@ export const renderless = (
   { vm, emit, nextTick, slots }: IAutoCompleteRenderlessParamUtils
 ) => {
   const api: Partial<IAutoCompleteApi> = {}
-  // 替代适配器的 dispatch('FormItem', ...)：form-item 通过 provide('formItem') 暴露 vm，
-  // 直接对它 $emit（instance.emit + $emitter.emit 双通道，与旧 dispatch 行为一致）；
-  // 兼容旧调用约定：params 为数组时展开为单个实参
-  const formItem: any = inject('formItem', null)
-  // 替代适配器的 dispatch('FormItem', ...)：走 form-item 的 $emitter 纯总线通知（同 cascader）；
-  // 旧签名首个参数 componentName 恒为 'FormItem'，已移除
-  const dispatch = (eventName: string, params?: any) =>
-    formItem?.$emitter.emit(eventName, ...(Array.isArray(params) ? params : [params]))
   const state = initState({ reactive, computed, props, inject })
 
   const { showPopper, popperElm, referenceElm, doDestroy, updatePopper } = userPopper({
@@ -178,9 +170,7 @@ export const renderless = (
     vm,
     props,
     updatePopper,
-    nextTick,
-
-    dispatch
+    nextTick
   })
 
   watch(() => state.suggestionVisible, (api as IAutoCompleteApi).watchVisible)

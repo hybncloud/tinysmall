@@ -100,7 +100,7 @@ export const api = [
   'dateMobileToggle'
 ]
 
-const initState = ({ api, reactive, vm, computed, props, utils, form }) => {
+const initState = ({ api, reactive, vm, computed, props, utils, inject }) => {
   const state = reactive({
     historyValue: [],
     historyInput: [],
@@ -115,9 +115,12 @@ const initState = ({ api, reactive, vm, computed, props, utils, form }) => {
     valueOnOpen: null,
     popperElm: null,
     unwatchPickerOptions: null,
+    /** form/form-item 通过 provide 注入的 vm：读取表单上下文、走 $emitter 总线通知 */
+    tinyForm: inject('form', null),
+    formItem: inject('formItem', null),
     ranged: computed(() => state.type.includes(DATEPICKER.Range)),
     reference: computed(() => vm.$refs.reference.$el || vm.$refs.reference),
-    formDisabled: computed(() => (form || {}).disabled),
+    formDisabled: computed(() => (state.tinyForm || {}).disabled),
     refInput: computed(() => (state.reference ? [].slice.call(state.reference.querySelectorAll('input')) : [])),
     valueIsEmpty: computed(() => api.getValueEmpty()),
     triggerClass: computed(() => api.computedTriggerClass()),
@@ -136,7 +139,7 @@ const initState = ({ api, reactive, vm, computed, props, utils, form }) => {
     format: computed(() => api.computedFormat()),
     labelTooltip: '',
     displayOnlyTooltip: '',
-    isDisplayOnly: computed(() => props.displayOnly || (form || {}).displayOnly),
+    isDisplayOnly: computed(() => props.displayOnly || (state.tinyForm || {}).displayOnly),
     dateMobileOption: {
       visible: false,
       type: props.type,
@@ -181,15 +184,6 @@ const initState = ({ api, reactive, vm, computed, props, utils, form }) => {
 const initApi = ({ api, props, hooks, state, vnode, utils }) => {
   const { t, emit, nextTick, vm } = vnode
   const { destroyPopper, popperElm, updatePopper } = initPopper({ props, hooks, vnode })
-  // 替代适配器的 dispatch('FormItem', ...)：form-item 通过 provide('formItem') 暴露 vm，
-  // 直接对它 $emit（instance.emit + $emitter.emit 双通道，与旧 dispatch 行为一致）；
-  // 兼容旧调用约定：params 为数组时展开为单个实参
-  const { inject } = hooks
-  const formItem: any = inject('formItem', null)
-  // 替代适配器的 dispatch('FormItem', ...)：走 form-item 的 $emitter 纯总线通知（同 cascader）；
-  // 旧签名首个参数 componentName 恒为 'FormItem'，已移除
-  const dispatch = (eventName: string, params?: any) =>
-    formItem?.$emitter.emit(eventName, ...(Array.isArray(params) ? params : [params]))
 
   state.popperElm = popperElm
   state.picker = null
@@ -202,7 +196,7 @@ const initApi = ({ api, props, hooks, state, vnode, utils }) => {
     getPanel: getPanel(),
     handleFocus: handleFocus({ emit, vm, state, api, props }),
     getTimezone: getTimezone({ props, utils }),
-    emitChange: emitChange({ api, dispatch, emit, props, state }),
+    emitChange: emitChange({ api, emit, props, state }),
     parsedValue: parsedValue({ api, props, state, t }),
     parseAsFormatAndType: parseAsFormatAndType({ api }),
     typeValueResolveMap: typeValueResolveMap({ api, props, t }),
@@ -223,12 +217,12 @@ const initApi = ({ api, props, hooks, state, vnode, utils }) => {
     handleClose: handleClose({ api, props, state }),
     displayValue: displayValue({ api, props, state }),
     handlePick: handlePick({ api, state }),
-    watchPickerVisible: watchPickerVisible({ api, vm, dispatch, emit, props, state, nextTick }),
+    watchPickerVisible: watchPickerVisible({ api, vm, emit, props, state, nextTick }),
     watchMobileVisible: watchMobileVisible({ api, props, state, nextTick }),
     formatToString: formatToString({ api, state }),
     watchIsRange: watchIsRange({ api, state }),
     mountPicker: mountPicker({ api, vm, props, state, updatePopper }),
-    watchModelValue: watchModelValue({ api, props, state, dispatch }),
+    watchModelValue: watchModelValue({ api, props, state }),
     computedFormat: computedFormat({ props, utils }),
     computedTriggerClass: computedTriggerClass({ props, state }),
     computedHaveTrigger: computedHaveTrigger({ props }),
@@ -353,8 +347,7 @@ export const renderless = (
   const { reactive, computed, watch, onBeforeUnmount, inject, markRaw, onMounted } = hooks
   const { vm, service } = vnode
   const { utils = {} } = service || {}
-  const form = inject('form', null)
-  const state = initState({ api, reactive, vm, computed, props, utils, form })
+  const state = initState({ api, reactive, vm, computed, props, utils, inject })
 
   initApi({ api, props, hooks, state, vnode, utils })
   initWatch({ api, state, props, watch, markRaw })

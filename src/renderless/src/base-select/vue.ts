@@ -324,7 +324,7 @@ const initStateAdd = ({ computed, props, api, vm }) => {
   }
 }
 
-const initApi = ({ api, props, state, emit, maskState, nextTick, dispatch, t, vm }) => {
+const initApi = ({ api, props, state, emit, maskState, nextTick, t, vm }) => {
   Object.assign(api, {
     state,
     maskState,
@@ -352,7 +352,7 @@ const initApi = ({ api, props, state, emit, maskState, nextTick, dispatch, t, vm
     checkDefaultFirstOption: checkDefaultFirstOption(state),
 
     setOptionHighlight: setOptionHighlight(state),
-    handleBlur: handleBlur({ dispatch, emit, state }),
+    handleBlur: handleBlur({ emit, state }),
     toggleLastOptionHitState: toggleLastOptionHitState({ state }),
     emptyText: emptyText({ I18N: $constants.I18N, props, state, t }),
     emptyFlag: emptyFlag({ props, state }),
@@ -397,16 +397,16 @@ const initApi = ({ api, props, state, emit, maskState, nextTick, dispatch, t, vm
     watchOptionsWhenAutoSelect: watchOptionsWhenAutoSelect({ state, props, nextTick, api })
   })
 
-  addApi({ api, props, state, emit, nextTick, dispatch, vm })
+  addApi({ api, props, state, emit, nextTick, vm })
 }
 
-const addApi = ({ api, props, state, emit, nextTick, dispatch, vm }) => {
+const addApi = ({ api, props, state, emit, nextTick, vm }) => {
   Object.assign(api, {
     resetInputHeight: resetInputHeight({ api, nextTick, props, vm, state }),
     calcOverFlow: calcOverFlow({ vm, props, state }),
     handleFocus: handleFocus({ api, emit, props, state }),
     deleteTag: deleteTag({ api, emit, props, vm, nextTick, state }),
-    watchValue: watchValue({ api, dispatch, props, vm, state }),
+    watchValue: watchValue({ api, props, vm, state }),
     toHide: toHide({ state, props, vm, api }),
     toVisible: toVisible({ state, props, vm, api, nextTick }),
     setSelected: setSelected({ api, nextTick, props, vm, state }),
@@ -528,14 +528,6 @@ export const renderless = (
   { vm, emit, nextTick, t, emitter }
 ) => {
   const api: any = {}
-  // 替代适配器的 dispatch('FormItem', ...)：form-item 通过 provide('formItem') 暴露 vm，
-  // 直接对它 $emit（instance.emit + $emitter.emit 双通道，与旧 dispatch 行为一致）；
-  // 兼容旧调用约定：params 为数组时展开为单个实参
-  const formItem: any = inject('formItem', null)
-  // 替代适配器的 dispatch('FormItem', ...)：走 form-item 的 $emitter 纯总线通知（同 cascader）；
-  // 旧签名首个参数 componentName 恒为 'FormItem'，已移除
-  const dispatch = (eventName: string, params?: any) =>
-    formItem?.$emitter.emit(eventName, ...(Array.isArray(params) ? params : [params]))
   const state = initState({
     reactive,
     computed,
@@ -545,6 +537,8 @@ export const renderless = (
 
     vm
   })
+  // form-item 通过 provide('formItem') 暴露 vm：通知走 state.formItem.$emitter.emit 纯总线（form-item 以 vm.$on 订阅）
+  state.formItem = inject('formItem', null)
   const dialog = inject('dialog', null)
 
   provide('selectEmitter', state.selectEmitter)
@@ -562,7 +556,6 @@ export const renderless = (
     maskState,
 
     nextTick,
-    dispatch,
     t,
     vm
   })

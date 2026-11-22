@@ -71,9 +71,9 @@ const initState = ({
   props,
   api,
   $service,
-  
-  form
-}: INumericInitStateParams & { form: any }): INumericState => {
+
+  inject
+}: INumericInitStateParams & { inject: any }): INumericState => {
   const state = reactive({
     currentValue: props.modelValue,
     userInput: props.modelValue,
@@ -82,8 +82,11 @@ const initState = ({
     decimal: null,
     strictInput: computed(() => props.strictInput),
     inputSize: computed(() => props.size || state.formSize),
-    formSize: computed(() => (form || {}).size),
-    formDisabled: computed(() => (form || {}).disabled),
+    /** form/form-item 通过 provide 注入的 vm：读取表单上下文、走 $emitter 总线通知 */
+    tinyForm: inject('form', null),
+    formItem: inject('formItem', null),
+    formSize: computed(() => (state.tinyForm || {}).size),
+    formDisabled: computed(() => (state.tinyForm || {}).disabled),
     inputDisabled: computed(() => props.disabled || state.formDisabled),
     displayValue: computed(() => api.displayValue()),
     numPrecision: computed(() => api.getNumPecision()),
@@ -101,7 +104,7 @@ const initState = ({
 
     handleClear: computed(() => api.handleClear()),
     handleChange: computed(() => api.handleClear()),
-    isDisplayOnly: computed(() => props.displayOnly || (form || {}).displayOnly),
+    isDisplayOnly: computed(() => props.displayOnly || (state.tinyForm || {}).displayOnly),
     displayOnlyText: computed(() => api.getDisplayOnlyText()),
     controls: props.controls
   })
@@ -114,14 +117,12 @@ const initApi = ({
   state,
   vm,
   emit,
-  dispatch,
 
-  nextTick,
-  form
+  nextTick
 }: Pick<
   INumericRenderlessParams,
   'api' | 'props' | 'state' | 'vm' | 'emit' | 'constants' | 'nextTick'
-> & { form: any; dispatch: (eventName: string, params?: any) => void }): void => {
+>): void => {
   Object.assign(api, {
     state,
     focus: focus(vm),
@@ -142,10 +143,10 @@ const initApi = ({
     internalIncrease: internalIncrease({ api, state }),
     handleInputChange: handleInputChange({ api, state, props }),
     mouseEvent: mouseEvent({ api, props, state }),
-    handleBlur: handleBlur({ dispatch, emit, props, state, api }),
+    handleBlur: handleBlur({ emit, props, state, api }),
     watchValue: watchValue({ api, props, state }),
-    setCurrentValue: setCurrentValue({ api, dispatch, emit, props, state }),
-    getDisplayOnlyText: getDisplayOnlyText({ tinyForm: form, props, state }),
+    setCurrentValue: setCurrentValue({ api, emit, props, state }),
+    getDisplayOnlyText: getDisplayOnlyText({ props, state }),
     filterValue: filterValue({ state }),
     handleClear: handleClear({ state, emit }),
     handleChange: handleChange({ state, emit })
@@ -178,17 +179,10 @@ export const renderless = (
   { emit, vm, service, nextTick }: INumericRenderlessParamUtils
 ): INumericApi => {
   const api = {} as INumericApi
-  // 替代适配器的 dispatch('FormItem', ...)：走 form-item 的 $emitter 纯总线通知（同 cascader）；
-  // 旧签名首个参数 componentName 恒为 'FormItem'（总线模式下目标已由 inject 确定），已移除；
-  // 兼容旧调用约定：params 为数组时展开为单个实参
-  const formItem: any = inject('formItem', null)
-  const dispatch = (eventName: string, params?: any) =>
-    formItem?.$emitter.emit(eventName, ...(Array.isArray(params) ? params : [params]))
   const $service = initService(service)
-  const form = inject('form', null)
-  const state = initState({ reactive, computed, props, api, $service, form })
+  const state = initState({ reactive, computed, props, api, $service, inject })
 
-  initApi({ api, props, state, vm, emit, dispatch, nextTick, form })
+  initApi({ api, props, state, vm, emit, nextTick })
   initWatch({ watch, props, api })
 
   onMounted(api.mounted)

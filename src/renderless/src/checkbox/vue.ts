@@ -43,9 +43,9 @@ import {
 
 export const api = ['state', 'handleChange', 'computedStore']
 
-const initState = ({ reactive, computed, form, api, inject, props }) => {
+const initState = ({ reactive, computed, api, inject, props }) => {
   const state: ICheckboxState = reactive({
-    size: computed(() => props.size || inject('size', null) || (form || {}).size),
+    size: computed(() => props.size || inject('size', null) || (state.tinyForm || {}).size),
     vertical: inject('vertical', null),
     iconPosition: props.iconPosition || inject('iconPosition', 'center'),
     focus: false,
@@ -53,14 +53,17 @@ const initState = ({ reactive, computed, form, api, inject, props }) => {
     showLabel: false,
     isLimitExceeded: false,
     checkboxGroup: inject('checkboxGroup', null),
+    /** form/form-item 通过 provide 注入的 vm：读取表单上下文、走 $emitter 总线通知 */
+    tinyForm: inject('form', null),
+    formItem: inject('formItem', null),
     store: computed(() => api.computedStore()),
     isGroup: computed(() => api.computedIsGroup()),
     isChecked: computed(() => api.computedIsChecked()),
     isDisabled: computed(() => api.computedIsDisabled()),
     checkboxSize: computed(() => api.computedCheckboxSize()),
     isLimitDisabled: computed(() => api.computedIsLimitDisabled()),
-    formDisabled: computed(() => (form || {}).disabled),
-    formDisplayOnly: computed(() => (form || {}).displayOnly),
+    formDisabled: computed(() => (state.tinyForm || {}).disabled),
+    formDisplayOnly: computed(() => (state.tinyForm || {}).displayOnly),
     isDisplayOnly: computed(() => api.computedIsDisplayOnly()),
     isGroupDisplayOnly: computed(() => api.computedIsGroupDisplayOnly()),
     displayLabel: computed(() => api.computedDisplayLabel()),
@@ -120,18 +123,14 @@ export const renderless = (
 ): ICheckboxApi => {
   const api = {} as ICheckboxApi
   const formItemSize = computed(() => api.computedFormItemSize())
-  const form = inject('form', null)
-  const state: ICheckboxState = initState({ reactive, computed, form, api, inject, props })
+  const state: ICheckboxState = initState({ reactive, computed, api, inject, props })
 
   initApi({ api, state, props, formItemSize, emit, nextTick, t, vm })
 
-  // 替代 dispatch('FormItem', 'form.change')：form-item 通过 provide('formItem') 暴露 vm，
-  // 走 $emitter.emit 纯总线通知（form-item 以 vm.$on('form.change') 订阅），不触发其 instance.emit
-  const formItem: any = inject('formItem', null)
-
+  // 走 form-item 的 $emitter.emit 纯总线通知（form-item 以 vm.$on('form.change') 订阅），不触发其 instance.emit
   watch(
     () => props.modelValue,
-    (value) => props.validateEvent && formItem?.$emitter.emit($constants.FORM_CHANGE, value)
+    (value) => props.validateEvent && state.formItem?.$emitter.emit($constants.FORM_CHANGE, value)
   )
 
   watch(

@@ -66,12 +66,12 @@ export const renderless = (
   { Modal }: IFileUploadModalVm
 ): IUploadListApi => {
   const api = { getApi } as IUploadListApi
-  // uploader 通过 provide('uploader') 暴露 vm，替代组件链 parent 访问
-  const uploader = inject('uploader')
   const constants = !isServer ? ($constants as IFileUploadConstants) : null
   const $service = initService({ props, service })
 
   const state = reactive({
+    // upload(file-upload) 通过 provide('uploader') 注入的 vm：替代组件链 parent 访问
+    uploader: inject('uploader'),
     focusing: false,
     shows: false,
     progressType: 'line',
@@ -93,7 +93,7 @@ export const renderless = (
     currentFile: null
   }) as IUploadListState
 
-  uploader.getToken = getToken({ props: uploader, state: uploader.state, t, Modal })
+  state.uploader.getToken = getToken({ props: state.uploader, state: state.uploader.state, t, Modal })
 
   Object.assign(api, {
     state,
@@ -101,7 +101,7 @@ export const renderless = (
     parsePercentage: parsePercentage(),
     downloadFile: downloadFile($service),
     picturefilePreview: picturefilePreview(state),
-    handleClick: handleClick({ props, api, uploader }),
+    handleClick: handleClick({ props, api, state }),
     play: play({ vm, api, props }),
     pause: pause({ vm, props }),
     handleLoadedmetadata: handleLoadedmetadata({ vm }),
@@ -112,7 +112,7 @@ export const renderless = (
     getFileIcon: getFileIcon({}),
     mounted: mounted({ api, vm }),
     calcUploadListLiWidth: calcUploadListLiWidth({ vm, nextTick, props}),
-    reUpload: reUpload({ emit, props, uploader }),
+    reUpload: reUpload({ emit, props, state }),
     remove: remove({ emit }),
     handleTriggerClick: handleTriggerClick({ state, props }),
     chooseFile: chooseFile({ state}),

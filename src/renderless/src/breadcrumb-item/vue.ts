@@ -26,15 +26,16 @@ export const renderless = (
   { reactive, inject, computed }: ISharedRenderlessParamHooks,
   { refs, router, emit }: IBreadcrumbItemRenderlessParamUtils
 ) => {
-  const breadcrumbEmitter = inject('breadcrumbEmitter')
-  const breadcrumb = inject('breadcrumb')
   const state = reactive({
     size: inject('size', null),
-    separator: computed(() => breadcrumb.separator || '/')
+    /** breadcrumb 通过 provide('breadcrumbEmitter'/'breadcrumb') 注入的 emitter 与 vm */
+    breadcrumbEmitter: inject('breadcrumbEmitter'),
+    breadcrumb: inject('breadcrumb'),
+    separator: computed(() => state.breadcrumb.separator || '/')
   })
   const api: IBreadcrumbItemApi = {
     state,
-    linkClick: linkClick({ props, refs, router, emit, breadcrumbEmitter, constants: $constants })
+    linkClick: linkClick({ state, props, refs, router, emit, constants: $constants })
   }
 
   return api

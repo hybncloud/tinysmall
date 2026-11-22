@@ -44,6 +44,9 @@ export interface INumericState {
   decimal: BigIntDecimal
   strictInput: boolean
   inputSize: INumericSize
+  /** form/form-item 通过 provide 注入的 vm（可能为 null，未处于表单内） */
+  tinyForm: any
+  formItem: any
   formSize: string
   formDisabled: boolean
   inputDisabled: boolean

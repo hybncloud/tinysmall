@@ -17,7 +17,6 @@ import type {
 } from '../../types'
 
 import { isEqual } from '@tinysmall/utils'
-import { capitalize } from '@tinysmall/utils'
 import { isNull } from '@tinysmall/utils'
 
 let uid = 0
@@ -144,23 +143,22 @@ export default class Node {
       : isEqual(checkedValue as object, value as object)
   }
 
-  emit(eventName: string, ...args) {
+  /** 数据模型内的父子通知（非组件 vm 事件总线）：向上冒泡，父节点先重算勾选态再继续向上 */
+  notifyAncestorsCheck() {
     const { parent } = this
-    const handlerName = `onChild${capitalize(eventName)}`
 
     if (parent) {
-      parent[handlerName] && parent[handlerName](...args)
-      parent.emit(eventName, ...args)
+      parent.onChildCheck()
+      parent.notifyAncestorsCheck()
     }
   }
 
-  broadcast(eventName: string, ...args) {
-    const handlerName = `onParent${capitalize(eventName)}`
-
+  /** 数据模型内的父子通知（非组件 vm 事件总线）：向下广播勾选值，先递归最深层再逐层执行 */
+  notifyDescendantsCheck(checked: boolean) {
     this.children.forEach((child) => {
       if (child) {
-        child.broadcast(eventName, ...args)
-        child[handlerName] && child[handlerName](...args)
+        child.notifyDescendantsCheck(checked)
+        child.onParentCheck(checked)
       }
     })
   }
@@ -200,9 +198,9 @@ export default class Node {
       if (this.config.checkStrictly) {
         this.checked = isChecked
       } else {
-        this.broadcast('check', isChecked)
+        this.notifyDescendantsCheck(isChecked)
         this.setCheckState(isChecked)
-        this.emit('check')
+        this.notifyAncestorsCheck()
       }
     }
   }

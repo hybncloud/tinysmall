@@ -64,21 +64,13 @@ export const getData =
   }
 
 export const handleChange =
-  ({
-    api,
-    emit,
-    state,
-    props,
-    dispatch
-  }: Pick<IAutoCompleteRenderlessParams, 'api' | 'emit' | 'state' | 'props'> & {
-    dispatch: (eventName: string, params?: any) => void
-  }) =>
+  ({ api, emit, state, props }: Pick<IAutoCompleteRenderlessParams, 'api' | 'emit' | 'state' | 'props'>) =>
   (value) => {
     state.activated = true
     emit('update:modelValue', value)
     state.suggestionDisabled = false
     if (state.validateEvent) {
-      dispatch(FORM_EVENT.change, [value])
+      state.formItem?.$emitter.emit(FORM_EVENT.change, value)
     }
 
     if (!props.triggerOnFocus && !value) {
@@ -116,14 +108,7 @@ export const handleFocus =
   }
 
 export const handleBlur =
-  ({
-    emit,
-    state,
-    dispatch,
-    props
-  }: Pick<IAutoCompleteRenderlessParams, 'emit' | 'state' | 'props'> & {
-    dispatch: (eventName: string, params?: any) => void
-  }) =>
+  ({ emit, state, props }: Pick<IAutoCompleteRenderlessParams, 'emit' | 'state' | 'props'>) =>
   () => {
     // 如果没有激活状态，直接返回
     if (!state.activated) {
@@ -132,7 +117,7 @@ export const handleBlur =
     state.suggestionDisabled = true
     emit('blur')
     if (state.validateEvent) {
-      dispatch(FORM_EVENT.blur, [props.modelValue])
+      state.formItem?.$emitter.emit(FORM_EVENT.blur, props.modelValue)
     }
   }
 
@@ -184,14 +169,12 @@ export const select =
     emit,
     nextTick,
     props,
-    state,
-    dispatch
+    state
   }: {
     emit: IAutoCompleteRenderlessParamUtils['emit']
     nextTick: IAutoCompleteRenderlessParamUtils['nextTick']
     props: IAutoCompleteProps
     state: IAutoCompleteState
-    dispatch: (eventName: string, params?: any) => void
   }) =>
   (item) => {
     const value = item[props.valueKey]
@@ -199,7 +182,7 @@ export const select =
     emit('select', item)
 
     if (state.validateEvent) {
-      dispatch(FORM_EVENT.change, [value])
+      state.formItem?.$emitter.emit(FORM_EVENT.change, value)
     }
     nextTick(() => {
       state.activated = false

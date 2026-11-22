@@ -195,14 +195,12 @@ export const select = (api: IInputApi) => (): void => api.getInput().select()
 export const handleBlur =
   ({
     api,
-    formItem,
     eventName,
     emit,
     props,
     state,
     vm
   }: Pick<IInputRenderlessParams, 'api' | 'emit' | 'props' | 'state' | 'vm'> & {
-    formItem: any
     eventName: string
   }) =>
   (event: FocusEvent): void => {
@@ -213,9 +211,8 @@ export const handleBlur =
     api.isMemoryStorage.value = false
 
     if (props.validateEvent) {
-      // 替代 dispatch('FormItem', eventName)：走 form-item 的 $emitter 纯总线通知
-      // （form-item 以 vm.$on('form.blur') 订阅），不触发其 instance.emit
-      formItem?.$emitter.emit(eventName, props.modelValue)
+      // 走 form-item 的 $emitter 纯总线通知（form-item 以 vm.$on('form.blur') 订阅），不触发其 instance.emit
+      state.formItem?.$emitter.emit(eventName, props.modelValue)
     }
 
     if (props.hoverExpand) {
@@ -533,10 +530,11 @@ export const handleLeaveTextarea =
   }
 
 export const getDisplayOnlyText =
-  ({ form, state, props }) =>
+  ({ state, props }) =>
   () => {
     const text = props.displayOnlyContent || state.nativeInputValue
-    const showEmptyValue = typeof props.showEmptyValue === 'boolean' ? props.showEmptyValue : (form || {}).showEmptyValue
+    const showEmptyValue =
+      typeof props.showEmptyValue === 'boolean' ? props.showEmptyValue : (state.tinyForm || {}).showEmptyValue
 
     return showEmptyValue ? text : text || '-'
   }

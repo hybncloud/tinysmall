@@ -17,6 +17,8 @@ import type {
 import type { ISharedRenderlessParamUtils, ISharedRenderlessFunctionParams } from './shared.type'
 
 export interface IAutoCompleteState {
+  /** form-item 通过 provide('formItem') 注入的 vm（可能为 null，未处于 form 内） */
+  formItem: any
   showAutoWidth: boolean | null
   popperElm: Element | null
   activated: boolean

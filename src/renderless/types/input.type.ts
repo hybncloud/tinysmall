@@ -19,6 +19,9 @@ import type {
 
 export interface IInputState {
   mode: string
+  /** form/form-item 通过 provide 注入的 vm（可能为 null，未处于表单内） */
+  tinyForm: any
+  formItem: any
   focused: boolean
   hovering: boolean
   isComposing: boolean

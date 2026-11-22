@@ -465,7 +465,7 @@ export const blur =
   }
 
 export const handleBlur =
-  ({ dispatch, emit, state }) =>
+  ({ emit, state }) =>
   (event) => {
     state.willFocusRun = false
     clearTimeout(state.timer)
@@ -477,7 +477,7 @@ export const handleBlur =
       }
     }, 200)
     // tiny 新增： 表单校验不能异步，否则弹窗中嵌套表单会出现弹窗关闭后再出现校验提示的bug
-    dispatch($constants.EVENT_NAME.formBlur, event.target.value)
+    state.formItem?.$emitter.emit($constants.EVENT_NAME.formBlur, event.target.value)
 
     state.softFocus = false
   }
@@ -1115,7 +1115,7 @@ const remoteEmptyText = function (props, state) {
 }
 
 export const watchValue =
-  ({ api, dispatch, props, vm, state }) =>
+  ({ api, props, vm, state }) =>
   (value, oldValue) => {
     if (props.multiple) {
       api.resetInputHeight()
@@ -1148,7 +1148,7 @@ export const watchValue =
     }
 
     if (state.completed && !isEqual(value, oldValue)) {
-      dispatch($constants.EVENT_NAME.formChange, value)
+      state.formItem?.$emitter.emit($constants.EVENT_NAME.formChange, value)
     }
 
     props.optimization && optmzApis.setValueIndex({ props, state })

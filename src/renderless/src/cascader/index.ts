@@ -96,8 +96,7 @@ export const watchValue =
 export const watchCheckedValue =
   ({
     nextTick,
-    
-    dispatch,
+
     api,
     emit,
     state,
@@ -106,7 +105,6 @@ export const watchCheckedValue =
     api: ICascaderApi
     emit: ICascadeRenderlessParamUtils['emit']
     state: ICascaderState
-    dispatch: (eventName: string, params?: any) => void
   }) =>
   (value) => {
     state.presentText = state.presentTags.length ? '' : null
@@ -122,9 +120,7 @@ export const watchCheckedValue =
     }
 
     nextTick(() => {
-      dispatch($constants.EVENT_NAME.FormChange, [
-        state.multiple ? state.presentText : state.inputValue
-      ])
+      state.formItem?.$emitter.emit($constants.EVENT_NAME.FormChange, state.multiple ? state.presentText : state.inputValue)
     })
 
     // 用户触发的modelValue变化时： props.changeCompat=true， 则emit， 否则忽略
@@ -321,12 +317,10 @@ export const handleClear = (state: ICascaderState) => (_event) => {
 }
 
 export const handleExpandChange =
-  ({ dispatch, emit, nextTick, state, updatePopper }) =>
+  ({ emit, nextTick, state, updatePopper }) =>
   (value) => {
     nextTick(() => {
-      dispatch($constants.EVENT_NAME.FormBlur, [
-        state.multiple ? state.presentText : state.inputValue
-      ])
+      state.formItem?.$emitter.emit($constants.EVENT_NAME.FormBlur, state.multiple ? state.presentText : state.inputValue)
       // 同步时需注意，popper初始化时会保存dom的引用，因此无需传参，否则vue2下会有bug
       updatePopper()
     })

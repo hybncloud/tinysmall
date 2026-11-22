@@ -13,17 +13,17 @@
 import type { ICascaderNodeRenderlessParams, ICascaderPanelNode } from '../../types'
 
 export const comptCheckPath =
-  ({ api, parent, state }: Pick<ICascaderNodeRenderlessParams, 'api' | 'parent' | 'state'>) =>
+  ({ api, state }: Pick<ICascaderNodeRenderlessParams, 'api' | 'state'>) =>
   (): boolean => {
     if (!state.config.checkStrictly) {
       return false
     }
 
-    return parent.state.checkedNodePaths.some((checkedPath) => api.isInPath(checkedPath))
+    return state.panel.state.checkedNodePaths.some((checkedPath) => api.isInPath(checkedPath))
   }
 
 export const handleExpand =
-  ({ api, parent, props, state }: Pick<ICascaderNodeRenderlessParams, 'api' | 'parent' | 'props' | 'state'>) =>
+  ({ api, props, state }: Pick<ICascaderNodeRenderlessParams, 'api' | 'props' | 'state'>) =>
   (): void => {
     const { multiple, checkStrictly } = state.config
 
@@ -32,7 +32,7 @@ export const handleExpand =
     }
 
     if (state.config.lazy && !props.node.loaded) {
-      parent.lazyLoad(props.node, () => {
+      state.panel.lazyLoad(props.node, () => {
         if (!state.isLeaf) {
           api.handleExpand()
         }
@@ -41,18 +41,18 @@ export const handleExpand =
           const checked = state.isLeaf ? props.node.checked : false
           api.handleMultiCheckChange(Boolean(checked))
         } else {
-          parent.handleExpand(props.node)
+          state.panel.handleExpand(props.node)
         }
       })
     } else {
-      parent.handleExpand(props.node)
+      state.panel.handleExpand(props.node)
     }
   }
 
 export const handleCheckChange =
-  ({ api, parent, cascaderPanelVm, state }: Pick<ICascaderNodeRenderlessParams, 'api' | 'parent' | 'state'> & { cascaderPanelVm: any }) =>
+  ({ api, cascaderPanelVm, state }: Pick<ICascaderNodeRenderlessParams, 'api' | 'state'> & { cascaderPanelVm: any }) =>
   () => {
-    parent.handleCheckChange(state.value)
+    state.panel.handleCheckChange(state.value)
     api.handleExpand()
     // 替代 dispatch('TinyCascaderPanel', 'close')：走 cascader-panel 的 $emitter 纯总线广播
     // （内部事件 'panel:close'），panel 侧桥接后以公共事件 'close' 对外触发
@@ -60,10 +60,10 @@ export const handleCheckChange =
   }
 
 export const handleMultiCheckChange =
-  ({ parent, props }: Pick<ICascaderNodeRenderlessParams, 'parent' | 'props'>) =>
+  ({ state, props }: Pick<ICascaderNodeRenderlessParams, 'state' | 'props'>) =>
   (checked: boolean): void => {
     props.node.doCheck(checked)
-    parent.calculateMultiCheckedValue()
+    state.panel.calculateMultiCheckedValue()
   }
 
 export const isInPath =

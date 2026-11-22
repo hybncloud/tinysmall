@@ -34,28 +34,29 @@ export const renderless = (
   { computed, reactive, inject, watch }: ISharedRenderlessParamHooks,
   {}: ISharedRenderlessParamUtils
 ): ICascaderNodeApi => {
-  const parent = inject('panel') as ICascaderNodeRenderlessParams['parent']
   // cascader-panel 通过 provide('cascaderPanelVm') 暴露的 TinyVM，用于 $emitter 总线广播
   const cascaderPanelVm = inject('cascaderPanelVm', null)
   const api = {} as ICascaderNodeApi
   const state = reactive({
-    config: computed(() => parent.state.config),
+    // cascader-panel 通过 provide('panel') 注入的 panel api
+    panel: inject('panel') as ICascaderNodeRenderlessParams['panel'],
+    config: computed(() => state.panel.state.config),
     isLeaf: computed(() => props.node.isLeaf),
     isDisabled: computed(() => props.node.isDisabled),
-    checkedValue: computed(() => parent.state.checkedValue),
+    checkedValue: computed(() => state.panel.state.checkedValue),
     isChecked: computed(() => props.node.isSameNode(state.checkedValue)),
-    inActivePath: computed(() => api.isInPath(parent.state.activePath)),
+    inActivePath: computed(() => api.isInPath(state.panel.state.activePath)),
     inCheckedPath: computed(() => api.comptCheckPath()),
     value: computed(() => props.node.getValueByOption()),
     // 仅 mf 用到nodeLabel
     nodeLabel: computed(() => {
-      return parent.state.renderLabelFn
-        ? parent.state.renderLabelFn({ node: props.node, data: props.node.data })
+      return state.panel.state.renderLabelFn
+        ? state.panel.state.renderLabelFn({ node: props.node, data: props.node.data })
         : props.node.label
     })
   }) as ICascaderNodeState
 
-  if (parent.state.config.expandTrigger !== 'click') {
+  if (state.panel.state.config.expandTrigger !== 'click') {
     watch(
       () => state.checkedValue,
       (checkedValue) => {
@@ -69,10 +70,10 @@ export const renderless = (
   Object.assign(api, {
     state,
     isInPath: isInPath(props),
-    handleExpand: handleExpand({ api, props, parent, state }),
-    comptCheckPath: comptCheckPath({ api, parent, state }),
-    handleCheckChange: handleCheckChange({ api, parent, cascaderPanelVm, state }),
-    handleMultiCheckChange: handleMultiCheckChange({ parent, props }),
+    handleExpand: handleExpand({ api, props, state }),
+    comptCheckPath: comptCheckPath({ api, state }),
+    handleCheckChange: handleCheckChange({ api, cascaderPanelVm, state }),
+    handleMultiCheckChange: handleMultiCheckChange({ state, props }),
     handleNodeClick: handleNodeClick({ state, api })
   })
 

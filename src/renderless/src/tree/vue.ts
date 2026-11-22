@@ -131,8 +131,10 @@ export const api = [
   'setCheckedByNodeKey'
 ]
 
-const initState = ({ reactive, emitter, props, computed, api, TreeAdapter }) => {
+const initState = ({ reactive, emitter, props, computed, api, inject }) => {
   const state = reactive({
+    // tree-select 通过 provide('TreeAdapter') 注入的适配器（可能为 null）
+    treeAdapter: inject('TreeAdapter', null),
     loaded: !props.lazy,
     checkEasily: false,
     root: null,
@@ -178,7 +180,9 @@ const initState = ({ reactive, emitter, props, computed, api, TreeAdapter }) => 
     plainNodeStore: {},
     allNodeKeys: [],
     renderedChildNodes: computed(() => {
-      return state.root.childNodes.filter((childNode) => (TreeAdapter ? TreeAdapter.shouldRender(childNode) : true))
+      return state.root.childNodes.filter((childNode) =>
+        state.treeAdapter ? state.treeAdapter.shouldRender(childNode) : true
+      )
     }),
     // tiny 新增
     filterText: '' // 记录当前过滤的内容
@@ -187,7 +191,7 @@ const initState = ({ reactive, emitter, props, computed, api, TreeAdapter }) => 
   return state
 }
 
-const initApi = ({ state, props, vm, t, emit, api, TreeAdapter }) => ({
+const initApi = ({ state, props, vm, t, emit, api }) => ({
   state,
   setChildren: setChildren(props),
   getChildren: getChildren(),
@@ -218,7 +222,7 @@ const initApi = ({ state, props, vm, t, emit, api, TreeAdapter }) => ({
   insertAfter: insertAfter(state),
   updateKeyChildren: updateKeyChildren({ props, state }),
   initTabIndex: initTabIndex({ vm, state }),
-  handleKeydown: handleKeydown({ vm, state, TreeAdapter }),
+  handleKeydown: handleKeydown({ vm, state }),
   computedShowEmptyText: computedShowEmptyText({ t }),
   setCurrentRadio: setCurrentRadio({ props, state }),
   expandAllNodes: expandAllNodes({ state }),
@@ -269,12 +273,11 @@ export const renderless = (
   {}
 ) => {
   const api = {}
-  const TreeAdapter = inject('TreeAdapter', null)
-  const state = initState({ reactive, emitter, props, computed, api, TreeAdapter })
+  const state = initState({ reactive, emitter, props, computed, api, inject })
 
   provide('parentEmitter', state.emitter)
 
-  Object.assign(api, initApi({ state, props, vm, t, emit, api, TreeAdapter }), {
+  Object.assign(api, initApi({ state, props, vm, t, emit, api }), {
     closeMenu: closeMenu(state),
     mounted: mounted({ api, vm }),
     created: created({ api, props, state }),

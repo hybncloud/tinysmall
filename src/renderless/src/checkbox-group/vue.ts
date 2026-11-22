@@ -22,6 +22,8 @@ export const renderless = (props, { computed, reactive, watch, inject, provide }
   const formItemSize = computed(() => api.computedFormItemSize())
 
   const state = reactive({
+    /** form-item 通过 provide('formItem') 注入的 vm：走 $emitter 总线通知 */
+    formItem: inject('formItem', null),
     checkboxGroupSize: computed(() => api.computedCheckboxGroupSize())
   })
 
@@ -37,13 +39,10 @@ export const renderless = (props, { computed, reactive, watch, inject, provide }
   vm.$on('change', (value) => emit('change', value))
   vm.$on('update:modelValue', (value) => emit('update:modelValue', value))
 
-  // 替代 dispatch(FORM_ITEM, FORM_CHANGE)：form-item 通过 provide('formItem') 暴露 vm，
-  // 走 $emitter.emit 纯总线通知（form-item 以 vm.$on('form.change') 订阅），不触发其 instance.emit
-  const formItem = inject('formItem', null)
-
+  // 走 form-item 的 $emitter.emit 纯总线通知（form-item 以 vm.$on('form.change') 订阅），不触发其 instance.emit
   watch(
     () => props.modelValue,
-    (value) => formItem?.$emitter.emit($constants.FORM_CHANGE, value)
+    (value) => state.formItem?.$emitter.emit($constants.FORM_CHANGE, value)
   )
 
   provide('checkboxGroup', vm)

@@ -103,12 +103,11 @@ const initState = ({
   computed,
   props,
   attrs,
-  form,
-  formItem,
-  
+  inject,
+
   api,
   vm
-}: Pick<IInputRenderlessParams, 'reactive' | 'computed' | 'props' | 'constants' | 'api' | 'vm'>) => {
+}: Pick<IInputRenderlessParams, 'reactive' | 'computed' | 'props' | 'constants' | 'api' | 'vm'> & { inject: any }) => {
   const state = reactive({
     maskSymbol: $constants.MASKSYMBOL,
     focused: false,
@@ -121,8 +120,11 @@ const initState = ({
     checkedLabel: '',
     enteredTextarea: false,
     sheetvalue: props.modelValue,
-    inputSize: computed(() => props.size || state.formItemSize || (form || {}).size),
-    inputSizeMf: computed(() => props.size || state.formItemSize || (form || {}).size),
+    /** form/form-item 通过 provide 注入的 vm：读取表单上下文、走 $emitter 总线通知 */
+    tinyForm: inject('form', null),
+    formItem: inject('formItem', null),
+    inputSize: computed(() => props.size || state.formItemSize || (state.tinyForm || {}).size),
+    inputSizeMf: computed(() => props.size || state.formItemSize || (state.tinyForm || {}).size),
     showClear: computed(
       () =>
         props.clearable &&
@@ -135,27 +137,27 @@ const initState = ({
     upperLimit: computed(() => attrs.maxlength),
     textLength: computed(() => textLength(props.modelValue)),
     inputExceed: computed(() => state.isWordLimitVisible && state.textLength > state.upperLimit),
-    formItemSize: computed(() => (formItem || {}).formItemSize),
+    formItemSize: computed(() => (state.formItem || {}).formItemSize),
     validateIcon: computed(() => $constants.VALIDATE_ICON[state.validateState]),
     showWordLimit: computed(() => props.showWordLimit && attrs.maxlength),
     inputDisabled: computed(
-      () => props.disabled || (form || {}).disabled || state.isDisplayOnly || (form || {}).displayOnly
+      () => props.disabled || (state.tinyForm || {}).disabled || state.isDisplayOnly || (state.tinyForm || {}).displayOnly
     ),
-    validateState: computed(() => (formItem ? formItem.validateState : '')),
+    validateState: computed(() => (state.formItem ? state.formItem.validateState : '')),
     inputStyle: computed(() => api.inputStyle()),
     textareaStyle: computed(() => ({
       ...state.textareaCalcStyle,
       resize: props.resize,
       textAlign: props.textAlign
     })),
-    needStatusIcon: computed(() => (form ? form.statusIcon : false)),
+    needStatusIcon: computed(() => (state.tinyForm ? state.tinyForm.statusIcon : false)),
     showPwdVisible: computed(
       () => props.showPassword && !state.inputDisabled && !props.readonly && (!!state.nativeInputValue || state.focused)
     ),
     nativeInputValue: computed(() =>
       props.modelValue === null || props.modelValue === undefined ? '' : String(props.modelValue)
     ),
-    tooltipConfig: computed(() => (form ? form.tooltipConfig : {})),
+    tooltipConfig: computed(() => (state.tinyForm ? state.tinyForm.tooltipConfig : {})),
 
     isWordLimitVisible: computed(
       () =>
@@ -167,7 +169,7 @@ const initState = ({
     ),
     isDisplayOnly: computed(
       () =>
-        (props.displayOnly || (form || {}).displayOnly) &&
+        (props.displayOnly || (state.tinyForm || {}).displayOnly) &&
         ['text', 'textarea', 'password', 'number'].includes(props.type)
     ),
     displayOnlyTooltip: '',
@@ -190,11 +192,10 @@ const initApi = ({
   vm,
   props,
   nextTick,
-  slots,
-  form
+  slots
 }: Pick<
   IInputRenderlessParams,
-  'api' | 'state' | 'emit' | 'refs' | 'props' | 'vm' | 'nextTick' | 'slots' | 'form'
+  'api' | 'state' | 'emit' | 'refs' | 'props' | 'vm' | 'nextTick' | 'slots'
 >) => {
   Object.assign(api, {
     state,
@@ -210,7 +211,7 @@ const initApi = ({
     handleCompositionStart: handleCompositionStart(state),
     handleCompositionUpdate: handleCompositionUpdate(state),
     setInputDomValue: setInputDomValue({ state, props, nextTick, vm }),
-    getDisplayOnlyText: getDisplayOnlyText({ form, props, state }),
+    getDisplayOnlyText: getDisplayOnlyText({ props, state }),
     handleEnterTextarea: handleEnterTextarea({ api, state, props, nextTick }),
     handleLeaveTextarea: handleLeaveTextarea({ api, state, props, nextTick, vm }),
     inputStyle: inputStyle({ props }),
@@ -222,7 +223,6 @@ const initApi = ({
 const mergeApi = ({
   storages,
   api,
-  formItem,
   props,
   emit,
   eventName,
@@ -231,7 +231,6 @@ const mergeApi = ({
   vm
 }: Pick<IInputRenderlessParams, 'api' | 'emit' | 'props' | 'state' | 'nextTick' | 'vm' | 'constants'> & {
   storages: ReturnType<typeof useStorageBox>
-  formItem: any
   eventName: IInputEventNameConstants
 }) => {
   const { storageData, isMemoryStorage, addMemory, searchMemory, selectedMemory } = storages
@@ -247,7 +246,6 @@ const mergeApi = ({
     select: select(api),
     handleBlur: handleBlur({
       api,
-      formItem,
       emit,
       eventName: eventName.blur,
       props,
@@ -282,10 +280,8 @@ const initWatch = ({
   props,
   nextTick,
   emit,
-  formItem,
   eventName
 }: Pick<IInputRenderlessParams, 'watch' | 'state' | 'api' | 'props' | 'nextTick' | 'emit'> & {
-  formItem: any
   eventName: IInputEventNameConstants
 }) => {
   watch(
@@ -294,8 +290,8 @@ const initWatch = ({
       nextTick(api.resizeTextarea)
 
       if (props.validateEvent) {
-        // 替代 dispatch('FormItem', 'form.change')：同 handleBlur，走 $emitter.emit 纯总线通知
-        formItem?.$emitter.emit(eventName.change, value)
+        // 同 handleBlur，走 form-item 的 $emitter 纯总线通知
+        state.formItem?.$emitter.emit(eventName.change, value)
       }
 
       if (props.type === 'textarea' && props.popupMore && state.isDisplayOnly) {
@@ -365,19 +361,17 @@ export const renderless = (
 ): IInputApi => {
   const api = {} as IInputApi
   const eventName: IInputEventNameConstants = { change: 'form.change', blur: 'form.blur' }
-  const form = inject('form', null)
-  const formItem: any = inject('formItem', null)
   // 替代 dispatch('Tooltip', 'tooltip-update')：tooltip 通过 provide('tooltipVm') 暴露 vm
   const tooltipVm: any = inject('tooltipVm', null)
-  const state = initState({ reactive, computed, props, attrs, form, formItem, api, vm })
+  const state = initState({ reactive, computed, props, attrs, inject, api, vm })
 
-  initApi({ api, state, emit, refs, props, slots, form, vm, nextTick })
+  initApi({ api, state, emit, refs, props, slots, vm, nextTick })
 
   const storages = useStorageBox({ api, props, reactive, toRefs })
 
-  mergeApi({ api, storages, formItem, emit, eventName, props, state, nextTick, vm })
+  mergeApi({ api, storages, emit, eventName, props, state, nextTick, vm })
 
-  initWatch({ watch, state, api, props, nextTick, emit, formItem, eventName })
+  initWatch({ watch, state, api, props, nextTick, emit, eventName })
 
   onMounted(() => {
     api.setNativeInputValue()

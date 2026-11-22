@@ -62,9 +62,14 @@ export const api = [
   'handleCheckChange'
 ]
 
-const initState = ({ reactive, treeRoot, props, emitter, $parentEmitter, vm, api, TreeAdapter, computed }) => {
+const initState = ({ reactive, props, emitter, vm, api, inject, computed }) => {
   const state = reactive({
-    tree: treeRoot,
+    // tree 通过 provide('TreeRoot') 注入的根 tree vm
+    tree: inject('TreeRoot'),
+    /** tree 通过 provide('parentEmitter') 注入的根组件事件总线 */
+    parentEmitter: inject('parentEmitter'),
+    // tree-select 通过 provide('TreeAdapter') 注入的适配器（可能为 null）
+    treeAdapter: inject('TreeAdapter', null),
     expanded: false,
     oldChecked: null,
     indeterminate: null,
@@ -77,19 +82,22 @@ const initState = ({ reactive, treeRoot, props, emitter, $parentEmitter, vm, api
     expandIconColor: props.expandIconColor,
     shrinkIconColor: props.shrinkIconColor,
     emitter: emitter(),
-    parentEmitter: $parentEmitter,
-    props: treeRoot.props,
+    props: null,
     renderedChildNodes: computed(() => {
-      return props.node.childNodes.filter((childNode) => (TreeAdapter ? TreeAdapter.shouldRender(childNode) : true))
+      return props.node.childNodes.filter((childNode) =>
+        state.treeAdapter ? state.treeAdapter.shouldRender(childNode) : true
+      )
     }),
-    computedExpandIcon: computed(() => api.computedExpandIcon(treeRoot, state)),
+    computedExpandIcon: computed(() => api.computedExpandIcon(state.tree, state)),
     computedIndent: computed(() => api.computedIndent(props, state))
   })
+
+  state.props = state.tree.props
 
   return state
 }
 
-const initApi = ({ api, state, vm, props, treeRoot, nextTick, emit }) => {
+const initApi = ({ api, state, vm, props, nextTick, emit }) => {
   Object.assign(api, {
     state,
     watchExpanded: debounce(20, watchExpanded({ state })),
@@ -97,7 +105,7 @@ const initApi = ({ api, state, vm, props, treeRoot, nextTick, emit }) => {
     getNodeKey: getNodeKey(state),
     closeMenu: closeMenu(state),
     handleSelectChange: handleSelectChange({ props, state }),
-    handleContextMenu: handleContextMenu({ vm, treeRoot, props, state, nextTick }),
+    handleContextMenu: handleContextMenu({ vm, props, state, nextTick }),
     handleExpandClick: handleExpandClick({ emit, vm, props, state }),
     handleCheckChange: handleCheckChange({ nextTick, props, state }),
     handleDragStart: handleDragStart({ state, vm }),
@@ -138,10 +146,7 @@ export const renderless = (
   {}
 ) => {
   const api = {}
-  const treeRoot = inject('TreeRoot')
-  const $parentEmitter = inject('parentEmitter')
-  const TreeAdapter = inject('TreeAdapter', null)
-  const state = initState({ reactive, treeRoot, props, emitter, $parentEmitter, vm, api, TreeAdapter, computed })
+  const state = initState({ reactive, props, emitter, vm, api, inject, computed })
 
   if (state.tree.accordion) {
     state.parentEmitter.on('sibling-node-toggle-expand', (event) => api.onSiblingToggleExpand(event))
@@ -149,7 +154,7 @@ export const renderless = (
 
   provide('parentEmitter', state.emitter)
 
-  initApi({ api, state, vm, props, treeRoot, nextTick, emit })
+  initApi({ api, state, vm, props, nextTick, emit })
   initWatcher({ watch, state, api, props })
 
   api.created((childrenKey) => {
