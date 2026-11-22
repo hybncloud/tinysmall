@@ -186,7 +186,6 @@ const initState = ({
 const initApi = ({
   api,
   state,
-  broadcast,
   emit,
   vm,
   props,
@@ -195,11 +194,10 @@ const initApi = ({
   form
 }: Pick<
   IInputRenderlessParams,
-  'api' | 'state' | 'broadcast' | 'emit' | 'refs' | 'props' | 'vm' | 'nextTick' | 'slots' | 'form'
+  'api' | 'state' | 'emit' | 'refs' | 'props' | 'vm' | 'nextTick' | 'slots' | 'form'
 >) => {
   Object.assign(api, {
     state,
-    broadcast,
     showBox: showBox(state),
     clear: clear(emit),
     getInput: getInput(vm),
@@ -363,7 +361,7 @@ const initWatch = ({
 export const renderless = (
   props: IInputProps,
   { computed, onMounted, onBeforeUnmount, onUpdated, reactive, toRefs, watch, inject }: ISharedRenderlessParamHooks,
-  { vm, refs, attrs, slots, emit, nextTick, broadcast }: IInputRenderlessParamUtils
+  { vm, refs, attrs, slots, emit, nextTick }: IInputRenderlessParamUtils
 ): IInputApi => {
   const api = {} as IInputApi
   const eventName: IInputEventNameConstants = { change: 'form.change', blur: 'form.blur' }
@@ -373,7 +371,7 @@ export const renderless = (
   const tooltipVm: any = inject('tooltipVm', null)
   const state = initState({ reactive, computed, props, attrs, form, formItem, api, vm })
 
-  initApi({ api, state, broadcast, emit, refs, props, slots, form, vm, nextTick })
+  initApi({ api, state, emit, refs, props, slots, form, vm, nextTick })
 
   const storages = useStorageBox({ api, props, reactive, toRefs })
 

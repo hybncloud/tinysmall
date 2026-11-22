@@ -47,7 +47,7 @@ export const renderless = (
 ): IDropdownMenuApi => {
   const api = {} as IDropdownMenuApi
   const { reactive, provide, onMounted, inject } = hooks
-  const { nextTick, vm, dispatch, emit } = instance
+  const { nextTick, vm, emit } = instance
 
   provide('dropdownMenuVm', vm)
   provide('multiStage', props.multiStage)

@@ -30,12 +30,6 @@ export interface ISharedRenderlessParamUtils {
   slots: hooks.Slots
   /** 返回 instance.slots */
   scopedSlots: hooks.Slots
-  /** 向实例的 subTree.children 深度遍历发送广播消息。 如果component找到了触发component.emit(eventName, params)
-   * @param componentName 组件名
-   */
-  broadcast: (componentName: string, eventName: string, params?: any) => void
-  /** 向实例的 parent开始查找componentName， 找到匹配第一个组件， 触发component.emit(eventName, params) */
-  dispatch: (componentName: string, eventName: string, params?: any) => void
   /** 给 vm 和 instance.ctx 同时添加属性。
    * @param props Object.defineProperties的第2参, 格式：{ property1: {value: 42,writable: true},property2: {...} }
    */

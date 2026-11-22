@@ -120,8 +120,8 @@ const initApi = ({
   form
 }: Pick<
   INumericRenderlessParams,
-  'api' | 'props' | 'state' | 'vm' | 'emit' | 'dispatch' | 'constants' | 'nextTick'
-> & { form: any }): void => {
+  'api' | 'props' | 'state' | 'vm' | 'emit' | 'constants' | 'nextTick'
+> & { form: any; dispatch: (eventName: string, params?: any) => void }): void => {
   Object.assign(api, {
     state,
     focus: focus(vm),

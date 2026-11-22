@@ -34,7 +34,7 @@ export const api = ['state', 'handleChange', 'keydownHandle', 'handleFocus', 'ha
 export const renderless = (
   props: IRadioButtonProps,
   { computed, reactive, onMounted, onBeforeUnmount, inject }: ISharedRenderlessParamHooks,
-  { dispatch, nextTick, vm }: IRadioButtonRenderlessParamUtils
+  { nextTick, vm }: IRadioButtonRenderlessParamUtils
 ): IRadioButtonApi => {
   const api: IRadioButtonApi = {
     toggleEvents: toggleEvents({ vm, props })
@@ -59,7 +59,7 @@ export const renderless = (
     getValue: getValue(state),
     getStyle: getStyle(state),
     setValue: setValue({ state }),
-    handleChange: handleChange({ dispatch, nextTick, state }),
+    handleChange: handleChange({ nextTick, state }),
     keydownHandle: keydownHandle({ state, props }),
     handleFocus: handleFocus(state),
     handleBlur: handleBlur(state)

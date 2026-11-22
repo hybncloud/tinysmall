@@ -69,7 +69,6 @@ export type ICheckboxRenderlessParams = ISharedRenderlessFunctionParams<ICheckbo
 
 export interface ICheckboxApi {
   state: ICheckboxState
-  dispatch: ISharedRenderlessParamUtils<ICheckboxConstants>['dispatch']
   addToStore: ReturnType<typeof addToStore>
   removeFromStore: ReturnType<typeof removeFromStore>
   computedStore: ReturnType<typeof computedStore>

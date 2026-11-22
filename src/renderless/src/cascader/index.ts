@@ -106,6 +106,7 @@ export const watchCheckedValue =
     api: ICascaderApi
     emit: ICascadeRenderlessParamUtils['emit']
     state: ICascaderState
+    dispatch: (eventName: string, params?: any) => void
   }) =>
   (value) => {
     state.presentText = state.presentTags.length ? '' : null

@@ -12,7 +12,7 @@ import { $constants } from './constants'
  */
 
 export const handleChange =
-  ({ state, props, emit, nextTick, dispatch }) =>
+  ({ state, props, emit, nextTick }) =>
   (event) => {
     if (state.isLimitExceeded) {
       return
@@ -42,7 +42,7 @@ export const computedGetModelGet =
     state.checkboxGroup ? state.store : props.modelValue !== undefined ? props.modelValue : state.selfModel
 
 export const computedGetModelSet =
-  ({ state, props, emit, dispatch }) =>
+  ({ state, props, emit }) =>
   (value) => {
     if (state.checkboxGroup) {
       state.isLimitExceeded = false

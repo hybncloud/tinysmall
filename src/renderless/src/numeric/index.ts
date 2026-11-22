@@ -175,7 +175,9 @@ export const handleBlur =
     props,
     state,
     api
-  }: Pick<INumericRenderlessParams, 'constants' | 'dispatch' | 'emit' | 'props' | 'state' | 'api'>) =>
+  }: Pick<INumericRenderlessParams, 'constants' | 'emit' | 'props' | 'state' | 'api'> & {
+    dispatch: (eventName: string, params?: any) => void
+  }) =>
   (event: FocusEvent): void => {
     state.inputStatus = false
     api.setCurrentValue(event.target.value)
@@ -260,7 +262,9 @@ export const setCurrentValue =
     emit,
     props,
     state
-  }: Pick<INumericRenderlessParams, 'api' | 'constants' | 'dispatch' | 'emit' | 'props' | 'state'>) =>
+  }: Pick<INumericRenderlessParams, 'api' | 'constants' | 'emit' | 'props' | 'state'> & {
+    dispatch: (eventName: string, params?: any) => void
+  }) =>
   (newVal: number, emitChangeFlag = true): void => {
     const { max, min, allowEmpty, validateEvent, stringMode, plugin, emptyValue } = props
     const { format } = state

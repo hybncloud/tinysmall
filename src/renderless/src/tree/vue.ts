@@ -187,10 +187,8 @@ const initState = ({ reactive, emitter, props, computed, api, TreeAdapter }) => 
   return state
 }
 
-const initApi = ({ state, dispatch, broadcast, props, vm, t, emit, api, TreeAdapter }) => ({
+const initApi = ({ state, props, vm, t, emit, api, TreeAdapter }) => ({
   state,
-  dispatch,
-  broadcast,
   setChildren: setChildren(props),
   getChildren: getChildren(),
   computedTreeItemArray: computedTreeItemArray(),
@@ -267,7 +265,7 @@ const initWatcher = ({ watch, props, api, state }) => {
 export const renderless = (
   props,
   { computed, onMounted, onUpdated, reactive, watch, provide, onBeforeUnmount, inject },
-  { vm, t, emit, broadcast, dispatch, service, emitter, nextTick },
+  { vm, t, emit, service, emitter, nextTick },
   {}
 ) => {
   const api = {}
@@ -276,7 +274,7 @@ export const renderless = (
 
   provide('parentEmitter', state.emitter)
 
-  Object.assign(api, initApi({ state, dispatch, broadcast, props, vm, t, emit, api, TreeAdapter }), {
+  Object.assign(api, initApi({ state, props, vm, t, emit, api, TreeAdapter }), {
     closeMenu: closeMenu(state),
     mounted: mounted({ api, vm }),
     created: created({ api, props, state }),

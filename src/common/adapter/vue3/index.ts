@@ -19,59 +19,6 @@ export { Teleport }
 
 export const markRaw = hooks.markRaw
 
-const emitEvent = (vm) => {
-  const broadcast = (vm, componentName, eventName, params) => {
-    const subTree = vm.subTree
-
-    if (subTree) {
-      const subTreeName = subTree.type && subTree.type.componentName
-
-      if (subTreeName === componentName && subTree.component) {
-        subTree.component.emit(eventName, params)
-        subTree.component.$emitter && subTree.component.$emitter.emit(eventName, params)
-        return
-      }
-    }
-
-    const children = (subTree && subTree.children) || vm.children
-
-    Array.isArray(children) &&
-      children.forEach((child) => {
-        const name = child.type && child.type.componentName
-        const component = child.component
-
-        if (name === componentName) {
-          component.emit(eventName, params)
-          component.$emitter && component.$emitter.emit(eventName, params)
-        } else {
-          broadcast(child.component ?? child, componentName, eventName, params)
-        }
-      })
-  }
-
-  return {
-    dispatch(componentName, eventName, params) {
-      let parent = vm.parent || vm.root
-      let name = parent.type && parent.type.componentName
-
-      while (parent && (!name || name !== componentName)) {
-        parent = parent.parent
-
-        if (parent) name = parent.type && parent.type.componentName
-      }
-
-      if (parent) {
-        parent.emit(...[eventName].concat(params))
-        // fix: VUE3下事件参数为数组，VUE2下事件参数不是数组，这里修改为和VUE2兼容
-        parent.$emitter && parent.$emitter.emit(...[eventName].concat(params))
-      }
-    },
-    broadcast(componentName, eventName, params) {
-      broadcast(vm, componentName, eventName, params)
-    }
-  }
-}
-
 const defineProperties = (vm, instance, property) => {
   for (const name in instance[property]) {
     Object.defineProperty(vm, name, {
@@ -135,7 +82,6 @@ export const tools = (context: hooks.SetupContext<any, any>): Omit<ISharedRender
   const instance = hooks.getCurrentInstance()
   if (instance == null) throw new Error('tools() must be called within setup()')
   const i18n = instance?.proxy?.$root?.$i18n
-  const { dispatch, broadcast } = emitEvent(instance)
   const vm = createVm({}, instance, context)
   const emit = context.emit
 
@@ -159,8 +105,6 @@ export const tools = (context: hooks.SetupContext<any, any>): Omit<ISharedRender
     vm,
     emit,
     emitter,
-    dispatch,
-    broadcast,
     i18n,
     refs,
     slots: instance.slots,

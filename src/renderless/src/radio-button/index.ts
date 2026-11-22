@@ -14,12 +14,7 @@ import { $constants } from './constants'
 import type { IRadioButtonRenderlessParams, IRadioGroupProps } from '../../types'
 
 export const handleChange =
-  ({
-    
-    nextTick,
-    dispatch,
-    state
-  }: Pick<IRadioButtonRenderlessParams, 'constants' | 'nextTick' | 'dispatch' | 'state'>) =>
+  ({ nextTick, state }: Pick<IRadioButtonRenderlessParams, 'nextTick' | 'state'>) =>
   (): void => {
     nextTick(() => {
       // 替代 dispatch(RADIO_GROUP, 'handleChange')：同 radio，走 $emitter 纯总线广播

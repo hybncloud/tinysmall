@@ -154,7 +154,7 @@ const initApi = ({
   api: ICascaderApi
   state: ICascaderState
   constants: ICascaderConstants
-  dispatch: ICascadeRenderlessParamUtils['dispatch']
+  dispatch: (eventName: string, params?: any) => void
   emit: ICascadeRenderlessParamUtils['emit']
   vm: ICascadeRenderlessParamUtils['vm']
   props: ICascaderProps

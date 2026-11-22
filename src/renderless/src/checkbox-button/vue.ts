@@ -55,7 +55,7 @@ const initState = ({ reactive, computed, api, form, inject }) => {
   return state
 }
 
-const initApi = ({ api, state, props, formItemSize, emit, nextTick, dispatch, form }) => {
+const initApi = ({ api, state, props, formItemSize, emit, nextTick, form }) => {
   Object.assign(api, {
     state,
     addToStore: addToStore({ state, props }),
@@ -67,8 +67,8 @@ const initApi = ({ api, state, props, formItemSize, emit, nextTick, dispatch, fo
     computedIsLimitDisabled: computedIsLimitDisabled(state),
     computedIsDisabled: computedIsDisabled({ state, props }),
     computedGetModelGet: computedGetModelGet({ state, props }),
-    handleChange: handleChange({ state, props, emit, nextTick, dispatch}),
-    computedGetModelSet: computedGetModelSet({ state, props, emit, dispatch}),
+    handleChange: handleChange({ state, props, emit, nextTick }),
+    computedGetModelSet: computedGetModelSet({ state, props, emit }),
     computedIsShowText: computedIsShowText({ props }),
     computedShowText: computedShowText({ props })
   })
@@ -77,14 +77,14 @@ const initApi = ({ api, state, props, formItemSize, emit, nextTick, dispatch, fo
 export const renderless = (
   props,
   { computed, onMounted, onBeforeUnmount, reactive, inject },
-  { emit, dispatch, nextTick, vm }
+  { emit, nextTick, vm }
 ) => {
   const api: Record<string, any> = {}
   const form = inject('form', null)
   const formItemSize = computed(() => api.computedFormItemSize())
   const state = initState({ reactive, computed, api, form, inject })
 
-  initApi({ api, state, props, formItemSize, emit, nextTick, dispatch, form })
+  initApi({ api, state, props, formItemSize, emit, nextTick, form })
 
   onBeforeUnmount(() => {
     toggleEvent({ vm, props, type: 'remove' })

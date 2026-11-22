@@ -89,11 +89,9 @@ const initState = ({ reactive, treeRoot, props, emitter, $parentEmitter, vm, api
   return state
 }
 
-const initApi = ({ api, state, dispatch, broadcast, vm, props, treeRoot, nextTick, emit }) => {
+const initApi = ({ api, state, vm, props, treeRoot, nextTick, emit }) => {
   Object.assign(api, {
     state,
-    dispatch,
-    broadcast,
     watchExpanded: debounce(20, watchExpanded({ state })),
     created: created({ props, state }),
     getNodeKey: getNodeKey(state),
@@ -136,7 +134,7 @@ const initWatcher = ({ watch, state, api, props }) => {
 export const renderless = (
   props,
   { reactive, watch, inject, provide, computed },
-  { vm, nextTick, emit, broadcast, dispatch, emitter },
+  { vm, nextTick, emit, emitter },
   {}
 ) => {
   const api = {}
@@ -151,7 +149,7 @@ export const renderless = (
 
   provide('parentEmitter', state.emitter)
 
-  initApi({ api, state, dispatch, broadcast, vm, props, treeRoot, nextTick, emit })
+  initApi({ api, state, vm, props, treeRoot, nextTick, emit })
   initWatcher({ watch, state, api, props })
 
   api.created((childrenKey) => {

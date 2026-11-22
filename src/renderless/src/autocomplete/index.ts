@@ -70,7 +70,9 @@ export const handleChange =
     state,
     props,
     dispatch
-  }: Pick<IAutoCompleteRenderlessParams, 'api' | 'emit' | 'state' | 'props' | 'dispatch'>) =>
+  }: Pick<IAutoCompleteRenderlessParams, 'api' | 'emit' | 'state' | 'props'> & {
+    dispatch: (eventName: string, params?: any) => void
+  }) =>
   (value) => {
     state.activated = true
     emit('update:modelValue', value)
@@ -114,7 +116,14 @@ export const handleFocus =
   }
 
 export const handleBlur =
-  ({ emit, state, dispatch, props }: Pick<IAutoCompleteRenderlessParams, 'emit' | 'state' | 'dispatch' | 'props'>) =>
+  ({
+    emit,
+    state,
+    dispatch,
+    props
+  }: Pick<IAutoCompleteRenderlessParams, 'emit' | 'state' | 'props'> & {
+    dispatch: (eventName: string, params?: any) => void
+  }) =>
   () => {
     // 如果没有激活状态，直接返回
     if (!state.activated) {
@@ -182,6 +191,7 @@ export const select =
     nextTick: IAutoCompleteRenderlessParamUtils['nextTick']
     props: IAutoCompleteProps
     state: IAutoCompleteState
+    dispatch: (eventName: string, params?: any) => void
   }) =>
   (item) => {
     const value = item[props.valueKey]

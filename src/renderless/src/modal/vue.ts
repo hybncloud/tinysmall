@@ -82,7 +82,7 @@ export const api = [
 export const renderless = (
   props: IModalProps,
   { computed, onMounted, onBeforeUnmount, reactive, watch }: ISharedRenderlessParamHooks,
-  { vm, emit, emitter, nextTick, broadcast }: IModalRenderlessParamUtils,
+  { vm, emit, emitter, nextTick }: IModalRenderlessParamUtils,
   {}
 ) => {
   const api = {} as IModalApi
@@ -110,7 +110,6 @@ export const renderless = (
 
   Object.assign(api, {
     state,
-    broadcast,
     computedIsMsg: computedIsMsg(),
     updateStyle: updateStyle({ nextTick, props }),
     getBox: getBox({ vm }),

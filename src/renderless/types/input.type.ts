@@ -54,7 +54,7 @@ export type IInputProps = ExtractPropTypes<typeof inputProps>
 
 export type IInputConstants = typeof $constants
 
-export interface IInputApi extends Pick<IInputRenderlessParamUtils, 'dispatch'> {
+export interface IInputApi {
   state: IInputState
   isMemoryStorage: ReturnType<typeof useStorageBox>['isMemoryStorage']
   searchMemory: ReturnType<typeof useStorageBox>['searchMemory']

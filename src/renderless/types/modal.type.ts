@@ -37,7 +37,6 @@ export type IModalRenderlessParams = ISharedRenderlessFunctionParams<IModalConst
 
 export interface IModalApi {
   state: IModalState
-  broadcast: () => void
   computedIsMsg: (props: IModalProps) => boolean
   updateStyle: () => void
   getBox: () => IModalRenderlessParams['vm']
