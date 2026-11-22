@@ -1855,7 +1855,7 @@ export const getLabelSlotValue =
 export const computedTagsStyle =
   ({ props, state, vm }) =>
   () => {
-    const isReadonly = props.disabled || (vm.form || {}).disabled || props.displayOnly
+    const isReadonly = props.disabled || (state.form || {}).disabled || props.displayOnly
     let tagsStyle = {
       'max-width': isReadonly ? '' : state.inputWidth - state.inputPaddingRight + 'px',
       width: '100%'

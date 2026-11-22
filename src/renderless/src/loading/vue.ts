@@ -41,7 +41,7 @@ export const renderless = (
   const api: ILoadingApi = {
     state,
     setText: setText(state),
-    handleAfterLeave: handleAfterLeave(emit),
+    handleAfterLeave: handleAfterLeave(vm),
     close: close({ state, vm })
   }
 

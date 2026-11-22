@@ -25,7 +25,10 @@ export const computedBarStyle =
 
     if (props.tabs && props.tabs.length) {
       props.tabs.every(({ state }) => {
-        const $el = rootTabs.$refs[`tabs-${state.paneName}`]
+        // ref="tabs-xxx" 声明在 TabNav 的 render 中，注册在 TabNav 实例上；
+        // tabs 根组件通过 ref="nav" 引用 TabNav，需二级查找
+        const navVm = rootTabs.$refs.nav
+        const $el = navVm && navVm.$refs[`tabs-${state.paneName}`]
         if (!$el) {
           return false
         }

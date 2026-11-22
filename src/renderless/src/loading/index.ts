@@ -15,9 +15,12 @@ import { afterLeave } from './after-leave'
 import { removeClass } from '@tinysmall/utils'
 import { $constants } from './constants'
 
-export const handleAfterLeave = (emit: ILoadingRenderlessParamUtils['emit']) => (): void => {
-  emit('after-leave')
-}
+export const handleAfterLeave =
+  (vm: { $emit: (eventname: string, ...args: any[]) => void }) =>
+  (): void => {
+    // 走 vm.$emit 双通道：既触发组件声明的 after-leave 事件，也通知 $emitter 总线上的订阅者（afterLeave 里的 $once）
+    vm.$emit('after-leave')
+  }
 
 export const setText =
   (state: ILoadingState) =>

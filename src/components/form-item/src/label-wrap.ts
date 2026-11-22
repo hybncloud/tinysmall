@@ -1,4 +1,5 @@
 import { setup, h, defineComponent } from '@tinysmall/common'
+import type { ISharedRenderlessParamHooks, ISharedRenderlessParamUtils } from '@tinysmall/renderless/types'
 
 export default defineComponent({
   props: {
@@ -7,7 +8,6 @@ export default defineComponent({
     isMobile: Boolean,
     isMobileFirst: Boolean
   },
-  inject: ['form', 'formItem'],
   render() {
     const slotsDefault = this.slots.default && this.slots.default()
     const classPrefix = this.isMobile ? 'tiny-mobile-' : 'tiny-'
@@ -15,7 +15,8 @@ export default defineComponent({
     if (!slotsDefault) return null
 
     if (this.isAutoWidth) {
-      const autoLabelWidth = (this as any).form.autoLabelWidth
+      // autoLabelWidth 在 form 的 reactive state 上（form 的 api 未单独暴露该名字）
+      const autoLabelWidth = (this as any).form?.state?.autoLabelWidth
       const style = {} as any
 
       if (autoLabelWidth && autoLabelWidth !== 'auto') {
@@ -37,48 +38,55 @@ export default defineComponent({
       return slotsDefault[0]
     }
   },
-  methods: {
-    getLabelWidth() {
-      const computedStylWidth = (elem) => window.getComputedStyle(elem).width
-      const ceilFloat = (f) => Math.ceil(parseFloat(f))
-
-      return !this.$el || !this.$el.firstElementChild ? 0 : ceilFloat(computedStylWidth(this.$el.firstElementChild))
-    },
-    updateLabelWidth(action = 'update') {
-      if (!this.$slots.default || !this.isAutoWidth || !this.$el.firstElementChild) {
-        return
-      }
-
-      const setComputedWidth = () => (this.computedWidth = this.getLabelWidth())
-      const deregisterFormLabelWidth = () => (this as any).form.deregisterLabelWidth(this.computedWidth)
-
-      if (action === 'update') {
-        setComputedWidth()
-      } else if (action === 'remove') {
-        deregisterFormLabelWidth()
-      }
-    }
-  },
-  watch: {
-    computedWidth(val, oldVal) {
-      if (this.updateAll) {
-        ;(this as any).form.registerLabelWidth(val, oldVal)
-        ;(this as any).formItem.updateComputedLabelWidth(val)
-      }
-    }
-  },
   setup(props, context): any {
-    const renderless = (props, { onMounted, onUpdated, onBeforeUnmount }, { vm }) => {
-      onMounted(() => vm.updateLabelWidth('update'))
-      onUpdated(() => vm.updateLabelWidth('update'))
-      onBeforeUnmount(() => vm.updateLabelWidth('remove'))
-
-      return {
+    const renderless = (
+      props: any,
+      { inject, reactive, watch, onMounted, onUpdated, onBeforeUnmount }: ISharedRenderlessParamHooks,
+      { vm }: ISharedRenderlessParamUtils
+    ) => {
+      // 注入的 form/form-item vm 先放入 state，再统一通过 state 访问
+      const state = reactive({
+        form: inject('form', null),
+        formItem: inject('formItem', null),
         computedWidth: 0
+      })
+
+      const getLabelWidth = () => {
+        return !vm.$el || !vm.$el.firstElementChild
+          ? 0
+          : Math.ceil(parseFloat(window.getComputedStyle(vm.$el.firstElementChild).width))
       }
+
+      const updateLabelWidth = (action = 'update') => {
+        if (!vm.$slots.default || !props.isAutoWidth || !vm.$el.firstElementChild) {
+          return
+        }
+
+        if (action === 'update') {
+          state.computedWidth = getLabelWidth()
+        } else if (action === 'remove') {
+          state.form?.deregisterLabelWidth(state.computedWidth)
+        }
+      }
+
+      watch(
+        () => state.computedWidth,
+        (val, oldVal) => {
+          if (props.updateAll) {
+            state.form?.registerLabelWidth(val, oldVal)
+            state.formItem?.updateComputedLabelWidth(val)
+          }
+        }
+      )
+
+      onMounted(() => updateLabelWidth('update'))
+      onUpdated(() => updateLabelWidth('update'))
+      onBeforeUnmount(() => updateLabelWidth('remove'))
+
+      return state
     }
 
-    const api = ['computedWidth']
+    const api = ['computedWidth', 'form']
 
     return setup({ props, context, renderless, api })
   }

@@ -50,13 +50,13 @@ export const handleExpand =
   }
 
 export const handleCheckChange =
-  ({ api, cascaderPanelVm, state }: Pick<ICascaderNodeRenderlessParams, 'api' | 'state'> & { cascaderPanelVm: any }) =>
+  ({ api, state }: Pick<ICascaderNodeRenderlessParams, 'api' | 'state'>) =>
   () => {
     state.panel.handleCheckChange(state.value)
     api.handleExpand()
     // 替代 dispatch('TinyCascaderPanel', 'close')：走 cascader-panel 的 $emitter 纯总线广播
     // （内部事件 'panel:close'），panel 侧桥接后以公共事件 'close' 对外触发
-    cascaderPanelVm?.$emitter.emit('panel:close')
+    state.cascaderPanelVm?.$emitter.emit('panel:close')
   }
 
 export const handleMultiCheckChange =

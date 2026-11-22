@@ -55,56 +55,60 @@ const initState = ({ reactive, computed, popper, selectVm }) => {
     selectedArr: [],
     deletedArr: [],
     originValue: [],
-    showClose: computed(() => selectVm.clearable && !selectVm.multiple && selectVm.modelValue !== ''),
-    filterable: computed(() => selectVm.filterable),
-    multiple: computed(() => selectVm.multiple),
-    popperClass: computed(() => selectVm.popperClass),
+    // 注入的 base-select vm 先放入 state，再统一通过 state 访问
+    selectVm,
+    showClose: computed(() => state.selectVm.clearable && !state.selectVm.multiple && state.selectVm.modelValue !== ''),
+    filterable: computed(() => state.selectVm.filterable),
+    multiple: computed(() => state.selectVm.multiple),
+    popperClass: computed(() => state.selectVm.popperClass),
     selected: computed(() =>
-      selectVm.renderType === 'tree' && !selectVm.treeOp.checkStrictly
-        ? selectVm.state.selected.filter((item) => !item.children)
-        : selectVm.state.selected
+      state.selectVm.renderType === 'tree' && !state.selectVm.treeOp.checkStrictly
+        ? state.selectVm.state.selected.filter((item) => !item.children)
+        : state.selectVm.state.selected
     ),
     visible: false,
     windowScrollTop: 0,
     zIndex: 2000,
-    valueField: computed(() => (selectVm.renderType === 'tree' ? 'id' : 'value'))
+    valueField: computed(() => (state.selectVm.renderType === 'tree' ? 'id' : 'value'))
   })
 
   return state
 }
 
-const initApi = ({ api, popper, state, selectEmitter, selectVm, vm, select, nextTick, props }) => {
+const initApi = ({ api, popper, state, selectEmitter, vm, nextTick, props }) => {
   const { destroyPopper, doDestroy, updatePopper } = popper
 
   Object.assign(api, {
     state,
     doDestroy,
-    handleQueryChange: handleQueryChange({ state, selectVm }),
+    handleQueryChange: handleQueryChange({ state }),
     debouncedQueryChange: debounce(state.debounce, (value) => {
       api.handleQueryChange(value)
     }),
     toggleSelectedBox: toggleSelectedBox({ state }),
     deleteSelected: deleteSelected({ state }),
-    selectedBoxConfirm: selectedBoxConfirm({ state, selectVm, nextTick }),
-    selectDropdownConfirm: selectDropdownConfirm({ state, selectVm }),
-    closeModal: closeModal({ state, selectVm, props }),
-    cancelSearch: cancelSearch({ api, state, selectVm }),
-    handleClear: handleClear({ state, selectVm }),
-    mounted: mounted({ selectEmitter, state, selectVm, updatePopper, destroyPopper, vm, select })
+    selectedBoxConfirm: selectedBoxConfirm({ state }),
+    selectDropdownConfirm: selectDropdownConfirm({ state }),
+    closeModal: closeModal({ state, props }),
+    cancelSearch: cancelSearch({ api, state }),
+    handleClear: handleClear({ state }),
+    mounted: mounted({ selectEmitter, state, updatePopper, destroyPopper, vm })
   })
 }
 
-const initWatch = ({ watch, selectVm, state, nextTick, props }) => {
+const initWatch = ({ watch, state, nextTick, props }) => {
   watch(
-    () => (!isServer ? selectVm.state.inputWidth : undefined),
+    () => (!isServer ? state.selectVm.state.inputWidth : undefined),
     (val) => {
       nextTick(() => {
-        state.minWidth = ((selectVm && selectVm.$el && selectVm.$el.getBoundingClientRect().width) || val) + 'px'
+        state.minWidth =
+          ((state.selectVm && state.selectVm.$el && state.selectVm.$el.getBoundingClientRect().width) || val) + 'px'
 
         // 由于select的父容器可能有动画，所以延迟再计算一次最小宽度
         if (props.isDropInheritWidth) {
           setTimeout(() => {
-            state.minWidth = ((selectVm && selectVm.$el && selectVm.$el.getBoundingClientRect().width) || val) + 'px'
+            state.minWidth =
+              ((state.selectVm && state.selectVm.$el && state.selectVm.$el.getBoundingClientRect().width) || val) + 'px'
           }, 210)
         }
       })
@@ -115,12 +119,12 @@ const initWatch = ({ watch, selectVm, state, nextTick, props }) => {
   watch(
     () => state.query,
     (val) => {
-      selectVm.state.queryValue = val
+      state.selectVm.state.queryValue = val
     }
   )
 
   watch(
-    () => selectVm.state.visible,
+    () => state.selectVm.state.visible,
     (val) => {
       state.query = ''
 
@@ -129,8 +133,8 @@ const initWatch = ({ watch, selectVm, state, nextTick, props }) => {
         state.zIndex = PopupManager.nextZIndex()
       }, 0)
 
-      if (val && selectVm.multiple) {
-        state.originValue = selectVm.modelValue && selectVm.modelValue.slice(0)
+      if (val && state.selectVm.multiple) {
+        state.originValue = state.selectVm.modelValue && state.selectVm.modelValue.slice(0)
       }
     }
   )
@@ -161,9 +165,11 @@ export const renderless = (
   })
 
   const state = initState({ reactive, computed, popper, selectVm })
+  // 注入的 base-select 上下文 vm 放入 state 后再使用
+  state.select = select
 
-  initApi({ api, popper, state, selectEmitter, selectVm, vm, select, nextTick, props })
-  initWatch({ watch, selectVm, state, nextTick, props })
+  initApi({ api, popper, state, selectEmitter, vm, nextTick, props })
+  initWatch({ watch, state, nextTick, props })
 
   onBeforeUnmount(() => {
     popper.destroyPopper('remove')

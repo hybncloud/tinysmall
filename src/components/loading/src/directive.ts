@@ -37,7 +37,7 @@ const insertDom = (parent, el, binding) => {
 
     hooks.nextTick(() => {
       if (el.instance.hiding) {
-        el.instance.$emit('after-leave')
+        el.instance.vm.$emit('after-leave')
       } else {
         el.instance.state.visible = true
       }
@@ -97,7 +97,7 @@ const toggleLoading = (el, binding, maskInstance) => {
     })
   } else {
     afterLeave(
-      maskInstance,
+      maskInstance.vm,
       () => {
         if (!maskInstance.hiding) {
           return

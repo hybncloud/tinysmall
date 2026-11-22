@@ -848,22 +848,6 @@ export const baseSelectProps = {
 export default defineComponent({
   name: 'TinyBaseSelect',
   componentName: 'BaseSelect',
-  inject: {
-    form: {
-      default: ''
-    },
-    formItem: {
-      default: ''
-    },
-    baseSelectParent: {
-      default: null
-    }
-  },
-  provide() {
-    return {
-      select: this
-    }
-  },
   emits: [
     'update:modelValue',
     'change',

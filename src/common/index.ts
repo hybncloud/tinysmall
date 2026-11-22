@@ -62,7 +62,7 @@ export { Teleport }
 
 export const defineComponent = vueHooks.defineComponent
 
-const defineProperties = (vm, instance, property) => {
+const defineProperties = (vm: object, instance: vueHooks.ComponentInternalInstance, property: string) => {
   for (const name in instance[property]) {
     Object.defineProperty(vm, name, {
       configurable: true,
@@ -74,15 +74,14 @@ const defineProperties = (vm, instance, property) => {
   return vm
 }
 
-// props/ctx 在 setup 阶段即已就绪，可同步镜像到 vm
-const defineInstanceVm = (vm, instance) => {
+// props 在 setup 阶段即已就绪，可同步镜像到 vm
+const defineInstanceVm = (vm: object, instance: vueHooks.ComponentInternalInstance) => {
   defineProperties(vm, instance, 'props')
-  defineProperties(vm, instance, 'ctx')
   return vm
 }
 
-// setupState 要等 setup() 返回后才由 Vue 填充，只能在 beforeMount 时镜像
-const defineSetupState = (vm, instance) => {
+// setupState 要等 setup() 返回后才由 Vue 填充（含 api 名/slots/scopedSlots），只能在 beforeMount 时镜像
+const defineSetupState = (vm: object, instance: vueHooks.ComponentInternalInstance) => {
   defineProperties(vm, instance, 'setupState')
   return vm
 }
@@ -117,7 +116,9 @@ const createVm = (vm: object, instance: vueHooks.ComponentInternalInstance): ITi
 }
 
 // 链式 parentVm 已移除：跨组件数据一律走 provide/inject（见 AGENTS.md），parent 字段仅供内部函数签名复用
-export const tools = (context: vueHooks.SetupContext<any, any>): Omit<ISharedRenderlessParamUtils, 't'> => {
+export const tools = (
+  context: vueHooks.SetupContext<any[], {}>
+): Omit<ISharedRenderlessParamUtils, 't' | 'defineInstanceProperties'> => {
   const instance = vueHooks.getCurrentInstance()
   if (instance == null) throw new Error('tools() must be called within setup()')
   const vm = createVm({}, instance)
@@ -132,11 +133,6 @@ export const tools = (context: vueHooks.SetupContext<any, any>): Omit<ISharedRen
     }
   )
 
-  const defineInstanceProperties = (props: PropertyDescriptorMap) => {
-    Object.defineProperties(vm, props)
-    if ('ctx' in instance) Object.defineProperties(instance.ctx, props)
-  }
-
   vueHooks.onBeforeMount(() => defineSetupState(vm, instance))
 
   return {
@@ -147,8 +143,7 @@ export const tools = (context: vueHooks.SetupContext<any, any>): Omit<ISharedRen
     slots: instance.slots,
     scopedSlots: instance.slots,
     attrs: context.attrs,
-    nextTick: vueHooks.nextTick,
-    defineInstanceProperties
+    nextTick: vueHooks.nextTick
   }
 }
 
@@ -175,34 +170,32 @@ export const setup = <P, R extends object = {}, C extends SetupContext<any[], {}
   vm: ITinyVm
   slots: C extends { slots: infer S } ? S : Slots
   scopedSlots: C extends { slots: infer S } ? S : Slots
-  d: (props: PropertyDescriptorMap) => void
 } => {
   const $this = getCurrentInstance()
 
   if ($this == null) throw new Error('[TinySmall] setup() must be called within setup()')
 
-  const utils: ISharedRenderlessParamUtils = {
-    t,
-    ...tools(context)
-  }
+  const utils = { t, ...tools(context) } as ISharedRenderlessParamUtils
 
   const sdk = renderless(props, hooks, utils, {})
+
+  Object.defineProperties(utils.vm, {
+    slots: { get: () => utils.vm.$slots, configurable: true },
+    scopedSlots: { get: () => utils.vm.$scopedSlots, configurable: true }
+  })
 
   const attrs: Record<string, any> = {
     t,
     vm: utils.vm,
-    d: utils.defineInstanceProperties
+    slots: utils.slots,
+    scopedSlots: utils.scopedSlots
   }
-
-  attrs.d({
-    slots: { get: () => utils.vm.$slots, configurable: true },
-    scopedSlots: { get: () => utils.vm.$scopedSlots, configurable: true }
-  })
 
   for (const name of api) {
     if (name in sdk) {
       Object.defineProperty(attrs, name, {
         get: () => sdk[name],
+        set: (value) => (sdk[name] = value),
         enumerable: true
       })
     } else {

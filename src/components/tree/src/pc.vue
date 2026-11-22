@@ -155,7 +155,7 @@
 <script lang="tsx">
 import { renderless, api } from '@tinysmall/renderless/tree/vue'
 import { $constants } from '@tinysmall/renderless/tree/constants'
-import { setup, defineComponent, directive } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import { iconWarning, iconMarkOn } from '@tinysmall/icon'
 import Switch from '@tinysmall/switch'
 import Popover from '@tinysmall/popover'

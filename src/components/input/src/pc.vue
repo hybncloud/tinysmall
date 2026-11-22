@@ -270,7 +270,7 @@
 <script lang="ts">
 import { renderless, api } from '@tinysmall/renderless/input/vue'
 import { $constants } from '@tinysmall/renderless/input/constants'
-import { setup, defineComponent, directive } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import type { PropType } from '@tinysmall/common'
 import { Clickoutside } from '@tinysmall/directive'
 import TinyTallStorage from './tall-storage.vue'

@@ -12,18 +12,18 @@ import { $constants } from '../base-select/constants'
  */
 
 export const mounted =
-  ({ selectEmitter, state, selectVm, updatePopper, destroyPopper, vm, select }) =>
+  ({ selectEmitter, state, updatePopper, destroyPopper, vm }) =>
   () => {
     selectEmitter.on($constants.EVENT_NAME.updatePopper, (keepZIndex) => {
       let hideDrop = false
 
       if (!state.referenceElm || state.referenceElm.nodeType !== 1) {
         // 触发源如果是用户传递的插槽，则赋值为外侧div
-        state.referenceElm = selectVm.$refs.reference ? selectVm.$refs.reference.$el : selectVm.$refs.select // Tiny新逻辑，同步时需谨慎对比逻辑
-        selectVm.popperElm = selectVm.state.popperElm = state.popperElm = vm.$el
+        state.referenceElm = state.selectVm.$refs.reference ? state.selectVm.$refs.reference.$el : state.selectVm.$refs.select // Tiny新逻辑，同步时需谨慎对比逻辑
+        state.selectVm.popperElm = state.selectVm.state.popperElm = state.popperElm = vm.$el
       }
 
-      if (select.state.visible && !hideDrop) {
+      if (state.select.state.visible && !hideDrop) {
         updatePopper(keepZIndex)
         hideDrop = true
       }
@@ -33,19 +33,19 @@ export const mounted =
   }
 
 export const closeModal =
-  ({ selectVm, state, props }) =>
+  ({ state, props }) =>
   ($event, isMask) => {
     if (!props.closeByMask && isMask) return
 
-    selectVm.multiple && selectVm.updateModelValue(state.originValue)
-    selectVm.state.visible = false
-    selectVm.state.softFocus = false
+    state.selectVm.multiple && state.selectVm.updateModelValue(state.originValue)
+    state.selectVm.state.visible = false
+    state.selectVm.state.softFocus = false
   }
 
 export const handleQueryChange =
-  ({ selectVm }) =>
+  ({ state }) =>
   (value) => {
-    selectVm.handleQueryChange(value)
+    state.selectVm.handleQueryChange(value)
   }
 
 export const toggleSelectedBox =
@@ -71,28 +71,28 @@ export const deleteSelected =
   }
 
 export const selectedBoxConfirm =
-  ({ state, selectVm }) =>
+  ({ state }) =>
   () => {
     if (state.deletedArr.length) {
       if (state.deletedArr.length === state.selected.length) {
-        selectVm.updateModelValue([])
+        state.selectVm.updateModelValue([])
       } else {
-        selectVm.updateModelValue(state.selectedArr.map((item) => item[state.valueField]))
+        state.selectVm.updateModelValue(state.selectedArr.map((item) => item[state.valueField]))
       }
     }
     state.showSelectedBox = false
   }
 
 export const selectDropdownConfirm =
-  ({ selectVm }) =>
+  ({ state }) =>
   () => {
-    selectVm.multiple && selectVm.updateModelValue(selectVm.state.modelValue, true)
+    state.selectVm.multiple && state.selectVm.updateModelValue(state.selectVm.state.modelValue, true)
 
-    selectVm.state.visible = false
-    selectVm.state.softFocus = false
+    state.selectVm.state.visible = false
+    state.selectVm.state.softFocus = false
 
-    selectVm.$emit('confirm', selectVm.state.modelValue)
-    selectVm.emitChange(selectVm.state.modelValue, true)
+    state.selectVm.$emit('confirm', state.selectVm.state.modelValue)
+    state.selectVm.emitChange(state.selectVm.state.modelValue, true)
   }
 
 export const cancelSearch =
@@ -103,7 +103,7 @@ export const cancelSearch =
   }
 
 export const handleClear =
-  ({ selectVm }) =>
+  ({ state }) =>
   () => {
-    selectVm.deleteSelected()
+    state.selectVm.deleteSelected()
   }

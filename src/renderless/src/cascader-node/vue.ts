@@ -34,10 +34,10 @@ export const renderless = (
   { computed, reactive, inject, watch }: ISharedRenderlessParamHooks,
   {}: ISharedRenderlessParamUtils
 ): ICascaderNodeApi => {
-  // cascader-panel 通过 provide('cascaderPanelVm') 暴露的 TinyVM，用于 $emitter 总线广播
-  const cascaderPanelVm = inject('cascaderPanelVm', null)
   const api = {} as ICascaderNodeApi
   const state = reactive({
+    // cascader-panel 通过 provide('cascaderPanelVm') 注入的 TinyVM（$emitter 总线广播用），先放入 state 再使用
+    cascaderPanelVm: inject('cascaderPanelVm', null) as ICascaderNodeState['cascaderPanelVm'],
     // cascader-panel 通过 provide('panel') 注入的 panel api
     panel: inject('panel') as ICascaderNodeRenderlessParams['panel'],
     config: computed(() => state.panel.state.config),
@@ -72,7 +72,7 @@ export const renderless = (
     isInPath: isInPath(props),
     handleExpand: handleExpand({ api, props, state }),
     comptCheckPath: comptCheckPath({ api, state }),
-    handleCheckChange: handleCheckChange({ api, cascaderPanelVm, state }),
+    handleCheckChange: handleCheckChange({ api, state }),
     handleMultiCheckChange: handleMultiCheckChange({ state, props }),
     handleNodeClick: handleNodeClick({ state, api })
   })

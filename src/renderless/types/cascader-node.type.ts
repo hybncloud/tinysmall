@@ -6,7 +6,7 @@ import type {
   ICascaderPanelNodeValue,
   ICascaderPanelNode
 } from './cascader-panel.type'
-import type { ISharedRenderlessFunctionParams } from './shared.type'
+import type { ISharedRenderlessFunctionParams, ITinyVm } from './shared.type'
 import type {
   isInPath,
   handleExpand,
@@ -22,6 +22,8 @@ export interface ICascaderNodeProps {
 }
 
 export interface ICascaderNodeState {
+  /** cascader-panel 通过 provide('cascaderPanelVm') 注入的 TinyVM（$emitter 总线广播用） */
+  cascaderPanelVm: ITinyVm | null
   /** cascader-panel 通过 provide('panel') 注入的 panel api */
   panel: ICascaderPanelApi
   config: ICascaderPanelConfig

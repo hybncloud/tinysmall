@@ -111,6 +111,7 @@ import { isServer } from '@tinysmall/utils'
 
 export const api = [
   'state',
+  'baseSelectParent',
   'toggleCheckAll',
   'handleCopyClick',
   'focus',
@@ -166,10 +167,16 @@ export const api = [
   'computedShowTagText',
   'isTagClosable'
 ]
-const initState = ({ reactive, computed, props, api, emitter, vm }) => {
+const initState = ({ reactive, computed, props, api, emitter, vm, form, formItem }) => {
   const stateAdd = initStateAdd({ computed, props, api, vm })
   const state = reactive({
     ...stateAdd,
+    // 注入的 form/form-item vm 先放入 state，再统一通过 state 访问
+    form,
+    formItem,
+    formItemSize: computed(() => (state.formItem || { state: {} }).state.formItemSize),
+    isDisplayOnly: computed(() => props.displayOnly || (state.form || {}).displayOnly),
+    isDisabled: computed(() => props.disabled || (state.form || {}).disabled),
     selectEmitter: emitter(),
     datas: [],
     initDatas: [],
@@ -305,10 +312,7 @@ const initStateAdd = ({ computed, props, api, vm }) => {
     debounce: computed(() => (isNumber(props.queryDebounce) ? props.queryDebounce : props.remote ? 300 : 0)),
     emptyText: computed(() => api.emptyText()),
     emptyFlag: computed(() => api.emptyFlag()),
-    formItemSize: computed(() => (vm.formItem || { state: {} }).state.formItemSize),
     selectDisabled: computed(() => api.computedSelectDisabled()),
-    isDisplayOnly: computed(() => props.displayOnly || (vm.form || {}).displayOnly),
-    isDisabled: computed(() => props.disabled || (vm.form || {}).disabled),
     isShowTagText: computed(() => api.computedShowTagText()),
     searchSingleCopy: computed(() => props.allowCopy && !props.multiple && (props.filterable || props.searchable)),
     childrenName: computed(() => 'children'),
@@ -378,7 +382,7 @@ const initApi = ({ api, props, state, emit, maskState, nextTick, t, vm }) => {
     computedShowNewOption: computedShowNewOption({ props, state }),
     computedShowCopy: computedShowCopy({ props, state }),
     computedOptionsAllDisabled: computedOptionsAllDisabled(state),
-    computedDisabledTooltipContent: computedDisabledTooltipContent({ props, state }),
+    computedDisabledTooltipContent: computedDisabledTooltipContent({ state }),
 
     computedSelectDisabled: computedSelectDisabled({ state }),
     computedIsExpand: computedIsExpand({ props, state }),
@@ -404,7 +408,7 @@ const addApi = ({ api, props, state, emit, nextTick, vm }) => {
   Object.assign(api, {
     resetInputHeight: resetInputHeight({ api, nextTick, props, vm, state }),
     calcOverFlow: calcOverFlow({ vm, props, state }),
-    handleFocus: handleFocus({ api, emit, props, state }),
+    handleFocus: handleFocus({ emit, props, state }),
     deleteTag: deleteTag({ api, emit, props, vm, nextTick, state }),
     watchValue: watchValue({ api, props, vm, state }),
     toHide: toHide({ state, props, vm, api }),
@@ -414,9 +418,9 @@ const addApi = ({ api, props, state, emit, nextTick, vm }) => {
     handleResize: handleResize({ api, props, state }),
     watchOptions: watchOptions({ api, nextTick, vm, props, state }),
     watchVisible: watchVisible({ api, emit, state, vm, props }),
-    deletePrevTag: deletePrevTag({ api, props, state, vm }),
+    deletePrevTag: deletePrevTag({ api, state }),
     onInputChange: onInputChange({ api, props, state, nextTick }),
-    deleteSelected: deleteSelected({ api, emit, props, vm, state }),
+    deleteSelected: deleteSelected({ api, emit, props, state }),
     handleMenuEnter: handleMenuEnter({ api, nextTick, state, props }),
     resetInputState: resetInputState({ api, vm, state }),
     navigateOptions: navigateOptions({ api, state, props, nextTick }),
@@ -424,8 +428,8 @@ const addApi = ({ api, props, state, emit, nextTick, vm }) => {
     handleComposition: handleComposition({ api, nextTick, state }),
     handleQueryChange: handleQueryChange({ api, nextTick, props, vm, state }),
     handleOptionSelect: handleOptionSelect({ api, nextTick, props, vm, state }),
-    getPluginOption: getPluginOption({ api, props, state }),
-    toggleCheckAll: toggleCheckAll({ api, emit, state, props }),
+    getPluginOption: getPluginOption({ props, state }),
+    toggleCheckAll: toggleCheckAll({ api, state }),
     handleDebouncedQueryChange: handleDebouncedQueryChange({ state, api }),
     debouncedQueryChange: (event) => {
       // 解决无界下的异常
@@ -437,7 +441,7 @@ const addApi = ({ api, props, state, emit, nextTick, vm }) => {
     }),
     debouncRquest: debouncRquest({ api, state, props }),
     defaultOnQueryChange: defaultOnQueryChange({ props, state, api, nextTick, vm }),
-    queryChange: queryChange({ props, state, api, nextTick, vm }),
+    queryChange: queryChange({ props, state }),
     mounted: mounted({ api, state, props, vm, nextTick }),
     unMount: unMount({ api, vm, state }),
     watchOptimizeOpts: watchOptimizeOpts({ props, state }),
@@ -528,6 +532,10 @@ export const renderless = (
   { vm, emit, nextTick, t, emitter }
 ) => {
   const api: any = {}
+  // form/form-item 通过 provide('form'/'formItem') 暴露自身 vm；外层 select 父级提供 baseSelectParent
+  const form = inject('form', null)
+  const formItem = inject('formItem', null)
+  const baseSelectParent = inject('baseSelectParent', null)
   const state = initState({
     reactive,
     computed,
@@ -535,16 +543,21 @@ export const renderless = (
     api,
     emitter,
 
-    vm
+    vm,
+    form,
+    formItem
   })
-  // form-item 通过 provide('formItem') 暴露 vm：通知走 state.formItem.$emitter.emit 纯总线（form-item 以 vm.$on 订阅）
-  state.formItem = inject('formItem', null)
-  const dialog = inject('dialog', null)
+  // dialog（弹窗容器 vm）注入后放入 state，再统一通过 state 访问
+  state.dialog = inject('dialog', null)
 
+  // 原 Options provide() { select: this } 改为提供 vm：消费方（select-dropdown）只读取 select.state
+  provide('select', vm)
   provide('selectEmitter', state.selectEmitter)
   provide('selectVm', vm)
 
   provide('tagSelectable', props.tagSelectable)
+
+  api.baseSelectParent = baseSelectParent
 
   const maskState = reactive({ width: '', height: '', top: '' })
 
@@ -572,7 +585,7 @@ export const renderless = (
     emit('update:modelValue', '')
   }
 
-  dialog && dialog.state.emitter.on('handleSelectClose', api.handleClose)
+  state.dialog && state.dialog.state.emitter.on('handleSelectClose', api.handleClose)
   state.selectEmitter.on($constants.EVENT_NAME.handleOptionClick, api.handleOptionSelect)
   state.selectEmitter.on($constants.EVENT_NAME.setSelected, api.setSelected)
   state.selectEmitter.on($constants.EVENT_NAME.initValue, api.initValue)
@@ -583,7 +596,7 @@ export const renderless = (
 
   onBeforeUnmount(() => {
     api.unMount()
-    dialog && dialog.state.emitter.off('handleSelectClose', api.handleClose)
+    state.dialog && state.dialog.state.emitter.off('handleSelectClose', api.handleClose)
   })
 
   return api
