@@ -4,7 +4,6 @@
     "./tsdown.config.ts",
     "./vitest.config.ts",
     "./dev-server/vite.config.ts",
-    "./dev-server/vite-plugins/vite-plugin-uno-preset.js",
     "./internals/vite-svg-loader/**/*.ts"
   ],
   "exclude": ["./internals/vite-svg-loader/client.d.ts"],

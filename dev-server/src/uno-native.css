@@ -1,0 +1,82 @@
+/* 由 vite-plugin-uno-preset.ts 规则生成的原生原子类样式（unocss 移除后的替代） */
+.\!right25 { right: 25px !important; }
+.\!top120 { top: 120px !important; }
+.\!w313 { width: 313px !important; }
+.\!z1 { z-index: 1 !important; }
+.abs { position: absolute; }
+.allselect { user-select: all; }
+.b-a { border: var(--border-width) var(--border-style) var(--border-color); }
+.b-a-primary { border: var(--border-width) var(--border-style) var(--primary); }
+.b-b { border-bottom: var(--border-width) var(--border-style) var(--border-color); }
+.b-r { border-right: var(--border-width) var(--border-style) var(--border-color); }
+.bg-color-success-subtler { background-color: var(--color-success-subtler); }
+.bg-cover { background-color: var(--cover); }
+.bg-light { background-color: var(--light); }
+.bg-white { background-color: var(--white); }
+.bs-dotted { border-style: dotted; }
+.c-error { color: var(--error); }
+.c-primary { color: var(--primary); }
+.child\<code\>bg-lightless code { background-color: var(--lightless); }
+.child\<code\>p4 code { padding: 4px; }
+.cur-hand { cursor: pointer; }
+.ellipsis { overflow: hidden;  text-overflow: ellipsis; white-space: nowrap; }
+.f-box-center { align-items: center; }
+.f-c { display: flex; flex-direction: column; }
+.f-pos-between { justify-content: space-between; }
+.f-pos-start { justify-content: flex-start; }
+.f-r { display: flex; flex-direction: row; }
+.f12 { font-size: 12px; }
+.f18 { font-size: 18px; }
+.f24 { font-size: 24px; }
+.fi-1 { flex: 1; }
+.fixed { position: fixed; }
+.fw-bold { font-weight: bolder; }
+.h\:c-error:hover { color: var(--error); transition: all var(--trans-time); }
+.h\:td-under:hover { text-decoration: underline; transition: all var(--trans-time); }
+.hide { visibility: hidden; }
+.hp100 { height: 100%; }
+.link-primary { color: var(--primary); color: var(--primaryless); transition: all var(--trans-time); cursor: pointer; }
+.link-svg { color: var(--svg); color: var(--svgless); transition: all var(--trans-time); cursor: pointer; }
+.m-20 { margin: -20px; }
+.mb-1 { margin-bottom: -1px; }
+.mb-12 { margin-bottom: -12px; }
+.mb-16 { margin-bottom: -16px; }
+.mb10 { margin-bottom: 10px; }
+.mb20 { margin-bottom: 20px; }
+.mb5 { margin-bottom: 5px; }
+.ml-20 { margin-left: -20px; }
+.ml-8 { margin-left: -8px; }
+.ml-auto { margin-left: auto; }
+.ml12 { margin-left: 12px; }
+.mr-2 { margin-right: -2px; }
+.mr10 { margin-right: 10px; }
+.mr20 { margin-right: 20px; }
+.mt-10 { margin-top: -10px; }
+.mt-12 { margin-top: -12px; }
+.mt-20 { margin-top: -20px; }
+.mt10 { margin-top: 10px; }
+.mt20 { margin-top: 20px; }
+.mt24 { margin-top: 24px; }
+.my20 { margin-top: 20px; margin-bottom: 20px; }
+.of-auto { overflow: auto; }
+.of-hidden { overflow: hidden; }
+.ofy-auto { overflow-y: auto; }
+.p10 { padding: 10px; }
+.pb30 { padding-bottom: 30px; }
+.pl16 { padding-left: 16px; }
+.pr200 { padding-right: 200px; }
+.px10 { padding-left: 10px; padding-right: 10px; }
+.px20 { padding-left: 20px; padding-right: 20px; }
+.px8 { padding-left: 8px; padding-right: 8px; }
+.py10 { padding-top: 10px; padding-bottom: 10px; }
+.py20 { padding-top: 20px; padding-bottom: 20px; }
+.py28 { padding-top: 28px; padding-bottom: 28px; }
+.py4 { padding-top: 4px; padding-bottom: 4px; }
+.py60 { padding-top: 60px; padding-bottom: 60px; }
+.rel { position: relative; }
+.right10 { right: 10px; }
+.text-center { text-align: center; }
+.top10 { top: 10px; }
+.w130 { width: 130px; }
+.w330 { width: 330px; }
+.wp100 { width: 100%; }

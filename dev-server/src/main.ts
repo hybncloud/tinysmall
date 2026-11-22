@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import 'uno.css'
+import './uno-native.css'
 import { t } from '@tinysmall/locale'
 import { TinyLoading } from '@hybncloud/tinysmall'
 import App from './App.vue'

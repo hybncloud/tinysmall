@@ -3,9 +3,7 @@ import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import svgLoader from '../internals/vite-svg-loader/vite.ts'
 import markdown from 'unplugin-vue-markdown/vite'
-import unocss from 'unocss/vite'
 import vueDevTools from 'vite-plugin-vue-devtools'
-import { rules, shortcuts, variants } from './vite-plugins/vite-plugin-uno-preset.js'
 import path from 'node:path'
 
 const abs = (...paths: string[]): string => path.join(import.meta.dirname, ...paths)
@@ -37,16 +35,6 @@ export default defineConfig({
         linkify: true,
         typographer: true
       }
-    }),
-    unocss({
-      presets: [],
-      rules,
-      shortcuts,
-      variants,
-      safelist: [
-        ...Array.from({ length: 24 }, (_, i) => `c-rand${i + 1}`),
-        ...Array.from({ length: 24 }, (_, i) => `bg-rand${i + 1}`)
-      ]
     }),
     vueDevTools()
   ]
