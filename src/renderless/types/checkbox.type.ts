@@ -62,12 +62,13 @@ export type ICheckboxProps = ExtractPropTypes<typeof checkboxProps>
 
 export type ICheckboxConstants = typeof $constants
 
-export type ICheckboxRenderlessParams = ISharedRenderlessFunctionParams<ICheckboxConstants> & {
-  state: ICheckboxState
-  props: ICheckboxProps
-  formItemSize: ComputedRef<string>
+export type ICheckboxRenderlessParams = ISharedRenderlessFunctionParams<
+  ICheckboxProps,
+  ICheckboxState,
+  ICheckboxApi
+> & {
+  formItemSize: string
   type: string
-  api: ICheckboxApi
 }
 
 export interface ICheckboxApi {
@@ -92,4 +93,4 @@ export interface ICheckboxApi {
   computedShowText: ReturnType<typeof computedShowText>
 }
 
-export type ICheckboxRenderlessParamUtils = ISharedRenderlessParamUtils<ICheckboxConstants>
+export type ICheckboxRenderlessParamUtils = ISharedRenderlessParamUtils

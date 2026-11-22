@@ -60,16 +60,7 @@ export const tabsProps = {
 
 export default defineComponent({
   name: 'TinyTabs',
-  emits: [
-    'add',
-    'click',
-    'close',
-    'edit',
-    'update:modelValue',
-    'tab-drag-start',
-    'tab-drag-over',
-    'tab-drag-end'
-  ],
+  emits: ['add', 'click', 'close', 'edit', 'update:modelValue', 'tab-drag-start', 'tab-drag-over', 'tab-drag-end'],
   props: tabsProps,
   components: {
     TabNav,
@@ -81,7 +72,7 @@ export default defineComponent({
     }
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api }) as unknown as ITabsApi
+    return setup({ props, context, renderless, api })
   },
   render() {
     let {

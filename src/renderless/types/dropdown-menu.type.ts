@@ -48,13 +48,13 @@ export interface IDropdownMenuApi {
   doDestroy: () => void
 }
 
-export type IDropdownMenuRenderlessParams = ISharedRenderlessFunctionParams<null> & {
-  state: IDropdownMenuState
-  props: IDropdownMenuProps
-  api: IDropdownMenuApi
-}
+export type IDropdownMenuRenderlessParams = ISharedRenderlessFunctionParams<
+  IDropdownMenuProps,
+  IDropdownMenuState,
+  IDropdownMenuApi
+>
 
-export type IDropdownMenuRenderlessParamUtils = ISharedRenderlessParamUtils<null>
+export type IDropdownMenuRenderlessParamUtils = ISharedRenderlessParamUtils
 
 export interface IDropdownMenuPopperParams {
   api: IDropdownMenuApi

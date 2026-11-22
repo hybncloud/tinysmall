@@ -115,7 +115,7 @@ export default defineComponent({
   },
   emits: ['close'],
   setup(props, context) {
-    return setup({ props, context, renderless, api }) as unknown as IAlertApi
+    return setup({ props, context, renderless, api })
   }
 })
 </script>

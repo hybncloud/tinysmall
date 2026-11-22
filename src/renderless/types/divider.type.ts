@@ -21,11 +21,7 @@ export interface IDividerApi {
   setDividerHeight: ReturnType<typeof setDividerHeight>
 }
 
-export type IDividerRenderlessParams = ISharedRenderlessFunctionParams & {
-  api: IDividerApi
-  state: IDividerState
-  props: IDividerProps
-}
+export type IDividerRenderlessParams = ISharedRenderlessFunctionParams<IDividerProps, IDividerState, IDividerApi>
 
 export type IDividerRenderlessParamUtils = ISharedRenderlessParamUtils
 

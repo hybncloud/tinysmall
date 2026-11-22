@@ -38,9 +38,9 @@ export interface ISliderState {
   rightBtnPercent: number
   rightBtnShow: boolean
   innerTrigger: boolean
-  rangeDiff: ComputedRef<number>
-  tipValue: ComputedRef<string>
-  formDisabled: ComputedRef<boolean>
+  rangeDiff: number
+  tipValue: string
+  formDisabled: boolean
   disabled: boolean
   /** 使用这个值作为插槽中输入的值，而不是直接用activeValue，来实现在输入时不会被max min属性计算而改变 */
   slotValue: number | number[] | string
@@ -86,12 +86,9 @@ export interface ISliderApi {
   updateSlotValue: ReturnType<typeof updateSlotValue>
 }
 
-export type ISliderRenderlessParams = ISharedRenderlessFunctionParams<ISliderConstants> & {
-  state: ISliderState
-  props: ISliderProps
-  api: ISliderApi
+export type ISliderRenderlessParams = ISharedRenderlessFunctionParams<ISliderProps, ISliderState, ISliderApi> & {
   event: Event
   currentValue: number
 }
 
-export type ISliderRenderlessParamUtils = ISharedRenderlessParamUtils<ISliderConstants>
+export type ISliderRenderlessParamUtils = ISharedRenderlessParamUtils

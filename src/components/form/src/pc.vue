@@ -159,7 +159,7 @@ export default defineComponent({
   },
   props: formProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api }) as unknown as IFormApi
+    return setup({ props, context, renderless, api })
   }
 })
 </script>

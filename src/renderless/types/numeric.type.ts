@@ -87,13 +87,9 @@ export interface INumericApi {
   handleChange: ReturnType<typeof handleChange>
 }
 
-export type INumericRenderlessParams = ISharedRenderlessFunctionParams<INumericConstants> & {
-  api: INumericApi
-  state: INumericState
-  props: INumericProps
-}
+export type INumericRenderlessParams = ISharedRenderlessFunctionParams<INumericProps, INumericState, INumericApi>
 
-export type INumericRenderlessParamUtils = ISharedRenderlessParamUtils<INumericConstants>
+export type INumericRenderlessParamUtils = ISharedRenderlessParamUtils
 
 export type INumericSize = 'medium' | 'small' | 'mini'
 
@@ -107,7 +103,7 @@ export interface INumericUnitPrecision {
 
 export interface INumericInitStateParams extends Pick<
   INumericRenderlessParams,
-  'constants' | 'reactive' | 'computed' | 'props' | 'api'
+  'reactive' | 'computed' | 'props' | 'api'
 > {
   $service: ReturnType<typeof initService>
 }

@@ -42,7 +42,7 @@ export const getTrueValue = (value: string): number => {
 }
 
 export const getBoundary =
-  ({ api, props }: Pick<IDatePickerRenderlessParams, 'api' | 'constants' | 'props'>) =>
+  ({ api, props }: Pick<IDatePickerRenderlessParams, 'api' | 'props'>) =>
   ({
     type,
     value: val
@@ -91,11 +91,11 @@ export const getBoundary =
 export const updateInnerValue =
   ({
     api,
-    
+
     props,
     refs,
     state
-  }: Pick<IDatePickerRenderlessParams, 'api' | 'constants' | 'props' | 'refs' | 'state'>) =>
+  }: Pick<IDatePickerRenderlessParams, 'api' | 'props' | 'refs' | 'state'>) =>
   () => {
     const indexes = refs.picker && refs.picker.getIndexes()
 
@@ -167,13 +167,7 @@ export const padZero = (num: number, targetLength = 2): string => {
 }
 
 export const updateColumnValue =
-  ({
-    
-    nextTick,
-    props,
-    refs,
-    state
-  }: Pick<IDatePickerRenderlessParams, 'constants' | 'nextTick' | 'props' | 'refs' | 'state'>) =>
+  ({ nextTick, props, refs, state }: Pick<IDatePickerRenderlessParams, 'nextTick' | 'props' | 'refs' | 'state'>) =>
   () => {
     const value = state.innerValue
     const { formatter } = props
@@ -301,7 +295,7 @@ export const onCancel =
   }
 
 export const getDisplayValue =
-  ({ DATE, props, state }: Pick<IDatePickerRenderlessParams, 'constants' | 'DATE' | 'props' | 'state'>) =>
+  ({ DATE, props, state }: Pick<IDatePickerRenderlessParams, 'DATE' | 'props' | 'state'>) =>
   (): string => {
     const format = function (value: Date, fmt: string): string {
       const o = {
@@ -329,11 +323,7 @@ export const getDisplayValue =
   }
 
 export const hookMounted =
-  ({
-    vm,
-    refs,
-    nextTick
-  }: Pick<IDatePickerRenderlessParams, 'constants' | 'vm' | 'refs' | 'nextTick'>) =>
+  ({ vm, refs, nextTick }: Pick<IDatePickerRenderlessParams, 'vm' | 'refs' | 'nextTick'>) =>
   () => {
     nextTick(() => {
       // 'hook-mounted' 库内无监听方，父组件也未 provide 自身 vm 可供 inject：
@@ -343,7 +333,7 @@ export const hookMounted =
   }
 
 export const showPickerAndLockScroll =
-  ({ state }: Pick<IDatePickerRenderlessParams, 'constants' | 'state'>) =>
+  ({ state }: Pick<IDatePickerRenderlessParams, 'state'>) =>
   () => {
     state.visible = true
     document.body.style.overflow = $constants.Hidden

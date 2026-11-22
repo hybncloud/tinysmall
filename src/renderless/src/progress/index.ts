@@ -26,21 +26,21 @@ export const computedBarStyle =
   })
 
 export const computedRelativeStrokeWidth =
-  ({ state }: Pick<IProgressRenderlessParams, 'constants' | 'state'>) =>
+  ({ state }: Pick<IProgressRenderlessParams, 'state'>) =>
   (): number => {
     if (state.width === 0 || state.strokeWidth === 0) return $constants.REL_STROKE_WIDTH
     return Number(((state.strokeWidth / state.width) * 100).toFixed(1))
   }
 
 export const computedRadius =
-  ({ props, state }: Pick<IProgressRenderlessParams, 'constants' | 'props' | 'state'>) =>
+  ({ props, state }: Pick<IProgressRenderlessParams, 'props' | 'state'>) =>
   (): number =>
     props.type === $constants.PROGRESS_TYPE.CIRCLE || props.type === $constants.PROGRESS_TYPE.DASHBOARD
       ? parseInt(String(50 - parseFloat(state.relativeStrokeWidth) / 2), 10)
       : 0
 
 export const computedTrackPath =
-  ({ props, state }: Pick<IProgressRenderlessParams, 'constants' | 'props' | 'state'>) =>
+  ({ props, state }: Pick<IProgressRenderlessParams, 'props' | 'state'>) =>
   (): string => {
     const radiusValue = state.radius
     const isDashboardType = props.type === $constants.PROGRESS_TYPE.DASHBOARD
@@ -59,7 +59,7 @@ export const computedPerimeter =
     2 * Math.PI * state.radius
 
 export const computedRate =
-  ({ props }: Pick<IProgressRenderlessParams, 'constants' | 'props'>) =>
+  ({ props }: Pick<IProgressRenderlessParams, 'props'>) =>
   (): number =>
     props.type === $constants.PROGRESS_TYPE.DASHBOARD ? 0.75 : 1
 
@@ -89,14 +89,14 @@ export const computedCirclePathStyle =
   })
 
 export const computedStroke =
-  ({ api, props }: Pick<IProgressRenderlessParams, 'api' | 'constants' | 'props'>) =>
+  ({ api, props }: Pick<IProgressRenderlessParams, 'api' | 'props'>) =>
   (): string =>
     (props.color && api.getCurrentColor(props.percentage)) ||
     $constants.STATUS_TO_COLOR[props.status] ||
     $constants.STATUS_DEFAULT_COLOR
 
 export const computedIconClass =
-  ({ props }: Pick<IProgressRenderlessParams, 'constants' | 'props'>) =>
+  ({ props }: Pick<IProgressRenderlessParams, 'props'>) =>
   (): string => {
     if (props.status === $constants.PROGRESS_STATUS.SUCCESS) {
       const iconClasses =
@@ -118,7 +118,7 @@ export const computedIconClass =
   }
 
 export const computedIconStyle =
-  ({ props, state }: Pick<IProgressRenderlessParams, 'constants' | 'props' | 'state'>) =>
+  ({ props, state }: Pick<IProgressRenderlessParams, 'props' | 'state'>) =>
   (): IProgressIconStyle<number> | {} => {
     if (props.type === $constants.PROGRESS_TYPE.LINE) {
       return state.strokeWidth
@@ -135,7 +135,7 @@ export const computedIconStyle =
   }
 
 export const computedProgressTextSize =
-  ({ props, state }: Pick<IProgressRenderlessParams, 'constants' | 'props' | 'state'>) =>
+  ({ props, state }: Pick<IProgressRenderlessParams, 'props' | 'state'>) =>
   (): number => {
     return props.type === $constants.PROGRESS_TYPE.LINE
       ? $constants.TEXT_XS + state.strokeWidth * $constants.STROKE_WIDTH_RATE

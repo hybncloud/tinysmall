@@ -126,7 +126,7 @@ export default defineComponent({
       renderless,
       api,
       h
-    }) as unknown as IUploadApi
+    })
   },
   render() {
     let {

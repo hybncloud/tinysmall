@@ -16,13 +16,14 @@ export interface ICollapseItemState {
   focusing: boolean
   contentHeight: number
   contentWrapStyle: contentWrapStyleType
-  isActive: ComputedRef<boolean>
+  isActive: boolean
 }
 
-export type ICollapseItemRenderlessParams = ISharedRenderlessFunctionParams<ICollapseItemConstants> & {
-  api: ICollapseItemApi
-  state: ICollapseItemState
-  props: ICollapseItemProps
+export type ICollapseItemRenderlessParams = ISharedRenderlessFunctionParams<
+  ICollapseItemProps,
+  ICollapseItemState,
+  ICollapseItemApi
+> & {
   constants: ICollapseItemConstants
   interval: number
   componentName: string
@@ -36,4 +37,4 @@ export interface ICollapseItemApi {
   handleHeaderClick: () => void
 }
 
-export type ICollapseItemRenderlessParamUtils = ISharedRenderlessParamUtils<ICollapseItemConstants>
+export type ICollapseItemRenderlessParamUtils = ISharedRenderlessParamUtils

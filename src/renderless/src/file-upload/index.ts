@@ -100,7 +100,7 @@ export const computedUploadDisabled =
     props.disabled || (state.form || {}).disabled
 
 export const computedUploadingSize =
-  ({ state}: Pick<IFileUploadRenderlessParams, 'state' | 'constants'>) =>
+  ({ state }: Pick<IFileUploadRenderlessParams, 'state'>) =>
   (): number =>
     state.uploadingFiles.reduce(
       (total, file) => (total + file.status !== $constants.FILE_STATUS.FAIL ? file.size : 0),
@@ -108,7 +108,7 @@ export const computedUploadingSize =
     )
 
 export const watchListType =
-  ({ state, api }: Pick<IFileUploadRenderlessParams, 'constants' | 'state' | 'api'>) =>
+  ({ state, api }: Pick<IFileUploadRenderlessParams, 'state' | 'api'>) =>
   (type: string) => {
     if (
       [
@@ -134,7 +134,7 @@ export const watchListType =
   }
 
 export const watchFileList =
-  ({ state, props, api }: Pick<IFileUploadRenderlessParams, 'constants' | 'state' | 'props' | 'api'>) =>
+  ({ state, props, api }: Pick<IFileUploadRenderlessParams, 'state' | 'props' | 'api'>) =>
   (fileList: IFileUploadFile[]) => {
     let uploadFiles =
       fileList &&
@@ -280,10 +280,10 @@ export const beforeUpload =
     props,
     api,
     Modal,
-    
+
     t,
     state
-  }: Pick<IFileUploadRenderlessParams, 'props' | 'api' | 'constants' | 't' | 'state'> & IFileUploadModalVm) =>
+  }: Pick<IFileUploadRenderlessParams, 'props' | 'api' | 't' | 'state'> & IFileUploadModalVm) =>
   (file: IFileUploadFile, autoRemove: boolean, doUpload: Function, isMergeUpload = false) => {
     if (state.isEdm && file.name.length > 255) {
       remove({ api, file, autoRemove })
@@ -366,12 +366,12 @@ export const beforeUpload =
 export const startUpload =
   ({
     state,
-    
+
     vm,
     Modal,
     api,
     t
-  }: Pick<IFileUploadRenderlessParams, 'state' | 'constants' | 'vm' | 'api' | 't'> & IFileUploadModalVm) =>
+  }: Pick<IFileUploadRenderlessParams, 'state' | 'vm' | 'api' | 't'> & IFileUploadModalVm) =>
   (file: IFileUploadFile, isList: boolean) => {
     if (state.isHwh5) {
       vm.$refs[$constants.UPLOAD_INNER].upload(file.raw)
@@ -419,10 +419,10 @@ export const properFileSize =
     props,
     state,
     api,
-    
+
     Modal,
     t
-  }: Pick<IFileUploadRenderlessParams, 'props' | 'state' | 'constants' | 'api' | 't'> & IFileUploadModalVm) =>
+  }: Pick<IFileUploadRenderlessParams, 'props' | 'state' | 'api' | 't'> & IFileUploadModalVm) =>
   (file: IFileUploadFile): boolean => {
     if ([undefined, null].includes(file.size)) return true
 
@@ -498,11 +498,11 @@ export const properFileSize =
 export const addFileToList =
   ({
     api,
-    
+
     emit,
     props,
     state
-  }: Pick<IFileUploadRenderlessParams, 'api' | 'constants' | 'emit' | 'props' | 'state'>) =>
+  }: Pick<IFileUploadRenderlessParams, 'api' | 'emit' | 'props' | 'state'>) =>
   (rawFile: IFileUploadFile, updateId: string, reUpload: boolean) => {
     !reUpload && (rawFile.uid = Date.now() + state.tempIndex++)
 
@@ -577,10 +577,10 @@ export const getFileHash =
   ({
     emit,
     Modal,
-    
+
     t,
     state
-  }: Pick<IFileUploadRenderlessParams, 'emit' | 'constants' | 't' | 'state'> & IFileUploadModalVm) =>
+  }: Pick<IFileUploadRenderlessParams, 'emit' | 't' | 'state'> & IFileUploadModalVm) =>
   ({ file, showTips }: { file: IFileUploadFile; showTips: boolean }) => {
     if (showTips) {
       Modal.message({
@@ -631,11 +631,11 @@ const handleHwh5Files = (files: IFileUploadFile[], hwh5: object): IFileUploadFil
 export const handleStart =
   ({
     api,
-    
+
     props,
     state,
     vm
-  }: Pick<IFileUploadRenderlessParams, 'api' | 'constants' | 'props' | 'state' | 'vm'>) =>
+  }: Pick<IFileUploadRenderlessParams, 'api' | 'props' | 'state' | 'vm'>) =>
   (rawFiles: IFileUploadFile[], updateId: string, reUpload = false) => {
     if (state.isHwh5) {
       rawFiles = handleHwh5Files(rawFiles, props.hwh5)
@@ -686,16 +686,14 @@ export const handleStart =
 
     if (!state.isEdm && props.autoUpload) {
       if (props.multiple && props.mergeService) {
-        const handler = (file) =>
-          vm.$refs[$constants.UPLOAD_INNER].upload(file.raw)
+        const handler = (file) => vm.$refs[$constants.UPLOAD_INNER].upload(file.raw)
 
         rawFiles.length && api.beforeUpload({ raw: rawFiles }, true, handler, true)
       } else {
         rawFiles.forEach((rawFile) => {
           const file = api.getFile(rawFile)
           if (!file) return
-          const handler = (file) =>
-            vm.$refs[$constants.UPLOAD_INNER].upload(file.raw)
+          const handler = (file) => vm.$refs[$constants.UPLOAD_INNER].upload(file.raw)
 
           api.beforeUpload(file, true, handler)
         })
@@ -704,7 +702,7 @@ export const handleStart =
   }
 
 export const calcUploadingFilesInfo =
-  ({ state}: Pick<IFileUploadRenderlessParams, 'state' | 'constants'>) =>
+  ({ state }: Pick<IFileUploadRenderlessParams, 'state'>) =>
   (): { percentage: number; uploadList: IFileUploadFile[]; uploadedCount: number } => {
     let percentage
     if (state.isHwh5) {
@@ -734,7 +732,7 @@ export const calcUploadingFilesInfo =
   }
 
 export const handleProgress =
-  ({ api, emit, state }: Pick<IFileUploadRenderlessParams, 'api' | 'constants' | 'emit' | 'state'>) =>
+  ({ api, emit, state }: Pick<IFileUploadRenderlessParams, 'api' | 'emit' | 'state'>) =>
   (event: any, rawFile: File) => {
     if (Array.isArray(rawFile)) {
       state.uploadFiles.forEach((file) => {
@@ -776,13 +774,13 @@ export const handleProgress =
 export const handleSuccess =
   ({
     api,
-    
+
     emit,
     state,
     props,
     Modal,
     t
-  }: Pick<IFileUploadRenderlessParams, 'api' | 'constants' | 'emit' | 'state' | 't' | 'props'>) =>
+  }: Pick<IFileUploadRenderlessParams, 'api' | 'emit' | 'state' | 't' | 'props'>) =>
   (res: any, rawFile: IFileUploadFile) => {
     const currentUploadFiles = state.uploadFiles.filter((file) => state.currentUploadingFileUids.includes(file.uid))
     if (Array.isArray(rawFile)) {
@@ -853,11 +851,11 @@ export const handleSuccess =
 export const handleError =
   ({
     api,
-    
+
     emit,
     state,
     props
-  }: Pick<IFileUploadRenderlessParams, 'api' | 'constants' | 'emit' | 'state' | 'props'>) =>
+  }: Pick<IFileUploadRenderlessParams, 'api' | 'emit' | 'state' | 'props'>) =>
   (err: any, rawFile: IFileUploadFile) => {
     const file = api.getFile(rawFile)
     if (!file) return
@@ -876,12 +874,7 @@ export const handleError =
   }
 
 export const handleRemove =
-  ({
-    api,
-    emit,
-    props,
-    state
-  }: Pick<IFileUploadRenderlessParams, 'api' | 'emit' | 'props' | 'state' | 'constants'>) =>
+  ({ api, emit, props, state }: Pick<IFileUploadRenderlessParams, 'api' | 'emit' | 'props' | 'state'>) =>
   (file: IFileUploadFile, raw: File) => {
     if (raw) {
       file = api.getFile(raw)
@@ -915,7 +908,7 @@ export const handleRemove =
   }
 
 export const handleReUpload =
-  ({ vm}: Pick<IFileUploadRenderlessParams, 'vm' | 'constants'>) =>
+  ({ vm }: Pick<IFileUploadRenderlessParams, 'vm'>) =>
   (file: IFileUploadFile) => {
     const { READY } = $constants.FILE_STATUS
     file.status = READY
@@ -932,7 +925,7 @@ export const handleReUploadTotal = (api: IFileUploadRenderlessParams['api']) => 
 }
 
 export const clearUploadingFiles =
-  ({ state }: Pick<IFileUploadRenderlessParams, 'constants' | 'state'>) =>
+  ({ state }: Pick<IFileUploadRenderlessParams, 'state'>) =>
   () => {
     const { SUCESS, FAIL } = $constants.FILE_STATUS
     const isUploadComplete = state.uploadingFiles.every((file) => [SUCESS, FAIL].includes(file.status))
@@ -957,7 +950,7 @@ export const getFile =
   }
 
 export const abort =
-  ({ vm, state }: Pick<IFileUploadRenderlessParams, 'constants' | 'vm' | 'state'>) =>
+  ({ vm, state }: Pick<IFileUploadRenderlessParams, 'vm' | 'state'>) =>
   (file: IFileUploadFile) => {
     const { READY, UPLOADING, FAIL } = $constants.FILE_STATUS
     if (file) {
@@ -1018,11 +1011,11 @@ export const clearFiles = (state: IFileUploadRenderlessParams['state']) => () =>
 export const submit =
   ({
     api,
-    
+
     vm,
     state,
     props
-  }: Pick<IFileUploadRenderlessParams, 'api' | 'constants' | 'vm' | 'state' | 'props'>) =>
+  }: Pick<IFileUploadRenderlessParams, 'api' | 'vm' | 'state' | 'props'>) =>
   () => {
     const files = state.uploadFiles.filter((file) => file.status === $constants.FILE_STATUS.READY)
 
@@ -1060,7 +1053,7 @@ export const submit =
   }
 
 export const handleClick =
-  ({ vm }: Pick<IFileUploadRenderlessParams, 'constants' | 'vm'>) =>
+  ({ vm }: Pick<IFileUploadRenderlessParams, 'vm'>) =>
   () =>
     vm.$refs[$constants.UPLOAD_INNER].handleClick()
 
@@ -1184,7 +1177,7 @@ export const getCalcProgress =
   }
 
 export const modifyServiceUrlSingle =
-  ({ state, props}: Pick<IFileUploadRenderlessParams, 'state' | 'props' | 'constants'>) =>
+  ({ state, props }: Pick<IFileUploadRenderlessParams, 'state' | 'props'>) =>
   ({ file, serviceUrl, range }: { file: IFileUploadFile; serviceUrl: string; range: object }): string => {
     if (typeof file === 'object') {
       const downloadOps = props.edm.download || {}
@@ -1216,7 +1209,7 @@ export const modifyServiceUrlSingle =
   }
 
 export const getKiaScanTip =
-  ({ Modal, t }: Pick<IFileUploadRenderlessParams, 'constants' | 't'> & IFileUploadModalVm) =>
+  ({ Modal, t }: Pick<IFileUploadRenderlessParams, 't'> & IFileUploadModalVm) =>
   ({ data }: { data: IFileUploadFile }): IFileUploadModalVm | undefined => {
     if (data.status === $constants.EDM.KIASTATUS) {
       return Modal.message({
@@ -1299,12 +1292,12 @@ export const createDownloadCancelToken =
 export const downloadFileSingle =
   ({
     service,
-    
+
     props,
     state,
     api,
     emit
-  }: Pick<IFileUploadRenderlessParams, 'service' | 'constants' | 'props' | 'state' | 'api' | 'emit'>) =>
+  }: Pick<IFileUploadRenderlessParams, 'service' | 'props' | 'state' | 'api' | 'emit'>) =>
   (args: IFileUploadDownloadFileSingle) => {
     let {
       file,
@@ -1507,7 +1500,7 @@ export const downloadAsyncPackage =
   }
 
 export const downloadFileSingleHwh5 =
-  ({ state, props, emit}: Pick<IFileUploadRenderlessParams, 'state' | 'props' | 'emit' | 'constants'>) =>
+  ({ state, props, emit }: Pick<IFileUploadRenderlessParams, 'state' | 'props' | 'emit'>) =>
   ({ file }: { file: IFileUploadFile }) => {
     const { HWH5, appId } = props.hwh5
     const { downloadToEDM } = HWH5()
@@ -1865,7 +1858,7 @@ export const setWriterFile =
   }
 
 export const getFormData =
-  ({ props, state }: Pick<IFileUploadRenderlessParams, 'constants' | 'props' | 'state'>) =>
+  ({ props, state }: Pick<IFileUploadRenderlessParams, 'props' | 'state'>) =>
   ({ formData, file, type }: IFileUploadGetFormData): IUploadFormData => {
     if (state.isEdm && props.edm.upload) {
       const params = Object.assign({}, props.data || {}, props.edm.upload.params || {})
@@ -1910,7 +1903,7 @@ export const largeDocumentUpload =
     state,
     t,
     emit
-  }: Pick<IFileUploadRenderlessParams, 'api' | 'state' | 't' | 'emit' | 'constants'> & IFileUploadModalVm) =>
+  }: Pick<IFileUploadRenderlessParams, 'api' | 'state' | 't' | 'emit'> & IFileUploadModalVm) =>
   (file: IFileUploadFile) => {
     const chunkSize = Math.ceil(file.size / state.chunkSize)
 
@@ -1952,12 +1945,7 @@ export const largeDocumentUpload =
   }
 
 export const segmentUploadInit =
-  ({
-    api,
-    props,
-    service,
-    state
-  }: Pick<IFileUploadRenderlessParams, 'api' | 'props' | 'service' | 'state'>) =>
+  ({ api, props, service, state }: Pick<IFileUploadRenderlessParams, 'api' | 'props' | 'service' | 'state'>) =>
   (file: IFileUploadFile) => {
     const formData = new FormData()
 
@@ -2035,11 +2023,11 @@ const segmentUploadInner = ({
   service,
   state,
   emit,
-  
+
   batchIndex,
   file,
   progress
-}: Pick<IFileUploadRenderlessParams, 'api' | 'props' | 'service' | 'state' | 'emit' | 'constants'> &
+}: Pick<IFileUploadRenderlessParams, 'api' | 'props' | 'service' | 'state' | 'emit'> &
   IFileUploadSegmentUploadInner) => {
   const formData = new FormData()
   const postChunk = (url) => {
@@ -2139,7 +2127,7 @@ export const segmentUpload =
             emit,
             props,
             file,
-            
+
             progress
           })
         })
@@ -2150,7 +2138,7 @@ export const segmentUpload =
         service,
         state,
         emit,
-        
+
         batchIndex,
         file,
         progress
@@ -2161,11 +2149,11 @@ export const segmentUpload =
 export const batchSegmentUpload =
   ({
     api,
-    
+
     props,
     vm,
     state
-  }: Pick<IFileUploadRenderlessParams, 'api' | 'constants' | 'props' | 'vm' | 'state'>) =>
+  }: Pick<IFileUploadRenderlessParams, 'api' | 'props' | 'vm' | 'state'>) =>
   ({ docId, batchIndex, batches, progress }: IFileUploadBatchSegmentUpload) => {
     if (batchIndex < batches.length && progress.file.cancelToken) {
       const key = docId + '-' + batchIndex
@@ -2245,13 +2233,7 @@ export const sliceChunk =
   }
 
 export const getToken =
-  ({
-    
-    props,
-    state,
-    t,
-    Modal
-  }: Pick<IFileUploadRenderlessParams, 'constants' | 'props' | 'state' | 't'> & IFileUploadModalVm) =>
+  ({ props, state, t, Modal }: Pick<IFileUploadRenderlessParams, 'props' | 'state' | 't'> & IFileUploadModalVm) =>
   ({
     token,
     file,
@@ -2377,9 +2359,9 @@ export const previewFileSingle =
     api,
     state,
     props,
-    
+
     service
-  }: Pick<IFileUploadRenderlessParams, 'api' | 'state' | 'props' | 'constants' | 'service'>) =>
+  }: Pick<IFileUploadRenderlessParams, 'api' | 'state' | 'props' | 'service'>) =>
   ({ file, resolve, open }: { file: IFileUploadFile; resolve: (res: any) => void; open: boolean }) => {
     const iframeUrl = api.getPreviewUrlSync(file)
 
@@ -2475,7 +2457,7 @@ export const previewFileBatch =
   }
 
 export const getPreviewUrlSync =
-  ({ props, state }: Pick<IFileUploadRenderlessParams, 'constants' | 'props' | 'state'>) =>
+  ({ props, state }: Pick<IFileUploadRenderlessParams, 'props' | 'state'>) =>
   (file: object, batch?: boolean) => {
     const edm = props.edm || {}
     const preview = edm.preview || {}
@@ -2611,7 +2593,7 @@ export const previewImageBatch =
   }
 
 export const getDialogConfigObj =
-  ({ props, state, t}: Pick<IFileUploadRenderlessParams, 'props' | 'state' | 't' | 'constants'>) =>
+  ({ props, state, t }: Pick<IFileUploadRenderlessParams, 'props' | 'state' | 't'>) =>
   (): object => {
     const dialogConfigDefault = {
       class: 'single-download-modal single-download-modal1',
@@ -2653,7 +2635,7 @@ export const getDialogConfigObj =
   }
 
 export const computeDocChunkSize =
-  ({ props, state}: Pick<IFileUploadRenderlessParams, 'props' | 'state' | 'constants'>) =>
+  ({ props, state }: Pick<IFileUploadRenderlessParams, 'props' | 'state'>) =>
   () => {
     const isDefaultChunkSize = !(props.edm && props.edm.chunkSize)
     const { SIZE_0M, SIZE_2M, SIZE_4M, SIZE_8M, SIZE_16M, SIZE_20M, SIZE_32M, SIZE_64M, SIZE_2G } = $constants.EDM
@@ -2679,7 +2661,7 @@ export const computeDocChunkSize =
   }
 
 export const computedSourcetype =
-  ({ props}: Pick<IFileUploadRenderlessParams, 'props' | 'constants'>) =>
+  ({ props }: Pick<IFileUploadRenderlessParams, 'props'>) =>
   (): string[] => {
     const { sourceType, listType } = props
     let types = sourceType.split('/')
@@ -2691,7 +2673,7 @@ export const computedSourcetype =
   }
 
 export const getFileSourceType =
-  ({ state, props}: Pick<IFileUploadRenderlessParams, 'state' | 'props' | 'constants'>) =>
+  ({ state, props }: Pick<IFileUploadRenderlessParams, 'state' | 'props'>) =>
   ({ file }: { file: IFileUploadFile }) => {
     const { PICTURE_SINGLE, PICTURE_CARD } = $constants.LIST_TYPE
     const { listType } = props
@@ -2714,13 +2696,13 @@ export const getFileSourceType =
   }
 
 export const updateFile =
-  ({ vm }: Pick<IFileUploadRenderlessParams, 'constants' | 'vm'>) =>
+  ({ vm }: Pick<IFileUploadRenderlessParams, 'vm'>) =>
   (file: IFileUploadFile) => {
     vm.$refs[$constants.UPLOAD_INNER].handleUpdate(file)
   }
 
 export const handleChange =
-  ({ vm}: Pick<IFileUploadRenderlessParams, 'vm' | 'constants'>) =>
+  ({ vm }: Pick<IFileUploadRenderlessParams, 'vm'>) =>
   (file: IFileUploadFile) => {
     if (typeof file === 'object' && file !== null && file !== undefined) {
       let files = file
@@ -2735,10 +2717,10 @@ export const handleTriggerClick =
   ({
     vm,
     state,
-    
+
     props,
     emit
-  }: Pick<IFileUploadRenderlessParams, 'vm' | 'state' | 'constants' | 'props' | 'emit'>) =>
+  }: Pick<IFileUploadRenderlessParams, 'vm' | 'state' | 'props' | 'emit'>) =>
   ($event: Event, type: string) => {
     const { PICTURE_CARD, PICTURE_SINGLE } = $constants.LIST_TYPE
     const { isHwh5 } = state
@@ -2791,7 +2773,7 @@ export const encryptDialogConfirm =
   }
 
 export const closeRecordPanel =
-  ({ vm, state, props }: Pick<IFileUploadRenderlessParams, 'vm' | 'constants' | 'state' | 'props'>) =>
+  ({ vm, state, props }: Pick<IFileUploadRenderlessParams, 'vm' | 'state' | 'props'>) =>
   () => {
     const { PICTURE_CARD } = $constants.LIST_TYPE
     const { isHwh5 } = state
@@ -2803,7 +2785,7 @@ export const closeRecordPanel =
   }
 
 export const getTipMessage =
-  ({ t, api}: Pick<IFileUploadRenderlessParams, 't' | 'api' | 'constants'>) =>
+  ({ t, api }: Pick<IFileUploadRenderlessParams, 't' | 'api'>) =>
   ({ accept, fileSize, limit }: { accept: string; fileSize: string; limit: number }) => {
     let acceptTip = ''
 

@@ -19,10 +19,11 @@ export interface ITabBarPcApi {
 
 export type ITabBarPcRenderlessParamUtils = ISharedRenderlessParamUtils
 
-export type ITabBarPcRenderlessParams = ISharedRenderlessFunctionParams & {
-  state: ITabBarPcState
-  props: ITabBarPcProps
-  api: ITabBarPcApi
+export type ITabBarPcRenderlessParams = ISharedRenderlessFunctionParams<
+  ITabBarPcProps,
+  ITabBarPcState,
+  ITabBarPcApi
+> & {
   rootTabs: ITabsVm
 }
 

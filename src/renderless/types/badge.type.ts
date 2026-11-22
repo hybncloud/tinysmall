@@ -13,10 +13,7 @@ export interface IBadgeState {
 
 export type IBadgeProps = ExtractPropTypes<typeof badgeProps>
 
-export type IBadgeRenderlessParams = ISharedRenderlessFunctionParams & {
-  state: IBadgeState
-  props: IBadgeProps
-}
+export type IBadgeRenderlessParams = ISharedRenderlessFunctionParams<IBadgeProps, IBadgeState>
 
 export interface IBadgeApi {
   state: IBadgeState

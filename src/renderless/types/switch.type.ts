@@ -20,9 +20,7 @@ export type ISwitchProps = ExtractPropTypes<typeof switchProps>
 
 export type ISwitchConstants = typeof $constants
 
-export type ISwitchRenderlessParams = ISharedRenderlessFunctionParams<ISwitchConstants> & {
-  state: ISwitchState
-  props: ISwitchProps
+export type ISwitchRenderlessParams = ISharedRenderlessFunctionParams<ISwitchProps, ISwitchState> & {
   prefixCls: string
 }
 
@@ -34,4 +32,4 @@ export interface ISwitchApi {
   computedStyle: ReturnType<typeof computedStyle>
 }
 
-export type ISwitchRenderlessParamUtils = ISharedRenderlessParamUtils<ISwitchConstants>
+export type ISwitchRenderlessParamUtils = ISharedRenderlessParamUtils

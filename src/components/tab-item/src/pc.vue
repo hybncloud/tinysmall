@@ -45,7 +45,7 @@ export default defineComponent({
   componentName: 'TabItem',
   props: tabItemProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api }) as unknown as ITabItemApi
+    return setup({ props, context, renderless, api })
   }
 })
 </script>

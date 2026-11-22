@@ -42,18 +42,18 @@ export interface IDropdownItemState {
   showWrapper: boolean
   showPopup: boolean
   duration: number | string
-  overlay: ComputedRef<boolean>
-  offset: ComputedRef<number>
-  direction: ComputedRef<string>
-  displayTitle: ComputedRef<string>
-  itemStyle: ComputedRef<string>
-  activeColor: ComputedRef<string>
-  closeOnClickOverlay: ComputedRef<boolean>
+  overlay: boolean
+  offset: number
+  direction: string
+  displayTitle: string
+  itemStyle: string
+  activeColor: string
+  closeOnClickOverlay: boolean
   dropdownMenuVm: IDropdownMenuVm
   currentIndex: number
   textField: string
   popperClass: string
-  getIcon: ComputedRef<object>
+  getIcon: object
 }
 
 export interface IDropdownItemApi {
@@ -79,15 +79,16 @@ export interface IDropdownItemApi {
   computedTip: ReturnType<typeof computedTip>
 }
 
-export type IDropdownItemRenderlessParams = ISharedRenderlessFunctionParams<IDropdownItemConstants> & {
-  state: IDropdownItemState
-  props: IDropdownItemProps
-  api: IDropdownItemApi
+export type IDropdownItemRenderlessParams = ISharedRenderlessFunctionParams<
+  IDropdownItemProps,
+  IDropdownItemState,
+  IDropdownItemApi
+> & {
   /** dropdown-menu 通过 provide('dropdownMenuVm') 暴露的 vm，供 dropdown-item 注入后访问 */
   dropdownMenuVm: ITinyVm
 }
 
-export type IDropdownItemRenderlessParamUtils = ISharedRenderlessParamUtils<IDropdownItemConstants>
+export type IDropdownItemRenderlessParamUtils = ISharedRenderlessParamUtils
 
 export interface IDropdownItemStyle {
   zIndex: number

@@ -18,10 +18,10 @@ export interface IUploadDraggerApi {
 
 export type IUploadDraggerProps = ExtractPropTypes<typeof UploadDraggerProps>
 
-export type IUploadDraggerRenderlessParamUtils = ISharedRenderlessParamUtils<IFileUploadConstants>
+export type IUploadDraggerRenderlessParamUtils = ISharedRenderlessParamUtils
 
-export type IUploadDraggerRenderlessParams = ISharedRenderlessFunctionParams<IFileUploadConstants> & {
-  state: IUploadDraggerState
-  props: IUploadDraggerProps
-  api: IUploadDraggerApi
-}
+export type IUploadDraggerRenderlessParams = ISharedRenderlessFunctionParams<
+  IUploadDraggerProps,
+  IUploadDraggerState,
+  IUploadDraggerApi
+>

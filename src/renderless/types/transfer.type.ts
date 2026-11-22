@@ -55,11 +55,7 @@ export type ITransferProps = ExtractPropTypes<typeof transferProps>
 
 export type ITransferConstants = typeof $constants
 
-export type ITransferRenderlessParams = ISharedRenderlessFunctionParams<ITransferConstants> & {
-  api: ITransferApi
-  state: ITransferState
-  props: ITransferProps
-}
+export type ITransferRenderlessParams = ISharedRenderlessFunctionParams<ITransferProps, ITransferState, ITransferApi>
 
 export interface ITransferApi {
   state: ITransferState
@@ -78,4 +74,4 @@ export interface ITransferApi {
   sortableEvent: ReturnType<typeof sortableEvent>
 }
 
-export type ITransferRenderlessParamUtils = ISharedRenderlessParamUtils<ITransferConstants>
+export type ITransferRenderlessParamUtils = ISharedRenderlessParamUtils

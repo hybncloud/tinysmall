@@ -12,10 +12,7 @@ export interface IButtonState {
   buttonDisabled: boolean
 }
 
-export type IButtonRenderlessParams = ISharedRenderlessFunctionParams & {
-  state: IButtonState
-  props: IButtonProps
-}
+export type IButtonRenderlessParams = ISharedRenderlessFunctionParams<IButtonProps, IButtonState>
 
 export type IButtonProps = ExtractPropTypes<typeof buttonProps>
 

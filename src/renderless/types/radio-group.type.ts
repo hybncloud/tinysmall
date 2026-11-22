@@ -11,10 +11,7 @@ export interface IRadioGroupState {
 
 export type IRadioGroupProps = ExtractPropTypes<typeof radioGroupProps>
 
-export type IRadioGroupRenderlessParams = ISharedRenderlessFunctionParams & {
-  state: IRadioGroupState
-  props: IRadioGroupProps
-}
+export type IRadioGroupRenderlessParams = ISharedRenderlessFunctionParams<IRadioGroupProps, IRadioGroupState>
 
 export interface IRadioGroupApi {
   state: IRadioGroupState

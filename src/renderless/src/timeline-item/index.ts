@@ -49,7 +49,7 @@ export const handleClick =
   }
 
 export const getStatusCls =
-  ({ state, props }: Pick<ITimelineItemRenderlessParams, 'constants' | 'state' | 'props'>) =>
+  ({ state, props }: Pick<ITimelineItemRenderlessParams, 'state' | 'props'>) =>
   (node: ITimelineItem): ITimelineStatusCls => {
     const index = props.nodeIndex
 

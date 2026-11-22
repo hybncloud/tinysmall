@@ -50,8 +50,4 @@ export interface IAnchorApi {
   handleScroll: ReturnType<typeof handleScroll>
 }
 
-export type IAnchorRenderlessParams = ISharedRenderlessFunctionParams & {
-  props: IAnchorProps
-  state: IAnchorState
-  api: IAnchorApi
-}
+export type IAnchorRenderlessParams = ISharedRenderlessFunctionParams<IAnchorProps, IAnchorState, IAnchorApi>

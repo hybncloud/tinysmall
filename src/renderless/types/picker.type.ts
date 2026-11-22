@@ -49,18 +49,18 @@ export interface IPickerState {
   valueOnOpen: null
   popperElm: HTMLElement | null
   unwatchPickerOptions: null
-  ranged: ComputedRef<boolean>
-  reference: ComputedRef<HTMLElement>
-  formDisabled: ComputedRef<boolean>
+  ranged: boolean
+  reference: HTMLElement
+  formDisabled: boolean
   refInput: ComputedRef<HTMLElement[]>
-  valueIsEmpty: ComputedRef<boolean>
-  triggerClass: ComputedRef<string>
-  selectionMode: ComputedRef<string>
-  haveTrigger: ComputedRef<boolean>
-  displayValue: ComputedRef<string>
+  valueIsEmpty: boolean
+  triggerClass: string
+  selectionMode: string
+  haveTrigger: boolean
+  displayValue: string
   parsedValue: ComputedRef<string | string[]>
-  pickerSize: ComputedRef<string>
-  pickerDisabled: ComputedRef<boolean>
+  pickerSize: string
+  pickerDisabled: boolean
   firstInputId: ComputedRef<{ id: string }>
   secondInputId: ComputedRef<{ id: string }>
   type: ComputedRef<string[]>
@@ -69,11 +69,11 @@ export interface IPickerState {
     to: number
     isServiceTimezone: boolean
   }>
-  valueFormat: ComputedRef<string>
-  format: ComputedRef<string>
+  valueFormat: string
+  format: string
   labelTooltip: string
   displayOnlyTooltip: string
-  isDisplayOnly: ComputedRef<boolean>
+  isDisplayOnly: boolean
 }
 
 export type IPickerRenderlessParamUtils = ISharedRenderlessParamUtils

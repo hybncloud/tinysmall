@@ -26,11 +26,8 @@ export type ITabItemProps = ExtractPropTypes<typeof tabItemProps>
 
 export type ITabItemConstants = typeof $constants
 
-export type ITabItemRenderlessParamUtils = ISharedRenderlessParamUtils<ITabItemConstants>
+export type ITabItemRenderlessParamUtils = ISharedRenderlessParamUtils
 
-export type ITabItemRenderlessParams = ISharedRenderlessFunctionParams<ITabItemConstants> & {
-  state: ITabItemState
-  props: ITabItemProps
-  api: ITabItemApi
+export type ITabItemRenderlessParams = ISharedRenderlessFunctionParams<ITabItemProps, ITabItemState, ITabItemApi> & {
   rootTabs: ITabsVm
 }

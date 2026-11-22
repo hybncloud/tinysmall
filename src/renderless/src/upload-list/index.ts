@@ -211,7 +211,7 @@ export const remove =
     emit('remove', file)
 
 export const calcUploadListLiWidth =
-  ({ vm, nextTick, props}: Pick<IUploadListRenderlessParams, 'vm' | 'nextTick' | 'props' | 'constants'>) =>
+  ({ vm, nextTick, props }: Pick<IUploadListRenderlessParams, 'vm' | 'nextTick' | 'props'>) =>
   () => {
     const { listType } = props
     const { LIST_TYPE } = $constants
@@ -241,7 +241,7 @@ export const calcUploadListLiWidth =
   }
 
 export const calcVisible =
-  ({ props, emit }: Pick<IUploadListRenderlessParams, 'props' | 'constants' | 'emit'>) =>
+  ({ props, emit }: Pick<IUploadListRenderlessParams, 'props' | 'emit'>) =>
   () => {
     const { SUCESS } = $constants.FILE_STATUS
     const isAllSuccess = props.files.every(({ status }) => status === SUCESS || !status)
@@ -249,7 +249,7 @@ export const calcVisible =
   }
 
 export const getNotSuccessFiles =
-  ({ props}: Pick<IUploadListRenderlessParams, 'props' | 'constants'>) =>
+  ({ props }: Pick<IUploadListRenderlessParams, 'props'>) =>
   (): object[] => {
     const { SUCESS } = $constants.FILE_STATUS
     let files = props.files
@@ -262,7 +262,7 @@ export const getNotSuccessFiles =
   }
 
 export const chooseFile =
-  ({ state}: Pick<IUploadListRenderlessParams, 'state' | 'constants'>) =>
+  ({ state }: Pick<IUploadListRenderlessParams, 'state'>) =>
   (type: string) => {
     const { SOURCE_AUDIO } = $constants.SOURCE_TYPE
     if (type === SOURCE_AUDIO) {

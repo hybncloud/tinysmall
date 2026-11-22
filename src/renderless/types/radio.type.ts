@@ -29,11 +29,8 @@ export interface IRadioState {
   model: string
 }
 
-export type IRadioRenderlessParams = ISharedRenderlessFunctionParams<IRadioConstants> & {
-  state: IRadioState
-  props: IRadioProps
+export type IRadioRenderlessParams = ISharedRenderlessFunctionParams<IRadioProps, IRadioState, IRadioApi> & {
   type: string
-  api: IRadioApi
 }
 
 export interface IRadioApi {
@@ -48,4 +45,4 @@ export interface IRadioApi {
   setModel: ReturnType<typeof setModel>
 }
 
-export type IRadioRenderlessParamUtils = ISharedRenderlessParamUtils<IRadioConstants>
+export type IRadioRenderlessParamUtils = ISharedRenderlessParamUtils

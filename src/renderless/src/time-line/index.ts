@@ -53,7 +53,7 @@ export const handleClick =
   }
 
 export const getStatusCls =
-  ({ state }: Pick<ITimelineRenderlessParams, 'constants' | 'state'>) =>
+  ({ state }: Pick<ITimelineRenderlessParams, 'state'>) =>
   (index: number, node?: ITimelineItem): ITimelineStatusCls => {
     const { PROCESS_DONE_CLS, PROCESS_CUR_CLS, PROCESS_WAIT_CLS, PROCESS_DISABLED_CLS, PROCESS_ERROR_CLS } = $constants
     const cls = {}

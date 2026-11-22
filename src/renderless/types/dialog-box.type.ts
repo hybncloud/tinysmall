@@ -43,7 +43,7 @@ export type IDialogBoxProps = ExtractPropTypes<typeof dialogBoxProps>
 export type IDialogBoxConstants = typeof $constants
 
 export interface IDialogBoxState {
-  emitter: ReturnType<ISharedRenderlessParamUtils<IDialogBoxConstants>['emitter']>
+  emitter: ReturnType<ISharedRenderlessParamUtils['emitter']>
   key: number
   x: number | string | null
   y: number | string | null
@@ -89,13 +89,13 @@ export interface IDialogBoxApi {
   handleDrag: ReturnType<typeof handleDrag>
 }
 
-export type IDialogBoxRenderlessParams = ISharedRenderlessFunctionParams<IDialogBoxConstants> & {
-  api: IDialogBoxApi
-  props: IDialogBoxProps
-  state: IDialogBoxState
-}
+export type IDialogBoxRenderlessParams = ISharedRenderlessFunctionParams<
+  IDialogBoxProps,
+  IDialogBoxState,
+  IDialogBoxApi
+>
 
-export type IDialogBoxRenderlessParamUtils = ISharedRenderlessParamUtils<IDialogBoxConstants>
+export type IDialogBoxRenderlessParamUtils = ISharedRenderlessParamUtils
 
 export type IDialogBoxMergeStateParam = Pick<IDialogBoxRenderlessParams, 'reactive' | 'state' | 'toRefs'> & {
   usePopups: object
@@ -103,7 +103,7 @@ export type IDialogBoxMergeStateParam = Pick<IDialogBoxRenderlessParams, 'reacti
 
 export type IDialogBoxInitApiParam = Pick<
   IDialogBoxRenderlessParams,
-  'api' | 'state' | 'props' | 'emit' | 'constants' | 'nextTick' | 'vm'
+  'api' | 'state' | 'props' | 'emit' | 'nextTick' | 'vm'
 > & { usePopups: object; lockScrollClass: string }
 
 export interface IDialogBoxInitWatchParam {

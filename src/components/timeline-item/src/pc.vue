@@ -214,7 +214,7 @@ export default defineComponent({
       renderless,
       api,
       mono: true
-    }) as unknown as ITimelineItemApi
+    })
   }
 })
 </script>

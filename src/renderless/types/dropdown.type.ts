@@ -55,13 +55,9 @@ export interface IDropdownApi {
   toggleFocusOnFalse: () => void
 }
 
-export type IDropdownRenderlessParams = ISharedRenderlessFunctionParams<null> & {
-  state: IDropdownState
-  props: IDropdownProps
-  api: IDropdownApi
-}
+export type IDropdownRenderlessParams = ISharedRenderlessFunctionParams<IDropdownProps, IDropdownState, IDropdownApi>
 
-export type IDropdownRenderlessParamUtils = ISharedRenderlessParamUtils<null>
+export type IDropdownRenderlessParamUtils = ISharedRenderlessParamUtils
 
 export type IDropdownVm =
   | (ComponentPublicInstance & {

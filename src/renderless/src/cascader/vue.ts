@@ -88,14 +88,14 @@ const initState = ({
   vm,
   inject
 }: {
-  reactive: ISharedRenderlessFunctionParams<null>['reactive']
+  reactive: ISharedRenderlessFunctionParams['reactive']
   props: ICascaderProps
-  computed: ISharedRenderlessFunctionParams<null>['computed']
+  computed: ISharedRenderlessFunctionParams['computed']
   api: ICascaderApi
   t: ICascadeRenderlessParamUtils['t']
   constants: ICascaderConstants
   vm: ICascadeRenderlessParamUtils['vm']
-  inject: ISharedRenderlessFunctionParams<null>['inject']
+  inject: ISharedRenderlessFunctionParams['inject']
 }) => {
   const state = reactive({
     showAutoWidth: inject('showAutoWidth', null),
@@ -205,7 +205,7 @@ const initWatch = ({
   nextTick,
   updatePopper
 }: {
-  watch: ISharedRenderlessFunctionParams<null>['watch']
+  watch: ISharedRenderlessFunctionParams['watch']
   state: ICascaderState
   api: ICascaderApi
   props: ICascaderProps
@@ -270,7 +270,7 @@ export const renderless = (
     watch,
     inject,
     provide
-  }: ISharedRenderlessFunctionParams<null>,
+  }: ISharedRenderlessFunctionParams,
   { t, emit, nextTick, slots, vm }: ICascadeRenderlessParamUtils
 ) => {
   // 下发自身 vm，供 cascader-panel 注入，替代 $parent 链访问

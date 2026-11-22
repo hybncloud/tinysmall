@@ -61,9 +61,6 @@ export interface ITooltipApi {
   observeCallback: ReturnType<typeof observeCallback>
 }
 
-export type ITooltipRenderlessParams = ISharedRenderlessFunctionParams & {
-  props: ITooltipProps
-  state: ITooltipState
-  api: ITooltipApi
+export type ITooltipRenderlessParams = ISharedRenderlessFunctionParams<ITooltipProps, ITooltipState, ITooltipApi> & {
   popperVmRef: { popper: HTMLElement }
 }

@@ -23,10 +23,7 @@ export type ILoadingProps = ExtractPropTypes<typeof loadingProps>
 
 export type ILoadingConstants = typeof constants
 
-export type ILoadingRenderlessParams = ISharedRenderlessFunctionParams<ILoadingConstants> & {
-  state: ILoadingState
-  props: ILoadingProps
-}
+export type ILoadingRenderlessParams = ISharedRenderlessFunctionParams<ILoadingProps, ILoadingState>
 
 export interface ILoadingApi {
   state: ILoadingState
@@ -35,4 +32,4 @@ export interface ILoadingApi {
   close: ReturnType<typeof close>
 }
 
-export type ILoadingRenderlessParamUtils = ISharedRenderlessParamUtils<ILoadingConstants>
+export type ILoadingRenderlessParamUtils = ISharedRenderlessParamUtils

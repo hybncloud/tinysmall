@@ -19,11 +19,7 @@ export type IAlertProps = ExtractPropTypes<typeof alertProps>
 
 export type IAlertConstants = typeof $constants
 
-export type IAlertRenderlessParams = ISharedRenderlessFunctionParams<IAlertConstants> & {
-  api: IAlertApi
-  state: IAlertState
-  props: IAlertProps
-}
+export type IAlertRenderlessParams = ISharedRenderlessFunctionParams<IAlertProps, IAlertState, IAlertApi>
 
 export interface IAlertApi {
   state: IAlertState
@@ -35,4 +31,4 @@ export interface IAlertApi {
   computedStyle: () => CSSProperties
 }
 
-export type IAlertRenderlessParamUtils = ISharedRenderlessParamUtils<IAlertConstants>
+export type IAlertRenderlessParamUtils = ISharedRenderlessParamUtils

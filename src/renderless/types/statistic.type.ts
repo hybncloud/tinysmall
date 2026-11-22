@@ -16,8 +16,8 @@ export interface IStatisticApi {
   getIntegerAndDecimal: (value: string | number) => string | undefined
   animateValue: () => void
 }
-export type IStatisticPcRenderlessParams = ISharedRenderlessFunctionParams & {
-  state: IStatisticState
-  props: IStatisticProps
-  api: IStatisticApi
-}
+export type IStatisticPcRenderlessParams = ISharedRenderlessFunctionParams<
+  IStatisticProps,
+  IStatisticState,
+  IStatisticApi
+>

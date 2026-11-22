@@ -62,9 +62,6 @@ export interface IPopoverApi {
   observeCallback: ReturnType<typeof observeCallback>
 }
 
-export type IPopoverRenderlessParams = ISharedRenderlessFunctionParams & {
-  props: IPopoverProps
-  state: IPopoverState
-  api: IPopoverApi
+export type IPopoverRenderlessParams = ISharedRenderlessFunctionParams<IPopoverProps, IPopoverState, IPopoverApi> & {
   updatePopper: () => void
 }

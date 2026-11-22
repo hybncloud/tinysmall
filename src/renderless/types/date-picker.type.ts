@@ -6,7 +6,7 @@ export type IDatePickerProps = ExtractPropTypes<typeof datePickerProps>
 
 export type IDatePickerConstants = typeof $constants
 
-export type IDatePickerRenderlessParamUtils = ISharedRenderlessParamUtils<IDatePickerConstants>
+export type IDatePickerRenderlessParamUtils = ISharedRenderlessParamUtils
 
 export interface IDatePickerColumn {
   type: string
@@ -54,8 +54,8 @@ export interface IDatePickerApi {
   onChange: () => void
 }
 
-export type IDatePickerRenderlessParams = ISharedRenderlessFunctionParams<IDatePickerConstants> & {
-  api: IDatePickerApi
-  state: IDatePickerState
-  props: IDatePickerProps
-}
+export type IDatePickerRenderlessParams = ISharedRenderlessFunctionParams<
+  IDatePickerProps,
+  IDatePickerState,
+  IDatePickerApi
+>

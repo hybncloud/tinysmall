@@ -46,13 +46,13 @@ export const handleClose =
   }
 
 export const computedGetIcon =
-  ({ props }: Pick<IAlertRenderlessParams, 'constants' | 'props'>) =>
+  ({ props }: Pick<IAlertRenderlessParams, 'props'>) =>
   () => {
     return props.icon || $constants.ICON_MAP[props.type]
   }
 
 export const computedGetTitle =
-  ({ t, props }: Pick<IAlertRenderlessParams, 'constants' | 't' | 'props'>) =>
+  ({ t, props }: Pick<IAlertRenderlessParams, 't' | 'props'>) =>
   () =>
     props.title || t($constants.TITLE_MAP[props.type])
 

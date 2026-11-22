@@ -32,11 +32,7 @@ export interface IStepsApi {
   computedRightNodePos: ReturnType<typeof computedRightNodePos>
 }
 
-export type IStepsRenderlessParams = ISharedRenderlessFunctionParams & {
-  props: IStepsProps
-  state: IStepsState
-  api: IStepsApi
-}
+export type IStepsRenderlessParams = ISharedRenderlessFunctionParams<IStepsProps, IStepsState, IStepsApi>
 
 export type IStepsVisibleConfig = 'hidden-left' | 'hidden-right' | 'visible'
 

@@ -18,11 +18,7 @@ export interface ISearchState {
 
 export type ISearchProps = ExtractPropTypes<typeof searchProps>
 
-export type ISearchRenderlessParams = ISharedRenderlessFunctionParams & {
-  state: ISearchState
-  props: ISearchProps
-  api: ISearchApi
-}
+export type ISearchRenderlessParams = ISharedRenderlessFunctionParams<ISearchProps, ISearchState, ISearchApi>
 
 export interface ISearchValue {
   text: string

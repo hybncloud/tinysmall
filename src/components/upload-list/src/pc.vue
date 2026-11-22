@@ -395,7 +395,7 @@ export default defineComponent({
   emits: ['click-file-list', 'remove', 'start', 'update:visible', 'update', 'reUpload', 'ReUploadTotal'],
   props: uploadListProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api }) as unknown as IUploadListApi
+    return setup({ props, context, renderless, api })
   }
 })
 </script>

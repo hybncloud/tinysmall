@@ -104,7 +104,7 @@ export default defineComponent({
   emits: ['load', 'error', 'delete', 'change-index'],
   props: imageProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api }) as unknown as IImageApi
+    return setup({ props, context, renderless, api })
   }
 })
 </script>

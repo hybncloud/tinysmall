@@ -98,7 +98,7 @@ export default defineComponent({
     return { dialog: this }
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api }) as unknown as IModalApi
+    return setup({ props, context, renderless, api })
   },
   render() {
     let {

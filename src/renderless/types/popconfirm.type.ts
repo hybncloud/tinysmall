@@ -13,11 +13,11 @@ export type IPopconfirmProps = ExtractPropTypes<typeof popConfirmProps>
 
 export type IPopconfirmConstants = typeof $constants
 
-export type IPopconfirmRenderlessParams = ISharedRenderlessFunctionParams<IPopconfirmConstants> & {
-  api: IPopconfirmApi
-  state: IPopconfirmState
-  props: IPopconfirmProps
-}
+export type IPopconfirmRenderlessParams = ISharedRenderlessFunctionParams<
+  IPopconfirmProps,
+  IPopconfirmState,
+  IPopconfirmApi
+>
 
 export interface IPopconfirmApi {
   state: IPopconfirmState
@@ -28,4 +28,4 @@ export interface IPopconfirmApi {
   handleDocumentClick: ReturnType<typeof handleDocumentClick>
 }
 
-export type IPopconfirmRenderlessParamUtils = ISharedRenderlessParamUtils<IPopconfirmConstants>
+export type IPopconfirmRenderlessParamUtils = ISharedRenderlessParamUtils

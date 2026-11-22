@@ -239,7 +239,7 @@ export default defineComponent({
     return { dialog: this }
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api }) as unknown as IDialogBoxApi
+    return setup({ props, context, renderless, api })
   }
 })
 </script>

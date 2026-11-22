@@ -263,7 +263,7 @@ export default defineComponent({
     loading: Loading.directive
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api }) as unknown as IPagerApi
+    return setup({ props, context, renderless, api })
   },
   components: {
     TinyPopover: Popover,

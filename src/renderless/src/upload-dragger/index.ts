@@ -83,7 +83,7 @@ export const onDrop =
   }
 
 export const watchDragover =
-  ({ state}: Pick<IUploadDraggerRenderlessParams, 'state' | 'constants'>) =>
+  ({ state }: Pick<IUploadDraggerRenderlessParams, 'state'>) =>
   () => {
     state.uploader.$emit('drag-over', state.dragover)
   }

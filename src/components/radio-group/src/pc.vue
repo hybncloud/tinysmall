@@ -75,7 +75,7 @@ export default defineComponent({
   emits: ['change', 'update:modelValue'],
   props: radioGroupProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api }) as unknown as IRadioGroupApi
+    return setup({ props, context, renderless, api })
   }
 })
 </script>

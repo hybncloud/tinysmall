@@ -107,7 +107,7 @@ const initState = ({
 
   api,
   vm
-}: Pick<IInputRenderlessParams, 'reactive' | 'computed' | 'props' | 'constants' | 'api' | 'vm'> & { inject: any }) => {
+}: Pick<IInputRenderlessParams, 'reactive' | 'computed' | 'props' | 'api' | 'vm'> & { inject: any }) => {
   const state = reactive({
     maskSymbol: $constants.MASKSYMBOL,
     focused: false,
@@ -141,7 +141,8 @@ const initState = ({
     validateIcon: computed(() => $constants.VALIDATE_ICON[state.validateState]),
     showWordLimit: computed(() => props.showWordLimit && attrs.maxlength),
     inputDisabled: computed(
-      () => props.disabled || (state.tinyForm || {}).disabled || state.isDisplayOnly || (state.tinyForm || {}).displayOnly
+      () =>
+        props.disabled || (state.tinyForm || {}).disabled || state.isDisplayOnly || (state.tinyForm || {}).displayOnly
     ),
     validateState: computed(() => (state.formItem ? state.formItem.validateState : '')),
     inputStyle: computed(() => api.inputStyle()),
@@ -193,10 +194,7 @@ const initApi = ({
   props,
   nextTick,
   slots
-}: Pick<
-  IInputRenderlessParams,
-  'api' | 'state' | 'emit' | 'refs' | 'props' | 'vm' | 'nextTick' | 'slots'
->) => {
+}: Pick<IInputRenderlessParams, 'api' | 'state' | 'emit' | 'refs' | 'props' | 'vm' | 'nextTick' | 'slots'>) => {
   Object.assign(api, {
     state,
     showBox: showBox(state),
@@ -229,7 +227,7 @@ const mergeApi = ({
   nextTick,
   state,
   vm
-}: Pick<IInputRenderlessParams, 'api' | 'emit' | 'props' | 'state' | 'nextTick' | 'vm' | 'constants'> & {
+}: Pick<IInputRenderlessParams, 'api' | 'emit' | 'props' | 'state' | 'nextTick' | 'vm'> & {
   storages: ReturnType<typeof useStorageBox>
   eventName: IInputEventNameConstants
 }) => {
@@ -260,8 +258,7 @@ const mergeApi = ({
       api,
       hiddenTextarea: null,
       props,
-      state,
-      
+      state
     }),
     setNativeInputValue: setNativeInputValue({ api, state }),
     handleCompositionEnd: handleCompositionEnd({ api, state }),

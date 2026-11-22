@@ -97,7 +97,7 @@ export default defineComponent({
   directives: { AutoTip },
   props: radioProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api }) as unknown as IRadioApi
+    return setup({ props, context, renderless, api })
   }
 })
 </script>

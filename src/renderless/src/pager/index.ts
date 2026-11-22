@@ -162,7 +162,7 @@ export const watchShowSizes =
     if (newVal) {
       nextTick(() => {
         const width = vm.$refs.pageSize[0].getBoundingClientRect().width
-        const popover = document.querySelectorAll('.tiny-pager__selector') as unknown as HTMLElement[]
+        const popover = document.querySelectorAll('.tiny-pager__selector')
         Array.from(popover).forEach((ele) => {
           ele.style.width = width + 'px'
         })

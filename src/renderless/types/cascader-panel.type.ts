@@ -130,10 +130,11 @@ export interface ICascaderPanelApi {
   handleKeyDown: ReturnType<typeof handleKeyDown>
 }
 
-export type ICascaderPanelRenderlessParams = ISharedRenderlessFunctionParams & {
-  state: ICascaderPanelState
-  props: ICascaderPanelProps
-  api: ICascaderPanelApi
+export type ICascaderPanelRenderlessParams = ISharedRenderlessFunctionParams<
+  ICascaderPanelProps,
+  ICascaderPanelState,
+  ICascaderPanelApi
+> & {
   Store: typeof Store
   menus: ICascaderPanelRenderlessParams['vm'][]
 }

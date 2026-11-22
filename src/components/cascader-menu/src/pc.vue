@@ -61,8 +61,7 @@ const CascaderMenu = defineComponent({
     }
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api }) as unknown as ICascaderMenuApi &
-      Pick<ICascaderMenuRenderlessParams, 'panel'>
+    return setup({ props, context, renderless, api }) & Pick<ICascaderMenuRenderlessParams, 'panel'>
   },
   render() {
     const parentVm = this.cascaderRoot || this.panel || this

@@ -4,9 +4,7 @@ import type { ISharedRenderlessFunctionParams, ISharedRenderlessParamUtils } fro
 
 export type IBreadcrumbItemProps = ExtractPropTypes<typeof breadcrumbItemProps>
 
-export type IBreadcrumbItemRenderlessParams = ISharedRenderlessFunctionParams & {
-  props: IBreadcrumbItemProps
-}
+export type IBreadcrumbItemRenderlessParams = ISharedRenderlessFunctionParams<IBreadcrumbItemProps>
 
 export interface IBreadcrumbItemApi {
   state: string | undefined

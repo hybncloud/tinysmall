@@ -12,14 +12,11 @@ export type IBreadcrumbProps = ExtractPropTypes<typeof breadcrumbProps>
 
 export type IBreadcrumbConstants = typeof $constants
 
-export type IBreadcrumbRenderlessParams = ISharedRenderlessFunctionParams<IBreadcrumbConstants> & {
-  state: IBreadcrumbState
-  props: IBreadcrumbProps
-}
+export type IBreadcrumbRenderlessParams = ISharedRenderlessFunctionParams<IBreadcrumbProps, IBreadcrumbState>
 
 export interface IBreadcrumbApi {
   state: IBreadcrumbState
   breadcrumbItemSelect: () => void
 }
 
-export type IBreadcrumbRenderlessParamUtils = ISharedRenderlessParamUtils<IBreadcrumbConstants>
+export type IBreadcrumbRenderlessParamUtils = ISharedRenderlessParamUtils

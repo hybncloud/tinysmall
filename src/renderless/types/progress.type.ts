@@ -73,12 +73,8 @@ export interface IProgressApi {
 
 export type IProgressConstants = typeof $constants
 
-export type IProgressRenderlessParamUtils = ISharedRenderlessParamUtils<IProgressConstants> & {
+export type IProgressRenderlessParamUtils = ISharedRenderlessParamUtils & {
   constants: IProgressConstants
 }
 
-export type IProgressRenderlessParams = ISharedRenderlessFunctionParams<IProgressConstants> & {
-  state: IProgressState
-  props: IProgressProps
-  api: IProgressApi
-}
+export type IProgressRenderlessParams = ISharedRenderlessFunctionParams<IProgressProps, IProgressState, IProgressApi>

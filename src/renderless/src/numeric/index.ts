@@ -168,7 +168,7 @@ export const decrease =
   }
 
 export const handleBlur =
-  ({ emit, props, state, api }: Pick<INumericRenderlessParams, 'constants' | 'emit' | 'props' | 'state' | 'api'>) =>
+  ({ emit, props, state, api }: Pick<INumericRenderlessParams, 'emit' | 'props' | 'state' | 'api'>) =>
   (event: FocusEvent): void => {
     state.inputStatus = false
     api.setCurrentValue(event.target.value)
@@ -252,7 +252,7 @@ export const setCurrentValue =
     emit,
     props,
     state
-  }: Pick<INumericRenderlessParams, 'api' | 'constants' | 'emit' | 'props' | 'state'>) =>
+  }: Pick<INumericRenderlessParams, 'api' | 'emit' | 'props' | 'state'>) =>
   (newVal: number, emitChangeFlag = true): void => {
     const { max, min, allowEmpty, validateEvent, stringMode, plugin, emptyValue } = props
     const { format } = state
@@ -373,7 +373,7 @@ export const handleInputChange =
 export const select = (vm: INumericRenderlessParams['vm']) => () => vm.$refs.input.select()
 
 export const mounted =
-  ({ vm, props, state }: Pick<INumericRenderlessParams, 'constants' | 'vm' | 'props' | 'state'>) =>
+  ({ vm, props, state }: Pick<INumericRenderlessParams, 'vm' | 'props' | 'state'>) =>
   (): void => {
     if (props.shape === 'filter') {
       state.controls = false
@@ -417,7 +417,7 @@ export const unmounted =
   }
 
 export const updated =
-  ({ vm, state }: Pick<INumericRenderlessParams, 'constants' | 'vm' | 'state'>) =>
+  ({ vm, state }: Pick<INumericRenderlessParams, 'vm' | 'state'>) =>
   (): void => {
     const innerInput = vm.$el.querySelector('input')
 

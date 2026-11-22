@@ -31,7 +31,7 @@ export type ITimelineItemProps = ExtractPropTypes<typeof timelineItemProps>
 
 export type ITimelineItemConstants = typeof $constants
 
-export type ITimelineItemRenderlessParamUtils = ISharedRenderlessParamUtils<ITimelineItemConstants>
+export type ITimelineItemRenderlessParamUtils = ISharedRenderlessParamUtils
 
 export type TimelineItemType = 'primary' | 'success' | 'warning' | 'error' | 'info'
 
@@ -61,11 +61,11 @@ export interface ITimelineItemApi {
   computedIconClass: ReturnType<typeof computedIconClass>
 }
 
-export type ITimelineItemRenderlessParams = ISharedRenderlessFunctionParams<ITimelineItemConstants> & {
-  api: ITimelineItemApi
-  state: ITimelineItemState
-  props: ITimelineItemProps
-}
+export type ITimelineItemRenderlessParams = ISharedRenderlessFunctionParams<
+  ITimelineItemProps,
+  ITimelineItemState,
+  ITimelineItemApi
+>
 
 export interface ITimelineItem {
   index: number

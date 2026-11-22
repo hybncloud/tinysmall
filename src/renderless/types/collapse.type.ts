@@ -11,10 +11,11 @@ export interface ICollapseState {
   activeNames: Array<string>
 }
 
-export type ICollapseRenderlessParams = ISharedRenderlessFunctionParams<ICollapseConstants> & {
-  api: ICollapseApi
-  state: ICollapseState
-  props: ICollapseProps
+export type ICollapseRenderlessParams = ISharedRenderlessFunctionParams<
+  ICollapseProps,
+  ICollapseState,
+  ICollapseApi
+> & {
   constants: ICollapseConstants
 }
 
@@ -24,4 +25,4 @@ export interface ICollapseApi {
   handleItemClick: ReturnType<typeof handleItemClick>
 }
 
-export type ICollapseRenderlessParamUtils = ISharedRenderlessParamUtils<ICollapseConstants>
+export type ICollapseRenderlessParamUtils = ISharedRenderlessParamUtils

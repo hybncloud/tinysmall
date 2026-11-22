@@ -81,10 +81,10 @@ const initApi = ({
   emit,
   props,
   vm,
-  
+
   nextTick,
   attrs
-}: Pick<IImageRenderlessParams, 'state' | 'emit' | 'api' | 'props' | 'vm' | 'constants' | 'nextTick' | 'attrs'>) => {
+}: Pick<IImageRenderlessParams, 'state' | 'emit' | 'api' | 'props' | 'vm' | 'nextTick' | 'attrs'>) => {
   Object.assign(api, {
     state,
     closeViewer: closeViewer(state),

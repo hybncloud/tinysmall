@@ -61,12 +61,9 @@ export interface IImageApi {
 }
 
 /** image的混合上下文 */
-export type IImageRenderlessParams = ISharedRenderlessFunctionParams<IImageConstants> & {
-  state: IImageState
-  props: IImageProps
-  api: IImageApi
+export type IImageRenderlessParams = ISharedRenderlessFunctionParams<IImageProps, IImageState, IImageApi> & {
   images: any
 }
 
 /** renderless第3参 */
-export type IImageRenderlessParamUtils = ISharedRenderlessParamUtils<IImageConstants>
+export type IImageRenderlessParamUtils = ISharedRenderlessParamUtils

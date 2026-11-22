@@ -65,7 +65,7 @@ export const handlePaste =
   }
 
 export const getFormData =
-  ({ state, props }: Pick<IUploadRenderlessParams, 'constants' | 'state' | 'props'>) =>
+  ({ state, props }: Pick<IUploadRenderlessParams, 'state' | 'props'>) =>
   ({ formData, file, type }: { formData: IUploadFormData; file: IFileUploadFile; type: string }) => {
     const uploaderInner = state.uploader
     if (uploaderInner.edm.upload) {
@@ -108,11 +108,11 @@ export const getFormData =
 export const uploadFiles =
   ({
     state,
-    
+
     Modal,
     props,
     t
-  }: Pick<IUploadRenderlessParams, 'state' | 'constants' | 'props' | 't'> & IFileUploadModalVm) =>
+  }: Pick<IUploadRenderlessParams, 'state' | 'props' | 't'> & IFileUploadModalVm) =>
   (files: FileList | IFileUploadFile[]) => {
     if (state.updateId === '') {
       if (props.limit && props.fileList.length + files.length > props.limit) {
@@ -202,7 +202,7 @@ export const upload =
   }
 
 export const abort =
-  ({ state, props}: Pick<IUploadRenderlessParams, 'state' | 'props' | 'constants'>) =>
+  ({ state, props }: Pick<IUploadRenderlessParams, 'state' | 'props'>) =>
   (file: IFileUploadFile) => {
     const { reqs } = state
     const cancel = function (uid) {
@@ -283,7 +283,7 @@ const modifyOptionsOfPost = ({
   uid,
   uploaderInner,
   api
-}: Pick<IUploadRenderlessParams, 'service' | 'props' | 'state' | 'api' | 'constants'> &
+}: Pick<IUploadRenderlessParams, 'service' | 'props' | 'state' | 'api'> &
   IUploadRenderlessOtherParams & { options: IUploadOptionsOfPost }) => {
   if (service && service.network && props.httpRequest === service.network.request) {
     options.method = 'post'
@@ -364,11 +364,11 @@ const getOptionsOfHwh5 = ({
 export const post =
   ({
     api,
-    
+
     props,
     state,
     service
-  }: Pick<IUploadRenderlessParams, 'api' | 'constants' | 'props' | 'state' | 'service'>) =>
+  }: Pick<IUploadRenderlessParams, 'api' | 'props' | 'state' | 'service'>) =>
   (rawFile: IFileUploadFile) => {
     const { uid } = rawFile
     const uploaderInner = state.uploader
@@ -378,7 +378,7 @@ export const post =
       options = getOptionsOfHwh5({ state, props, rawFile, uploaderInner, uid })
     } else {
       options = getOptionsOfPost({ props, state, rawFile, uploaderInner, uid })
-      modifyOptionsOfPost({ service, props, options, rawFile, state, uid, uploaderInner, api})
+      modifyOptionsOfPost({ service, props, options, rawFile, state, uid, uploaderInner, api })
     }
 
     const excuteReq = (options) => {

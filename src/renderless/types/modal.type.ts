@@ -29,11 +29,7 @@ export type IModalProps = ExtractPropTypes<typeof modalProps>
 
 export type IModalConstants = typeof $constants
 
-export type IModalRenderlessParams = ISharedRenderlessFunctionParams<IModalConstants> & {
-  api: IModalApi
-  state: IModalState
-  props: IModalProps
-}
+export type IModalRenderlessParams = ISharedRenderlessFunctionParams<IModalProps, IModalState, IModalApi>
 
 export interface IModalApi {
   state: IModalState
@@ -67,7 +63,7 @@ export interface IModalApi {
   resetModalViewPosition: () => void
 }
 
-export type IModalRenderlessParamUtils = ISharedRenderlessParamUtils<IModalConstants>
+export type IModalRenderlessParamUtils = ISharedRenderlessParamUtils
 
 export interface IModalEmitParam {
   type: string

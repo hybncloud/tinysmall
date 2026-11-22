@@ -113,10 +113,11 @@ export type IFormItemConstants = typeof $constants
 
 export type IFormItemProps = ExtractPropTypes<typeof formItemProps>
 
-export type IFormItemRenderlessParams = ISharedRenderlessFunctionParams<IFormItemConstants> & {
-  state: IFormItemState
-  props: IFormItemProps
-  api: IFormItemApi
+export type IFormItemRenderlessParams = ISharedRenderlessFunctionParams<
+  IFormItemProps,
+  IFormItemState,
+  IFormItemApi
+> & {
   instance: IFormItemInstance
   validateFunc: Function
 }
@@ -158,6 +159,6 @@ export interface IFormItemApi {
   handleMouseleave: ReturnType<typeof handleMouseleave>
 }
 
-export type IFormItemRenderlessParamUtils = ISharedRenderlessParamUtils<IFormItemConstants>
+export type IFormItemRenderlessParamUtils = ISharedRenderlessParamUtils
 
 export type IFormItemInstance = ITinyVm<IFormItemConstants> & IFormItemProps & IFormItemApi

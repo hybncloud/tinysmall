@@ -46,10 +46,7 @@ export interface IFormState {
 
 export type IFormProps = ExtractPropTypes<typeof formProps>
 
-export type IFormRenderlessParams = ISharedRenderlessFunctionParams & {
-  state: IFormState
-  props: IFormProps
-  api: IFormApi
+export type IFormRenderlessParams = ISharedRenderlessFunctionParams<IFormProps, IFormState, IFormApi> & {
   dialog: ITinyVm | null
 }
 

@@ -29,10 +29,7 @@ export type IRadioButtonProps = ExtractPropTypes<typeof radioButtonProps>
 
 export type IRadioButtonConstants = typeof $constants
 
-export type IRadioButtonRenderlessParams = ISharedRenderlessFunctionParams<IRadioButtonConstants> & {
-  state: IRadioButtonState
-  props: IRadioButtonProps
-}
+export type IRadioButtonRenderlessParams = ISharedRenderlessFunctionParams<IRadioButtonProps, IRadioButtonState>
 
 export interface IRadioButtonApi {
   state: IRadioButtonState
@@ -47,4 +44,4 @@ export interface IRadioButtonApi {
   handleBlur: ReturnType<typeof handleBlur>
 }
 
-export type IRadioButtonRenderlessParamUtils = ISharedRenderlessParamUtils<IRadioButtonConstants>
+export type IRadioButtonRenderlessParamUtils = ISharedRenderlessParamUtils

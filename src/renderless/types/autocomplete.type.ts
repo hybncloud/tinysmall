@@ -27,16 +27,16 @@ export interface IAutoCompleteState {
   highlightedIndex: number
   suggestionDisabled: boolean
   id: string
-  suggestionVisible: ComputedRef<boolean>
+  suggestionVisible: boolean
   validateEvent: boolean
 }
 export type IAutoCompleteProps = ExtractPropTypes<typeof autoCompleteProps>
 
-export type IAutoCompleteRenderlessParams = ISharedRenderlessFunctionParams<IAutoCompleteConstants> & {
-  state: IAutoCompleteState
-  props: IAutoCompleteProps
-  api: IAutoCompleteApi
-}
+export type IAutoCompleteRenderlessParams = ISharedRenderlessFunctionParams<
+  IAutoCompleteProps,
+  IAutoCompleteState,
+  IAutoCompleteApi
+>
 export interface IAutoCompleteApi {
   state: IAutoCompleteState
   doDestroy: (forceDestroy?: boolean | undefined) => void
@@ -56,4 +56,4 @@ export interface IAutoCompleteApi {
 
 export type IAutoCompleteConstants = typeof autoCompleteConstants
 
-export type IAutoCompleteRenderlessParamUtils = ISharedRenderlessParamUtils<IAutoCompleteConstants>
+export type IAutoCompleteRenderlessParamUtils = ISharedRenderlessParamUtils

@@ -44,10 +44,7 @@ export interface IActionMenuState {
 
 export type IActionMenuProps = ExtractPropTypes<typeof actionMenuProps>
 
-export type IActionMenuRenderlessParams = ISharedRenderlessFunctionParams<null> & {
-  state: IActionMenuState
-  props: IActionMenuProps
-}
+export type IActionMenuRenderlessParams = ISharedRenderlessFunctionParams<IActionMenuProps, IActionMenuState>
 
 export interface IActionMenuItemData {
   itemData: object
@@ -66,4 +63,4 @@ export interface IActionMenuApi {
   state: IActionMenuState
 }
 
-export type IActionMenuRenderlessParamUtils = ISharedRenderlessParamUtils<null>
+export type IActionMenuRenderlessParamUtils = ISharedRenderlessParamUtils

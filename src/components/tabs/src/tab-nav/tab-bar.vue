@@ -26,7 +26,7 @@ export default defineComponent({
   name: 'TinyTabBar',
   props: tabBarProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api }) as unknown as ITabBarPcApi
+    return setup({ props, context, renderless, api })
   }
 })
 </script>

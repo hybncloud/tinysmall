@@ -47,7 +47,7 @@
 import { renderless, api } from '@tinysmall/renderless/button/vue'
 import { setup, defineComponent } from '@tinysmall/common'
 import type { PropType } from '@tinysmall/common'
-import type { SlotsType } from 'vue'
+import type { ButtonHTMLAttributes, SlotsType } from 'vue'
 import { iconLoadingShadow } from '@tinysmall/icon'
 import '@tinysmall/theme/button/index.less'
 
@@ -76,7 +76,7 @@ export const buttonProps = {
   },
   /** 对应按钮原生 type 属性  */
   nativeType: {
-    type: String,
+    type: String as PropType<ButtonHTMLAttributes['type']>,
     default: 'button'
   },
   /** 定义按钮尺寸 */

@@ -13,12 +13,7 @@ import { $constants } from './constants'
 import type { IRadioRenderlessParams, IRadioState } from '../../types'
 
 export const handleChange =
-  ({
-    
-    emit,
-    state,
-    nextTick
-  }: Pick<IRadioRenderlessParams, 'constants' | 'emit' | 'state' | 'nextTick'>) =>
+  ({ emit, state, nextTick }: Pick<IRadioRenderlessParams, 'emit' | 'state' | 'nextTick'>) =>
   (): void => {
     nextTick(() => {
       emit('change', state.model)
@@ -67,12 +62,7 @@ export const getModel =
     state.isGroup && state.radioGroup ? state.radioGroup.modelValue : props.modelValue
 
 export const setModel =
-  ({
-    emit,
-    props,
-    vm,
-    state
-  }: Pick<IRadioRenderlessParams, 'constants' | 'emit' | 'props' | 'vm' | 'state'>) =>
+  ({ emit, props, vm, state }: Pick<IRadioRenderlessParams, 'emit' | 'props' | 'vm' | 'state'>) =>
   (val: IRadioState['model']): void => {
     if (state.isGroup) {
       // 替代 dispatch(RADIO_GROUP, 'update:modelValue')：同上，走 $emitter 纯总线广播（group 桥接到 v-model）

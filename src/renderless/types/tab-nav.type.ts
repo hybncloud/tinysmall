@@ -92,9 +92,6 @@ export interface ITabNavApi {
 
 export type ITabNavRenderlessParamUtils = ISharedRenderlessParamUtils
 
-export type ITabNavRenderlessParams = ISharedRenderlessFunctionParams & {
-  state: ITabNavState
-  props: ITabNavProps
-  api: ITabNavApi
+export type ITabNavRenderlessParams = ISharedRenderlessFunctionParams<ITabNavProps, ITabNavState, ITabNavApi> & {
   rootTabs: ITabsVm
 }

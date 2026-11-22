@@ -207,7 +207,7 @@ export default defineComponent({
       context,
       renderless,
       api
-    }) as unknown as IFileUploadApi
+    })
   },
   components: {
     TinyProgress: Progress,

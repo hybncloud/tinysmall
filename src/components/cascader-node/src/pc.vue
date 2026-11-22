@@ -45,8 +45,7 @@ export default defineComponent({
   inject: ['panel'],
   props: cascaderNodeProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api }) as unknown as ICascaderNodeApi &
-      Pick<ICascaderNodeRenderlessParams, 'panel'>
+    return setup({ props, context, renderless, api }) & Pick<ICascaderNodeRenderlessParams, 'panel'>
   },
   render() {
     const renderPrefix = () => {

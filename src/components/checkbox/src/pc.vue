@@ -92,7 +92,7 @@ import '@tinysmall/theme/checkbox/index.less'
 import { iconHalfselect, iconCheckedSur, iconCheck } from '@tinysmall/icon'
 import type { ICheckboxApi } from '@tinysmall/renderless/types/checkbox.type'
 import { AutoTip } from '@tinysmall/directive'
-import { $constants } from '@tinysmall/renderless/checkbox/constants'
+import type { IconPosition } from '.'
 
 export const checkboxProps = {
   modelValue: {
@@ -159,7 +159,7 @@ export default defineComponent({
     IconCheck: iconCheck()
   },
   setup(props, context) {
-    return setup({ props, context, renderless, api }) as unknown as ICheckboxApi
+    return setup({ props, context, renderless, api })
   }
 })
 </script>

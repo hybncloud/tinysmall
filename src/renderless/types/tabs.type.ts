@@ -82,10 +82,6 @@ export type ITabsProps = ExtractPropTypes<typeof tabsProps>
 
 export type ITabsConstants = typeof $constants
 
-export type ITabsRenderlessParamUtils = ISharedRenderlessParamUtils<ITabsConstants>
+export type ITabsRenderlessParamUtils = ISharedRenderlessParamUtils
 
-export type ITabsRenderlessParams = ISharedRenderlessFunctionParams<ITabsConstants> & {
-  state: ITabsState
-  props: ITabsProps
-  api: ITabsApi
-}
+export type ITabsRenderlessParams = ISharedRenderlessFunctionParams<ITabsProps, ITabsState, ITabsApi>

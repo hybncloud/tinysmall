@@ -18,11 +18,7 @@ export type IUserHeadProps = ExtractPropTypes<typeof userHeadProps>
 
 export type IUserHeadConstants = typeof $constants
 
-export type IUserHeadRenderlessParams = ISharedRenderlessFunctionParams<IUserHeadConstants> & {
-  api: IUserHeadApi
-  state: IUserHeadState
-  props: IUserHeadProps
-}
+export type IUserHeadRenderlessParams = ISharedRenderlessFunctionParams<IUserHeadProps, IUserHeadState, IUserHeadApi>
 
 export interface IUserHeadApi {
   state: IUserHeadState
@@ -35,4 +31,4 @@ export interface IUserHeadApi {
   mouseEnter: (event: Event) => void
 }
 
-export type IUserHeadRenderlessParamUtils = ISharedRenderlessParamUtils<IUserHeadConstants>
+export type IUserHeadRenderlessParamUtils = ISharedRenderlessParamUtils

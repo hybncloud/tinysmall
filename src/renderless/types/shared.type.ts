@@ -42,10 +42,14 @@ export interface ISharedRenderlessParamUtils {
 }
 
 /** vue.ts的一个混合上下文，也是index.ts 文件中二层函数的入参混合体。 */
-export type ISharedRenderlessFunctionParams = {
-  api: object
-  props: object
-  state: object
+export type ISharedRenderlessFunctionParams<
+  Props extends object = object,
+  State extends object = object,
+  Api extends object = object
+> = {
+  api: Api
+  props: Props
+  state: State
 } & ISharedRenderlessParamHooks &
   ISharedRenderlessParamUtils
 

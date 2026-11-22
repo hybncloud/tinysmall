@@ -85,7 +85,7 @@ export default defineComponent({
   },
   props: formItemProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api }) as unknown as IFormItemApi
+    return setup({ props, context, renderless, api })
   },
 
   render() {
@@ -102,7 +102,7 @@ export default defineComponent({
       noStyle,
       handleLabelMouseenter,
       handleMouseleave
-    } = this as unknown as IFormItemInstance
+    } = this
 
     const { validateIcon, isErrorInline, isErrorBlock, tooltipType } = state
     const classPrefix = 'tiny-'

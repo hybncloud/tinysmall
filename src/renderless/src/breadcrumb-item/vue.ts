@@ -16,7 +16,6 @@ import type {
   IBreadcrumbItemRenderlessParamUtils,
   ISharedRenderlessParamHooks
 } from '../../types'
-import { $constants } from '../breadcrumb/constants'
 import { linkClick } from './index'
 
 export const api = ['linkClick', 'state']
@@ -24,7 +23,7 @@ export const api = ['linkClick', 'state']
 export const renderless = (
   props: IBreadcrumbItemProps,
   { reactive, inject, computed }: ISharedRenderlessParamHooks,
-  { refs, router, emit }: IBreadcrumbItemRenderlessParamUtils
+  { refs, emit }: IBreadcrumbItemRenderlessParamUtils
 ) => {
   const state = reactive({
     size: inject('size', null),
@@ -35,7 +34,7 @@ export const renderless = (
   })
   const api: IBreadcrumbItemApi = {
     state,
-    linkClick: linkClick({ state, props, refs, router, emit, constants: $constants })
+    linkClick: linkClick({ state, props, refs, emit })
   }
 
   return api

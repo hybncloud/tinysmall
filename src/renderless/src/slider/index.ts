@@ -77,11 +77,11 @@ export const bindKeyDown =
 export const bindMouseDown =
   ({
     api,
-    
+
     emit,
     state,
     props
-  }: Pick<ISliderRenderlessParams, 'api' | 'state' | 'constants' | 'emit' | 'props'>) =>
+  }: Pick<ISliderRenderlessParams, 'api' | 'state' | 'emit' | 'props'>) =>
   (event) => {
     if (event.button !== 0 && event.detail !== 0) {
       state.activeIndex = -1
@@ -200,7 +200,7 @@ export const hideTip = (state: ISliderState) => () => {
 }
 
 export const setTipStyle =
-  ({ vm, props, state }: Pick<ISliderRenderlessParams, 'vm' | 'props' | 'state' | 'constants'>) =>
+  ({ vm, props, state }: Pick<ISliderRenderlessParams, 'vm' | 'props' | 'state'>) =>
   () => {
     if (!props.showTip) {
       return
@@ -225,10 +225,7 @@ export const setTipStyle =
     }
   }
 
-const getActiveButtonIndexFlag = ({
-  state,
-  event
-}: Pick<ISliderRenderlessParams, 'event' | 'constants' | 'state'>) => {
+const getActiveButtonIndexFlag = ({ state, event }: Pick<ISliderRenderlessParams, 'event' | 'state'>) => {
   const cls = $constants.buttonCls('pc')
   const { previousElementSibling } = event.target as HTMLElement
 
@@ -240,9 +237,9 @@ const getActiveButtonIndexFlag = ({
 }
 
 export const getActiveButtonIndex =
-  ({ state }: Pick<ISliderRenderlessParams, 'constants' | 'state'>) =>
+  ({ state }: Pick<ISliderRenderlessParams, 'state'>) =>
   (event) => {
-    const flag = getActiveButtonIndexFlag({ state, event})
+    const flag = getActiveButtonIndexFlag({ state, event })
     return flag ? 1 : 0
   }
 

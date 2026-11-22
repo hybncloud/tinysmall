@@ -233,13 +233,13 @@ export type IFileUploadProps = ExtractPropTypes<typeof fileUploadProps>
 
 export type IFileUploadConstants = typeof $constants
 
-export type IFileUploadRenderlessParamUtils = ISharedRenderlessParamUtils<IFileUploadConstants>
+export type IFileUploadRenderlessParamUtils = ISharedRenderlessParamUtils
 
-export type IFileUploadRenderlessParams = ISharedRenderlessFunctionParams<IFileUploadConstants> & {
-  state: IFileUploadState
-  props: IFileUploadProps
-  api: IFileUploadApi
-}
+export type IFileUploadRenderlessParams = ISharedRenderlessFunctionParams<
+  IFileUploadProps,
+  IFileUploadState,
+  IFileUploadApi
+>
 
 export type IFileUploadVm = ITinyVm<IFileUploadConstants> & IFileUploadProps
 

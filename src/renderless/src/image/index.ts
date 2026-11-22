@@ -103,7 +103,7 @@ export const addLazyLoadListener =
   ({ props, state, api, vm }: Pick<IImageRenderlessParams, 'api' | 'state' | 'props' | 'vm'>) =>
   () => {
     const { scrollContainer } = props
-    let _scrollContainer: HTMLElement = null as unknown as HTMLElement
+    let _scrollContainer: HTMLElement = null
 
     if (isHtmlElement(scrollContainer)) {
       _scrollContainer = scrollContainer as HTMLElement
@@ -137,7 +137,7 @@ export const removeLazyLoadListener = (state: IImageState) => () => {
  * simulate object-fit behavior to compatible with IE11 and other browsers which not support object-fit
  */
 export const getImageStyle =
-  ({ state, vm}: Pick<IImageRenderlessParams, 'state' | 'vm' | 'constants'>) =>
+  ({ state, vm }: Pick<IImageRenderlessParams, 'state' | 'vm'>) =>
   (fit) => {
     const { imageWidth, imageHeight } = state
     const { clientWidth: containerWidth, clientHeight: containerHeight } = vm.$el

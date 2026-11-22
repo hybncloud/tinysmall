@@ -47,9 +47,10 @@ export interface ICascaderNodeApi {
   handleNodeClick: ReturnType<typeof handleNodeClick>
 }
 
-export type ICascaderNodeRenderlessParams = ISharedRenderlessFunctionParams & {
-  state: ICascaderNodeState
-  props: ICascaderNodeProps
-  api: ICascaderNodeApi
+export type ICascaderNodeRenderlessParams = ISharedRenderlessFunctionParams<
+  ICascaderNodeProps,
+  ICascaderNodeState,
+  ICascaderNodeApi
+> & {
   panel: ICascaderPanelApi // cascader-panel 通过 provide('panel') 注入的 panel api（renderless 与 pc.vue 模板共用）
 }

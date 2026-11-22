@@ -76,7 +76,7 @@ export default defineComponent({
   props: linkProps,
   emits: ['click'],
   setup(props, context) {
-    return setup({ props, context, renderless, api }) as unknown as ILinkApi
+    return setup({ props, context, renderless, api })
   }
 })
 </script>

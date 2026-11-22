@@ -31,27 +31,27 @@ export interface IInputState {
   checkedLabel: string
   width: string
   sheetvalue: string | number | undefined
-  inputSize: ComputedRef<string>
-  showClear: ComputedRef<boolean>
-  upperLimit: ComputedRef<string>
-  textLength: ComputedRef<string>
-  inputExceed: ComputedRef<boolean>
-  formItemSize: ComputedRef<string>
+  inputSize: string
+  showClear: boolean
+  upperLimit: string
+  textLength: string
+  inputExceed: boolean
+  formItemSize: string
   validateIcon: ComputedRef<typeof $constants.VALIDATE_ICON | null>
-  showWordLimit: ComputedRef<boolean>
-  inputDisabled: ComputedRef<boolean>
-  validateState: ComputedRef<string>
-  textareaStyle: ComputedRef<object>
-  needStatusIcon: ComputedRef<boolean>
-  showPwdVisible: ComputedRef<boolean>
-  nativeInputValue: ComputedRef<string>
-  isWordLimitVisible: ComputedRef<boolean>
-  isDisplayOnly: ComputedRef<boolean>
+  showWordLimit: boolean
+  inputDisabled: boolean
+  validateState: string
+  textareaStyle: object
+  needStatusIcon: boolean
+  showPwdVisible: boolean
+  nativeInputValue: string
+  isWordLimitVisible: boolean
+  isDisplayOnly: boolean
   displayOnlyTooltip: string
-  hiddenPassword: ComputedRef<string>
+  hiddenPassword: string
 }
 
-export type IInputRenderlessParamUtils = ISharedRenderlessParamUtils<IInputConstants>
+export type IInputRenderlessParamUtils = ISharedRenderlessParamUtils
 
 export type IInputProps = ExtractPropTypes<typeof inputProps>
 
@@ -75,11 +75,7 @@ export interface IInputApi {
   inputStyle: ReturnType<typeof inputStyle>
 }
 
-export type IInputRenderlessParams = ISharedRenderlessFunctionParams<IInputConstants> & {
-  state: IInputState
-  props: IInputProps
-  api: IInputApi
-}
+export type IInputRenderlessParams = ISharedRenderlessFunctionParams<IInputProps, IInputState, IInputApi>
 
 export interface IInputClassPrefixConstants {
   Input: string

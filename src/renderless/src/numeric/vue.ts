@@ -119,10 +119,7 @@ const initApi = ({
   emit,
 
   nextTick
-}: Pick<
-  INumericRenderlessParams,
-  'api' | 'props' | 'state' | 'vm' | 'emit' | 'constants' | 'nextTick'
->): void => {
+}: Pick<INumericRenderlessParams, 'api' | 'props' | 'state' | 'vm' | 'emit' | 'nextTick'>): void => {
   Object.assign(api, {
     state,
     focus: focus(vm),

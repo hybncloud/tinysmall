@@ -79,13 +79,13 @@ export type IUploadListProps = ExtractPropTypes<typeof uploadListProps> & {
   files: { status: 'fail' | 'uploading' | 'success' | 'downloading' }[]
 }
 
-export type IUploadListRenderlessParamUtils = ISharedRenderlessParamUtils<IFileUploadConstants>
+export type IUploadListRenderlessParamUtils = ISharedRenderlessParamUtils
 
-export type IUploadListRenderlessParams = ISharedRenderlessFunctionParams<IFileUploadConstants> & {
-  state: IUploadListState
-  props: IUploadListProps
-  api: IUploadListApi
-}
+export type IUploadListRenderlessParams = ISharedRenderlessFunctionParams<
+  IUploadListProps,
+  IUploadListState,
+  IUploadListApi
+>
 
 export interface IUploadListVideoParam {
   type: 'ended'

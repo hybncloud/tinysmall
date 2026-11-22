@@ -73,7 +73,7 @@ export default defineComponent({
   name: 'TinyBadge',
   props: badgeProps,
   setup(props, context) {
-    return setup({ props, context, renderless, api }) as unknown as IBadgeApi
+    return setup({ props, context, renderless, api })
   }
 })
 </script>

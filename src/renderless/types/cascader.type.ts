@@ -116,4 +116,4 @@ export interface ICascaderApi {
   filterHandler: Function
 }
 export type ICascaderConstants = typeof cascaderConstants
-export type ICascadeRenderlessParamUtils = ISharedRenderlessParamUtils<ICascaderConstants>
+export type ICascadeRenderlessParamUtils = ISharedRenderlessParamUtils

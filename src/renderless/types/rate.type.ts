@@ -39,11 +39,7 @@ export type IRateProps = ExtractPropTypes<typeof rateProps>
 
 export type IRateConstants = typeof $constants
 
-export type IRateRenderlessParams = ISharedRenderlessFunctionParams<IRateConstants> & {
-  api: IRateApi
-  state: IRateState
-  props: IRateProps
-}
+export type IRateRenderlessParams = ISharedRenderlessFunctionParams<IRateProps, IRateState, IRateApi>
 
 export interface IRateApi {
   state: IRateState
@@ -64,4 +60,4 @@ export interface IRateApi {
   setCurrentValue: ReturnType<typeof setCurrentValue>
 }
 
-export type IRateRenderlessParamUtils = ISharedRenderlessParamUtils<IRateConstants>
+export type IRateRenderlessParamUtils = ISharedRenderlessParamUtils

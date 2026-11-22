@@ -20,7 +20,7 @@ export type ITimelineProps = ExtractPropTypes<typeof timelineProps>
 
 export type ITimelineConstants = typeof $constants
 
-export type ITimelineRenderlessParamUtils = ISharedRenderlessParamUtils<ITimelineConstants>
+export type ITimelineRenderlessParamUtils = ISharedRenderlessParamUtils
 
 export interface ITimelineState {
   nodes: ITimelineItem[]
@@ -51,11 +51,7 @@ export interface ITimelineApi {
   toggleFold: ReturnType<typeof toggleFold>
 }
 
-export type ITimelineRenderlessParams = ISharedRenderlessFunctionParams<ITimelineConstants> & {
-  api: ITimelineApi
-  state: ITimelineState
-  props: ITimelineProps
-}
+export type ITimelineRenderlessParams = ISharedRenderlessFunctionParams<ITimelineProps, ITimelineState, ITimelineApi>
 
 export type ITimelineStatusCls = {
   [key in keyof ITimelineConstants]?: boolean

@@ -55,13 +55,9 @@ export interface IUploadApi {
 
 export type IUploadProps = ExtractPropTypes<typeof uploadProps>
 
-export type IUploadRenderlessParamUtils = ISharedRenderlessParamUtils<IFileUploadConstants>
+export type IUploadRenderlessParamUtils = ISharedRenderlessParamUtils
 
-export type IUploadRenderlessParams = ISharedRenderlessFunctionParams<IFileUploadConstants> & {
-  state: IUploadState
-  props: IUploadProps
-  api: IUploadApi
-}
+export type IUploadRenderlessParams = ISharedRenderlessFunctionParams<IUploadProps, IUploadState, IUploadApi>
 
 export interface IUploadRenderlessOtherParams {
   rawFile: IFileUploadFile

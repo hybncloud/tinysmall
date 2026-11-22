@@ -21,8 +21,4 @@ export interface ITagApi {
 
 export type ITagProps = ExtractPropTypes<typeof tagProps>
 
-export type ITagRenderlessParams = ISharedRenderlessFunctionParams & {
-  state: ITagState
-  props: ITagProps
-  api: ITagApi
-}
+export type ITagRenderlessParams = ISharedRenderlessFunctionParams<ITagProps, ITagState, ITagApi>
