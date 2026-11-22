@@ -14,30 +14,14 @@ export type ISharedRenderlessParamHooks = typeof hooks
 
 /** utils变量: renderless的第三个参数  */
 export interface ISharedRenderlessParamUtils {
-  /** 组件内国际化，常用函数 */
   t: (path: string, options?: any) => string
-  /** vue组件实例的context.attrs */
   attrs: any
-  /** vue的内置nextTick， 其实可以从第二参 hooks中获取, 还可以通过当前vm.$nextTick来获取 */
   nextTick: typeof hooks.nextTick
-  /** 当前vm */
   vm: ITinyVm
-  /** 第一次mount加载后的所有refs，不会更新！ ⭐要避免使用 */
   refs: Record<string, any>
-  /** 返回 instance.slots。 vue2,vue3的这2个属性是同一个引用： scopedSlots===slots。  */
   slots: hooks.Slots
-  /** 返回 instance.slots */
   scopedSlots: hooks.Slots
-  /** 给 vm 和 instance.ctx 同时添加属性。
-   * @param props Object.defineProperties的第2参, 格式：{ property1: {value: 42,writable: true},property2: {...} }
-   */
-  defineInstanceProperties: (props: PropertyDescriptorMap & ThisType<any>) => void
-  /** 返回 context.emit */
   emit: (event: string, ...args: any[]) => void
-  /** Tiny 适配器中，自行封装的一个 EventBus模型的工厂函数。⭐每次调用才返回一个新的模型对象。
-   * @mark vm中，会给instance添加一个$emitter=emitter() ,就是该函数返回的模型。 vm中的$on, $off,$once 都是该模型的方法。
-   * @mark ⭐所以不要直接使用该函数。
-   */
   emitter: () => Emitter
 }
 

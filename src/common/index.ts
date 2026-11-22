@@ -74,13 +74,11 @@ const defineProperties = (vm: object, instance: vueHooks.ComponentInternalInstan
   return vm
 }
 
-// props 在 setup 阶段即已就绪，可同步镜像到 vm
 const defineInstanceVm = (vm: object, instance: vueHooks.ComponentInternalInstance) => {
   defineProperties(vm, instance, 'props')
   return vm
 }
 
-// setupState 要等 setup() 返回后才由 Vue 填充（含 api 名/slots/scopedSlots），只能在 beforeMount 时镜像
 const defineSetupState = (vm: object, instance: vueHooks.ComponentInternalInstance) => {
   defineProperties(vm, instance, 'setupState')
   return vm
@@ -99,8 +97,6 @@ const createVm = (vm: object, instance: vueHooks.ComponentInternalInstance): ITi
   Object.defineProperties(vm, {
     $attrs: { get: () => instance.attrs },
     $emit: { get: () => emit },
-    // 组件实例的事件总线。broadcast 替代实现：发送端 $emitter.emit（不触发 instance.emit），
-    // 接收端 $emitter.on 订阅，与旧 broadcast 触发 component.emit + $emitter.emit 的组合行为对齐
     $emitter: { get: () => $emitter },
     $el: { get: () => instance.vnode.el },
     $nextTick: { get: () => vueHooks.nextTick },
@@ -115,34 +111,39 @@ const createVm = (vm: object, instance: vueHooks.ComponentInternalInstance): ITi
   return vm as ITinyVm
 }
 
-// 链式 parentVm 已移除：跨组件数据一律走 provide/inject（见 AGENTS.md），parent 字段仅供内部函数签名复用
-export const tools = (
-  context: vueHooks.SetupContext<any[], {}>
-): Omit<ISharedRenderlessParamUtils, 't' | 'defineInstanceProperties'> => {
+export const tools = (context: vueHooks.SetupContext<any[], {}>): Omit<ISharedRenderlessParamUtils, 't'> => {
   const instance = vueHooks.getCurrentInstance()
-  if (instance == null) throw new Error('tools() must be called within setup()')
-  const vm = createVm({}, instance)
-  const emit = context.emit
 
-  const refs = new Proxy(
-    {},
-    {
-      get: (_, name) => (typeof name !== 'symbol' ? instance.refs[name] : undefined),
-      has: (_, name) => (typeof name !== 'symbol' ? name in instance.refs : false),
-      ownKeys: () => Reflect.ownKeys(instance.refs)
-    }
-  )
+  if (instance == null) throw new Error('tools() must be called within setup()')
+
+  const vm = createVm({}, instance)
+
+  const proxyForward = <T extends object>(source: () => T) =>
+    new Proxy(
+      {},
+      {
+        get: (_, name) => (typeof name !== 'symbol' ? source()[name] : undefined),
+        has: (_, name) => (typeof name !== 'symbol' ? name in source() : false),
+        ownKeys: () => Reflect.ownKeys(source())
+      }
+    )
+
+  const emit = new Proxy((_: string, ...__: any[]) => {}, {
+    apply: (_, __, args: [string, ...any[]]) => context.emit(...args)
+  })
 
   vueHooks.onBeforeMount(() => defineSetupState(vm, instance))
+
+  const slots = proxyForward(() => instance.slots)
 
   return {
     vm,
     emit,
     emitter,
-    refs,
-    slots: instance.slots,
-    scopedSlots: instance.slots,
-    attrs: context.attrs,
+    refs: proxyForward(() => instance.refs),
+    slots,
+    scopedSlots: slots,
+    attrs: proxyForward(() => instance.attrs),
     nextTick: vueHooks.nextTick
   }
 }
