@@ -221,6 +221,7 @@ export interface IFileUploadService {
   getFileDownloadUrl: IFileUploadNoopFnCreator
   getSingleDownloadUrl: IFileUploadNoopFnCreator
   getPackageDownloadUrl: IFileUploadNoopFnCreator
+  getAsyncPackageDownload: IFileUploadNoopFnCreator
   getLargeFileInitUrl: IFileUploadNoopFnCreator
   getChunkUploadUrl: IFileUploadNoopFnCreator
   getPreviewUrl: IFileUploadNoopFnCreator

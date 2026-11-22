@@ -144,7 +144,7 @@ export const renderless = (
   { reactive, watch, inject, provide, computed },
   { vm, nextTick, emit, emitter }
 ) => {
-  const api = {}
+  const api: Record<string, any> = {}
   const state = initState({ reactive, props, emitter, vm, api, inject, computed })
 
   if (state.tree.accordion) {

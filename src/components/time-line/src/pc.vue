@@ -58,6 +58,7 @@ import type { PropType } from '@tinysmall/common'
 import '@tinysmall/theme/steps/index.less'
 import TimelineItem from '@tinysmall/timeline-item'
 import type { ITimelineApi } from '@tinysmall/renderless/types/time-line.type'
+import type { ShapeType } from './index'
 
 export const timelineProps = {
   /** 尺寸，取自原 pc.vue props 数组 */

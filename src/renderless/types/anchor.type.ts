@@ -20,7 +20,7 @@ export interface IAnchorState {
   currentLink: string
   observerLinks: object
   expandLink: object
-  intersectionObserver: IAnchorObject
+  intersectionObserver: IntersectionObserver | null
   scrollContainer: IAnchorObject
   currentHash: string
   isScroll: boolean

@@ -24,6 +24,7 @@ export interface IDropdownMenuState {
   children: IDropdownItemVm[]
   size: string
   showPopper: boolean
+  initShowPopper: boolean
   label: string
   showContent: boolean
   selected: boolean

@@ -22,6 +22,10 @@ import type { ITabNavApi } from '@tinysmall/renderless/types/tab-nav.type'
 import TabBar from './tab-bar.vue'
 import { tabNavPcProps } from './index'
 
+const IconChevronLeft = iconChevronLeft()
+const IconChevronRight = iconChevronRight()
+const IconClose = iconClose()
+
 export default defineComponent({
   name: 'TinyTabNav',
   components: {

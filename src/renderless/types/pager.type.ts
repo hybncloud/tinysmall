@@ -44,6 +44,7 @@ export interface IPagerState {
   showSizes: boolean
   internalCurrentPage: number
   internalPageSize: number
+  internalPageSizes: number[]
   lastEmittedPage: number
   userChangePageSize: boolean
   internalTotal: number | undefined

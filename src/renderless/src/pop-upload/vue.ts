@@ -178,7 +178,7 @@ const initWatch = ({ watch, props, api }) => {
 }
 
 export const renderless = (props, { computed, reactive, watch }, { t, emit, refs }) => {
-  const api = {}
+  const api: Record<string, any> = {}
   const state = initState({ reactive, props, computed, api })
 
   initApi({ api, state, refs, emit, props, t })

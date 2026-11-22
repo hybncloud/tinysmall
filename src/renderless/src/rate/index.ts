@@ -12,6 +12,9 @@
 
 import type { IRateProps, IRateRenderlessParams, IRateState } from '../../types/rate.type'
 import { KEY_CODE } from '@tinysmall/utils'
+import { $constants } from './constants'
+
+const { RATENODECLS, ICON_PREFIXCLS, DECIMALCLS } = $constants
 
 export const computedActiveColor = (props: IRateProps) => (state: IRateState) => {
   let result = ''

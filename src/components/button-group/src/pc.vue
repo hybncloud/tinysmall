@@ -123,7 +123,7 @@ import Popover from '@tinysmall/popover'
 import Button from '@tinysmall/button'
 import { iconPopup, iconEditor } from '@tinysmall/icon'
 import { AutoTip } from '@tinysmall/directive'
-import type { IButtonGroupApi } from '@tinysmall/renderless/types/button-group.type'
+import type { IButtonGroupApi, IButtonGroupNode } from '@tinysmall/renderless/types/button-group.type'
 
 export const buttonGroupProps = {
   size: {

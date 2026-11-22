@@ -14,7 +14,8 @@ import type {
   resizeTextarea,
   updateIconOffset,
   hiddenPassword,
-  inputStyle
+  inputStyle,
+  clear
 } from '../src/input'
 
 export interface IInputState {
@@ -49,6 +50,8 @@ export interface IInputState {
   isDisplayOnly: boolean
   displayOnlyTooltip: string
   hiddenPassword: string
+  displayOnlyText: string
+  showDisplayOnlyBox: boolean
 }
 
 export type IInputRenderlessParamUtils = ISharedRenderlessParamUtils
@@ -73,6 +76,7 @@ export interface IInputApi {
   calcIconOffset: ReturnType<typeof calcIconOffset>
   focus: ReturnType<typeof focus>
   inputStyle: ReturnType<typeof inputStyle>
+  clear: ReturnType<typeof clear>
 }
 
 export type IInputRenderlessParams = ISharedRenderlessFunctionParams<IInputProps, IInputState, IInputApi>

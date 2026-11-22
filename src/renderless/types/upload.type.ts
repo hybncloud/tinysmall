@@ -26,6 +26,7 @@ export interface IUploadState {
     uid?: string
   }
   uploader: IFileUploadVm
+  uploadInner: IFileUploadVm
   accecpt: string
   isEdm: boolean
   openEdmDownload: boolean

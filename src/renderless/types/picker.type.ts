@@ -30,6 +30,8 @@ export interface IPickerApi {
   watchIsRange: (value: boolean) => void
   watchModelValue: (value: Date | Date[], oldValue: Date | Date[]) => boolean
   updateOptions: () => void
+  handleSelectChange: (params: { tz?: unknown; date?: unknown }) => boolean
+  handleSelectRange: (start: number, end: number, pos?: string) => void
 }
 
 export interface IPickerState {

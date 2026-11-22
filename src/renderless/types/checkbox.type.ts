@@ -67,7 +67,7 @@ export type ICheckboxRenderlessParams = ISharedRenderlessFunctionParams<
   ICheckboxState,
   ICheckboxApi
 > & {
-  formItemSize: string
+  formItemSize: ComputedRef<string>
   type: string
 }
 

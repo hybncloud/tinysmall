@@ -69,7 +69,7 @@ const initApi = ({ api, props, state, vm, emit, nextTick }) => {
 }
 
 export const renderless = (props, { computed, onMounted, reactive, watch, nextTick }, { vm, emit }) => {
-  const api = {}
+  const api: Record<string, any> = {}
   const state = initState({ reactive, computed, props, api })
 
   initApi({ api, props, state, vm, emit, nextTick})

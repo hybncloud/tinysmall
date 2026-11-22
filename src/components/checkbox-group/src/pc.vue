@@ -24,9 +24,9 @@
 
 <script lang="tsx">
 import { renderless, api } from '@tinysmall/renderless/checkbox-group/vue'
-import { $constants } from '@tinysmall/renderless/checkbox-group/constants'
 import { setup, defineComponent } from '@tinysmall/common'
 import type { PropType } from '@tinysmall/common'
+import type { IconPosition } from '@tinysmall/checkbox/src'
 import Checkbox from '@tinysmall/checkbox'
 import CheckboxButton from '@tinysmall/checkbox-button'
 import '@tinysmall/theme/checkbox-group/index.less'

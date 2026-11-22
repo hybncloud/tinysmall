@@ -137,7 +137,7 @@ const initWatcher = ({ watch, state, api, props, Table }) => {
 }
 
 export const renderless = (props, { computed, reactive, watch, toRaw, inject }, { emit, vm, slots }) => {
-  const api = {}
+  const api: Record<string, any> = {}
   const Table = 'TinyTable'
   const Tree = 'TinyTree'
 

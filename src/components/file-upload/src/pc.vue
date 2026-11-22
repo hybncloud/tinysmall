@@ -20,7 +20,6 @@ import '@tinysmall/theme/file-upload/index.less'
 import '@tinysmall/theme/upload-list/index.less'
 import '@tinysmall/theme/upload-dragger/index.less'
 import '@tinysmall/theme/upload/index.less'
-import Modal from '@tinysmall/modal'
 import DialogBox from '@tinysmall/dialog-box'
 import Popover from '@tinysmall/popover'
 import Button from '@tinysmall/button'
@@ -36,8 +35,6 @@ import {
   iconPlus,
   iconHelpCircle
 } from '@tinysmall/icon'
-import Streamsaver from 'streamsaver'
-import type { IFileUploadApi } from '@tinysmall/renderless/types/file-upload.type'
 
 const TinyIconAttachment = iconAttachment()
 const TinyIconSuccessful = iconSuccessful()
@@ -46,6 +43,13 @@ const TinyIconDownload = iconDownload()
 const TinyIconFileCloudupload = iconFileCloudupload()
 const TinyIconPlus = iconPlus()
 const TinyIconHelpCircle = iconHelpCircle()
+
+const handleEnter = (event: KeyboardEvent, callback: () => void) => {
+  if (event.key === 'Enter' || event.key === ' ') {
+    event.preventDefault()
+    callback()
+  }
+}
 
 export const fileUploadProps = {
   accept: String,

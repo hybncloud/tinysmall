@@ -52,6 +52,7 @@ export interface IModalApi {
   addMsgQueue: () => void
   removeMsgQueue: () => void
   close: (type: string) => void
+  doClose: (type: string) => void
   handleGlobalKeydownEvent: (event: KeyboardEvent) => void
   maximize: () => Promise<void>
   revert: () => Promise<void>
