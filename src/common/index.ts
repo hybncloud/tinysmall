@@ -62,96 +62,6 @@ export { Teleport }
 
 export const defineComponent = vueHooks.defineComponent
 
-const defineProperties = (vm: object, instance: vueHooks.ComponentInternalInstance, property: string) => {
-  for (const name in instance[property]) {
-    Object.defineProperty(vm, name, {
-      configurable: true,
-      enumerable: true,
-      get: () => instance[property][name],
-      set: (value) => (instance[property][name] = value)
-    })
-  }
-  return vm
-}
-
-const defineInstanceVm = (vm: object, instance: vueHooks.ComponentInternalInstance) => {
-  defineProperties(vm, instance, 'props')
-  return vm
-}
-
-const defineSetupState = (vm: object, instance: vueHooks.ComponentInternalInstance) => {
-  defineProperties(vm, instance, 'setupState')
-  return vm
-}
-
-const createVm = (vm: object, instance: vueHooks.ComponentInternalInstance): ITinyVm => {
-  let $emitter: Emitter = emitter()
-
-  const emit = (event: string, ...args: any) => {
-    instance.emit(event, ...args)
-    $emitter.emit.call(vm, event, ...args)
-  }
-
-  defineInstanceVm(vm, instance)
-
-  Object.defineProperties(vm, {
-    $attrs: { get: () => instance.attrs },
-    $emit: { get: () => emit },
-    $emitter: { get: () => $emitter },
-    $el: { get: () => instance.vnode.el },
-    $nextTick: { get: () => vueHooks.nextTick },
-    $off: { get: () => $emitter.off },
-    $on: { get: () => $emitter.on },
-    $once: { get: () => $emitter.once },
-    $refs: { get: () => instance.refs },
-    $scopedSlots: { get: () => instance.slots },
-    $slots: { get: () => instance.slots }
-  })
-
-  return vm as ITinyVm
-}
-
-export const tools = (context: vueHooks.SetupContext<any[], {}>): Omit<ISharedRenderlessParamUtils, 't'> => {
-  const instance = vueHooks.getCurrentInstance()
-
-  if (instance == null) throw new Error('tools() must be called within setup()')
-
-  const vm = createVm({}, instance)
-
-  const proxyForward = <T extends object>(source: () => T) =>
-    new Proxy(
-      {},
-      {
-        get: (_, name) => source()[name],
-        has: (_, name) => name in source(),
-        ownKeys: () => Reflect.ownKeys(source())
-      }
-    )
-
-  const emit = new Proxy((_: string, ...__: any[]) => {}, {
-    apply: (_, __, args: [string, ...any[]]) => context.emit(...args)
-  })
-
-  vueHooks.onBeforeMount(() => defineSetupState(vm, instance))
-
-  const slots = proxyForward(() => instance.slots)
-
-  const refs = proxyForward(() => instance.refs)
-
-  const attrs = proxyForward(() => instance.attrs)
-
-  return {
-    vm,
-    emit,
-    emitter,
-    refs,
-    slots,
-    scopedSlots: slots,
-    attrs,
-    nextTick: vueHooks.nextTick
-  }
-}
-
 export { h, markRaw }
 
 export const hooks = vueHooks
@@ -160,7 +70,18 @@ export default hooks
 
 export type { PropType, ComponentPublicInstance, App, VNode } from 'vue'
 
-export const setup = <P, R extends object = {}, C extends SetupContext<any[], {}> = SetupContext>({
+export type SetupState<
+  P extends object = {},
+  S extends object = {},
+  C extends SetupContext<any[], {}> = SetupContext
+> = S & {
+  t: typeof t
+  vm: ITinyVm<P>
+  slots: C extends { slots: infer S } ? Readonly<S> : Slots
+  scopedSlots: C extends { slots: infer S } ? Readonly<S> : Slots
+}
+
+export const setup = <P extends object = {}, S extends object = {}, C extends SetupContext<any[], {}> = SetupContext>({
   props,
   context,
   renderless,
@@ -168,45 +89,80 @@ export const setup = <P, R extends object = {}, C extends SetupContext<any[], {}
 }: {
   props: P
   context: C
-  renderless: (props: P, hooks: ISharedRenderlessParamHooks, utils: ISharedRenderlessParamUtils) => R
+  renderless: (props: P, hooks: ISharedRenderlessParamHooks, utils: ISharedRenderlessParamUtils) => S
   api: string[]
-}): R & {
-  t: typeof t
-  vm: ITinyVm
-  slots: C extends { slots: infer S } ? S : Slots
-  scopedSlots: C extends { slots: infer S } ? S : Slots
-} => {
+}): SetupState<P, S, C> => {
   const $this = getCurrentInstance()
 
-  if ($this == null) throw new Error('[TinySmall] setup() must be called within setup()')
+  if ($this === null) throw new Error('[TinySmall] setup() must be called within setup()')
 
-  const utils = { t, ...tools(context) } as ISharedRenderlessParamUtils
+  const vm = {} as ITinyVm<P>
+
+  for (const name in $this.props) {
+    Object.defineProperty(vm, name, {
+      enumerable: true,
+      get: () => $this.props[name],
+      set: (value) => ($this.props[name] = value)
+    })
+  }
+
+  const $emitter = emitter()
+
+  const $emit = (event: string, ...args: any) => {
+    $this.emit(event, ...args)
+    $emitter.emit.call(vm, event, ...args)
+  }
+
+  Object.defineProperties(vm, {
+    $attrs: { get: () => $this.attrs },
+    $emit: { get: () => $emit },
+    $emitter: { get: () => $emitter },
+    $el: { get: () => $this.vnode.el },
+    $nextTick: { get: () => vueHooks.nextTick },
+    $off: { get: () => $emitter.off },
+    $on: { get: () => $emitter.on },
+    $once: { get: () => $emitter.once },
+    $refs: { get: () => $this.refs },
+    $scopedSlots: { get: () => $this.slots },
+    $slots: { get: () => $this.slots }
+  })
+
+  const utils = {
+    t,
+    vm,
+    emit: context.emit,
+    emitter,
+    refs: $this.refs,
+    slots: $this.slots,
+    scopedSlots: $this.slots,
+    attrs: $this.attrs,
+    nextTick: vueHooks.nextTick
+  } as ISharedRenderlessParamUtils
 
   const sdk = renderless(props, hooks, utils)
 
-  Object.defineProperties(utils.vm, {
-    slots: { get: () => utils.vm.$slots, configurable: true },
-    scopedSlots: { get: () => utils.vm.$scopedSlots, configurable: true }
-  })
-
-  const attrs: Record<string, any> = {
+  const state = {
     t,
     vm: utils.vm,
     slots: utils.slots,
     scopedSlots: utils.scopedSlots
+  } as SetupState<P, S, C>
+
+  for (const name in sdk) {
+    if (name in state) throw new Error(`[TinySmall] ${$this.type.name} renderless api name "${name}" is already in use`)
+    Object.defineProperty(state, name, {
+      get: () => sdk[name],
+      set: (value) => (sdk[name] = value),
+      enumerable: true
+    })
+    if (name in vm)
+      throw new Error(`[TinySmall] ${$this.type.name} renderless api name "${name}" is already in use on vm`)
+    Object.defineProperty(vm, name, {
+      enumerable: true,
+      get: () => sdk[name],
+      set: (value) => (sdk[name] = value)
+    })
   }
 
-  for (const name of api) {
-    if (name in sdk) {
-      Object.defineProperty(attrs, name, {
-        get: () => sdk[name],
-        set: (value) => (sdk[name] = value),
-        enumerable: true
-      })
-    } else {
-      // console.warn(`[TinySmall] ${$this.type.name} renderless api: ${name} not found`)
-    }
-  }
-
-  return attrs as any
+  return state
 }
