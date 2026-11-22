@@ -26,6 +26,8 @@ type IPopupInputParams = ISharedRenderlessFunctionParams & {
   api: { open: Function; close: Function }
   state: IPopupState
   props: any
+  /** 获取弹层根 DOM。组件根节点为 <teleport> 时 $el 只是占位注释，需由调用方提供真实节点 */
+  getEl?: () => HTMLElement
 }
 
 const setWatchFn = ({
@@ -74,7 +76,7 @@ const setWatchFn = ({
 }
 
 const openFn =
-  ({ state, vm }: Pick<IPopupInputParams, 'state' | 'vm'>) =>
+  ({ state, vm, getEl }: Pick<IPopupInputParams, 'state' | 'vm' | 'getEl'>) =>
   (options: any) => {
     if (!state.rendered) {
       state.rendered = true
@@ -97,7 +99,7 @@ const openFn =
 
       vm._opening = true
 
-      const dom = vm.$el
+      const dom = getEl ? getEl() : vm.$el
       const modal = props.modal
       const zIndex = props.zIndex
 
@@ -181,7 +183,7 @@ const closeFn =
  * 计划：drawer/image 等组件均使用该函数
  */
 export const usePopup = (options: IPopupInputParams) => {
-  const { api, nextTick, onBeforeUnmount, onMounted, props, reactive, toRefs, vm, watch } = options
+  const { api, nextTick, onBeforeUnmount, onMounted, props, reactive, toRefs, vm, watch, getEl } = options
   const state = reactive({
     opened: false,
     rendered: false
@@ -189,7 +191,7 @@ export const usePopup = (options: IPopupInputParams) => {
 
   setWatchFn({ onMounted, onBeforeUnmount, watch, vm, api, props, state, nextTick })
 
-  const open = openFn({ state, vm })
+  const open = openFn({ state, vm, getEl })
   const close = closeFn({ state, vm })
 
   return { open, close, PopupManager, ...toRefs(state) }

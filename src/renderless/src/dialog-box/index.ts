@@ -72,12 +72,9 @@ export const watchVisible =
     props,
     vm,
     state
-  }: Pick<
-    IDialogBoxRenderlessParams,
-    'api' | 'emit' | 'nextTick' | 'props' | 'vm' | 'state'
-  >) =>
+  }: Pick<IDialogBoxRenderlessParams, 'api' | 'emit' | 'nextTick' | 'props' | 'vm' | 'state'>) =>
   (val: boolean): void => {
-    const el = vm.$el
+    const el = vm.$refs.wrapper as HTMLElement
 
     if (props.lockScroll) {
       val ? api.showScrollbar() : api.hideScrollbar()
@@ -92,18 +89,14 @@ export const watchVisible =
       state.closed = false
       emit('open')
       /* istanbul ignore next */
-      on(el, 'scroll', api.updatePopper)
+      el && on(el, 'scroll', api.updatePopper)
 
       nextTick(() => {
         vm.$refs.dialog.scrollTop = 0
       })
-
-      if (props.appendToBody) {
-        document.body.appendChild(el)
-      }
     } else {
       /* istanbul ignore next */
-      off(el, 'scroll', api.updatePopper)
+      el && off(el, 'scroll', api.updatePopper)
 
       if (!state.closed) {
         state.emitter.emit('boxclose', props.isFormReset)
@@ -117,33 +110,21 @@ export const watchVisible =
   }
 
 export const mounted =
-  ({ api, vm, props }: Pick<IDialogBoxRenderlessParams, 'api' | 'vm' | 'props'>) =>
+  ({ api, props }: Pick<IDialogBoxRenderlessParams, 'api' | 'props'>) =>
   (): void => {
     if (props.lockScroll && props.visible) {
       api.showScrollbar()
     }
 
     if (props.visible) {
-      const el = vm.$el
-
       api.open()
-
-      if (props.appendToBody) {
-        document.body.appendChild(el)
-      }
     }
   }
 
 export const unMounted =
-  ({ api, vm, props }: Pick<IDialogBoxRenderlessParams, 'api' | 'vm' | 'props'>) =>
+  ({ api }: Pick<IDialogBoxRenderlessParams, 'api'>) =>
   (): void => {
-    const el = vm.$el
-
     api.hideScrollbar()
-
-    if (props.appendToBody && el && el.parentNode) {
-      el.parentNode.removeChild(el)
-    }
   }
 
 export const useMouseEventDown =
@@ -177,12 +158,7 @@ export const handleWrapperClick =
   }
 
 export const handleClose =
-  ({
-    api,
-    emit,
-    vm,
-    props
-  }: Pick<IDialogBoxRenderlessParams, 'api' | 'emit' | 'vm' | 'props'>) =>
+  ({ api, emit, vm, props }: Pick<IDialogBoxRenderlessParams, 'api' | 'emit' | 'vm' | 'props'>) =>
   (type = 'close') => {
     if (typeof props.beforeClose === 'function' && props.beforeClose(type) === false) {
       return
@@ -191,7 +167,7 @@ export const handleClose =
       return
     }
 
-    const el = vm.$el
+    const el = vm.$refs.wrapper as HTMLElement
 
     if (props.rightSlide) {
       const dialogBoxDom = (el.querySelector($constants.DIALOG_BOX_CLASS) || el) as HTMLElement
@@ -250,12 +226,7 @@ export const afterLeave = (emit: IDialogBoxRenderlessParams['emit']) => (): void
 }
 
 export const handleDrag =
-  ({
-    props,
-    state,
-    emit,
-    vm
-  }: Pick<IDialogBoxRenderlessParams, 'props' | 'state' | 'emit' | 'vm'>) =>
+  ({ props, state, emit, vm }: Pick<IDialogBoxRenderlessParams, 'props' | 'state' | 'emit' | 'vm'>) =>
   (event: MouseEvent): void => {
     if (!props.draggable || state.isFull) {
       return

@@ -11,7 +11,7 @@
  -->
 <script lang="tsx">
 import Button from '@tinysmall/button'
-import { setup, h, defineComponent } from '@tinysmall/common'
+import { setup, h, defineComponent, Teleport } from '@tinysmall/common'
 import { renderless, api } from '@tinysmall/renderless/modal/vue'
 import { $constants } from '@tinysmall/renderless/modal/constants'
 import '@tinysmall/theme/modal/index.less'
@@ -141,7 +141,7 @@ export default defineComponent({
       LOADING: iconLoadingShadow()
     }
 
-    return h(
+    const modalVNode = h(
       'div',
       {
         class: [
@@ -342,6 +342,8 @@ export default defineComponent({
         )
       ]
     )
+
+    return h(Teleport, { to: 'body' }, [modalVNode])
   }
 })
 </script>

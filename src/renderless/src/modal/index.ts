@@ -95,7 +95,7 @@ export const created =
   }
 
 export const mounted =
-  ({ api, vm, props, state }: Pick<IModalRenderlessParams, 'api' | 'vm' | 'props' | 'state'>) =>
+  ({ api, props, state }: Pick<IModalRenderlessParams, 'api' | 'props' | 'state'>) =>
   () => {
     let modalBoxElem = api.getBox()
 
@@ -114,28 +114,22 @@ export const mounted =
     }
 
     on(window, 'hashchange', api.handleHashChange)
-
-    document.body.appendChild(vm.$el)
   }
 
 export const beforeUnmouted =
-  ({ api, vm }: Pick<IModalRenderlessParams, 'api' | 'vm'>) =>
+  ({ api }: Pick<IModalRenderlessParams, 'api'>) =>
   (): void => {
     off(document, 'keydown', api.handleGlobalKeydownEvent)
     off(window, 'hashchange', api.handleHashChange)
     off(window, 'resize', api.resetModalViewPosition)
     api.removeMsgQueue()
     api.hideScrollbar()
-
-    if (vm.$el.parentNode) {
-      vm.$el.parentNode.removeChild(vm.$el)
-    }
   }
 
 export const selfClickEvent =
-  ({ api, vm, props }: Pick<IModalRenderlessParams, 'api' | 'vm' | 'props'>) =>
+  ({ api, props }: Pick<IModalRenderlessParams, 'api' | 'props'>) =>
   (event: MouseEvent): void => {
-    if (props.maskClosable && event.target === vm.$el) {
+    if (props.maskClosable && event.target === event.currentTarget) {
       api.close('mask')
     }
   }

@@ -11,6 +11,7 @@
  */
 
 import { hooks } from '@tinysmall/common'
+import type { App } from '@tinysmall/common'
 import NotifyConstructor from './src/pc.vue'
 import '@tinysmall/theme/notify/index.less'
 import { IconSuccess, iconError, IconPrompt, iconWarningTriangle } from '@tinysmall/icon'
@@ -39,8 +40,10 @@ export interface NotifyState {
 
 export interface NotifyInstance {
   id: string
+  /** Teleport 根节点的占位注释节点，真实节点请使用 dom */
   $el: HTMLElement
   dom: HTMLElement
+  $refs: Record<string, any>
   state: NotifyState
   position: NotifyPosition
   getZindex: () => number
@@ -49,6 +52,8 @@ export interface NotifyInstance {
 
 let seed = 1
 let instances: NotifyInstance[] = []
+// 记录实例对应的应用，关闭时通过卸载应用移除 Teleport 到 body 的节点
+const instanceApps = new WeakMap<NotifyInstance, App>()
 
 const IconMap: Record<NotifyType, any> = {
   warning: iconWarningTriangle(),
@@ -105,29 +110,30 @@ const notify = (options: NotifyOptions): NotifyInstance => {
     Notify.close(id, userOnClose)
   }
 
-  const instance = hooks.createApp(NotifyConstructor, options).mount(
-    document.createElement('div')
-  ) as unknown as NotifyInstance
+  const app = hooks.createApp(NotifyConstructor, options)
+  const instance = app.mount(document.createElement('div')) as unknown as NotifyInstance
   instance.id = id
-  document.body.appendChild(instance.$el)
+  instanceApps.set(instance, app)
+
+  // 组件内部通过 Teleport 渲染到 body，此时 $el 是占位注释节点，真实节点取自组件内的 ref
+  instance.dom = instance.$refs?.notify as HTMLElement
 
   let verticalOffset = options.offset || 0
 
   instances
     .filter((item) => item.state.position === position)
     .forEach((item) => {
-      verticalOffset += item.$el.offsetHeight + 16
+      verticalOffset += item.dom.offsetHeight + 16
     })
 
   verticalOffset += options.verticalOffset ? Number(options.verticalOffset) : 16
   instances.push(instance)
 
-  instance.dom = instance.$el
   instance.dom.style.zIndex = instance.getZindex().toString()
   instance.state.verticalOffset = verticalOffset
   instance.state.visible = true
 
-  if (verticalOffset + instance.$el.offsetHeight > window.innerHeight) {
+  if (verticalOffset + instance.dom.offsetHeight > window.innerHeight) {
     instances[0] && instances[0].close(instances[0].id)
   }
 
@@ -163,8 +169,10 @@ Notify.close = function (id: string, userOnClose?: (instance: NotifyInstance) =>
   }
 
   typeof userOnClose === 'function' && userOnClose(instance)
-  let lastHeight = instance.$el.offsetHeight
-  instance.$el.parentNode?.removeChild(instance.$el)
+  let lastHeight = instance.dom.offsetHeight
+  // 卸载应用即可移除 Teleport 到 body 的节点，替代原先的手动 removeChild
+  instanceApps.get(instance)?.unmount()
+  instanceApps.delete(instance)
   instances.splice(index, 1)
 
   if (len <= 1) {
@@ -179,7 +187,7 @@ Notify.close = function (id: string, userOnClose?: (instance: NotifyInstance) =>
     .filter((item) => item.state.position === removedPosition)
     .forEach((item) => {
       item.state.verticalOffset = verticalOffset
-      verticalOffset += item.$el.offsetHeight + 16
+      verticalOffset += item.dom.offsetHeight + 16
     })
 
   copys.forEach((copy) => {

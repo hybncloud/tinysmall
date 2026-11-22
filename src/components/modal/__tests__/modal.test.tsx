@@ -1,4 +1,4 @@
-import { mount } from '@vue/test-utils'
+import { config, mount } from '@vue/test-utils'
 import { describe, expect, test, vi } from 'vitest'
 import Modal from '@tinysmall/modal'
 import Form from '@tinysmall/form'
@@ -7,6 +7,9 @@ import Input from '@tinysmall/input'
 import { nextTick, reactive, ref } from 'vue'
 
 const ASYNC_WAIT_TIME = 500
+
+// Modal 通过 Teleport 渲染到 body，stub 掉 teleport 以便在 wrapper 内断言结构
+config.global.stubs = { teleport: true }
 
 const waitAsyncFunctionEnded = (time = 0) => {
   return new Promise((resolve) => setTimeout(resolve, ASYNC_WAIT_TIME + time))
@@ -46,7 +49,10 @@ describe('PC Mode', () => {
       })
     }
 
-    const wrapper = mount(() => <button onClick={handleClick}>open</button>)
+    // 命令式创建的实例需要真实的 Teleport 才能渲染到 body，故此处关闭 teleport stub
+    const wrapper = mount(() => <button onClick={handleClick}>open</button>, {
+      global: { stubs: { teleport: false } }
+    })
 
     for (let i = 0; i < 5; i++) {
       await wrapper.find('button').trigger('click')

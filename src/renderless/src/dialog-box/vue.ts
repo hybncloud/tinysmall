@@ -135,8 +135,8 @@ const initApi = ({
       state
     }),
     computedStyle: computedStyle({ state, props }),
-    mounted: mounted({ api, vm, props }),
-    unMounted: unMounted({ api, vm, props }),
+    mounted: mounted({ api, props }),
+    unMounted: unMounted({ api }),
     computedAnimationName: computedAnimationName({ props }),
     afterEnter: afterEnter(emit),
     afterLeave: afterLeave(emit),
@@ -181,7 +181,9 @@ export const renderless = (
     reactive,
     toRefs,
     vm,
-    watch
+    watch,
+    // 组件根节点是 <teleport>，$el 为占位注释，根 DOM 需取模板中的 wrapper ref
+    getEl: () => vm.$refs.wrapper as HTMLElement
   })
 
   initApi({

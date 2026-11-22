@@ -10,7 +10,7 @@
  *
  -->
 <script lang="tsx">
-import { setup, h, defineComponent } from '@tinysmall/common'
+import { setup, h, defineComponent, Teleport } from '@tinysmall/common'
 import { renderless, api } from '@tinysmall/renderless/notify/vue'
 import { iconClose } from '@tinysmall/icon'
 
@@ -96,27 +96,30 @@ export default defineComponent({
     )
 
     return (
-      <div
-        class={[
-          'tiny-notify',
-          'tiny-notify--' + type,
-          showIcon ? '' : 'tiny-notify--no-icon',
-          showClose ? '' : 'tiny-notify--no-close',
-          state.position,
-          state.customClass
-        ]}
-        role="alert"
-        aria-hidden={!state.visible}
-        aria-labelledby={state.titleId}
-        aria-describedby={state.contentId}
-        style={state.positionStyle}
-        v-show="state.visible"
-        onMouseenter={clearTimer}
-        onMouseleave={startTimer}
-        onClick={click}
-      >
-        {[iconVNode, msgVNode, closeVNode]}
-      </div>
+      <Teleport to="body">
+        <div
+          ref="notify"
+          class={[
+            'tiny-notify',
+            'tiny-notify--' + type,
+            showIcon ? '' : 'tiny-notify--no-icon',
+            showClose ? '' : 'tiny-notify--no-close',
+            state.position,
+            state.customClass
+          ]}
+          role="alert"
+          aria-hidden={!state.visible}
+          aria-labelledby={state.titleId}
+          aria-describedby={state.contentId}
+          style={state.positionStyle}
+          v-show="state.visible"
+          onMouseenter={clearTimer}
+          onMouseleave={startTimer}
+          onClick={click}
+        >
+          {[iconVNode, msgVNode, closeVNode]}
+        </div>
+      </Teleport>
     )
   }
 })

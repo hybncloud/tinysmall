@@ -15,7 +15,7 @@ import { MsgQueue } from '@tinysmall/renderless/modal'
 import TinyModal from './src/index'
 import Popconfirm from '@tinysmall/popconfirm'
 import { version } from 'package.json'
-import type { ComponentPublicInstance, VNode } from '@tinysmall/common'
+import type { App, ComponentPublicInstance, VNode } from '@tinysmall/common'
 
 // 定义Modal选项接口
 export interface ModalOptions {
@@ -69,12 +69,12 @@ export function Modal(options: ModalOptions): ModalPromise {
     } else {
       let events = options.events || {}
       let $modal: ComponentPublicInstance
+      let app: App | undefined
       options.events = Object.assign({}, events, {
         hide(params: any) {
           events.hide && events.hide.call(this, params)
-          if ($modal && 'beforeUnmouted' in $modal) {
-            ;($modal as any).beforeUnmouted()
-          }
+          // 组件内部通过 Teleport 渲染到 body，卸载应用即等价于原先手动移除根节点
+          app?.unmount()
           resolve(params.type)
         },
         confirm(params: any) {
@@ -85,10 +85,8 @@ export function Modal(options: ModalOptions): ModalPromise {
         }
       })
 
-      $modal = hooks.createApp(
-        options.componentType === 'popconfirm' ? Popconfirm : TinyModalComponent,
-        options
-      ).mount(document.createElement('div'))
+      app = hooks.createApp(options.componentType === 'popconfirm' ? Popconfirm : TinyModalComponent, options)
+      $modal = app.mount(document.createElement('div'))
 
       const open = $modal[options.componentType === 'popconfirm' ? 'show' : 'open'] as Function
       if (open) {

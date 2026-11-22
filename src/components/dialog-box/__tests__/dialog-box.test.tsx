@@ -106,11 +106,9 @@ describe('PC Mode', () => {
     await wrapper.setProps({ visible: true })
     await nextTick()
 
-    // dialog 滚动触发 updatePopper 广播（scroll 监听绑定在 dialog-box 组件根元素上，
-    // 即 TinyVM 的 $el，经 <transition> 包裹后无类名，故通过 vm.$el 派发）
-    const dialog = wrapper.findComponent({ name: 'TinyDialogBox' })
-    const dialogTinyVm = (dialog.vm as any).vm
-    dialogTinyVm.$el.dispatchEvent(new Event('scroll'))
+    // dialog 滚动触发 updatePopper 广播（scroll 监听绑定在组件内部 .tiny-dialog-box__wrapper 上；
+    // 组件根节点是 <teleport>，TinyVM 的 $el 为占位注释，故从 DOM 中取 wrapper 派发）
+    wrapper.find('.tiny-dialog-box__wrapper').element.dispatchEvent(new Event('scroll'))
     await nextTick()
     expect(onMenuUpdatePopper).toHaveBeenCalled()
   })
