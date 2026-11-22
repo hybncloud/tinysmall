@@ -86,7 +86,7 @@ export interface IFileUploadState {
   uploadFiles: IFileUploadFile[]
   dragOver: boolean
   httpRequest: () => void
-  form: ITinyVm<unknown>
+  form: ITinyVm
   listeners: object
   docSize: number
   chunkSize: number
@@ -242,10 +242,10 @@ export type IFileUploadRenderlessParams = ISharedRenderlessFunctionParams<
   IFileUploadApi
 >
 
-export type IFileUploadVm = ITinyVm<IFileUploadConstants> & IFileUploadProps
+export type IFileUploadVm = ITinyVm & IFileUploadProps
 
 export interface IFileUploadModalVm {
-  Modal: ITinyVm<unknown>
+  Modal: ITinyVm
 }
 
 export type IFileUploadFile = File & { [propName: string]: any } // 允许添加多余未知属性
