@@ -23,7 +23,7 @@ export const tabsProps = {
   withClose: Boolean,
   withAdd: Boolean,
   size: String,
-  modelValue: {},
+  modelValue: String,
   editable: Boolean,
   position: {
     type: String,

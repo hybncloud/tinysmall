@@ -3,6 +3,8 @@ import type { tabsProps, $constants } from '../../components/tabs/src'
 import type { ISharedRenderlessFunctionParams, ISharedRenderlessParamUtils, ITinyVm } from './shared.type'
 import type {
   calcPaneInstances,
+  registerPane,
+  unregisterPane,
   calcMorePanes,
   calcExpandPanes,
   handleTabClick,
@@ -18,7 +20,7 @@ import type {
 } from '../src/tabs'
 
 export interface ITabsState {
-  panes: ITabsPaneVm[] | []
+  panes: ITabsPaneVm[]
   currentName: string
   currentIndex: number
   showPanesCount: number
@@ -39,7 +41,13 @@ export interface ITabsState {
 /**
  *tab根元素实例对象
  */
-export type ITabsVm = ComponentPublicInstance & { state: ITabsState } & ITabsProps
+export type ITabsVm = ComponentPublicInstance &
+  { state: ITabsState } &
+  ITabsProps & {
+    // tabs vm 暴露的 pane 注册接口（由 api 提供，供 tab-item 通过 rootTabs vm 调用）
+    registerPane?: (pane: ITabsPaneVm) => void
+    unregisterPane?: (pane: ITabsPaneVm) => void
+  }
 
 export type ITabsPaneVm = ITinyVm<{ TAB_ITEM: string }> | ITabsPane | ITabsVm
 
@@ -63,6 +71,8 @@ export interface ITabsCustomEvent {
 
 export interface ITabsApi {
   state: ITabsState
+  registerPane: ReturnType<typeof registerPane>
+  unregisterPane: ReturnType<typeof unregisterPane>
   handleTabAdd: ReturnType<typeof handleTabAdd>
   handleTabRemove: ReturnType<typeof handleTabRemove>
   changeDirection: ReturnType<typeof changeDirection>

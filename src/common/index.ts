@@ -130,10 +130,17 @@ export const setup = <P extends object = {}, S extends object = {}, C extends Se
     vm,
     emit: context.emit,
     emitter,
-    refs: $this.refs,
-    slots: $this.slots,
-    scopedSlots: $this.slots,
-    attrs: $this.attrs,
+    refs: new Proxy(
+      {},
+      {
+        get: (_, name) => Reflect.get($this.refs, name),
+        has: (_, name) => Reflect.has($this.refs, name),
+        ownKeys: () => Reflect.ownKeys($this.refs)
+      }
+    ),
+    slots: context.slots,
+    scopedSlots: context.slots,
+    attrs: context.attrs,
     nextTick: vueHooks.nextTick
   } as ISharedRenderlessParamUtils
 

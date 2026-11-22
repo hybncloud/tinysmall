@@ -61,8 +61,25 @@ const getOrderedPanes = (vm, panes) => {
   return panes
 }
 
+export const registerPane =
+  ({ state }: Pick<ITabsRenderlessParams, 'state'>) =>
+  (pane: ITabsPaneVm) => {
+    // 防重注册（如 HMR 重放 setup）；indexOf 对响应式数组做了 raw 解包，传原始 vm 可正确匹配
+    if (state.panes.indexOf(pane) === -1) {
+      state.panes.push(pane)
+    }
+  }
+
+export const unregisterPane =
+  ({ state }: Pick<ITabsRenderlessParams, 'state'>) =>
+  (pane: ITabsPaneVm) => {
+    const index = state.panes.indexOf(pane)
+
+    index > -1 && state.panes.splice(index, 1)
+  }
+
 export const calcPaneInstances =
-  ({ vm, state, panes }: Pick<ITabsRenderlessParams, 'vm' | 'state'> & { panes: ITabsPaneVm[] }) =>
+  ({ vm, state }: Pick<ITabsRenderlessParams, 'vm' | 'state'>) =>
   (isForceUpdate = false) => {
     const tabItemVNodes = vm.$slots.default
 
@@ -83,7 +100,7 @@ export const calcPaneInstances =
       })
       const currentPanes = [] as ITabsPaneVm[]
 
-      panes.forEach((pane) => {
+      state.panes.forEach((pane) => {
         const index = orderPanes.findIndex((name) => name === pane.name)
         index > -1 ? (currentPanes[index] = pane) : currentPanes.push(pane)
       })

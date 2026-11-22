@@ -25,20 +25,18 @@ export const renderless = (
   { computed, inject, reactive, watch, onUnmounted }: ISharedRenderlessParamHooks,
   { nextTick, vm }: ITabItemRenderlessParamUtils
 ): ITabItemApi => {
-  const registerPane = inject('registerPane') as ((pane: ITabsVm) => void) | undefined
-  const unregisterPane = inject('unregisterPane') as ((pane: ITabsVm) => void) | undefined
+  const rootTabs = inject('rootTabs') as ITabsVm
 
-  // 向所属 tabs 注册自身，替代 tabs 侧遍历子树的 childrenHandler
-  registerPane?.(vm)
+  // 向所属 tabs 注册自身：tabs 通过 provide('rootTabs') 暴露 vm，其上可取到 api.registerPane/unregisterPane
+  rootTabs?.registerPane?.(vm as ITabsVm)
 
-  onUnmounted(() => unregisterPane?.(vm))
+  onUnmounted(() => rootTabs?.unregisterPane?.(vm as ITabsVm))
 
   const state = reactive({
     index: null,
     loaded: false,
     animateShow: true,
-    // tabs 通过 provide('rootTabs') 暴露 vm，替代组件链 parent 访问；后续统一从 state.rootTabs 取用
-    rootTabs: inject('rootTabs') as ITabsVm,
+    rootTabs,
     active: computed(() => api.computedActive()),
     paneName: computed(() => api.computedPaneName()),
     isClosable: computed(() => api.computedIsClosable())

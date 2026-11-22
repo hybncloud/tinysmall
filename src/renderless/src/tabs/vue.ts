@@ -16,13 +16,14 @@ import type {
   ITabsProps,
   ISharedRenderlessParamHooks,
   ITabsRenderlessParamUtils,
-  ITabsRenderlessParams,
-  ITabsPaneVm
+  ITabsRenderlessParams
 } from '../../types'
 import {
   calcMorePanes,
   calcExpandPanes,
   calcPaneInstances,
+  registerPane,
+  unregisterPane,
   handleTabClick,
   handleTabAdd,
   handleTabRemove,
@@ -34,7 +35,6 @@ import {
   handleTabDragOver,
   handleTabDragEnd
 } from './index'
-
 
 const initState = ({ reactive, props }: Pick<ITabsRenderlessParams, 'reactive' | 'props'>): ITabsState =>
   reactive({
@@ -101,25 +101,18 @@ export const renderless = (
 ): ITabsApi => {
   const api = {} as ITabsApi
   const state: ITabsState = initState({ reactive, props })
-  const panes: ITabsPaneVm[] = []
-
-  // 子组件注册：tab-item 在 setup 时注册自身，替代遍历子树的 childrenHandler
-  provide('registerPane', (pane: ITabsPaneVm) => panes.push(pane))
-  provide('unregisterPane', (pane: ITabsPaneVm) => {
-    const index = panes.indexOf(pane)
-
-    index > -1 && panes.splice(index, 1)
-  })
 
   Object.assign(api, {
     state,
+    registerPane: registerPane({ state }),
+    unregisterPane: unregisterPane({ state }),
     handleTabAdd: handleTabAdd(emit),
     handleTabRemove: handleTabRemove({ emit, props }),
     changeDirection: changeDirection({ props, state }),
     changeCurrentName: changeCurrentName({ emit, state }),
     calcMorePanes: calcMorePanes({ vm, props, state, refs }),
     calcExpandPanes: calcExpandPanes({ vm, props, state }),
-    calcPaneInstances: calcPaneInstances({ vm, state, panes }),
+    calcPaneInstances: calcPaneInstances({ vm, state }),
     handleTabDragStart: handleTabDragStart({ emit }),
     handleTabDragOver: handleTabDragOver({ emit }),
     handleTabDragEnd: handleTabDragEnd({ state, emit }),
