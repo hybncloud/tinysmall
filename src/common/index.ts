@@ -177,7 +177,7 @@ export const setup = <P, R extends object = {}, C extends SetupContext<any[], {}
 
   const utils = { t, ...tools(context) } as ISharedRenderlessParamUtils
 
-  const sdk = renderless(props, hooks, utils, {})
+  const sdk = renderless(props, hooks, utils)
 
   Object.defineProperties(utils.vm, {
     slots: { get: () => utils.vm.$slots, configurable: true },

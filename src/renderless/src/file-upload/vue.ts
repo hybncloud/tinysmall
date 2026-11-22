@@ -9,15 +9,15 @@
  * A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
  *
  */
+import Modal from '@tinysmall/modal'
+import Streamsaver from 'streamsaver'
 import type {
   IFileUploadState,
   IFileUploadApi,
   IFileUploadProps,
   ISharedRenderlessParamHooks,
   IFileUploadRenderlessParamUtils,
-  IFileUploadModalVm,
-  IFileUploadService,
-  IFileUploadStreamsaver
+  IFileUploadService
 } from '../../types'
 
 import { downloadFile as ordinaryDownload } from '../upload-list'
@@ -332,8 +332,7 @@ export let getApi = () => ({}) as { downloadFile: Function }
 export const renderless = (
   props: IFileUploadProps,
   { computed, inject, onBeforeUnmount, provide, reactive, ref, watch, onMounted, markRaw }: ISharedRenderlessParamHooks,
-  { t, vm, emit, service}: IFileUploadRenderlessParamUtils,
-  { Modal, Streamsaver }: IFileUploadModalVm & { Streamsaver: IFileUploadStreamsaver }
+  { t, vm, emit, service}: IFileUploadRenderlessParamUtils
 ): IFileUploadApi => {
   let api = {} as IFileUploadApi
   const $service: IFileUploadService = initService({ props, service })

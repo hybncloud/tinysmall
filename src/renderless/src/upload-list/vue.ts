@@ -4,9 +4,9 @@ import type {
   IUploadListProps,
   ISharedRenderlessParamHooks,
   IUploadListRenderlessParamUtils,
-  IFileUploadModalVm,
   IFileUploadConstants
 } from '../../types'
+import Modal from '@tinysmall/modal'
 import { $constants } from '../file-upload/constants'
 import {
   parsePercentage,
@@ -62,8 +62,7 @@ export const api = [
 export const renderless = (
   props: IUploadListProps,
   { reactive, onMounted, onUnmounted, watch, inject, computed }: ISharedRenderlessParamHooks,
-  { t, emit, service, vm, nextTick }: IUploadListRenderlessParamUtils,
-  { Modal }: IFileUploadModalVm
+  { t, emit, service, vm, nextTick }: IUploadListRenderlessParamUtils
 ): IUploadListApi => {
   const api = { getApi } as IUploadListApi
   const constants = !isServer ? ($constants as IFileUploadConstants) : null

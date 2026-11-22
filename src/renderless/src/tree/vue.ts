@@ -269,8 +269,7 @@ const initWatcher = ({ watch, props, api, state }) => {
 export const renderless = (
   props,
   { computed, onMounted, onUpdated, reactive, watch, provide, onBeforeUnmount, inject },
-  { vm, t, emit, service, emitter, nextTick },
-  {}
+  { vm, t, emit, service, emitter, nextTick }
 ) => {
   const api = {}
   const state = initState({ reactive, emitter, props, computed, api, inject })

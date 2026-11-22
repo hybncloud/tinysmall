@@ -2,7 +2,7 @@ import { change, draw } from '.'
 
 export const api = ['state']
 
-export const renderless = (props, { reactive, watch, onMounted }, { vm, emit }, {}) => {
+export const renderless = (props, { reactive, watch, onMounted }, { vm, emit }) => {
   const api: any = {}
   const state = reactive({
     sizeStr: '',

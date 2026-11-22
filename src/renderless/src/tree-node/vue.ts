@@ -142,8 +142,7 @@ const initWatcher = ({ watch, state, api, props }) => {
 export const renderless = (
   props,
   { reactive, watch, inject, provide, computed },
-  { vm, nextTick, emit, emitter },
-  {}
+  { vm, nextTick, emit, emitter }
 ) => {
   const api = {}
   const state = initState({ reactive, props, emitter, vm, api, inject, computed })

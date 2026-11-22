@@ -82,8 +82,7 @@ export const api = [
 export const renderless = (
   props: IModalProps,
   { computed, onMounted, onBeforeUnmount, reactive, watch }: ISharedRenderlessParamHooks,
-  { vm, emit, emitter, nextTick }: IModalRenderlessParamUtils,
-  {}
+  { vm, emit, emitter, nextTick }: IModalRenderlessParamUtils
 ) => {
   const api = {} as IModalApi
   const lockScrollClass = $constants.SCROLL_LOCK_CLASS('pc')

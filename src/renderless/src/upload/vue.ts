@@ -10,13 +10,13 @@
  *
  */
 import { $constants } from '../file-upload/constants'
+import Modal from '@tinysmall/modal'
 import type {
   IUploadState,
   IUploadApi,
   IUploadProps,
   ISharedRenderlessParamHooks,
   IUploadRenderlessParamUtils,
-  IFileUploadModalVm,
   IFileUploadVm
 } from '../../types'
 
@@ -53,8 +53,7 @@ export const api = [
 export const renderless = (
   props: IUploadProps,
   { computed, inject, reactive, onMounted, onBeforeUnmount }: ISharedRenderlessParamHooks,
-  { refs, service, t }: IUploadRenderlessParamUtils,
-  { Modal }: IFileUploadModalVm & { Streamsaver: object }
+  { refs, service, t }: IUploadRenderlessParamUtils
 ): IUploadApi => {
   const api = {} as IUploadApi
   const uploader = inject('uploader') as IFileUploadVm

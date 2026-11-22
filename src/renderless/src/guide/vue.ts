@@ -1,8 +1,10 @@
+import Shepherd from 'shepherd.js'
+import { offset } from '@floating-ui/dom'
 import { createShepherd, mounted, beforeUnmount } from './index'
 
 export const api = ['state']
 
-export const renderless = (props, { reactive, onMounted, onBeforeUnmount, watch }, {}, { Shepherd, offset }) => {
+export const renderless = (props, { reactive, onMounted, onBeforeUnmount, watch }, {}) => {
   const state = reactive({
     tour: null,
     tour1: null,

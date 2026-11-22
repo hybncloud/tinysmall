@@ -56,13 +56,10 @@ const initState = ({
   reactive,
   computed,
   api,
-  props,
-  images
-}: Pick<IImageRenderlessParams, 'reactive' | 'computed' | 'api' | 'props' | 'images'>) => {
+  props
+}: Pick<IImageRenderlessParams, 'reactive' | 'computed' | 'api' | 'props'>) => {
   const state = reactive({
     mfPreviewVisible: props.previewVisible,
-    /** mobile-first传入的一张image-error的图片 */
-    images,
     error: false,
     loading: true,
     imageWidth: 0,
@@ -124,11 +121,10 @@ const initWatch = ({ watch, state, api, props }: Pick<IImageRenderlessParams, 's
 export const renderless = (
   props: IImageProps,
   { computed, onBeforeUnmount, onMounted, reactive, watch, provide }: ISharedRenderlessParamHooks,
-  { vm, emit, nextTick, attrs }: IImageRenderlessParamUtils,
-  { images }: any
+  { vm, emit, nextTick, attrs }: IImageRenderlessParamUtils
 ) => {
   const api = {} as IImageApi
-  const state: IImageState = initState({ reactive, computed, api, props, images })
+  const state: IImageState = initState({ reactive, computed, api, props })
 
   initApi({ api, state, emit, props, vm, nextTick, attrs })
 

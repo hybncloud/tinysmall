@@ -322,7 +322,7 @@ const initApi = ({ vm, api, state, t, props, emit, nextTick }) => {
   })
 }
 
-export const renderless = (props, { computed, reactive, watch, onMounted }, { vm, t, emit, nextTick }, {}) => {
+export const renderless = (props, { computed, reactive, watch, onMounted }, { vm, t, emit, nextTick }) => {
   const api = {}
   const state = initState({ reactive, props, computed, api })
 
