@@ -210,7 +210,6 @@ const initApi = ({ api, props, hooks, state, vnode, utils }) => {
 
 const initApi2 = ({ api, props, state, t, vm }) => {
   Object.assign(api, {
-    t,
     state,
     blur: blur(state),
     getMode: getMode({ state }),

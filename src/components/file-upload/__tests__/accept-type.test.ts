@@ -1,5 +1,5 @@
 import { describe, expect, test, vi } from 'vitest'
-import { beforeUpload } from '@tinysmall/renderless/file-upload'
+import { doBeforeUpload } from '@tinysmall/renderless/file-upload'
 import { $constants as constants } from '../src/index'
 
 /**
@@ -11,10 +11,10 @@ import { $constants as constants } from '../src/index'
 const t = (_key: string, params?: { format?: string }) =>
   params?.format ? `格式（.${params.format}）暂不支持` : '暂不支持'
 
-type BeforeUploadOptions = Parameters<typeof beforeUpload>[0]
+type BeforeUploadOptions = Parameters<typeof doBeforeUpload>[0]
 
 const createUploadFn = (accept: string, modalMessage = vi.fn()) =>
-  beforeUpload({
+  doBeforeUpload({
     props: { accept },
     api: { handleRemove: vi.fn() },
     Modal: { message: modalMessage },

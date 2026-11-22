@@ -36,7 +36,6 @@ export const renderless = (props, { computed, reactive, watch }, { t, vm, emit }
   })
 
   Object.assign(api, {
-    t,
     state,
     getMonthOfCell: getMonthOfCell(props),
     cellMatchesDate: cellMatchesDate(props),

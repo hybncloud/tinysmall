@@ -291,7 +291,7 @@ const getOptionOfSetSelected = ({ api, props }) => {
 
   // tiny 新增
   if (!option.state.currentLabel && !option.currentLabel) {
-    api.clearNoMatchValue('')
+    api.doClearNoMatchValue('')
   }
 
   return option
@@ -314,7 +314,7 @@ const getResultOfSetSelected = ({ state, api, props }) => {
     })
   }
   // tiny 新增
-  api.clearNoMatchValue(newModelValue)
+  api.doClearNoMatchValue(newModelValue)
 
   return result
 }
@@ -1140,7 +1140,7 @@ export const watchValue =
 
     api.setSelected()
 
-    !state.isClickChoose && api.initQuery({ init: true }).then(() => api.setSelected())
+    !state.isClickChoose && api.doInitQuery({ init: true }).then(() => api.setSelected())
     state.isClickChoose = false
 
     if ((props.filterable || props.searchable) && !props.multiple) {
@@ -1252,7 +1252,7 @@ export const toVisible =
     state.query = ''
     state.selectedLabel = ''
     state.inputLength = 20
-    state.previousQuery !== state.query && api.initQuery().then(() => api.setSelected())
+    state.previousQuery !== state.query && api.doInitQuery().then(() => api.setSelected())
 
     state.previousQuery = null
 
@@ -1649,7 +1649,7 @@ export const watchInputHover =
     }
   }
 
-export const initQuery =
+export const doInitQuery =
   ({ props, state, vm }) =>
   ({ init } = {}) => {
     const isRemote =
@@ -1718,7 +1718,7 @@ export const mounted =
       api.resetInputHeight()
     }
 
-    api.initQuery({ init: true }).then(() => {
+    api.doInitQuery({ init: true }).then(() => {
       api.setSelected(true)
 
       if (props.modelValue && props.initLabel) {
@@ -2021,7 +2021,7 @@ export const clearSearchText =
     state.previousQuery = undefined
     api.handleQueryChange(state.query)
   }
-export const clearNoMatchValue =
+export const doClearNoMatchValue =
   ({ props, emit }) =>
   (newModelValue) => {
     if (!props.clearNoMatchValue) {

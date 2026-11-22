@@ -4,7 +4,7 @@ import { h, setup, defineComponent } from '@tinysmall/common'
 import { t } from '@tinysmall/locale'
 import Scrollbar from '@tinysmall/scrollbar'
 import CascaderNode from '@tinysmall/cascader-node'
-import type { ICascaderMenuApi, ICascaderMenuRenderlessParams } from '@tinysmall/renderless/types/cascader-menu.type'
+import type { ICascaderMenuApi } from '@tinysmall/renderless/types/cascader-menu.type'
 import type { ICascaderPanelNode } from '@tinysmall/renderless/types/cascader-panel.type'
 import '@tinysmall/theme/cascader-menu/index.less'
 
@@ -61,7 +61,7 @@ const CascaderMenu = defineComponent({
     }
   },
   setup(props, context) {
-    return setup({ props, context, renderless }) & Pick<ICascaderMenuRenderlessParams, 'panel'>
+    return setup({ props, context, renderless })
   },
   render() {
     const parentVm = this.cascaderRoot || this.panel || this

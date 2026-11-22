@@ -18,7 +18,7 @@ import { isEqual } from '@tinysmall/utils'
 import { iconLoadingShadow, iconChevronRight, iconYes } from '@tinysmall/icon'
 import type { PropType } from '@tinysmall/common'
 import { AutoTip } from '@tinysmall/directive'
-import type { ICascaderNodeApi, ICascaderNodeRenderlessParams } from '@tinysmall/renderless/types/cascader-node.type'
+import type { ICascaderNodeApi } from '@tinysmall/renderless/types/cascader-node.type'
 import type { ICascaderPanelNode } from '@tinysmall/renderless/types/cascader-panel.type'
 import '@tinysmall/theme/cascader-node/index.less'
 
@@ -45,7 +45,7 @@ export default defineComponent({
   inject: ['panel'],
   props: cascaderNodeProps,
   setup(props, context) {
-    return setup({ props, context, renderless }) & Pick<ICascaderNodeRenderlessParams, 'panel'>
+    return setup({ props, context, renderless })
   },
   render() {
     const renderPrefix = () => {

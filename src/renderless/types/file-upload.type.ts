@@ -50,7 +50,7 @@ import type {
   handleRemove,
   updateUrl,
   startUpload,
-  beforeUpload,
+  doBeforeUpload,
   getDownloadFileInfo,
   largeDocumentDownload,
   sliceDownloadChunk,
@@ -185,7 +185,7 @@ export interface IFileUploadApi {
   handleRemove: ReturnType<typeof handleRemove>
   updateUrl: ReturnType<typeof updateUrl>
   startUpload: ReturnType<typeof startUpload>
-  beforeUpload: ReturnType<typeof beforeUpload>
+  doBeforeUpload: ReturnType<typeof doBeforeUpload>
   getDownloadFileInfo: ReturnType<typeof getDownloadFileInfo>
   largeDocumentDownload: ReturnType<typeof largeDocumentDownload>
   sliceDownloadChunk: ReturnType<typeof sliceDownloadChunk>

@@ -50,7 +50,6 @@ const initState = ({ reactive, computed, api, props }) => {
 
 const initApi = ({ api, state, props, emit, t, vm }) => {
   Object.assign(api, {
-    t,
     state,
     getOffsetDay: getOffsetDay(props),
     getWeeks: getWeeks({ props, state }),

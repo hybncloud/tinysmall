@@ -60,7 +60,6 @@ export const renderless = (props, { computed, onMounted, reactive, watch, nextTi
   state.showTimePickerButton = true
 
   Object.assign(api, {
-    t,
     state,
     compuAmPmMode: compuAmPmMode(state),
     adjustSpinners: adjustSpinners(vm),

@@ -154,7 +154,6 @@ const initWatch = ({ watch, state, api, props }) => {
 
 const initApi = ({ api, state, t, vm, nextTick, emit, props }) => {
   Object.assign(api, {
-    t,
     state,
     computerLabel: computerLabel({ state, t }),
     resetView: resetView({ state }),

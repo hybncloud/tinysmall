@@ -211,7 +211,6 @@ const initWatch = ({ watch, state, api, nextTick, props }) => {
 
 const initApi = ({ api, state, t, emit, nextTick, vm, watch, props }) => {
   Object.assign(api, {
-    t,
     state,
     debounceChange,
     toggleTz: toggleTz(state),

@@ -65,7 +65,6 @@ export const renderless = (props, { computed, reactive, watch, nextTick }, { t, 
   state.showTimePickerRangeButton = true
 
   Object.assign(api, {
-    t,
     state,
     handleClear: handleClear(emit),
     compuAmPmMode: compuAmPmMode(state),

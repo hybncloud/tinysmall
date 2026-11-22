@@ -275,7 +275,7 @@ const remove = ({
   }
 }
 
-export const beforeUpload =
+export const doBeforeUpload =
   ({
     props,
     api,
@@ -652,7 +652,7 @@ export const handleStart =
 
         if (!file) return
 
-        api.beforeUpload(file, true, (file) => {
+        api.doBeforeUpload(file, true, (file) => {
           typeof props.edm.upload.loading === 'function' && props.edm.upload.loading(file)
 
           new Promise((resolve) => {
@@ -688,14 +688,14 @@ export const handleStart =
       if (props.multiple && props.mergeService) {
         const handler = (file) => vm.$refs[$constants.UPLOAD_INNER].upload(file.raw)
 
-        rawFiles.length && api.beforeUpload({ raw: rawFiles }, true, handler, true)
+        rawFiles.length && api.doBeforeUpload({ raw: rawFiles }, true, handler, true)
       } else {
         rawFiles.forEach((rawFile) => {
           const file = api.getFile(rawFile)
           if (!file) return
           const handler = (file) => vm.$refs[$constants.UPLOAD_INNER].upload(file.raw)
 
-          api.beforeUpload(file, true, handler)
+          api.doBeforeUpload(file, true, handler)
         })
       }
     }
@@ -1029,7 +1029,7 @@ export const submit =
           })
           .then((data) => {
             if (data) {
-              api.beforeUpload(file, false, (file) => {
+              api.doBeforeUpload(file, false, (file) => {
                 api.startUpload(file)
               })
             }
@@ -1039,12 +1039,12 @@ export const submit =
       if (props.multiple && props.mergeService) {
         const rawFiles = files.map((file) => file.raw)
         rawFiles.length &&
-          api.beforeUpload({ raw: rawFiles }, false, (file) => {
+          api.doBeforeUpload({ raw: rawFiles }, false, (file) => {
             vm.$refs[$constants.UPLOAD_INNER].upload(file.raw)
           })
       } else {
         files.forEach((file) => {
-          api.beforeUpload(file, false, (file) => {
+          api.doBeforeUpload(file, false, (file) => {
             vm.$refs[$constants.UPLOAD_INNER].upload(file.raw)
           })
         })
@@ -2596,13 +2596,14 @@ export const getDialogConfigObj =
   ({ props, state, t }: Pick<IFileUploadRenderlessParams, 'props' | 'state' | 't'>) =>
   (): object => {
     const dialogConfigDefault = {
-      class: 'single-download-modal single-download-modal1',
-      style: '',
+      // DialogBox 根节点是 teleport，attrs 无法自动继承，必须走声明的 props：dialogClass / draggable / customStyle
+      dialogClass: 'single-download-modal single-download-modal1',
       lockScroll: true,
       visible: state.showPreview,
-      dragable: true,
+      draggable: true,
       title: t($constants.EDM.DOC_PREVIEW),
       width: '60%',
+      customStyle: { minHeight: '600px' },
       'onUpdate:visible': (value) => (state.showPreview = value)
     }
     let dialogConfig = {}
@@ -2613,13 +2614,23 @@ export const getDialogConfigObj =
 
     const dialogConfigCopy = extend(true, {}, dialogConfig)
     const events = dialogConfigCopy.events || {}
-    // clazz、style只接受字符串值
-    const clazz = dialogConfigCopy.class || ''
-    const style = dialogConfigCopy.style || ''
+    // 对外配置沿用 class/style 键名，内部转成 DialogBox 的声明 props（dialogClass/customStyle）
+    const clazz = dialogConfigCopy.dialogClass || dialogConfigCopy.class || ''
+    const styleStr = dialogConfigCopy.style || ''
+    const userCustomStyle = dialogConfigCopy.customStyle || {}
 
     delete dialogConfigCopy.events
     delete dialogConfigCopy.class
     delete dialogConfigCopy.style
+    delete dialogConfigCopy.customStyle
+
+    const styleObj = {}
+    String(styleStr)
+      .split(';')
+      .forEach((pair) => {
+        const [key, value] = pair.split(':')
+        if (key && value) styleObj[key.trim()] = value.trim()
+      })
 
     // 用户配置的事件名（如 update:visible / confirm）转为 Vue3 的 onXxx 形式
     const eventHandlers = Object.fromEntries(
@@ -2627,8 +2638,8 @@ export const getDialogConfigObj =
     )
 
     return extend(true, {}, dialogConfigDefault, {
-      class: `${dialogConfigDefault.class} ${clazz}`,
-      style: `${style}`,
+      dialogClass: `${dialogConfigDefault.dialogClass} ${clazz}`.trim(),
+      customStyle: { ...styleObj, ...userCustomStyle },
       ...dialogConfigCopy,
       ...eventHandlers
     })
