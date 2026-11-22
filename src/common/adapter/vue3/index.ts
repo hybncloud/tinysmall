@@ -125,15 +125,6 @@ export const isEmptyVnode = (vnode) => !vnode || !vnode.type || [Text, Comment].
 
 export const h = hooks.h
 
-export const createComponentFn = () => {
-  return ({ component, propsData, el }) => {
-    const vnode = hooks.createVNode(component, propsData)
-    hooks.render(vnode, el)
-    // render 后实例已挂载，component 必非空（类型层声明为可空，用断言）
-    return createVm({}, vnode.component!)
-  }
-}
-
 export const defineComponent = hooks.defineComponent
 
 export default hooks

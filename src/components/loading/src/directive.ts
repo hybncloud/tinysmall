@@ -13,7 +13,7 @@ import { afterLeave } from '@tinysmall/renderless/loading/after-leave'
 import { PopupManager } from '@tinysmall/utils'
 import { addClass, getStyle, removeClass } from '@tinysmall/utils'
 import Loading from './index'
-import { hooks, directive, createComponent } from '@tinysmall/common'
+import { hooks, directive } from '@tinysmall/common'
 import { constants, defaults } from './service'
 
 const insertDom = (parent, el, binding) => {
@@ -129,11 +129,7 @@ const vLoading = {
     const backgroundExr = el.getAttribute(constants.TEXT_BACKGROUND)
     const customClassExr = el.getAttribute(constants.TEXT_CUSTOM_CLS)
 
-    const mask = createComponent({
-      component: Loading,
-      propsData: {},
-      el: document.createElement('div')
-    })
+    const mask = hooks.createApp(Loading, {}).mount(document.createElement('div'))
 
     const config = {
       ...defaults,

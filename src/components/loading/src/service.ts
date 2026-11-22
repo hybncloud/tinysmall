@@ -12,7 +12,7 @@
 
 import { PopupManager } from '@tinysmall/utils'
 import { getStyle, addClass } from '@tinysmall/utils'
-import { createComponent, hooks } from '@tinysmall/common'
+import { hooks } from '@tinysmall/common'
 import Loading from './index'
 import { $constants } from '@tinysmall/renderless/loading/constants'
 import type { ILoadingState } from '@tinysmall/renderless/types/loading.type'
@@ -110,14 +110,10 @@ export default (configs: LoadingConfig = {}) => {
 
   loadingEl && parent.removeChild(loadingEl)
 
-  let instance = createComponent({
-    component: Loading,
-    propsData: {
-      size: configs.size,
-      loadingImg: configs.loadingImg
-    },
-    el: document.createElement('div')
-  }) as LoadingInstance
+  let instance = hooks.createApp(Loading, {
+    size: configs.size,
+    loadingImg: configs.loadingImg
+  }).mount(document.createElement('div')) as unknown as LoadingInstance
 
   for (const key in configs) {
     if (Object.prototype.hasOwnProperty.call(configs, key)) {

@@ -11,7 +11,7 @@
  */
 
 import Tooltip from '@tinysmall/tooltip'
-import { createComponent, h, hooks } from '@tinysmall/common'
+import { h, hooks } from '@tinysmall/common'
 
 interface TooltipDirectiveConfig {
   always?: boolean // 是否文字不超长，也触发提示, 默认为 false
@@ -75,16 +75,12 @@ const mouseenterHandler = (e) => {
     if (!globalTooltip.value) {
       tooltipContent.value = getRealContent(currentTarget)
 
-      globalTooltip.value = createComponent({
-        el: document.createElement('div'),
-        propsData: {
-          renderContent: () => h('span', { class: 'tiny-directive-tip__content' }, tooltipContent.value),
-          placement: getPlacement(currentTarget),
-          effect: isDarkTheme(currentTarget) ? 'dark' : 'light',
-          popperClass: getPopperClass(currentTarget).join(' ')
-        },
-        component: Tooltip
-      })
+      globalTooltip.value = hooks.createApp(Tooltip, {
+        renderContent: () => h('span', { class: 'tiny-directive-tip__content' }, tooltipContent.value),
+        placement: getPlacement(currentTarget),
+        effect: isDarkTheme(currentTarget) ? 'dark' : 'light',
+        popperClass: getPopperClass(currentTarget).join(' ')
+      }).mount(document.createElement('div'))
 
       oldPopperClass = getPopperClass(currentTarget)
     }

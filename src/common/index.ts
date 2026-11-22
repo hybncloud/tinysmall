@@ -1,5 +1,4 @@
 import hooks from './adapter/index.ts'
-import { createComponentFn } from './adapter/index.ts'
 import { directive, h, markRaw, Teleport } from './adapter/index.ts'
 import { parseVnode, isEmptyVnode, tools } from './adapter/index.ts'
 import { t } from '@tinysmall/locale'
@@ -9,8 +8,6 @@ import { getCurrentInstance, type SetupContext, type Slots } from 'vue'
 import type { ISharedRenderlessParamHooks, ISharedRenderlessParamUtils, ITinyVm } from '@tinysmall/renderless/types'
 
 export { defineComponent }
-
-const createComponent = createComponentFn()
 
 export const setup = <P, R extends object = {}, C extends SetupContext<any[], {}> = SetupContext>({
   props,
@@ -67,4 +64,4 @@ export const setup = <P, R extends object = {}, C extends SetupContext<any[], {}
 
 export type { PropType, ComponentPublicInstance, App, VNode } from './adapter'
 
-export { h, hooks, directive, parseVnode, isEmptyVnode, createComponent, Teleport, markRaw }
+export { h, hooks, directive, parseVnode, isEmptyVnode, Teleport, markRaw }

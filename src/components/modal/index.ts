@@ -10,7 +10,7 @@
  *
  */
 
-import { createComponent } from '@tinysmall/common'
+import { hooks } from '@tinysmall/common'
 import { MsgQueue } from '@tinysmall/renderless/modal'
 import TinyModal from './src/index'
 import Popconfirm from '@tinysmall/popconfirm'
@@ -85,11 +85,10 @@ export function Modal(options: ModalOptions): ModalPromise {
         }
       })
 
-      $modal = createComponent({
-        el: document.createElement('div'),
-        propsData: options,
-        component: options.componentType === 'popconfirm' ? Popconfirm : TinyModalComponent
-      })
+      $modal = hooks.createApp(
+        options.componentType === 'popconfirm' ? Popconfirm : TinyModalComponent,
+        options
+      ).mount(document.createElement('div'))
 
       const open = $modal[options.componentType === 'popconfirm' ? 'show' : 'open'] as Function
       if (open) {

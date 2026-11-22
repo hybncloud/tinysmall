@@ -13,7 +13,7 @@
 
 <script lang="tsx">
 import { renderless, api } from '@tinysmall/renderless/tooltip/vue'
-import { setup, createComponent, parseVnode, h, defineComponent, isEmptyVnode, hooks } from '@tinysmall/common'
+import { setup, parseVnode, h, defineComponent, isEmptyVnode, hooks } from '@tinysmall/common'
 import { normalizeClass, Transition } from 'vue'
 import type { ITinyVm } from '@tinysmall/renderless/types/shared.type'
 import '@tinysmall/theme/tooltip/index.less'
@@ -149,11 +149,8 @@ export default defineComponent({
         popperVM: {
           get: () => {
             if (!_cacheVm.value) {
-              _cacheVm.value = createComponent({
-                parent: this,
-                el: document.createElement('div'),
-                propsData: null,
-                component: {
+              _cacheVm.value = hooks.createApp(
+                {
                   render: () => {
                     const content = getContent(this)
 
@@ -207,8 +204,9 @@ export default defineComponent({
                       </div>
                     ])
                   }
-                }
-              })
+                },
+                null
+              ).mount(document.createElement('div'))
             }
 
             return _cacheVm.value

@@ -10,7 +10,7 @@
  *
  */
 
-import { createComponent } from '@tinysmall/common'
+import { hooks } from '@tinysmall/common'
 import NotifyConstructor from './src/pc.vue'
 import '@tinysmall/theme/notify/index.less'
 import { IconSuccess, iconError, IconPrompt, iconWarningTriangle } from '@tinysmall/icon'
@@ -105,11 +105,9 @@ const notify = (options: NotifyOptions): NotifyInstance => {
     Notify.close(id, userOnClose)
   }
 
-  const instance = createComponent({
-    el: document.createElement('div'),
-    propsData: options,
-    component: NotifyConstructor
-  }) as NotifyInstance
+  const instance = hooks.createApp(NotifyConstructor, options).mount(
+    document.createElement('div')
+  ) as unknown as NotifyInstance
   instance.id = id
   document.body.appendChild(instance.$el)
 
