@@ -12,11 +12,13 @@
 <template>
   <div class="tiny-popupload">
     <tiny-button :size="size" @click="showDialog" :disabled="state.disabled">{{ state.uploadButtonText }}</tiny-button>
-    <tiny-modal
-      class="tiny-popupload__modal"
-      v-model="state.isShowDialog"
+    <!-- DialogBox 的 prop 是 visible（Vue 3 不支持 model 选项，v-model 会变成 modelValue 额外属性） -->
+    <tiny-dialog-box
+      dialog-class="tiny-popupload__modal"
+      :visible="state.isShowDialog"
       :title="state.dialogTitle"
-      width="648"
+      width="648px"
+      @update:visible="state.isShowDialog = $event"
       @close="closeDialog"
     >
       <div class="tiny-popupload__dialog">
@@ -146,14 +148,14 @@
           <tiny-button @click="closeDialog">{{ state.cancelButtonText }}</tiny-button>
         </div>
       </div>
-    </tiny-modal>
+    </tiny-dialog-box>
   </div>
 </template>
 
 <script lang="ts">
 import Alert from '@tinysmall/alert'
 import Button from '@tinysmall/button'
-import Modal from '@tinysmall/modal'
+import DialogBox from '@tinysmall/dialog-box'
 import FileUpload from '@tinysmall/file-upload'
 import Progress from '@tinysmall/progress'
 import Popconfirm from '@tinysmall/popconfirm'
@@ -219,7 +221,7 @@ export default defineComponent({
   name: 'TinyPopUpload',
   components: {
     TinyButton: Button,
-    TinyModal: Modal,
+    TinyDialogBox: DialogBox,
     TinyAlert: Alert,
     TinyFileUpload: FileUpload,
     TinyProgress: Progress,

@@ -90,7 +90,6 @@ export const dropdownMenuProps = {
     default: true
   },
   zIndex: [Number, String],
-  // tiny新增
   options: {
     type: Array,
     default: () => []

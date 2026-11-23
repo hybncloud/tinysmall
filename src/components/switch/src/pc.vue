@@ -61,7 +61,7 @@ export const switchProps = {
     default: false
   },
   showText: {
-    type: Boolean || undefined,
+    type: Boolean,
     default: false
   },
   types: {

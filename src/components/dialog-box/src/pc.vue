@@ -208,10 +208,6 @@ export const dialogBoxProps = {
 
 export default defineComponent({
   name: 'TinyDialogBox',
-  model: {
-    prop: 'visible',
-    event: 'update:visible'
-  },
   components: {
     Teleport,
     IconClose: iconClose(),
@@ -235,10 +231,6 @@ export default defineComponent({
     'resize'
   ],
   props: dialogBoxProps,
-  model: {
-    prop: 'visible',
-    event: 'update:visible'
-  },
   provide() {
     return { dialog: this }
   },

@@ -182,7 +182,6 @@ export const searchProps = {
   },
   typeValue: Object,
   suffixIcon: [Object, String],
-  // tiny新增
   disabled: {
     type: Boolean,
     default: false

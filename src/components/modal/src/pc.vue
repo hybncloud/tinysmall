@@ -159,7 +159,10 @@ export default defineComponent({
             is__visible: contentVisible,
             active: visible,
             leave: !contentVisible
-          }
+          },
+          // 根节点是 teleport，attrs 不会被自动继承，这里手动合并 customClass 与外部传入的 class
+          this.customClass,
+          this.$attrs.class
         ],
         style: {
           zIndex: state.modalZindex,

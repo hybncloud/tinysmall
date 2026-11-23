@@ -21,9 +21,8 @@ import { iconDownWard } from '@tinysmall/icon'
 
 export const dropdownProps = {
   modelValue: [String, Number],
-  // tiny新增
   visible: {
-    type: [Boolean, undefined],
+    type: Boolean,
     default: undefined
   },
   type: String,
@@ -73,7 +72,6 @@ export const dropdownProps = {
     type: Boolean,
     default: false
   },
-  // tiny新增
   menuOptions: {
     type: Object,
     default: () => ({
@@ -103,10 +101,6 @@ export const dropdownProps = {
 export default defineComponent({
   name: 'TinyDropdown',
   componentName: 'TinyDropdown',
-  model: {
-    prop: 'visible',
-    event: 'update:visible'
-  },
   components: {
     TinyButton: Button,
     TinyButtonGroup: ButtonGroup,
@@ -130,15 +124,13 @@ export default defineComponent({
   },
   render() {
     const { splitButton, type, disabled, handleMainButtonClick, menuOptions, title, suffixIcon, prefixIcon } = this
-    const { slots, size, state, border, showIcon, round, clickOutside, visible } = this
+    const { slots, size, state, border, showIcon, round, clickOutside } = this
 
     const params = { visible: state.visible }
     let triggerElm = null
     // TINY-TODO tiny-dropdown类名整改,统一tiny-组件名为前缀
     const triggerClass = 'tiny-dropdown__trigger tiny-dropdown-trigger'
-    // tiny新增visible判断
-    const addVisibleClass = state.visibleIsBoolean ? visible : state.visible
-    const visibleClass = addVisibleClass ? 'tiny-dropdown--visible tiny-dropdown-visible' : ''
+    const visibleClass = state.visible ? 'tiny-dropdown--visible tiny-dropdown-visible' : ''
 
     // 优先级：suffix-icon 插槽 > suffixIcon 属性 > 其他主题图标 > 默认主题图标
     const IconDown = suffixIcon || iconDownWard()
@@ -243,7 +235,7 @@ export default defineComponent({
     const menuElm = disabled ? null : (slots.dropdown && slots.dropdown()) || defaulMenuElm
 
     return (
-      <div class="tiny-dropdown" v-clickoutside={!state.visibleIsBoolean && clickOutside} aria-disabled={disabled}>
+      <div class="tiny-dropdown" v-clickoutside={clickOutside} aria-disabled={disabled}>
         {triggerElm}
         {menuElm}
       </div>

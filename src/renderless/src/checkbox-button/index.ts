@@ -59,7 +59,6 @@ export const computedGetModelSet =
     }
   }
 
-// tiny新增： 增加监听form的disabled
 export const computedIsDisabled =
   ({ state, props }) =>
   () =>

@@ -220,7 +220,6 @@ export const logicFun =
     if (pullMode) {
       currentValue.splice(event.newIndex, 0, currentValue.splice(event.oldIndex, 1)[0])
     } else {
-      // tiny新增：过滤时拖动，需要从左右页面过滤后的项中，去查找数据。
       const rightPanel = vm.$refs.rightPanel
       const leftPanel = vm.$refs.leftPanel
 

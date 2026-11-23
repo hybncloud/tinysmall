@@ -1,12 +1,7 @@
 import { $constants } from '../base-select/constants'
 import { queryChange, observeCallback } from './index'
 
-
-export const renderless = (
-  props,
-  { onMounted, onBeforeUnmount, reactive, watch, inject, provide },
-  { vm }
-) => {
+export const renderless = (props, { onMounted, onBeforeUnmount, reactive, watch, inject, provide }, { vm }) => {
   const select = inject('select')
 
   provide('optionGroup', vm)
@@ -39,7 +34,6 @@ export const renderless = (
       const config = { attributes: false, childList: true, subtree: false }
       api.observer = new MutationObserver(api.observeCallback)
 
-      // tiny新增，解决多端模式下报错问题
       if (vm.$refs.selectGroup) {
         api.observer.observe(vm.$refs.selectGroup, config)
       }

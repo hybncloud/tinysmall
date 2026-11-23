@@ -54,7 +54,6 @@ import {
 } from './index'
 import { formatFileSize } from '@tinysmall/utils'
 
-
 const initState = ({ reactive, props, computed, api }) =>
   reactive({
     errorTips: [],
@@ -74,7 +73,6 @@ const initState = ({ reactive, props, computed, api }) =>
     fileSize: computed(() => api.computedFileSize()),
     fileName: computed(() => api.computedFileName()),
     fileStatus: computed(() => api.computedFileStatus()),
-    // tiny新增
     fileWords: computed(() => api.computedFileWords()),
     cancelButtonText: computed(() => api.computedCancel()),
     submitButtonText: computed(() => api.computedconfirm()),

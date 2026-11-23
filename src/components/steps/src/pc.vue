@@ -58,7 +58,7 @@ export const stepsProps = {
     default: false
   },
   line: Boolean,
-  dot: Boolean, // tiny新增
+  dot: Boolean,
   duration: {
     type: Number,
     default: 300

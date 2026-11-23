@@ -249,7 +249,6 @@ export const pagerProps = {
     type: Boolean,
     default: undefined
   },
-  // tiny新增
   changeCompat: {
     type: Boolean,
     default: false

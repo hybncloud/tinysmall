@@ -570,13 +570,11 @@ export const setShowMoreBtn =
     }, 100)
   }
 
-// tiny新增，同步勿删
 export const handleTextareaMouseDown =
   ({ state }) =>
   () =>
     (state.isDragging = true)
 
-// tiny新增，同步勿删
 export const handleTextareaMouseUp =
   ({ state, api }) =>
   (isOutside) => {
