@@ -77,8 +77,7 @@
     "@types/qrcode": "^1.5.6",
     "qrcode": "1.5.1",
     "shepherd.js": "11.0.1",
-    "streamsaver": "2.0.6",
-    "xss": "1.0.14"
+    "streamsaver": "2.0.6"
   },
   "peerDependencies": {
     "vue": "^3.5.44"
