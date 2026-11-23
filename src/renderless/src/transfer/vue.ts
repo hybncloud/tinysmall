@@ -78,7 +78,6 @@ export const renderless = (
 ) => {
   const api = {} as ITransferApi
   const Tree = 'TinyTree'
-  const Table = 'TinyTable'
 
   provide('transfer', vm)
   const state = initState({ reactive, computed, api, props, h, slots, Tree })
@@ -96,7 +95,7 @@ export const renderless = (
     onTargetCheckedChange: onTargetCheckedChange({ emit, state }),
     onSourceCheckedChange: onSourceCheckedChange({ emit, state }),
     logicFun: logicFun({ props, emit, state, vm }),
-    getTargetData: getTargetData({ props, state, Tree, Table }),
+    getTargetData: getTargetData({ props, state, Tree }),
     sortableEvent: sortableEvent({ api, droppanel: DROPPANEL, props, queryDom: TRANSFERPANEL, refs }),
     setCheckedOnMounted: setCheckedOnMounted({ props, vm, Tree })
   })

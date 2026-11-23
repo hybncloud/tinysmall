@@ -12,7 +12,6 @@
 
 import {
   getStrictData,
-  sizesChange,
   getTreeCheckableData,
   getFilterTreeData,
   getFilterData,
@@ -28,7 +27,6 @@ import {
   clearQuery,
   setPosition,
   selectChange,
-  handlePageChange,
   setExpandCache
 } from './index'
 
@@ -38,12 +36,7 @@ const initState = ({ reactive, props, transfer, computed, api, slots }) => {
     query: '',
     checked: [],
     allChecked: false,
-    internalPage: props.pagerOp.pageVO.currentPage || 1,
-    pagerTotal: 0,
     transfer,
-    pageChangeData: transfer?.state.isToLeft,
-    currentPage: props.pagerOp.pageVO.currentPage || 1,
-    sizes: props.pagerOp && props.pagerOp.pageVO.pageSize,
     render: {},
     checkChangeByUser: true,
     filteredData: computed(() => api.getFilterData()),
@@ -71,9 +64,7 @@ const initStateRender = ({ reactive, state, props, api }) =>
   reactive({
     keys: state.keyProp,
     data: [],
-    defaultChecked: state.checked,
     defaultExpandedKeys: state.expanded,
-    columns: props.columns,
     ...props.treeOp,
     on: {
       'checked-change': (selected, isAll) => {
@@ -87,18 +78,10 @@ const initStateRender = ({ reactive, state, props, api }) =>
     }
   })
 
-const initWatcher = ({ watch, state, api, props, Table }) => {
+const initWatcher = ({ watch, state, api, props }) => {
   watch(
     () => state.checked,
     (value, oldvalue) => api.watchChecked({ value, oldvalue })
-  )
-
-  watch(
-    () => props.pagerOp.pageVO.currentPage,
-    (value) => {
-      state.currentPage = value
-    },
-    { deep: true, immediate: true }
   )
 
   watch(() => props.data, api.watchData, { immediate: true })
@@ -110,22 +93,10 @@ const initWatcher = ({ watch, state, api, props, Table }) => {
     (value, oldvalue) => api.watchDefaultCheckded({ value, oldvalue }),
     { immediate: true }
   )
-
-  watch(
-    () => props.isToLeft,
-    () => {
-      if (state.renderType === Table) {
-        state.internalPage = 1
-        state.currentPage = 1
-        state.render.data = state.filteredData
-      }
-    }
-  )
 }
 
 export const renderless = (props, { computed, reactive, watch, toRaw, inject }, { emit, vm, slots }) => {
   const api: Record<string, any> = {}
-  const Table = 'TinyTable'
   const Tree = 'TinyTree'
 
   const transfer = inject('transfer', null)
@@ -134,22 +105,20 @@ export const renderless = (props, { computed, reactive, watch, toRaw, inject }, 
   Object.assign(api, {
     state,
     toRaw,
-    sizesChange: sizesChange(state),
     setPosition: setPosition({ state }),
     selectChange: selectChange(state),
-    handlePageChange: handlePageChange(state),
     clearQuery: clearQuery(state),
     checkedEvent: checkedEvent(state),
     getDeteminate: getDeteminate(state),
-    updateAllChecked: updateAllChecked({ state, Table, Tree }),
-    handleAllCheckedChange: handleAllCheckedChange({ state, Table, Tree, vm }),
+    updateAllChecked: updateAllChecked({ state, Tree }),
+    handleAllCheckedChange: handleAllCheckedChange({ state, Tree, vm }),
     getCheckedSummary: getCheckedSummary({ props, state, Tree }),
     getFilterTreeData: getFilterTreeData({ props, state }),
     getTreeCheckableData: getTreeCheckableData(state),
     getStrictData: getStrictData({ props, state }),
     setExpandCache: setExpandCache(state),
     getCheckableData: getCheckableData({ api, state, Tree }),
-    getFilterData: getFilterData({ api, props, state, Table, Tree }),
+    getFilterData: getFilterData({ api, props, state, Tree }),
     watchData: watchData({ api, props, state, Tree }),
     watchDefaultCheckded: watchDefaultCheckded({ api, props, state, Tree }),
     watchChecked: watchChecked({ api, emit, state })
@@ -157,7 +126,7 @@ export const renderless = (props, { computed, reactive, watch, toRaw, inject }, 
 
   state.render = initStateRender({ reactive, state, props, api })
 
-  initWatcher({ watch, state, api, props, Table })
+  initWatcher({ watch, state, api, props })
 
   return api
 }

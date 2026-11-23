@@ -61,15 +61,7 @@ describe('PC Mode', () => {
 
   test.todo('drop-config 设置穿梭框列表项可拖拽')
 
-  test.todo('columns 设置穿梭框的表格列配置')
-
-  test.todo('page-vo 设置分页配置')
-
-  test.todo('show-pager 设置是否显示分页，当渲染为表格时有效')
-
-  test.todo('pager-op 设置分页配置，当渲染为表格时有效')
-
-  test.todo('render 当plugin设置为Table时设置渲染为表格；当plugin设置为Tree渲染为树')
+  test.todo('render 当plugin设置为Tree渲染为树')
 
   test.todo('tree-op 当plugin设置为Tree渲染为树时，设置树的相关配置属性')
 

@@ -16,17 +16,6 @@ export default {
           pcDemo: 'custom-btns'
         },
         {
-          name: 'columns',
-          linkTo: 'grid#IColumnConfig',
-          type: 'IColumnConfig',
-          defaultValue: '',
-          desc: {
-            'zh-CN': '在渲染类型为 table 时，设置穿梭框表格的列配置'
-          },
-          mode: ['pc'],
-          pcDemo: 'nested-table'
-        },
-        {
           name: 'data',
           type: 'ITransferData[]',
           defaultValue: '[]',
@@ -53,7 +42,7 @@ export default {
           defaultValue: '',
           desc: {
             'zh-CN':
-              '\n              设置穿梭框的搜索过滤函数，仅在默认列表和嵌套表时有效<br>\n              嵌套树时，请使用treeConfig进行搜索配置<br>\n            '
+              '\n              设置穿梭框的搜索过滤函数，仅在默认列表时有效<br>\n              嵌套树时，请使用treeConfig进行搜索配置<br>\n            '
           },
           mode: ['pc'],
           pcDemo: 'custom-filter'
@@ -91,17 +80,6 @@ export default {
           pcDemo: 'custom-titles'
         },
         {
-          name: 'left-columns',
-          linkTo: 'grid#IColumnConfig',
-          type: 'IColumnConfig',
-          defaultValue: '',
-          desc: {
-            'zh-CN': '在渲染类型为 table 时，左边表格的列配置,优先级高于 columns'
-          },
-          mode: ['pc'],
-          pcDemo: ''
-        },
-        {
           name: 'left-default-checked',
           type: 'string[]',
           defaultValue: '[]',
@@ -110,17 +88,6 @@ export default {
           },
           mode: ['pc'],
           pcDemo: 'default-checked'
-        },
-        {
-          name: 'pager-op',
-          typeAnchorName: 'IPagerOp',
-          type: 'IPagerOp',
-          defaultValue: "{ mode: 'fixed',pageVO: {currentPage: 1,pageSize: 10}",
-          desc: {
-            'zh-CN': '在渲染类型为 table 时，设置表格的分页配置'
-          },
-          mode: ['pc'],
-          pcDemo: 'nested-table'
         },
         {
           name: 'props',
@@ -134,14 +101,14 @@ export default {
         },
         {
           name: 'render',
-          type: 'Table | Tree',
+          type: 'Tree',
           defaultValue: '',
           desc: {
             'zh-CN':
-              '设置左右区域的渲染类型,Table 和 Tree 对象需要从组件包中引入相应的组件变量。<br>该属性值的plugin设置为Table时设置渲染为表格;该属性值的 plugin 设置为Tree渲染为树'
+              '设置左右区域的渲染类型,Tree 对象需要从组件包中引入相应的组件变量。<br>该属性值的 plugin 设置为Tree渲染为树'
           },
           mode: ['pc'],
-          pcDemo: 'nested-table'
+          pcDemo: 'nested-tree'
         },
         {
           name: 'render-content',
@@ -152,17 +119,6 @@ export default {
           },
           mode: ['pc'],
           pcDemo: 'custom-render'
-        },
-        {
-          name: 'right-columns',
-          linkTo: 'grid#IColumnConfig',
-          type: 'IColumnConfig',
-          defaultValue: '',
-          desc: {
-            'zh-CN': '在渲染类型为 table 时，右边表格的列配置,优先级高于 columns'
-          },
-          mode: ['pc'],
-          pcDemo: ''
         },
         {
           name: 'right-default-checked',
@@ -183,16 +139,6 @@ export default {
           },
           mode: ['pc'],
           pcDemo: 'custom-btns'
-        },
-        {
-          name: 'show-pager',
-          type: 'boolean',
-          defaultValue: 'false',
-          desc: {
-            'zh-CN': '在渲染类型为 table 时，设置表格是否显示分页'
-          },
-          mode: ['pc'],
-          pcDemo: 'nested-table'
         },
         {
           name: 'target-order',
@@ -276,20 +222,6 @@ export default {
           defaultValue: '',
           desc: {
             'zh-CN': '指定面板内容区域的样式'
-          },
-          mode: ['pc'],
-          pcDemo: 'custom-size',
-          meta: {
-            stable: '3.23.0'
-          }
-        },
-        {
-          name: 'panel-table-height',
-          type: 'String',
-          defaultValue: '',
-          desc: {
-            'zh-CN':
-              '嵌套表格时，设置表格的高度值。嵌套表格的默认高度为400px, 当自定义面板内容区域的高度之后，可能会与表格高度不匹配。 可以通过该属性设置一个匹配的表格高度。'
           },
           mode: ['pc'],
           pcDemo: 'custom-size',
@@ -422,22 +354,6 @@ interface ITransferData {
       code: `
 interface IDropConfig {
   plugin: object // 指定拖放排序的插件Sortable, 该变量通过 import Sortable from 'sortablejs' 导入
-}
-      `
-    },
-    {
-      name: 'IPagerOp',
-      type: 'interface',
-      code: `
-interface IPagerOp {
-  mode: string  // 通过 mode 设置分页组件组件渲染模式，不同模式是组件内置的 layout 设置， mode 优先级高于 layout
-  pagerCount:number  // 总页数
-  pageVo:{
-    currentPage: number
-    pageSize: number
-    pageSizes: number[]
-    layout: string   // 分页组件布局默认值：'total, prev, pager, next, jumper'
-  }
 }
       `
     }

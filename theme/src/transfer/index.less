@@ -19,8 +19,6 @@
 @checkbox-prefix-cls: ~'@{css-prefix}checkbox';
 @checkbox-group-prefix-cls: ~'@{css-prefix}checkbox-group';
 @input-prefix-cls: ~'@{css-prefix}input';
-@table-prefix-cls: ~'@{css-prefix}table';
-@pager-prefix-cls: ~'@{css-prefix}pager';
 @button-prefix-cls: ~'@{css-prefix}button';
 @svg-prefix-cls: ~'@{css-prefix}svg';
 @tree-node-prefix-cls: ~'@{css-prefix}tree-node';
@@ -161,10 +159,6 @@
     padding-left: var(--tv-Transfer-panel-body-padding-left);
     display: flex;
     flex-direction: column;
-
-    .tiny-table.simple table tbody tr:has(td svg.is-check) {
-      background-color: var(--tv-Transfer-panel-item-active-bg-color);
-    }
 
     .@{tree-prefix-cls} {
       height: var(--tv-Transfer-panel-body-tree-height);
@@ -376,47 +370,6 @@
     padding-bottom: var(--tv-Transfer-empty-padding-bottom);
     color: var(--tv-Transfer-empty-text-color);
     text-align: center;
-  }
-
-  &.transferGrid {
-    width: 600px;
-
-    .@{transfer-panel-prefix-cls}__body {
-      height: 100%;
-    }
-
-    .@{table-prefix-cls}.simple {
-      width: 100%;
-      padding-left: var(--tv-Transfer-table-padding-left);
-      padding-right: var(--tv-Transfer-table-padding-right);
-      padding-top: var(--tv-Transfer-table-padding-top);
-      padding-bottom: var(--tv-Transfer-table-padding-bottom);
-      height: var(--tv-Transfer-table-dyn-height, 400px);
-      overflow-y: auto;
-
-      thead {
-        border-bottom: none;
-      }
-
-      thead th {
-        position: sticky;
-        top: 0;
-        z-index: 2;
-        background: var(--tv-Table-thead-bg-color);
-        border-bottom: 1px solid var(--tv-Table-border-color);
-      }
-
-      table {
-        width: 100%;
-      }
-    }
-
-    .@{pager-prefix-cls} {
-      padding-left: var(--tv-Transfer-pager-padding-left);
-      padding-top: var(--tv-Transfer-pager-padding-top);
-      padding-bottom: var(--tv-Transfer-pager-padding-bottom);
-      padding-right: var(--tv-Transfer-pager-padding-right);
-    }
   }
 
   .@{checkbox-prefix-cls}__label {

@@ -54,12 +54,7 @@ export const getFlatData = (data, hasChildren) => {
 
 /** 返回右边的数据项 */
 export const getTargetData =
-  ({
-    props,
-    state,
-    Tree,
-    Table
-  }: Pick<ITransferRenderlessParams, 'props' | 'state'> & { Tree: string; Table: string }) =>
+  ({ props, state, Tree }: Pick<ITransferRenderlessParams, 'props' | 'state'> & { Tree: string }) =>
   () => {
     if (props.render && props.render.plugin.name === Tree) {
       const nodes = getFlatData(copyArray(props.data), true)
@@ -89,10 +84,6 @@ export const getTargetData =
 
         return arr
       }, [])
-
-      if (props.render && props.render.plugin.name === Table) {
-        data.flag = 'table'
-      }
 
       return data
     }

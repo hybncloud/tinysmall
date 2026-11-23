@@ -11,7 +11,7 @@
  -->
 
 <template>
-  <div class="tiny-transfer" :style="panelTableHeight ? { '--tv-Transfer-table-dyn-height': panelTableHeight } : {}">
+  <div class="tiny-transfer">
     <tiny-transfer-panel
       id="leftPanel"
       v-if="!slots['right-panel'] && !slots['left-panel']"
@@ -19,12 +19,7 @@
       :option-render="state.optionRender"
       :tree-op="treeOp"
       :render="render"
-      :show-pager="showPager"
-      :pager-op="pagerOp"
       ref="leftPanel"
-      :page-v-o="pageVO"
-      :render-type="renderType"
-      :columns="leftColumns || columns"
       :data="state.sourceData"
       :title="titles[0] || t('ui.transfer.titles.0')"
       :default-checked="leftDefaultChecked"
@@ -87,13 +82,7 @@
       :render="render"
       :option-render="state.optionRender"
       :tree-op="treeOp"
-      :show-pager="showPager"
-      :is-to-left="state.isToLeft"
-      :pager-op="pagerOp"
       ref="rightPanel"
-      :page-v-o="pageVO"
-      :render-type="renderType"
-      :columns="rightColumns || columns"
       :data="state.targetData"
       :title="titles[1] || t('ui.transfer.titles.1')"
       :default-checked="rightDefaultChecked"
@@ -122,15 +111,10 @@ import '@tinysmall/theme/transfer/index.less'
 import type { ITransferApi } from '@tinysmall/renderless/types/transfer.type'
 
 export const transferProps = {
-  /** 分页配置，取自原 pc.vue props 数组 */
-  pageVO: { type: Object },
   buttonTexts: {
     type: Array,
     default: () => []
   },
-  columns: Array,
-  leftColumns: Array,
-  rightColumns: Array,
   data: {
     type: Array,
     default: () => []
@@ -154,26 +138,17 @@ export const transferProps = {
     type: Array,
     default: () => []
   },
-  pagerOp: {
-    type: Object,
-    default: () => ({ mode: 'fixed', pageVO: { currentPage: 1, pageSize: 10 } })
-  },
   props: {
     type: Object,
     default: () => ({ label: 'label', key: 'key', disabled: 'disabled' })
   },
   render: Object,
   renderContent: Function,
-  renderType: String,
   rightDefaultChecked: {
     type: Array,
     default: () => []
   },
   showAllBtn: Boolean,
-  showPager: {
-    type: Boolean,
-    default: false
-  },
   targetOrder: {
     type: String,
     default: 'original'
@@ -193,8 +168,7 @@ export const transferProps = {
   treeOp: Object,
   beforeTransfer: Function,
   panelStyle: Object,
-  panelBodyStyle: Object,
-  panelTableHeight: String
+  panelBodyStyle: Object
 }
 
 export default defineComponent({

@@ -81,7 +81,6 @@ export default {
         'zh-CN': `
           通过 <code> panelStyle </code> 属性，可以指定左右面板容器的样式。当面板的宽度大于外部容器的50%宽度时，面板会自适应容器的宽度。<br>
           通过 <code> panelBodyStyle </code> 属性，可以指定面板内容区域的样式。<br>
-          通过 <code> panelTableHeight </code> 属性，可以指定嵌套表格时，表格的高度值。嵌套表格的默认高度为400px, 当自定义面板内容区域的高度之后，可能会与表格高度不匹配。 可以通过该属性设置一个匹配的表格高度。<br>
           `
       },
       codeFiles: ['custom-size.vue']
@@ -158,20 +157,6 @@ export default {
           `
       },
       codeFiles: ['before-transfer.vue']
-    },
-    {
-      demoId: 'nested-table',
-      name: {
-        'zh-CN': '嵌套表格'
-      },
-      desc: {
-        'zh-CN': `
-          当 <code>render</code> 属性里的 <code>plugin</code> 设置为 <code>Table</code> 时指定穿梭框渲染成表格，
-          以下属性 <code> columns </code>  <code> pager-op </code> <code> show-pager </code> 是会传递给内部的表格组件。<br>
-          属性 <code> left-columns </code> <code> right-columns </code> 可以分别指定左右列表的表头，优先级高于 <code> columns </code>  属性。
-          `
-      },
-      codeFiles: ['nested-table.vue']
     },
     {
       demoId: 'nested-tree',

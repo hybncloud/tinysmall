@@ -19,23 +19,6 @@
       :panelStyle="panelStyle"
       :panelBodyStyle="panelBodyStyle"
     ></tiny-transfer>
-    <br />
-    <br />
-    <tiny-transfer
-      v-model="gridValue"
-      :render="renderGrid"
-      :data="gridData"
-      filter-placeholder="请输入城市拼音"
-      filterable
-      :props="{ key: 'id', disabled: 'disabled' }"
-      :columns="columns"
-      :pager-op="pagerOp"
-      :show-pager="true"
-      :filter-method="filterMethod"
-      :panelStyle="panelStyle"
-      :panelBodyStyle="panelBodyStyle"
-      :panelTableHeight="panelTableHeight"
-    ></tiny-transfer>
   </div>
 </template>
 
@@ -55,24 +38,9 @@ const generateData = () => {
 
   return data
 }
-const getGridData = () => {
-  const data = []
-
-  for (let i = 1; i <= 10; i++) {
-    data.push({
-      id: i.toString(),
-      name: 'GFD 科技 YX 公司 ' + i,
-      area: '华东区 ' + i,
-      disabled: i % 4 === 0
-    })
-  }
-
-  return data
-}
 // 自定义面板样式
 const panelStyle = ref({ width: '650px' })
 const panelBodyStyle = ref({ height: '200px' })
-const panelTableHeight = ref('700px')
 
 // 列表示例
 const listData = ref(generateData())
@@ -145,37 +113,4 @@ const treeConfig = ref({
   }
 })
 
-// grid 示例
-const renderGrid = ref({
-  plugin: null
-})
-const gridValue = ref(['5', '6', '10'])
-const gridData = ref(getGridData())
-const columns = ref([
-  {
-    type: 'index',
-    width: '30px'
-  },
-  {
-    type: 'selection',
-    width: '30px'
-  },
-  {
-    field: 'name',
-    title: '名称'
-  },
-  {
-    field: 'area',
-    title: '所属区域'
-  }
-])
-const pagerOp = ref({
-  pageVO: {
-    pageSizes: [10, 20, 30],
-    pageSize: 10
-  }
-})
-function filterMethod(query, item) {
-  return item.name.includes(query)
-}
 </script>

@@ -13,13 +13,13 @@
 <template>
   <div
     class="tiny-transfer-panel"
-    :class="[state.renderType === 'TinyTable' ? 'transferGrid' : '', { 'is-filterable': filterable }]"
+    :class="[{ 'is-filterable': filterable }]"
     :style="panelStyle"
   >
     <p class="tiny-transfer-panel__header">
       <tiny-checkbox v-model="state.allChecked" @change="handleAllCheckedChange" :indeterminate="state.isIndeterminate">
         {{ title }}
-        <div class="headSort" v-if="render && state.renderType !== 'TinyTable' && data.flag === 'sort'">
+        <div class="headSort" v-if="render && data.flag === 'sort'">
           <div class="sort-btn disabled up" @click="setPosition('up', $event)">
             <icon-arrow-up></icon-arrow-up>
           </div>
@@ -76,21 +76,6 @@
         v-bind="state.render"
         v-on="state.render.on"
       ></component>
-      <tiny-pager
-        v-show="showPager && state.renderType === 'TinyTable'"
-        @size-change="sizesChange"
-        ref="pager"
-        :total="state.pagerTotal.length"
-        :current-page="state.currentPage"
-        @update:current-page="state.currentPage = $event"
-        :page-size="pagerOp.pageVO.pageSize"
-        :layout="pagerOp.pageVO.layout"
-        :page-sizes="pagerOp.pageVO.pageSizes"
-        :mode="pagerOp.mode"
-        :pager-count="pagerOp.pagerCount"
-        @current-change="handlePageChange"
-      >
-      </tiny-pager>
 
       <p class="tiny-transfer-panel__empty" v-show="!render && state.hasNoMatch">
         {{ t('ui.transfer.noMatch') }}
@@ -110,11 +95,9 @@ import { setup, defineComponent } from '@tinysmall/common'
 import { renderless } from '@tinysmall/renderless/transfer-panel/vue'
 import Checkbox from '@tinysmall/checkbox'
 import Input from '@tinysmall/input'
-import Pager from '@tinysmall/pager'
 import { iconArrowUp, iconArrowDown, iconYes, iconSearch } from '@tinysmall/icon'
 
 export const transferPanelProps = {
-  columns: Array,
   data: {
     type: Array,
     default() {
@@ -125,15 +108,12 @@ export const transferPanelProps = {
   filterMethod: Function,
   filterable: Boolean,
   format: Object,
-  isToLeft: Boolean,
   optionRender: Function,
-  pagerOp: Object,
   placeholder: String,
   props: Object,
   render: Object,
   renderContent: Function,
   showLeft: Boolean,
-  showPager: Boolean,
   title: String,
   treeOp: Object,
   value: {
@@ -153,7 +133,6 @@ export default defineComponent({
   components: {
     TinyCheckbox: Checkbox,
     TinyInput: Input,
-    TinyPager: Pager,
     IconArrowDown: iconArrowDown(),
     IconArrowUp: iconArrowUp(),
     IconCheckedSur: iconYes(),

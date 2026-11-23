@@ -27,40 +27,9 @@ export const showFilterData = (data, sign) => {
 }
 
 export const getFilterData =
-  ({ api, props, state, Table, Tree }) =>
+  ({ api, props, state, Tree }) =>
   () => {
-    if (state.renderType === Table) {
-      let tableData = []
-
-      if (props.filterMethod) {
-        tableData = props.data.filter((item) => props.filterMethod(state.query, item))
-      } else {
-        tableData = props.data
-      }
-
-      state.pagerTotal = tableData
-
-      if (props.showPager) {
-        const pageSize = state.sizes || 10
-        const totalPageCount = Math.ceil(tableData.length / pageSize)
-
-        if (state.internalPage > totalPageCount) {
-          api.handlePageChange(totalPageCount)
-        }
-
-        if (totalPageCount > 0 && state.internalPage === 0) {
-          state.internalPage = 1
-        }
-
-        if (totalPageCount > 0 && state.currentPage === 0) {
-          state.currentPage = 1
-        }
-
-        return tableData.slice((state.internalPage - 1) * pageSize, pageSize * state.internalPage)
-      } else {
-        return tableData
-      }
-    } else if (state.renderType === Tree) {
+    if (state.renderType === Tree) {
       return showFilterData(api.getFilterTreeData(copyArray(props.data)), 'visible')
     } else {
       return props.data.filter((item) => {
@@ -179,7 +148,7 @@ export const watchDefaultCheckded =
   }
 
 export const updateAllChecked =
-  ({ state, Table, Tree }) =>
+  ({ state, Tree }) =>
   () => {
     const checkableDataKeys = state.checkableData.map((item) => item[state.keyProp])
 
@@ -188,31 +157,18 @@ export const updateAllChecked =
       checkableDataKeys.length > 0 &&
       checkableDataKeys.every((item) => state.checked.includes(item))
 
-    if (state.renderType === Table || state.renderType === Tree) {
+    if (state.renderType === Tree) {
       state.render.data = state.filteredData
-
-      if (state.renderType === Tree) {
-        state.render.defaultCheckedKeys = state.checked
-      } else {
-        const pageCheckedKeys = []
-
-        state.filteredData.forEach((data) => {
-          state.checked.includes(data[state.keyProp]) && pageCheckedKeys.push(data[state.keyProp])
-        })
-
-        state.render.defaultChecked = pageCheckedKeys
-      }
+      state.render.defaultCheckedKeys = state.checked
     }
   }
 
 export const handleAllCheckedChange =
-  ({ state, Table, Tree, vm }) =>
+  ({ state, Tree, vm }) =>
   (value) => {
     state.checked = value ? state.checkableData.map((item) => item[state.keyProp]) : []
 
-    if (state.renderType === Table) {
-      state.render.defaultChecked = state.checked
-    } else if (state.renderType === Tree) {
+    if (state.renderType === Tree) {
       state.checked.length !== 0
         ? (state.render.defaultCheckedKeys = state.checked)
         : vm.$refs.plugin.setCheckedKeys(state.checked)
@@ -265,12 +221,6 @@ export const setPosition =
   }
 
 export const selectChange = (state) => (keys) => (state.checked = keys)
-
-export const handlePageChange = (state) => (currentPage) => {
-  state.pageChangeData = true
-  state.internalPage = currentPage
-  state.currentPage = currentPage
-}
 
 export const getFilterTreeData =
   ({ props, state }) =>
@@ -357,8 +307,6 @@ export const getStrictData =
 
     return { data, keys }
   }
-
-export const sizesChange = (state) => (sizes) => (state.sizes = sizes)
 
 export const setExpandCache = (state) => (node, expand) => {
   const { expanded, keyProp } = state
