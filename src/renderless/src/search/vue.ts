@@ -32,6 +32,7 @@ import {
   searchEnterKey,
   emitInput
 } from './index'
+import { useZIndex } from '@tinysmall/hooks'
 
 // 生成唯一 ID 的自定义方法
 const generateUniqueId = (): string => {
@@ -89,7 +90,9 @@ export const renderless = (
     showClear: computed(() => props.clearable && (state.focus || state.hovering) && state.currentValue),
     formItemSize: computed(() => state.formItem?.state?.formItemSize),
     searchSize: computed(() => props.size || state.formItemSize),
-    instanceId: generateUniqueId() // 生成唯一 ID，用于避免多个组件实例时 id 重复
+    instanceId: generateUniqueId(), // 生成唯一 ID，用于避免多个组件实例时 id 重复
+    // useZIndex 分配的层级放入 state，后续统一通过 state 访问
+    zIndex: useZIndex()
   })
 
   const api = {

@@ -4,7 +4,6 @@ import { find } from '@tinysmall/utils'
 import { getObj, isEqual } from '@tinysmall/utils'
 import { isKorean } from '@tinysmall/utils'
 import { scrollIntoView } from '@tinysmall/utils'
-import { PopupManager } from '@tinysmall/utils'
 import { debounce } from '@tinysmall/utils'
 import { getDataset } from '@tinysmall/utils'
 import { Memorize } from '@tinysmall/utils'
@@ -239,7 +238,6 @@ export const getOption =
         return { value: option[props.valueField], currentLabel: option[props.textField] || option.currentLabel }
       }
     }
-    // tiny 新增 clearNoMatchValue的条件
     const label = !isObject && !isNull && !isUndefined && !props.clearNoMatchValue ? value : ''
     let newOption = { value, currentLabel: label, isFakeLabel: true }
 
@@ -289,7 +287,6 @@ const getOptionOfSetSelected = ({ api, props }) => {
     option.createdSelected = false
   }
 
-  // tiny 新增
   if (!option.state.currentLabel && !option.currentLabel) {
     api.doClearNoMatchValue('')
   }
@@ -300,11 +297,10 @@ const getOptionOfSetSelected = ({ api, props }) => {
 // 多选，获取匹配的option
 const getResultOfSetSelected = ({ state, api, props }) => {
   let result = []
-  const newModelValue = [] // tiny 新增，用于 clearNoMatchValue
+  const newModelValue = []
 
   if (Array.isArray(state.modelValue)) {
     state.modelValue.forEach((value) => {
-      // tiny 新增
       const option = api.getOption(value)
       const hasLabel = option?.label || option?.currentLabel || (option?.state && option.state.currentLabel)
       if (!props.clearNoMatchValue || (props.clearNoMatchValue && hasLabel)) {
@@ -313,7 +309,6 @@ const getResultOfSetSelected = ({ state, api, props }) => {
       }
     })
   }
-  // tiny 新增
   api.doClearNoMatchValue(newModelValue)
 
   return result
@@ -476,7 +471,7 @@ export const handleBlur =
         emit('blur', event)
       }
     }, 200)
-    // tiny 新增： 表单校验不能异步，否则弹窗中嵌套表单会出现弹窗关闭后再出现校验提示的bug
+    // 表单校验不能异步，否则弹窗中嵌套表单会出现弹窗关闭后再出现校验提示的bug
     state.formItem?.$emitter.emit($constants.EVENT_NAME.formBlur, event.target.value)
 
     state.softFocus = false
@@ -586,7 +581,7 @@ export const resetInputHeight =
         api.calcCollapseTags()
       }
       const noSelected = state.selected.length === 0
-      // tiny 新增的spacing (design中配置：aui为4，smb为0，tiny 默认为0)
+
       const spacingHeight = $constants.SPACING_HEIGHT
 
       if (!state.isDisplayOnly) {
@@ -687,7 +682,6 @@ export const handleOptionSelect =
 
       api.emitChange(option.value)
 
-      // tiny 新增 修复select组件，创建条目选中再创建选中，还是上一次的数据
       if (option.created) {
         state.createdSelected = true
         state.createdLabel = option.value
@@ -719,7 +713,6 @@ export const initValue =
 export const setSoftFocus =
   ({ vm, state, props }) =>
   () => {
-    // tiny 新增： 解决 reference 插槽时，选择数据后，需要点2次才能打开下拉面板
     // 如果有reference时， 它就没有Input这套机制了，没机会让softFocus为假了。
     if (vm.$slots.reference) {
       return
@@ -728,7 +721,6 @@ export const setSoftFocus =
     state.softFocus = true
     const input = vm.$refs.input || vm.$refs.reference
 
-    // tiny 新增： 解决获焦即弹出时，关闭不了下拉面板，所以增加了!props.automaticDropdown条件
     if (!props.automaticDropdown) {
       if (input) {
         input.focus()
@@ -894,7 +886,6 @@ export const onOptionDestroy = (state) => (index) => {
 export const resetInputWidth =
   ({ vm, state }) =>
   () => {
-    // tiny 新增：由于当有reference 插槽时， 就没有 vm.$refs.reference 对象了。
     if (vm.$refs.reference && vm.$refs.reference.$el) {
       state.inputWidth = vm.$refs.reference.$el.getBoundingClientRect().width
     }
@@ -1191,7 +1182,7 @@ export const calcOverFlow =
         height,
         position,
         width: inputWidth + 'px',
-        zIndex: PopupManager.nextZIndex()
+        zIndex: state.zIndex
       }
 
       state.inputWidth = inputWidth
@@ -1792,7 +1783,6 @@ export const computeOptimizeOpts =
   ({ props }) =>
   () => {
     const { optimization } = props
-    // tiny 新增：  aui 的默认值为 { optionHeight: 34, limit: 20 }
     const baseOpts = { gt: 20, rSize: 10, optionHeight: 30, limit: 20 }
 
     let optOpts
@@ -1902,7 +1892,6 @@ export const computedShowClose =
       ? Array.isArray(props.modelValue) && props.modelValue.length > 0
       : !isNull(props.modelValue) && props.modelValue !== '')
 
-// tiny 新增：  aui有自己的逻辑，移至defineConfig中去了
 export const computedCollapseTagSize = (state) => () => state.selectSize
 
 export const computedShowNewOption =
@@ -1928,7 +1917,6 @@ export const computedOptionsAllDisabled = (state) => () =>
 export const computedDisabledTooltipContent =
   ({ state }) =>
   () => {
-    // tiny 新增： 仅displayOnly且传入options属性时， 不需要渲染option
     // 禁用的tooltip内容 和 仅展示的显示内容，都应该是当前label值，共用即可！
     return state.displayOnlyContent
   }

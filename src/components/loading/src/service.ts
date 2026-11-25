@@ -10,12 +10,12 @@
  *
  */
 
-import { PopupManager } from '@tinysmall/utils'
 import { getStyle, addClass } from '@tinysmall/utils'
 import { hooks } from '@tinysmall/common'
 import Loading from './index'
 import { $constants } from '@tinysmall/renderless/loading/constants'
 import type { ILoadingState } from '@tinysmall/renderless/types/loading.type'
+import { maxZIndex } from '../../../hooks/src/use-z-index'
 
 interface LoadingConfig {
   text?: string | null
@@ -55,7 +55,7 @@ const addStyle = (options: LoadingConfig, parent: HTMLElement, instance: Loading
   if (options.fullscreen) {
     instance.originalPosition = getStyle(document.body, 'position') || ''
     instance.originalOverflow = getStyle(document.body, 'overflow') || ''
-    maskStyle.zIndex = PopupManager.nextZIndex().toString()
+    maskStyle.zIndex = maxZIndex.value + 1
   } else if (options.body) {
     const target = options.target as HTMLElement
     const clientRect = target?.getBoundingClientRect()
@@ -110,10 +110,12 @@ export default (configs: LoadingConfig = {}) => {
 
   loadingEl && parent.removeChild(loadingEl)
 
-  let instance = hooks.createApp(Loading, {
-    size: configs.size,
-    loadingImg: configs.loadingImg
-  }).mount(document.createElement('div')) as unknown as LoadingInstance
+  let instance = hooks
+    .createApp(Loading, {
+      size: configs.size,
+      loadingImg: configs.loadingImg
+    })
+    .mount(document.createElement('div')) as unknown as LoadingInstance
 
   for (const key in configs) {
     if (Object.prototype.hasOwnProperty.call(configs, key)) {

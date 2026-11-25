@@ -10,95 +10,92 @@
  *
  -->
 <template>
-  <teleport :disabled="!appendToBody" to="body">
-    <transition
-      :duration="noAnimation ? 0 : undefined"
-      :name="state.animationName"
-      @after-enter="afterEnter"
-      @after-leave="afterLeave"
-    >
+  <tiny-mask
+    ref="mask"
+    :visible="visible"
+    :zIndex="state.maskZIndex"
+    :transition-name="state.animationName"
+    :append-to-body="appendToBody"
+    :lock-scroll="lockScroll"
+    :destroyOnClose="destroyOnClose"
+    :no-animation="noAnimation"
+    @click="handleMaskClick"
+    @opened="afterEnter"
+    @closed="afterLeave"
+  >
+    <transition :name="dialogTransition">
       <div
-        ref="wrapper"
+        ref="dialog"
         v-show="visible"
-        :class="['tiny-dialog-box__wrapper', dialogClass]"
-        @click.self="handleWrapperClick"
-        @mouseup="useMouseEventUp"
-        @mousedown="useMouseEventDown"
+        :class="[
+          {
+            'is-fullscreen': state.isFull,
+            'is-center': center,
+            'is-right-slide': rightSlide
+          },
+          dialogClass
+        ]"
+        :style="state.style"
+        class="tiny-dialog-box"
+        data-tag="tiny-dialog-box"
+        :data-dialog-box-draggable="draggable"
+        :key="state.key"
+        role="dialog"
+        :aria-modal="true"
+        :aria-labelledby="state.titleId"
+        :aria-describedby="state.contentId"
       >
-        <transition :name="dialogTransition">
-          <div
-            ref="dialog"
-            v-show="visible"
-            v-if="destroyOnClose ? visible : true"
-            :class="[
-              {
-                'is-fullscreen': state.isFull,
-                'is-center': center,
-                'is-right-slide': rightSlide
-              }
-            ]"
-            :style="state.style"
-            class="tiny-dialog-box"
-            data-tag="tiny-dialog-box"
-            :data-dialog-box-draggable="draggable"
-            :key="state.key"
-            role="dialog"
-            :aria-modal="true"
-            :aria-labelledby="state.titleId"
-            :aria-describedby="state.contentId"
-          >
-            <div v-if="showHeader" ref="header" class="tiny-dialog-box__header" @mousedown="handleDrag">
-              <slot name="title">
-                <span class="tiny-dialog-box__title" role="heading" :id="state.titleId">{{ title }}</span>
-              </slot>
-              <div class="tiny-dialog-box__btn-tools">
-                <button
-                  v-if="resize && !state.isFull"
-                  type="button"
-                  class="tiny-dialog-box__headerbtn"
-                  aria-label="Resize"
-                  @click="toggleFullScreen(true)"
-                >
-                  <icon-fullscreen class="tiny-svg-size tiny-dialog-box__resize" />
-                </button>
-                <button
-                  v-if="resize && state.isFull"
-                  type="button"
-                  class="tiny-dialog-box__headerbtn"
-                  aria-label="Resize"
-                  @click="toggleFullScreen(false)"
-                >
-                  <icon-minscreen class="tiny-svg-size tiny-dialog-box__resize" />
-                </button>
-                <button
-                  v-if="showClose"
-                  type="button"
-                  class="tiny-dialog-box__headerbtn"
-                  aria-label="Close"
-                  @click="handleClose('close', $event)"
-                >
-                  <icon-close class="tiny-svg-size tiny-dialog-box__close" />
-                </button>
-              </div>
-            </div>
-            <div class="tiny-dialog-box__body" :id="state.contentId">
-              <slot></slot>
-            </div>
-            <div v-if="slots.footer" ref="footer" class="tiny-dialog-box__footer">
-              <slot name="footer" :before-close="beforeClose"></slot>
-            </div>
+        <div v-if="showHeader" ref="header" class="tiny-dialog-box__header" @mousedown="handleDrag">
+          <slot name="title">
+            <span class="tiny-dialog-box__title" role="heading" :id="state.titleId">{{ title }}</span>
+          </slot>
+          <div class="tiny-dialog-box__btn-tools">
+            <button
+              v-if="resize && !state.isFull"
+              type="button"
+              class="tiny-dialog-box__headerbtn"
+              aria-label="Resize"
+              @click="toggleFullScreen(true)"
+            >
+              <icon-fullscreen class="tiny-svg-size tiny-dialog-box__resize" />
+            </button>
+            <button
+              v-if="resize && state.isFull"
+              type="button"
+              class="tiny-dialog-box__headerbtn"
+              aria-label="Resize"
+              @click="toggleFullScreen(false)"
+            >
+              <icon-minscreen class="tiny-svg-size tiny-dialog-box__resize" />
+            </button>
+            <button
+              v-if="showClose"
+              type="button"
+              class="tiny-dialog-box__headerbtn"
+              aria-label="Close"
+              @click="handleClose('close', $event)"
+            >
+              <icon-close class="tiny-svg-size tiny-dialog-box__close" />
+            </button>
           </div>
-        </transition>
+        </div>
+        <div class="tiny-dialog-box__body" :id="state.contentId">
+          <slot></slot>
+        </div>
+        <div v-if="slots.footer" ref="footer" class="tiny-dialog-box__footer">
+          <slot name="footer" :before-close="beforeClose"></slot>
+        </div>
       </div>
     </transition>
-  </teleport>
+  </tiny-mask>
 </template>
 
 <script lang="ts">
 import { renderless } from '@tinysmall/renderless/dialog-box/vue'
-import { setup, defineComponent, Teleport } from '@tinysmall/common'
+import { setup, defineComponent } from '@tinysmall/common'
 import type { PropType } from '@tinysmall/common'
 import { iconClose, iconFullscreen, iconMinscreen } from '@tinysmall/icon'
+import Mask from '../../mask'
 import '@tinysmall/theme/dialog-box/index.less'
 import type { IDialogBoxApi } from '@tinysmall/renderless/types/dialog-box.type'
 
@@ -112,7 +109,7 @@ export const dialogBoxProps = {
     type: Boolean,
     default: () => false
   },
-  closeOnClickModal: {
+  closeOnClickMask: {
     type: Boolean,
     default: () => true
   },
@@ -145,14 +142,6 @@ export const dialogBoxProps = {
     default: () => true
   },
   lockScroll: {
-    type: Boolean,
-    default: () => true
-  },
-  modal: {
-    type: Boolean,
-    default: () => true
-  },
-  modalAppendToBody: {
     type: Boolean,
     default: () => true
   },
@@ -197,6 +186,11 @@ export const dialogBoxProps = {
     type: Boolean,
     default: false
   },
+  /** 未传时由 useZIndex 自动分配 */
+  zIndex: {
+    type: Number,
+    default: undefined
+  },
   customStyle: {
     type: Object,
     default: () => ({})
@@ -209,7 +203,7 @@ export const dialogBoxProps = {
 export default defineComponent({
   name: 'TinyDialogBox',
   components: {
-    Teleport,
+    TinyMask: Mask,
     IconClose: iconClose(),
     IconFullscreen: iconFullscreen(),
     IconMinscreen: iconMinscreen()
@@ -227,7 +221,6 @@ export default defineComponent({
     'drag-start',
     'drag-move',
     'drag-end',
-    // tiny 新增
     'resize'
   ],
   props: dialogBoxProps,

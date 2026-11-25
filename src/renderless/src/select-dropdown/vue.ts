@@ -22,8 +22,7 @@ import {
   cancelSearch,
   handleClear
 } from './index'
-import { userPopper } from '@tinysmall/hooks'
-import { PopupManager } from '@tinysmall/utils'
+import { useZIndex, userPopper } from '@tinysmall/hooks'
 import { debounce } from '@tinysmall/utils'
 import { isServer } from '@tinysmall/utils'
 
@@ -56,7 +55,8 @@ const initState = ({ reactive, computed, popper, selectVm }) => {
     ),
     visible: false,
     windowScrollTop: 0,
-    zIndex: 2000,
+    // useZIndex 分配的层级放入 state，后续统一通过 state 访问
+    zIndex: useZIndex(),
     valueField: computed(() => (state.selectVm.renderType === 'tree' ? 'id' : 'value'))
   })
 
@@ -118,7 +118,6 @@ const initWatch = ({ watch, state, nextTick, props }) => {
 
       setTimeout(() => {
         state.visible = val
-        state.zIndex = PopupManager.nextZIndex()
       }, 0)
 
       if (val && state.selectVm.multiple) {

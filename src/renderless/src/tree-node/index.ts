@@ -86,13 +86,11 @@ export const handleSelectChange =
 export const handleClick =
   ({ api, vm, props, state }) =>
   (e) => {
-    // tiny 新增： 点击子节点之间的空白时，不会收齐父节点
     const contentElm = vm.$refs.content
     if (contentElm && !contentElm.contains(e?.target)) {
       return
     }
 
-    // tiny 新增： 去掉trigger参数，不影响点击的逻辑
     const store = state.tree.state.store
 
     if (!state.tree.onlyCheckChildren) {
@@ -358,7 +356,6 @@ export const addNode =
     state.tree.state.emitter.emit('tree-node-add', event, node)
   }
 
-// tiny 新增
 export const computedExpandIcon =
   ({}) =>
   (tree, state) => {
@@ -366,7 +363,6 @@ export const computedExpandIcon =
       return state.tree.icon
     }
 
-    // tiny 新增的判断。 显示线时强制切换图标，仅smb定制了
     if (tree.showLine) {
       const expandIcon = 'icon-expand'
       const collapseIcon = 'icon-put-away'
@@ -375,7 +371,6 @@ export const computedExpandIcon =
 
     return 'icon-chevron-right'
   }
-// tiny 新增
 export const computedIndent =
   () =>
   ({ node, showLine }, { tree }) => {

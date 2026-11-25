@@ -286,7 +286,6 @@ export const handleEvents =
 
     if (props.events && props.events.length) {
       props.events.forEach((prop) => {
-        // tiny 新增，这里不能直接改 props.events 里的数据需要进行一次拷贝，不然会导致死循环
         const item = { ...prop }
         const {
           year: startYear,

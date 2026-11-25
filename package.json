@@ -75,6 +75,8 @@
   "dependencies": {
     "@floating-ui/dom": "^1.6.9",
     "@types/qrcode": "^1.5.6",
+    "@vueuse/components": "^15.0.0",
+    "@vueuse/core": "^15.0.0",
     "qrcode": "1.5.1",
     "shepherd.js": "11.0.1",
     "streamsaver": "2.0.6"

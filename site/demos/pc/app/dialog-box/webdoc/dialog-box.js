@@ -99,26 +99,15 @@ export default {
       codeFiles: ['dialog-width.vue']
     },
     {
-      demoId: 'close-on-click-modal',
+      demoId: 'close-on-click-mask',
       name: {
         'zh-CN': '点击遮罩时不关闭弹窗'
       },
       desc: {
         'zh-CN':
-          '<p>可通过<code>close-on-click-modal</code>属性设置<code>false</code>后可禁用单击遮罩层关闭弹窗。</p>\n'
+          '<p>可通过<code>close-on-click-mask</code>属性设置<code>false</code>后可禁用单击遮罩层关闭弹窗。</p>\n'
       },
-      codeFiles: ['close-on-click-modal.vue']
-    },
-    {
-      demoId: 'no-modal',
-      name: {
-        'zh-CN': '不启用遮罩层'
-      },
-      desc: {
-        'zh-CN':
-          '<p>可通过<code>modal</code>属性设置<code>false</code>不启用遮罩层。无遮罩层时，单击弹窗外部区域仍然可以关闭弹窗。</p>\n'
-      },
-      codeFiles: ['no-modal.vue']
+      codeFiles: ['close-on-click-mask.vue']
     },
     {
       demoId: 'right-dialog',
@@ -127,7 +116,7 @@ export default {
       },
       desc: {
         'zh-CN':
-          '<p>可通过<code>right-slide</code>属性为设置<code>true</code>，弹窗将从窗口右侧弹出。<code>modal-append-to-body</code> 属性默认<code>true</code>遮罩层应用在<code>body</code>。</p>\n'
+          '<p>可通过<code>right-slide</code>属性为设置<code>true</code>，弹窗将从窗口右侧弹出。</p>\n'
       },
       codeFiles: ['right-dialog.vue']
     },
@@ -304,8 +293,8 @@ export default {
       cloud: {
         value: true
       },
-      apis: ['close-on-click-modal', 'close-on-press-escape', 'draggable'],
-      demos: ['close-on-click-modal', 'close-on-press-escape', 'draggable']
+      apis: ['close-on-click-mask', 'close-on-press-escape', 'draggable'],
+      demos: ['close-on-click-mask', 'close-on-press-escape', 'draggable']
     },
     {
       id: 'fullscreen',

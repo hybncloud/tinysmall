@@ -1,8 +1,8 @@
 <template>
   <div>
-    <tiny-button @click="boxVisibility = true">无遮罩</tiny-button>
-    <tiny-dialog-box :modal="false" v-model:visible="boxVisibility" title="消息" width="30%">
-      <span>不显示灰色遮罩层</span>
+    <tiny-button @click="boxVisibility = true" title="弹出 Dialog">弹出 Dialog</tiny-button>
+    <tiny-dialog-box v-model:visible="boxVisibility" :close-on-click-mask="false" title="消息" width="30%">
+      <span>dialog-box 内容</span>
       <template #footer>
         <tiny-button type="primary" @click="boxVisibility = false">确 定</tiny-button>
       </template>

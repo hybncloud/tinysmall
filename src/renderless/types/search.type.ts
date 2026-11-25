@@ -14,6 +14,8 @@ export interface ISearchState {
   formItemSize: string
   searchSize: string
   instanceId: string
+  /** useZIndex 分配的层级，放入 state 统一访问 */
+  zIndex: number
 }
 
 export type ISearchProps = ExtractPropTypes<typeof searchProps>

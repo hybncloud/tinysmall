@@ -10,9 +10,7 @@
  *
  */
 
-import { on, off, addClass, removeClass } from '@tinysmall/utils'
-import { emitEvent } from '@tinysmall/utils'
-import { getDomNode } from '@tinysmall/utils'
+import { emitEvent, getDomNode } from '@tinysmall/utils'
 import { $constants } from './constants'
 import type { IDialogBoxRenderlessParams, IDialogBoxStyle } from '../../types'
 
@@ -66,20 +64,13 @@ export const computedStyle =
 
 export const watchVisible =
   ({
-    api,
     emit,
     nextTick,
     props,
     vm,
     state
-  }: Pick<IDialogBoxRenderlessParams, 'api' | 'emit' | 'nextTick' | 'props' | 'vm' | 'state'>) =>
+  }: Pick<IDialogBoxRenderlessParams, 'emit' | 'nextTick' | 'props' | 'vm' | 'state'>) =>
   (val: boolean): void => {
-    const el = vm.$refs.wrapper as HTMLElement
-
-    if (props.lockScroll) {
-      val ? api.showScrollbar() : api.hideScrollbar()
-    }
-
     state.move = false
     state.isFull = props.fullscreen
 
@@ -88,90 +79,34 @@ export const watchVisible =
     if (val) {
       state.closed = false
       emit('open')
-      /* istanbul ignore next */
-      el && on(el, 'scroll', api.updatePopper)
 
       nextTick(() => {
         vm.$refs.dialog.scrollTop = 0
       })
-    } else {
-      /* istanbul ignore next */
-      el && off(el, 'scroll', api.updatePopper)
-
-      if (!state.closed) {
-        state.emitter.emit('boxclose', props.isFormReset)
-        emit('close')
-      }
-
-      if (props.destroyOnClose) {
-        nextTick(() => state.key++)
-      }
+    } else if (!state.closed) {
+      state.emitter.emit('boxclose', props.isFormReset)
+      emit('close')
     }
   }
 
-export const mounted =
+export const handleMaskClick =
   ({ api, props }: Pick<IDialogBoxRenderlessParams, 'api' | 'props'>) =>
   (): void => {
-    if (props.lockScroll && props.visible) {
-      api.showScrollbar()
-    }
-
-    if (props.visible) {
-      api.open()
-    }
-  }
-
-export const unMounted =
-  ({ api }: Pick<IDialogBoxRenderlessParams, 'api'>) =>
-  (): void => {
-    api.hideScrollbar()
-  }
-
-export const useMouseEventDown =
-  ({ state }: Pick<IDialogBoxRenderlessParams, 'state'>) =>
-  (event: MouseEvent): void => {
-    state.mouseDownWrapperFlag = false
-    if (/tiny-dialog-box__wrapper/.test(event.target.className) && event.type === 'mousedown') {
-      state.mouseDownWrapperFlag = true
-    }
-  }
-
-export const useMouseEventUp =
-  ({ state }: Pick<IDialogBoxRenderlessParams, 'state'>) =>
-  (event: MouseEvent): void => {
-    state.mouseUpWrapperFlag = false
-    if (/tiny-dialog-box__wrapper/.test(event.target.className) && event.type === 'mouseup') {
-      state.mouseUpWrapperFlag = true
-    }
-  }
-
-export const handleWrapperClick =
-  ({ api, props, state }: Pick<IDialogBoxRenderlessParams, 'api' | 'props' | 'state'>) =>
-  (): void => {
-    if (!props.closeOnClickModal) {
+    if (!props.closeOnClickMask) {
       return
     }
-    // mouseDownFlag、mouseUpFlag判断是否点击wrapper状态
-    if (state.mouseDownWrapperFlag && state.mouseUpWrapperFlag) {
-      api.handleClose('mask')
-    }
+    // mask 已保证 press 与 release 都落在遮罩自身才 emit click
+    api.handleClose('mask')
   }
 
 export const handleClose =
-  ({ api, emit, vm, props }: Pick<IDialogBoxRenderlessParams, 'api' | 'emit' | 'vm' | 'props'>) =>
+  ({ api, emit, props }: Pick<IDialogBoxRenderlessParams, 'api' | 'emit' | 'props'>) =>
   (type = 'close') => {
     if (typeof props.beforeClose === 'function' && props.beforeClose(type) === false) {
       return
     }
     if (!emitEvent(emit, 'before-close', api.hide)) {
       return
-    }
-
-    const el = vm.$refs.wrapper as HTMLElement
-
-    if (props.rightSlide) {
-      const dialogBoxDom = (el.querySelector($constants.DIALOG_BOX_CLASS) || el) as HTMLElement
-      dialogBoxDom.style.left = ''
     }
 
     api.hide(type)
@@ -188,7 +123,6 @@ export const hide =
       emit('close', cancel)
 
       state.closed = true
-      api.hideScrollbar()
     }
   }
 
@@ -206,17 +140,6 @@ export const handleCancel =
     api.handleClose('cancel')
   }
 
-export const updatePopper =
-  ({ vm }: Pick<IDialogBoxRenderlessParams, 'vm'>) =>
-  (): void => {
-    // 原 broadcast('TinyDropdownMenu', 'updatePopper')：dropdown-menu 侧 inject('dialogBoxVm')
-    // 订阅本 vm 的 $emitter 并转发到自身 $emit，其 $on('updatePopper') 订阅随之生效
-    vm.$emitter.emit('updatePopper')
-    // 注：原 broadcast('TinySelectDropdown', 'updatePopper') 为死代码，已删除——
-    // select-dropdown 的 componentName 是 'SelectDropdown'，广播目标名永远匹配不到，
-    // 且其 updatePopper 由 base-select 通过 selectEmitter 触发
-  }
-
 export const afterEnter = (emit: IDialogBoxRenderlessParams['emit']) => (): void => {
   emit('opened')
 }
@@ -232,7 +155,6 @@ export const handleDrag =
       return
     }
 
-    // tiny 修改： 根据ref访问元素
     let modalBoxElem = vm.$refs.dialog as HTMLDivElement
     event.preventDefault()
 
@@ -290,15 +212,6 @@ export const handleDrag =
     }
   }
 
-export const showScrollbar = (lockScrollClass: string) => (): void => {
-  addClass(document.body, lockScrollClass)
-}
-
-export const hideScrollbar = (lockScrollClass: string) => (): void => {
-  removeClass(document.body, lockScrollClass)
-}
-
-// tiny 新增
 export const toggleFullScreen =
   ({ state, emit, nextTick, vm }) =>
   (isFull: boolean): void => {

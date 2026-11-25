@@ -36,11 +36,9 @@ import {
   deleteNode,
   onSiblingToggleExpand,
   watchExpandedChange,
-  // tiny 新增
   computedExpandIcon,
   computedIndent
 } from './index'
-
 
 const initState = ({ reactive, props, emitter, vm, api, inject, computed }) => {
   const state = reactive({
@@ -119,11 +117,7 @@ const initWatcher = ({ watch, state, api, props }) => {
   watch(() => props.node.expanded, api.watchExpanded, { deep: true })
 }
 
-export const renderless = (
-  props,
-  { reactive, watch, inject, provide, computed },
-  { vm, nextTick, emit, emitter }
-) => {
+export const renderless = (props, { reactive, watch, inject, provide, computed }, { vm, nextTick, emit, emitter }) => {
   const api: Record<string, any> = {}
   const state = initState({ reactive, props, emitter, vm, api, inject, computed })
 

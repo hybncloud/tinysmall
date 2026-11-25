@@ -50,6 +50,7 @@ import {
   getCenterPosition,
   filterImageUrl
 } from './index'
+import { useZIndex } from '@tinysmall/hooks'
 
 
 const initState = ({ reactive, computed, api, props, inject }) => {
@@ -61,6 +62,8 @@ const initState = ({ reactive, computed, api, props, inject }) => {
     pageY2: '',
     pageX2: '',
     mfPreviewVisible: inject('mfPreviewVisible', null),
+    // useZIndex 分配的层级放入 state，后续统一通过 state 访问
+    allocatedZindex: useZIndex(),
     scale: 1,
     time: null,
     index: 0,
@@ -132,7 +135,7 @@ const initApi = ({ api, state, props, nextTick, emit, t, vm }) => {
     deviceSupportUninstall: deviceSupportUninstall({ state }),
     computedCurrentImg: computedCurrentImg({ state, api }),
     computedImgStyle: computedImgStyle({ state}),
-    computeZIndex: computeZIndex({ props }),
+    computeZIndex: computeZIndex({ props, state }),
     hide: hide({ props, api, state }),
     deviceSupportInstall: deviceSupportInstall({ state, api }),
     toggleMode: toggleMode({ state, api }),

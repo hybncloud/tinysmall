@@ -81,7 +81,6 @@ import {
 } from './index'
 import { random } from '@tinysmall/utils'
 
-
 const initState = ({ reactive, emitter, props, computed, api, inject }) => {
   const state = reactive({
     // tree-select 通过 provide('TreeAdapter') 注入的适配器（可能为 null）
@@ -135,7 +134,6 @@ const initState = ({ reactive, emitter, props, computed, api, inject }) => {
         state.treeAdapter ? state.treeAdapter.shouldRender(childNode) : true
       )
     }),
-    // tiny 新增
     filterText: '' // 记录当前过滤的内容
   })
 

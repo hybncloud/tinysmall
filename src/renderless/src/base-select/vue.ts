@@ -89,7 +89,6 @@ import {
   watchShowClose,
   getOptionIndexArr,
   queryVisibleOptions,
-  // tiny 新增
   computedGetIcon,
   computedGetTagType,
   clearSearchText,
@@ -106,7 +105,7 @@ import {
 } from './index'
 import { debounce } from '@tinysmall/utils'
 import { isNumber } from '@tinysmall/utils'
-import { useUserAgent } from '@tinysmall/hooks'
+import { useUserAgent, useZIndex } from '@tinysmall/hooks'
 import { isServer } from '@tinysmall/utils'
 
 const initState = ({ reactive, computed, props, api, emitter, vm, form, formItem }) => {
@@ -195,12 +194,11 @@ const initState = ({ reactive, computed, props, api, emitter, vm, form, formItem
     }),
     disabledOptionHover: false,
     hasClearSelection: false,
-    // tiny 新增
     getIcon: computed(() => api.computedGetIcon()),
     getTagType: computed(() => api.computedGetTagType()),
     isSelectAll: computed(() => state.selectCls === 'checked-sur'),
     autoHideDownIcon: (() => {
-      return true // tiny 默认为true
+      return true
     })(),
     currentSizeMap: computed(() => api.computedCurrentSizeMap()),
     rootAutoTipConfig: computed(() => ({
@@ -234,6 +232,8 @@ const initStateAdd = ({ computed, props, api, vm }) => {
     inputLength: 20,
     optionsCount: 0,
     selectFiexd: {},
+    // useZIndex 分配的层级放入 state，后续统一通过 state 访问
+    zIndex: useZIndex(),
     createdLabel: null,
     isSilentBlur: false,
     cachedOptions: [],
@@ -283,8 +283,8 @@ const initApi = ({ api, props, state, emit, maskState, nextTick, t, vm }) => {
     getChildValue: getChildValue(),
     getOption: getOption({ props, state, api }),
     getSelectedOption: getSelectedOption({ props, state }),
-    emitChange: emitChange({ emit, props, state}),
-    directEmitChange: directEmitChange({ emit, props, state}),
+    emitChange: emitChange({ emit, props, state }),
+    directEmitChange: directEmitChange({ emit, props, state }),
     toggleMenu: toggleMenu({ vm, state, props, api }),
     showTip: showTip({ props, state, vm }),
     onOptionDestroy: onOptionDestroy(state),
@@ -292,7 +292,7 @@ const initApi = ({ api, props, state, emit, maskState, nextTick, t, vm }) => {
     resetInputWidth: resetInputWidth({ vm, state }),
     resetHoverIndex: resetHoverIndex({ props, state }),
     resetDatas: resetDatas({ props, state }),
-    scrollToOption: scrollToOption({ vm}),
+    scrollToOption: scrollToOption({ vm }),
     handleCopyClick: handleCopyClick({ vm, props, state }),
     managePlaceholder: managePlaceholder({ vm, state }),
     checkDefaultFirstOption: checkDefaultFirstOption(state),
@@ -330,7 +330,6 @@ const initApi = ({ api, props, state, emit, maskState, nextTick, t, vm }) => {
     computedIsExpand: computedIsExpand({ props, state }),
     watchInitValue: watchInitValue({ props, emit }),
     watchShowClose: watchShowClose({ nextTick, state, vm }),
-    // tiny 新增
     computedGetIcon: computedGetIcon({ props }),
     computedGetTagType: computedGetTagType({ props }),
     clearSearchText: clearSearchText({ state, api }),
@@ -448,7 +447,6 @@ const initWatch = ({ watch, props, api, state, nextTick }) => {
 const addWatch = ({ watch, props, api, state, nextTick }) => {
   watch(() => [...state.options], api.watchOptions)
 
-  // tiny 新增： 支持autoSelect
   watch(() => state.options, api.watchOptionsWhenAutoSelect)
   props.options && watch(() => props.options, api.watchOptionsWhenAutoSelect)
 

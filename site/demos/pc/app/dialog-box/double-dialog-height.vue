@@ -14,8 +14,7 @@
       <tiny-dialog-box
         append-to-body
         right-slide
-        :modal="false"
-        :close-on-click-modal="false"
+        :close-on-click-mask="false"
         no-animation
         :visible="boxVisibility2"
         :custom-style="customStyle2"

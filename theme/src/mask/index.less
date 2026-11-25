@@ -1,0 +1,35 @@
+/**
+* Copyright (c) 2022 - present TinyVue Authors.
+* Copyright (c) 2022 - present Huawei Cloud Computing Technologies Co., Ltd.
+*
+* Use of this source code is governed by an MIT-style license.
+*
+* THE OPEN SOURCE SOFTWARE IN THIS PRODUCT IS DISTRIBUTED IN THE HOPE THAT IT WILL BE USEFUL,
+* BUT WITHOUT ANY WARRANTY, WITHOUT EVEN THE IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR
+* A PARTICULAR PURPOSE. SEE THE APPLICABLE LICENSES FOR MORE DETAILS.
+*
+*/
+
+@import '../custom.less';
+@import '../dialog-box/vars.less';
+
+.tiny-mask {
+  .inject-DialogBox-vars();
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  // 容器职责：弹层内容超出视口时在容器内滚动
+  overflow: auto;
+  background: var(--tv-DialogBox-mask-bg-color);
+}
+
+// 配合 <transition name="tiny-mask"> 使用
+.tiny-mask-enter-active {
+  animation: fade-in var(--tv-motion-fade-speed) ease;
+}
+
+.tiny-mask-leave-active {
+  animation: fade-out var(--tv-motion-fade-speed) ease forwards;
+}

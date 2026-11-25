@@ -63,7 +63,6 @@ export default defineComponent({
       titleWidth,
       handleTitleMouseenter,
       handleTitleMouseleave,
-      // tiny 新增
       moreIcon,
       tooltipConfig,
       panelMaxHeight,
@@ -159,7 +158,6 @@ export default defineComponent({
             )
           : null
 
-      // tiny 新增：防止没有内容也显示下拉框。  aui 此处为Popover组件实现
       moreTabs = (
         <div class="tiny-tabs__more-container" ref="more">
           {isShowDropDown

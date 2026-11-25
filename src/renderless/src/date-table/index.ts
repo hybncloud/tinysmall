@@ -57,7 +57,6 @@ export const getDateTimestamp = (time) => {
   return NaN
 }
 
-// tiny 新增： api参数多余，优化掉
 const getSelected = (props, cell, format, t, cellDate, selectedDate) => {
   let selected = cell.selected
 

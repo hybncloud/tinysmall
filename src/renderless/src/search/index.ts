@@ -11,7 +11,6 @@
  */
 import type { ISearchRenderlessParams, ISearchValue } from '../../types'
 import { on, off } from '@tinysmall/utils'
-import { PopupManager } from '@tinysmall/utils'
 import { isObject, typeOf } from '@tinysmall/utils'
 
 export const emitInput =
@@ -40,7 +39,7 @@ export const handleInput =
 export const showSelector =
   ({ vm, state }: Pick<ISearchRenderlessParams, 'vm' | 'state'>) =>
   () => {
-    vm.$refs.selector.style.zIndex = PopupManager.nextZIndex()
+    vm.$refs.selector.style.zIndex = state.zIndex
     state.show = true
   }
 

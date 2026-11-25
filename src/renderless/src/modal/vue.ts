@@ -49,13 +49,14 @@ import {
   runBeforeClose
 } from './index'
 import { nanoid } from '@tinysmall/utils'
+import { useZIndex } from '@tinysmall/hooks'
 import { $constants } from './constants'
 import type { IModalApi, IModalProps, IModalRenderlessParamUtils, ISharedRenderlessParamHooks } from '../../types'
 
 
 export const renderless = (
   props: IModalProps,
-  { computed, onMounted, onBeforeUnmount, reactive, watch }: ISharedRenderlessParamHooks,
+  { computed, inject, onMounted, onBeforeUnmount, reactive, watch }: ISharedRenderlessParamHooks,
   { vm, emit, emitter, nextTick }: IModalRenderlessParamUtils
 ) => {
   const api = {} as IModalApi
@@ -68,7 +69,8 @@ export const renderless = (
     contentVisible: false,
     cumsumZindex: 0,
     modalTop: 0,
-    modalZindex: 0,
+    // useZIndex 分配的层级放入 state，后续统一通过 state 访问
+    modalZindex: useZIndex(),
     zoomLocat: null,
     isMsg: computed(() => api.computedIsMsg(props)),
     prevEvent: null,

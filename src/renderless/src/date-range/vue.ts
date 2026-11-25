@@ -56,7 +56,6 @@ import {
 } from './index'
 import { nextMonth1, extractDateFormat, extractTimeFormat } from '@tinysmall/utils'
 
-
 const initState = ({ reactive, computed, api, props }) => {
   const state = reactive({
     popperElm: null,
@@ -104,7 +103,6 @@ const initState = ({ reactive, computed, api, props }) => {
     dateFormat: computed(() => (state.format ? extractDateFormat(state.format) : 'yyyy-MM-dd')),
     enableMonthArrow: computed(() => api.getEnableMonthArrow()),
     enableYearArrow: computed(() => api.computerEnableYearArrow()),
-    // tiny 新增
     confirmButtonProps: {
       plain: false,
       type: 'default'
@@ -194,7 +192,7 @@ const initApi = ({ api, state, t, vm, nextTick, emit, props }) => {
     handleShortcutClick: handleShortcutClick(state, api, props),
     computerBtnDisabled: computerBtnDisabled({ state, api }),
     computerEnableYearArrow: computerEnableYearArrow(state),
-    watchPickerVisible: watchPickerVisible({ state}),
+    watchPickerVisible: watchPickerVisible({ state }),
     watchModelValue: watchModelValue({ state, api })
   })
 }

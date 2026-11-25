@@ -209,7 +209,6 @@ export const handleClear =
     state.leftDate = calcDefaultValue(state.defaultValue)[0]
     state.rightDate = nextMonth1(state.leftDate)
     state.rangeState.selecting = false
-    // tiny 新增下面行
     state.rangeState.endDate = null
 
     emit('pick', null)

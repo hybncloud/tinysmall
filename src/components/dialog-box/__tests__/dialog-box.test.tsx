@@ -1,8 +1,6 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, test, vi } from 'vitest'
 import DialogBox from '@tinysmall/dialog-box'
-import Dropdown from '@tinysmall/dropdown'
-import DropdownMenu from '@tinysmall/dropdown-menu'
 import { nextTick } from 'vue'
 
 describe('PC Mode', () => {
@@ -33,13 +31,9 @@ describe('PC Mode', () => {
 
   test.todo('fullscreen 弹出框是否全屏')
 
-  test.todo('modal 是否启用遮罩层')
-
-  test.todo('close-on-click-modal 是否可以通过点击遮罩层关闭弹窗')
+  test.todo('close-on-click-mask 是否可以通过点击遮罩层关闭弹窗')
 
   test.todo('close-on-press-escape 是否可以通过 ESC 键关闭遮罩层')
-
-  test.todo('modal-append-to-body 遮罩层是否应用到body上')
 
   test.todo('append-to-body DialogBox本身是否插入到 body 上')
 
@@ -64,53 +58,6 @@ describe('PC Mode', () => {
       </DialogBox>
     ))
     expect(wrapper.find('span.custom-content').exists()).toBe(true)
-  })
-
-  test('updatePopper 广播到内部 dropdown-menu（$emitter 替代 broadcast）', async () => {
-    const onMenuUpdatePopper = vi.fn()
-    // scroll 监听在 visible 变为 true 时才挂载（watchVisible 无 immediate），故从 false 开始
-    const wrapper = mount(
-      {
-        props: { visible: { type: Boolean, default: false } },
-        setup(props, { slots }: any) {
-          return () => (
-            <DialogBox
-              visible={props.visible}
-              v-slots={{
-                default: () => (
-                  <Dropdown
-                    v-slots={{
-                      dropdown: () => (
-                        <DropdownMenu>
-                          <div class="menu-content">菜单</div>
-                        </DropdownMenu>
-                      )
-                    }}
-                  ></Dropdown>
-                )
-              }}
-            ></DialogBox>
-          )
-        }
-      },
-      { props: { visible: false } }
-    )
-
-    const menu = wrapper.findComponent({ name: 'TinyDropdownMenu' })
-    expect(menu.exists()).toBe(true)
-    // setup 返回的 vm 即适配器 TinyVM（带 $on/$emitter）；dropdown-menu 自身 emitter 订阅
-    // （vm.$on('updatePopper')）经由 dialogBoxVm.$emitter 桥接转发触发
-    const menuTinyVm = (menu.vm as any).vm
-    menuTinyVm.$on('updatePopper', onMenuUpdatePopper)
-
-    await wrapper.setProps({ visible: true })
-    await nextTick()
-
-    // dialog 滚动触发 updatePopper 广播（scroll 监听绑定在组件内部 .tiny-dialog-box__wrapper 上；
-    // 组件根节点是 <teleport>，TinyVM 的 $el 为占位注释，故从 DOM 中取 wrapper 派发）
-    wrapper.find('.tiny-dialog-box__wrapper').element.dispatchEvent(new Event('scroll'))
-    await nextTick()
-    expect(onMenuUpdatePopper).toHaveBeenCalled()
   })
 
   test.todo('title 窗口标题区的内容')

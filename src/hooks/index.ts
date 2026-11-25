@@ -11,5 +11,6 @@
  */
 
 export { useUserAgent } from './src/useUserAgent'
+export { usePopupStack } from './src/use-popup-stack'
 export { userPopper } from './src/vue-popper'
-export { usePopup } from './src/vue-popup'
+export { useZIndex } from './src/use-z-index'

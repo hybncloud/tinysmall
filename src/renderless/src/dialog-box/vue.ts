@@ -10,7 +10,6 @@
  *
  */
 
-import { $constants } from './constants'
 import {
   afterEnter,
   afterLeave,
@@ -21,31 +20,22 @@ import {
   watchVisible,
   hide,
   handleClose,
-  handleWrapperClick,
-  useMouseEventDown,
-  useMouseEventUp,
-  mounted,
-  unMounted,
-  updatePopper,
+  handleMaskClick,
   handleDrag,
-  showScrollbar,
-  hideScrollbar,
   toggleFullScreen
 } from './index'
 import { nanoid } from '@tinysmall/utils'
-import { usePopup } from '@tinysmall/hooks'
+import { usePopupStack, useZIndex } from '@tinysmall/hooks'
 import type {
   IDialogBoxApi,
   IDialogBoxProps,
   IDialogBoxRenderlessParamUtils,
   IDialogBoxRenderlessParams,
   IDialogBoxState,
-  IDialogBoxMergeStateParam,
   ISharedRenderlessParamHooks,
   IDialogBoxInitApiParam,
   IDialogBoxInitWatchParam
 } from '../../types'
-
 
 const initState = ({
   reactive,
@@ -54,6 +44,9 @@ const initState = ({
   emitter,
   props
 }: Pick<IDialogBoxRenderlessParams, 'reactive' | 'computed' | 'api' | 'emitter' | 'props'>): IDialogBoxState => {
+  // 未传 zIndex 时由 useZIndex 分配；遮罩层级为弹层 - 1（供 Mask 组件使用）
+  const zIndex = props.zIndex ?? useZIndex()
+
   const state: IDialogBoxState = reactive({
     emitter: emitter(),
     key: 0,
@@ -69,6 +62,9 @@ const initState = ({
     style: computed(() => api.computedStyle()),
     animationName: computed(() => api.computedAnimationName()),
     dragStyle: null,
+    bodyStyle: {},
+    zIndex,
+    maskZIndex: zIndex - 1,
     titleId: `tiny-dialog-box-title-${nanoid.api.nanoid(8)}`,
     contentId: `tiny-dialog-box-content-${nanoid.api.nanoid(8)}`
   })
@@ -76,44 +72,15 @@ const initState = ({
   return state
 }
 
-const mergeState = ({ reactive, state, toRefs, usePopups }: IDialogBoxMergeStateParam): IDialogBoxState => {
-  // 由于 usePopups返回的值已经是 toRefs过了，所以这里可以直接解构
-  const { opened, rendered } = usePopups
-
-  const merge = reactive({
-    opened,
-    rendered,
-    ...toRefs(state)
-  })
-
-  return merge
-}
-
-const initApi = ({
-  emit,
-  api,
-  state,
-  props,
-  lockScrollClass,
-  usePopups,
-  nextTick,
-  vm
-}: IDialogBoxInitApiParam): void => {
-  const { open, close } = usePopups
+const initApi = ({ emit, api, state, props, nextTick, vm }: IDialogBoxInitApiParam): void => {
   Object.assign(api, {
     state,
-    open,
-    close,
     handleCancel: handleCancel({ api, emit }),
     handleConfirm: handleConfirm({ api, emit }),
-    updatePopper: updatePopper({ vm }),
-    handleWrapperClick: handleWrapperClick({ api, props, state }),
-    useMouseEventDown: useMouseEventDown({ state }),
-    useMouseEventUp: useMouseEventUp({ state }),
+    handleMaskClick: handleMaskClick({ api, props }),
     hide: hide({ api, emit, state, props }),
-    handleClose: handleClose({ api, emit, vm, props }),
+    handleClose: handleClose({ api, emit, props }),
     watchVisible: watchVisible({
-      api,
       emit,
       nextTick,
       props,
@@ -121,15 +88,10 @@ const initApi = ({
       state
     }),
     computedStyle: computedStyle({ state, props }),
-    mounted: mounted({ api, props }),
-    unMounted: unMounted({ api }),
     computedAnimationName: computedAnimationName({ props }),
     afterEnter: afterEnter(emit),
     afterLeave: afterLeave(emit),
-    hideScrollbar: hideScrollbar(lockScrollClass),
-    showScrollbar: showScrollbar(lockScrollClass),
     handleDrag: handleDrag({ props, state, emit, vm }),
-    // tiny 新增
     toggleFullScreen: toggleFullScreen({ state, emit, nextTick, vm })
   })
 }
@@ -147,48 +109,30 @@ const initWatch = ({ watch, state, api, props }: IDialogBoxInitWatchParam) => {
 
 export const renderless = (
   props: IDialogBoxProps,
-  { computed, onBeforeUnmount, onMounted, toRefs, reactive, watch, provide }: ISharedRenderlessParamHooks,
+  { computed, reactive, watch }: ISharedRenderlessParamHooks,
   { vm, emitter, emit, nextTick }: IDialogBoxRenderlessParamUtils
 ): IDialogBoxApi => {
   const api = {} as IDialogBoxApi
-  const lockScrollClass = $constants.SCROLL_LOCK_CLASS('pc')
 
-  // 供后代组件（如 dropdown-menu）订阅本组件 $emitter 上广播的事件（updatePopper），
-  // 替代 broadcast 按组件名遍历子树
-  provide('dialogBoxVm', vm)
-
-  let state = initState({ reactive, computed, api, emitter, props })
-  const usePopups = usePopup({
-    api,
-    nextTick,
-    onBeforeUnmount,
-    onMounted,
-    props,
-    reactive,
-    toRefs,
-    vm,
-    watch,
-    // 组件根节点是 <teleport>，$el 为占位注释，根 DOM 需取模板中的 wrapper ref
-    getEl: () => vm.$refs.wrapper as HTMLElement
-  })
+  const state = initState({ reactive, computed, api, emitter, props })
 
   initApi({
     api,
     state,
     props,
     emit,
-    usePopups,
-    lockScrollClass,
     nextTick,
     vm
   })
 
-  state = mergeState({ reactive, state, toRefs, usePopups })
+  // Esc / 栈顶语义：只关栈顶弹窗，close 走 handleClose（尊重 beforeClose）
+  usePopupStack({
+    visible: () => props.visible,
+    close: () => api.handleClose('esc'),
+    closeOnPressEscape: () => props.closeOnPressEscape !== false
+  })
 
   initWatch({ watch, state, api, props })
-
-  onMounted(api.mounted)
-  onBeforeUnmount(api.unMounted)
 
   return api
 }

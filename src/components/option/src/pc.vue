@@ -65,7 +65,6 @@ export const optionsProps = {
     type: Boolean,
     default: false
   },
-  // tiny 新增
   icon: Object
 }
 

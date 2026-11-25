@@ -26,14 +26,14 @@ export default {
           pcDemo: 'center'
         },
         {
-          name: 'close-on-click-modal',
+          name: 'close-on-click-mask',
           type: 'boolean',
           defaultValue: 'true',
           desc: {
             'zh-CN': '是否可以通过点击遮罩层关闭弹窗'
           },
           mode: ['pc'],
-          pcDemo: 'close-on-click-modal'
+          pcDemo: 'close-on-click-mask'
         },
         {
           name: 'close-on-press-escape',
@@ -124,26 +124,6 @@ export default {
           },
           mode: ['pc'],
           pcDemo: 'dialog-width'
-        },
-        {
-          name: 'modal',
-          type: 'boolean',
-          defaultValue: 'true',
-          desc: {
-            'zh-CN': '是否启用遮罩层'
-          },
-          mode: ['pc'],
-          pcDemo: 'no-modal'
-        },
-        {
-          name: 'modal-append-to-body',
-          type: 'boolean',
-          defaultValue: 'true',
-          desc: {
-            'zh-CN': '遮罩层是否应用到 body 上，为 false 时遮罩层会应用到 DialogBox 的父元素上'
-          },
-          mode: ['pc'],
-          pcDemo: 'right-dialog'
         },
         {
           name: 'resize',

@@ -71,7 +71,6 @@ export const queryChange =
   ({ select, props, state }) =>
   (query) => {
     const oldVisible = state.visible
-    // tiny 新增： 优化判断query是否匹配。 使用正则性能差！
     const newVisible = state.currentLabel.toLowerCase().includes(query.toLowerCase()) || !!props.created
 
     if (oldVisible !== newVisible) {

@@ -143,7 +143,6 @@ export default defineComponent({
       return attrContent
     }
     if (!Object.getOwnPropertyDescriptor(this.vm, 'popperVM')) {
-      // tiny 新增： 如果在当前位置立即创建popperVm，会有加载问题，必须在访问 popperVM 时，再创建。
       const _cacheVm = { value: null }
       Object.defineProperties(this.vm, {
         popperVM: {

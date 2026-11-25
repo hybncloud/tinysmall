@@ -887,7 +887,6 @@ export default defineComponent({
     IconCheckedSur: iconCheckedSur(),
     TinyTooltip,
     TinyRecycleScroller: RecycleScroller,
-    // tiny 新增，
     IconSearch: iconSearch(),
     IconDownWard: iconDownWard(), // 默认下拉图标
     IconEllipsis: iconEllipsis(),

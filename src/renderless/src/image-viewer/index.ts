@@ -13,7 +13,6 @@
 import { $constants } from './constants'
 import { on, off } from '@tinysmall/utils'
 import { KEY_CODE } from '@tinysmall/utils'
-import { PopupManager } from '@tinysmall/utils'
 import { xss } from '@tinysmall/utils'
 
 const mousewheelEventName = 'mousewheel'
@@ -711,9 +710,9 @@ export const touchend = (state) => (e) => {
 }
 
 export const computeZIndex =
-  ({ props }) =>
+  ({ props, state }) =>
   () =>
-    props.zIndex === $constants.DEFAULT_POPPER_ZINDEX || props.zIndex < 1 ? PopupManager.nextZIndex() : props.zIndex
+    props.zIndex === $constants.DEFAULT_POPPER_ZINDEX || props.zIndex < 1 ? state.allocatedZindex : props.zIndex
 
 export const activeItems = (state) => (i) => {
   state.index = i

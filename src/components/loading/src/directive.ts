@@ -10,11 +10,11 @@
  *
  */
 import { afterLeave } from '@tinysmall/renderless/loading/after-leave'
-import { PopupManager } from '@tinysmall/utils'
 import { addClass, getStyle, removeClass } from '@tinysmall/utils'
 import Loading from './index'
 import { hooks } from '@tinysmall/common'
 import { constants, defaults } from './service'
+import { maxZIndex } from '../../../hooks/src/use-z-index'
 
 const insertDom = (parent, el, binding) => {
   if (!el.domVisible && getStyle(el, 'display') !== 'none' && getStyle(el, 'visibility') !== 'hidden') {
@@ -79,7 +79,7 @@ const toggleLoading = (el, binding, maskInstance) => {
       if (binding.modifiers.fullscreen) {
         el.originalPosition = getStyle(document.body, 'position')
         el.originalOverflow = getStyle(document.body, 'overflow')
-        el.maskStyle.zIndex = PopupManager.nextZIndex()
+        el.maskStyle.zIndex = maxZIndex.value + 1
 
         addClass(el.mask, constants.IS_FULLSCREEN_CLS)
         insertDom(document.body, el, binding)

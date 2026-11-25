@@ -12,7 +12,6 @@
 
 import { KEY_CODE } from '@tinysmall/utils'
 import { on, off, addClass, hasClass, removeClass } from '@tinysmall/utils'
-import { PopupManager } from '@tinysmall/utils'
 import { getDomNode } from '@tinysmall/utils'
 
 import type {
@@ -91,7 +90,7 @@ export const created =
       api.open()
     }
 
-    state.modalZindex = props.zIndex || PopupManager.nextZIndex()
+    state.modalZindex = props.zIndex || state.modalZindex
   }
 
 export const mounted =
@@ -154,7 +153,7 @@ export const mouseLeaveEvent =
 export const updateZindex =
   ({ state, props }: Pick<IModalRenderlessParams, 'state' | 'props'>) =>
   (): void => {
-    state.modalZindex = props.zIndex || PopupManager.nextZIndex()
+    state.modalZindex = props.zIndex || state.modalZindex
   }
 
 // 新增：执行实际关闭逻辑（动画 + emit hide）此方法不触发 beforeClose，用于程序内部直接关闭

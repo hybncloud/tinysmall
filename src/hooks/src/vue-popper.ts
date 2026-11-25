@@ -10,7 +10,8 @@
  *
  */
 
-import { PopupManager, PopperJS, on, off, isDisplayNone } from '@tinysmall/utils'
+import { PopperJS, on, off, isDisplayNone } from '@tinysmall/utils'
+import { useZIndex } from './use-z-index'
 import type { ISharedRenderlessFunctionParams } from '../types/shared.type'
 import { isServer } from '@tinysmall/utils'
 
@@ -21,6 +22,8 @@ export interface IPopperState {
   showPopper: boolean
   referenceElm: HTMLElement
   currentPlacement: string
+  /** useZIndex 分配的层级 */
+  zIndex: number
 }
 
 type IPopperInputParams = ISharedRenderlessFunctionParams & {
@@ -95,7 +98,9 @@ export const userPopper = (options: IPopperInputParams) => {
     popperElm: null as any,
     showPopper: props.manual ? Boolean(props.modelValue) : false,
     referenceElm: null as any,
-    currentPlacement: ''
+    currentPlacement: '',
+    // userPopper 在 setup 同步上下文中执行，useZIndex 内部 inject/provide 可正常工作
+    zIndex: useZIndex()
   }) as IPopperState
 
   /** 创建箭头函数 */
@@ -123,7 +128,7 @@ export const userPopper = (options: IPopperInputParams) => {
   }
 
   const nextZIndex = (reference: HTMLElement) => {
-    return props.zIndex === 'relative' ? getReferMaxZIndex(reference) : PopupManager.nextZIndex()
+    return props.zIndex === 'relative' ? getReferMaxZIndex(reference) : state.zIndex
   }
 
   const createPopper = (dom: HTMLElement) => {

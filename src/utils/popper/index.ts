@@ -11,7 +11,6 @@
  */
 
 import { on, off, isDisplayNone } from '../dom'
-import { PopupManager } from '../popup-manager'
 import { isServer } from '../globalConfig'
 import { typeOf } from '../type'
 
@@ -822,7 +821,7 @@ export class PopperJS {
       this.state.scrollTarget = target
 
       // 只有bubbling时，才启用所有祖先监听，根源在此。 getAll..Parents函数只有这一处调用
-      if (this._options.bubbling || PopupManager.globalScroll) {
+      if (this._options.bubbling) {
         let targets = getAllScrollParents(this._reference)
 
         this.state.scrollTargets = targets || []
@@ -850,7 +849,7 @@ export class PopperJS {
       this.state.scrollTarget = null
 
       // 移除祖先监听
-      if (this._options.bubbling || PopupManager.globalScroll) {
+      if (this._options.bubbling) {
         let targets = this.state.scrollTargets || []
 
         targets.forEach((target) => {

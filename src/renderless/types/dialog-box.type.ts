@@ -15,21 +15,14 @@ import type { dialogBoxProps, $constants } from '../../components/dialog-box/src
 import type {
   handleCancel,
   handleConfirm,
-  updatePopper,
-  handleWrapperClick,
-  useMouseEventDown,
-  useMouseEventUp,
+  handleMaskClick,
   hide,
   handleClose,
   watchVisible,
   computedStyle,
-  mounted,
-  unMounted,
   computedAnimationName,
   afterEnter,
   afterLeave,
-  hideScrollbar,
-  showScrollbar,
   handleDrag
 } from '../src/dialog-box'
 import type {
@@ -53,39 +46,32 @@ export interface IDialogBoxState {
   move: boolean
   closed: boolean
   dragable: boolean
+  /** 拖拽后的临时定位样式 */
+  dragStyle: { left?: string; top?: string } | null
   isFull: boolean
-  style: { [key: string]: string | number }
+  style: IDialogBoxStyle
   bodyStyle: { [key: string]: string | number }
   animationName: string
-  opened?: boolean
-  rendered?: boolean
-  mouseUpWrapperFlag: boolean
-  mouseDownWrapperFlag: boolean
+  /** useZIndex 分配的弹层层级 */
+  zIndex: number
+  /** 配套遮罩层级（弹层 - 1，供 Mask 组件使用） */
+  maskZIndex: number
   titleId: string
   contentId: string
 }
 
 export interface IDialogBoxApi {
   state: IDialogBoxState
-  open: (options: any) => void
-  close: () => void
   handleCancel: ReturnType<typeof handleCancel>
   handleConfirm: ReturnType<typeof handleConfirm>
-  updatePopper: ReturnType<typeof updatePopper>
-  handleWrapperClick: ReturnType<typeof handleWrapperClick>
-  useMouseEventDown: ReturnType<typeof useMouseEventDown>
-  useMouseEventUp: ReturnType<typeof useMouseEventUp>
+  handleMaskClick: ReturnType<typeof handleMaskClick>
   hide: ReturnType<typeof hide>
   handleClose: ReturnType<typeof handleClose>
   watchVisible: ReturnType<typeof watchVisible>
   computedStyle: ReturnType<typeof computedStyle>
-  mounted: ReturnType<typeof mounted>
-  unMounted: ReturnType<typeof unMounted>
   computedAnimationName: ReturnType<typeof computedAnimationName>
   afterEnter: ReturnType<typeof afterEnter>
   afterLeave: ReturnType<typeof afterLeave>
-  hideScrollbar: ReturnType<typeof hideScrollbar>
-  showScrollbar: ReturnType<typeof showScrollbar>
   handleDrag: ReturnType<typeof handleDrag>
 }
 
@@ -97,14 +83,10 @@ export type IDialogBoxRenderlessParams = ISharedRenderlessFunctionParams<
 
 export type IDialogBoxRenderlessParamUtils = ISharedRenderlessParamUtils
 
-export type IDialogBoxMergeStateParam = Pick<IDialogBoxRenderlessParams, 'reactive' | 'state' | 'toRefs'> & {
-  usePopups: object
-}
-
 export type IDialogBoxInitApiParam = Pick<
   IDialogBoxRenderlessParams,
   'api' | 'state' | 'props' | 'emit' | 'nextTick' | 'vm'
-> & { usePopups: object; lockScrollClass: string }
+>
 
 export interface IDialogBoxInitWatchParam {
   watch: ISharedRenderlessParamHooks['watch']

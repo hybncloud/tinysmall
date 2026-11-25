@@ -12,7 +12,7 @@
 
 import { KEY_CODE } from '@tinysmall/utils'
 import { on, off } from '@tinysmall/utils'
-import { PopupManager } from '@tinysmall/utils'
+import { maxZIndex } from '../../../hooks/src/use-z-index'
 
 export const startTimer =
   ({ api, state }) =>
@@ -62,7 +62,7 @@ export const getOffsetStyle = (state) => {
   return side
 }
 
-export const getZindex = () => PopupManager.nextZIndex()
+export const getZindex = () => maxZIndex.value + 1
 
 export const getPositionSide = (state) => (state.position.startsWith('top-') ? 'top' : 'bottom')
 

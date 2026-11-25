@@ -42,7 +42,6 @@ export const tabsProps = {
     default: () => null
   },
   separator: Boolean,
-  // tiny 新增
   showExpandTabs: Boolean,
   expandTabsTitle: String,
   expandTabsMode: String,
@@ -50,7 +49,6 @@ export const tabsProps = {
   beforeClose: Function,
   overflowTitle: Boolean,
   titleWidth: String,
-  // tiny 新增
   moreShowAll: Boolean,
   panelMaxHeight: String,
   panelWidth: String,
